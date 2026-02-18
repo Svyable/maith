@@ -96,12 +96,16 @@ export function QuizScreen({
   const handleEliminate = useCallback(() => {
     if (eliminateUsed || answerState !== 'pending') return;
     setEliminateUsed(true);
-    // Find the correct index from options (we don't know it, but we can eliminate 2 random wrong ones)
-    // Since we don't have correctIndex on client, pick 2 random indices to hide
-    const indices = question.options.map((_, i) => i);
-    const shuffled = indices.sort(() => Math.random() - 0.5);
-    setEliminatedOptions(shuffled.slice(0, 2));
-  }, [eliminateUsed, answerState, question]);
+    // We don't know correctIndex on the client yet — eliminate 2 of the 4 options
+    // but we must NOT reveal which is correct, so we pick randomly from all 4.
+    // After answering the correct one will still light up via checkResult.correctIndex.
+    const indices = [0, 1, 2, 3];
+    for (let i = indices.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [indices[i], indices[j]] = [indices[j], indices[i]];
+    }
+    setEliminatedOptions(indices.slice(0, 2));
+  }, [eliminateUsed, answerState]);
 
   const isAnswered = answerState === 'correct' || answerState === 'wrong';
 
@@ -167,21 +171,30 @@ export function QuizScreen({
 
       {/* Options */}
       <div className="space-y-3">
-        {question.options.map((opt, i) => (
-          <OptionButton
-            key={i}
-            text={opt}
-            index={i}
-            onSelect={handleSelect}
-            disabled={answerState !== 'pending' || eliminatedOptions.includes(i)}
-            state={
-              eliminatedOptions.includes(i) ? 'default' :
-              answerState === 'pending' || answerState === 'checking' ? 'default' :
-              checkResult && i === checkResult.correctIndex ? (i === selectedOption ? 'correct' : 'reveal') :
-              i === selectedOption ? 'wrong' : 'default'
+        {question.options.map((opt, i) => {
+          const isEliminated = eliminatedOptions.includes(i);
+          // Determine visual state — correctIndex reveal ALWAYS wins over eliminated/default
+          let state: 'default' | 'correct' | 'wrong' | 'reveal' = 'default';
+          if (answerState === 'correct' || answerState === 'wrong') {
+            if (checkResult && i === checkResult.correctIndex) {
+              state = i === selectedOption ? 'correct' : 'reveal';
+            } else if (i === selectedOption) {
+              state = 'wrong';
             }
-          />
-        ))}
+            // eliminated options that are not correct/selected stay 'default'
+          }
+          return (
+            <OptionButton
+              key={i}
+              text={opt}
+              index={i}
+              onSelect={handleSelect}
+              disabled={answerState !== 'pending' || isEliminated}
+              state={state}
+              eliminated={isEliminated && answerState === 'pending'}
+            />
+          );
+        })}
       </div>
 
       {/* Checking indicator */}
