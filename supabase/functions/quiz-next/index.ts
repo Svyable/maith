@@ -17,7 +17,11 @@ interface Question {
   hint: string;
 }
 
+// Question translations keyed by locale → questionId.field → translated string
+type QuestionTranslations = Record<string, Record<string, string>>;
+
 let _questions: Question[] | null = null;
+let _translations: QuestionTranslations = {};
 
 async function getQuestions(): Promise<Question[]> {
   if (_questions) return _questions;
@@ -30,19 +34,47 @@ async function getQuestions(): Promise<Question[]> {
   }
 }
 
+async function getTranslations(locale: string): Promise<Record<string, string>> {
+  if (locale === 'en' || !locale) return {};
+  if (_translations[locale]) return _translations[locale];
+  try {
+    const mod = await import(`../_shared/questions_${locale}.ts`);
+    _translations[locale] = mod.translations ?? {};
+    return _translations[locale];
+  } catch {
+    return {};
+  }
+}
+
+function translateQuestion(q: Question, translations: Record<string, string>): Question {
+  if (!translations || Object.keys(translations).length === 0) return q;
+  const prefix = `q.${q.id}`;
+  const translated = { ...q };
+  if (translations[`${prefix}.question`]) translated.question = translations[`${prefix}.question`];
+  if (translations[`${prefix}.hint`]) translated.hint = translations[`${prefix}.hint`];
+  if (translations[`${prefix}.explanation`]) translated.explanation = translations[`${prefix}.explanation`];
+  if (translations[`${prefix}.realWorld`]) translated.realWorld = translations[`${prefix}.realWorld`];
+  translated.options = q.options.map((opt, i) => {
+    return translations[`${prefix}.options.${i}`] ?? opt;
+  });
+  return translated;
+}
+
 serve(async (req) => {
   if (req.method === 'OPTIONS') {
     return new Response(null, { headers: corsHeaders });
   }
 
   try {
-    const { topics, seenIds, count } = await req.json() as {
+    const { topics, seenIds, count, locale } = await req.json() as {
       topics?: string[];
       seenIds?: number[];
       count?: number;
+      locale?: string;
     };
 
     const allQuestions = await getQuestions();
+    const translations = await getTranslations(locale ?? 'en');
     const batchSize = Math.min(count ?? 15, 30);
     const seen = new Set(seenIds ?? []);
 
@@ -58,8 +90,12 @@ serve(async (req) => {
       [pool[i], pool[j]] = [pool[j], pool[i]];
     }
 
-    // Take batch and STRIP answers but KEEP hint
-    const batch = pool.slice(0, batchSize).map(({ correctIndex, explanation, realWorld, ...pub }) => pub);
+    // Take batch, translate if needed, then STRIP answers but KEEP hint
+    const batch = pool.slice(0, batchSize).map(q => {
+      const tq = translateQuestion(q, translations);
+      const { correctIndex, explanation, realWorld, ...pub } = tq;
+      return pub;
+    });
 
     return new Response(JSON.stringify({ questions: batch, remaining: pool.length - batch.length }), {
       headers: { ...corsHeaders, 'Content-Type': 'application/json' },

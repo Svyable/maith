@@ -21,7 +21,7 @@ export function ExplanationPopup({ isCorrect, explanation, realWorld, hint, onNe
         <div className="flex items-center gap-2 mb-3">
           <span className="text-2xl">{isCorrect ? '✅' : '❌'}</span>
           <h3 className={`font-bold text-lg ${isCorrect ? 'text-success' : 'text-destructive'}`}>
-            {isCorrect ? 'Correct!' : 'Not quite!'}
+            {isCorrect ? t('quiz.correct') : t('quiz.wrong')}
           </h3>
         </div>
         <LatexRenderer text={explanation} className="text-card-foreground mb-3 leading-relaxed" />
@@ -44,7 +44,7 @@ export function ExplanationPopup({ isCorrect, explanation, realWorld, hint, onNe
         onClick={onNext}
         className="w-full mt-4 py-3 rounded-lg bg-primary text-primary-foreground font-bold text-lg hover:opacity-90 transition-opacity"
       >
-        Next Question →
+        {t('quiz.next')}
       </motion.button>
     </motion.div>
   );
