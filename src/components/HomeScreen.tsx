@@ -6,7 +6,8 @@ import { type Difficulty, getDifficultyMeta, TOPIC_MAP } from '@/config/constant
 import { allQuestions } from '@/content';
 import { t } from '@/i18n';
 import { useLocale } from '@/hooks/useLocale';
-import { useMemo } from 'react';
+import { useMemo, useState, useEffect } from 'react';
+import { getRandomQuote, type Quote } from '@/data/quotes';
 
 interface HomeScreenProps {
   selectedTopics: string[];
@@ -29,6 +30,12 @@ export function HomeScreen({
 }: HomeScreenProps) {
   const diffMeta = getDifficultyMeta(selectedDifficulty);
   const { locale, changeLocale } = useLocale();
+  const [quote, setQuote] = useState<Quote>(() => getRandomQuote('en'));
+
+  // Refresh quote when locale changes
+  useEffect(() => {
+    setQuote(getRandomQuote(locale));
+  }, [locale]);
 
   const questionCount = useMemo(() => {
     const pool = selectedTopics.length === 0
@@ -74,6 +81,20 @@ export function HomeScreen({
           {t('app.tagline')}
         </p>
       </div>
+
+      {/* Motivational Quote */}
+      <motion.div
+        key={quote.text}
+        initial={{ opacity: 0, y: 8 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="w-full rounded-xl border border-border/60 bg-card/50 p-4 text-center"
+      >
+        <p className="text-sm italic text-muted-foreground leading-relaxed">
+          &ldquo;{quote.text}&rdquo;
+        </p>
+        <p className="text-xs font-semibold text-accent mt-2">— {quote.author}</p>
+      </motion.div>
 
       {/* Language Selector */}
       <div className="w-full space-y-2">
