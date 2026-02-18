@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 220 20% 97%;
+    --foreground: 222 47% 11%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+    --primary: 174 72% 46%;
+    --primary-foreground: 222 47% 6%;
+    --secondary: 220 14% 92%;
+    --secondary-foreground: 222 47% 11%;
+    --muted: 220 14% 92%;
+    --muted-foreground: 220 9% 46%;
+    --accent: 38 92% 50%;
+    --accent-foreground: 38 92% 10%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+    --success: 142 71% 45%;
+    --success-foreground: 0 0% 100%;
+    --border: 220 13% 87%;
+    --input: 220 13% 87%;
+    --ring: 174 72% 46%;
+    --radius: 0.75rem;
+
+    --glow-primary: 0 0 20px hsl(174 72% 46% / 0.3);
+    --glow-accent: 0 0 20px hsl(38 92% 50% / 0.3);
+    --glow-success: 0 0 20px hsl(142 71% 45% / 0.3);
+    --glow-destructive: 0 0 20px hsl(0 72% 51% / 0.3);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 228 25% 7%;
+    --foreground: 210 40% 95%;
+    --card: 225 22% 11%;
+    --card-foreground: 210 40% 95%;
+    --popover: 225 22% 11%;
+    --popover-foreground: 210 40% 95%;
+    --primary: 174 72% 46%;
+    --primary-foreground: 222 47% 6%;
+    --secondary: 225 18% 16%;
+    --secondary-foreground: 210 40% 95%;
+    --muted: 225 18% 16%;
+    --muted-foreground: 220 15% 55%;
+    --accent: 38 92% 50%;
+    --accent-foreground: 38 92% 10%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+    --success: 142 71% 45%;
+    --success-foreground: 0 0% 100%;
+    --border: 225 15% 18%;
+    --input: 225 15% 18%;
+    --ring: 174 72% 46%;
+
+    --glow-primary: 0 0 30px hsl(174 72% 46% / 0.25);
+    --glow-accent: 0 0 30px hsl(38 92% 50% / 0.25);
+    --glow-success: 0 0 30px hsl(142 71% 45% / 0.25);
+    --glow-destructive: 0 0 30px hsl(0 72% 51% / 0.25);
+
+    --sidebar-background: 228 25% 7%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 225 18% 16%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 225 15% 18%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    padding-bottom: env(safe-area-inset-bottom);
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+  }
+  .font-mono-code {
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .glow-primary {
+    box-shadow: var(--glow-primary);
+  }
+  .glow-accent {
+    box-shadow: var(--glow-accent);
+  }
+  .glow-success {
+    box-shadow: var(--glow-success);
+  }
+  .glow-destructive {
+    box-shadow: var(--glow-destructive);
+  }
+  .text-gradient-primary {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(var(--primary)), hsl(174 90% 65%));
+  }
+  .text-gradient-accent {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(var(--accent)), hsl(45 100% 65%));
+  }
+  .bg-gradient-hero {
+    background: linear-gradient(135deg, hsl(var(--background)), hsl(var(--card)));
+  }
+  .bg-gradient-card {
+    background: linear-gradient(145deg, hsl(var(--card)), hsl(var(--secondary)));
+  }
+}
+
+/* KaTeX overrides */
+.katex {
+  font-size: 1.1em !important;
+}
+.katex-display {
+  margin: 0 !important;
+}

@@ -1,0 +1,79 @@
+import { motion } from 'framer-motion';
+import { getDifficultyMeta, type Difficulty, TOPIC_MAP } from '@/config/constants';
+import { t } from '@/i18n';
+
+interface QuizResultsProps {
+  score: number;
+  totalAnswered: number;
+  correctAnswered: number;
+  bestStreak: number;
+  topicBreakdown: Record<string, { correct: number; total: number }>;
+  difficulty: Difficulty;
+  onRestart: () => void;
+  sessionCorrect: number;
+  sessionTotal: number;
+}
+
+export function QuizResults({ score, sessionCorrect, sessionTotal, bestStreak, topicBreakdown, difficulty, onRestart }: QuizResultsProps) {
+  const pct = sessionTotal > 0 ? Math.round((sessionCorrect / sessionTotal) * 100) : 0;
+  const diffMeta = getDifficultyMeta(difficulty);
+
+  return (
+    <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} className="max-w-md mx-auto text-center space-y-6">
+      <div className="text-6xl mb-2">{pct >= 90 ? '🏆' : pct >= 70 ? '🌟' : pct >= 50 ? '👍' : '💪'}</div>
+      <h2 className="text-3xl font-bold font-display text-foreground">{t('results.title')}</h2>
+
+      <div className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold border bg-${diffMeta.color}/10 border-${diffMeta.color}/30 text-${diffMeta.color}`}>
+        {diffMeta.emoji} {diffMeta.tag}
+      </div>
+
+      <div className="grid grid-cols-3 gap-4">
+        <div className="bg-card rounded-xl p-4 border border-border">
+          <div className="text-2xl font-bold text-primary">{Math.round(score)}</div>
+          <div className="text-xs text-muted-foreground">{t('results.score')}</div>
+        </div>
+        <div className="bg-card rounded-xl p-4 border border-border">
+          <div className="text-2xl font-bold text-accent">{pct}%</div>
+          <div className="text-xs text-muted-foreground">{t('results.accuracy')}</div>
+        </div>
+        <div className="bg-card rounded-xl p-4 border border-border">
+          <div className="text-2xl font-bold text-foreground">🔥{bestStreak}</div>
+          <div className="text-xs text-muted-foreground">{t('results.bestStreak')}</div>
+        </div>
+      </div>
+
+      {Object.keys(topicBreakdown).length > 0 && (
+        <div className="bg-card rounded-xl p-4 border border-border text-left">
+          <h3 className="text-sm font-bold text-muted-foreground mb-3">{t('results.topicBreakdown')}</h3>
+          <div className="space-y-2">
+            {Object.entries(topicBreakdown).map(([slug, { correct, total }]) => {
+              if (total === 0) return null;
+              const topicPct = Math.round((correct / total) * 100);
+              const meta = TOPIC_MAP[slug];
+              return (
+                <div key={slug} className="flex items-center justify-between">
+                  <span className="text-sm">{meta?.emoji ?? '📐'} {meta?.label ?? slug}</span>
+                  <div className="flex items-center gap-2">
+                    <div className="w-20 h-2 bg-secondary rounded-full overflow-hidden">
+                      <div className="h-full bg-primary rounded-full" style={{ width: `${topicPct}%` }} />
+                    </div>
+                    <span className="text-xs font-mono text-muted-foreground w-10 text-right">{topicPct}%</span>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      )}
+
+      <motion.button
+        whileHover={{ scale: 1.03 }}
+        whileTap={{ scale: 0.97 }}
+        onClick={onRestart}
+        className="w-full py-4 rounded-xl bg-primary text-primary-foreground font-bold text-lg"
+      >
+        {t('results.playAgain')}
+      </motion.button>
+    </motion.div>
+  );
+}
