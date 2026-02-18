@@ -3,6 +3,8 @@ import { allQuestions, type Question } from '@/content';
 import { calculatePoints } from '@/domain/scoring';
 import { type Difficulty, getDifficultyMeta } from '@/config/constants';
 import { supabase } from '@/integrations/supabase/client';
+import { getLocale } from '@/i18n';
+import { tQuestion, tQuestionOptions } from '@/utils/tQuestion';
 
 /** What the server returns (no answers) */
 export interface PublicQuestion {
@@ -38,7 +40,7 @@ export interface QuizState {
   lastCheckResult: CheckResult | null;
 }
 
-/** Local fallback: select + strip questions */
+/** Local fallback: select + strip questions, apply client-side translations */
 function selectQuestionsLocal(topics: string[], count: number): PublicQuestion[] {
   let pool = topics.length === 0
     ? [...allQuestions]
@@ -49,14 +51,23 @@ function selectQuestionsLocal(topics: string[], count: number): PublicQuestion[]
     [pool[i], pool[j]] = [pool[j], pool[i]];
   }
 
-  return pool.slice(0, count).map(({ correctIndex, explanation, realWorld, ...pub }) => pub);
+  return pool.slice(0, count).map(({ correctIndex, explanation, realWorld, ...pub }) => {
+    // Apply client-side translations for the question and hint
+    return {
+      ...pub,
+      question: tQuestion(pub.id, 'question', pub.question),
+      hint: tQuestion(pub.id, 'hint', pub.hint),
+      options: tQuestionOptions(pub.id, pub.options),
+    };
+  });
 }
 
-/** Fetch sanitized questions from edge function */
+/** Fetch sanitized questions from edge function (with locale) */
 async function fetchQuestionsFromServer(topics: string[], count: number): Promise<PublicQuestion[]> {
+  const locale = getLocale();
   try {
     const { data, error } = await supabase.functions.invoke('quiz-next', {
-      body: { topics, seenIds: [], count },
+      body: { topics, seenIds: [], count, locale },
     });
     if (error) throw error;
     return data?.questions ?? [];
@@ -65,11 +76,12 @@ async function fetchQuestionsFromServer(topics: string[], count: number): Promis
   }
 }
 
-/** Check answer via edge function */
+/** Check answer via edge function (with locale for translated explanation) */
 async function checkAnswerOnServer(questionId: number, selectedIndex: number): Promise<CheckResult | null> {
+  const locale = getLocale();
   try {
     const { data, error } = await supabase.functions.invoke('quiz-check', {
-      body: { questionId, selectedIndex },
+      body: { questionId, selectedIndex, locale },
     });
     if (error) throw error;
     return data as CheckResult;
@@ -124,14 +136,15 @@ export function useQuiz(selectedTopics: string[] = [], difficulty: Difficulty = 
 
     const result = await checkAnswerOnServer(currentQuestion.id, optionIndex);
     if (!result) {
+      // Client-side fallback: also translate explanation and realWorld
       const localQ = allQuestions.find(q => q.id === currentQuestion.id);
       if (!localQ) return null;
       const isCorrect = optionIndex === localQ.correctIndex;
       const fallback: CheckResult = {
         correct: isCorrect,
         correctIndex: localQ.correctIndex,
-        explanation: localQ.explanation,
-        realWorld: localQ.realWorld,
+        explanation: tQuestion(localQ.id, 'explanation', localQ.explanation),
+        realWorld: tQuestion(localQ.id, 'realWorld', localQ.realWorld),
       };
       applyAnswer(fallback, currentQuestion);
       return fallback;

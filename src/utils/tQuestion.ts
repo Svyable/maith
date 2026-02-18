@@ -8,20 +8,26 @@ const questionLoaders: Record<string, () => Promise<{ default: Record<string, st
   fr: () => import('@/i18n/locales/questions/fr.json'),
   de: () => import('@/i18n/locales/questions/de.json'),
   it: () => import('@/i18n/locales/questions/it.json'),
+  zh: () => import('@/i18n/locales/questions/zh.json'),
+  ja: () => import('@/i18n/locales/questions/ja.json'),
+  ko: () => import('@/i18n/locales/questions/ko.json'),
+  hi: () => import('@/i18n/locales/questions/hi.json'),
+  pt: () => import('@/i18n/locales/questions/pt.json'),
 };
 
-let loadPromise: Promise<void> | null = null;
+const loadPromises: Record<string, Promise<void>> = {};
 
 async function ensureLoaded(locale: string): Promise<void> {
   if (locale === 'en' || questionLocales[locale]) return;
   if (!questionLoaders[locale]) return;
-  if (!loadPromise) {
-    loadPromise = questionLoaders[locale]().then(mod => {
+  if (!loadPromises[locale]) {
+    loadPromises[locale] = questionLoaders[locale]().then(mod => {
       questionLocales[locale] = mod.default;
-      loadPromise = null;
-    }).catch(() => { loadPromise = null; });
+    }).catch(() => {
+      delete loadPromises[locale];
+    });
   }
-  await loadPromise;
+  await loadPromises[locale];
 }
 
 /**
@@ -32,7 +38,7 @@ export function tQuestion(questionId: number, field: string, fallback: string): 
   const locale = getLocale();
   if (locale === 'en') return fallback;
 
-  // Try to load if not loaded yet (async, but return fallback if not ready)
+  // Trigger async load (won't block, falls back to English if not ready)
   ensureLoaded(locale);
 
   const dict = questionLocales[locale];
@@ -56,4 +62,11 @@ export function tQuestionOptions(questionId: number, options: string[]): string[
     const key = `q.${questionId}.options.${i}`;
     return dict[key] ?? opt;
   });
+}
+
+/**
+ * Preload translations for the current locale (call on locale change).
+ */
+export async function preloadQuestionTranslations(locale: string): Promise<void> {
+  await ensureLoaded(locale);
 }

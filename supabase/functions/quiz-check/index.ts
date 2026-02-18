@@ -17,7 +17,10 @@ interface Question {
   hint: string;
 }
 
+type QuestionTranslations = Record<string, Record<string, string>>;
+
 let _questions: Question[] | null = null;
+let _translations: QuestionTranslations = {};
 
 async function getQuestions(): Promise<Question[]> {
   if (_questions) return _questions;
@@ -30,15 +33,28 @@ async function getQuestions(): Promise<Question[]> {
   }
 }
 
+async function getTranslations(locale: string): Promise<Record<string, string>> {
+  if (locale === 'en' || !locale) return {};
+  if (_translations[locale]) return _translations[locale];
+  try {
+    const mod = await import(`../_shared/questions_${locale}.ts`);
+    _translations[locale] = mod.translations ?? {};
+    return _translations[locale];
+  } catch {
+    return {};
+  }
+}
+
 serve(async (req) => {
   if (req.method === 'OPTIONS') {
     return new Response(null, { headers: corsHeaders });
   }
 
   try {
-    const { questionId, selectedIndex } = await req.json() as {
+    const { questionId, selectedIndex, locale } = await req.json() as {
       questionId: number;
       selectedIndex: number;
+      locale?: string;
     };
 
     if (typeof questionId !== 'number' || typeof selectedIndex !== 'number') {
@@ -57,11 +73,17 @@ serve(async (req) => {
 
     const correct = question.correctIndex === selectedIndex;
 
+    // Apply translations to explanation and realWorld
+    const translations = await getTranslations(locale ?? 'en');
+    const prefix = `q.${questionId}`;
+    const explanation = translations[`${prefix}.explanation`] ?? question.explanation;
+    const realWorld = translations[`${prefix}.realWorld`] ?? question.realWorld;
+
     return new Response(JSON.stringify({
       correct,
       correctIndex: question.correctIndex,
-      explanation: question.explanation,
-      realWorld: question.realWorld,
+      explanation,
+      realWorld,
     }), {
       headers: { ...corsHeaders, 'Content-Type': 'application/json' },
     });
