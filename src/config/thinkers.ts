@@ -10,11 +10,13 @@ export interface ThinkerMeta {
   era: string;
   domain: string;
   description: string;
-  color: string; // tailwind semantic color hint
+  color: string;
   tagline: string;
+  era_group: 'ancient' | 'modern';
 }
 
 export const THINKERS: ThinkerMeta[] = [
+  // ── Original legends ────────────────────────────────────
   {
     slug: 'hinton',
     name: 'Geoffrey Hinton',
@@ -25,6 +27,7 @@ export const THINKERS: ThinkerMeta[] = [
     description: 'Backpropagation, Boltzmann Machines, Capsule Networks',
     color: 'primary',
     tagline: 'He taught machines to learn from their mistakes.',
+    era_group: 'modern',
   },
   {
     slug: 'turing',
@@ -36,6 +39,7 @@ export const THINKERS: ThinkerMeta[] = [
     description: 'Turing Machines, Halting Problem, Turing Test',
     color: 'accent',
     tagline: 'He defined what a computer could ever do.',
+    era_group: 'modern',
   },
   {
     slug: 'shannon',
@@ -47,6 +51,7 @@ export const THINKERS: ThinkerMeta[] = [
     description: 'Entropy, Channel Capacity, Data Compression',
     color: 'success',
     tagline: 'He turned noise into signal — and bits into science.',
+    era_group: 'modern',
   },
   {
     slug: 'poincare',
@@ -58,6 +63,7 @@ export const THINKERS: ThinkerMeta[] = [
     description: 'Topology, Chaos Theory, Manifolds, Poincaré Conjecture',
     color: 'destructive',
     tagline: 'He found that the universe cannot be predicted.',
+    era_group: 'ancient',
   },
   {
     slug: 'riemann',
@@ -69,6 +75,7 @@ export const THINKERS: ThinkerMeta[] = [
     description: 'Riemannian Metrics, Curved Spaces, Geodesics',
     color: 'accent',
     tagline: 'He curved space before Einstein needed it.',
+    era_group: 'ancient',
   },
   {
     slug: 'feynman',
@@ -80,6 +87,7 @@ export const THINKERS: ThinkerMeta[] = [
     description: 'Path Integrals, Quantum Computing, Physics-Informed NNs',
     color: 'primary',
     tagline: 'He made the impossible feel obvious.',
+    era_group: 'modern',
   },
   {
     slug: 'vonneumann',
@@ -91,6 +99,7 @@ export const THINKERS: ThinkerMeta[] = [
     description: 'Minimax, Game Theory, Von Neumann Architecture',
     color: 'success',
     tagline: 'He designed the mind of every modern computer.',
+    era_group: 'modern',
   },
   {
     slug: 'pearl',
@@ -102,6 +111,7 @@ export const THINKERS: ThinkerMeta[] = [
     description: 'Do-Calculus, Causal Diagrams, Bayesian Networks',
     color: 'destructive',
     tagline: 'He taught machines to ask "why?"',
+    era_group: 'modern',
   },
   {
     slug: 'simons',
@@ -113,6 +123,7 @@ export const THINKERS: ThinkerMeta[] = [
     description: 'Hidden Markov Models, Stochastic Calculus, Arbitrage',
     color: 'accent',
     tagline: 'He weaponized mathematics against the market.',
+    era_group: 'modern',
   },
   {
     slug: 'ramanujan',
@@ -124,6 +135,141 @@ export const THINKERS: ThinkerMeta[] = [
     description: 'Infinite Series, Number Theory, Partition Functions',
     color: 'primary',
     tagline: 'He dreamed of formulas no one had proved.',
+    era_group: 'ancient',
+  },
+  // ── Ancient thinkers ─────────────────────────────────────
+  {
+    slug: 'euclid',
+    name: 'Euclid of Alexandria',
+    archetype: 'The Axiomatist',
+    emoji: '📐',
+    era: '≈300 BC',
+    domain: 'Geometry & Logic',
+    description: 'Axiomatic Geometry, Infinitely Many Primes, GCD Algorithm',
+    color: 'accent',
+    tagline: 'He built all of geometry from five humble axioms.',
+    era_group: 'ancient',
+  },
+  {
+    slug: 'archimedes',
+    name: 'Archimedes of Syracuse',
+    archetype: 'The Mechanic',
+    emoji: '⚖️',
+    era: '≈287–212 BC',
+    domain: 'Calculus & Mechanics',
+    description: 'Proto-Calculus, Buoyancy, Spiral, π Approximation',
+    color: 'success',
+    tagline: 'He invented integral calculus 1800 years early.',
+    era_group: 'ancient',
+  },
+  {
+    slug: 'newton',
+    name: 'Isaac Newton',
+    archetype: 'The Physicist',
+    emoji: '🍎',
+    era: '1643–1727',
+    domain: 'Calculus & Mechanics',
+    description: 'Calculus, Laws of Motion, Gravitation, Newton\'s Method',
+    color: 'primary',
+    tagline: 'He unified Earth and sky with a single equation.',
+    era_group: 'ancient',
+  },
+  {
+    slug: 'euler',
+    name: 'Leonhard Euler',
+    archetype: 'The Prolific',
+    emoji: '🔢',
+    era: '1707–1783',
+    domain: 'Analysis & Graph Theory',
+    description: 'e^{iπ}+1=0, Graph Theory, Euler Characteristic, π²/6',
+    color: 'destructive',
+    tagline: 'He wrote more mathematics than any human before or since.',
+    era_group: 'ancient',
+  },
+  {
+    slug: 'pythagoras',
+    name: 'Pythagoras of Samos',
+    archetype: 'The Harmonist',
+    emoji: '🔺',
+    era: '≈570–495 BC',
+    domain: 'Geometry & Number Theory',
+    description: 'a²+b²=c², Irrational Numbers, Musical Ratios',
+    color: 'success',
+    tagline: 'He found that the universe speaks in numbers.',
+    era_group: 'ancient',
+  },
+  {
+    slug: 'gauss',
+    name: 'Carl Friedrich Gauss',
+    archetype: 'The Prince',
+    emoji: '👑',
+    era: '1777–1855',
+    domain: 'Number Theory & Statistics',
+    description: 'Normal Distribution, Gaussian Elimination, FFT, Modular Arithmetic',
+    color: 'accent',
+    tagline: 'He was doing modern mathematics at age 19.',
+    era_group: 'ancient',
+  },
+  // ── Modern thinkers ────────────────────────────────────
+  {
+    slug: 'bengio',
+    name: 'Yoshua Bengio',
+    archetype: 'The Representor',
+    emoji: '🎓',
+    era: '1964–present',
+    domain: 'Representation Learning',
+    description: 'Word Embeddings, Attention, GFlowNets, Causal AI',
+    color: 'primary',
+    tagline: 'He taught machines to represent meaning itself.',
+    era_group: 'modern',
+  },
+  {
+    slug: 'lecun',
+    name: 'Yann LeCun',
+    archetype: 'The Vision Master',
+    emoji: '👁️',
+    era: '1960–present',
+    domain: 'Computer Vision',
+    description: 'CNNs, LeNet, Energy-Based Models, JEPA, World Models',
+    color: 'accent',
+    tagline: 'He gave machines the gift of sight.',
+    era_group: 'modern',
+  },
+  {
+    slug: 'sutton',
+    name: 'Richard Sutton',
+    archetype: 'The Reinforcer',
+    emoji: '🎮',
+    era: '1956–present',
+    domain: 'Reinforcement Learning',
+    description: 'TD Learning, Policy Gradients, Dyna, The Bitter Lesson',
+    color: 'success',
+    tagline: 'He showed that reward is all you need.',
+    era_group: 'modern',
+  },
+  {
+    slug: 'goodfellow',
+    name: 'Ian Goodfellow',
+    archetype: 'The Adversary',
+    emoji: '⚔️',
+    era: '1985–present',
+    domain: 'Generative AI',
+    description: 'GANs, Adversarial Examples, WGAN, Deep Learning Textbook',
+    color: 'destructive',
+    tagline: 'He pitted two AIs against each other — and magic happened.',
+    era_group: 'modern',
+  },
+  {
+    slug: 'vapnik',
+    name: 'Vladimir Vapnik',
+    archetype: 'The Statistician',
+    emoji: '📊',
+    era: '1936–present',
+    domain: 'Statistical Learning',
+    description: 'SVMs, Kernel Methods, VC Theory, PAC Learning',
+    color: 'primary',
+    tagline: 'He gave learning theory its mathematical foundation.',
+    era_group: 'modern',
   },
 ];
 
@@ -134,3 +280,6 @@ export const THINKER_MAP: Record<string, ThinkerMeta> = Object.fromEntries(
 export function getThinker(slug: string): ThinkerMeta | undefined {
   return THINKER_MAP[slug];
 }
+
+export const ANCIENT_THINKERS = THINKERS.filter(t => t.era_group === 'ancient');
+export const MODERN_THINKERS = THINKERS.filter(t => t.era_group === 'modern');

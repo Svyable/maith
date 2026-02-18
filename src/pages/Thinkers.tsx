@@ -9,7 +9,7 @@ import { ThinkerCard } from '@/components/ThinkerCard';
 import { useTheme } from '@/hooks/useTheme';
 import { useAuth } from '@/hooks/useAuth';
 import { useTimer } from '@/hooks/useTimer';
-import { THINKERS } from '@/config/thinkers';
+import { THINKERS, ANCIENT_THINKERS, MODERN_THINKERS } from '@/config/thinkers';
 import { getThinkerQuestions } from '@/content/thinkers';
 import { allQuestions } from '@/content';
 import { supabase } from '@/integrations/supabase/client';
@@ -191,16 +191,23 @@ export default function Thinkers() {
                 </p>
               </div>
 
-              <div className="space-y-3">
-                {THINKERS.map((thinker, i) => (
-                  <ThinkerCard
-                    key={thinker.slug}
-                    thinker={thinker}
-                    questionCount={getThinkerQuestions(thinker.slug).length}
-                    onSelect={startThinker}
-                    index={i}
-                  />
-                ))}
+              <div className="space-y-5">
+                <div>
+                  <p className="text-[11px] font-bold text-muted-foreground uppercase tracking-widest mb-2 px-1">⚔️ Ancient Minds</p>
+                  <div className="space-y-3">
+                    {ANCIENT_THINKERS.map((thinker, i) => (
+                      <ThinkerCard key={thinker.slug} thinker={thinker} questionCount={getThinkerQuestions(thinker.slug).length} onSelect={startThinker} index={i} />
+                    ))}
+                  </div>
+                </div>
+                <div>
+                  <p className="text-[11px] font-bold text-muted-foreground uppercase tracking-widest mb-2 px-1">🚀 Modern Pioneers</p>
+                  <div className="space-y-3">
+                    {MODERN_THINKERS.map((thinker, i) => (
+                      <ThinkerCard key={thinker.slug} thinker={thinker} questionCount={getThinkerQuestions(thinker.slug).length} onSelect={startThinker} index={i} />
+                    ))}
+                  </div>
+                </div>
               </div>
 
               <button onClick={() => navigate('/')}
