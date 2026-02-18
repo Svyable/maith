@@ -10,8 +10,8 @@ import { useTheme } from '@/hooks/useTheme';
 import { useAuth } from '@/hooks/useAuth';
 import { useTimer } from '@/hooks/useTimer';
 import { THINKERS, ANCIENT_THINKERS, MODERN_THINKERS } from '@/config/thinkers';
-import { getThinkerQuestions } from '@/content/thinkers';
-import { allQuestions } from '@/content';
+import { getThinkerQuestions, allThinkerQuestions } from '@/content/thinkers';
+
 import { supabase } from '@/integrations/supabase/client';
 import { getDifficultyMeta, CONTENT_VERSION } from '@/config/constants';
 import type { Difficulty } from '@/config/constants';
@@ -43,7 +43,7 @@ function stripQuestion(q: ReturnType<typeof getThinkerQuestions>[number]): Publi
 }
 
 function localCheck(questionId: number, selectedIndex: number): CheckResult | null {
-  const q = allQuestions.find((x) => x.id === questionId);
+  const q = allThinkerQuestions.find((x) => x.id === questionId);
   if (!q) return null;
   return {
     correct: selectedIndex === q.correctIndex,
