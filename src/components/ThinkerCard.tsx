@@ -1,0 +1,60 @@
+import { motion } from 'framer-motion';
+import { type ThinkerMeta } from '@/config/thinkers';
+
+interface ThinkerCardProps {
+  thinker: ThinkerMeta;
+  questionCount: number;
+  onSelect: (slug: string) => void;
+  index: number;
+}
+
+const COLOR_CLASSES: Record<string, string> = {
+  primary: 'border-primary/40 hover:border-primary bg-primary/5 hover:bg-primary/10',
+  accent: 'border-accent/40 hover:border-accent bg-accent/5 hover:bg-accent/10',
+  success: 'border-success/40 hover:border-success bg-success/5 hover:bg-success/10',
+  destructive: 'border-destructive/40 hover:border-destructive bg-destructive/5 hover:bg-destructive/10',
+};
+
+const BADGE_CLASSES: Record<string, string> = {
+  primary: 'bg-primary/15 text-primary',
+  accent: 'bg-accent/15 text-accent',
+  success: 'bg-success/15 text-success',
+  destructive: 'bg-destructive/15 text-destructive',
+};
+
+export function ThinkerCard({ thinker, questionCount, onSelect, index }: ThinkerCardProps) {
+  const borderClass = COLOR_CLASSES[thinker.color] ?? COLOR_CLASSES.primary;
+  const badgeClass = BADGE_CLASSES[thinker.color] ?? BADGE_CLASSES.primary;
+
+  return (
+    <motion.button
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: index * 0.06 }}
+      whileHover={{ scale: 1.02 }}
+      whileTap={{ scale: 0.98 }}
+      onClick={() => onSelect(thinker.slug)}
+      className={`w-full text-left p-4 rounded-xl border transition-all ${borderClass}`}
+    >
+      <div className="flex items-start gap-3">
+        <span className="text-3xl mt-0.5 select-none">{thinker.emoji}</span>
+        <div className="flex-1 min-w-0">
+          <div className="flex items-center gap-2 flex-wrap">
+            <h3 className="font-bold text-foreground text-sm">{thinker.name}</h3>
+            <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${badgeClass}`}>
+              {thinker.archetype}
+            </span>
+          </div>
+          <p className="text-xs text-muted-foreground mt-0.5 leading-relaxed">{thinker.tagline}</p>
+          <div className="flex items-center gap-3 mt-2">
+            <span className="text-[10px] text-muted-foreground">{thinker.domain}</span>
+            <span className="text-[10px] text-muted-foreground">·</span>
+            <span className="text-[10px] font-medium text-muted-foreground">{questionCount} questions</span>
+            <span className="text-[10px] text-muted-foreground">·</span>
+            <span className="text-[10px] text-muted-foreground">{thinker.era}</span>
+          </div>
+        </div>
+      </div>
+    </motion.button>
+  );
+}

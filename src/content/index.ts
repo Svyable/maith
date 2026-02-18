@@ -11,6 +11,7 @@ import { calculusQuestions } from './calculus';
 import { probabilityStatsQuestions } from './probability-stats';
 import { optimizationQuestions } from './optimization';
 import { discreteMathQuestions } from './discrete-math';
+import { allThinkerQuestions } from './thinkers';
 
 import type { Question } from './types';
 
@@ -20,6 +21,7 @@ export const allQuestions: Question[] = [
   ...probabilityStatsQuestions,
   ...optimizationQuestions,
   ...discreteMathQuestions,
+  ...allThinkerQuestions,
 ];
 
 /** Get questions filtered by topic slugs */
