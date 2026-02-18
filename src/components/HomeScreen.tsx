@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { TopicSelector } from './TopicSelector';
+
 import { DifficultyPicker } from './DifficultyPicker';
 import { LanguageSelector } from './LanguageSelector';
 import { type Difficulty, getDifficultyMeta, TOPIC_MAP } from '@/config/constants';
@@ -29,6 +30,7 @@ export function HomeScreen({
   displayName,
   onSignOut,
 }: HomeScreenProps) {
+  const navigate = useNavigate();
   const diffMeta = getDifficultyMeta(selectedDifficulty);
   const { locale, changeLocale } = useLocale();
   const [quote, setQuote] = useState<Quote>(() => getRandomQuote('en'));
@@ -123,6 +125,21 @@ export function HomeScreen({
         className="w-full py-4 rounded-xl bg-primary text-primary-foreground font-bold text-xl glow-primary animate-pulse-glow"
       >
         {t('home.startQuiz')}
+      </motion.button>
+
+      {/* Who's Who entry point */}
+      <motion.button
+        whileHover={{ scale: 1.02 }}
+        whileTap={{ scale: 0.97 }}
+        onClick={() => navigate('/thinkers')}
+        className="w-full py-3 rounded-xl border-2 border-accent/50 bg-accent/5 hover:bg-accent/10 hover:border-accent transition-all flex items-center justify-center gap-3"
+      >
+        <span className="text-xl">🎓</span>
+        <div className="text-left">
+          <p className="font-bold text-sm text-foreground">Who&apos;s Who in AI &amp; Math</p>
+          <p className="text-[10px] text-muted-foreground">20 legendary thinkers · Ancient &amp; Modern</p>
+        </div>
+        <span className="ml-auto text-accent font-bold text-sm">→</span>
       </motion.button>
 
       <p className="text-xs font-medium text-accent text-center">
