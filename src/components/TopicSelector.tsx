@@ -27,16 +27,17 @@ export function TopicSelector({ selected, onToggle }: TopicSelectorProps) {
     <div className="space-y-3">
       <div className="flex items-center justify-between">
         <h3 className="text-sm font-bold text-muted-foreground">{t('home.selectTopics')}</h3>
-        <button
-          onClick={() => {
-            if (selected.length > 0) {
-              selected.forEach((t) => onToggle(t));
-            }
-          }}
-          className="text-xs text-primary hover:underline"
-        >
-          {allSelected ? 'All selected' : 'Select all'}
-        </button>
+        {!allSelected && (
+          <button
+            onClick={() => {
+              // Deselect all → goes back to "all selected" (empty array = all)
+              selected.forEach((slug) => onToggle(slug));
+            }}
+            className="text-xs text-primary hover:underline"
+          >
+            {t('home.clearTopics')}
+          </button>
+        )}
       </div>
 
       <motion.div

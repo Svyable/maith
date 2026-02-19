@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { getDifficultyMeta, type Difficulty, TOPIC_MAP } from '@/config/constants';
+import { THINKER_MAP } from '@/config/thinkers';
 import { t } from '@/i18n';
 
 interface QuizResultsProps {
@@ -14,8 +15,9 @@ interface QuizResultsProps {
   sessionTotal: number;
 }
 
-export function QuizResults({ score, sessionCorrect, sessionTotal, bestStreak, topicBreakdown, difficulty, onRestart }: QuizResultsProps) {
-  const pct = sessionTotal > 0 ? Math.round((sessionCorrect / sessionTotal) * 100) : 0;
+export function QuizResults({ score, correctAnswered, totalAnswered, bestStreak, topicBreakdown, difficulty, onRestart }: QuizResultsProps) {
+  // Use cumulative answered counts (not just session) for accuracy to survive restarts
+  const pct = totalAnswered > 0 ? Math.round((correctAnswered / totalAnswered) * 100) : 0;
   const diffMeta = getDifficultyMeta(difficulty);
 
   return (
@@ -49,10 +51,14 @@ export function QuizResults({ score, sessionCorrect, sessionTotal, bestStreak, t
             {Object.entries(topicBreakdown).map(([slug, { correct, total }]) => {
               if (total === 0) return null;
               const topicPct = Math.round((correct / total) * 100);
+              // Check both math topics and thinker slugs
               const meta = TOPIC_MAP[slug];
+              const thinkerMeta = !meta ? THINKER_MAP[slug] : null;
+              const label = meta?.label ?? (thinkerMeta ? `${thinkerMeta.emoji} ${thinkerMeta.name}` : slug);
+              const emoji = meta?.emoji ?? (thinkerMeta ? '' : '📐');
               return (
                 <div key={slug} className="flex items-center justify-between">
-                  <span className="text-sm">{meta?.emoji ?? '📐'} {meta?.label ?? slug}</span>
+                  <span className="text-sm">{emoji} {label}</span>
                   <div className="flex items-center gap-2">
                     <div className="w-20 h-2 bg-secondary rounded-full overflow-hidden">
                       <div className="h-full bg-primary rounded-full" style={{ width: `${topicPct}%` }} />
