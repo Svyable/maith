@@ -64,5 +64,7 @@
   "heatmap.weak": "Weak",
   "heatmap.notStarted": "Not started",
   "heatmap.legend": "weak → strong",
-  "language.title": "LANGUAGE"
+  "language.title": "LANGUAGE",
+  "home.clearTopics": "Clear selection",
+  "quiz.score": "Score"
 }

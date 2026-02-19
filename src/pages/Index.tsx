@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect } from 'react';
+import { useState, useCallback, useEffect, useRef } from 'react';
 import { AnimatePresence } from 'framer-motion';
 import confetti from 'canvas-confetti';
 import { QuizHeader } from '@/components/QuizHeader';
@@ -36,9 +36,11 @@ const Index = () => {
       .then(({ data }) => setDisplayName(data?.display_name ?? null));
   }, [user]);
 
-  // Submit session to DB when quiz finishes
+  // Submit session to DB when quiz finishes (guard with ref to prevent double-submit)
+  const submittedRef = useRef(false);
   useEffect(() => {
-    if (state.isFinished && screen === 'quiz' && user) {
+    if (state.isFinished && screen === 'quiz' && user && !submittedRef.current) {
+      submittedRef.current = true;
       const clientSessionId = `${user.id}-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
       supabase.rpc('submit_quiz_session', {
         p_client_session_id: clientSessionId,
@@ -52,7 +54,10 @@ const Index = () => {
         p_content_version: CONTENT_VERSION,
       });
     }
-  }, [state.isFinished]);
+    // Reset guard when starting a fresh quiz
+    if (!state.isFinished) submittedRef.current = false;
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [state.isFinished, screen, user]);
 
   const handleTimeout = useCallback(() => {
     if (screen === 'quiz') {

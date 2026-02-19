@@ -173,16 +173,18 @@ export function QuizScreen({
       <div className="space-y-3">
         {question.options.map((opt, i) => {
           const isEliminated = eliminatedOptions.includes(i);
-          // Determine visual state — correctIndex reveal ALWAYS wins over eliminated/default
+          // correctIndex reveal ALWAYS wins — even over eliminated state
           let state: 'default' | 'correct' | 'wrong' | 'reveal' = 'default';
-          if (answerState === 'correct' || answerState === 'wrong') {
-            if (checkResult && i === checkResult.correctIndex) {
+          if (isAnswered && checkResult) {
+            if (i === checkResult.correctIndex) {
               state = i === selectedOption ? 'correct' : 'reveal';
             } else if (i === selectedOption) {
               state = 'wrong';
             }
-            // eliminated options that are not correct/selected stay 'default'
+            // Non-correct eliminated options go back to 'default' (greyed out disabled)
           }
+          // Only show eliminated styling while still pending (before answer)
+          const showEliminated = isEliminated && !isAnswered;
           return (
             <OptionButton
               key={i}
@@ -191,7 +193,7 @@ export function QuizScreen({
               onSelect={handleSelect}
               disabled={answerState !== 'pending' || isEliminated}
               state={state}
-              eliminated={isEliminated && answerState === 'pending'}
+              eliminated={showEliminated}
             />
           );
         })}

@@ -78,7 +78,12 @@ export default function Thinkers() {
 
   const startThinker = useCallback((slug: string) => {
     const rawQs = getThinkerQuestions(slug);
-    const shuffled = [...rawQs].sort(() => Math.random() - 0.5);
+    // Fisher-Yates shuffle (unbiased)
+    const shuffled = [...rawQs];
+    for (let i = shuffled.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
     const questions = shuffled.map(stripQuestion);
     setSelectedSlug(slug);
     setSessionCorrect(0);
