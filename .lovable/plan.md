@@ -1,91 +1,252 @@
 
-# Mobile Experience Enhancement Plan
+# Comprehensive Architecture Plan: Field-Scoped Platform + Quiz Domain Service
 
-## Assessment Summary
+## What We're Building
 
-The app is already mobile-first in structure (max-w-lg, px-4, full-width buttons), but several specific issues degrade the experience on real devices.
+The app currently works as a flat Math quiz with a Who's Who thinker mode bolted on. This plan introduces:
 
-### Issues Found
-
-**Critical:**
-- Header is critically overcrowded when logged in: logo + text + 🏠 + 🏆 + ☀️ + 👤 = 6 items in ~390px, wrapping is imminent at 320px
-- No PWA/mobile meta tags in index.html (no theme-color, apple-mobile-web-app-capable, viewport-fit=cover)
-- No safe-area-inset padding for iPhone notch and home bar indicator
-- Touch targets: several nav buttons are only 32×32px (w-8 h-8) — 44px is the iOS/Android minimum
-
-**Moderate:**
-- `grid-cols-4` on Profile stats — 4 squeezed cards on 320px phones become unreadable (10px text, tiny numbers)
-- Keyboard shortcut hint text ("Press 1-4 / A-D...") shown on touch devices where it's irrelevant
-- HintPanel's two side-by-side buttons (`flex items-center gap-3`) can crowd or overflow on 320px devices
-- QuizScreen question card has `p-6` padding — wastes space on very short phones; content scrolls off screen
-- LaTeX-heavy option buttons have no overflow protection — wide equations can cause horizontal scroll
-- ExplanationPopup uses `p-5` — tight on small screens when showing hint + realWorld + explanation
-
-**Minor:**
-- Auth page has large whitespace above/below the form on short screens due to `justify-center` without max-height awareness  
-- No `inputmode="email"` / `inputmode="decimal"` on inputs (prevents wrong keyboard appearing)
-- Leaderboard row shows three data points inline — truncates on small screens
-- `animate-pulse-glow` on Start Quiz button may lag on low-end Android
+1. A **Field Registry** — a first-class concept that groups topics into Fields (Math, Physics, Finance/Quant, Chemistry, etc.)
+2. A **Quiz Domain Service** — a formal `src/domain/quiz/` module that owns all quiz logic, types, and state transitions, extracted from `useQuiz.ts` and `Thinkers.tsx`
+3. A **ThinkerMap design document** codified as a runtime registry pattern for extensibility
+4. **New content packs**: Physics, Quant/Finance, and Chemistry — each properly scoped
+5. A **Field Hub** home screen layer that lets users navigate by Field first, then Topic
 
 ---
 
-## Changes by File
+## Current Architecture Gaps (Audit Findings)
 
-### 1. `index.html` — PWA meta tags + safe area
-Add theme-color, apple-mobile-web-app meta tags, viewport `viewport-fit=cover`, and the title "Math Mastery".
-
-### 2. `src/index.css` — Safe area insets + touch optimization
-Add `padding-bottom: env(safe-area-inset-bottom)` to the app shell. Add `-webkit-tap-highlight-color: transparent` and `touch-action: manipulation` globally to remove the 300ms tap delay and blue flash on iOS.
-
-### 3. `src/components/QuizHeader.tsx` — Compact mobile header
-- Increase all nav icon buttons from `w-8 h-8` (32px) to `w-10 h-10` (40px) for better tap targets
-- On mobile (below sm), hide the "Math Mastery" text label, show only the brain emoji — saves ~110px
-- Group nav icons tighter with `gap-1` instead of `gap-2`
-
-### 4. `src/components/QuizScreen.tsx` — Mobile quiz UX
-- Remove the keyboard shortcut hint (`quiz.keys`) on mobile using `hidden sm:block`
-- Reduce question card padding from `p-6` to `p-4 sm:p-6` to recover vertical space on short phones
-- Add `overflow-x-auto` wrapping to the question and option LaTeX containers
-
-### 5. `src/components/HintPanel.tsx` — Responsive hint buttons
-- Change the button row from `flex items-center gap-3` to `grid grid-cols-2 gap-2` so each button takes exactly half width at any screen size
-- Ensure button text truncates gracefully rather than overflowing
-
-### 6. `src/components/OptionButton.tsx` — Touch-safe options
-- Add `min-h-[52px]` (good tap target height) and `select-none` to prevent accidental text selection on long-press
-- Ensure `overflow-hidden` on the option container so wide LaTeX stays contained
-
-### 7. `src/pages/Profile.tsx` — Fix the 4-column stats grid
-- Change `grid-cols-4` to `grid-cols-2 sm:grid-cols-4` so the stats show as 2×2 on mobile (larger, readable cards) and 4×1 on tablet+
-- Reduce the internal padding slightly for the 2-column layout: `p-3` stays, but ensure emoji+number+label stacks comfortably
-
-### 8. `src/components/ExplanationPopup.tsx` — Tighter mobile padding
-- Change `p-5` to `p-4` to reclaim a few pixels on small screens
-- Add `max-h-[60vh] overflow-y-auto` so on very short phones the explanation doesn't push the Next button off-screen
-
-### 9. `src/pages/Auth.tsx` — Input keyboard types
-- Add `inputMode="email"` to the email field so mobile shows the `@` key on the correct keyboard
-- Add `autoCapitalize="none"` and `autoCorrect="off"` to prevent iOS autocorrect on email/password fields
-- Change `justify-center` on the wrapper to `justify-start pt-16 sm:justify-center` so the form is in the upper portion of the viewport when the keyboard is open — prevents form from being hidden behind the soft keyboard
-
-### 10. `src/components/HomeScreen.tsx` — Keyboard-aware bottom spacing
-- Add `pb-6` safe padding at the bottom since the Start Quiz button is at the bottom of a long scrollable list
+```text
+CURRENT                             PROBLEM
+─────────────────────────────────── ─────────────────────────────────────
+useQuiz.ts                          Business logic + state + server calls
+                                    all in one hook — violates SRP
+Thinkers.tsx                        Duplicates 80% of useQuiz logic
+                                    (applyAnswer, state shape, shuffle)
+content/index.ts                    Flat list — no Field concept.
+                                    "What field is calculus in?" unknown
+HomeScreen.tsx                      Hardcoded "20 legendary thinkers" text
+                                    Knows about thinker count (wrong layer)
+config/constants.ts                 TOPICS array has no field grouping
+                                    — adding Quant topics has no home
+Thinkers.tsx                        DIFFICULTY hardcoded as const 'ADVN'
+                                    — players can't choose difficulty
+```
 
 ---
 
-## Technical Summary
+## Step-by-Step Implementation Plan
 
-| File | Change Type | Issue Fixed |
-|------|------------|-------------|
-| index.html | PWA meta + title | No theme-color, missing mobile meta, wrong title |
-| src/index.css | Global touch CSS | 300ms tap delay, no safe-area insets, tap highlight |
-| QuizHeader.tsx | Responsive label hiding | Header overflow on small phones |
-| QuizScreen.tsx | Conditional rendering | Keyboard hint shown on touch, p-6 wastes space |
-| HintPanel.tsx | Grid layout | Two buttons overflow at 320px |
-| OptionButton.tsx | Touch target + overflow | 32px tap height, LaTeX overflow |
-| Profile.tsx | 2-col grid mobile | 4 tiny cards unreadable on small phones |
-| ExplanationPopup.tsx | Padding + scroll cap | Content pushes Next button off-screen |
-| Auth.tsx | Input attributes | Wrong keyboard, form hidden behind keyboard |
-| HomeScreen.tsx | Bottom padding | Start Quiz barely visible on short phones |
+### Step 1 — Introduce the Field Registry (Config Layer)
 
-No backend changes required. No new dependencies needed. All changes are CSS / Tailwind / React conditional rendering.
+Create `src/config/fields.ts` — single source of truth for Fields.
+
+```text
+FieldMeta {
+  slug: string           // 'math' | 'physics' | 'quant' | 'chemistry'
+  label: string          // 'Mathematics'
+  emoji: string          // '📐'
+  description: string
+  topics: string[]       // topic slugs that belong to this field
+  color: string
+  available: boolean     // false = "Coming Soon" state
+}
+```
+
+Initial Fields:
+- **Mathematics** — `linear-algebra`, `calculus`, `probability-stats`, `optimization`, `discrete-math`
+- **Physics** — `classical-mechanics`, `quantum-mechanics`, `thermodynamics` (new, Coming Soon for non-initial)
+- **Quant / Finance** — `stochastic-calculus`, `time-series`, `portfolio-theory`, `derivatives-pricing` (new, Coming Soon)
+- **Chemistry** — `physical-chemistry`, `quantum-chemistry` (Coming Soon)
+
+Update `src/config/constants.ts` — add `field` property to `TopicMeta`. The TOPICS array retains every existing slug unchanged.
+
+---
+
+### Step 2 — Quiz Domain Service (`src/domain/quiz/`)
+
+Extract all quiz logic into a proper domain module:
+
+```text
+src/domain/
+  scoring.ts              (existing — already clean)
+  quiz/
+    types.ts              PublicQuestion, CheckResult, QuizState, QuizConfig
+    engine.ts             Pure functions: shuffle(), stripAnswers(),
+                          applyAnswer(), buildInitialState()
+    service.ts            QuizService class — fetch, check, session submit
+    index.ts              re-exports
+```
+
+**`engine.ts`** (pure, testable, zero React):
+- `fisherYatesShuffle<T>(arr: T[]): T[]`
+- `stripAnswers(q: Question): PublicQuestion`
+- `applyAnswer(state, result, q, difficulty): QuizState`
+- `buildInitialState(): QuizState`
+
+**`service.ts`** (I/O, zero React):
+- `fetchQuestions(topics, count, locale): Promise<PublicQuestion[]>`
+- `checkAnswer(questionId, selectedIndex, locale): Promise<CheckResult | null>`
+- `localFallbackCheck(questionId, selectedIndex, questionPool): CheckResult | null`
+- `submitSession(userId, params): void`
+
+**`useQuiz.ts`** becomes a thin React wrapper: it holds state and calls `service.ts` + `engine.ts`. No more business logic in the hook itself.
+
+**`Thinkers.tsx`** deletes its duplicated answer/shuffle logic entirely and calls the same service layer. A new `useThinkerQuiz` hook in `src/hooks/` wraps the domain service for the thinker context.
+
+---
+
+### Step 3 — ThinkerMap Design Doc (Runtime Registry Pattern)
+
+`src/config/thinkers.ts` gains a formal `THINKER_REGISTRY` comment block documenting:
+
+- How to add a new thinker pack: add entry to `THINKERS` array + create `src/content/thinkers/<slug>.ts` + export from `src/content/thinkers/index.ts`
+- `era_group` values: `'ancient' | 'modern' | 'contemporary'` (add `contemporary` for living figures)
+- Exportable `THINKER_REGISTRY` typed map replaces ad-hoc `THINKER_MAP` naming
+
+---
+
+### Step 4 — New Content Packs
+
+**Physics Pack** (`src/content/physics/`):
+- Topics: `quantum-mechanics` (10 easy, 10 hard, 5 sota) and `classical-mechanics` (10 easy, 10 hard, 5 sota)
+- Registered in `TOPICS` under field `'physics'`
+- Questions use LaTeX: Schrödinger, Hamiltonians, F=ma, Lagrangians, path integrals
+
+**Quant / Finance Pack** (`src/content/quant/`):
+- Topics: `stochastic-calculus` (Itô's lemma, Brownian motion, SDEs), `derivatives-pricing` (Black-Scholes, Greeks, risk-neutral)
+- 10 easy + 10 hard + 5 sota per topic
+- Registered under field `'quant'`
+
+Both packs follow the exact same file format as existing content (id, topic, difficulty, question, options, correctIndex, explanation, realWorld, hint).
+
+ID ranges to avoid collisions:
+- Physics: 20001–20999
+- Quant: 30001–30999
+
+---
+
+### Step 5 — Field Hub UI (Home Screen Evolution)
+
+**`HomeScreen.tsx`** gains a Field Selector layer above the Topic Selector:
+
+```text
+┌──────────────────────────────────────┐
+│  🧠  Math Mastery                    │
+│  "Quote of the day"                  │
+├──────────────────────────────────────┤
+│  FIELD                               │
+│  [📐 Math] [⚛ Physics] [📈 Quant]  │
+│            [🧪 Chem]                 │
+├──────────────────────────────────────┤
+│  TOPICS IN SELECTED FIELD            │
+│  (filtered TopicSelector)            │
+├──────────────────────────────────────┤
+│  DIFFICULTY                          │
+│  [EASY] [ADVN] [SOTA]               │
+├──────────────────────────────────────┤
+│  [▶ START QUIZ]                      │
+│  [🎓 Who's Who →]                   │
+└──────────────────────────────────────┘
+```
+
+- Fields with `available: false` show a "Coming Soon" badge and are not clickable
+- Selecting a field filters the topic list to only that field's topics
+- "All Fields" option shows all available topics (current behavior preserved)
+- New `FieldSelector` component: `src/components/FieldSelector.tsx`
+
+---
+
+### Step 6 — Thinker Difficulty Unlock
+
+`Thinkers.tsx` currently hardcodes `DIFFICULTY = 'ADVN'`. Fix:
+
+- Gallery screen gets a compact difficulty picker (same `DifficultyPicker` component reused)
+- Difficulty state stored in thinker page state
+- `useThinkerQuiz` receives difficulty and passes correct `questionsPerQuiz` count from `getDifficultyMeta`
+- Scoring reflects chosen difficulty (already works via `calculatePoints`)
+
+---
+
+### Step 7 — Routing Extension
+
+`App.tsx` additions:
+```text
+/fields              → FieldHub page (optional future deep-link)
+/thinkers            → Thinkers (existing, unchanged path)
+/leaderboard         → Leaderboard (unchanged)
+/profile             → Profile (unchanged)
+```
+
+No breaking route changes. `HomeScreen` navigates to `/thinkers` as before. Physics/Quant topics appear in the main quiz flow automatically through the field filter.
+
+---
+
+## File Map: What Changes vs What's New
+
+```text
+NEW FILES
+─────────────────────────────────────
+src/config/fields.ts                  Field registry
+src/domain/quiz/types.ts              Shared types (moved from useQuiz.ts)
+src/domain/quiz/engine.ts             Pure quiz functions
+src/domain/quiz/service.ts            I/O layer (server + local fallback)
+src/domain/quiz/index.ts              Re-exports
+src/components/FieldSelector.tsx      Field pill picker UI
+src/hooks/useThinkerQuiz.ts           Thin hook wrapping quiz domain service
+src/content/physics/easy.ts           ~25 questions
+src/content/physics/hard.ts           ~25 questions
+src/content/physics/sota.ts           ~10 questions
+src/content/physics/index.ts
+src/content/quant/easy.ts             ~25 questions
+src/content/quant/hard.ts             ~25 questions
+src/content/quant/sota.ts             ~10 questions
+src/content/quant/index.ts
+
+MODIFIED FILES
+─────────────────────────────────────
+src/config/constants.ts               Add field: string to TopicMeta,
+                                      add physics + quant topics
+src/config/thinkers.ts                Add 'contemporary' era_group,
+                                      formalize THINKER_REGISTRY
+src/hooks/useQuiz.ts                  Thin wrapper — delegates to domain/quiz
+src/pages/Thinkers.tsx                Remove duplicated logic, use useThinkerQuiz
+                                      + add difficulty picker
+src/components/HomeScreen.tsx         Add FieldSelector above TopicSelector
+src/content/index.ts                  Add physics + quant to allQuestions
+```
+
+---
+
+## SOLID Principles Applied
+
+| Principle | Application |
+|---|---|
+| Single Responsibility | `engine.ts` = pure logic only; `service.ts` = I/O only; hook = React state only |
+| Open/Closed | Adding new fields/topics requires only new files + one config entry — zero existing file changes |
+| Liskov Substitution | `PublicQuestion` and `CheckResult` types are stable contracts both quiz modes share |
+| Interface Segregation | `QuizConfig` separates field/topic/difficulty from session submission params |
+| Dependency Inversion | `useQuiz` depends on `QuizService` interface, not the Supabase client directly |
+
+---
+
+## DRY Improvements
+
+- Fisher-Yates shuffle: currently in both `useQuiz.ts` and `Thinkers.tsx` → moves to `engine.ts` once
+- `applyAnswer` logic: currently duplicated in `useQuiz.ts` and `Thinkers.tsx` → `engine.ts` once
+- Session submission RPC: currently duplicated in `Index.tsx` and `Thinkers.tsx` → `service.submitSession()` once
+- `buildInitialState()`: duplicated across both pages → `engine.ts` once
+
+---
+
+## Content Volume After This Plan
+
+```text
+Field           Topics                    Questions (approx)
+──────────────  ────────────────────────  ───────────
+Mathematics     5 existing topics         120+
+Physics         quantum + classical       60 new
+Quant/Finance   stochastic + derivatives  60 new
+Who's Who       21 thinkers               210+
+──────────────  ────────────────────────  ───────────
+TOTAL                                     ~450+ questions
+```
