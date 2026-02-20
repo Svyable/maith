@@ -125,7 +125,7 @@ export default function Thinkers() {
                   Who&apos;s <span className="text-gradient-primary">Who</span>
                 </h2>
                 <p className="text-sm text-muted-foreground max-w-xs mx-auto">
-                  Choose a legendary thinker. Master their domain. Prove you know the shoulders you stand on.
+                  {t('thinkers.gallerySubtitle')}
                 </p>
               </div>
 
@@ -134,7 +134,7 @@ export default function Thinkers() {
 
               <div className="space-y-5">
                 <div>
-                  <p className="text-[11px] font-bold text-muted-foreground uppercase tracking-widest mb-2 px-1">⚔️ Ancient Minds</p>
+                  <p className="text-[11px] font-bold text-muted-foreground uppercase tracking-widest mb-2 px-1">{t('thinkers.ancientMinds')}</p>
                   <div className="space-y-3">
                     {ANCIENT_THINKERS.map((thinker, i) => (
                       <ThinkerCard key={thinker.slug} thinker={thinker} questionCount={getThinkerQuestions(thinker.slug).length} onSelect={handleStartThinker} index={i} />
@@ -142,7 +142,7 @@ export default function Thinkers() {
                   </div>
                 </div>
                 <div>
-                  <p className="text-[11px] font-bold text-muted-foreground uppercase tracking-widest mb-2 px-1">🚀 Modern Pioneers</p>
+                  <p className="text-[11px] font-bold text-muted-foreground uppercase tracking-widest mb-2 px-1">{t('thinkers.modernPioneers')}</p>
                   <div className="space-y-3">
                     {MODERN_THINKERS.map((thinker, i) => (
                       <ThinkerCard key={thinker.slug} thinker={thinker} questionCount={getThinkerQuestions(thinker.slug).length} onSelect={handleStartThinker} index={i} />
@@ -151,7 +151,7 @@ export default function Thinkers() {
                 </div>
                 {CONTEMPORARY_THINKERS.length > 0 && (
                   <div>
-                    <p className="text-[11px] font-bold text-muted-foreground uppercase tracking-widest mb-2 px-1">✨ Contemporary</p>
+                    <p className="text-[11px] font-bold text-muted-foreground uppercase tracking-widest mb-2 px-1">{t('thinkers.contemporary')}</p>
                     <div className="space-y-3">
                       {CONTEMPORARY_THINKERS.map((thinker, i) => (
                         <ThinkerCard key={thinker.slug} thinker={thinker} questionCount={getThinkerQuestions(thinker.slug).length} onSelect={handleStartThinker} index={i} />
@@ -163,7 +163,7 @@ export default function Thinkers() {
 
               <button onClick={() => navigate('/')}
                 className="w-full py-3 rounded-xl border border-border text-sm text-muted-foreground hover:text-foreground hover:border-foreground/30 transition-all">
-                ← Back to Math Mastery
+                {t('thinkers.backToHome')}
               </button>
               <div className="pb-6" />
             </motion.div>

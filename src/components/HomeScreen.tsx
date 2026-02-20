@@ -104,7 +104,7 @@ export function HomeScreen({
           🧠
         </motion.div>
         <h2 className="text-4xl font-display font-bold text-foreground">
-          Math <span className="text-gradient-primary">Mastery</span>
+          Master<span className="text-gradient-primary">mind</span>
         </h2>
         <p className="text-muted-foreground max-w-xs mx-auto">
           {t('app.tagline')}
@@ -168,8 +168,8 @@ export function HomeScreen({
       >
         <span className="text-xl">🎓</span>
         <div className="text-left">
-          <p className="font-bold text-sm text-foreground">Who&apos;s Who in AI &amp; Math</p>
-          <p className="text-[10px] text-muted-foreground">{THINKERS.length} legendary thinkers · Ancient &amp; Modern</p>
+          <p className="font-bold text-sm text-foreground">{t('home.whosWho')}</p>
+          <p className="text-[10px] text-muted-foreground">{t('home.whosWhoSub', { count: THINKERS.length })}</p>
         </div>
         <span className="ml-auto text-accent font-bold text-sm">→</span>
       </motion.button>
