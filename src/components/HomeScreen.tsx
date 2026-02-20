@@ -18,6 +18,8 @@ interface HomeScreenProps {
   onToggleTopic: (topic: string) => void;
   selectedDifficulty: Difficulty;
   onSelectDifficulty: (d: Difficulty) => void;
+  selectedField: string;
+  onSelectField: (slug: string) => void;
   onStart: () => void;
   displayName?: string | null;
   onSignOut?: () => void;
@@ -28,6 +30,8 @@ export function HomeScreen({
   onToggleTopic,
   selectedDifficulty,
   onSelectDifficulty,
+  selectedField,
+  onSelectField,
   onStart,
   displayName,
   onSignOut,
@@ -36,16 +40,14 @@ export function HomeScreen({
   const diffMeta = getDifficultyMeta(selectedDifficulty);
   const { locale, changeLocale } = useLocale();
   const [quote, setQuote] = useState<Quote>(() => getRandomQuote('en'));
-  const [selectedField, setSelectedField] = useState<string>('all');
 
   // Refresh quote when locale changes
   useEffect(() => {
     setQuote(getRandomQuote(locale));
   }, [locale]);
 
-  // When field changes, clear topic selection so the new field's topics show
   const handleSelectField = (slug: string) => {
-    setSelectedField(slug);
+    onSelectField(slug);
     // Clear selected topics so the new field context applies
     selectedTopics.forEach((t) => onToggleTopic(t));
   };
