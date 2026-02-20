@@ -22,8 +22,6 @@ export interface ThinkerQuizState extends QuizState {
 }
 
 export function useThinkerQuiz(difficulty: Difficulty = 'ADVN') {
-  const meta = getDifficultyMeta(difficulty);
-
   const [state, setState] = useState<QuizState>(() => buildInitialState());
 
   const currentQuestion: PublicQuestion | null =

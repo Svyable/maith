@@ -12,6 +12,7 @@ import { useAuth } from '@/hooks/useAuth';
 import { submitSession } from '@/domain/quiz';
 import { supabase } from '@/integrations/supabase/client';
 import { type Difficulty, getDifficultyMeta, DEFAULT_DIFFICULTY, CONTENT_VERSION } from '@/config/constants';
+import { FIELD_MAP } from '@/config/fields';
 import { t } from '@/i18n';
 
 type Screen = 'home' | 'quiz' | 'results';
@@ -19,6 +20,7 @@ type Screen = 'home' | 'quiz' | 'results';
 const Index = () => {
   const [screen, setScreen] = useState<Screen>('home');
   const [selectedTopics, setSelectedTopics] = useState<string[]>([]);
+  const [selectedField, setSelectedField] = useState<string>('all');
   const [selectedDifficulty, setSelectedDifficulty] = useState<Difficulty>(DEFAULT_DIFFICULTY);
   const [sessionCorrect, setSessionCorrect] = useState(0);
   const [sessionTotal, setSessionTotal] = useState(0);
@@ -91,12 +93,18 @@ const Index = () => {
   }, [state.isFinished, screen]);
 
   const startQuiz = useCallback(async () => {
+    // If a field is selected but no specific topics, scope to the field's topics
+    const effectiveTopics = selectedTopics.length > 0
+      ? selectedTopics
+      : selectedField !== 'all'
+        ? (FIELD_MAP[selectedField]?.topics ?? [])
+        : [];
     setSessionCorrect(0);
     setSessionTotal(0);
     resetTimer();
     setScreen('quiz');
-    await restartQuiz(selectedTopics, selectedDifficulty);
-  }, [restartQuiz, selectedTopics, selectedDifficulty, resetTimer]);
+    await restartQuiz(effectiveTopics, selectedDifficulty);
+  }, [restartQuiz, selectedTopics, selectedField, selectedDifficulty, resetTimer]);
 
   const toggleTopic = useCallback((topic: string) => {
     setSelectedTopics((prev) =>
@@ -122,6 +130,8 @@ const Index = () => {
               onToggleTopic={toggleTopic}
               selectedDifficulty={selectedDifficulty}
               onSelectDifficulty={setSelectedDifficulty}
+              selectedField={selectedField}
+              onSelectField={setSelectedField}
               onStart={startQuiz}
               displayName={displayName}
               onSignOut={user ? signOut : undefined}

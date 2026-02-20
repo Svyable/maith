@@ -18,8 +18,6 @@ import { allQuestions } from '@/content';
 export type { PublicQuestion, CheckResult, QuizState } from '@/domain/quiz';
 
 export function useQuiz(selectedTopics: string[] = [], difficulty: Difficulty = 'ADVN') {
-  const meta = getDifficultyMeta(difficulty);
-
   const [state, setState] = useState<QuizState>(() => buildInitialState());
 
   const currentQuestion: PublicQuestion | null =
