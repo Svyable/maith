@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect } from 'react';
+import { useState, useCallback, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import confetti from 'canvas-confetti';
@@ -6,52 +6,19 @@ import { QuizHeader } from '@/components/QuizHeader';
 import { QuizScreen } from '@/components/QuizScreen';
 import { QuizResults } from '@/components/QuizResults';
 import { ThinkerCard } from '@/components/ThinkerCard';
+import { DifficultyPicker } from '@/components/DifficultyPicker';
 import { useTheme } from '@/hooks/useTheme';
 import { useAuth } from '@/hooks/useAuth';
 import { useTimer } from '@/hooks/useTimer';
-import { THINKERS, ANCIENT_THINKERS, MODERN_THINKERS } from '@/config/thinkers';
-import { getThinkerQuestions, allThinkerQuestions } from '@/content/thinkers';
-
-import { supabase } from '@/integrations/supabase/client';
-import { getDifficultyMeta, CONTENT_VERSION } from '@/config/constants';
+import { useThinkerQuiz } from '@/hooks/useThinkerQuiz';
+import { THINKERS, ANCIENT_THINKERS, MODERN_THINKERS, CONTEMPORARY_THINKERS } from '@/config/thinkers';
+import { getThinkerQuestions } from '@/content/thinkers';
+import { submitSession } from '@/domain/quiz';
+import { getDifficultyMeta, DEFAULT_DIFFICULTY, CONTENT_VERSION } from '@/config/constants';
 import type { Difficulty } from '@/config/constants';
-import type { PublicQuestion, CheckResult } from '@/hooks/useQuiz';
-import { calculatePoints } from '@/domain/scoring';
 import { t } from '@/i18n';
 
 type Screen = 'gallery' | 'quiz' | 'results';
-
-interface ThinkerQuizState {
-  currentIndex: number;
-  score: number;
-  streak: number;
-  bestStreak: number;
-  totalAnswered: number;
-  correctAnswered: number;
-  topicBreakdown: Record<string, { correct: number; total: number }>;
-  isFinished: boolean;
-  questions: PublicQuestion[];
-  lastCheckResult: CheckResult | null;
-}
-
-const DIFFICULTY: Difficulty = 'ADVN';
-const diffMeta = getDifficultyMeta(DIFFICULTY);
-
-function stripQuestion(q: ReturnType<typeof getThinkerQuestions>[number]): PublicQuestion {
-  const { correctIndex: _c, explanation: _e, realWorld: _r, ...pub } = q;
-  return pub;
-}
-
-function localCheck(questionId: number, selectedIndex: number): CheckResult | null {
-  const q = allThinkerQuestions.find((x) => x.id === questionId);
-  if (!q) return null;
-  return {
-    correct: selectedIndex === q.correctIndex,
-    correctIndex: q.correctIndex,
-    explanation: q.explanation,
-    realWorld: q.realWorld,
-  };
-}
 
 export default function Thinkers() {
   const navigate = useNavigate();
@@ -59,68 +26,38 @@ export default function Thinkers() {
   const { user } = useAuth();
   const [screen, setScreen] = useState<Screen>('gallery');
   const [selectedSlug, setSelectedSlug] = useState<string | null>(null);
+  const [selectedDifficulty, setSelectedDifficulty] = useState<Difficulty>(DEFAULT_DIFFICULTY);
   const [sessionCorrect, setSessionCorrect] = useState(0);
   const [sessionTotal, setSessionTotal] = useState(0);
+  const submittedRef = useRef(false);
 
-  const [quizState, setQuizState] = useState<ThinkerQuizState>({
-    currentIndex: 0, score: 0, streak: 0, bestStreak: 0,
-    totalAnswered: 0, correctAnswered: 0, topicBreakdown: {},
-    isFinished: false, questions: [], lastCheckResult: null,
-  });
+  const { state, questions, currentQuestion, startThinker, answer, nextQuestion, skipQuestion } =
+    useThinkerQuiz(selectedDifficulty);
 
-  const currentQuestion = quizState.questions[quizState.currentIndex] ?? null;
+  const diffMeta = getDifficultyMeta(selectedDifficulty);
 
   const handleTimeout = useCallback(() => {
     if (screen === 'quiz') setSessionTotal((p) => p + 1);
   }, [screen]);
 
-  const { timeLeft, reset: resetTimer, fraction } = useTimer(diffMeta.timePerQuestion, handleTimeout, screen === 'quiz');
+  const { timeLeft, reset: resetTimer, fraction } = useTimer(
+    diffMeta.timePerQuestion,
+    handleTimeout,
+    screen === 'quiz',
+  );
 
-  const startThinker = useCallback((slug: string) => {
-    const rawQs = getThinkerQuestions(slug);
-    // Fisher-Yates shuffle (unbiased)
-    const shuffled = [...rawQs];
-    for (let i = shuffled.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-    }
-    const questions = shuffled.map(stripQuestion);
-    setSelectedSlug(slug);
-    setSessionCorrect(0);
-    setSessionTotal(0);
-    setQuizState({
-      currentIndex: 0, score: 0, streak: 0, bestStreak: 0,
-      totalAnswered: 0, correctAnswered: 0, topicBreakdown: {},
-      isFinished: false, questions, lastCheckResult: null,
-    });
-    resetTimer();
-    setScreen('quiz');
-  }, [resetTimer]);
-
-  const answer = useCallback(async (optionIndex: number): Promise<CheckResult | null> => {
-    if (!currentQuestion) return null;
-    const result = localCheck(currentQuestion.id, optionIndex);
-    if (!result) return null;
-
-    setQuizState((prev) => {
-      const newStreak = result.correct ? prev.streak + 1 : 0;
-      const newBestStreak = Math.max(prev.bestStreak, newStreak);
-      const points = result.correct ? calculatePoints(DIFFICULTY, currentQuestion.difficulty, newStreak) : 0;
-      const topicBreakdown = { ...prev.topicBreakdown };
-      const existing = topicBreakdown[currentQuestion.topic] || { correct: 0, total: 0 };
-      topicBreakdown[currentQuestion.topic] = {
-        correct: existing.correct + (result.correct ? 1 : 0),
-        total: existing.total + 1,
-      };
-      return {
-        ...prev, score: prev.score + points, streak: newStreak, bestStreak: newBestStreak,
-        totalAnswered: prev.totalAnswered + 1,
-        correctAnswered: prev.correctAnswered + (result.correct ? 1 : 0),
-        topicBreakdown, lastCheckResult: result,
-      };
-    });
-    return result;
-  }, [currentQuestion]);
+  const handleStartThinker = useCallback(
+    (slug: string) => {
+      setSelectedSlug(slug);
+      setSessionCorrect(0);
+      setSessionTotal(0);
+      submittedRef.current = false;
+      startThinker(slug);
+      resetTimer();
+      setScreen('quiz');
+    },
+    [startThinker, resetTimer],
+  );
 
   const handleSessionUpdate = useCallback((correct: boolean) => {
     setSessionTotal((p) => p + 1);
@@ -130,48 +67,44 @@ export default function Thinkers() {
     }
   }, []);
 
-  const nextQuestion = useCallback(() => {
-    setQuizState((prev) => {
-      if (prev.currentIndex >= prev.questions.length - 1) {
-        return { ...prev, isFinished: true, lastCheckResult: null };
-      }
-      return { ...prev, currentIndex: prev.currentIndex + 1, lastCheckResult: null };
-    });
-    resetTimer();
-  }, [resetTimer]);
-
-  const skipQuestion = useCallback(() => {
-    setQuizState((prev) => ({ ...prev, streak: 0 }));
+  const handleNext = useCallback(() => {
     nextQuestion();
-  }, [nextQuestion]);
+    resetTimer();
+  }, [nextQuestion, resetTimer]);
 
-  // Transition to results + submit session
+  const handleSkip = useCallback(() => {
+    skipQuestion();
+    resetTimer();
+  }, [skipQuestion, resetTimer]);
+
+  // Transition to results + submit session (single submission guard)
   useEffect(() => {
-    if (quizState.isFinished && screen === 'quiz') {
+    if (state.isFinished && screen === 'quiz') {
       setScreen('results');
-      if (user && selectedSlug) {
-        const clientSessionId = `thnk-${user.id}-${Date.now()}`;
-        supabase.rpc('submit_quiz_session', {
-          p_client_session_id: clientSessionId,
-          p_topics: [selectedSlug],
-          p_difficulty: DIFFICULTY,
-          p_score: Math.round(quizState.score),
-          p_total_answered: quizState.totalAnswered,
-          p_correct_answered: quizState.correctAnswered,
-          p_best_streak: quizState.bestStreak,
-          p_topic_breakdown: quizState.topicBreakdown,
-          p_content_version: CONTENT_VERSION,
+      if (user && selectedSlug && !submittedRef.current) {
+        submittedRef.current = true;
+        submitSession(user.id, 'thnk', {
+          topics: [selectedSlug],
+          difficulty: selectedDifficulty,
+          score: state.score,
+          totalAnswered: state.totalAnswered,
+          correctAnswered: state.correctAnswered,
+          bestStreak: state.bestStreak,
+          topicBreakdown: state.topicBreakdown,
+          contentVersion: CONTENT_VERSION,
         });
       }
     }
-  }, [quizState.isFinished, screen]);
+    if (!state.isFinished) submittedRef.current = false;
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [state.isFinished, screen]);
 
-  const thinkerMeta = selectedSlug ? THINKERS.find((t) => t.slug === selectedSlug) : null;
+  const thinkerMeta = selectedSlug ? THINKERS.find((th) => th.slug === selectedSlug) : null;
 
   return (
     <div className="min-h-screen bg-background flex flex-col">
       <QuizHeader
-        streak={quizState.streak}
+        streak={state.streak}
         showStreak={screen === 'quiz'}
         isDark={isDark}
         onToggleTheme={toggleTheme}
@@ -196,12 +129,15 @@ export default function Thinkers() {
                 </p>
               </div>
 
+              {/* Difficulty picker for thinker mode */}
+              <DifficultyPicker selected={selectedDifficulty} onSelect={setSelectedDifficulty} />
+
               <div className="space-y-5">
                 <div>
                   <p className="text-[11px] font-bold text-muted-foreground uppercase tracking-widest mb-2 px-1">⚔️ Ancient Minds</p>
                   <div className="space-y-3">
                     {ANCIENT_THINKERS.map((thinker, i) => (
-                      <ThinkerCard key={thinker.slug} thinker={thinker} questionCount={getThinkerQuestions(thinker.slug).length} onSelect={startThinker} index={i} />
+                      <ThinkerCard key={thinker.slug} thinker={thinker} questionCount={getThinkerQuestions(thinker.slug).length} onSelect={handleStartThinker} index={i} />
                     ))}
                   </div>
                 </div>
@@ -209,10 +145,20 @@ export default function Thinkers() {
                   <p className="text-[11px] font-bold text-muted-foreground uppercase tracking-widest mb-2 px-1">🚀 Modern Pioneers</p>
                   <div className="space-y-3">
                     {MODERN_THINKERS.map((thinker, i) => (
-                      <ThinkerCard key={thinker.slug} thinker={thinker} questionCount={getThinkerQuestions(thinker.slug).length} onSelect={startThinker} index={i} />
+                      <ThinkerCard key={thinker.slug} thinker={thinker} questionCount={getThinkerQuestions(thinker.slug).length} onSelect={handleStartThinker} index={i} />
                     ))}
                   </div>
                 </div>
+                {CONTEMPORARY_THINKERS.length > 0 && (
+                  <div>
+                    <p className="text-[11px] font-bold text-muted-foreground uppercase tracking-widest mb-2 px-1">✨ Contemporary</p>
+                    <div className="space-y-3">
+                      {CONTEMPORARY_THINKERS.map((thinker, i) => (
+                        <ThinkerCard key={thinker.slug} thinker={thinker} questionCount={getThinkerQuestions(thinker.slug).length} onSelect={handleStartThinker} index={i} />
+                      ))}
+                    </div>
+                  </div>
+                )}
               </div>
 
               <button onClick={() => navigate('/')}
@@ -235,23 +181,23 @@ export default function Thinkers() {
                     <p className="text-[10px] text-muted-foreground">{thinkerMeta.archetype} · {thinkerMeta.domain}</p>
                   </div>
                   <div className="ml-auto text-right">
-                    <p className="text-xs font-mono font-bold text-foreground">{quizState.currentIndex + 1} / {quizState.questions.length}</p>
-                    <p className="text-[10px] text-muted-foreground">{t('quiz.score')}: {Math.round(quizState.score)}</p>
+                    <p className="text-xs font-mono font-bold text-foreground">{state.currentIndex + 1} / {questions.length}</p>
+                    <p className="text-[10px] text-muted-foreground">{t('quiz.score')}: {Math.round(state.score)}</p>
                   </div>
                 </motion.div>
               )}
               <QuizScreen
                 question={currentQuestion}
-                currentIndex={quizState.currentIndex}
-                totalQuestions={quizState.questions.length}
-                score={quizState.score}
-                difficulty={DIFFICULTY}
-                streak={quizState.streak}
+                currentIndex={state.currentIndex}
+                totalQuestions={questions.length}
+                score={state.score}
+                difficulty={selectedDifficulty}
+                streak={state.streak}
                 timerFraction={fraction}
                 timeLeft={timeLeft}
                 onAnswer={answer}
-                onNext={nextQuestion}
-                onSkip={skipQuestion}
+                onNext={handleNext}
+                onSkip={handleSkip}
                 sessionCorrect={sessionCorrect}
                 sessionTotal={sessionTotal}
                 onSessionUpdate={handleSessionUpdate}
@@ -263,12 +209,12 @@ export default function Thinkers() {
           {screen === 'results' && (
             <QuizResults
               key="results"
-              score={quizState.score}
-              totalAnswered={quizState.totalAnswered}
-              correctAnswered={quizState.correctAnswered}
-              bestStreak={quizState.bestStreak}
-              topicBreakdown={quizState.topicBreakdown}
-              difficulty={DIFFICULTY}
+              score={state.score}
+              totalAnswered={state.totalAnswered}
+              correctAnswered={state.correctAnswered}
+              bestStreak={state.bestStreak}
+              topicBreakdown={state.topicBreakdown}
+              difficulty={selectedDifficulty}
               sessionCorrect={sessionCorrect}
               sessionTotal={sessionTotal}
               onRestart={() => setScreen('gallery')}

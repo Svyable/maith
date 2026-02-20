@@ -1,15 +1,17 @@
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { TopicSelector } from './TopicSelector';
-
+import { FieldSelector } from './FieldSelector';
 import { DifficultyPicker } from './DifficultyPicker';
 import { LanguageSelector } from './LanguageSelector';
 import { type Difficulty, getDifficultyMeta, TOPIC_MAP } from '@/config/constants';
+import { FIELD_MAP } from '@/config/fields';
 import { allQuestions } from '@/content';
 import { t } from '@/i18n';
 import { useLocale } from '@/hooks/useLocale';
 import { useMemo, useState, useEffect } from 'react';
 import { getRandomQuote, type Quote } from '@/data/quotes';
+import { THINKERS } from '@/config/thinkers';
 
 interface HomeScreenProps {
   selectedTopics: string[];
@@ -34,18 +36,42 @@ export function HomeScreen({
   const diffMeta = getDifficultyMeta(selectedDifficulty);
   const { locale, changeLocale } = useLocale();
   const [quote, setQuote] = useState<Quote>(() => getRandomQuote('en'));
+  const [selectedField, setSelectedField] = useState<string>('all');
 
   // Refresh quote when locale changes
   useEffect(() => {
     setQuote(getRandomQuote(locale));
   }, [locale]);
 
+  // When field changes, clear topic selection so the new field's topics show
+  const handleSelectField = (slug: string) => {
+    setSelectedField(slug);
+    // Clear selected topics so the new field context applies
+    selectedTopics.forEach((t) => onToggleTopic(t));
+  };
+
+  // Derive topic slugs filtered to the selected field
+  const fieldTopics = useMemo<string[] | undefined>(() => {
+    if (selectedField === 'all') return undefined;
+    return FIELD_MAP[selectedField]?.topics ?? undefined;
+  }, [selectedField]);
+
   const questionCount = useMemo(() => {
     const pool = selectedTopics.length === 0
-      ? allQuestions
-      : allQuestions.filter(q => selectedTopics.includes(q.topic));
+      ? allQuestions.filter((q) => fieldTopics === undefined || fieldTopics.includes(q.topic))
+      : allQuestions.filter((q) => selectedTopics.includes(q.topic));
     return pool.length;
-  }, [selectedTopics]);
+  }, [selectedTopics, fieldTopics]);
+
+  const summaryTopicsLabel = useMemo(() => {
+    if (selectedTopics.length > 0) {
+      return selectedTopics.map((tp) => TOPIC_MAP[tp]?.label ?? tp).join(', ');
+    }
+    if (selectedField !== 'all') {
+      return FIELD_MAP[selectedField]?.label ?? t('home.allTopics');
+    }
+    return t('home.allTopics');
+  }, [selectedTopics, selectedField]);
 
   return (
     <motion.div
@@ -105,17 +131,23 @@ export function HomeScreen({
         <LanguageSelector locale={locale} onChangeLocale={changeLocale} />
       </div>
 
-      {/* Difficulty Picker */}
+      {/* Field Selector */}
       <div className="w-full">
-        <DifficultyPicker selected={selectedDifficulty} onSelect={onSelectDifficulty} />
+        <FieldSelector selectedField={selectedField} onSelectField={handleSelectField} />
       </div>
 
-      {/* Topic Selector */}
+      {/* Topic Selector — scoped to the selected field */}
       <div className="w-full">
         <TopicSelector
           selected={selectedTopics}
           onToggle={onToggleTopic}
+          fieldFilter={fieldTopics}
         />
+      </div>
+
+      {/* Difficulty Picker */}
+      <div className="w-full">
+        <DifficultyPicker selected={selectedDifficulty} onSelect={onSelectDifficulty} />
       </div>
 
       <motion.button
@@ -137,7 +169,7 @@ export function HomeScreen({
         <span className="text-xl">🎓</span>
         <div className="text-left">
           <p className="font-bold text-sm text-foreground">Who&apos;s Who in AI &amp; Math</p>
-          <p className="text-[10px] text-muted-foreground">20 legendary thinkers · Ancient &amp; Modern</p>
+          <p className="text-[10px] text-muted-foreground">{THINKERS.length} legendary thinkers · Ancient &amp; Modern</p>
         </div>
         <span className="ml-auto text-accent font-bold text-sm">→</span>
       </motion.button>
@@ -147,14 +179,7 @@ export function HomeScreen({
       </p>
 
       <p className="text-xs text-muted-foreground text-center">
-        {t('home.summary', {
-          topics: selectedTopics.length === 0
-            ? t('home.allTopics')
-            : selectedTopics.map(tp => TOPIC_MAP[tp]?.label ?? tp).join(', '),
-          diff: diffMeta.tag,
-          count: diffMeta.questionsPerQuiz,
-          time: diffMeta.timePerQuestion,
-        })}
+        {summaryTopicsLabel} · {diffMeta.tag} · {diffMeta.questionsPerQuiz} questions · {diffMeta.timePerQuestion}s timer
       </p>
       <div className="pb-6" />
     </motion.div>

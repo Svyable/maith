@@ -1,6 +1,21 @@
 // ============================================================
-// Thinker Mode Configuration — single source of truth
+// Thinker Mode Configuration — THINKER_REGISTRY
 // ============================================================
+//
+// HOW TO ADD A NEW THINKER PACK:
+// ─────────────────────────────────────────────────────────────
+// 1. Add a ThinkerMeta entry to THINKERS below
+// 2. Create src/content/thinkers/<slug>.ts with 10+ Questions
+//    — use IDs in range: Ancient 10001-10999, Modern 11001-11999,
+//      Contemporary 12001-12999
+// 3. Export the questions array from src/content/thinkers/index.ts
+// 4. The thinker appears automatically in the gallery
+//
+// era_group values:
+//   'ancient'       — historical figures (pre-1900)
+//   'modern'        — 20th-century pioneers (1900-1980 birth)
+//   'contemporary'  — living or recently active figures (post-1980 birth or active today)
+// ─────────────────────────────────────────────────────────────
 
 export interface ThinkerMeta {
   slug: string;
@@ -12,7 +27,7 @@ export interface ThinkerMeta {
   description: string;
   color: string;
   tagline: string;
-  era_group: 'ancient' | 'modern';
+  era_group: 'ancient' | 'modern' | 'contemporary';
 }
 
 export const THINKERS: ThinkerMeta[] = [
@@ -257,7 +272,7 @@ export const THINKERS: ThinkerMeta[] = [
     description: 'GANs, Adversarial Examples, WGAN, Deep Learning Textbook',
     color: 'destructive',
     tagline: 'He pitted two AIs against each other — and magic happened.',
-    era_group: 'modern',
+    era_group: 'contemporary',
   },
   {
     slug: 'vapnik',
@@ -273,13 +288,18 @@ export const THINKERS: ThinkerMeta[] = [
   },
 ];
 
-export const THINKER_MAP: Record<string, ThinkerMeta> = Object.fromEntries(
+/** Typed registry map — O(1) lookup by slug */
+export const THINKER_REGISTRY: Record<string, ThinkerMeta> = Object.fromEntries(
   THINKERS.map((t) => [t.slug, t])
 );
 
+/** Backward-compatible alias */
+export const THINKER_MAP = THINKER_REGISTRY;
+
 export function getThinker(slug: string): ThinkerMeta | undefined {
-  return THINKER_MAP[slug];
+  return THINKER_REGISTRY[slug];
 }
 
-export const ANCIENT_THINKERS = THINKERS.filter(t => t.era_group === 'ancient');
-export const MODERN_THINKERS = THINKERS.filter(t => t.era_group === 'modern');
+export const ANCIENT_THINKERS = THINKERS.filter((t) => t.era_group === 'ancient');
+export const MODERN_THINKERS = THINKERS.filter((t) => t.era_group === 'modern');
+export const CONTEMPORARY_THINKERS = THINKERS.filter((t) => t.era_group === 'contemporary');

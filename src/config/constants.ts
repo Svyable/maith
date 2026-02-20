@@ -71,14 +71,23 @@ export interface TopicMeta {
   label: string;
   emoji: string;
   description: string;
+  /** Which field this topic belongs to — matches FieldMeta.slug */
+  field: string;
 }
 
 export const TOPICS: TopicMeta[] = [
-  { slug: 'linear-algebra', label: 'Linear Algebra', emoji: '📐', description: 'Vectors, matrices, eigenvalues, SVD' },
-  { slug: 'calculus', label: 'Calculus', emoji: '∫', description: 'Derivatives, integrals, gradients, Hessians' },
-  { slug: 'probability-stats', label: 'Probability & Stats', emoji: '🎲', description: "Bayes, distributions, hypothesis testing" },
-  { slug: 'optimization', label: 'Optimization', emoji: '⛰️', description: 'Gradient descent, convexity, regularization' },
-  { slug: 'discrete-math', label: 'Discrete & Modern', emoji: '🔗', description: 'Complexity, graphs, tensors, attention' },
+  // ── Mathematics ──────────────────────────────────────────
+  { slug: 'linear-algebra',    label: 'Linear Algebra',       emoji: '📐', description: 'Vectors, matrices, eigenvalues, SVD',                field: 'math'    },
+  { slug: 'calculus',          label: 'Calculus',             emoji: '∫',  description: 'Derivatives, integrals, gradients, Hessians',        field: 'math'    },
+  { slug: 'probability-stats', label: 'Probability & Stats',  emoji: '🎲', description: "Bayes, distributions, hypothesis testing",           field: 'math'    },
+  { slug: 'optimization',      label: 'Optimization',         emoji: '⛰️', description: 'Gradient descent, convexity, regularization',        field: 'math'    },
+  { slug: 'discrete-math',     label: 'Discrete & Modern',    emoji: '🔗', description: 'Complexity, graphs, tensors, attention',             field: 'math'    },
+  // ── Physics ──────────────────────────────────────────────
+  { slug: 'quantum-mechanics', label: 'Quantum Mechanics',    emoji: '⚛️', description: 'Wave functions, operators, Schrödinger, uncertainty', field: 'physics' },
+  { slug: 'classical-mechanics', label: 'Classical Mechanics', emoji: '🍎', description: 'Newtonian dynamics, Lagrangians, Hamiltonians',      field: 'physics' },
+  // ── Quant / Finance ──────────────────────────────────────
+  { slug: 'stochastic-calculus',  label: 'Stochastic Calculus',   emoji: '📊', description: "Itô's lemma, Brownian motion, SDEs",            field: 'quant'   },
+  { slug: 'derivatives-pricing',  label: 'Derivatives Pricing',   emoji: '💹', description: 'Black-Scholes, Greeks, risk-neutral pricing',    field: 'quant'   },
 ];
 
 export const TOPIC_MAP: Record<string, TopicMeta> = Object.fromEntries(

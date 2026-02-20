@@ -6,10 +6,16 @@ import { t } from '@/i18n';
 interface TopicSelectorProps {
   selected: string[];
   onToggle: (topic: string) => void;
+  /** If provided, only show topics whose slugs are in this list */
+  fieldFilter?: string[];
 }
 
-export function TopicSelector({ selected, onToggle }: TopicSelectorProps) {
-  const { topics, loading } = useTopics();
+export function TopicSelector({ selected, onToggle, fieldFilter }: TopicSelectorProps) {
+  const { topics: allTopics, loading } = useTopics();
+
+  const topics = fieldFilter
+    ? allTopics.filter((tp) => fieldFilter.includes(tp.slug))
+    : allTopics;
 
   if (loading) {
     return (
@@ -30,7 +36,6 @@ export function TopicSelector({ selected, onToggle }: TopicSelectorProps) {
         {!allSelected && (
           <button
             onClick={() => {
-              // Deselect all → goes back to "all selected" (empty array = all)
               selected.forEach((slug) => onToggle(slug));
             }}
             className="text-xs text-primary hover:underline"

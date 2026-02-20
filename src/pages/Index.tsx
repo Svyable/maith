@@ -9,6 +9,7 @@ import { useQuiz } from '@/hooks/useQuiz';
 import { useTimer } from '@/hooks/useTimer';
 import { useTheme } from '@/hooks/useTheme';
 import { useAuth } from '@/hooks/useAuth';
+import { submitSession } from '@/domain/quiz';
 import { supabase } from '@/integrations/supabase/client';
 import { type Difficulty, getDifficultyMeta, DEFAULT_DIFFICULTY, CONTENT_VERSION } from '@/config/constants';
 import { t } from '@/i18n';
@@ -41,17 +42,15 @@ const Index = () => {
   useEffect(() => {
     if (state.isFinished && screen === 'quiz' && user && !submittedRef.current) {
       submittedRef.current = true;
-      const clientSessionId = `${user.id}-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
-      supabase.rpc('submit_quiz_session', {
-        p_client_session_id: clientSessionId,
-        p_topics: selectedTopics.length > 0 ? selectedTopics : Object.keys(state.topicBreakdown),
-        p_difficulty: selectedDifficulty,
-        p_score: Math.round(state.score),
-        p_total_answered: state.totalAnswered,
-        p_correct_answered: state.correctAnswered,
-        p_best_streak: state.bestStreak,
-        p_topic_breakdown: state.topicBreakdown,
-        p_content_version: CONTENT_VERSION,
+      submitSession(user.id, 'quiz', {
+        topics: selectedTopics.length > 0 ? selectedTopics : Object.keys(state.topicBreakdown),
+        difficulty: selectedDifficulty,
+        score: state.score,
+        totalAnswered: state.totalAnswered,
+        correctAnswered: state.correctAnswered,
+        bestStreak: state.bestStreak,
+        topicBreakdown: state.topicBreakdown,
+        contentVersion: CONTENT_VERSION,
       });
     }
     // Reset guard when starting a fresh quiz
