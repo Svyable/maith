@@ -131,7 +131,12 @@ export function QuizScreen({
         <span className="text-muted-foreground font-mono">
           {t('quiz.question', { current: currentIndex + 1, total: totalQuestions })}
         </span>
-        <span className={`px-2 py-0.5 rounded-full text-xs font-medium border bg-${diffMeta.color}/10 border-${diffMeta.color}/30 text-${diffMeta.color}`}>
+        <span className={`px-2 py-0.5 rounded-full text-xs font-medium border ${
+          diffMeta.color === 'success'     ? 'bg-success/10 border-success/30 text-success' :
+          diffMeta.color === 'accent'      ? 'bg-accent/10 border-accent/30 text-accent' :
+          diffMeta.color === 'destructive' ? 'bg-destructive/10 border-destructive/30 text-destructive' :
+          'bg-primary/10 border-primary/30 text-primary'
+        }`}>
           {diffMeta.tag}
         </span>
         <span className="font-mono font-bold text-foreground">

@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
-import { TOPICS, TOPIC_MAP } from '@/config/constants';
+import { TOPICS } from '@/config/constants';
+import { FIELDS } from '@/config/fields';
 import { t } from '@/i18n';
 
 interface TopicStat {
@@ -30,11 +31,17 @@ function getHeatLabel(pct: number): string {
   return t('heatmap.notStarted');
 }
 
+// Build a grouped structure: field → topics
+const availableFields = FIELDS.filter((f) => f.slug !== 'all' && f.available);
+
 export function TopicHeatmap({ topicStats }: TopicHeatmapProps) {
   const statsMap = Object.fromEntries(topicStats.map((s) => [s.topic, s]));
+  const topicMap = Object.fromEntries(TOPICS.map((t) => [t.slug, t]));
+
+  let animIndex = 0;
 
   return (
-    <div className="space-y-3">
+    <div className="space-y-4">
       <div className="flex items-center justify-between">
         <h3 className="text-sm font-bold text-muted-foreground">{t('profile.heatmap')}</h3>
         <div className="flex items-center gap-1">
@@ -49,49 +56,65 @@ export function TopicHeatmap({ topicStats }: TopicHeatmapProps) {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 gap-2">
-        {TOPICS.map((topic, i) => {
-          const stat = statsMap[topic.slug];
-          const total = stat?.total_answered ?? 0;
-          const correct = stat?.correct_answered ?? 0;
-          const pct = total > 0 ? Math.round((correct / total) * 100) : 0;
-          const heatClass = getHeatColor(pct);
-          const label = getHeatLabel(pct);
+      {availableFields.map((field) => {
+        const fieldTopics = field.topics
+          .map((slug) => topicMap[slug])
+          .filter(Boolean);
 
-          return (
-            <motion.div
-              key={topic.slug}
-              initial={{ opacity: 0, x: -10 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: i * 0.05 }}
-              className="bg-card rounded-xl border border-border p-3 flex items-center gap-3"
-            >
-              <div className={`w-10 h-10 rounded-lg flex items-center justify-center text-sm font-bold font-mono ${heatClass}`}>
-                {total > 0 ? `${pct}%` : '—'}
-              </div>
-              <div className="flex-1 min-w-0">
-                <div className="flex items-center gap-2">
-                  <span className="text-base">{topic.emoji}</span>
-                  <span className="text-sm font-medium text-foreground truncate">{topic.label}</span>
-                </div>
-                <div className="flex items-center gap-2 mt-1">
-                  <div className="flex-1 h-1.5 bg-secondary rounded-full overflow-hidden">
-                    <motion.div
-                      className={`h-full rounded-full ${pct >= 60 ? 'bg-success' : pct >= 40 ? 'bg-accent' : pct > 0 ? 'bg-destructive' : 'bg-secondary'}`}
-                      initial={{ width: 0 }}
-                      animate={{ width: `${pct}%` }}
-                      transition={{ delay: i * 0.05 + 0.2, duration: 0.5 }}
-                    />
-                  </div>
-                  <span className="text-[10px] text-muted-foreground whitespace-nowrap">
-                    {total > 0 ? `${correct}/${total} · ${label}` : label}
-                  </span>
-                </div>
-              </div>
-            </motion.div>
-          );
-        })}
-      </div>
+        if (fieldTopics.length === 0) return null;
+
+        return (
+          <div key={field.slug} className="space-y-2">
+            <p className="text-[11px] font-bold text-muted-foreground uppercase tracking-widest px-1">
+              {field.emoji} {field.label}
+            </p>
+            <div className="grid grid-cols-1 gap-2">
+              {fieldTopics.map((topic) => {
+                const stat = statsMap[topic.slug];
+                const total = stat?.total_answered ?? 0;
+                const correct = stat?.correct_answered ?? 0;
+                const pct = total > 0 ? Math.round((correct / total) * 100) : 0;
+                const heatClass = getHeatColor(pct);
+                const label = getHeatLabel(pct);
+                const idx = animIndex++;
+
+                return (
+                  <motion.div
+                    key={topic.slug}
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: idx * 0.04 }}
+                    className="bg-card rounded-xl border border-border p-3 flex items-center gap-3"
+                  >
+                    <div className={`w-10 h-10 rounded-lg flex items-center justify-center text-sm font-bold font-mono flex-shrink-0 ${heatClass}`}>
+                      {total > 0 ? `${pct}%` : '—'}
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center gap-2">
+                        <span className="text-base">{topic.emoji}</span>
+                        <span className="text-sm font-medium text-foreground truncate">{topic.label}</span>
+                      </div>
+                      <div className="flex items-center gap-2 mt-1">
+                        <div className="flex-1 h-1.5 bg-secondary rounded-full overflow-hidden">
+                          <motion.div
+                            className={`h-full rounded-full ${pct >= 60 ? 'bg-success' : pct >= 40 ? 'bg-accent' : pct > 0 ? 'bg-destructive' : 'bg-secondary'}`}
+                            initial={{ width: 0 }}
+                            animate={{ width: `${pct}%` }}
+                            transition={{ delay: idx * 0.04 + 0.2, duration: 0.5 }}
+                          />
+                        </div>
+                        <span className="text-[10px] text-muted-foreground whitespace-nowrap">
+                          {total > 0 ? `${correct}/${total} · ${label}` : label}
+                        </span>
+                      </div>
+                    </div>
+                  </motion.div>
+                );
+              })}
+            </div>
+          </div>
+        );
+      })}
     </div>
   );
 }

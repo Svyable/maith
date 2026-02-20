@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { FIELDS, type FieldMeta } from '@/config/fields';
 import { cn } from '@/lib/utils';
+import { t } from '@/i18n';
 
 interface FieldSelectorProps {
   selectedField: string;
@@ -10,7 +11,7 @@ interface FieldSelectorProps {
 export function FieldSelector({ selectedField, onSelectField }: FieldSelectorProps) {
   return (
     <div className="space-y-2">
-      <h3 className="text-xs font-bold text-muted-foreground tracking-widest uppercase">Field</h3>
+      <h3 className="text-xs font-bold text-muted-foreground tracking-widest uppercase">{t('home.fieldLabel')}</h3>
       <div className="flex flex-wrap gap-2">
         {FIELDS.map((field, i) => (
           <FieldPill
@@ -67,7 +68,7 @@ function FieldPill({
       <span>{field.label}</span>
       {!field.available && (
         <span className="ml-1 text-[9px] font-bold text-muted-foreground bg-muted px-1 py-0.5 rounded-full">
-          SOON
+          {t('field.soon')}
         </span>
       )}
     </motion.button>

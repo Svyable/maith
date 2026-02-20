@@ -129,8 +129,11 @@ export default function Profile() {
                           {s.difficulty}
                         </span>
                         <div>
-                          <div className="text-sm font-medium text-foreground">
-                            {s.topics.map(tp => TOPIC_MAP[tp]?.emoji ?? '📐').join(' ')}
+                        <div className="text-sm font-medium text-foreground">
+                            {s.topics.map((tp) => {
+                              const tm = TOPIC_MAP[tp];
+                              return tm ? tm.emoji : '🎓';
+                            }).join(' ')}
                             {' '}{s.score} pts
                           </div>
                           <div className="text-xs text-muted-foreground">

@@ -25,7 +25,12 @@ export function QuizResults({ score, correctAnswered, totalAnswered, bestStreak,
       <div className="text-6xl mb-2">{pct >= 90 ? '🏆' : pct >= 70 ? '🌟' : pct >= 50 ? '👍' : '💪'}</div>
       <h2 className="text-3xl font-bold font-display text-foreground">{t('results.title')}</h2>
 
-      <div className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold border bg-${diffMeta.color}/10 border-${diffMeta.color}/30 text-${diffMeta.color}`}>
+      <div className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold border ${
+        diffMeta.color === 'success'     ? 'bg-success/10 border-success/30 text-success' :
+        diffMeta.color === 'accent'      ? 'bg-accent/10 border-accent/30 text-accent' :
+        diffMeta.color === 'destructive' ? 'bg-destructive/10 border-destructive/30 text-destructive' :
+        'bg-primary/10 border-primary/30 text-primary'
+      }`}>
         {diffMeta.emoji} {diffMeta.tag}
       </div>
 
