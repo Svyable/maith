@@ -1,7 +1,7 @@
 // ── Quiz Engine — pure, testable, zero React, zero I/O ────────────────
 import { calculatePoints } from '@/domain/scoring';
 import type { Difficulty } from '@/config/constants';
-import type { PublicQuestion, CheckResult, QuizState } from './types';
+import type { PublicQuestion, CheckResult, QuizState, SkippedQuestion } from './types';
 import type { Question } from '@/content/types';
 
 /**
@@ -42,6 +42,7 @@ export function buildInitialState(): QuizState {
     loading: true,
     lastCheckResult: null,
     missedQuestions: [],
+    skippedQuestions: [],
   };
 }
 
@@ -93,4 +94,19 @@ export function advanceQuestion(prev: QuizState): QuizState {
     return { ...prev, isFinished: true, lastCheckResult: null };
   }
   return { ...prev, currentIndex: prev.currentIndex + 1, lastCheckResult: null };
+}
+
+/** Skip the current question — tracks it and breaks streak */
+export function skipCurrentQuestion(prev: QuizState): QuizState {
+  const question = prev.currentQuestions[prev.currentIndex];
+  const skippedQuestions = question
+    ? [...prev.skippedQuestions, { question }]
+    : prev.skippedQuestions;
+  const next: QuizState = { ...prev, streak: 0, skippedQuestions };
+  return advanceQuestion(next);
+}
+
+/** End the quiz immediately */
+export function endQuiz(prev: QuizState): QuizState {
+  return { ...prev, isFinished: true, lastCheckResult: null };
 }

@@ -22,6 +22,7 @@ interface QuizScreenProps {
   onAnswer: (index: number) => Promise<CheckResult | null>;
   onNext: () => void;
   onSkip: () => void;
+  onEndQuiz: () => void;
   sessionCorrect: number;
   sessionTotal: number;
   onSessionUpdate: (correct: boolean) => void;
@@ -39,6 +40,7 @@ export function QuizScreen({
   onAnswer,
   onNext,
   onSkip,
+  onEndQuiz,
   onSessionUpdate,
 }: QuizScreenProps) {
   const [selectedOption, setSelectedOption] = useState<number | null>(null);
@@ -231,12 +233,20 @@ export function QuizScreen({
             eliminateUsed={eliminateUsed}
             disabled={answerState !== 'pending'}
           />
-          <button
-            onClick={handleSkip}
-            className="w-full text-center text-sm text-muted-foreground hover:text-foreground transition-colors py-2"
-          >
-            {t('quiz.skip')}
-          </button>
+          <div className="flex items-center gap-2">
+            <button
+              onClick={handleSkip}
+              className="flex-1 text-center text-sm text-muted-foreground hover:text-foreground transition-colors py-2"
+            >
+              {t('quiz.skip')}
+            </button>
+            <button
+              onClick={onEndQuiz}
+              className="text-center text-sm text-destructive/70 hover:text-destructive transition-colors py-2 px-3 rounded-lg border border-destructive/20 hover:border-destructive/40"
+            >
+              {t('quiz.endQuiz')}
+            </button>
+          </div>
           <p className="text-[10px] text-muted-foreground/50 text-center hidden sm:block">{t('quiz.keys')}</p>
         </div>
       )}

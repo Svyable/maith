@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '@/hooks/useAuth';
 import { supabase } from '@/integrations/supabase/client';
-import { TOPICS, TOPIC_MAP } from '@/config/constants';
+import { TOPICS, TOPIC_MAP, DIFFICULTIES, getDifficultyMeta } from '@/config/constants';
 import { TopicHeatmap } from '@/components/TopicHeatmap';
 import { FieldStatsBar } from '@/components/FieldStatsBar';
 import { useTheme } from '@/hooks/useTheme';
@@ -23,6 +23,14 @@ interface TopicStat {
   correct_answered: number;
 }
 
+interface DifficultyStat {
+  difficulty: string;
+  score_total: number;
+  total_answered: number;
+  correct_answered: number;
+  best_streak: number;
+}
+
 interface RecentSession {
   id: string;
   created_at: string;
@@ -40,6 +48,7 @@ export default function Profile() {
   const { isDark, toggle: toggleTheme } = useTheme();
   const [stats, setStats] = useState<UserStats | null>(null);
   const [topicStats, setTopicStats] = useState<TopicStat[]>([]);
+  const [difficultyStats, setDifficultyStats] = useState<DifficultyStat[]>([]);
   const [recentSessions, setRecentSessions] = useState<RecentSession[]>([]);
   const [displayName, setDisplayName] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
@@ -50,16 +59,18 @@ export default function Profile() {
 
     async function fetchData() {
       setLoading(true);
-      const [profileRes, statsRes, topicRes, sessionsRes] = await Promise.all([
+      const [profileRes, statsRes, topicRes, diffRes, sessionsRes] = await Promise.all([
         supabase.from('profiles').select('display_name, username').eq('id', user!.id).maybeSingle(),
         supabase.from('user_stats').select('*').eq('user_id', user!.id).maybeSingle(),
         supabase.from('user_topic_stats').select('*').eq('user_id', user!.id),
+        supabase.from('user_difficulty_stats' as any).select('*').eq('user_id', user!.id),
         supabase.from('quiz_sessions').select('*').eq('user_id', user!.id).order('created_at', { ascending: false }).limit(10),
       ]);
 
       setDisplayName(profileRes.data?.display_name || profileRes.data?.username || null);
       if (statsRes.data) setStats(statsRes.data as UserStats);
       if (topicRes.data) setTopicStats(topicRes.data as TopicStat[]);
+      if (diffRes.data) setDifficultyStats(diffRes.data as unknown as DifficultyStat[]);
       if (sessionsRes.data) setRecentSessions(sessionsRes.data as RecentSession[]);
       setLoading(false);
     }
@@ -122,6 +133,37 @@ export default function Profile() {
                   topicStats.map((s) => [s.topic, { correct: s.correct_answered, total: s.total_answered }])
                 )}
               />
+            </div>
+          )}
+
+          {/* Difficulty breakdown */}
+          {difficultyStats.length > 0 && (
+            <div className="space-y-3">
+              <h3 className="text-sm font-bold text-muted-foreground">{t('profile.difficultyStats')}</h3>
+              <div className="grid grid-cols-3 gap-2">
+                {DIFFICULTIES.map((d) => {
+                  const stat = difficultyStats.find((s) => s.difficulty === d.slug);
+                  const pct = stat && stat.total_answered > 0
+                    ? Math.round((stat.correct_answered / stat.total_answered) * 100)
+                    : 0;
+                  const colorClass = d.color === 'success' ? 'text-success' : d.color === 'accent' ? 'text-accent' : 'text-destructive';
+                  return (
+                    <div key={d.slug} className="bg-card rounded-xl p-3 border border-border text-center space-y-1">
+                      <div className="text-lg">{d.emoji}</div>
+                      <div className="text-xs font-bold text-muted-foreground">{d.tag}</div>
+                      {stat ? (
+                        <>
+                          <div className={`text-lg font-bold font-mono ${colorClass}`}>{pct}%</div>
+                          <div className="text-[10px] text-muted-foreground">{stat.correct_answered}/{stat.total_answered} · ⭐{stat.score_total}</div>
+                          <div className="text-[10px] text-muted-foreground">🔥{stat.best_streak}</div>
+                        </>
+                      ) : (
+                        <div className="text-xs text-muted-foreground/50 italic">No data</div>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
             </div>
           )}
 

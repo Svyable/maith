@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { LatexRenderer } from './LatexRenderer';
 import { motion } from 'framer-motion';
 import { getDifficultyMeta, type Difficulty, TOPIC_MAP } from '@/config/constants';
 import { THINKER_MAP } from '@/config/thinkers';
@@ -7,7 +8,7 @@ import { ReviewMistakes } from './ReviewMistakes';
 import { FieldStatsBar } from './FieldStatsBar';
 import { getRandomQuote } from '@/data/quotes';
 import { useLocale } from '@/hooks/useLocale';
-import type { MissedQuestion } from '@/domain/quiz';
+import type { MissedQuestion, SkippedQuestion } from '@/domain/quiz';
 
 interface QuizResultsProps {
   score: number;
@@ -21,14 +22,16 @@ interface QuizResultsProps {
   sessionCorrect: number;
   sessionTotal: number;
   missedQuestions: MissedQuestion[];
+  skippedQuestions: SkippedQuestion[];
 }
 
-export function QuizResults({ score, correctAnswered, totalAnswered, bestStreak, topicBreakdown, difficulty, onRestart, onNewTopics, missedQuestions }: QuizResultsProps) {
+export function QuizResults({ score, correctAnswered, totalAnswered, bestStreak, topicBreakdown, difficulty, onRestart, onNewTopics, missedQuestions, skippedQuestions }: QuizResultsProps) {
   const pct = totalAnswered > 0 ? Math.round((correctAnswered / totalAnswered) * 100) : 0;
   const diffMeta = getDifficultyMeta(difficulty);
   const { locale } = useLocale();
   const [quote] = useState(() => getRandomQuote(locale));
   const [showReview, setShowReview] = useState(false);
+  const [showSkipped, setShowSkipped] = useState(false);
 
   return (
     <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} className="max-w-md mx-auto text-center space-y-6">
@@ -44,7 +47,7 @@ export function QuizResults({ score, correctAnswered, totalAnswered, bestStreak,
         {diffMeta.emoji} {diffMeta.tag}
       </div>
 
-      <div className="grid grid-cols-3 gap-4">
+      <div className="grid grid-cols-4 gap-3">
         <div className="bg-card rounded-xl p-4 border border-border">
           <div className="text-2xl font-bold text-primary">{Math.round(score)}</div>
           <div className="text-xs text-muted-foreground">{t('results.score')}</div>
@@ -56,6 +59,10 @@ export function QuizResults({ score, correctAnswered, totalAnswered, bestStreak,
         <div className="bg-card rounded-xl p-4 border border-border">
           <div className="text-2xl font-bold text-foreground">🔥{bestStreak}</div>
           <div className="text-xs text-muted-foreground">{t('results.bestStreak')}</div>
+        </div>
+        <div className="bg-card rounded-xl p-4 border border-border">
+          <div className="text-2xl font-bold text-muted-foreground">{skippedQuestions.length}</div>
+          <div className="text-xs text-muted-foreground">{t('results.skipped')}</div>
         </div>
       </div>
 
@@ -109,6 +116,49 @@ export function QuizResults({ score, correctAnswered, totalAnswered, bestStreak,
       )}
 
       {showReview && <ReviewMistakes missedQuestions={missedQuestions} />}
+
+      {/* Review skipped questions toggle */}
+      {skippedQuestions.length > 0 && (
+        <motion.button
+          whileHover={{ scale: 1.03 }}
+          whileTap={{ scale: 0.97 }}
+          onClick={() => setShowSkipped(!showSkipped)}
+          className="w-full py-3 rounded-xl border border-muted-foreground/30 bg-muted/5 text-muted-foreground font-semibold text-sm"
+        >
+          {showSkipped ? '▲ Hide Skipped' : t('results.reviewSkipped')} ({skippedQuestions.length})
+        </motion.button>
+      )}
+
+      {showSkipped && (
+        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="space-y-3">
+          <h3 className="text-sm font-bold text-muted-foreground uppercase tracking-widest">
+            {t('results.skippedTitle')} ({skippedQuestions.length})
+          </h3>
+          {skippedQuestions.map((skipped, idx) => {
+            const topicMeta = TOPIC_MAP[skipped.question.topic];
+            return (
+              <div key={`skip-${skipped.question.id}-${idx}`} className="bg-card rounded-xl border border-border p-4 space-y-2">
+                <div className="flex items-center gap-2 text-xs text-muted-foreground">
+                  <span>{topicMeta?.emoji ?? '📐'}</span>
+                  <span>{topicMeta?.label ?? skipped.question.topic}</span>
+                  <span className="ml-auto text-muted-foreground/50 italic">Skipped</span>
+                </div>
+                <LatexRenderer
+                  text={skipped.question.question}
+                  className="text-sm font-medium text-card-foreground leading-relaxed"
+                />
+                <div className="space-y-1.5">
+                  {skipped.question.options.map((opt, i) => (
+                    <div key={i} className="px-3 py-2 rounded-lg text-xs border border-transparent bg-secondary/50 text-muted-foreground">
+                      <LatexRenderer text={opt} className="inline" />
+                    </div>
+                  ))}
+                </div>
+              </div>
+            );
+          })}
+        </motion.div>
+      )}
 
       {/* Action buttons */}
       <div className="space-y-2">

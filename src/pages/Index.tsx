@@ -28,7 +28,7 @@ const Index = () => {
   const { isDark, toggle: toggleTheme } = useTheme();
   const { user, signOut } = useAuth();
 
-  const { state, currentQuestion, answer, nextQuestion, skipQuestion, restartQuiz, totalQuestions } = useQuiz(selectedTopics, selectedDifficulty);
+  const { state, currentQuestion, answer, nextQuestion, skipQuestion, endQuiz, restartQuiz, totalQuestions } = useQuiz(selectedTopics, selectedDifficulty);
 
   const diffMeta = getDifficultyMeta(selectedDifficulty);
 
@@ -85,6 +85,10 @@ const Index = () => {
     skipQuestion();
     resetTimer();
   }, [skipQuestion, resetTimer]);
+
+  const handleEndQuiz = useCallback(() => {
+    endQuiz();
+  }, [endQuiz]);
 
   useEffect(() => {
     if (state.isFinished && screen === 'quiz') {
@@ -160,6 +164,7 @@ const Index = () => {
               onAnswer={answer}
               onNext={handleNext}
               onSkip={handleSkip}
+              onEndQuiz={handleEndQuiz}
               sessionCorrect={sessionCorrect}
               sessionTotal={sessionTotal}
               onSessionUpdate={handleSessionUpdate}
@@ -177,6 +182,7 @@ const Index = () => {
               sessionCorrect={sessionCorrect}
               sessionTotal={sessionTotal}
               missedQuestions={state.missedQuestions}
+              skippedQuestions={state.skippedQuestions}
               onRestart={startQuiz}
               onNewTopics={() => setScreen('home')}
             />

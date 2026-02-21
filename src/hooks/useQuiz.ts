@@ -7,6 +7,8 @@ import {
   buildInitialState,
   applyAnswer,
   advanceQuestion,
+  skipCurrentQuestion,
+  endQuiz as endQuizEngine,
   fetchQuestions,
   checkAnswer,
   type QuizState,
@@ -48,9 +50,12 @@ export function useQuiz(selectedTopics: string[] = [], difficulty: Difficulty = 
   }, []);
 
   const skipQuestion = useCallback(() => {
-    setState((prev) => ({ ...prev, streak: 0 }));
-    nextQuestion();
-  }, [nextQuestion]);
+    setState(skipCurrentQuestion);
+  }, []);
+
+  const endQuiz = useCallback(() => {
+    setState(endQuizEngine);
+  }, []);
 
   const restartQuiz = useCallback(
     async (topics: string[] = [], diff: Difficulty = difficulty) => {
@@ -65,6 +70,7 @@ export function useQuiz(selectedTopics: string[] = [], difficulty: Difficulty = 
     answer,
     nextQuestion,
     skipQuestion,
+    endQuiz,
     restartQuiz,
     totalQuestions: state.currentQuestions.length,
   };

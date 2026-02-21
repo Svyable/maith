@@ -7,6 +7,8 @@ import {
   buildInitialState,
   applyAnswer,
   advanceQuestion,
+  skipCurrentQuestion,
+  endQuiz as endQuizEngine,
   fetchThinkerQuestions,
   checkThinkerAnswer,
   type QuizState,
@@ -56,9 +58,12 @@ export function useThinkerQuiz(difficulty: Difficulty = 'ADVN') {
   }, []);
 
   const skipQuestion = useCallback(() => {
-    setState((prev) => ({ ...prev, streak: 0 }));
-    nextQuestion();
-  }, [nextQuestion]);
+    setState(skipCurrentQuestion);
+  }, []);
+
+  const endQuiz = useCallback(() => {
+    setState(endQuizEngine);
+  }, []);
 
   // Expose questions as alias
   const questions = state.currentQuestions;
@@ -71,5 +76,6 @@ export function useThinkerQuiz(difficulty: Difficulty = 'ADVN') {
     answer,
     nextQuestion,
     skipQuestion,
+    endQuiz,
   };
 }

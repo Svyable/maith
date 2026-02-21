@@ -85,5 +85,10 @@
   "thinkers.modernPioneers": "🚀 Modern Pioneers",
   "thinkers.contemporary": "✨ Contemporary",
   "field.all": "All Fields",
-  "field.soon": "SOON"
+  "field.soon": "SOON",
+  "quiz.endQuiz": "End Quiz",
+  "results.skipped": "Skipped",
+  "results.reviewSkipped": "Review Skipped ⏭️",
+  "results.skippedTitle": "SKIPPED QUESTIONS",
+  "profile.difficultyStats": "DIFFICULTY BREAKDOWN"
 }
