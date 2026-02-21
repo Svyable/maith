@@ -92,6 +92,36 @@ export type Database = {
         }
         Relationships: []
       }
+      user_difficulty_stats: {
+        Row: {
+          best_streak: number
+          correct_answered: number
+          difficulty: string
+          score_total: number
+          total_answered: number
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          best_streak?: number
+          correct_answered?: number
+          difficulty: string
+          score_total?: number
+          total_answered?: number
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          best_streak?: number
+          correct_answered?: number
+          difficulty?: string
+          score_total?: number
+          total_answered?: number
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
       user_stats: {
         Row: {
           best_streak: number
@@ -176,33 +206,61 @@ export type Database = {
       }
     }
     Functions: {
-      submit_quiz_session: {
-        Args: {
-          p_best_streak: number
-          p_client_session_id: string
-          p_content_version?: string
-          p_correct_answered: number
-          p_difficulty: Database["public"]["Enums"]["difficulty"]
-          p_score: number
-          p_topic_breakdown: Json
-          p_topics: string[]
-          p_total_answered: number
-        }
-        Returns: {
-          best_streak: number
-          correct_answered: number
-          score_total: number
-          total_answered: number
-          updated_at: string
-          user_id: string
-        }
-        SetofOptions: {
-          from: "*"
-          to: "user_stats"
-          isOneToOne: true
-          isSetofReturn: false
-        }
-      }
+      submit_quiz_session:
+        | {
+            Args: {
+              p_best_streak: number
+              p_client_session_id: string
+              p_content_version?: string
+              p_correct_answered: number
+              p_difficulty: Database["public"]["Enums"]["difficulty"]
+              p_score: number
+              p_topic_breakdown?: Json
+              p_topics: string[]
+              p_total_answered: number
+            }
+            Returns: {
+              best_streak: number
+              correct_answered: number
+              score_total: number
+              total_answered: number
+              updated_at: string
+              user_id: string
+            }[]
+            SetofOptions: {
+              from: "*"
+              to: "user_stats"
+              isOneToOne: false
+              isSetofReturn: true
+            }
+          }
+        | {
+            Args: {
+              p_best_streak: number
+              p_client_session_id: string
+              p_content_version?: string
+              p_correct_answered: number
+              p_difficulty: Database["public"]["Enums"]["difficulty"]
+              p_score: number
+              p_topic_breakdown: Json
+              p_topics: string[]
+              p_total_answered: number
+            }
+            Returns: {
+              best_streak: number
+              correct_answered: number
+              score_total: number
+              total_answered: number
+              updated_at: string
+              user_id: string
+            }
+            SetofOptions: {
+              from: "*"
+              to: "user_stats"
+              isOneToOne: true
+              isSetofReturn: false
+            }
+          }
     }
     Enums: {
       difficulty: "EASY" | "ADVN" | "SOTA"

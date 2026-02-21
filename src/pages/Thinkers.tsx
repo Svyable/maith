@@ -31,7 +31,7 @@ export default function Thinkers() {
   const [sessionTotal, setSessionTotal] = useState(0);
   const submittedRef = useRef(false);
 
-  const { state, questions, currentQuestion, startThinker, answer, nextQuestion, skipQuestion } =
+  const { state, questions, currentQuestion, startThinker, answer, nextQuestion, skipQuestion, endQuiz } =
     useThinkerQuiz(selectedDifficulty);
 
   const diffMeta = getDifficultyMeta(selectedDifficulty);
@@ -76,6 +76,10 @@ export default function Thinkers() {
     skipQuestion();
     resetTimer();
   }, [skipQuestion, resetTimer]);
+
+  const handleEndQuiz = useCallback(() => {
+    endQuiz();
+  }, [endQuiz]);
 
   // Transition to results + submit session (single submission guard)
   useEffect(() => {
@@ -198,6 +202,7 @@ export default function Thinkers() {
                 onAnswer={answer}
                 onNext={handleNext}
                 onSkip={handleSkip}
+                onEndQuiz={handleEndQuiz}
                 sessionCorrect={sessionCorrect}
                 sessionTotal={sessionTotal}
                 onSessionUpdate={handleSessionUpdate}
@@ -218,6 +223,7 @@ export default function Thinkers() {
               sessionCorrect={sessionCorrect}
               sessionTotal={sessionTotal}
               missedQuestions={state.missedQuestions}
+              skippedQuestions={state.skippedQuestions}
               onRestart={() => setScreen('gallery')}
             />
           )}

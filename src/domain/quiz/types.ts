@@ -23,6 +23,10 @@ export interface MissedQuestion {
   checkResult: CheckResult;
 }
 
+export interface SkippedQuestion {
+  question: PublicQuestion;
+}
+
 export interface QuizState {
   currentIndex: number;
   score: number;
@@ -37,6 +41,7 @@ export interface QuizState {
   loading: boolean;
   lastCheckResult: CheckResult | null;
   missedQuestions: MissedQuestion[];
+  skippedQuestions: SkippedQuestion[];
 }
 
 export interface QuizConfig {
