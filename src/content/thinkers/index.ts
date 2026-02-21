@@ -14,12 +14,27 @@ import { newtonQuestions } from './newton';
 import { eulerQuestions } from './euler';
 import { pythagorasQuestions } from './pythagoras';
 import { gaussQuestions } from './gauss';
+// New ancient thinkers
+import { leibnizQuestions } from './leibniz';
+import { fermatQuestions } from './fermat';
+import { alkhwarizmiQuestions } from './alkhwarizmi';
+import { lovelaceQuestions } from './lovelace';
+import { noetherQuestions } from './noether';
+import { curieQuestions } from './curie';
 // Modern thinkers
 import { bengioQuestions } from './bengio';
 import { lecunQuestions } from './lecun';
 import { suttonQuestions } from './sutton';
 import { goodfellowQuestions } from './goodfellow';
 import { vapnikQuestions } from './vapnik';
+import { einsteinQuestions } from './einstein';
+import { godelQuestions } from './godel';
+import { diracQuestions } from './dirac';
+import { kolmogorovQuestions } from './kolmogorov';
+import { hawkingQuestions } from './hawking';
+// Contemporary thinkers
+import { hassabisQuestions } from './hassabis';
+import { vaswaniQuestions } from './vaswani';
 import type { Question } from '../types';
 
 export const allThinkerQuestions: Question[] = [
@@ -41,12 +56,27 @@ export const allThinkerQuestions: Question[] = [
   ...eulerQuestions,
   ...pythagorasQuestions,
   ...gaussQuestions,
-  // Modern thinkers
+  // New ancient
+  ...leibnizQuestions,
+  ...fermatQuestions,
+  ...alkhwarizmiQuestions,
+  ...lovelaceQuestions,
+  ...noetherQuestions,
+  ...curieQuestions,
+  // Modern
   ...bengioQuestions,
   ...lecunQuestions,
   ...suttonQuestions,
   ...goodfellowQuestions,
   ...vapnikQuestions,
+  ...einsteinQuestions,
+  ...godelQuestions,
+  ...diracQuestions,
+  ...kolmogorovQuestions,
+  ...hawkingQuestions,
+  // Contemporary
+  ...hassabisQuestions,
+  ...vaswaniQuestions,
 ];
 
 export function getThinkerQuestions(slug: string): Question[] {
