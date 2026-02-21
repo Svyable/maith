@@ -176,7 +176,9 @@ const Index = () => {
               difficulty={selectedDifficulty}
               sessionCorrect={sessionCorrect}
               sessionTotal={sessionTotal}
-              onRestart={() => setScreen('home')}
+              missedQuestions={state.missedQuestions}
+              onRestart={startQuiz}
+              onNewTopics={() => setScreen('home')}
             />
           )}
         </AnimatePresence>

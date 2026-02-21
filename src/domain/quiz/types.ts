@@ -17,6 +17,12 @@ export interface CheckResult {
   realWorld: string;
 }
 
+export interface MissedQuestion {
+  question: PublicQuestion;
+  selectedIndex: number;
+  checkResult: CheckResult;
+}
+
 export interface QuizState {
   currentIndex: number;
   score: number;
@@ -30,6 +36,7 @@ export interface QuizState {
   currentQuestions: PublicQuestion[];
   loading: boolean;
   lastCheckResult: CheckResult | null;
+  missedQuestions: MissedQuestion[];
 }
 
 export interface QuizConfig {

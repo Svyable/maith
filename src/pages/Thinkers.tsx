@@ -217,6 +217,7 @@ export default function Thinkers() {
               difficulty={selectedDifficulty}
               sessionCorrect={sessionCorrect}
               sessionTotal={sessionTotal}
+              missedQuestions={state.missedQuestions}
               onRestart={() => setScreen('gallery')}
             />
           )}

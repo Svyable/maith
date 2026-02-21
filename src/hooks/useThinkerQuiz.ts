@@ -45,7 +45,7 @@ export function useThinkerQuiz(difficulty: Difficulty = 'ADVN') {
       if (!currentQuestion) return null;
       const result = checkThinkerAnswer(currentQuestion.id, optionIndex);
       if (!result) return null;
-      setState((prev) => applyAnswer(prev, result, currentQuestion, difficulty));
+      setState((prev) => applyAnswer(prev, result, currentQuestion, difficulty, optionIndex));
       return result;
     },
     [currentQuestion, difficulty],

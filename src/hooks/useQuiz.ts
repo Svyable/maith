@@ -37,7 +37,7 @@ export function useQuiz(selectedTopics: string[] = [], difficulty: Difficulty = 
       const result = await checkAnswer(currentQuestion.id, optionIndex, allQuestions);
       if (!result) return null;
 
-      setState((prev) => applyAnswer(prev, result, currentQuestion, difficulty));
+      setState((prev) => applyAnswer(prev, result, currentQuestion, difficulty, optionIndex));
       return result;
     },
     [currentQuestion, difficulty],

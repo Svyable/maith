@@ -41,6 +41,7 @@ export function buildInitialState(): QuizState {
     currentQuestions: [],
     loading: true,
     lastCheckResult: null,
+    missedQuestions: [],
   };
 }
 
@@ -53,6 +54,7 @@ export function applyAnswer(
   result: CheckResult,
   question: PublicQuestion,
   difficulty: Difficulty,
+  selectedIndex?: number,
 ): QuizState {
   const newStreak = result.correct ? prev.streak + 1 : 0;
   const newBestStreak = Math.max(prev.bestStreak, newStreak);
@@ -67,6 +69,10 @@ export function applyAnswer(
     total: existing.total + 1,
   };
 
+  const missedQuestions = result.correct
+    ? prev.missedQuestions
+    : [...prev.missedQuestions, { question, selectedIndex: selectedIndex ?? -1, checkResult: result }];
+
   return {
     ...prev,
     score: prev.score + points,
@@ -77,6 +83,7 @@ export function applyAnswer(
     answeredIds: [...prev.answeredIds, question.id],
     topicBreakdown,
     lastCheckResult: result,
+    missedQuestions,
   };
 }
 

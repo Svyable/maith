@@ -113,7 +113,7 @@ export default function Auth() {
               🧠
             </motion.div>
             <h1 className="text-3xl font-display font-bold text-foreground">
-              Math <span className="text-gradient-primary">Mastery</span>
+              Master<span className="text-gradient-primary">mind</span>
             </h1>
             <p className="text-sm text-muted-foreground">
               {mode === 'login' ? t('auth.welcome') : t('auth.create')}

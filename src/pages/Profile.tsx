@@ -5,6 +5,7 @@ import { useAuth } from '@/hooks/useAuth';
 import { supabase } from '@/integrations/supabase/client';
 import { TOPICS, TOPIC_MAP } from '@/config/constants';
 import { TopicHeatmap } from '@/components/TopicHeatmap';
+import { FieldStatsBar } from '@/components/FieldStatsBar';
 import { useTheme } from '@/hooks/useTheme';
 import { QuizHeader } from '@/components/QuizHeader';
 import { t } from '@/i18n';
@@ -111,6 +112,18 @@ export default function Profile() {
               </div>
             ))}
           </div>
+
+          {/* Field-level overview */}
+          {topicStats.length > 0 && (
+            <div className="space-y-2">
+              <h3 className="text-sm font-bold text-muted-foreground">{t('profile.fieldStats')}</h3>
+              <FieldStatsBar
+                topicBreakdown={Object.fromEntries(
+                  topicStats.map((s) => [s.topic, { correct: s.correct_answered, total: s.total_answered }])
+                )}
+              />
+            </div>
+          )}
 
           {/* Topic accuracy heatmap */}
           <TopicHeatmap topicStats={topicStats} />
