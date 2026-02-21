@@ -1,7 +1,13 @@
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { getDifficultyMeta, type Difficulty, TOPIC_MAP } from '@/config/constants';
 import { THINKER_MAP } from '@/config/thinkers';
 import { t } from '@/i18n';
+import { ReviewMistakes } from './ReviewMistakes';
+import { FieldStatsBar } from './FieldStatsBar';
+import { getRandomQuote } from '@/data/quotes';
+import { useLocale } from '@/hooks/useLocale';
+import type { MissedQuestion } from '@/domain/quiz';
 
 interface QuizResultsProps {
   score: number;
@@ -11,14 +17,18 @@ interface QuizResultsProps {
   topicBreakdown: Record<string, { correct: number; total: number }>;
   difficulty: Difficulty;
   onRestart: () => void;
+  onNewTopics?: () => void;
   sessionCorrect: number;
   sessionTotal: number;
+  missedQuestions: MissedQuestion[];
 }
 
-export function QuizResults({ score, correctAnswered, totalAnswered, bestStreak, topicBreakdown, difficulty, onRestart }: QuizResultsProps) {
-  // Use cumulative answered counts (not just session) for accuracy to survive restarts
+export function QuizResults({ score, correctAnswered, totalAnswered, bestStreak, topicBreakdown, difficulty, onRestart, onNewTopics, missedQuestions }: QuizResultsProps) {
   const pct = totalAnswered > 0 ? Math.round((correctAnswered / totalAnswered) * 100) : 0;
   const diffMeta = getDifficultyMeta(difficulty);
+  const { locale } = useLocale();
+  const [quote] = useState(() => getRandomQuote(locale));
+  const [showReview, setShowReview] = useState(false);
 
   return (
     <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} className="max-w-md mx-auto text-center space-y-6">
@@ -49,6 +59,10 @@ export function QuizResults({ score, correctAnswered, totalAnswered, bestStreak,
         </div>
       </div>
 
+      {/* Field-level stats */}
+      <FieldStatsBar topicBreakdown={topicBreakdown} />
+
+      {/* Topic breakdown */}
       {Object.keys(topicBreakdown).length > 0 && (
         <div className="bg-card rounded-xl p-4 border border-border text-left">
           <h3 className="text-sm font-bold text-muted-foreground mb-3">{t('results.topicBreakdown')}</h3>
@@ -56,7 +70,6 @@ export function QuizResults({ score, correctAnswered, totalAnswered, bestStreak,
             {Object.entries(topicBreakdown).map(([slug, { correct, total }]) => {
               if (total === 0) return null;
               const topicPct = Math.round((correct / total) * 100);
-              // Check both math topics and thinker slugs
               const meta = TOPIC_MAP[slug];
               const thinkerMeta = !meta ? THINKER_MAP[slug] : null;
               const label = meta?.label ?? (thinkerMeta ? `${thinkerMeta.emoji} ${thinkerMeta.name}` : slug);
@@ -77,14 +90,48 @@ export function QuizResults({ score, correctAnswered, totalAnswered, bestStreak,
         </div>
       )}
 
-      <motion.button
-        whileHover={{ scale: 1.03 }}
-        whileTap={{ scale: 0.97 }}
-        onClick={onRestart}
-        className="w-full py-4 rounded-xl bg-primary text-primary-foreground font-bold text-lg"
-      >
-        {t('results.playAgain')}
-      </motion.button>
+      {/* Inspirational quote */}
+      <div className="bg-card/50 rounded-xl border border-border/50 p-4 italic">
+        <p className="text-sm text-muted-foreground leading-relaxed">"{quote.text}"</p>
+        <p className="text-xs text-muted-foreground/70 mt-1">— {quote.author}</p>
+      </div>
+
+      {/* Review mistakes toggle */}
+      {missedQuestions.length > 0 && (
+        <motion.button
+          whileHover={{ scale: 1.03 }}
+          whileTap={{ scale: 0.97 }}
+          onClick={() => setShowReview(!showReview)}
+          className="w-full py-3 rounded-xl border border-destructive/30 bg-destructive/5 text-destructive font-semibold text-sm"
+        >
+          {showReview ? '▲ Hide Review' : t('results.reviewMistakes')} ({missedQuestions.length})
+        </motion.button>
+      )}
+
+      {showReview && <ReviewMistakes missedQuestions={missedQuestions} />}
+
+      {/* Action buttons */}
+      <div className="space-y-2">
+        <motion.button
+          whileHover={{ scale: 1.03 }}
+          whileTap={{ scale: 0.97 }}
+          onClick={onRestart}
+          className="w-full py-4 rounded-xl bg-primary text-primary-foreground font-bold text-lg"
+        >
+          {t('results.playAgain')}
+        </motion.button>
+
+        {onNewTopics && (
+          <motion.button
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.97 }}
+            onClick={onNewTopics}
+            className="w-full py-3 rounded-xl border border-border text-muted-foreground font-semibold text-sm hover:text-foreground hover:border-foreground/20 transition-all"
+          >
+            {t('results.newTopics')}
+          </motion.button>
+        )}
+      </div>
     </motion.div>
   );
 }
