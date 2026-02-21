@@ -1,4 +1,4 @@
-// ── Question pack aggregator (v4 — field-scoped content structure) ────
+// ── Question pack aggregator (v5 — expanded global scientific coverage) ────
 // To add a new topic pack:
 // 1. Create src/content/<topic-slug>/ directory with a questions.ts + index.ts
 // 2. Import and spread into allQuestions below
@@ -10,13 +10,36 @@
 
 export type { Question } from './types';
 
+// ── Mathematics ──────────────────────────────────────────────
 import { linearAlgebraQuestions } from './linear-algebra';
 import { calculusQuestions } from './calculus';
 import { probabilityStatsQuestions } from './probability-stats';
 import { optimizationQuestions } from './optimization';
 import { discreteMathQuestions } from './discrete-math';
+// ── Physics ──────────────────────────────────────────────────
 import { physicsQuestions } from './physics';
+// ── Quant / Finance ──────────────────────────────────────────
 import { quantQuestions } from './quant';
+// ── Chemistry ──────────────────────────────────────────────
+import { chemistryQuestions } from './chemistry';
+// ── Biology ──────────────────────────────────────────────────
+import { biologyQuestions } from './biology';
+// ── Computer Science ──────────────────────────────────────────
+import { computerScienceQuestions } from './computer-science';
+// ── Earth & Space ──────────────────────────────────────────────
+import { earthSpaceQuestions } from './earth-space';
+// ── Engineering ──────────────────────────────────────────────
+import { engineeringQuestions } from './engineering';
+// ── Economics ──────────────────────────────────────────────
+import { economicsQuestions } from './economics';
+// ── New topics in existing fields ──────────────────────────────
+import {
+  electromagnetismQuestions,
+  thermodynamicsQuestions,
+  numberTheoryQuestions,
+  realAnalysisQuestions,
+  riskManagementQuestions,
+} from './new-topics';
 
 import type { Question } from './types';
 
@@ -27,10 +50,27 @@ export const allQuestions: Question[] = [
   ...probabilityStatsQuestions,
   ...optimizationQuestions,
   ...discreteMathQuestions,
+  ...numberTheoryQuestions,
+  ...realAnalysisQuestions,
   // ── Physics ──────────────────────────────────────────────────
   ...physicsQuestions,
+  ...electromagnetismQuestions,
+  ...thermodynamicsQuestions,
+  // ── Chemistry ──────────────────────────────────────────────
+  ...chemistryQuestions,
+  // ── Biology ──────────────────────────────────────────────────
+  ...biologyQuestions,
+  // ── Computer Science ──────────────────────────────────────────
+  ...computerScienceQuestions,
+  // ── Earth & Space ──────────────────────────────────────────────
+  ...earthSpaceQuestions,
+  // ── Engineering ──────────────────────────────────────────────
+  ...engineeringQuestions,
+  // ── Economics ──────────────────────────────────────────────
+  ...economicsQuestions,
   // ── Quant / Finance ──────────────────────────────────────────
   ...quantQuestions,
+  ...riskManagementQuestions,
 ];
 
 /** Get questions filtered by topic slugs (standard pool only — no thinkers) */

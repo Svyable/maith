@@ -1,0 +1,88 @@
+import type { Question } from '../types';
+
+export const biologyQuestions: Question[] = [
+  // ── Molecular Biology ──────────────────────────────────────
+  {
+    id: 50001, topic: 'molecular-biology', difficulty: 'easy',
+    question: 'The central dogma of molecular biology describes the flow:',
+    options: ['DNA → RNA → Protein', 'Protein → RNA → DNA', 'RNA → DNA → Protein', 'DNA → Protein → RNA'],
+    correctIndex: 0,
+    explanation: 'The central dogma states that genetic information flows from DNA to RNA (transcription) to protein (translation).',
+    realWorld: 'This principle underlies mRNA vaccines — synthetic mRNA instructs cells to produce spike proteins.',
+    hint: 'Francis Crick proposed this "one-way street" of genetic information in 1958.',
+  },
+  {
+    id: 50002, topic: 'molecular-biology', difficulty: 'hard',
+    question: 'CRISPR-Cas9 achieves gene editing by:',
+    options: ['Creating double-strand breaks at guide RNA-specified loci', 'Methylating promoter regions', 'Inserting transposons randomly', 'Inhibiting ribosome assembly'],
+    correctIndex: 0,
+    explanation: 'Cas9 is an endonuclease guided by a short RNA sequence (sgRNA) to create precise double-strand breaks, enabling gene knockout or insertion via repair pathways.',
+    realWorld: 'CRISPR is being used in clinical trials for sickle cell disease, cancer immunotherapy, and agricultural engineering.',
+    hint: 'Think of Cas9 as molecular scissors guided to a specific DNA address.',
+  },
+  {
+    id: 50003, topic: 'molecular-biology', difficulty: 'sota',
+    question: 'In epigenetics, histone H3K27me3 is associated with:',
+    options: ['Transcriptional repression via Polycomb complexes', 'Active transcription elongation', 'DNA replication origins', 'Telomere maintenance'],
+    correctIndex: 0,
+    explanation: 'Trimethylation of histone H3 at lysine 27 (H3K27me3) is deposited by PRC2 and marks facultative heterochromatin, silencing developmental genes.',
+    realWorld: 'Aberrant H3K27me3 patterns drive cancers; EZH2 inhibitors are FDA-approved for lymphoma treatment.',
+    hint: 'Polycomb group proteins "remember" which genes to silence during development.',
+  },
+  // ── Genetics ──────────────────────────────────────────────
+  {
+    id: 50004, topic: 'genetics', difficulty: 'easy',
+    question: 'Mendel\'s law of segregation states that:',
+    options: ['Each organism carries two alleles that separate during gamete formation', 'Genes on the same chromosome always segregate together', 'Dominant alleles are more common', 'Mutations always produce recessive alleles'],
+    correctIndex: 0,
+    explanation: 'During meiosis, the two alleles for each gene segregate so each gamete carries only one allele.',
+    realWorld: 'This law explains inheritance patterns and is the foundation of genetic counseling.',
+    hint: 'Think about what happens to chromosome pairs during meiosis I.',
+  },
+  {
+    id: 50005, topic: 'genetics', difficulty: 'hard',
+    question: 'Epistasis occurs when:',
+    options: ['One gene masks or modifies the expression of another gene', 'Two genes are on the same chromosome', 'A gene has multiple alleles', 'Genes show incomplete dominance'],
+    correctIndex: 0,
+    explanation: 'Epistasis is a gene interaction where the phenotypic effect of one gene depends on the genotype at another locus.',
+    realWorld: 'Coat color in Labrador retrievers involves epistasis between the E and B genes.',
+    hint: 'The prefix "epi-" means "upon" — one gene acts upon another.',
+  },
+  {
+    id: 50006, topic: 'genetics', difficulty: 'sota',
+    question: 'Genome-wide association studies (GWAS) identify disease-associated loci by:',
+    options: ['Testing SNP-phenotype associations across millions of variants', 'Sequencing candidate genes in affected families', 'Comparing karyotypes between species', 'Measuring gene expression with microarrays'],
+    correctIndex: 0,
+    explanation: 'GWAS genotype hundreds of thousands of SNPs in large cohorts and test each for statistical association with a phenotype, applying stringent corrections for multiple testing ($p < 5 \\times 10^{-8}$).',
+    realWorld: 'GWAS have identified thousands of loci for diseases like diabetes, schizophrenia, and cardiovascular disease.',
+    hint: 'Think about scanning the entire genome without prior hypotheses about which genes matter.',
+  },
+  // ── Ecology ──────────────────────────────────────────────
+  {
+    id: 50007, topic: 'ecology', difficulty: 'easy',
+    question: 'In the ecological pyramid of energy, which trophic level has the most energy?',
+    options: ['Producers (autotrophs)', 'Primary consumers', 'Secondary consumers', 'Decomposers'],
+    correctIndex: 0,
+    explanation: 'Only about 10% of energy transfers between trophic levels, so producers always have the most total energy.',
+    realWorld: 'This is why plant-based diets are more energy-efficient — less energy is lost through trophic transfers.',
+    hint: 'Energy flows upward but diminishes at each step — the base must be the largest.',
+  },
+  {
+    id: 50008, topic: 'ecology', difficulty: 'hard',
+    question: 'The competitive exclusion principle (Gause\'s law) states that:',
+    options: ['Two species competing for the same niche cannot coexist indefinitely', 'Competition always leads to extinction', 'Species always partition resources equally', 'Predation prevents competition'],
+    correctIndex: 0,
+    explanation: 'Gause showed that if two species occupy the exact same niche, one will inevitably outcompete and displace the other.',
+    realWorld: 'This principle explains why invasive species can devastate native populations occupying similar niches.',
+    hint: 'Two species, one niche — who wins in the long run?',
+  },
+  {
+    id: 50009, topic: 'ecology', difficulty: 'sota',
+    question: 'The metacommunity framework extends community ecology by incorporating:',
+    options: ['Spatial dynamics of dispersal among local communities', 'Only predator-prey interactions', 'Genetic drift within populations', 'Abiotic factors exclusively'],
+    correctIndex: 0,
+    explanation: 'Metacommunity theory (Leibold et al.) considers how dispersal, local interactions, and environmental heterogeneity across patches shape regional biodiversity patterns.',
+    realWorld: 'Used in conservation to design wildlife corridors that connect fragmented habitats.',
+    hint: 'Meta- means "beyond" — think about communities connected by movement of organisms.',
+  },
+];
