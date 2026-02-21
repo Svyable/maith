@@ -1,6 +1,6 @@
 {
   "app.title": "Mastermind",
-  "app.tagline": "Master mathematics, physics, and quantitative finance — one question at a time.",
+  "app.tagline": "Master science, mathematics, engineering, and beyond — one question at a time.",
   "home.greeting": "Hey, {{name}} 👋",
   "home.selectDifficulty": "SELECT DIFFICULTY",
   "home.selectTopics": "SELECT TOPICS",

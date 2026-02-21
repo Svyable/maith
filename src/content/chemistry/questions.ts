@@ -1,0 +1,88 @@
+import type { Question } from '../types';
+
+export const chemistryQuestions: Question[] = [
+  // ── Physical Chemistry ──────────────────────────────────────
+  {
+    id: 40001, topic: 'physical-chemistry', difficulty: 'easy',
+    question: 'The ideal gas law is expressed as:',
+    options: ['$PV = nRT$', '$PV = nR/T$', '$P = nRT/V^2$', '$PV^2 = nRT$'],
+    correctIndex: 0,
+    explanation: 'The ideal gas law $PV = nRT$ relates pressure, volume, amount, and temperature of an ideal gas.',
+    realWorld: 'Used in engineering to design pressurized containers, HVAC systems, and chemical reactors.',
+    hint: 'Each variable represents a fundamental thermodynamic quantity of a gas.',
+  },
+  {
+    id: 40002, topic: 'physical-chemistry', difficulty: 'hard',
+    question: 'The Clausius-Clapeyron equation relates:',
+    options: ['Vapor pressure and temperature during phase transitions', 'Reaction rate and concentration', 'Entropy and enthalpy at equilibrium', 'Diffusion rate and molecular weight'],
+    correctIndex: 0,
+    explanation: 'The Clausius-Clapeyron equation $\\frac{dP}{dT} = \\frac{\\Delta H_{vap}}{T \\Delta V}$ describes how vapor pressure changes with temperature.',
+    realWorld: 'Essential for weather prediction, distillation processes, and understanding boiling points at altitude.',
+    hint: 'Think about what happens to boiling point when you change altitude (pressure).',
+  },
+  {
+    id: 40003, topic: 'physical-chemistry', difficulty: 'sota',
+    question: 'In transition state theory, the rate constant $k$ is given by $k = \\frac{k_B T}{h} e^{-\\Delta G^\\ddagger / RT}$. What does $\\Delta G^\\ddagger$ represent?',
+    options: ['Gibbs free energy of activation', 'Enthalpy of the products', 'Entropy of the universe', 'Kinetic energy of reactants'],
+    correctIndex: 0,
+    explanation: 'The Eyring equation uses the Gibbs free energy of activation $\\Delta G^\\ddagger$, which is the energy barrier between reactants and the transition state.',
+    realWorld: 'Pharmaceutical companies use this to predict drug stability and optimize catalytic reaction conditions.',
+    hint: 'The double dagger symbol ‡ denotes the transition state in chemical kinetics.',
+  },
+  // ── Organic Chemistry ──────────────────────────────────────
+  {
+    id: 40004, topic: 'organic-chemistry', difficulty: 'easy',
+    question: 'What type of reaction is the addition of HBr to an alkene?',
+    options: ['Electrophilic addition', 'Nucleophilic substitution', 'Elimination', 'Free radical substitution'],
+    correctIndex: 0,
+    explanation: 'HBr adds across the double bond of an alkene via electrophilic addition, following Markovnikov\'s rule.',
+    realWorld: 'Electrophilic additions are key steps in polymer synthesis and pharmaceutical manufacturing.',
+    hint: 'The electron-rich double bond attacks the electrophile (H⁺).',
+  },
+  {
+    id: 40005, topic: 'organic-chemistry', difficulty: 'hard',
+    question: 'In an SN2 reaction, the stereochemistry of the product is:',
+    options: ['Inverted (Walden inversion)', 'Retained', 'Racemized', 'Randomly assigned'],
+    correctIndex: 0,
+    explanation: 'SN2 reactions proceed via backside attack, leading to complete inversion of stereochemistry at the carbon center.',
+    realWorld: 'Understanding stereochemistry is critical in drug design — the wrong enantiomer can be inactive or harmful.',
+    hint: 'The nucleophile attacks from behind the leaving group, like flipping an umbrella.',
+  },
+  {
+    id: 40006, topic: 'organic-chemistry', difficulty: 'sota',
+    question: 'The Woodward-Hoffmann rules predict the stereochemical outcome of pericyclic reactions based on:',
+    options: ['Conservation of orbital symmetry', 'Thermodynamic stability of products', 'Steric hindrance', 'Solvent polarity'],
+    correctIndex: 0,
+    explanation: 'The Woodward-Hoffmann rules use frontier molecular orbital theory to predict whether pericyclic reactions proceed suprafacially or antarafacially.',
+    realWorld: 'These rules guide the synthesis of complex natural products like vitamin B12 (Woodward\'s landmark synthesis).',
+    hint: 'Think about HOMO-LUMO interactions and whether the reaction is thermally or photochemically allowed.',
+  },
+  // ── Inorganic Chemistry ──────────────────────────────────────
+  {
+    id: 40007, topic: 'inorganic-chemistry', difficulty: 'easy',
+    question: 'Crystal field theory predicts that octahedral d⁶ complexes with strong-field ligands are:',
+    options: ['Low-spin (diamagnetic)', 'High-spin (paramagnetic)', 'Always colored', 'Always tetrahedral'],
+    correctIndex: 0,
+    explanation: 'Strong-field ligands cause a large crystal field splitting $\\Delta_o$, making it energetically favorable to pair electrons rather than occupy higher orbitals.',
+    realWorld: 'Fe²⁺ in hemoglobin is a low-spin d⁶ complex when O₂ binds, which is why oxygenated blood is bright red.',
+    hint: 'Strong field = large splitting = electrons prefer to pair up in lower orbitals.',
+  },
+  {
+    id: 40008, topic: 'inorganic-chemistry', difficulty: 'hard',
+    question: 'In Wade\'s rules, a closo borane cluster $B_nH_n^{2-}$ has how many skeletal electron pairs?',
+    options: ['$n + 1$', '$n$', '$n + 2$', '$2n$'],
+    correctIndex: 0,
+    explanation: 'Wade\'s rules state that closo clusters have $n + 1$ skeletal electron pairs, forming a closed deltahedron with $n$ vertices.',
+    realWorld: 'Wade\'s rules predict structures of borane clusters used in boron neutron capture therapy for cancer treatment.',
+    hint: 'Closo = closed polyhedron. Count the bonding pairs needed for the cage.',
+  },
+  {
+    id: 40009, topic: 'inorganic-chemistry', difficulty: 'sota',
+    question: 'The isolobal analogy relates organometallic fragments to main-group species based on:',
+    options: ['Similar frontier orbital symmetry and electron count', 'Identical atomic radii', 'Same oxidation states', 'Equal electronegativity'],
+    correctIndex: 0,
+    explanation: 'Hoffmann\'s isolobal analogy states that molecular fragments with similar frontier orbital properties (symmetry, energy, electron count) are isolobal and can substitute for each other.',
+    realWorld: 'Used to predict the stability of novel organometallic catalysts in industrial chemistry.',
+    hint: 'Roald Hoffmann showed that CH₃ and Mn(CO)₅ have analogous frontier orbitals.',
+  },
+];

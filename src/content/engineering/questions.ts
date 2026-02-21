@@ -1,0 +1,88 @@
+import type { Question } from '../types';
+
+export const engineeringQuestions: Question[] = [
+  // ── Electrical Engineering ──────────────────────────────────
+  {
+    id: 80001, topic: 'electrical-engineering', difficulty: 'easy',
+    question: 'Ohm\'s law relates voltage, current, and resistance as:',
+    options: ['$V = IR$', '$V = I/R$', '$V = I^2R$', '$V = R/I$'],
+    correctIndex: 0,
+    explanation: 'Ohm\'s law $V = IR$ states that voltage across a conductor is proportional to the current flowing through it.',
+    realWorld: 'Every circuit designer uses Ohm\'s law daily — from phone chargers to power grids.',
+    hint: 'The simplest and most fundamental equation in electrical engineering.',
+  },
+  {
+    id: 80002, topic: 'electrical-engineering', difficulty: 'hard',
+    question: 'The Nyquist-Shannon sampling theorem states that to perfectly reconstruct a signal, the sampling rate must be:',
+    options: ['At least twice the maximum frequency (bandwidth)', 'Equal to the maximum frequency', 'At least four times the bandwidth', 'At least the signal amplitude'],
+    correctIndex: 0,
+    explanation: 'A band-limited signal with maximum frequency $f_{max}$ can be perfectly reconstructed from samples taken at $f_s \\geq 2f_{max}$ (the Nyquist rate).',
+    realWorld: 'CD audio uses 44.1 kHz sampling to capture the full audible range (up to ~20 kHz).',
+    hint: 'You need at least two samples per cycle of the highest frequency component.',
+  },
+  {
+    id: 80003, topic: 'electrical-engineering', difficulty: 'sota',
+    question: 'In control theory, the Bode gain and phase margins determine:',
+    options: ['Relative stability and robustness of a feedback system', 'Maximum power transfer efficiency', 'Signal-to-noise ratio', 'Impedance matching accuracy'],
+    correctIndex: 0,
+    explanation: 'Gain margin is how much gain can increase before instability; phase margin is how much phase can shift. Together they quantify how "far" a system is from oscillation.',
+    realWorld: 'Autopilot systems, industrial robots, and power grid controllers all require adequate stability margins.',
+    hint: 'A system oscillates when loop gain reaches 1 at 180° phase shift — margins measure the buffer.',
+  },
+  // ── Mechanical Engineering ──────────────────────────────────
+  {
+    id: 80004, topic: 'mechanical-engineering', difficulty: 'easy',
+    question: 'Stress is defined as:',
+    options: ['Force per unit area ($\\sigma = F/A$)', 'Force times distance', 'Mass times acceleration', 'Strain per unit length'],
+    correctIndex: 0,
+    explanation: 'Mechanical stress $\\sigma = F/A$ measures the internal forces per unit area within a material.',
+    realWorld: 'Engineers calculate stress to ensure bridges, buildings, and aircraft don\'t fail under load.',
+    hint: 'It is measured in Pascals (Pa) = Newtons per square meter.',
+  },
+  {
+    id: 80005, topic: 'mechanical-engineering', difficulty: 'hard',
+    question: 'The Carnot efficiency $\\eta = 1 - T_C/T_H$ represents:',
+    options: ['The maximum theoretical efficiency of a heat engine', 'The actual efficiency of a diesel engine', 'The efficiency of an electric motor', 'The coefficient of friction'],
+    correctIndex: 0,
+    explanation: 'No heat engine operating between temperatures $T_H$ and $T_C$ can exceed the Carnot efficiency — it is a thermodynamic upper bound.',
+    realWorld: 'Modern combined-cycle gas turbines achieve ~60% efficiency, approaching Carnot limits.',
+    hint: 'Sadi Carnot proved this theoretical maximum in 1824 — no real engine can beat it.',
+  },
+  {
+    id: 80006, topic: 'mechanical-engineering', difficulty: 'sota',
+    question: 'In finite element analysis (FEA), the stiffness matrix $[K]$ relates:',
+    options: ['Nodal forces to nodal displacements: $\\{F\\} = [K]\\{u\\}$', 'Stress to strain', 'Temperature to heat flux', 'Velocity to pressure'],
+    correctIndex: 0,
+    explanation: 'FEA discretizes a structure into elements; the global stiffness matrix assembles element contributions and relates applied forces to resulting displacements.',
+    realWorld: 'Every modern car, aircraft, and skyscraper is designed using FEA simulation before physical prototyping.',
+    hint: 'Think of it as a generalized Hooke\'s law ($F = kx$) extended to complex structures.',
+  },
+  // ── Materials Science ──────────────────────────────────────
+  {
+    id: 80007, topic: 'materials-science', difficulty: 'easy',
+    question: 'Young\'s modulus measures a material\'s:',
+    options: ['Stiffness (resistance to elastic deformation)', 'Hardness', 'Ductility', 'Thermal conductivity'],
+    correctIndex: 0,
+    explanation: 'Young\'s modulus $E = \\sigma/\\varepsilon$ is the ratio of stress to strain in the elastic region, quantifying stiffness.',
+    realWorld: 'Steel ($E \\approx 200$ GPa) is much stiffer than rubber ($E \\approx 0.01$ GPa).',
+    hint: 'It is the slope of the linear portion of a stress-strain curve.',
+  },
+  {
+    id: 80008, topic: 'materials-science', difficulty: 'hard',
+    question: 'Dislocations in crystalline materials are responsible for:',
+    options: ['Plastic deformation at stresses far below theoretical strength', 'Elastic behavior', 'Thermal expansion', 'Electrical conductivity'],
+    correctIndex: 0,
+    explanation: 'Dislocations (edge and screw) allow slip along crystal planes at much lower stresses than needed to break all bonds simultaneously.',
+    realWorld: 'Work hardening (cold rolling steel) works by tangling dislocations to impede further slip.',
+    hint: 'Moving a carpet is easier by pushing a wrinkle across it than dragging the whole thing.',
+  },
+  {
+    id: 80009, topic: 'materials-science', difficulty: 'sota',
+    question: 'High-entropy alloys (HEAs) are characterized by:',
+    options: ['Five or more principal elements in near-equimolar ratios forming simple solid solutions', 'A single dominant element with trace additives', 'Amorphous (non-crystalline) structure', 'Exactly two phases in equilibrium'],
+    correctIndex: 0,
+    explanation: 'HEAs maximize configurational entropy ($\\Delta S_{mix} \\geq 1.5R$), stabilizing simple FCC/BCC phases despite containing 5+ elements.',
+    realWorld: 'HEAs like CrMnFeCoNi show exceptional fracture toughness at cryogenic temperatures for aerospace applications.',
+    hint: 'High mixing entropy stabilizes a random solid solution instead of forming intermetallics.',
+  },
+];

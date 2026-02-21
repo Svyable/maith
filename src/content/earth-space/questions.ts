@@ -1,0 +1,88 @@
+import type { Question } from '../types';
+
+export const earthSpaceQuestions: Question[] = [
+  // ── Astronomy ──────────────────────────────────────────────
+  {
+    id: 70001, topic: 'astronomy', difficulty: 'easy',
+    question: 'A light-year is a unit of:',
+    options: ['Distance', 'Time', 'Speed', 'Luminosity'],
+    correctIndex: 0,
+    explanation: 'A light-year is the distance light travels in one year: approximately $9.461 \\times 10^{12}$ km.',
+    realWorld: 'The nearest star system (Alpha Centauri) is about 4.37 light-years from Earth.',
+    hint: 'Despite having "year" in the name, it measures how far light travels, not how long.',
+  },
+  {
+    id: 70002, topic: 'astronomy', difficulty: 'hard',
+    question: 'The Chandrasekhar limit ($\\approx 1.4 M_\\odot$) is the maximum mass of:',
+    options: ['A stable white dwarf', 'A neutron star', 'A main-sequence star', 'A black hole'],
+    correctIndex: 0,
+    explanation: 'Above $\\approx 1.4 M_\\odot$, electron degeneracy pressure cannot support a white dwarf against gravitational collapse, leading to a neutron star or supernova.',
+    realWorld: 'Type Ia supernovae occur when white dwarfs exceed this limit, and are used as "standard candles" to measure cosmic distances.',
+    hint: 'Subrahmanyan Chandrasekhar calculated this limit using special relativity and quantum mechanics.',
+  },
+  {
+    id: 70003, topic: 'astronomy', difficulty: 'sota',
+    question: 'The cosmic microwave background (CMB) anisotropies measured by Planck constrain the age of the universe to approximately:',
+    options: ['$13.8 \\pm 0.02$ billion years', '$10.5 \\pm 0.5$ billion years', '$15.2 \\pm 0.1$ billion years', '$20.0 \\pm 1.0$ billion years'],
+    correctIndex: 0,
+    explanation: 'Planck satellite measurements of CMB power spectra, combined with $\\Lambda$CDM model fitting, give $13.787 \\pm 0.020$ Gyr.',
+    realWorld: 'This precision measurement resolved decades of debate and constrains dark energy and dark matter models.',
+    hint: 'The Planck mission provided the most precise map of the baby universe.',
+  },
+  // ── Geology ──────────────────────────────────────────────
+  {
+    id: 70004, topic: 'geology', difficulty: 'easy',
+    question: 'The three main types of rocks are:',
+    options: ['Igneous, sedimentary, and metamorphic', 'Granite, limestone, and marble', 'Volcanic, oceanic, and continental', 'Primary, secondary, and tertiary'],
+    correctIndex: 0,
+    explanation: 'Rocks are classified by formation process: igneous (from magma), sedimentary (from deposition), and metamorphic (from heat/pressure transformation).',
+    realWorld: 'Understanding rock types is essential for construction, mining, and geological hazard assessment.',
+    hint: 'Think about the three ways rocks can form: cooling, layering, or transforming.',
+  },
+  {
+    id: 70005, topic: 'geology', difficulty: 'hard',
+    question: 'The Mohorovičić discontinuity (Moho) marks the boundary between:',
+    options: ['Earth\'s crust and mantle', 'Mantle and outer core', 'Outer and inner core', 'Lithosphere and asthenosphere'],
+    correctIndex: 0,
+    explanation: 'The Moho is detected by a sharp increase in seismic wave velocity, reflecting the compositional change from silicate crust to denser peridotite mantle.',
+    realWorld: 'No drill has ever reached the Moho — Project Mohole (1960s) attempted but was abandoned.',
+    hint: 'Named after the Croatian seismologist who discovered this seismic velocity discontinuity in 1909.',
+  },
+  {
+    id: 70006, topic: 'geology', difficulty: 'sota',
+    question: 'Zircon U-Pb geochronology dates the oldest known terrestrial minerals to approximately:',
+    options: ['4.4 billion years (Jack Hills, Australia)', '3.8 billion years', '4.6 billion years', '3.2 billion years'],
+    correctIndex: 0,
+    explanation: 'Detrital zircons from Jack Hills, Western Australia, yield U-Pb ages up to ~4.4 Ga, providing evidence of a solid crust and possibly liquid water within 150 Myr of Earth\'s formation.',
+    realWorld: 'These ancient zircons reshape our understanding of early Earth\'s habitability.',
+    hint: 'Zircons are incredibly durable — they survive billions of years of geological recycling.',
+  },
+  // ── Climate Science ──────────────────────────────────────
+  {
+    id: 70007, topic: 'climate-science', difficulty: 'easy',
+    question: 'The greenhouse effect is caused by atmospheric gases that:',
+    options: ['Absorb and re-emit infrared radiation', 'Block visible light from the Sun', 'Increase the speed of wind', 'Deplete the ozone layer'],
+    correctIndex: 0,
+    explanation: 'Greenhouse gases (CO₂, CH₄, H₂O, N₂O) are transparent to incoming solar radiation but absorb outgoing infrared radiation, warming the surface.',
+    realWorld: 'Without the natural greenhouse effect, Earth\'s average temperature would be about -18°C instead of +15°C.',
+    hint: 'These gases trap heat like the glass of a greenhouse — letting light in but slowing heat escape.',
+  },
+  {
+    id: 70008, topic: 'climate-science', difficulty: 'hard',
+    question: 'Climate sensitivity (ECS) is defined as the equilibrium warming from:',
+    options: ['A doubling of atmospheric CO₂ concentration', 'A 1% increase in solar irradiance', 'Complete ice sheet melting', 'Doubling methane emissions'],
+    correctIndex: 0,
+    explanation: 'Equilibrium Climate Sensitivity (ECS) is the long-term warming after CO₂ doubles from pre-industrial levels (~280 ppm to ~560 ppm), estimated at 2.5-4.0°C by IPCC AR6.',
+    realWorld: 'ECS is the single most important parameter for projecting future climate change.',
+    hint: 'IPCC reports center around this metric when projecting temperature scenarios.',
+  },
+  {
+    id: 70009, topic: 'climate-science', difficulty: 'sota',
+    question: 'The Atlantic Meridional Overturning Circulation (AMOC) weakening is linked to:',
+    options: ['Freshwater input from Greenland ice sheet melt reducing deep water formation', 'Increased solar activity', 'Volcanic aerosol injection', 'Ozone recovery'],
+    correctIndex: 0,
+    explanation: 'AMOC is driven by thermohaline circulation; freshwater from melting ice reduces salinity and density of North Atlantic water, weakening the "conveyor belt" that transports heat northward.',
+    realWorld: 'AMOC collapse could cause dramatic cooling in Europe, shift tropical rain belts, and accelerate sea-level rise on the US East Coast.',
+    hint: 'Salt water sinks; fresh water doesn\'t — what happens when you add too much freshwater?',
+  },
+];
