@@ -146,6 +146,37 @@ export const TOPICS: TopicMeta[] = [
   { slug: 'stochastic-calculus',  label: 'Stochastic Calculus',   emoji: '📊', description: "Itô's lemma, Brownian motion, SDEs",            field: 'quant'   },
   { slug: 'derivatives-pricing',  label: 'Derivatives Pricing',   emoji: '💹', description: 'Black-Scholes, Greeks, risk-neutral pricing',    field: 'quant'   },
   { slug: 'risk-management',      label: 'Risk Management',       emoji: '🛡️', description: 'VaR, Expected Shortfall, FRTB',                 field: 'quant'   },
+  { slug: 'portfolio-theory',     label: 'Portfolio Theory',       emoji: '📈', description: 'Markowitz, CAPM, Black-Litterman',              field: 'quant'   },
+  { slug: 'fixed-income',         label: 'Fixed Income',           emoji: '🏦', description: 'Duration, convexity, yield curves, HJM',        field: 'quant'   },
+  { slug: 'algo-trading',         label: 'Algorithmic Trading',    emoji: '⚡', description: 'VWAP, Almgren-Chriss, RL execution',            field: 'quant'   },
+  // ── CFA Program ──────────────────────────────────────
+  { slug: 'cfa-ethics',           label: 'CFA Ethics & Standards', emoji: '📜', description: 'Code of Ethics, GIPS, fiduciary duty',          field: 'cfa'     },
+  { slug: 'cfa-equity',           label: 'CFA Equity Valuation',   emoji: '📊', description: 'DDM, residual income, H-model',                field: 'cfa'     },
+  { slug: 'cfa-portfolio',        label: 'CFA Portfolio Mgmt',     emoji: '💼', description: 'IPS, core-satellite, LDI',                     field: 'cfa'     },
+  // ── CPA Exam ──────────────────────────────────────
+  { slug: 'cpa-auditing',         label: 'Auditing (AUD)',         emoji: '🔍', description: 'Audit opinions, ISA 240, continuous auditing',  field: 'cpa'     },
+  { slug: 'cpa-accounting',       label: 'Financial Accounting',   emoji: '📒', description: 'ASC 606, deferred tax, lease accounting',       field: 'cpa'     },
+  { slug: 'cpa-tax',              label: 'Regulation & Tax',       emoji: '🏛️', description: 'NOLs, 1031 exchanges, global minimum tax',     field: 'cpa'     },
+  // ── Actuarial Exams ──────────────────────────────────────
+  { slug: 'actuarial-probability', label: 'Actuarial Probability', emoji: '📐', description: 'Survival functions, force of mortality, Lee-Carter', field: 'actuarial' },
+  { slug: 'actuarial-finmath',    label: 'Financial Mathematics',  emoji: '💰', description: 'Annuities, immunization, key rate duration',    field: 'actuarial' },
+  { slug: 'actuarial-loss',       label: 'Loss Models',            emoji: '📉', description: 'Collective risk, Panjer, EVT-GPD',              field: 'actuarial' },
+  // ── MBA Core ──────────────────────────────────────
+  { slug: 'mba-strategy',         label: 'Corporate Strategy',     emoji: '♟️', description: 'Porter, Blue Ocean, platform business models',  field: 'mba'     },
+  { slug: 'mba-marketing',        label: 'Marketing Analytics',    emoji: '📣', description: 'CLV, attribution, marketing mix modeling',      field: 'mba'     },
+  { slug: 'mba-operations',       label: 'Operations Management',  emoji: '🏭', description: "Bullwhip effect, Little's Law, digital twins", field: 'mba'     },
+  // ── Law & Ethics ──────────────────────────────────────
+  { slug: 'contract-law',         label: 'Contract Law',           emoji: '📝', description: 'Offer, acceptance, promissory estoppel',        field: 'law'     },
+  { slug: 'ip-law',               label: 'Intellectual Property',  emoji: '©️', description: 'Patents, copyright, fair use, AI authorship',   field: 'law'     },
+  { slug: 'regulatory-compliance', label: 'Regulatory Compliance', emoji: '⚖️', description: 'GDPR, Basel III, EU AI Act',                   field: 'law'     },
+  // ── Medical Sciences ──────────────────────────────────────
+  { slug: 'anatomy-physiology',   label: 'Anatomy & Physiology',   emoji: '🫀', description: 'SA node, Frank-Starling, organ-on-chip',       field: 'medical' },
+  { slug: 'pathology',            label: 'Pathology',              emoji: '🔬', description: 'Inflammation, Warburg effect, liquid biopsy',   field: 'medical' },
+  { slug: 'biostatistics',        label: 'Biostatistics',          emoji: '📊', description: 'P-values, ITT analysis, adaptive trials',       field: 'medical' },
+  // ── Data Science ──────────────────────────────────────
+  { slug: 'data-wrangling',       label: 'Data Wrangling',         emoji: '🧹', description: 'Encoding, target leakage, feature stores',      field: 'data-science' },
+  { slug: 'mlops',                label: 'MLOps',                  emoji: '🔄', description: 'Model versioning, data drift, LLMOps',          field: 'data-science' },
+  { slug: 'data-visualization',   label: 'Data Visualization',     emoji: '📊', description: 'Tufte, pre-attentive attributes, Grammar of Graphics', field: 'data-science' },
   // ── Human Sciences ──────────────────────────────────────
   { slug: 'psychology',           label: 'Psychology',            emoji: '🧠', description: 'Kahneman, cognitive biases, replication crisis',  field: 'human-sciences' },
   { slug: 'linguistics',          label: 'Linguistics',           emoji: '🗣️', description: 'Chomsky, distributional semantics, LLMs',        field: 'human-sciences' },
