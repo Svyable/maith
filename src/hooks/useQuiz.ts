@@ -2,7 +2,7 @@
 // Business logic lives in src/domain/quiz/. This hook only manages React state.
 
 import { useState, useCallback } from 'react';
-import { type Difficulty, questionsForDifficulties } from '@/config/constants';
+import { type Difficulty } from '@/config/constants';
 import {
   buildInitialState,
   applyAnswer,
@@ -26,9 +26,9 @@ export function useQuiz(selectedTopics: string[] = [], difficulties: Difficulty[
     state.currentQuestions[state.currentIndex] ?? null;
 
   const initQuiz = useCallback(async (topics: string[], diffs: Difficulty[]) => {
-    const count = questionsForDifficulties(diffs);
     setState(buildInitialState());
-    const questions = await fetchQuestions(topics, diffs, count);
+    // Fetch ALL matching questions (no count limit)
+    const questions = await fetchQuestions(topics, diffs);
     setState((prev) => ({ ...prev, currentQuestions: questions, loading: false }));
   }, []);
 

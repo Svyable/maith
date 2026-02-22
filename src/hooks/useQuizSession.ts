@@ -8,19 +8,15 @@ import { useTimer } from '@/hooks/useTimer';
 import { useAuth } from '@/hooks/useAuth';
 import { submitSession } from '@/domain/quiz';
 import {
-  getDifficultyMeta,
   highestDifficulty,
   CONTENT_VERSION,
-  QUESTION_TIME,
+  QUESTION_TIME_SECONDS,
   type Difficulty,
-  type QuestionDifficulty,
 } from '@/config/constants';
 import type { QuizState } from '@/domain/quiz';
 
 interface UseQuizSessionOptions {
   difficulties: Difficulty[];
-  /** Current question's difficulty — drives the per-question timer */
-  currentQuestionDifficulty?: QuestionDifficulty;
   /** Whether the quiz screen is currently active */
   isQuizActive: boolean;
   /** Quiz engine state — needed for finish detection & submission */
@@ -29,30 +25,33 @@ interface UseQuizSessionOptions {
   sessionTag: string;
   /** Topics to record when submitting (fallback to topicBreakdown keys) */
   topics: string[];
+  /** Called when the timer expires — the parent should handle auto-answering */
+  onTimeout?: () => void;
 }
 
 export function useQuizSession({
   difficulties,
-  currentQuestionDifficulty,
   isQuizActive,
   quizState,
   sessionTag,
   topics,
+  onTimeout,
 }: UseQuizSessionOptions) {
   const { user } = useAuth();
   const [sessionCorrect, setSessionCorrect] = useState(0);
   const [sessionTotal, setSessionTotal] = useState(0);
   const submittedRef = useRef(false);
 
-  // Per-question timer duration based on question's difficulty
-  const timerDuration = currentQuestionDifficulty
-    ? QUESTION_TIME[currentQuestionDifficulty]
-    : getDifficultyMeta(highestDifficulty(difficulties)).timePerQuestion;
+  // Universal timer — same duration for all difficulties
+  const timerDuration = QUESTION_TIME_SECONDS;
 
   // Timer
   const handleTimeout = useCallback(() => {
-    if (isQuizActive) setSessionTotal((t) => t + 1);
-  }, [isQuizActive]);
+    if (isQuizActive) {
+      setSessionTotal((t) => t + 1);
+      onTimeout?.();
+    }
+  }, [isQuizActive, onTimeout]);
 
   const { timeLeft, reset: resetTimer, fraction } = useTimer(
     timerDuration,

@@ -4,7 +4,7 @@ import { TopicSelector } from './TopicSelector';
 import { FieldSelector } from './FieldSelector';
 import { DifficultyPicker } from './DifficultyPicker';
 import { LanguageSelector } from './LanguageSelector';
-import { type Difficulty, DIFFICULTIES, questionsForDifficulties, TOPIC_MAP } from '@/config/constants';
+import { type Difficulty, DIFFICULTIES, TOPIC_MAP } from '@/config/constants';
 import { FIELD_MAP } from '@/config/fields';
 import { allQuestions } from '@/content';
 import { t } from '@/i18n';
@@ -74,8 +74,6 @@ export function HomeScreen({
   const diffLabels = selectedDifficulties
     .map((d) => DIFFICULTIES.find((m) => m.slug === d)?.tag ?? d)
     .join(' + ');
-
-  const totalQuestions = questionsForDifficulties(selectedDifficulties);
 
   return (
     <motion.div
@@ -163,7 +161,7 @@ export function HomeScreen({
 
       {/* Session summary */}
       <p className="text-xs text-muted-foreground text-center">
-        {summaryTopicsLabel} · {diffLabels} · {totalQuestions} questions
+        {summaryTopicsLabel} · {diffLabels} · {questionCount} questions available
       </p>
 
       {/* Language Selector */}

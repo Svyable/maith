@@ -2,7 +2,7 @@
 // Delegates all logic to src/domain/quiz/. No duplicated business logic.
 
 import { useState, useCallback } from 'react';
-import { questionsForDifficulties, toQuestionDifficulty, type Difficulty } from '@/config/constants';
+import { toQuestionDifficulty, type Difficulty } from '@/config/constants';
 import {
   buildInitialState,
   applyAnswer,
@@ -30,9 +30,9 @@ export function useThinkerQuiz(difficulties: Difficulty[] = ['HARD']) {
 
   const startThinker = useCallback(
     (slug: string) => {
-      const count = questionsForDifficulties(difficulties);
       const levels = difficulties.map(toQuestionDifficulty);
-      const questions = fetchThinkerQuestions(slug, levels, count);
+      // Fetch ALL matching questions (no count limit)
+      const questions = fetchThinkerQuestions(slug, levels);
       setState({
         ...buildInitialState(),
         currentQuestions: questions,

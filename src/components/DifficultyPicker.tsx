@@ -67,7 +67,7 @@ function DifficultyCard({ meta, isSelected, onSelect }: { meta: DifficultyMeta; 
       <div className={`text-xs font-bold font-mono ${isSelected ? colors.badge : 'text-foreground'}`}>
         {meta.tag}
       </div>
-      <div className="text-[10px] text-muted-foreground mt-0.5">{meta.questionsPerQuiz}Q · {meta.timePerQuestion}s</div>
+      <div className="text-[10px] text-muted-foreground mt-0.5">+{meta.pointsPerCorrect}pts</div>
     </motion.button>
   );
 }
