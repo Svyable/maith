@@ -95,7 +95,7 @@ export function ThinkerGallery({
             <p className="text-[11px] font-bold text-muted-foreground uppercase tracking-widest mb-2 px-1">
               {ERA_LABELS[era] || era}
             </p>
-            <div className="space-y-3">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
               {thinkers.map((thinker, i) => (
                 <ThinkerCard
                   key={thinker.slug}

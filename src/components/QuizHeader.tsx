@@ -2,6 +2,7 @@ import { useAuth } from '@/hooks/useAuth';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { t } from '@/i18n';
 import { motion } from 'framer-motion';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 interface QuizHeaderProps {
   streak: number;
@@ -11,15 +12,18 @@ interface QuizHeaderProps {
   onHome: () => void;
 }
 
+const NAV_ITEMS = [
+  { path: '/', label: 'Quiz', emoji: '🧠', mobileOnly: false },
+  { path: '/thinkers', label: 'MasterMinds', emoji: '🎓', mobileOnly: false },
+  { path: '/glossary', label: 'Glossary', emoji: '📖', mobileOnly: false },
+  { path: '/leaderboard', label: 'Leaderboard', emoji: '🏆', mobileOnly: false },
+];
+
 export function QuizHeader({ streak, showStreak, isDark, onToggleTheme, onHome }: QuizHeaderProps) {
   const { user } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
-
-  const navItems = [
-    { path: '/', label: '🏠', title: t('nav.home') },
-    { path: '/leaderboard', label: '🏆', title: t('nav.leaderboard') },
-  ];
+  const isMobile = useIsMobile();
 
   return (
     <header className="flex items-center justify-between px-4 py-2.5 border-b border-border bg-card/50 backdrop-blur-sm sticky top-0 z-10" style={{ paddingTop: 'calc(0.5rem + env(safe-area-inset-top))' }}>
@@ -34,6 +38,7 @@ export function QuizHeader({ streak, showStreak, isDark, onToggleTheme, onHome }
           m<span className="text-gradient-primary">AI</span>th
         </h1>
       </motion.button>
+
       <div className="flex items-center gap-1">
         {showStreak && (
           <div className="flex items-center gap-1 mr-1">
@@ -42,24 +47,47 @@ export function QuizHeader({ streak, showStreak, isDark, onToggleTheme, onHome }
           </div>
         )}
 
-        {navItems.map((item) => (
+        {/* Desktop: text nav links */}
+        {!isMobile && (
+          <nav className="flex items-center gap-0.5 mr-2">
+            {NAV_ITEMS.map((item) => {
+              const isActive = location.pathname === item.path;
+              return (
+                <button
+                  key={item.path}
+                  onClick={() => navigate(item.path)}
+                  className={`px-2.5 py-1.5 rounded-lg text-xs font-medium transition-colors ${
+                    isActive
+                      ? 'bg-primary/15 text-primary'
+                      : 'text-muted-foreground hover:text-foreground hover:bg-secondary/60'
+                  }`}
+                >
+                  {item.emoji} {item.label}
+                </button>
+              );
+            })}
+          </nav>
+        )}
+
+        {/* Mobile: icon-only nav */}
+        {isMobile && NAV_ITEMS.slice(0, 2).map((item) => (
           <button
             key={item.path}
             onClick={() => navigate(item.path)}
-            title={item.title}
-            className={`w-10 h-10 rounded-lg flex items-center justify-center text-sm transition-colors ${
+            title={item.label}
+            className={`w-9 h-9 rounded-lg flex items-center justify-center text-sm transition-colors ${
               location.pathname === item.path
                 ? 'bg-primary/15 text-primary'
                 : 'bg-secondary text-foreground hover:bg-secondary/80'
             }`}
           >
-            {item.label}
+            {item.emoji}
           </button>
         ))}
 
         <button
           onClick={onToggleTheme}
-          className="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center text-foreground hover:bg-secondary/80 transition-colors"
+          className="w-9 h-9 rounded-lg bg-secondary flex items-center justify-center text-foreground hover:bg-secondary/80 transition-colors"
         >
           {isDark ? '☀️' : '🌙'}
         </button>
@@ -68,7 +96,7 @@ export function QuizHeader({ streak, showStreak, isDark, onToggleTheme, onHome }
           <button
             onClick={() => navigate('/profile')}
             title={t('nav.profile')}
-            className={`w-10 h-10 rounded-lg flex items-center justify-center text-sm transition-colors ${
+            className={`w-9 h-9 rounded-lg flex items-center justify-center text-sm transition-colors ${
               location.pathname === '/profile'
                 ? 'bg-primary/15 text-primary'
                 : 'bg-secondary text-foreground hover:bg-secondary/80'

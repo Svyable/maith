@@ -46,7 +46,7 @@ export function TopicSelector({ selected, onToggle, fieldFilter }: TopicSelector
       </div>
 
       <motion.div
-        className="grid grid-cols-1 gap-3"
+        className="grid grid-cols-1 md:grid-cols-2 gap-3"
         initial="hidden"
         animate="visible"
         variants={{
