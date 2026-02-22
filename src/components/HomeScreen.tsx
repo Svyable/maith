@@ -157,6 +157,21 @@ export function HomeScreen({
           </div>
           <span className="ml-auto text-accent font-bold text-sm">→</span>
         </motion.button>
+
+        {/* Glossary entry */}
+        <motion.button
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.97 }}
+          onClick={() => navigate('/glossary')}
+          className="w-full py-3 rounded-xl border-2 border-primary/50 bg-primary/5 hover:bg-primary/10 hover:border-primary transition-all flex items-center justify-center gap-3"
+        >
+          <span className="text-xl">📖</span>
+          <div className="text-left">
+            <p className="font-bold text-sm text-foreground">Glossary</p>
+            <p className="text-[10px] text-muted-foreground">Flash cards for key terms across all fields</p>
+          </div>
+          <span className="ml-auto text-primary font-bold text-sm">→</span>
+        </motion.button>
       </div>
 
       {/* Session summary */}
