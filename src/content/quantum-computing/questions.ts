@@ -16,6 +16,20 @@ export const quantumComputingQuestions: Question[] = [
     hint: 'Classical bits are 0 OR 1. Qubits can be both — until measured.',
   },
   {
+    id: 40004, topic: 'quantum-computing', difficulty: 'easy',
+    question: 'Measuring a qubit in superposition $\\alpha|0\\rangle + \\beta|1\\rangle$ gives:',
+    options: [
+      '|0⟩ with probability $|\\alpha|^2$ and |1⟩ with probability $|\\beta|^2$ — the superposition collapses irreversibly',
+      'Both 0 and 1 at the same time',
+      'Always 0 regardless of amplitudes',
+      'A continuous value between 0 and 1',
+    ],
+    correctIndex: 0,
+    explanation: 'The Born rule states measurement probabilities are the squared magnitudes of amplitudes. Measurement is irreversible — the qubit collapses to the observed state, destroying the superposition.',
+    realWorld: 'This probabilistic nature means quantum algorithms must be designed so correct answers have high amplitude — Grover\'s search amplifies the target state\'s probability through repeated interference.',
+    hint: 'Measurement is probabilistic and destructive — you can\'t peek without changing the state.',
+  },
+  {
     id: 40002, topic: 'quantum-computing', difficulty: 'hard',
     question: 'Quantum entanglement enables quantum advantage because:',
     options: [
@@ -30,6 +44,20 @@ export const quantumComputingQuestions: Question[] = [
     hint: 'Einstein called it "spooky action at a distance" — but it\'s real and experimentally verified.',
   },
   {
+    id: 40005, topic: 'quantum-computing', difficulty: 'hard',
+    question: 'Shor\'s algorithm achieves exponential speedup over classical factoring by:',
+    options: [
+      'Using quantum Fourier transform to find the period of modular exponentiation in polynomial time — converting factoring to period-finding',
+      'Trying all possible factors simultaneously via brute force',
+      'Using quantum tunneling to bypass mathematical barriers',
+      'Storing all prime numbers in a quantum database',
+    ],
+    correctIndex: 0,
+    explanation: 'Shor\'s key insight: factoring N reduces to finding the period r of $a^x \\mod N$. Classical period-finding is exponential; quantum Fourier transform finds r in polynomial time $O((\\log N)^3)$.',
+    realWorld: 'A 4,099-qubit quantum computer could break RSA-2048 in hours. Current largest: IBM\'s 1,121-qubit Condor. This drives the urgent transition to post-quantum cryptography.',
+    hint: 'Turn the hard problem (factoring) into an easier problem (period-finding) that quantum computers excel at.',
+  },
+  {
     id: 40003, topic: 'quantum-computing', difficulty: 'sota',
     question: 'Quantum error correction faces the threshold theorem challenge because:',
     options: [
@@ -42,5 +70,19 @@ export const quantumComputingQuestions: Question[] = [
     explanation: 'The threshold theorem states that if physical error rates are below ~1%, arbitrary-length quantum computation is possible using concatenated or surface codes. Current best: Google achieved below-threshold error correction with their Willow chip.',
     realWorld: 'Google\'s 2024 Willow experiment demonstrated that adding more qubits to a surface code REDUCES logical error rates — crossing the break-even point for the first time.',
     hint: 'You need many noisy physical qubits to simulate one perfect logical qubit — and the error rate must be low enough.',
+  },
+  {
+    id: 40006, topic: 'quantum-computing', difficulty: 'sota',
+    question: 'Quantum advantage for optimization via QAOA (Quantum Approximate Optimization Algorithm) works by:',
+    options: [
+      'Alternating between problem-specific and mixer unitaries at p layers, creating interference patterns that amplify optimal solutions — a variational hybrid quantum-classical algorithm',
+      'Solving any optimization problem in constant time',
+      'Using quantum annealing exclusively',
+      'Replacing gradient descent with quantum tunneling',
+    ],
+    correctIndex: 0,
+    explanation: 'QAOA prepares a parameterized quantum state by alternating problem Hamiltonian ($e^{-i\\gamma C}$) and mixer ($e^{-i\\beta B}$) applications. Classical optimization tunes γ,β to maximize expected solution quality. At p→∞ it converges to the optimal solution.',
+    realWorld: 'QAOA targets combinatorial optimization: portfolio optimization, logistics routing, drug molecule conformations. Current NISQ devices show modest advantages for small instances; fault-tolerant machines could transform these fields.',
+    hint: 'A hybrid approach: quantum circuit explores the solution space, classical optimizer tunes the parameters.',
   },
 ];
