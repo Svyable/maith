@@ -112,6 +112,24 @@ export const FIELDS: FieldMeta[] = [
     color: 'destructive',
     available: true,
   },
+  {
+    slug: 'sota-2025',
+    label: '2025 SOTA',
+    emoji: '🧠',
+    description: 'Frontier AI papers: CALM, DeepSeek-R1, Speculative Decoding, Data Shapley, SAM 2',
+    topics: ['sota-2025'],
+    color: 'destructive',
+    available: true,
+  },
+  {
+    slug: 'sota-2026',
+    label: '2026 SOTA',
+    emoji: '🚀',
+    description: 'Cutting-edge 2026: AgentSkiller, ALMA, LLaDA2.1, InftyThink+, Block Diffusion',
+    topics: ['sota-2026'],
+    color: 'accent',
+    available: true,
+  },
 ];
 
 export const FIELD_MAP: Record<string, FieldMeta> = Object.fromEntries(

@@ -40,6 +40,10 @@ import {
   realAnalysisQuestions,
   riskManagementQuestions,
 } from './new-topics';
+// ── 2025 SOTA ──────────────────────────────────────────────
+import { sota2025Questions } from './sota-2025';
+// ── 2026 SOTA ──────────────────────────────────────────────
+import { sota2026Questions } from './sota-2026';
 
 import type { Question } from './types';
 
@@ -71,6 +75,10 @@ export const allQuestions: Question[] = [
   // ── Quant / Finance ──────────────────────────────────────────
   ...quantQuestions,
   ...riskManagementQuestions,
+  // ── 2025 SOTA ──────────────────────────────────────────────
+  ...sota2025Questions,
+  // ── 2026 SOTA ──────────────────────────────────────────────
+  ...sota2026Questions,
 ];
 
 /** Get questions filtered by topic slugs (standard pool only — no thinkers) */

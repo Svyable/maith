@@ -1,0 +1,191 @@
+import type { Question } from '../types';
+
+export const sota2025Questions: Question[] = [
+  // 1. CALM — Continuous Autoregressive Language Models
+  {
+    id: 90001,
+    topic: 'sota-2025',
+    difficulty: 'sota',
+    question: 'In CALM (Continuous Autoregressive Language Models, 2025), why does predicting a continuous vector $z_t$ that represents multiple future tokens potentially improve the performance–compute tradeoff compared to standard next-token cross-entropy?',
+    options: [
+      'It amortises one forward pass over $K$ future tokens, increasing semantic bandwidth per step and reducing total decoding iterations',
+      'It replaces the softmax bottleneck with a continuous Gaussian, which is cheaper to normalise',
+      'It removes the need for positional encodings entirely',
+      'It allows the model to skip attention layers during inference',
+    ],
+    correctIndex: 0,
+    explanation: 'CALM predicts $z_t = f_\\theta(h_t)$, a continuous embedding encoding $K$ future tokens at once. This amortises a single forward pass over multiple output positions, increasing "semantic bandwidth" per step. The training uses a contrastive or reconstruction loss between $z_t$ and a target embedding $e(x_{t:t+K})$, avoiding per-token cross-entropy.',
+    realWorld: 'CALM-style models could dramatically speed up real-time translation and code generation by producing multi-token chunks per step, reducing latency in interactive AI assistants.',
+    hint: 'Think about how many tokens one forward pass "covers" — and what happens when you predict a chunk instead of one token.',
+  },
+  // 2. DeepSeek-R1: RL for Reasoning LLMs
+  {
+    id: 90002,
+    topic: 'sota-2025',
+    difficulty: 'sota',
+    question: 'In RL-finetuning a reasoning LLM (DeepSeek-R1 style), what is the role of the baseline term $b$ in the policy gradient $\\nabla_\\theta J = \\mathbb{E}[(R - b)\\,\\nabla_\\theta \\log \\pi_\\theta(a_{1:T} | s)]$, and what happens if you omit it?',
+    options: [
+      'It reduces variance of the gradient estimate without introducing bias; omitting it leads to high-variance, unstable training',
+      'It adds a regularisation penalty that prevents mode collapse; omitting it causes degenerate outputs',
+      'It clips the reward to prevent exploding gradients; omitting it causes NaN losses',
+      'It normalises the log-probability to lie in $[0,1]$; omitting it produces incorrect gradient directions',
+    ],
+    correctIndex: 0,
+    explanation: 'The baseline $b$ (often a value function estimate) is subtracted from the reward to reduce variance of the REINFORCE gradient estimator. Since $\\mathbb{E}[b\\,\\nabla \\log \\pi] = 0$ for a state-dependent baseline, it does not bias the gradient. Without it, the raw reward signal causes high variance, making training unstable and sample-inefficient.',
+    realWorld: 'DeepSeek-R1 uses RL to push LLMs toward longer, more deliberate chains of thought — the same variance-reduction tricks power RLHF in ChatGPT and Claude.',
+    hint: 'Recall REINFORCE: subtracting a constant from the reward does not change the expected gradient direction, but affects its spread.',
+  },
+  // 3. Absolute Zero Reasoner
+  {
+    id: 90003,
+    topic: 'sota-2025',
+    difficulty: 'sota',
+    question: 'In "Absolute Zero Reasoner" (zero-data reinforced reasoning), why can self-generated trajectories be both a blessing and a curse for RL-style reasoning training?',
+    options: [
+      'They provide unlimited free data but risk distribution shift and self-confirmation bias, where errors reinforce themselves',
+      'They are computationally free but cannot be batched on GPUs',
+      'They improve diversity but always reduce reward signal strength',
+      'They eliminate the need for a reward model but require human verification of every sample',
+    ],
+    correctIndex: 0,
+    explanation: 'Self-generated trajectories remove the need for expensive human-labeled chain-of-thought data (blessing), but the model trains on its own outputs, risking distribution shift — the training distribution drifts from the data the model was originally calibrated on. Worse, incorrect reasoning patterns can be reinforced ("self-confirmation"), creating feedback loops that are hard to escape.',
+    realWorld: 'This tension mirrors real-world concerns about AI models trained on AI-generated internet content — the "model collapse" problem threatening future foundation model quality.',
+    hint: 'Think about what happens when a student grades their own homework and then studies from those grades.',
+  },
+  // 4. Qwen3 / MoE
+  {
+    id: 90004,
+    topic: 'sota-2025',
+    difficulty: 'sota',
+    question: 'In a sparse Mixture-of-Experts (MoE) layer as used in Qwen3, what is the main computational advantage over a dense layer with the same total parameter count?',
+    options: [
+      'Only a small subset of experts ($k \\ll N$) is activated per token, so FLOPs scale with $k$ rather than $N$',
+      'MoE layers use lower-precision arithmetic automatically',
+      'The softmax routing removes the need for layer normalisation',
+      'Expert parameters are shared across layers, reducing memory',
+    ],
+    correctIndex: 0,
+    explanation: 'In sparse MoE, a gating function $p(i|h) = \\text{softmax}(Wh)_i$ routes each token to the top-$k$ experts out of $N$ total. The output $y = \\sum_i p(i|h)\\,E_i(h)$ only involves $k$ expert forward passes, so compute scales with $k$ (e.g., 2) rather than $N$ (e.g., 64). This gives the model capacity of $N$ experts but cost of $k$.',
+    realWorld: 'Qwen3 and Mixtral use MoE to match or exceed dense models like LLaMA-70B at a fraction of the inference cost — enabling deployment on smaller GPU clusters.',
+    hint: 'The key word is "sparse" — not every expert fires for every token.',
+  },
+  // 5. Mutarjim: Bilingual Alignment
+  {
+    id: 90005,
+    topic: 'sota-2025',
+    difficulty: 'sota',
+    question: 'In Mutarjim (bidirectional Arabic–English translation), why does minimising $\\|z_{ar} - z_{en}\\|_2^2$ between sentence embeddings help improve translation quality in both directions?',
+    options: [
+      'It forces Arabic and English sentences with the same meaning to share a common latent representation, enabling symmetric transfer',
+      'It reduces the vocabulary size needed for both languages',
+      'It eliminates the need for attention mechanisms in the decoder',
+      'It ensures both languages use the same byte-pair encoding',
+    ],
+    correctIndex: 0,
+    explanation: 'By minimising the L2 distance between embeddings $z_{ar}$ and $z_{en}$ for parallel sentences, the model learns a shared semantic space where meaning is language-agnostic. This enables bidirectional transfer: improvements in Arabic→English also help English→Arabic because both directions route through the same latent geometry.',
+    realWorld: 'This alignment principle powers Google Translate\'s zero-shot translation between language pairs it has never seen paired together — e.g., Korean↔Swahili via a shared embedding space.',
+    hint: 'If two languages map to the same point in latent space, decoding from that point works regardless of the target language.',
+  },
+  // 6. CALM — Cross-Lingual Self-Aligning
+  {
+    id: 90006,
+    topic: 'sota-2025',
+    difficulty: 'sota',
+    question: 'In the Cross-Lingual CALM (NAACL 2025), what does minimising a symmetric KL divergence $D_{KL}(p_\\ell \\| p_{\\ell\'}) + D_{KL}(p_{\\ell\'} \\| p_\\ell)$ between outputs in two languages encourage the model to do?',
+    options: [
+      'Produce consistent answer distributions regardless of the query language, aligning multilingual reasoning',
+      'Generate identical token sequences in both languages',
+      'Reduce the total vocabulary size to a shared subset',
+      'Force the model to always respond in English internally',
+    ],
+    correctIndex: 0,
+    explanation: 'The symmetric KL regulariser penalises disagreement between the model\'s answer distributions $p_\\ell(y|x_\\ell)$ and $p_{\\ell\'}(y|x_{\\ell\'})$ for the same underlying query in two languages. This encourages cross-lingual consistency: the model should reason to the same conclusion regardless of input language, reducing "language bias" in multilingual reasoning.',
+    realWorld: 'Without this alignment, multilingual LLMs often give different (and sometimes contradictory) answers to the same question asked in different languages — a known failure mode in GPT-4 and Claude.',
+    hint: 'Symmetric KL = "neither distribution should surprise the other." What does that mean for answers?',
+  },
+  // 7. Speculative Decoding
+  {
+    id: 90007,
+    topic: 'sota-2025',
+    difficulty: 'sota',
+    question: 'In speculative decoding, why must the proposed token block be accepted or rejected based on the ratio $p/q$ (target/draft probability) instead of just the fast model\'s confidence?',
+    options: [
+      'To guarantee the final output distribution exactly matches the target model, preserving quality via a Metropolis–Hastings-style correction',
+      'Because the fast model\'s logits are in a different numerical range',
+      'To ensure the draft model trains online during inference',
+      'Because the target model cannot compute per-token probabilities',
+    ],
+    correctIndex: 0,
+    explanation: 'The accept probability $\\alpha = \\min(1, p/q)$ ensures the accepted samples follow the target distribution $p$, not the draft distribution $q$. This is a Metropolis–Hastings correction: if the draft model over-proposes a token ($q > p$), it gets rejected proportionally, maintaining exact distributional fidelity to the expensive target model while gaining speed from the cheap draft.',
+    realWorld: 'Speculative decoding powers production inference at Google and Meta, reducing LLM serving latency by 2-3× without degrading output quality — critical for real-time chat applications.',
+    hint: 'Think of it as importance sampling: you need a correction factor when sampling from a proposal distribution different from the target.',
+  },
+  // 8. Transformers Learn Low Sensitivity Functions
+  {
+    id: 90008,
+    topic: 'sota-2025',
+    difficulty: 'sota',
+    question: 'How does a low Lipschitz constant $L$ (where $\\|f(x) - f(x\')\\| \\leq L\\|x - x\'\\|$) relate to robustness of a learned representation to input perturbations?',
+    options: [
+      'Small $L$ bounds how much the output can change for a given input perturbation, making the model inherently robust to noise and adversarial attacks',
+      'Small $L$ increases the model\'s capacity to memorise training data',
+      'Small $L$ guarantees faster convergence during training',
+      'Small $L$ means the model ignores all high-frequency input features',
+    ],
+    correctIndex: 0,
+    explanation: 'A Lipschitz-continuous function with small constant $L$ ensures that $\\|f(x) - f(x\')\\| \\leq L\\|x - x\'\\|$: small input changes produce at most proportionally small output changes. This directly bounds the model\'s sensitivity to perturbations, including adversarial attacks. The 2025 finding that transformers preferentially learn such functions helps explain their empirical generalisation.',
+    realWorld: 'This insight explains why vision transformers are more robust to adversarial patches than CNNs in autonomous driving perception systems — their learned representations have naturally lower sensitivity.',
+    hint: 'Lipschitz = "the function cannot amplify perturbations beyond a fixed factor." What does that mean for adversarial robustness?',
+  },
+  // 9. Data Shapley in One Training Run
+  {
+    id: 90009,
+    topic: 'sota-2025',
+    difficulty: 'sota',
+    question: 'Why is exact Shapley value computation intractable for large datasets, and what kind of approximation allows a "one training run" method to work?',
+    options: [
+      'Exact computation requires $2^n$ subset evaluations; one-run methods use gradient-based proxies (e.g., influence functions or online marginal contributions) during training',
+      'Exact computation is $O(n^2)$; one-run methods reduce it to $O(n)$ by random sampling',
+      'Shapley values are undefined for non-convex models; the approximation linearises the loss',
+      'Exact computation requires retraining for every data point; one-run methods use dropout as a substitute',
+    ],
+    correctIndex: 0,
+    explanation: 'The Shapley value $\\phi_i = \\sum_{S \\subseteq N \\setminus \\{i\\}} \\frac{|S|!(n-|S|-1)!}{n!}(U(S \\cup \\{i\\}) - U(S))$ sums over all $2^{n-1}$ subsets — exponentially intractable. One-run approximations track each example\'s marginal contribution to the loss gradient during a single training pass, using influence-function-style estimates as cheap proxies for the full combinatorial sum.',
+    realWorld: 'Data Shapley powers data marketplace pricing (e.g., Snowflake, AWS Data Exchange) where data sellers need fair compensation proportional to their data\'s contribution to model performance.',
+    hint: 'Count the subsets: $n$ data points → $2^n$ subsets. Now think about what information a single training run already gives you about each example\'s contribution.',
+  },
+  // 10. Learning Dynamics of LLM Fine-Tuning
+  {
+    id: 90010,
+    topic: 'sota-2025',
+    difficulty: 'sota',
+    question: 'What does a large representation drift $\\Delta_t^{(l)} = \\mathbb{E}_x[\\|h_{t+1}^{(l)}(x) - h_t^{(l)}(x)\\|_2]$ early in fine-tuning followed by a plateau suggest about what the model is doing internally?',
+    options: [
+      'Early layers rapidly reorganise to accommodate new domain features ("feature drift"), then stabilise as the model enters a "feature sharpening" phase that refines without large structural changes',
+      'The model is overfitting in early steps and then recovering via weight decay',
+      'The optimiser learning rate is too high initially and needs warm-up',
+      'The model is memorising the fine-tuning data in early steps, then forgetting it',
+    ],
+    correctIndex: 0,
+    explanation: 'Large $\\Delta_t^{(l)}$ early on indicates rapid reorganisation of internal representations to accommodate the new task/domain — "feature drift." The subsequent plateau signals "feature sharpening": the model refines existing features without large structural changes, polishing decision boundaries. This two-phase dynamic is consistent across instruction tuning, domain adaptation, and RLHF.',
+    realWorld: 'Understanding this dynamic helps practitioners set learning rate schedules for fine-tuning LLMs like LLaMA or Mistral — higher rates early (when drift is natural) and lower rates later (to avoid disrupting sharpened features).',
+    hint: 'Two phases: big changes then small changes. What does each phase accomplish in terms of internal representations?',
+  },
+  // 11. SAM 2: Video-level Segmentation
+  {
+    id: 90011,
+    topic: 'sota-2025',
+    difficulty: 'sota',
+    question: 'Why is a temporal consistency term $\\mathcal{L}_{temp} = \\|m_{t+1} - \\tau(m_t)\\|_1$ between successive masks critical for high-quality video object segmentation in SAM 2?',
+    options: [
+      'Without it, independently predicted per-frame masks flicker and lose object identity across frames, even if each frame\'s segmentation is individually accurate',
+      'It reduces the memory footprint by forcing adjacent masks to be identical',
+      'It replaces the need for optical flow computation entirely',
+      'It ensures the model processes frames in chronological order',
+    ],
+    correctIndex: 0,
+    explanation: 'Per-frame segmentation can be individually accurate yet temporally incoherent — masks jitter, objects appear/disappear, and boundaries flicker. The temporal loss $\\|m_{t+1} - \\tau(m_t)\\|_1$ penalises differences between the predicted next-frame mask and the optically-warped current mask $\\tau(m_t)$, enforcing smooth, identity-preserving tracking across time.',
+    realWorld: 'SAM 2\'s temporal consistency enables production-quality video editing tools (like Adobe\'s Rotoscoping AI) that track objects across hundreds of frames without manual keyframing.',
+    hint: 'Imagine segmenting a person walking: each frame might be perfect alone, but if the mask "jumps" between frames, the result looks terrible in motion.',
+  },
+];
