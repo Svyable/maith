@@ -11,7 +11,7 @@ import { useTheme } from '@/hooks/useTheme';
 import { useThinkerQuiz } from '@/hooks/useThinkerQuiz';
 import { useQuizSession } from '@/hooks/useQuizSession';
 import { THINKERS } from '@/config/thinkers';
-import { DEFAULT_DIFFICULTY } from '@/config/constants';
+import { DEFAULT_DIFFICULTIES } from '@/config/constants';
 import type { Difficulty } from '@/config/constants';
 import { t } from '@/i18n';
 
@@ -22,7 +22,7 @@ export default function Thinkers() {
   const { isDark, toggle: toggleTheme } = useTheme();
   const [screen, setScreen] = useState<Screen>('gallery');
   const [selectedSlug, setSelectedSlug] = useState<string | null>(null);
-  const [selectedDifficulties, setSelectedDifficulties] = useState<Difficulty[]>([DEFAULT_DIFFICULTY]);
+  const [selectedDifficulties, setSelectedDifficulties] = useState<Difficulty[]>(DEFAULT_DIFFICULTIES);
 
   const { state, questions, currentQuestion, startThinker, answer, nextQuestion, skipQuestion, endQuiz } =
     useThinkerQuiz(selectedDifficulties);

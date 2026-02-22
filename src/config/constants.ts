@@ -102,6 +102,11 @@ export const TOPICS: TopicMeta[] = [
   { slug: 'topology',          label: 'Topology',             emoji: '🍩', description: 'Homeomorphisms, Euler characteristic, TDA',          field: 'math'    },
   { slug: 'differential-equations', label: 'Differential Equations', emoji: '📈', description: 'ODEs, PDEs, Laplace transforms, Neural ODEs',       field: 'math'    },
   { slug: 'abstract-algebra',  label: 'Abstract Algebra',     emoji: '💠', description: 'Groups, rings, fields, Galois theory',                field: 'math'    },
+  { slug: 'combinatorics',     label: 'Combinatorics',        emoji: '🎯', description: 'Counting, Ramsey, chromatic polynomials, PFR',        field: 'math'    },
+  { slug: 'category-theory',   label: 'Category Theory',      emoji: '🔀', description: 'Functors, Yoneda, monads, ∞-categories, HoTT',       field: 'math'    },
+  { slug: 'ergodic-theory',    label: 'Ergodic Theory',       emoji: '🌀', description: 'Mixing, Lyapunov, Ratner, NSE turbulence',            field: 'math'    },
+  { slug: 'algebraic-geometry', label: 'Algebraic Geometry',  emoji: '🔷', description: 'Schemes, sheaves, MMP, perfectoid spaces',            field: 'math'    },
+  { slug: 'measure-theory',   label: 'Measure Theory',        emoji: '📏', description: 'Lebesgue, Radon-Nikodym, optimal transport',          field: 'math'    },
   // ── Physics ──────────────────────────────────────────────
   { slug: 'quantum-mechanics',   label: 'Quantum Mechanics',    emoji: '⚛️', description: 'Wave functions, operators, Schrödinger, uncertainty', field: 'physics' },
   { slug: 'classical-mechanics', label: 'Classical Mechanics',  emoji: '🍎', description: 'Newtonian dynamics, Lagrangians, Hamiltonians',      field: 'physics' },
@@ -130,6 +135,7 @@ export const TOPICS: TopicMeta[] = [
   { slug: 'cybersecurity',       label: 'Cybersecurity',        emoji: '🛡️', description: 'ZK proofs, post-quantum crypto, attack vectors',    field: 'cs' },
   { slug: 'distributed-systems', label: 'Distributed Systems',  emoji: '🌐', description: 'CAP theorem, consensus, CRDTs, Raft, Spanner',        field: 'cs' },
   { slug: 'operating-systems',   label: 'Operating Systems',    emoji: '🖥️', description: 'Scheduling, virtual memory, eBPF, io_uring',          field: 'cs' },
+  { slug: 'compiler-theory',    label: 'Compiler Theory',      emoji: '⚙️', description: 'Parsing, SSA, LLVM, MLIR, tensor compilers',           field: 'cs' },
   // ── Earth & Space ──────────────────────────────────────────
   { slug: 'astronomy',           label: 'Astronomy',            emoji: '🔭', description: 'Stars, galaxies, cosmology, CMB',                   field: 'earth-space' },
   { slug: 'geology',             label: 'Geology',              emoji: '🪨', description: 'Rocks, tectonics, geochronology',                   field: 'earth-space' },
@@ -201,5 +207,5 @@ export const TOPIC_MAP: Record<string, TopicMeta> = Object.fromEntries(
 );
 
 // ── Quiz defaults ────────────────────────────────────────────
-export const DEFAULT_DIFFICULTY: Difficulty = 'HARD';
+export const DEFAULT_DIFFICULTIES: Difficulty[] = ['EASY', 'HARD', 'SOTA'];
 export const CONTENT_VERSION = '2.0.0';
