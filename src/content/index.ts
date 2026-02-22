@@ -40,6 +40,23 @@ import {
   realAnalysisQuestions,
   riskManagementQuestions,
 } from './new-topics';
+// ── New fields & topics ──────────────────────────────────────
+import { quantumComputingQuestions } from './quantum-computing';
+import { gameTheoryQuestions } from './game-theory';
+import { roboticsQuestions } from './robotics';
+import { meteorologyQuestions } from './meteorology';
+import { audioEngineeringQuestions } from './audio-engineering';
+import { neuroscienceQuestions } from './neuroscience';
+import { linguisticsQuestions } from './linguistics';
+import { oceanographyQuestions } from './oceanography';
+import { cybersecurityQuestions } from './cybersecurity';
+import { aerospaceQuestions } from './aerospace';
+import { nuclearPhysicsQuestions } from './nuclear-physics';
+import { philosophyScienceQuestions } from './philosophy-of-science';
+import { topologyQuestions } from './topology';
+import { psychologyQuestions } from './psychology';
+import { environmentalScienceQuestions } from './environmental-science';
+import { pharmacologyQuestions } from './pharmacology';
 // ── 2025 SOTA ──────────────────────────────────────────────
 import { sota2025Questions } from './sota-2025';
 // ── 2026 SOTA ──────────────────────────────────────────────
@@ -56,25 +73,42 @@ export const allQuestions: Question[] = [
   ...discreteMathQuestions,
   ...numberTheoryQuestions,
   ...realAnalysisQuestions,
+  ...topologyQuestions,
   // ── Physics ──────────────────────────────────────────────────
   ...physicsQuestions,
   ...electromagnetismQuestions,
   ...thermodynamicsQuestions,
+  ...nuclearPhysicsQuestions,
   // ── Chemistry ──────────────────────────────────────────────
   ...chemistryQuestions,
-  // ── Biology ──────────────────────────────────────────────────
+  // ── Biology & Medicine ──────────────────────────────────────
   ...biologyQuestions,
+  ...neuroscienceQuestions,
+  ...pharmacologyQuestions,
   // ── Computer Science ──────────────────────────────────────────
   ...computerScienceQuestions,
+  ...quantumComputingQuestions,
+  ...cybersecurityQuestions,
   // ── Earth & Space ──────────────────────────────────────────────
   ...earthSpaceQuestions,
+  ...meteorologyQuestions,
+  ...oceanographyQuestions,
+  ...environmentalScienceQuestions,
   // ── Engineering ──────────────────────────────────────────────
   ...engineeringQuestions,
+  ...roboticsQuestions,
+  ...aerospaceQuestions,
+  ...audioEngineeringQuestions,
   // ── Economics ──────────────────────────────────────────────
   ...economicsQuestions,
+  ...gameTheoryQuestions,
   // ── Quant / Finance ──────────────────────────────────────────
   ...quantQuestions,
   ...riskManagementQuestions,
+  // ── Human Sciences ──────────────────────────────────────────
+  ...psychologyQuestions,
+  ...linguisticsQuestions,
+  ...philosophyScienceQuestions,
   // ── 2025 SOTA ──────────────────────────────────────────────
   ...sota2025Questions,
   // ── 2026 SOTA ──────────────────────────────────────────────
