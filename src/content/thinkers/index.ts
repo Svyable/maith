@@ -87,6 +87,21 @@ import { hedyLamarrQuestions } from './hedy-lamarr';
 import { darwinQuestions } from './darwin';
 import { rosalindFranklinQuestions } from './rosalind-franklin';
 import { doudnaQuestions } from './jennifer-doudna';
+// Chemistry thinkers
+import { mendeleevQuestions } from './mendeleev';
+import { lavoisierQuestions } from './lavoisier';
+import { paulingQuestions } from './pauling';
+// Medical thinkers
+import { flemingQuestions } from './fleming';
+import { jennerQuestions } from './jenner';
+// Quant thinkers
+import { fischerBlackQuestions } from './fischer-black';
+import { edThorpQuestions } from './ed-thorp';
+// Human Sciences thinkers
+import { kahnemanQuestions } from './kahneman';
+import { pavlovQuestions } from './pavlov';
+// Data Science thinkers
+import { tukeyQuestions } from './tukey';
 import type { Question } from '../types';
 
 export const allThinkerQuestions: Question[] = [
@@ -181,6 +196,21 @@ export const allThinkerQuestions: Question[] = [
   ...darwinQuestions,
   ...rosalindFranklinQuestions,
   ...doudnaQuestions,
+  // Chemistry
+  ...mendeleevQuestions,
+  ...lavoisierQuestions,
+  ...paulingQuestions,
+  // Medical
+  ...flemingQuestions,
+  ...jennerQuestions,
+  // Quant
+  ...fischerBlackQuestions,
+  ...edThorpQuestions,
+  // Human Sciences
+  ...kahnemanQuestions,
+  ...pavlovQuestions,
+  // Data Science
+  ...tukeyQuestions,
 ];
 export function getThinkerQuestions(slug: string): Question[] {
   return allThinkerQuestions.filter((q) => q.topic === slug);
