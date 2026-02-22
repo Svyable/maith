@@ -111,6 +111,13 @@ import { alkashiQuestions as alkashiPiQuestions } from './al-kashi';
 import { ptolemyQuestions } from './ptolemy';
 import { hipparchusQuestions } from './hipparchus';
 import { tusiQuestions } from './al-tusi';
+// Cryptography Pioneers
+import { satoshiQuestions } from './satoshi';
+import { diffieQuestions } from './diffie-hellman';
+import { shamirQuestions } from './shamir';
+import { kerckhoffsQuestions } from './kerckhoffs';
+import { merkleQuestions } from './merkle';
+import { rivestQuestions } from './rivest';
 // Applied Sciences: Optics, Comms, Semiconductors, Materials
 import { alhazenQuestions } from './alhazen';
 import { maxwellQuestions } from './maxwell';
@@ -236,6 +243,13 @@ export const allThinkerQuestions: Question[] = [
   ...ptolemyQuestions,
   ...hipparchusQuestions,
   ...tusiQuestions,
+  // Cryptography Pioneers
+  ...satoshiQuestions,
+  ...diffieQuestions,
+  ...shamirQuestions,
+  ...kerckhoffsQuestions,
+  ...merkleQuestions,
+  ...rivestQuestions,
   // Applied Sciences
   ...alhazenQuestions,
   ...maxwellQuestions,

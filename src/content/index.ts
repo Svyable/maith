@@ -52,6 +52,7 @@ import { oceanographyQuestions } from './oceanography';
 import { cybersecurityQuestions } from './cybersecurity';
 import { aerospaceQuestions } from './aerospace';
 import { nuclearPhysicsQuestions } from './nuclear-physics';
+import { fluidDynamicsQuestions } from './fluid-dynamics';
 import { philosophyScienceQuestions } from './philosophy-of-science';
 import { topologyQuestions } from './topology';
 import { psychologyQuestions } from './psychology';
@@ -93,6 +94,7 @@ export const allQuestions: Question[] = [
   ...electromagnetismQuestions,
   ...thermodynamicsQuestions,
   ...nuclearPhysicsQuestions,
+  ...fluidDynamicsQuestions,
   // ── Chemistry ──────────────────────────────────────────────
   ...chemistryQuestions,
   // ── Biology & Medicine ──────────────────────────────────────

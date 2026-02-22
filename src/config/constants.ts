@@ -106,6 +106,7 @@ export const TOPICS: TopicMeta[] = [
   { slug: 'electromagnetism',    label: 'Electromagnetism',     emoji: '⚡', description: 'Maxwell, Faraday, electromagnetic waves',            field: 'physics' },
   { slug: 'thermodynamics',      label: 'Thermodynamics',       emoji: '🌡️', description: 'Entropy, statistical mechanics, heat engines',       field: 'physics' },
   { slug: 'nuclear-physics',     label: 'Nuclear Physics',      emoji: '☢️', description: 'Fission, fusion, E=mc², radioactive decay',         field: 'physics' },
+  { slug: 'fluid-dynamics',     label: 'Fluid Dynamics',       emoji: '🌊', description: 'Navier-Stokes, turbulence, Reynolds number, CFD',    field: 'physics' },
   // ── Chemistry ──────────────────────────────────────────────
   { slug: 'physical-chemistry',  label: 'Physical Chemistry',   emoji: '⚗️', description: 'Thermodynamics, kinetics, quantum chemistry',       field: 'chemistry' },
   { slug: 'organic-chemistry',   label: 'Organic Chemistry',    emoji: '🧪', description: 'Reactions, stereochemistry, synthesis',              field: 'chemistry' },

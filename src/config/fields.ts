@@ -45,7 +45,7 @@ export const FIELDS: FieldMeta[] = [
     label: 'Physics',
     emoji: '⚛️',
     description: 'Quantum Mechanics, Classical Mechanics, Electromagnetism, Thermodynamics, Nuclear Physics',
-    topics: ['quantum-mechanics', 'classical-mechanics', 'electromagnetism', 'thermodynamics', 'nuclear-physics'],
+    topics: ['quantum-mechanics', 'classical-mechanics', 'electromagnetism', 'thermodynamics', 'nuclear-physics', 'fluid-dynamics'],
     color: 'success',
     available: true,
   },
