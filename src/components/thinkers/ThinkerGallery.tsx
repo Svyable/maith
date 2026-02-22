@@ -1,7 +1,7 @@
 import { useState, useMemo } from 'react';
 import { motion } from 'framer-motion';
 import { ThinkerCard } from '@/components/ThinkerCard';
-import { ThinkerFilters, type EraFilter } from './ThinkerFilters';
+import { ThinkerFilters, FieldFilter, type EraFilter } from './ThinkerFilters';
 import { DifficultyPicker } from '@/components/DifficultyPicker';
 import { THINKERS, type ThinkerMeta } from '@/config/thinkers';
 import { getThinkerQuestions } from '@/content/thinkers';
@@ -29,22 +29,26 @@ export function ThinkerGallery({
   onBack,
 }: ThinkerGalleryProps) {
   const [selectedEra, setSelectedEra] = useState<EraFilter>('all');
-  const [selectedDomain, setSelectedDomain] = useState<string | null>(null);
+  const [selectedField, setSelectedField] = useState<string | null>(null);
 
-  // Derive unique domains from all thinkers
-  const allDomains = useMemo(() => {
-    const domainSet = new Set(THINKERS.map((t) => t.domain));
-    return Array.from(domainSet).sort();
-  }, []);
-
-  // Filter thinkers
+  // Filter thinkers by era and field
   const filteredThinkers = useMemo(() => {
     return THINKERS.filter((th) => {
       if (selectedEra !== 'all' && th.era_group !== selectedEra) return false;
-      if (selectedDomain && th.domain !== selectedDomain) return false;
+      if (selectedField && !th.fields.includes(selectedField)) return false;
       return true;
     });
-  }, [selectedEra, selectedDomain]);
+  }, [selectedEra, selectedField]);
+
+  // Derive available field slugs from era-filtered thinkers (so field chips update with era)
+  const availableFieldSlugs = useMemo(() => {
+    const eraFiltered = selectedEra === 'all' ? THINKERS : THINKERS.filter((th) => th.era_group === selectedEra);
+    const slugs = new Set<string>();
+    for (const th of eraFiltered) {
+      for (const f of th.fields) slugs.add(f);
+    }
+    return slugs;
+  }, [selectedEra]);
 
   // Group by era for display
   const groupedThinkers = useMemo(() => {
@@ -82,13 +86,7 @@ export function ThinkerGallery({
 
       <DifficultyPicker selected={selectedDifficulties} onToggle={onToggleDifficulty} />
 
-      <ThinkerFilters
-        selectedEra={selectedEra}
-        onEraChange={setSelectedEra}
-        selectedDomain={selectedDomain}
-        onDomainChange={setSelectedDomain}
-        domains={allDomains}
-      />
+      <ThinkerFilters selectedEra={selectedEra} onEraChange={setSelectedEra} />
 
       {/* Thinker cards grouped by era */}
       <div className="space-y-5">
@@ -116,6 +114,13 @@ export function ThinkerGallery({
           </p>
         )}
       </div>
+
+      {/* Field filter below cards */}
+      <FieldFilter
+        selectedField={selectedField}
+        onFieldChange={setSelectedField}
+        availableFieldSlugs={availableFieldSlugs}
+      />
 
       <button
         onClick={onBack}

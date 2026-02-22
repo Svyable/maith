@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { type ThinkerMeta } from '@/config/thinkers';
+import { FIELD_MAP } from '@/config/fields';
 
 interface ThinkerCardProps {
   thinker: ThinkerMeta;
@@ -49,13 +50,30 @@ export function ThinkerCard({ thinker, questionCount, onSelect, index }: Thinker
           {thinker.funFact && (
             <p className="text-[10px] text-muted-foreground/70 mt-1 italic leading-relaxed">💡 {thinker.funFact}</p>
           )}
-          <div className="flex items-center gap-3 mt-2">
+          <div className="flex items-center gap-2 mt-2 flex-wrap">
             <span className="text-[10px] text-muted-foreground">{thinker.domain}</span>
             <span className="text-[10px] text-muted-foreground">·</span>
             <span className="text-[10px] font-medium text-muted-foreground">{questionCount} questions</span>
             <span className="text-[10px] text-muted-foreground">·</span>
             <span className="text-[10px] text-muted-foreground">{thinker.era}</span>
           </div>
+          {/* Field badges */}
+          {thinker.fields.length > 0 && (
+            <div className="flex items-center gap-1 mt-1.5 flex-wrap">
+              {thinker.fields.map((slug) => {
+                const field = FIELD_MAP[slug];
+                if (!field) return null;
+                return (
+                  <span
+                    key={slug}
+                    className="text-[9px] px-1.5 py-0.5 rounded-full bg-muted text-muted-foreground font-medium"
+                  >
+                    {field.emoji} {field.label}
+                  </span>
+                );
+              })}
+            </div>
+          )}
         </div>
       </div>
     </motion.button>
