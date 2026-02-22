@@ -61,6 +61,20 @@ import { pharmacologyQuestions } from './pharmacology';
 import { sota2025Questions } from './sota-2025';
 // ── 2026 SOTA ──────────────────────────────────────────────
 import { sota2026Questions } from './sota-2026';
+// ── CFA Program ──────────────────────────────────────────────
+import { cfaQuestions } from './cfa';
+// ── CPA Exam ──────────────────────────────────────────────
+import { cpaQuestions } from './cpa';
+// ── Actuarial Exams ──────────────────────────────────────────────
+import { actuarialQuestions } from './actuarial';
+// ── MBA Core ──────────────────────────────────────────────
+import { mbaQuestions } from './mba';
+// ── Law & Ethics ──────────────────────────────────────────────
+import { lawQuestions } from './law';
+// ── Medical Sciences ──────────────────────────────────────────────
+import { medicalQuestions } from './medical';
+// ── Data Science ──────────────────────────────────────────────
+import { dataScienceQuestions } from './data-science';
 
 import type { Question } from './types';
 
@@ -113,6 +127,20 @@ export const allQuestions: Question[] = [
   ...sota2025Questions,
   // ── 2026 SOTA ──────────────────────────────────────────────
   ...sota2026Questions,
+  // ── CFA Program ──────────────────────────────────────────────
+  ...cfaQuestions,
+  // ── CPA Exam ──────────────────────────────────────────────
+  ...cpaQuestions,
+  // ── Actuarial Exams ──────────────────────────────────────────────
+  ...actuarialQuestions,
+  // ── MBA Core ──────────────────────────────────────────────
+  ...mbaQuestions,
+  // ── Law & Ethics ──────────────────────────────────────────────
+  ...lawQuestions,
+  // ── Medical Sciences ──────────────────────────────────────────────
+  ...medicalQuestions,
+  // ── Data Science ──────────────────────────────────────────────
+  ...dataScienceQuestions,
 ];
 
 /** Get questions filtered by topic slugs (standard pool only — no thinkers) */
