@@ -1,0 +1,88 @@
+import type { Question } from '../types';
+
+export const controlTheoryQuestions: Question[] = [
+  // ── Easy ──────────────────────────────────────────────
+  {
+    id: 180001, topic: 'control-theory', difficulty: 'easy',
+    question: 'A PID controller combines which three terms?',
+    options: ['Proportional, Integral, Derivative', 'Power, Impedance, Damping', 'Phase, Inductance, Delay', 'Pressure, Inertia, Drag'],
+    correctIndex: 0,
+    explanation: 'PID uses proportional (present error), integral (accumulated past error), and derivative (predicted future error) to compute the control signal.',
+    realWorld: 'PID controllers are used in cruise control, thermostats, and drone stabilization.',
+    hint: 'Each term addresses a different aspect of the error signal over time.',
+  },
+  {
+    id: 180002, topic: 'control-theory', difficulty: 'easy',
+    question: 'A system is "stable" in the BIBO sense if:',
+    options: ['Every bounded input produces a bounded output', 'The output always decreases', 'There is no feedback', 'The gain is less than 1'],
+    correctIndex: 0,
+    explanation: 'Bounded-Input Bounded-Output (BIBO) stability means finite inputs never cause infinite outputs.',
+    realWorld: 'An unstable audio system creates feedback howling — a bounded input (voice) causes unbounded output.',
+    hint: 'BIBO = Bounded Input, Bounded Output.',
+  },
+  {
+    id: 180003, topic: 'control-theory', difficulty: 'easy',
+    question: 'The transfer function $H(s)$ of a linear time-invariant system is defined as:',
+    options: ['The Laplace transform of the output over the input: $H(s) = Y(s)/X(s)$', 'The Fourier transform of the impulse response', 'The ratio of input to output energy', 'The derivative of the step response'],
+    correctIndex: 0,
+    explanation: 'The transfer function $H(s) = Y(s)/X(s)$ fully characterizes an LTI system in the Laplace domain.',
+    realWorld: 'Engineers design filters and controllers by shaping the transfer function.',
+    hint: 'It maps input signals to output signals in the $s$-domain.',
+  },
+  // ── Hard ──────────────────────────────────────────────
+  {
+    id: 180004, topic: 'control-theory', difficulty: 'hard',
+    question: 'The Nyquist stability criterion determines closed-loop stability by:',
+    options: ['Counting encirclements of the $-1$ point by the open-loop frequency response', 'Checking if all poles are negative', 'Computing the step response overshoot', 'Measuring the DC gain'],
+    correctIndex: 0,
+    explanation: 'The Nyquist criterion relates closed-loop stability to the number of encirclements of $-1 + 0j$ by the open-loop Nyquist plot, accounting for open-loop unstable poles.',
+    realWorld: 'Used to design stable feedback controllers for aerospace, robotics, and power systems.',
+    hint: 'It uses the argument principle from complex analysis applied to $L(j\\omega)$.',
+  },
+  {
+    id: 180005, topic: 'control-theory', difficulty: 'hard',
+    question: 'In state-space representation $\\dot{x} = Ax + Bu$, the system is controllable if:',
+    options: ['The controllability matrix $[B, AB, A^2B, \\ldots, A^{n-1}B]$ has full rank', 'The matrix $A$ is invertible', 'All eigenvalues of $A$ are real', 'The system has more inputs than states'],
+    correctIndex: 0,
+    explanation: 'The Kalman controllability condition: rank of $\\mathcal{C} = [B \\; AB \\; \\cdots \\; A^{n-1}B]$ must equal $n$ (state dimension).',
+    realWorld: 'Before designing a controller, engineers verify controllability — an uncontrollable mode cannot be influenced by any input.',
+    hint: 'Kalman\'s rank condition — can the input reach every state?',
+  },
+  {
+    id: 180006, topic: 'control-theory', difficulty: 'hard',
+    question: 'The Linear Quadratic Regulator (LQR) minimizes which cost function?',
+    options: ['$J = \\int_0^\\infty (x^T Q x + u^T R u)\\,dt$', '$J = \\max |x(t)|$', '$J = \\sum |u_k|$', '$J = \\int |\\dot{x}|\\,dt$'],
+    correctIndex: 0,
+    explanation: 'LQR minimizes a quadratic cost balancing state deviation ($Q$) and control effort ($R$). The optimal gain is $K = R^{-1}B^T P$ where $P$ solves the algebraic Riccati equation.',
+    realWorld: 'LQR is used in spacecraft attitude control, self-driving cars, and robotic arms.',
+    hint: 'Quadratic in both state and input — hence "Linear Quadratic".',
+  },
+  // ── SOTA ──────────────────────────────────────────────
+  {
+    id: 180007, topic: 'control-theory', difficulty: 'sota',
+    question: 'Model Predictive Control (MPC) differs from LQR primarily by:',
+    options: ['Solving a finite-horizon optimization online at each step with constraints', 'Using a fixed pre-computed gain matrix', 'Being limited to linear systems', 'Ignoring future predictions'],
+    correctIndex: 0,
+    explanation: 'MPC solves a constrained optimization problem at each timestep over a receding horizon, handling nonlinear dynamics and inequality constraints that LQR cannot.',
+    realWorld: 'Tesla Autopilot, chemical plants, and humanoid robots use MPC for real-time constrained control.',
+    hint: 'MPC = online optimization with a sliding prediction window.',
+  },
+  {
+    id: 180008, topic: 'control-theory', difficulty: 'sota',
+    question: 'The $\\mathcal{H}_\\infty$ control framework minimizes the worst-case gain from:',
+    options: ['Disturbance to regulated output (the $\\infty$-norm of the transfer matrix)', 'Input to state energy', 'Tracking error variance', 'Steady-state error magnitude'],
+    correctIndex: 0,
+    explanation: '$\\mathcal{H}_\\infty$ robust control minimizes $\\|T_{zw}\\|_\\infty = \\sup_\\omega \\bar{\\sigma}(T_{zw}(j\\omega))$, providing guaranteed performance under worst-case disturbances and model uncertainty.',
+    realWorld: 'Used in fighter jet flight control and hard disk drive head positioning where robustness is critical.',
+    hint: 'The $\\infty$ refers to the $L^\\infty$ norm — worst-case over all frequencies.',
+  },
+  {
+    id: 180009, topic: 'control-theory', difficulty: 'sota',
+    question: 'In reinforcement learning for control, the key advantage over classical MPC is:',
+    options: ['No explicit dynamics model is required — it learns directly from interaction', 'It always finds the global optimum', 'It requires less computation', 'It guarantees stability'],
+    correctIndex: 0,
+    explanation: 'RL-based control (e.g., SAC, PPO for robotics) can learn optimal policies from raw experience without a parametric model, handling complex nonlinear dynamics.',
+    realWorld: 'DeepMind used RL to control a tokamak plasma shape — a task too complex for model-based control.',
+    hint: 'Model-free RL trades sample efficiency for the ability to handle unknown dynamics.',
+  },
+];

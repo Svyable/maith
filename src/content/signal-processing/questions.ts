@@ -1,0 +1,88 @@
+import type { Question } from '../types';
+
+export const signalProcessingQuestions: Question[] = [
+  // ── Easy ──────────────────────────────────────────────
+  {
+    id: 181001, topic: 'signal-processing', difficulty: 'easy',
+    question: 'The Fourier Transform decomposes a signal into:',
+    options: ['Its constituent frequency components', 'Time-domain samples', 'Amplitude levels', 'Phase-only information'],
+    correctIndex: 0,
+    explanation: 'The Fourier Transform converts a time-domain signal $f(t)$ into frequency domain $F(\\omega) = \\int f(t) e^{-j\\omega t}\\,dt$.',
+    realWorld: 'Audio equalizers, MRI, and JPEG compression all rely on Fourier analysis.',
+    hint: 'It tells you "how much" of each frequency is present in the signal.',
+  },
+  {
+    id: 181002, topic: 'signal-processing', difficulty: 'easy',
+    question: 'Aliasing occurs when:',
+    options: ['A signal is sampled below the Nyquist rate', 'The signal amplitude is too high', 'Noise exceeds the signal', 'The sampling rate is too high'],
+    correctIndex: 0,
+    explanation: 'Sampling below $2f_{max}$ causes high frequencies to masquerade as lower ones (aliasing), creating irrecoverable distortion.',
+    realWorld: 'Wagon wheels appearing to spin backward in movies is aliasing from the camera frame rate.',
+    hint: 'Nyquist: sample at $\\geq 2f_{max}$ to avoid aliases.',
+  },
+  {
+    id: 181003, topic: 'signal-processing', difficulty: 'easy',
+    question: 'A low-pass filter:',
+    options: ['Passes frequencies below a cutoff and attenuates higher ones', 'Passes only high frequencies', 'Amplifies all frequencies equally', 'Removes DC offset only'],
+    correctIndex: 0,
+    explanation: 'A low-pass filter has a frequency response that passes $f < f_c$ and attenuates $f > f_c$. It smooths signals by removing high-frequency components.',
+    realWorld: 'Anti-aliasing filters in ADCs and the "bass boost" on audio systems are low-pass filters.',
+    hint: 'Low frequencies pass through; high frequencies are blocked.',
+  },
+  // ── Hard ──────────────────────────────────────────────
+  {
+    id: 181004, topic: 'signal-processing', difficulty: 'hard',
+    question: 'The Short-Time Fourier Transform (STFT) addresses which limitation of the standard FT?',
+    options: ['It provides time-frequency localization for non-stationary signals', 'It reduces computation from $O(n^2)$ to $O(n\\log n)$', 'It handles complex-valued signals', 'It removes noise automatically'],
+    correctIndex: 0,
+    explanation: 'The standard FT loses all time information. The STFT windows the signal and computes FT of each window, giving a time-frequency representation (spectrogram).',
+    realWorld: 'Spectrograms from STFT are used in speech recognition, music analysis, and radar.',
+    hint: 'It trades perfect frequency resolution for time localization using a sliding window.',
+  },
+  {
+    id: 181005, topic: 'signal-processing', difficulty: 'hard',
+    question: 'The Discrete Wavelet Transform (DWT) improves upon STFT by:',
+    options: ['Using variable-size windows — narrow at high frequencies, wide at low', 'Using a fixed window size', 'Only analyzing periodic signals', 'Requiring more computation'],
+    correctIndex: 0,
+    explanation: 'DWT uses multiresolution analysis: short windows capture high-frequency transients, long windows capture low-frequency trends. This matches how real signals behave.',
+    realWorld: 'JPEG 2000 uses wavelets; seismic analysis and ECG processing rely on DWT.',
+    hint: 'Wavelets = "small waves" that adapt their time-frequency resolution.',
+  },
+  {
+    id: 181006, topic: 'signal-processing', difficulty: 'hard',
+    question: 'Compressed sensing can reconstruct a signal from fewer samples than Nyquist requires if:',
+    options: ['The signal is sparse in some transform domain', 'The signal is periodic', 'The noise level is zero', 'The sampling is uniform'],
+    correctIndex: 0,
+    explanation: 'Compressed sensing exploits sparsity: if a signal has $k$ non-zero components in some basis, only $O(k \\log n)$ random measurements suffice for exact recovery via $\\ell_1$ minimization.',
+    realWorld: 'MRI scan times reduced by 4-8× using compressed sensing — fewer measurements, same image quality.',
+    hint: 'Candès and Tao (2006) — sparsity + incoherent measurements = perfect recovery.',
+  },
+  // ── SOTA ──────────────────────────────────────────────
+  {
+    id: 181007, topic: 'signal-processing', difficulty: 'sota',
+    question: 'Neural audio codecs (e.g., EnCodec, SoundStream) compress speech to extremely low bitrates by:',
+    options: ['Using a VQ-VAE architecture with residual vector quantization', 'Applying traditional MP3 compression', 'Using lossless Huffman coding', 'Increasing the sampling rate'],
+    correctIndex: 0,
+    explanation: 'Neural codecs encode audio into discrete tokens via learned VQ codebooks, achieving 1-3 kbps with quality rivaling 12 kbps Opus. Residual VQ progressively refines the representation.',
+    realWorld: 'Meta\'s EnCodec enables high-quality voice calls at 1.5 kbps — 10× better compression than Opus.',
+    hint: 'The same VQ tokens are used by audio LLMs like AudioLM and MusicGen.',
+  },
+  {
+    id: 181008, topic: 'signal-processing', difficulty: 'sota',
+    question: 'The Kalman filter is optimal for state estimation because it:',
+    options: ['Minimizes the mean squared estimation error for linear Gaussian systems', 'Uses the maximum likelihood estimate', 'Requires no prior information', 'Works only for static systems'],
+    correctIndex: 0,
+    explanation: 'For linear dynamics with Gaussian noise, the Kalman filter recursively computes the MMSE estimate by fusing predictions with measurements using the Kalman gain.',
+    realWorld: 'GPS navigation, Apollo spacecraft guidance, and self-driving cars all use Kalman filters.',
+    hint: 'It is the Bayesian optimal estimator for linear Gaussian state-space models.',
+  },
+  {
+    id: 181009, topic: 'signal-processing', difficulty: 'sota',
+    question: 'Sparse Bayesian Learning (SBL) for DOA estimation improves upon MUSIC by:',
+    options: ['Exploiting sparsity priors on the spatial spectrum without requiring known source count', 'Using more antennas', 'Assuming uncorrelated sources only', 'Requiring higher SNR'],
+    correctIndex: 0,
+    explanation: 'SBL places sparsity-inducing priors on the signal representation over a grid, automatically determining the number and directions of sources via evidence maximization.',
+    realWorld: '5G massive MIMO beamforming and radar use SBL for super-resolution angle estimation.',
+    hint: 'MUSIC needs the number of sources as input; SBL infers it from the data.',
+  },
+];
