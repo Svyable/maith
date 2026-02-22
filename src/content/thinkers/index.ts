@@ -62,6 +62,15 @@ import { kozyrkovQuestions } from './kozyrkov';
 import { suleymanQuestions } from './suleyman';
 import { hilbertQuestions } from './hilbert';
 import { gebruQuestions } from './gebru';
+// Prodigies
+import { pascalQuestions } from './pascal';
+import { galoisQuestions } from './galois';
+import { hamiltonWRQuestions } from './hamilton-wr';
+import { abelQuestions } from './abel';
+import { scholzeQuestions } from './scholze';
+import { venkateshQuestions } from './venkatesh';
+import { deviQuestions } from './devi';
+import { demaineQuestions } from './demaine';
 import type { Question } from '../types';
 
 export const allThinkerQuestions: Question[] = [
@@ -131,8 +140,16 @@ export const allThinkerQuestions: Question[] = [
   ...suleymanQuestions,
   ...hilbertQuestions,
   ...gebruQuestions,
+  // Prodigies
+  ...pascalQuestions,
+  ...galoisQuestions,
+  ...hamiltonWRQuestions,
+  ...abelQuestions,
+  ...scholzeQuestions,
+  ...venkateshQuestions,
+  ...deviQuestions,
+  ...demaineQuestions,
 ];
-
 export function getThinkerQuestions(slug: string): Question[] {
   return allThinkerQuestions.filter((q) => q.topic === slug);
 }

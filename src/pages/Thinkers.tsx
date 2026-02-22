@@ -9,7 +9,7 @@ import { DifficultyPicker } from '@/components/DifficultyPicker';
 import { useTheme } from '@/hooks/useTheme';
 import { useThinkerQuiz } from '@/hooks/useThinkerQuiz';
 import { useQuizSession } from '@/hooks/useQuizSession';
-import { THINKERS, ANCIENT_THINKERS, MODERN_THINKERS, CONTEMPORARY_THINKERS } from '@/config/thinkers';
+import { THINKERS, ANCIENT_THINKERS, MODERN_THINKERS, CONTEMPORARY_THINKERS, PRODIGY_THINKERS } from '@/config/thinkers';
 import { getThinkerQuestions } from '@/content/thinkers';
 import { DEFAULT_DIFFICULTY } from '@/config/constants';
 import type { Difficulty } from '@/config/constants';
@@ -142,6 +142,16 @@ export default function Thinkers() {
                     <p className="text-[11px] font-bold text-muted-foreground uppercase tracking-widest mb-2 px-1">{t('thinkers.contemporary')}</p>
                     <div className="space-y-3">
                       {CONTEMPORARY_THINKERS.map((thinker, i) => (
+                        <ThinkerCard key={thinker.slug} thinker={thinker} questionCount={getThinkerQuestions(thinker.slug).length} onSelect={handleStartThinker} index={i} />
+                      ))}
+                    </div>
+                  </div>
+                )}
+                {PRODIGY_THINKERS.length > 0 && (
+                  <div>
+                    <p className="text-[11px] font-bold text-muted-foreground uppercase tracking-widest mb-2 px-1">🌟 {t('thinkers.prodigies') || 'Prodigies'}</p>
+                    <div className="space-y-3">
+                      {PRODIGY_THINKERS.map((thinker, i) => (
                         <ThinkerCard key={thinker.slug} thinker={thinker} questionCount={getThinkerQuestions(thinker.slug).length} onSelect={handleStartThinker} index={i} />
                       ))}
                     </div>
