@@ -1,2 +1,5 @@
 import { computerScienceQuestions } from './questions';
-export { computerScienceQuestions };
+import { modelsQuestions } from './models';
+
+const allCSQuestions = [...computerScienceQuestions, ...modelsQuestions];
+export { allCSQuestions as computerScienceQuestions, modelsQuestions };
