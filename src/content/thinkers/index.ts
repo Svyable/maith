@@ -35,6 +35,12 @@ import { hawkingQuestions } from './hawking';
 // Contemporary thinkers
 import { hassabisQuestions } from './hassabis';
 import { vaswaniQuestions } from './vaswani';
+import { karpathyQuestions } from './karpathy';
+import { altmanQuestions } from './altman';
+import { amodeiQuestions } from './amodei';
+import { ngQuestions } from './ng';
+import { lifeiQuestions } from './lifeifei';
+import { ilyaQuestions } from './ilya';
 import type { Question } from '../types';
 
 export const allThinkerQuestions: Question[] = [
@@ -77,6 +83,12 @@ export const allThinkerQuestions: Question[] = [
   // Contemporary
   ...hassabisQuestions,
   ...vaswaniQuestions,
+  ...karpathyQuestions,
+  ...altmanQuestions,
+  ...amodeiQuestions,
+  ...ngQuestions,
+  ...lifeiQuestions,
+  ...ilyaQuestions,
 ];
 
 export function getThinkerQuestions(slug: string): Question[] {

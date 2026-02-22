@@ -72,7 +72,7 @@ export const FIELDS: FieldMeta[] = [
     label: 'Computer Science',
     emoji: '💻',
     description: 'Algorithms, Machine Learning, Cryptography',
-    topics: ['algorithms', 'machine-learning', 'cryptography'],
+    topics: ['algorithms', 'machine-learning', 'cryptography', 'ai-models'],
     color: 'accent',
     available: true,
   },
