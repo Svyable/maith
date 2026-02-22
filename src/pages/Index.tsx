@@ -2,6 +2,7 @@ import { useState, useCallback, useEffect, useRef } from 'react';
 import { AnimatePresence } from 'framer-motion';
 import { QuizHeader } from '@/components/QuizHeader';
 import { Footer } from '@/components/Footer';
+import { FloatingBackground } from '@/components/FloatingBackground';
 import { HomeScreen } from '@/components/HomeScreen';
 import { QuizScreen } from '@/components/QuizScreen';
 import { QuizResults } from '@/components/QuizResults';
@@ -104,7 +105,8 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-background flex flex-col">
+    <div className="min-h-screen bg-background flex flex-col relative">
+      <FloatingBackground />
       <QuizHeader
         streak={state.streak}
         showStreak={screen === 'quiz'}
@@ -113,7 +115,7 @@ const Index = () => {
         onHome={() => setScreen('home')}
       />
 
-      <main className="flex-1 px-4 py-6 max-w-lg md:max-w-3xl lg:max-w-5xl mx-auto w-full">
+      <main className="relative z-10 flex-1 px-4 py-6 max-w-lg md:max-w-3xl lg:max-w-5xl mx-auto w-full">
         <AnimatePresence mode="wait">
           {screen === 'home' && (
             <HomeScreen

@@ -125,6 +125,11 @@ import { marconiQuestions } from './marconi';
 import { shockleyQuestions } from './shockley';
 import { kilbyQuestions } from './kilby';
 import { hookeQuestions } from './hooke';
+import { hubbleQuestions } from './hubble';
+import { georgeGreenQuestions } from './george-green';
+import { faradayQuestions } from './faraday';
+import { planckQuestions } from './planck';
+import { bohrQuestions } from './bohr';
 import type { Question } from '../types';
 
 export const allThinkerQuestions: Question[] = [
@@ -257,6 +262,12 @@ export const allThinkerQuestions: Question[] = [
   ...shockleyQuestions,
   ...kilbyQuestions,
   ...hookeQuestions,
+  // New thinkers
+  ...hubbleQuestions,
+  ...georgeGreenQuestions,
+  ...faradayQuestions,
+  ...planckQuestions,
+  ...bohrQuestions,
 ];
 export function getThinkerQuestions(slug: string): Question[] {
   return allThinkerQuestions.filter((q) => q.topic === slug);
