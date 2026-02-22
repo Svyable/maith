@@ -92,6 +92,15 @@ import { ergodicTheoryQuestions } from './ergodic-theory';
 import { algebraicGeometryQuestions } from './algebraic-geometry';
 import { measureTheoryQuestions } from './measure-theory';
 import { compilerTheoryQuestions } from './compiler-theory';
+// ── New advanced topics ──────────────────────────────────────
+import { controlTheoryQuestions } from './control-theory';
+import { signalProcessingQuestions } from './signal-processing';
+import { behavioralEconomicsQuestions } from './behavioral-economics';
+import { developmentEconomicsQuestions } from './development-economics';
+import { marketMicrostructureQuestions } from './market-microstructure';
+import { creditRiskQuestions } from './credit-risk';
+import { formalVerificationQuestions } from './formal-verification';
+import { informationTheoryQuestions } from './information-theory';
 
 import type { Question } from './types';
 
@@ -133,6 +142,8 @@ export const allQuestions: Question[] = [
   ...distributedSystemsQuestions,
   ...operatingSystemsQuestions,
   ...compilerTheoryQuestions,
+  ...formalVerificationQuestions,
+  ...informationTheoryQuestions,
   // ── Earth & Space ──────────────────────────────────────────────
   ...earthSpaceQuestions,
   ...meteorologyQuestions,
@@ -143,12 +154,18 @@ export const allQuestions: Question[] = [
   ...roboticsQuestions,
   ...aerospaceQuestions,
   ...audioEngineeringQuestions,
+  ...controlTheoryQuestions,
+  ...signalProcessingQuestions,
   // ── Economics ──────────────────────────────────────────────
   ...economicsQuestions,
   ...gameTheoryQuestions,
+  ...behavioralEconomicsQuestions,
+  ...developmentEconomicsQuestions,
   // ── Quant / Finance ──────────────────────────────────────────
   ...quantQuestions,
   ...riskManagementQuestions,
+  ...marketMicrostructureQuestions,
+  ...creditRiskQuestions,
   // ── Human Sciences ──────────────────────────────────────────
   ...psychologyQuestions,
   ...linguisticsQuestions,
