@@ -102,6 +102,15 @@ import { kahnemanQuestions } from './kahneman';
 import { pavlovQuestions } from './pavlov';
 // Data Science thinkers
 import { tukeyQuestions } from './tukey';
+// π Pioneers & Trigonometry
+import { vieteQuestions } from './viete';
+import { wallisQuestions } from './wallis';
+import { gregoryQuestions } from './gregory';
+import { vanCeulenQuestions } from './van-ceulen';
+import { alkashiQuestions as alkashiPiQuestions } from './al-kashi';
+import { ptolemyQuestions } from './ptolemy';
+import { hipparchusQuestions } from './hipparchus';
+import { tusiQuestions } from './al-tusi';
 import type { Question } from '../types';
 
 export const allThinkerQuestions: Question[] = [
@@ -211,6 +220,15 @@ export const allThinkerQuestions: Question[] = [
   ...pavlovQuestions,
   // Data Science
   ...tukeyQuestions,
+  // π Pioneers & Trigonometry
+  ...vieteQuestions,
+  ...wallisQuestions,
+  ...gregoryQuestions,
+  ...vanCeulenQuestions,
+  ...alkashiPiQuestions,
+  ...ptolemyQuestions,
+  ...hipparchusQuestions,
+  ...tusiQuestions,
 ];
 export function getThinkerQuestions(slug: string): Question[] {
   return allThinkerQuestions.filter((q) => q.topic === slug);
