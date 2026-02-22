@@ -7,6 +7,7 @@ import { allQuestions } from '@/content';
 import { allThinkerQuestions } from '@/content/thinkers';
 import { getLocale } from '@/i18n';
 import { tQuestion, tQuestionOptions } from '@/i18n/tQuestion';
+import { toQuestionDifficulty, type Difficulty, type QuestionDifficulty } from '@/config/constants';
 import { fisherYatesShuffle, stripAnswers } from './engine';
 import type { PublicQuestion, CheckResult, SessionSubmitParams } from './types';
 import type { Question } from '@/content/types';
@@ -23,16 +24,21 @@ function applyClientTranslations(q: PublicQuestion): PublicQuestion {
 }
 
 /**
- * Local fallback: select from a given question pool, shuffle, strip, translate.
+ * Local fallback: select from a given question pool, filter by topic &
+ * difficulty, shuffle, strip, translate.
  */
 export function selectQuestionsLocal(
   pool: Question[],
   topics: string[],
+  difficulties: QuestionDifficulty[],
   count: number,
 ): PublicQuestion[] {
-  const filtered = topics.length === 0
-    ? pool
-    : pool.filter((q) => topics.includes(q.topic));
+  let filtered = topics.length === 0 ? pool : pool.filter((q) => topics.includes(q.topic));
+
+  // Filter by difficulty levels (skip if all 3 selected = no filter)
+  if (difficulties.length > 0 && difficulties.length < 3) {
+    filtered = filtered.filter((q) => difficulties.includes(q.difficulty));
+  }
 
   return fisherYatesShuffle(filtered)
     .slice(0, count)
@@ -65,18 +71,20 @@ export function localFallbackCheck(
  */
 export async function fetchQuestions(
   topics: string[],
+  difficulties: Difficulty[],
   count: number,
   pool: Question[] = allQuestions,
 ): Promise<PublicQuestion[]> {
   const locale = getLocale();
+  const levels = difficulties.map(toQuestionDifficulty);
   try {
     const { data, error } = await supabase.functions.invoke('quiz-next', {
-      body: { topics, seenIds: [], count, locale },
+      body: { topics, difficulties: levels, seenIds: [], count, locale },
     });
     if (error) throw error;
     return (data?.questions as PublicQuestion[]) ?? [];
   } catch {
-    return selectQuestionsLocal(pool, topics, count);
+    return selectQuestionsLocal(pool, topics, levels, count);
   }
 }
 
@@ -126,8 +134,17 @@ export async function submitSession(
 
 // ── Thinker-mode helpers (uses thinker pool instead of main pool) ────
 
-export function fetchThinkerQuestions(slug: string, count: number): PublicQuestion[] {
-  const pool = allThinkerQuestions.filter((q) => q.topic === slug);
+export function fetchThinkerQuestions(
+  slug: string,
+  difficulties: QuestionDifficulty[],
+  count: number,
+): PublicQuestion[] {
+  let pool = allThinkerQuestions.filter((q) => q.topic === slug);
+
+  if (difficulties.length > 0 && difficulties.length < 3) {
+    pool = pool.filter((q) => difficulties.includes(q.difficulty));
+  }
+
   return fisherYatesShuffle(pool)
     .slice(0, count)
     .map(stripAnswers);

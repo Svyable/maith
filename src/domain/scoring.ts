@@ -1,17 +1,14 @@
-import { BASE_POINTS, STREAK_STEP, STREAK_CAP, type Difficulty } from '@/config/constants';
+import { BASE_POINTS, STREAK_STEP, STREAK_CAP, toDifficulty, type QuestionDifficulty } from '@/config/constants';
 
 /**
  * Calculate points for a single correct answer.
- * Formula: base * min(1 + streak * STREAK_STEP, STREAK_CAP)
+ * Points scale with the question's own difficulty level.
  */
 export function calculatePoints(
-  difficulty: Difficulty,
-  questionDifficulty: 'easy' | 'hard' | 'sota',
+  questionDifficulty: QuestionDifficulty,
   streak: number,
 ): number {
-  // Question-level difficulty adds a bonus on top of session difficulty
-  const questionBonus = questionDifficulty === 'sota' ? 1.5 : questionDifficulty === 'hard' ? 1.2 : 1.0;
-  const base = BASE_POINTS[difficulty] * questionBonus;
+  const base = BASE_POINTS[toDifficulty(questionDifficulty)];
   const multiplier = Math.min(1 + streak * STREAK_STEP, STREAK_CAP);
   return Math.round(base * multiplier);
 }

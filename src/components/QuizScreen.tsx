@@ -6,7 +6,7 @@ import { TimerBar } from './TimerBar';
 import { ExplanationPopup } from './ExplanationPopup';
 import { HintPanel } from './HintPanel';
 import type { PublicQuestion, CheckResult } from '@/domain/quiz';
-import { type Difficulty, getDifficultyMeta, TOPIC_MAP } from '@/config/constants';
+import { type Difficulty, getDifficultyMeta, TOPIC_MAP, toDifficulty } from '@/config/constants';
 import { useKeyboard } from '@/hooks/useKeyboard';
 import { t } from '@/i18n';
 
@@ -15,7 +15,7 @@ interface QuizScreenProps {
   currentIndex: number;
   totalQuestions: number;
   score: number;
-  difficulty: Difficulty;
+  difficulties: Difficulty[];
   streak: number;
   timerFraction: number;
   timeLeft: number;
@@ -23,17 +23,22 @@ interface QuizScreenProps {
   onNext: () => void;
   onSkip: () => void;
   onEndQuiz: () => void;
-  sessionCorrect: number;
-  sessionTotal: number;
   onSessionUpdate: (correct: boolean) => void;
 }
+
+/** Badge color classes keyed by question-level difficulty */
+const DIFF_BADGE: Record<string, { bg: string; text: string }> = {
+  easy: { bg: 'bg-success/10 border-success/30', text: 'text-success' },
+  hard: { bg: 'bg-accent/10 border-accent/30', text: 'text-accent' },
+  sota: { bg: 'bg-destructive/10 border-destructive/30', text: 'text-destructive' },
+};
 
 export function QuizScreen({
   question,
   currentIndex,
   totalQuestions,
   score,
-  difficulty,
+  difficulties,
   streak,
   timerFraction,
   timeLeft,
@@ -50,8 +55,9 @@ export function QuizScreen({
   const [eliminatedOptions, setEliminatedOptions] = useState<number[]>([]);
   const [checkResult, setCheckResult] = useState<CheckResult | null>(null);
 
-  const diffMeta = getDifficultyMeta(difficulty);
   const topicMeta = TOPIC_MAP[question.topic];
+  const qDiffMeta = getDifficultyMeta(toDifficulty(question.difficulty));
+  const diffBadge = DIFF_BADGE[question.difficulty] ?? DIFF_BADGE.hard;
 
   const handleSelect = useCallback(async (index: number) => {
     if (answerState !== 'pending') return;
@@ -97,9 +103,6 @@ export function QuizScreen({
   const handleEliminate = useCallback(() => {
     if (eliminateUsed || answerState !== 'pending') return;
     setEliminateUsed(true);
-    // We don't know correctIndex on the client yet — eliminate 2 of the 4 options
-    // but we must NOT reveal which is correct, so we pick randomly from all 4.
-    // After answering the correct one will still light up via checkResult.correctIndex.
     const indices = [0, 1, 2, 3];
     for (let i = indices.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
@@ -132,13 +135,9 @@ export function QuizScreen({
         <span className="text-muted-foreground font-mono">
           {t('quiz.question', { current: currentIndex + 1, total: totalQuestions })}
         </span>
-        <span className={`px-2 py-0.5 rounded-full text-xs font-medium border ${
-          diffMeta.color === 'success'     ? 'bg-success/10 border-success/30 text-success' :
-          diffMeta.color === 'accent'      ? 'bg-accent/10 border-accent/30 text-accent' :
-          diffMeta.color === 'destructive' ? 'bg-destructive/10 border-destructive/30 text-destructive' :
-          'bg-primary/10 border-primary/30 text-primary'
-        }`}>
-          {diffMeta.tag}
+        {/* Per-question difficulty badge */}
+        <span className={`px-2 py-0.5 rounded-full text-xs font-bold border ${diffBadge.bg} ${diffBadge.text}`}>
+          {qDiffMeta.emoji} {qDiffMeta.tag}
         </span>
         <span className="font-mono font-bold text-foreground">
           {t('quiz.points', { score: Math.round(score) })}
@@ -156,10 +155,14 @@ export function QuizScreen({
       {/* Timer */}
       <TimerBar fraction={timerFraction} timeLeft={timeLeft} />
 
-      {/* Topic badge */}
+      {/* Topic + difficulty badges */}
       <div className="flex items-center gap-2">
         <span className="text-lg">{topicMeta?.emoji ?? '📐'}</span>
         <span className="text-xs text-muted-foreground font-medium">{topicMeta?.label ?? question.topic}</span>
+        {/* Points value indicator */}
+        <span className={`text-[10px] px-1.5 py-0.5 rounded font-mono font-bold ${diffBadge.text}`}>
+          +{qDiffMeta.slug === 'EASY' ? 10 : qDiffMeta.slug === 'HARD' ? 20 : 35}pts
+        </span>
         {streak >= 3 && (
           <span className="ml-auto text-xs font-bold text-accent">
             {t('quiz.streak', { count: streak })}
@@ -179,7 +182,6 @@ export function QuizScreen({
       <div className="space-y-3">
         {question.options.map((opt, i) => {
           const isEliminated = eliminatedOptions.includes(i);
-          // correctIndex reveal ALWAYS wins — even over eliminated state
           let state: 'default' | 'correct' | 'wrong' | 'reveal' = 'default';
           if (isAnswered && checkResult) {
             if (i === checkResult.correctIndex) {
@@ -187,9 +189,7 @@ export function QuizScreen({
             } else if (i === selectedOption) {
               state = 'wrong';
             }
-            // Non-correct eliminated options go back to 'default' (greyed out disabled)
           }
-          // Only show eliminated styling while still pending (before answer)
           const showEliminated = isEliminated && !isAnswered;
           return (
             <OptionButton

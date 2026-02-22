@@ -36,6 +36,7 @@ export interface QuizState {
   correctAnswered: number;
   answeredIds: number[];
   topicBreakdown: Record<string, { correct: number; total: number }>;
+  difficultyBreakdown: Record<string, { correct: number; total: number }>;
   isFinished: boolean;
   currentQuestions: PublicQuestion[];
   loading: boolean;
@@ -46,7 +47,7 @@ export interface QuizState {
 
 export interface QuizConfig {
   topics: string[];
-  difficulty: import('@/config/constants').Difficulty;
+  difficulties: import('@/config/constants').Difficulty[];
   count: number;
   locale: string;
 }

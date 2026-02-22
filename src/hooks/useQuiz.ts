@@ -2,7 +2,7 @@
 // Business logic lives in src/domain/quiz/. This hook only manages React state.
 
 import { useState, useCallback } from 'react';
-import { type Difficulty, getDifficultyMeta } from '@/config/constants';
+import { type Difficulty, questionsForDifficulties } from '@/config/constants';
 import {
   buildInitialState,
   applyAnswer,
@@ -19,16 +19,16 @@ import { allQuestions } from '@/content';
 
 export type { PublicQuestion, CheckResult, QuizState } from '@/domain/quiz';
 
-export function useQuiz(selectedTopics: string[] = [], difficulty: Difficulty = 'ADVN') {
+export function useQuiz(selectedTopics: string[] = [], difficulties: Difficulty[] = ['HARD']) {
   const [state, setState] = useState<QuizState>(() => buildInitialState());
 
   const currentQuestion: PublicQuestion | null =
     state.currentQuestions[state.currentIndex] ?? null;
 
-  const initQuiz = useCallback(async (topics: string[], diff: Difficulty) => {
-    const m = getDifficultyMeta(diff);
+  const initQuiz = useCallback(async (topics: string[], diffs: Difficulty[]) => {
+    const count = questionsForDifficulties(diffs);
     setState(buildInitialState());
-    const questions = await fetchQuestions(topics, m.questionsPerQuiz);
+    const questions = await fetchQuestions(topics, diffs, count);
     setState((prev) => ({ ...prev, currentQuestions: questions, loading: false }));
   }, []);
 
@@ -39,10 +39,10 @@ export function useQuiz(selectedTopics: string[] = [], difficulty: Difficulty = 
       const result = await checkAnswer(currentQuestion.id, optionIndex, allQuestions);
       if (!result) return null;
 
-      setState((prev) => applyAnswer(prev, result, currentQuestion, difficulty, optionIndex));
+      setState((prev) => applyAnswer(prev, result, currentQuestion, optionIndex));
       return result;
     },
-    [currentQuestion, difficulty],
+    [currentQuestion],
   );
 
   const nextQuestion = useCallback(() => {
@@ -58,10 +58,10 @@ export function useQuiz(selectedTopics: string[] = [], difficulty: Difficulty = 
   }, []);
 
   const restartQuiz = useCallback(
-    async (topics: string[] = [], diff: Difficulty = difficulty) => {
-      await initQuiz(topics, diff);
+    async (topics: string[] = [], diffs: Difficulty[] = difficulties) => {
+      await initQuiz(topics, diffs);
     },
-    [difficulty, initQuiz],
+    [difficulties, initQuiz],
   );
 
   return {

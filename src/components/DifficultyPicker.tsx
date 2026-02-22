@@ -3,11 +3,11 @@ import { DIFFICULTIES, type Difficulty, type DifficultyMeta } from '@/config/con
 import { t } from '@/i18n';
 
 interface DifficultyPickerProps {
-  selected: Difficulty;
-  onSelect: (d: Difficulty) => void;
+  selected: Difficulty[];
+  onToggle: (d: Difficulty) => void;
 }
 
-export function DifficultyPicker({ selected, onSelect }: DifficultyPickerProps) {
+export function DifficultyPicker({ selected, onToggle }: DifficultyPickerProps) {
   return (
     <div className="space-y-3">
       <h3 className="text-sm font-bold text-muted-foreground">{t('home.selectDifficulty')}</h3>
@@ -16,11 +16,14 @@ export function DifficultyPicker({ selected, onSelect }: DifficultyPickerProps) 
           <DifficultyCard
             key={d.slug}
             meta={d}
-            isSelected={selected === d.slug}
-            onSelect={() => onSelect(d.slug)}
+            isSelected={selected.includes(d.slug)}
+            onSelect={() => onToggle(d.slug)}
           />
         ))}
       </div>
+      <p className="text-[10px] text-muted-foreground/50 text-center">
+        Select one or more levels
+      </p>
     </div>
   );
 }
@@ -54,6 +57,12 @@ function DifficultyCard({ meta, isSelected, onSelect }: { meta: DifficultyMeta; 
           : 'bg-card border-border hover:border-muted-foreground/30'
       }`}
     >
+      {/* Multi-select indicator */}
+      {isSelected && (
+        <div className="absolute top-1.5 right-1.5 w-3 h-3 rounded-full bg-current opacity-60 flex items-center justify-center">
+          <span className="text-[8px] text-card font-bold">✓</span>
+        </div>
+      )}
       <div className="text-2xl mb-1">{meta.emoji}</div>
       <div className={`text-xs font-bold font-mono ${isSelected ? colors.badge : 'text-foreground'}`}>
         {meta.tag}
