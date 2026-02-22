@@ -40,18 +40,15 @@ export function HomeScreen({
   const { locale, changeLocale } = useLocale();
   const [quote, setQuote] = useState<Quote>(() => getRandomQuote('en'));
 
-  // Refresh quote when locale changes
   useEffect(() => {
     setQuote(getRandomQuote(locale));
   }, [locale]);
 
   const handleSelectField = (slug: string) => {
     onSelectField(slug);
-    // Clear selected topics so the new field context applies
     selectedTopics.forEach((t) => onToggleTopic(t));
   };
 
-  // Derive topic slugs filtered to the selected field
   const fieldTopics = useMemo<string[] | undefined>(() => {
     if (selectedField === 'all') return undefined;
     return FIELD_MAP[selectedField]?.topics ?? undefined;
@@ -102,6 +99,7 @@ export function HomeScreen({
         </div>
       )}
 
+      {/* Brand header */}
       <div className="text-center space-y-3">
         <motion.div
           animate={{ rotate: [0, -5, 5, 0] }}
@@ -111,7 +109,7 @@ export function HomeScreen({
           🧠
         </motion.div>
         <h2 className="text-4xl font-display font-bold text-foreground">
-          Master<span className="text-gradient-primary">mind</span>
+          m<span className="text-gradient-primary">AI</span>th
         </h2>
         <p className="text-muted-foreground max-w-xs mx-auto">
           {t('app.tagline')}
@@ -132,6 +130,42 @@ export function HomeScreen({
         <p className="text-xs font-semibold text-accent mt-2">— {quote.author}</p>
       </motion.div>
 
+      {/* ─── Top Action Zone: Difficulty + Start + MasterMinds ─── */}
+      <div className="w-full space-y-4">
+        {/* Difficulty Picker */}
+        <DifficultyPicker selected={selectedDifficulties} onToggle={onToggleDifficulty} />
+
+        {/* Start Quiz */}
+        <motion.button
+          whileHover={{ scale: 1.03 }}
+          whileTap={{ scale: 0.97 }}
+          onClick={onStart}
+          className="w-full py-4 rounded-xl bg-primary text-primary-foreground font-bold text-xl glow-primary animate-pulse-glow"
+        >
+          {t('home.startQuiz')}
+        </motion.button>
+
+        {/* MasterMinds entry */}
+        <motion.button
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.97 }}
+          onClick={() => navigate('/thinkers')}
+          className="w-full py-3 rounded-xl border-2 border-accent/50 bg-accent/5 hover:bg-accent/10 hover:border-accent transition-all flex items-center justify-center gap-3"
+        >
+          <span className="text-xl">🎓</span>
+          <div className="text-left">
+            <p className="font-bold text-sm text-foreground">{t('home.masterMinds')}</p>
+            <p className="text-[10px] text-muted-foreground">{t('home.masterMindsSub', { count: THINKERS.length })}</p>
+          </div>
+          <span className="ml-auto text-accent font-bold text-sm">→</span>
+        </motion.button>
+      </div>
+
+      {/* Session summary */}
+      <p className="text-xs text-muted-foreground text-center">
+        {summaryTopicsLabel} · {diffLabels} · {totalQuestions} questions
+      </p>
+
       {/* Language Selector */}
       <div className="w-full space-y-2">
         <h3 className="text-xs font-bold text-muted-foreground text-center">{t('language.title')}</h3>
@@ -143,7 +177,7 @@ export function HomeScreen({
         <FieldSelector selectedField={selectedField} onSelectField={handleSelectField} />
       </div>
 
-      {/* Topic Selector — scoped to the selected field */}
+      {/* Topic Selector */}
       <div className="w-full">
         <TopicSelector
           selected={selectedTopics}
@@ -152,42 +186,10 @@ export function HomeScreen({
         />
       </div>
 
-      {/* Difficulty Picker */}
-      <div className="w-full">
-        <DifficultyPicker selected={selectedDifficulties} onToggle={onToggleDifficulty} />
-      </div>
-
-      <motion.button
-        whileHover={{ scale: 1.03 }}
-        whileTap={{ scale: 0.97 }}
-        onClick={onStart}
-        className="w-full py-4 rounded-xl bg-primary text-primary-foreground font-bold text-xl glow-primary animate-pulse-glow"
-      >
-        {t('home.startQuiz')}
-      </motion.button>
-
-      {/* Who's Who entry point */}
-      <motion.button
-        whileHover={{ scale: 1.02 }}
-        whileTap={{ scale: 0.97 }}
-        onClick={() => navigate('/thinkers')}
-        className="w-full py-3 rounded-xl border-2 border-accent/50 bg-accent/5 hover:bg-accent/10 hover:border-accent transition-all flex items-center justify-center gap-3"
-      >
-        <span className="text-xl">🎓</span>
-        <div className="text-left">
-          <p className="font-bold text-sm text-foreground">{t('home.whosWho')}</p>
-          <p className="text-[10px] text-muted-foreground">{t('home.whosWhoSub', { count: THINKERS.length })}</p>
-        </div>
-        <span className="ml-auto text-accent font-bold text-sm">→</span>
-      </motion.button>
-
       <p className="text-xs font-medium text-accent text-center">
         {t('quiz.questionCount', { count: questionCount })}
       </p>
 
-      <p className="text-xs text-muted-foreground text-center">
-        {summaryTopicsLabel} · {diffLabels} · {totalQuestions} questions
-      </p>
       <div className="pb-6" />
     </motion.div>
   );
