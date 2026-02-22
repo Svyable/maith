@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect } from 'react';
+import { useState, useCallback, useEffect, useRef } from 'react';
 import { AnimatePresence } from 'framer-motion';
 import { QuizHeader } from '@/components/QuizHeader';
 import { HomeScreen } from '@/components/HomeScreen';
@@ -9,7 +9,7 @@ import { useQuizSession } from '@/hooks/useQuizSession';
 import { useTheme } from '@/hooks/useTheme';
 import { useAuth } from '@/hooks/useAuth';
 import { supabase } from '@/integrations/supabase/client';
-import { type Difficulty, DEFAULT_DIFFICULTY, toQuestionDifficulty } from '@/config/constants';
+import { type Difficulty, DEFAULT_DIFFICULTY } from '@/config/constants';
 import { FIELD_MAP } from '@/config/fields';
 import { t } from '@/i18n';
 
@@ -27,6 +27,13 @@ const Index = () => {
   const { state, currentQuestion, answer, nextQuestion, skipQuestion, endQuiz, restartQuiz, totalQuestions } =
     useQuiz(selectedTopics, selectedDifficulties);
 
+  // Ref to trigger timeout auto-answer from within QuizScreen
+  const timeoutRef = useRef<(() => void) | null>(null);
+
+  const handleTimeout = useCallback(() => {
+    timeoutRef.current?.();
+  }, []);
+
   const {
     sessionCorrect, sessionTotal,
     timeLeft, fraction,
@@ -34,11 +41,11 @@ const Index = () => {
     handleSessionUpdate,
   } = useQuizSession({
     difficulties: selectedDifficulties,
-    currentQuestionDifficulty: currentQuestion ? currentQuestion.difficulty : undefined,
     isQuizActive: screen === 'quiz',
     quizState: state,
     sessionTag: 'quiz',
     topics: selectedTopics,
+    onTimeout: handleTimeout,
   });
 
   // Fetch display name
@@ -145,6 +152,7 @@ const Index = () => {
               onSkip={handleSkip}
               onEndQuiz={handleEndQuiz}
               onSessionUpdate={handleSessionUpdate}
+              timeoutRef={timeoutRef}
             />
           )}
 

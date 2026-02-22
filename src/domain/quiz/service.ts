@@ -31,7 +31,6 @@ export function selectQuestionsLocal(
   pool: Question[],
   topics: string[],
   difficulties: QuestionDifficulty[],
-  count: number,
 ): PublicQuestion[] {
   let filtered = topics.length === 0 ? pool : pool.filter((q) => topics.includes(q.topic));
 
@@ -41,7 +40,6 @@ export function selectQuestionsLocal(
   }
 
   return fisherYatesShuffle(filtered)
-    .slice(0, count)
     .map((q) => applyClientTranslations(stripAnswers(q)));
 }
 
@@ -72,19 +70,18 @@ export function localFallbackCheck(
 export async function fetchQuestions(
   topics: string[],
   difficulties: Difficulty[],
-  count: number,
   pool: Question[] = allQuestions,
 ): Promise<PublicQuestion[]> {
   const locale = getLocale();
   const levels = difficulties.map(toQuestionDifficulty);
   try {
     const { data, error } = await supabase.functions.invoke('quiz-next', {
-      body: { topics, difficulties: levels, seenIds: [], count, locale },
+      body: { topics, difficulties: levels, seenIds: [], count: 9999, locale },
     });
     if (error) throw error;
     return (data?.questions as PublicQuestion[]) ?? [];
   } catch {
-    return selectQuestionsLocal(pool, topics, levels, count);
+    return selectQuestionsLocal(pool, topics, levels);
   }
 }
 
@@ -137,7 +134,6 @@ export async function submitSession(
 export function fetchThinkerQuestions(
   slug: string,
   difficulties: QuestionDifficulty[],
-  count: number,
 ): PublicQuestion[] {
   let pool = allThinkerQuestions.filter((q) => q.topic === slug);
 
@@ -146,7 +142,6 @@ export function fetchThinkerQuestions(
   }
 
   return fisherYatesShuffle(pool)
-    .slice(0, count)
     .map(stripAnswers);
 }
 

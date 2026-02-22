@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect, type MutableRefObject } from 'react';
 import { motion } from 'framer-motion';
 import { LatexRenderer } from './LatexRenderer';
 import { OptionButton } from './OptionButton';
@@ -24,6 +24,8 @@ interface QuizScreenProps {
   onSkip: () => void;
   onEndQuiz: () => void;
   onSessionUpdate: (correct: boolean) => void;
+  /** Ref that the parent sets — called when the timer expires */
+  timeoutRef?: MutableRefObject<(() => void) | null>;
 }
 
 /** Badge color classes keyed by question-level difficulty */
@@ -47,6 +49,7 @@ export function QuizScreen({
   onSkip,
   onEndQuiz,
   onSessionUpdate,
+  timeoutRef,
 }: QuizScreenProps) {
   const [selectedOption, setSelectedOption] = useState<number | null>(null);
   const [answerState, setAnswerState] = useState<'pending' | 'checking' | 'correct' | 'wrong'>('pending');
@@ -79,6 +82,27 @@ export function QuizScreen({
       setSelectedOption(null);
     }
   }, [onAnswer, answerState, onSessionUpdate, eliminatedOptions, question.originalIndices]);
+
+  // Auto-answer on timeout: treat as wrong answer
+  const handleTimeoutAnswer = useCallback(async () => {
+    if (answerState !== 'pending') return;
+    // Pick a wrong answer (index -1 mapped to original -1 guarantees wrong)
+    const originalIndex = -1; // impossible index = always wrong
+    const result = await onAnswer(originalIndex);
+    if (result) {
+      const shuffledCorrectIndex = question.originalIndices.indexOf(result.correctIndex);
+      setCheckResult({ ...result, correctIndex: shuffledCorrectIndex });
+      setAnswerState('wrong');
+      setSelectedOption(-1); // no visual selection
+      onSessionUpdate(false);
+    }
+  }, [answerState, onAnswer, onSessionUpdate, question.originalIndices]);
+
+  // Register timeout handler with parent via ref
+  useEffect(() => {
+    if (timeoutRef) timeoutRef.current = handleTimeoutAnswer;
+    return () => { if (timeoutRef) timeoutRef.current = null; };
+  }, [timeoutRef, handleTimeoutAnswer]);
 
   const resetQuestionState = useCallback(() => {
     setSelectedOption(null);

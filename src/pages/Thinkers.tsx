@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect } from 'react';
+import { useState, useCallback, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import { QuizHeader } from '@/components/QuizHeader';
@@ -27,6 +27,12 @@ export default function Thinkers() {
   const { state, questions, currentQuestion, startThinker, answer, nextQuestion, skipQuestion, endQuiz } =
     useThinkerQuiz(selectedDifficulties);
 
+  const timeoutRef = useRef<(() => void) | null>(null);
+
+  const handleTimeout = useCallback(() => {
+    timeoutRef.current?.();
+  }, []);
+
   const {
     sessionCorrect, sessionTotal,
     timeLeft, fraction,
@@ -34,11 +40,11 @@ export default function Thinkers() {
     handleSessionUpdate,
   } = useQuizSession({
     difficulties: selectedDifficulties,
-    currentQuestionDifficulty: currentQuestion ? currentQuestion.difficulty : undefined,
     isQuizActive: screen === 'quiz',
     quizState: state,
     sessionTag: 'thnk',
     topics: selectedSlug ? [selectedSlug] : [],
+    onTimeout: handleTimeout,
   });
 
   const toggleDifficulty = useCallback((d: Difficulty) => {
@@ -182,6 +188,7 @@ export default function Thinkers() {
                 onSkip={handleSkip}
                 onEndQuiz={handleEndQuiz}
                 onSessionUpdate={handleSessionUpdate}
+                timeoutRef={timeoutRef}
               />
             </div>
           )}

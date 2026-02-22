@@ -21,10 +21,6 @@ export function highestDifficulty(ds: Difficulty[]): Difficulty {
   return 'EASY';
 }
 
-export function questionsForDifficulties(ds: Difficulty[]): number {
-  return Math.max(...ds.map((d) => getDifficultyMeta(d).questionsPerQuiz));
-}
-
 // ── Scoring ──────────────────────────────────────────────────
 export const BASE_POINTS: Record<Difficulty, number> = {
   EASY: 10,
@@ -36,12 +32,8 @@ export const BASE_POINTS: Record<Difficulty, number> = {
 export const STREAK_STEP = 0.05;
 export const STREAK_CAP = 2.0;
 
-// ── Per-question time limits (seconds) ──────────────────────
-export const QUESTION_TIME: Record<QuestionDifficulty, number> = {
-  easy: 30,
-  hard: 20,
-  sota: 15,
-};
+// ── Universal timer (seconds per question, regardless of difficulty) ─
+export const QUESTION_TIME_SECONDS = 30;
 
 // ── Difficulty meta ──────────────────────────────────────────
 export interface DifficultyMeta {
@@ -50,8 +42,7 @@ export interface DifficultyMeta {
   tag: string;        // short badge text
   emoji: string;
   description: string;
-  questionsPerQuiz: number;
-  timePerQuestion: number; // seconds
+  pointsPerCorrect: number;
   color: 'success' | 'accent' | 'destructive';
 }
 
@@ -61,9 +52,8 @@ export const DIFFICULTIES: DifficultyMeta[] = [
     label: 'Easy',
     tag: 'EASY',
     emoji: '🌱',
-    description: 'Fundamentals — gentle scoring, longer timer',
-    questionsPerQuiz: 10,
-    timePerQuestion: 30,
+    description: 'Fundamentals — gentle scoring',
+    pointsPerCorrect: 10,
     color: 'success',
   },
   {
@@ -71,9 +61,8 @@ export const DIFFICULTIES: DifficultyMeta[] = [
     label: 'Hard',
     tag: 'HARD',
     emoji: '⚡',
-    description: 'Competitive difficulty — level up',
-    questionsPerQuiz: 15,
-    timePerQuestion: 20,
+    description: 'Competitive — double points',
+    pointsPerCorrect: 20,
     color: 'accent',
   },
   {
@@ -81,9 +70,8 @@ export const DIFFICULTIES: DifficultyMeta[] = [
     label: 'State of the Art',
     tag: 'SOTA',
     emoji: '🔥',
-    description: 'God-mode frontier — highest reward',
-    questionsPerQuiz: 20,
-    timePerQuestion: 15,
+    description: 'Frontier — max reward',
+    pointsPerCorrect: 35,
     color: 'destructive',
   },
 ];
