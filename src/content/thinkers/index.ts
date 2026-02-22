@@ -130,6 +130,15 @@ import { georgeGreenQuestions } from './george-green';
 import { faradayQuestions } from './faraday';
 import { planckQuestions } from './planck';
 import { bohrQuestions } from './bohr';
+// New thinkers: Engineering, Economics, Quant, CS
+import { kalmanQuestions } from './kalman';
+import { wienerQuestions } from './wiener';
+import { thalerQuestions } from './thaler';
+import { senQuestions } from './sen';
+import { mertonRobertQuestions } from './merton-robert';
+import { markowitzQuestions } from './markowitz';
+import { lamportQuestions } from './lamport';
+import { martinLofQuestions } from './martin-lof';
 import type { Question } from '../types';
 
 export const allThinkerQuestions: Question[] = [
@@ -268,6 +277,15 @@ export const allThinkerQuestions: Question[] = [
   ...faradayQuestions,
   ...planckQuestions,
   ...bohrQuestions,
+  // New thinkers
+  ...kalmanQuestions,
+  ...wienerQuestions,
+  ...thalerQuestions,
+  ...senQuestions,
+  ...mertonRobertQuestions,
+  ...markowitzQuestions,
+  ...lamportQuestions,
+  ...martinLofQuestions,
 ];
 export function getThinkerQuestions(slug: string): Question[] {
   return allThinkerQuestions.filter((q) => q.topic === slug);
