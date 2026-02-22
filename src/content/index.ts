@@ -85,6 +85,13 @@ import { lawQuestions } from './law';
 import { medicalQuestions } from './medical';
 // ── Data Science ──────────────────────────────────────────────
 import { dataScienceQuestions } from './data-science';
+// ── New advanced topics ──────────────────────────────────────
+import { combinatoricsQuestions } from './combinatorics';
+import { categoryTheoryQuestions } from './category-theory';
+import { ergodicTheoryQuestions } from './ergodic-theory';
+import { algebraicGeometryQuestions } from './algebraic-geometry';
+import { measureTheoryQuestions } from './measure-theory';
+import { compilerTheoryQuestions } from './compiler-theory';
 
 import type { Question } from './types';
 
@@ -100,6 +107,11 @@ export const allQuestions: Question[] = [
   ...topologyQuestions,
   ...differentialEquationsQuestions,
   ...abstractAlgebraQuestions,
+  ...combinatoricsQuestions,
+  ...categoryTheoryQuestions,
+  ...ergodicTheoryQuestions,
+  ...algebraicGeometryQuestions,
+  ...measureTheoryQuestions,
   // ── Physics ──────────────────────────────────────────────────
   ...physicsQuestions,
   ...electromagnetismQuestions,
@@ -120,6 +132,7 @@ export const allQuestions: Question[] = [
   ...cybersecurityQuestions,
   ...distributedSystemsQuestions,
   ...operatingSystemsQuestions,
+  ...compilerTheoryQuestions,
   // ── Earth & Space ──────────────────────────────────────────────
   ...earthSpaceQuestions,
   ...meteorologyQuestions,

@@ -11,7 +11,7 @@ import { useQuizSession } from '@/hooks/useQuizSession';
 import { useTheme } from '@/hooks/useTheme';
 import { useAuth } from '@/hooks/useAuth';
 import { supabase } from '@/integrations/supabase/client';
-import { type Difficulty, DEFAULT_DIFFICULTY } from '@/config/constants';
+import { type Difficulty, DEFAULT_DIFFICULTIES } from '@/config/constants';
 import { FIELD_MAP } from '@/config/fields';
 import { t } from '@/i18n';
 
@@ -21,7 +21,7 @@ const Index = () => {
   const [screen, setScreen] = useState<Screen>('home');
   const [selectedTopics, setSelectedTopics] = useState<string[]>([]);
   const [selectedField, setSelectedField] = useState<string>('all');
-  const [selectedDifficulties, setSelectedDifficulties] = useState<Difficulty[]>([DEFAULT_DIFFICULTY]);
+  const [selectedDifficulties, setSelectedDifficulties] = useState<Difficulty[]>(DEFAULT_DIFFICULTIES);
   const [displayName, setDisplayName] = useState<string | null>(null);
   const { isDark, toggle: toggleTheme } = useTheme();
   const { user, signOut } = useAuth();
