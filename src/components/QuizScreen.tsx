@@ -5,7 +5,7 @@ import { OptionButton } from './OptionButton';
 import { TimerBar } from './TimerBar';
 import { ExplanationPopup } from './ExplanationPopup';
 import { HintPanel } from './HintPanel';
-import { type PublicQuestion, type CheckResult } from '@/hooks/useQuiz';
+import type { PublicQuestion, CheckResult } from '@/domain/quiz';
 import { type Difficulty, getDifficultyMeta, TOPIC_MAP } from '@/config/constants';
 import { useKeyboard } from '@/hooks/useKeyboard';
 import { t } from '@/i18n';
@@ -70,25 +70,24 @@ export function QuizScreen({
     }
   }, [onAnswer, answerState, onSessionUpdate, eliminatedOptions]);
 
-  const handleNext = useCallback(() => {
+  const resetQuestionState = useCallback(() => {
     setSelectedOption(null);
     setAnswerState('pending');
     setHintShown(false);
     setEliminateUsed(false);
     setEliminatedOptions([]);
     setCheckResult(null);
+  }, []);
+
+  const handleNext = useCallback(() => {
+    resetQuestionState();
     onNext();
-  }, [onNext]);
+  }, [onNext, resetQuestionState]);
 
   const handleSkip = useCallback(() => {
-    setSelectedOption(null);
-    setAnswerState('pending');
-    setHintShown(false);
-    setEliminateUsed(false);
-    setEliminatedOptions([]);
-    setCheckResult(null);
+    resetQuestionState();
     onSkip();
-  }, [onSkip]);
+  }, [onSkip, resetQuestionState]);
 
   const handleShowHint = useCallback(() => {
     if (hintShown || answerState !== 'pending') return;

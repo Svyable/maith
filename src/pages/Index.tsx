@@ -1,17 +1,15 @@
-import { useState, useCallback, useEffect, useRef } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import { AnimatePresence } from 'framer-motion';
-import confetti from 'canvas-confetti';
 import { QuizHeader } from '@/components/QuizHeader';
 import { HomeScreen } from '@/components/HomeScreen';
 import { QuizScreen } from '@/components/QuizScreen';
 import { QuizResults } from '@/components/QuizResults';
 import { useQuiz } from '@/hooks/useQuiz';
-import { useTimer } from '@/hooks/useTimer';
+import { useQuizSession } from '@/hooks/useQuizSession';
 import { useTheme } from '@/hooks/useTheme';
 import { useAuth } from '@/hooks/useAuth';
-import { submitSession } from '@/domain/quiz';
 import { supabase } from '@/integrations/supabase/client';
-import { type Difficulty, getDifficultyMeta, DEFAULT_DIFFICULTY, CONTENT_VERSION } from '@/config/constants';
+import { type Difficulty, getDifficultyMeta, DEFAULT_DIFFICULTY } from '@/config/constants';
 import { FIELD_MAP } from '@/config/fields';
 import { t } from '@/i18n';
 
@@ -22,15 +20,24 @@ const Index = () => {
   const [selectedTopics, setSelectedTopics] = useState<string[]>([]);
   const [selectedField, setSelectedField] = useState<string>('all');
   const [selectedDifficulty, setSelectedDifficulty] = useState<Difficulty>(DEFAULT_DIFFICULTY);
-  const [sessionCorrect, setSessionCorrect] = useState(0);
-  const [sessionTotal, setSessionTotal] = useState(0);
   const [displayName, setDisplayName] = useState<string | null>(null);
   const { isDark, toggle: toggleTheme } = useTheme();
   const { user, signOut } = useAuth();
 
   const { state, currentQuestion, answer, nextQuestion, skipQuestion, endQuiz, restartQuiz, totalQuestions } = useQuiz(selectedTopics, selectedDifficulty);
 
-  const diffMeta = getDifficultyMeta(selectedDifficulty);
+  const {
+    sessionCorrect, sessionTotal,
+    timeLeft, fraction,
+    resetTimer, resetSession,
+    handleSessionUpdate,
+  } = useQuizSession({
+    difficulty: selectedDifficulty,
+    isQuizActive: screen === 'quiz',
+    quizState: state,
+    sessionTag: 'quiz',
+    topics: selectedTopics,
+  });
 
   // Fetch display name
   useEffect(() => {
@@ -38,43 +45,6 @@ const Index = () => {
     supabase.from('profiles').select('display_name').eq('id', user.id).maybeSingle()
       .then(({ data }) => setDisplayName(data?.display_name ?? null));
   }, [user]);
-
-  // Submit session to DB when quiz finishes (guard with ref to prevent double-submit)
-  const submittedRef = useRef(false);
-  useEffect(() => {
-    if (state.isFinished && screen === 'quiz' && user && !submittedRef.current) {
-      submittedRef.current = true;
-      submitSession(user.id, 'quiz', {
-        topics: selectedTopics.length > 0 ? selectedTopics : Object.keys(state.topicBreakdown),
-        difficulty: selectedDifficulty,
-        score: state.score,
-        totalAnswered: state.totalAnswered,
-        correctAnswered: state.correctAnswered,
-        bestStreak: state.bestStreak,
-        topicBreakdown: state.topicBreakdown,
-        contentVersion: CONTENT_VERSION,
-      });
-    }
-    // Reset guard when starting a fresh quiz
-    if (!state.isFinished) submittedRef.current = false;
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [state.isFinished, screen, user]);
-
-  const handleTimeout = useCallback(() => {
-    if (screen === 'quiz') {
-      setSessionTotal((t) => t + 1);
-    }
-  }, [screen]);
-
-  const { timeLeft, reset: resetTimer, fraction } = useTimer(diffMeta.timePerQuestion, handleTimeout, screen === 'quiz');
-
-  const handleSessionUpdate = useCallback((correct: boolean) => {
-    setSessionTotal((t) => t + 1);
-    if (correct) {
-      setSessionCorrect((c) => c + 1);
-      confetti({ particleCount: 60, spread: 50, origin: { y: 0.7 }, colors: ['#22d3ee', '#f59e0b', '#22c55e'] });
-    }
-  }, []);
 
   const handleNext = useCallback(() => {
     nextQuestion();
@@ -97,18 +67,15 @@ const Index = () => {
   }, [state.isFinished, screen]);
 
   const startQuiz = useCallback(async () => {
-    // If a field is selected but no specific topics, scope to the field's topics
     const effectiveTopics = selectedTopics.length > 0
       ? selectedTopics
       : selectedField !== 'all'
         ? (FIELD_MAP[selectedField]?.topics ?? [])
         : [];
-    setSessionCorrect(0);
-    setSessionTotal(0);
-    resetTimer();
+    resetSession();
     setScreen('quiz');
     await restartQuiz(effectiveTopics, selectedDifficulty);
-  }, [restartQuiz, selectedTopics, selectedField, selectedDifficulty, resetTimer]);
+  }, [restartQuiz, selectedTopics, selectedField, selectedDifficulty, resetSession]);
 
   const toggleTopic = useCallback((topic: string) => {
     setSelectedTopics((prev) =>

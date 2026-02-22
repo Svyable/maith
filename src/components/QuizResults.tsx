@@ -6,7 +6,7 @@ import { THINKER_MAP } from '@/config/thinkers';
 import { t } from '@/i18n';
 import { ReviewMistakes } from './ReviewMistakes';
 import { FieldStatsBar } from './FieldStatsBar';
-import { getRandomQuote } from '@/data/quotes';
+import { getRandomQuote } from '@/content/quotes';
 import { useLocale } from '@/hooks/useLocale';
 import type { MissedQuestion, SkippedQuestion } from '@/domain/quiz';
 
