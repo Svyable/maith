@@ -96,11 +96,21 @@ serve(async (req) => {
       [pool[i], pool[j]] = [pool[j], pool[i]];
     }
 
-    // Take batch, translate if needed, then STRIP answers but KEEP hint
+    // Take batch, translate if needed, strip answers, shuffle options
     const batch = pool.slice(0, batchSize).map(q => {
       const tq = translateQuestion(q, translations);
       const { correctIndex, explanation, realWorld, ...pub } = tq;
-      return pub;
+      // Shuffle options to prevent spatial memorization
+      const indices = Array.from({ length: pub.options.length }, (_, i) => i);
+      for (let i = indices.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [indices[i], indices[j]] = [indices[j], indices[i]];
+      }
+      return {
+        ...pub,
+        options: indices.map(i => pub.options[i]),
+        originalIndices: indices,
+      };
     });
 
     return new Response(JSON.stringify({ questions: batch, remaining: pool.length - batch.length }), {
