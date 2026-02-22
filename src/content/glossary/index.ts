@@ -8,6 +8,7 @@ import { biologyTerms } from './biology';
 import { chemistryTerms } from './chemistry';
 import { earthSpaceTerms } from './earth-space';
 import { quantTerms } from './quant';
+import { opticsTerms, commsTerms, semiconductorTerms, materialsTerms } from './applied-sciences';
 
 export type { GlossaryTerm };
 
@@ -22,6 +23,10 @@ export const allGlossaryTerms: GlossaryTerm[] = [
   ...chemistryTerms,
   ...earthSpaceTerms,
   ...quantTerms,
+  ...opticsTerms,
+  ...commsTerms,
+  ...semiconductorTerms,
+  ...materialsTerms,
 ];
 
 /** Terms filtered by field slug */
