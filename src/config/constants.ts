@@ -100,6 +100,8 @@ export const TOPICS: TopicMeta[] = [
   { slug: 'number-theory',     label: 'Number Theory',        emoji: '🔢', description: 'Primes, modular arithmetic, Diophantine equations',  field: 'math'    },
   { slug: 'real-analysis',     label: 'Real Analysis',        emoji: '∞',  description: 'Convergence, measure theory, Lebesgue integrals',   field: 'math'    },
   { slug: 'topology',          label: 'Topology',             emoji: '🍩', description: 'Homeomorphisms, Euler characteristic, TDA',          field: 'math'    },
+  { slug: 'differential-equations', label: 'Differential Equations', emoji: '📈', description: 'ODEs, PDEs, Laplace transforms, Neural ODEs',       field: 'math'    },
+  { slug: 'abstract-algebra',  label: 'Abstract Algebra',     emoji: '💠', description: 'Groups, rings, fields, Galois theory',                field: 'math'    },
   // ── Physics ──────────────────────────────────────────────
   { slug: 'quantum-mechanics',   label: 'Quantum Mechanics',    emoji: '⚛️', description: 'Wave functions, operators, Schrödinger, uncertainty', field: 'physics' },
   { slug: 'classical-mechanics', label: 'Classical Mechanics',  emoji: '🍎', description: 'Newtonian dynamics, Lagrangians, Hamiltonians',      field: 'physics' },
@@ -107,6 +109,8 @@ export const TOPICS: TopicMeta[] = [
   { slug: 'thermodynamics',      label: 'Thermodynamics',       emoji: '🌡️', description: 'Entropy, statistical mechanics, heat engines',       field: 'physics' },
   { slug: 'nuclear-physics',     label: 'Nuclear Physics',      emoji: '☢️', description: 'Fission, fusion, E=mc², radioactive decay',         field: 'physics' },
   { slug: 'fluid-dynamics',     label: 'Fluid Dynamics',       emoji: '🌊', description: 'Navier-Stokes, turbulence, Reynolds number, CFD',    field: 'physics' },
+  { slug: 'optics',             label: 'Optics',               emoji: '🔦', description: 'Snell\'s law, diffraction, metamaterials, adaptive optics', field: 'physics' },
+  { slug: 'relativity',         label: 'Relativity',           emoji: '🕐', description: 'Special & general relativity, spacetime, black holes',  field: 'physics' },
   // ── Chemistry ──────────────────────────────────────────────
   { slug: 'physical-chemistry',  label: 'Physical Chemistry',   emoji: '⚗️', description: 'Thermodynamics, kinetics, quantum chemistry',       field: 'chemistry' },
   { slug: 'organic-chemistry',   label: 'Organic Chemistry',    emoji: '🧪', description: 'Reactions, stereochemistry, synthesis',              field: 'chemistry' },
@@ -124,6 +128,8 @@ export const TOPICS: TopicMeta[] = [
   { slug: 'ai-models',           label: 'AI Models',            emoji: '🏗️', description: 'AlexNet, GPT, AlphaGo, DeepSeek, CALM, Diffusion',  field: 'cs' },
   { slug: 'quantum-computing',   label: 'Quantum Computing',    emoji: '💠', description: 'Qubits, entanglement, error correction, Shor',      field: 'cs' },
   { slug: 'cybersecurity',       label: 'Cybersecurity',        emoji: '🛡️', description: 'ZK proofs, post-quantum crypto, attack vectors',    field: 'cs' },
+  { slug: 'distributed-systems', label: 'Distributed Systems',  emoji: '🌐', description: 'CAP theorem, consensus, CRDTs, Raft, Spanner',        field: 'cs' },
+  { slug: 'operating-systems',   label: 'Operating Systems',    emoji: '🖥️', description: 'Scheduling, virtual memory, eBPF, io_uring',          field: 'cs' },
   // ── Earth & Space ──────────────────────────────────────────
   { slug: 'astronomy',           label: 'Astronomy',            emoji: '🔭', description: 'Stars, galaxies, cosmology, CMB',                   field: 'earth-space' },
   { slug: 'geology',             label: 'Geology',              emoji: '🪨', description: 'Rocks, tectonics, geochronology',                   field: 'earth-space' },
@@ -182,6 +188,8 @@ export const TOPICS: TopicMeta[] = [
   { slug: 'psychology',           label: 'Psychology',            emoji: '🧠', description: 'Kahneman, cognitive biases, replication crisis',  field: 'human-sciences' },
   { slug: 'linguistics',          label: 'Linguistics',           emoji: '🗣️', description: 'Chomsky, distributional semantics, LLMs',        field: 'human-sciences' },
   { slug: 'philosophy-of-science', label: 'Philosophy of Science', emoji: '🤔', description: 'Popper, Kuhn, Chinese Room, falsifiability',    field: 'human-sciences' },
+  // ── 2024 SOTA ──────────────────────────────────────────────
+  { slug: 'sota-2024',            label: '2024 SOTA',              emoji: '⚡', description: 'GPT-4, Llama 2/3, Mixtral, DPO, DALL-E 3, Gemini 1.0',          field: 'sota-2024' },
   // ── 2025 SOTA ──────────────────────────────────────────────
   { slug: 'sota-2025',            label: '2025 SOTA',              emoji: '🧠', description: 'CALM, DeepSeek-R1, Speculative Decoding, Data Shapley, SAM 2',  field: 'sota-2025' },
   // ── 2026 SOTA ──────────────────────────────────────────────

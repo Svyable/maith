@@ -1,0 +1,1 @@
+export { opticsQuestions } from './questions';
