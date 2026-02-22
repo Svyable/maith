@@ -1,6 +1,6 @@
 import { useState, useCallback, useEffect } from 'react';
 import { setLocale, getLocale, SUPPORTED_LOCALES } from '@/i18n';
-import { preloadQuestionTranslations } from '@/utils/tQuestion';
+import { preloadQuestionTranslations } from '@/i18n/tQuestion';
 
 type Locale = typeof SUPPORTED_LOCALES[number]['code'];
 

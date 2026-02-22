@@ -6,7 +6,7 @@ import { supabase } from '@/integrations/supabase/client';
 import { allQuestions } from '@/content';
 import { allThinkerQuestions } from '@/content/thinkers';
 import { getLocale } from '@/i18n';
-import { tQuestion, tQuestionOptions } from '@/utils/tQuestion';
+import { tQuestion, tQuestionOptions } from '@/i18n/tQuestion';
 import { fisherYatesShuffle, stripAnswers } from './engine';
 import type { PublicQuestion, CheckResult, SessionSubmitParams } from './types';
 import type { Question } from '@/content/types';

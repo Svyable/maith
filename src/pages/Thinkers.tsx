@@ -1,20 +1,17 @@
-import { useState, useCallback, useEffect, useRef } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
-import confetti from 'canvas-confetti';
 import { QuizHeader } from '@/components/QuizHeader';
 import { QuizScreen } from '@/components/QuizScreen';
 import { QuizResults } from '@/components/QuizResults';
 import { ThinkerCard } from '@/components/ThinkerCard';
 import { DifficultyPicker } from '@/components/DifficultyPicker';
 import { useTheme } from '@/hooks/useTheme';
-import { useAuth } from '@/hooks/useAuth';
-import { useTimer } from '@/hooks/useTimer';
 import { useThinkerQuiz } from '@/hooks/useThinkerQuiz';
+import { useQuizSession } from '@/hooks/useQuizSession';
 import { THINKERS, ANCIENT_THINKERS, MODERN_THINKERS, CONTEMPORARY_THINKERS } from '@/config/thinkers';
 import { getThinkerQuestions } from '@/content/thinkers';
-import { submitSession } from '@/domain/quiz';
-import { getDifficultyMeta, DEFAULT_DIFFICULTY, CONTENT_VERSION } from '@/config/constants';
+import { DEFAULT_DIFFICULTY } from '@/config/constants';
 import type { Difficulty } from '@/config/constants';
 import { t } from '@/i18n';
 
@@ -23,49 +20,35 @@ type Screen = 'gallery' | 'quiz' | 'results';
 export default function Thinkers() {
   const navigate = useNavigate();
   const { isDark, toggle: toggleTheme } = useTheme();
-  const { user } = useAuth();
   const [screen, setScreen] = useState<Screen>('gallery');
   const [selectedSlug, setSelectedSlug] = useState<string | null>(null);
   const [selectedDifficulty, setSelectedDifficulty] = useState<Difficulty>(DEFAULT_DIFFICULTY);
-  const [sessionCorrect, setSessionCorrect] = useState(0);
-  const [sessionTotal, setSessionTotal] = useState(0);
-  const submittedRef = useRef(false);
 
   const { state, questions, currentQuestion, startThinker, answer, nextQuestion, skipQuestion, endQuiz } =
     useThinkerQuiz(selectedDifficulty);
 
-  const diffMeta = getDifficultyMeta(selectedDifficulty);
-
-  const handleTimeout = useCallback(() => {
-    if (screen === 'quiz') setSessionTotal((p) => p + 1);
-  }, [screen]);
-
-  const { timeLeft, reset: resetTimer, fraction } = useTimer(
-    diffMeta.timePerQuestion,
-    handleTimeout,
-    screen === 'quiz',
-  );
+  const {
+    sessionCorrect, sessionTotal,
+    timeLeft, fraction,
+    resetTimer, resetSession,
+    handleSessionUpdate,
+  } = useQuizSession({
+    difficulty: selectedDifficulty,
+    isQuizActive: screen === 'quiz',
+    quizState: state,
+    sessionTag: 'thnk',
+    topics: selectedSlug ? [selectedSlug] : [],
+  });
 
   const handleStartThinker = useCallback(
     (slug: string) => {
       setSelectedSlug(slug);
-      setSessionCorrect(0);
-      setSessionTotal(0);
-      submittedRef.current = false;
+      resetSession();
       startThinker(slug);
-      resetTimer();
       setScreen('quiz');
     },
-    [startThinker, resetTimer],
+    [startThinker, resetSession],
   );
-
-  const handleSessionUpdate = useCallback((correct: boolean) => {
-    setSessionTotal((p) => p + 1);
-    if (correct) {
-      setSessionCorrect((p) => p + 1);
-      confetti({ particleCount: 60, spread: 50, origin: { y: 0.7 }, colors: ['#22d3ee', '#f59e0b', '#22c55e'] });
-    }
-  }, []);
 
   const handleNext = useCallback(() => {
     nextQuestion();
@@ -81,26 +64,11 @@ export default function Thinkers() {
     endQuiz();
   }, [endQuiz]);
 
-  // Transition to results + submit session (single submission guard)
+  // Transition to results
   useEffect(() => {
     if (state.isFinished && screen === 'quiz') {
       setScreen('results');
-      if (user && selectedSlug && !submittedRef.current) {
-        submittedRef.current = true;
-        submitSession(user.id, 'thnk', {
-          topics: [selectedSlug],
-          difficulty: selectedDifficulty,
-          score: state.score,
-          totalAnswered: state.totalAnswered,
-          correctAnswered: state.correctAnswered,
-          bestStreak: state.bestStreak,
-          topicBreakdown: state.topicBreakdown,
-          contentVersion: CONTENT_VERSION,
-        });
-      }
     }
-    if (!state.isFinished) submittedRef.current = false;
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [state.isFinished, screen]);
 
   const thinkerMeta = selectedSlug ? THINKERS.find((th) => th.slug === selectedSlug) : null;
@@ -133,7 +101,6 @@ export default function Thinkers() {
                 </p>
               </div>
 
-              {/* Difficulty picker for thinker mode */}
               <DifficultyPicker selected={selectedDifficulty} onSelect={setSelectedDifficulty} />
 
               <div className="space-y-5">

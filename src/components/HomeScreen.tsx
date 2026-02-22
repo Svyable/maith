@@ -10,7 +10,7 @@ import { allQuestions } from '@/content';
 import { t } from '@/i18n';
 import { useLocale } from '@/hooks/useLocale';
 import { useMemo, useState, useEffect } from 'react';
-import { getRandomQuote, type Quote } from '@/data/quotes';
+import { getRandomQuote, type Quote } from '@/content/quotes';
 import { THINKERS } from '@/config/thinkers';
 
 interface HomeScreenProps {
