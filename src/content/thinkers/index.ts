@@ -111,6 +111,13 @@ import { alkashiQuestions as alkashiPiQuestions } from './al-kashi';
 import { ptolemyQuestions } from './ptolemy';
 import { hipparchusQuestions } from './hipparchus';
 import { tusiQuestions } from './al-tusi';
+// Applied Sciences: Optics, Comms, Semiconductors, Materials
+import { alhazenQuestions } from './alhazen';
+import { maxwellQuestions } from './maxwell';
+import { marconiQuestions } from './marconi';
+import { shockleyQuestions } from './shockley';
+import { kilbyQuestions } from './kilby';
+import { hookeQuestions } from './hooke';
 import type { Question } from '../types';
 
 export const allThinkerQuestions: Question[] = [
@@ -229,6 +236,13 @@ export const allThinkerQuestions: Question[] = [
   ...ptolemyQuestions,
   ...hipparchusQuestions,
   ...tusiQuestions,
+  // Applied Sciences
+  ...alhazenQuestions,
+  ...maxwellQuestions,
+  ...marconiQuestions,
+  ...shockleyQuestions,
+  ...kilbyQuestions,
+  ...hookeQuestions,
 ];
 export function getThinkerQuestions(slug: string): Question[] {
   return allThinkerQuestions.filter((q) => q.topic === slug);
