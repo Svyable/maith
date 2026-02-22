@@ -1,0 +1,24 @@
+import { QuizHeader } from '@/components/QuizHeader';
+import { GlossaryScreen } from '@/components/glossary/GlossaryScreen';
+import { useTheme } from '@/hooks/useTheme';
+import { useNavigate } from 'react-router-dom';
+
+export default function Glossary() {
+  const { isDark, toggle: toggleTheme } = useTheme();
+  const navigate = useNavigate();
+
+  return (
+    <div className="min-h-screen bg-background flex flex-col">
+      <QuizHeader
+        streak={0}
+        showStreak={false}
+        isDark={isDark}
+        onToggleTheme={toggleTheme}
+        onHome={() => navigate('/')}
+      />
+      <main className="flex-1 px-4 py-6 max-w-lg mx-auto w-full">
+        <GlossaryScreen />
+      </main>
+    </div>
+  );
+}
