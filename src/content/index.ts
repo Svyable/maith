@@ -58,6 +58,15 @@ import { topologyQuestions } from './topology';
 import { psychologyQuestions } from './psychology';
 import { environmentalScienceQuestions } from './environmental-science';
 import { pharmacologyQuestions } from './pharmacology';
+// ── New expanded topics ──────────────────────────────────────
+import { differentialEquationsQuestions } from './differential-equations';
+import { abstractAlgebraQuestions } from './abstract-algebra';
+import { opticsQuestions } from './optics';
+import { relativityQuestions } from './relativity';
+import { distributedSystemsQuestions } from './distributed-systems';
+import { operatingSystemsQuestions } from './operating-systems';
+// ── 2024 SOTA ──────────────────────────────────────────────
+import { sota2024Questions } from './sota-2024';
 // ── 2025 SOTA ──────────────────────────────────────────────
 import { sota2025Questions } from './sota-2025';
 // ── 2026 SOTA ──────────────────────────────────────────────
@@ -89,12 +98,16 @@ export const allQuestions: Question[] = [
   ...numberTheoryQuestions,
   ...realAnalysisQuestions,
   ...topologyQuestions,
+  ...differentialEquationsQuestions,
+  ...abstractAlgebraQuestions,
   // ── Physics ──────────────────────────────────────────────────
   ...physicsQuestions,
   ...electromagnetismQuestions,
   ...thermodynamicsQuestions,
   ...nuclearPhysicsQuestions,
   ...fluidDynamicsQuestions,
+  ...opticsQuestions,
+  ...relativityQuestions,
   // ── Chemistry ──────────────────────────────────────────────
   ...chemistryQuestions,
   // ── Biology & Medicine ──────────────────────────────────────
@@ -105,6 +118,8 @@ export const allQuestions: Question[] = [
   ...computerScienceQuestions,
   ...quantumComputingQuestions,
   ...cybersecurityQuestions,
+  ...distributedSystemsQuestions,
+  ...operatingSystemsQuestions,
   // ── Earth & Space ──────────────────────────────────────────────
   ...earthSpaceQuestions,
   ...meteorologyQuestions,
@@ -125,6 +140,8 @@ export const allQuestions: Question[] = [
   ...psychologyQuestions,
   ...linguisticsQuestions,
   ...philosophyScienceQuestions,
+  // ── 2024 SOTA ──────────────────────────────────────────────
+  ...sota2024Questions,
   // ── 2025 SOTA ──────────────────────────────────────────────
   ...sota2025Questions,
   // ── 2026 SOTA ──────────────────────────────────────────────
