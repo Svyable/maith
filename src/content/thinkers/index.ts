@@ -41,6 +41,18 @@ import { amodeiQuestions } from './amodei';
 import { ngQuestions } from './ng';
 import { lifeiQuestions } from './lifeifei';
 import { ilyaQuestions } from './ilya';
+// Global MasterMinds
+import { taoQuestions } from './tao';
+import { erdosQuestions } from './erdos';
+import { ramanQuestions } from './raman';
+import { mirzakhaniQuestions } from './mirzakhani';
+import { chernQuestions } from './chern';
+import { zhangQuestions } from './zhang';
+import { goldwasserQuestions } from './goldwasser';
+import { kashiwaraQuestions } from './kashiwara';
+import { birkarQuestions } from './birkar';
+import { grothendieckQuestions } from './grothendieck';
+import { kovalevskayaQuestions } from './kovalevskaya';
 import type { Question } from '../types';
 
 export const allThinkerQuestions: Question[] = [
@@ -89,6 +101,18 @@ export const allThinkerQuestions: Question[] = [
   ...ngQuestions,
   ...lifeiQuestions,
   ...ilyaQuestions,
+  // Global MasterMinds
+  ...taoQuestions,
+  ...erdosQuestions,
+  ...ramanQuestions,
+  ...mirzakhaniQuestions,
+  ...chernQuestions,
+  ...zhangQuestions,
+  ...goldwasserQuestions,
+  ...kashiwaraQuestions,
+  ...birkarQuestions,
+  ...grothendieckQuestions,
+  ...kovalevskayaQuestions,
 ];
 
 export function getThinkerQuestions(slug: string): Question[] {
