@@ -8,6 +8,8 @@ export interface PublicQuestion {
   question: string;
   options: string[];
   hint: string;
+  /** Maps shuffled index → original index so answer checks work correctly */
+  originalIndices: number[];
 }
 
 export interface CheckResult {

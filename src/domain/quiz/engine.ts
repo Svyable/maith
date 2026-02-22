@@ -20,9 +20,17 @@ export function fisherYatesShuffle<T>(arr: T[]): T[] {
  * Strip private fields from a full Question, producing a PublicQuestion
  * safe to expose to the client without leaking the correct answer.
  */
+/**
+ * Strip private fields and shuffle options so users can't memorize positions.
+ * Stores `originalIndices` so the caller can map back for answer checking.
+ */
 export function stripAnswers(q: Question): PublicQuestion {
   const { correctIndex: _c, explanation: _e, realWorld: _r, ...pub } = q;
-  return pub;
+  // Create index array [0,1,2,3] and shuffle it
+  const indices = Array.from({ length: pub.options.length }, (_, i) => i);
+  const shuffledIndices = fisherYatesShuffle(indices);
+  const shuffledOptions = shuffledIndices.map((i) => pub.options[i]);
+  return { ...pub, options: shuffledOptions, originalIndices: shuffledIndices };
 }
 
 /** Factory for a clean initial QuizState */

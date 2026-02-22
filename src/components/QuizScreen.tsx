@@ -65,16 +65,20 @@ export function QuizScreen({
     setSelectedOption(index);
     setAnswerState('checking');
 
-    const result = await onAnswer(index);
+    // Map shuffled index back to original for answer checking
+    const originalIndex = question.originalIndices[index];
+    const result = await onAnswer(originalIndex);
     if (result) {
-      setCheckResult(result);
+      // Map correctIndex from original space back to shuffled space for display
+      const shuffledCorrectIndex = question.originalIndices.indexOf(result.correctIndex);
+      setCheckResult({ ...result, correctIndex: shuffledCorrectIndex });
       setAnswerState(result.correct ? 'correct' : 'wrong');
       onSessionUpdate(result.correct);
     } else {
       setAnswerState('pending');
       setSelectedOption(null);
     }
-  }, [onAnswer, answerState, onSessionUpdate, eliminatedOptions]);
+  }, [onAnswer, answerState, onSessionUpdate, eliminatedOptions, question.originalIndices]);
 
   const resetQuestionState = useCallback(() => {
     setSelectedOption(null);

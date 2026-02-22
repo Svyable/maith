@@ -190,6 +190,19 @@ export type Database = {
         }
         Relationships: []
       }
+      leaderboard_by_topic: {
+        Row: {
+          accuracy_percent: number | null
+          avatar_url: string | null
+          correct_answered: number | null
+          display_name: string | null
+          topic: string | null
+          total_answered: number | null
+          user_id: string | null
+          username: string | null
+        }
+        Relationships: []
+      }
       leaderboard_weekly: {
         Row: {
           accuracy_percent_week: number | null
