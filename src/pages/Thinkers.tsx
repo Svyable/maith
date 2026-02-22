@@ -2,6 +2,8 @@ import { useState, useCallback, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import { QuizHeader } from '@/components/QuizHeader';
+import { FloatingBackground } from '@/components/FloatingBackground';
+import { Footer } from '@/components/Footer';
 import { QuizScreen } from '@/components/QuizScreen';
 import { QuizResults } from '@/components/QuizResults';
 import { ThinkerGallery } from '@/components/thinkers/ThinkerGallery';
@@ -88,7 +90,8 @@ export default function Thinkers() {
   const thinkerMeta = selectedSlug ? THINKERS.find((th) => th.slug === selectedSlug) : null;
 
   return (
-    <div className="min-h-screen bg-background flex flex-col">
+    <div className="min-h-screen bg-background flex flex-col relative">
+      <FloatingBackground />
       <QuizHeader
         streak={state.streak}
         showStreak={screen === 'quiz'}
@@ -97,7 +100,7 @@ export default function Thinkers() {
         onHome={() => { setScreen('gallery'); setSelectedSlug(null); }}
       />
 
-      <main className="flex-1 px-4 py-6 max-w-lg md:max-w-3xl lg:max-w-5xl mx-auto w-full">
+      <main className="relative z-10 flex-1 px-4 py-6 max-w-lg md:max-w-3xl lg:max-w-5xl mx-auto w-full">
         <AnimatePresence mode="wait">
 
           {screen === 'gallery' && (
@@ -162,6 +165,7 @@ export default function Thinkers() {
 
         </AnimatePresence>
       </main>
+      {screen === 'gallery' && <div className="relative z-10"><Footer /></div>}
     </div>
   );
 }
