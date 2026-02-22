@@ -71,6 +71,22 @@ import { scholzeQuestions } from './scholze';
 import { venkateshQuestions } from './venkatesh';
 import { deviQuestions } from './devi';
 import { demaineQuestions } from './demaine';
+// Earth & Space thinkers
+import { carlSaganQuestions } from './carl-sagan';
+import { wegenerQuestions } from './wegener';
+import { veraRubinQuestions } from './vera-rubin';
+// Economics thinkers
+import { adamSmithQuestions } from './adam-smith';
+import { johnNashQuestions } from './john-nash';
+import { keynesQuestions } from './keynes';
+// Engineering thinkers
+import { nikolaTeslaQuestions } from './nikola-tesla';
+import { vonBraunQuestions } from './von-braun';
+import { hedyLamarrQuestions } from './hedy-lamarr';
+// Biology thinkers
+import { darwinQuestions } from './darwin';
+import { rosalindFranklinQuestions } from './rosalind-franklin';
+import { doudnaQuestions } from './jennifer-doudna';
 import type { Question } from '../types';
 
 export const allThinkerQuestions: Question[] = [
@@ -149,6 +165,22 @@ export const allThinkerQuestions: Question[] = [
   ...venkateshQuestions,
   ...deviQuestions,
   ...demaineQuestions,
+  // Earth & Space
+  ...carlSaganQuestions,
+  ...wegenerQuestions,
+  ...veraRubinQuestions,
+  // Economics
+  ...adamSmithQuestions,
+  ...johnNashQuestions,
+  ...keynesQuestions,
+  // Engineering
+  ...nikolaTeslaQuestions,
+  ...vonBraunQuestions,
+  ...hedyLamarrQuestions,
+  // Biology
+  ...darwinQuestions,
+  ...rosalindFranklinQuestions,
+  ...doudnaQuestions,
 ];
 export function getThinkerQuestions(slug: string): Question[] {
   return allThinkerQuestions.filter((q) => q.topic === slug);
