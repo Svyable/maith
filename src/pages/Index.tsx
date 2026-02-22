@@ -1,6 +1,7 @@
 import { useState, useCallback, useEffect, useRef } from 'react';
 import { AnimatePresence } from 'framer-motion';
 import { QuizHeader } from '@/components/QuizHeader';
+import { Footer } from '@/components/Footer';
 import { HomeScreen } from '@/components/HomeScreen';
 import { QuizScreen } from '@/components/QuizScreen';
 import { QuizResults } from '@/components/QuizResults';
@@ -112,7 +113,7 @@ const Index = () => {
         onHome={() => setScreen('home')}
       />
 
-      <main className="flex-1 px-4 py-6 max-w-lg mx-auto w-full">
+      <main className="flex-1 px-4 py-6 max-w-lg md:max-w-3xl lg:max-w-5xl mx-auto w-full">
         <AnimatePresence mode="wait">
           {screen === 'home' && (
             <HomeScreen
@@ -138,41 +139,47 @@ const Index = () => {
           )}
 
           {screen === 'quiz' && !state.loading && currentQuestion && (
-            <QuizScreen
-              question={currentQuestion}
-              currentIndex={state.currentIndex}
-              totalQuestions={totalQuestions}
-              score={state.score}
-              difficulties={selectedDifficulties}
-              streak={state.streak}
-              timerFraction={fraction}
-              timeLeft={timeLeft}
-              onAnswer={answer}
-              onNext={handleNext}
-              onSkip={handleSkip}
-              onEndQuiz={handleEndQuiz}
-              onSessionUpdate={handleSessionUpdate}
-              timeoutRef={timeoutRef}
-            />
+            <div className="max-w-lg mx-auto">
+              <QuizScreen
+                question={currentQuestion}
+                currentIndex={state.currentIndex}
+                totalQuestions={totalQuestions}
+                score={state.score}
+                difficulties={selectedDifficulties}
+                streak={state.streak}
+                timerFraction={fraction}
+                timeLeft={timeLeft}
+                onAnswer={answer}
+                onNext={handleNext}
+                onSkip={handleSkip}
+                onEndQuiz={handleEndQuiz}
+                onSessionUpdate={handleSessionUpdate}
+                timeoutRef={timeoutRef}
+              />
+            </div>
           )}
 
           {screen === 'results' && (
-            <QuizResults
-              score={state.score}
-              totalAnswered={state.totalAnswered}
-              correctAnswered={state.correctAnswered}
-              bestStreak={state.bestStreak}
-              topicBreakdown={state.topicBreakdown}
-              difficultyBreakdown={state.difficultyBreakdown}
-              difficulties={selectedDifficulties}
-              missedQuestions={state.missedQuestions}
-              skippedQuestions={state.skippedQuestions}
-              onRestart={startQuiz}
-              onNewTopics={() => setScreen('home')}
-            />
+            <div className="max-w-lg mx-auto">
+              <QuizResults
+                score={state.score}
+                totalAnswered={state.totalAnswered}
+                correctAnswered={state.correctAnswered}
+                bestStreak={state.bestStreak}
+                topicBreakdown={state.topicBreakdown}
+                difficultyBreakdown={state.difficultyBreakdown}
+                difficulties={selectedDifficulties}
+                missedQuestions={state.missedQuestions}
+                skippedQuestions={state.skippedQuestions}
+                onRestart={startQuiz}
+                onNewTopics={() => setScreen('home')}
+              />
+            </div>
           )}
         </AnimatePresence>
       </main>
+
+      {screen === 'home' && <Footer />}
     </div>
   );
 };
