@@ -1,6 +1,7 @@
 import { useAuth } from '@/hooks/useAuth';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { t } from '@/i18n';
+import { motion } from 'framer-motion';
 
 interface QuizHeaderProps {
   streak: number;
@@ -21,13 +22,18 @@ export function QuizHeader({ streak, showStreak, isDark, onToggleTheme, onHome }
   ];
 
   return (
-    <header className="flex items-center justify-between px-3 py-2 border-b border-border bg-card/50 backdrop-blur-sm sticky top-0 z-10" style={{ paddingTop: 'calc(0.5rem + env(safe-area-inset-top))' }}>
-      <button onClick={onHome} className="flex items-center gap-2 min-w-0">
+    <header className="flex items-center justify-between px-4 py-2.5 border-b border-border bg-card/50 backdrop-blur-sm sticky top-0 z-10" style={{ paddingTop: 'calc(0.5rem + env(safe-area-inset-top))' }}>
+      <motion.button
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
+        onClick={() => navigate('/')}
+        className="flex items-center gap-2 min-w-0"
+      >
         <span className="text-xl flex-shrink-0">🧠</span>
-        <h1 className="font-display font-bold text-lg text-foreground hidden sm:block">
-          m<span className="text-primary">AI</span>th
+        <h1 className="font-display font-bold text-lg text-foreground">
+          m<span className="text-gradient-primary">AI</span>th
         </h1>
-      </button>
+      </motion.button>
       <div className="flex items-center gap-1">
         {showStreak && (
           <div className="flex items-center gap-1 mr-1">

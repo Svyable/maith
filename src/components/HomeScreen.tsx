@@ -106,10 +106,10 @@ export function HomeScreen({
         >
           🧠
         </motion.div>
-        <h2 className="text-4xl font-display font-bold text-foreground">
+        <h2 className="text-4xl md:text-5xl font-display font-bold text-foreground">
           m<span className="text-gradient-primary">AI</span>th
         </h2>
-        <p className="text-muted-foreground max-w-xs mx-auto">
+        <p className="text-muted-foreground max-w-xs md:max-w-md mx-auto">
           {t('app.tagline')}
         </p>
       </div>
@@ -120,7 +120,7 @@ export function HomeScreen({
         initial={{ opacity: 0, y: 8 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="w-full rounded-xl border border-border/60 bg-card/50 p-4 text-center"
+        className="w-full max-w-xl rounded-xl border border-border/60 bg-card/50 p-4 text-center"
       >
         <p className="text-sm italic text-muted-foreground leading-relaxed">
           &ldquo;{quote.text}&rdquo;
@@ -128,8 +128,8 @@ export function HomeScreen({
         <p className="text-xs font-semibold text-accent mt-2">— {quote.author}</p>
       </motion.div>
 
-      {/* ─── Top Action Zone: Difficulty + Start + MasterMinds ─── */}
-      <div className="w-full space-y-4">
+      {/* ─── Top Action Zone: Desktop 2-col, Mobile stack ─── */}
+      <div className="w-full max-w-xl space-y-4">
         {/* Difficulty Picker */}
         <DifficultyPicker selected={selectedDifficulties} onToggle={onToggleDifficulty} />
 
@@ -143,35 +143,36 @@ export function HomeScreen({
           {t('home.startQuiz')}
         </motion.button>
 
-        {/* MasterMinds entry */}
-        <motion.button
-          whileHover={{ scale: 1.02 }}
-          whileTap={{ scale: 0.97 }}
-          onClick={() => navigate('/thinkers')}
-          className="w-full py-3 rounded-xl border-2 border-accent/50 bg-accent/5 hover:bg-accent/10 hover:border-accent transition-all flex items-center justify-center gap-3"
-        >
-          <span className="text-xl">🎓</span>
-          <div className="text-left">
-            <p className="font-bold text-sm text-foreground">{t('home.masterMinds')}</p>
-            <p className="text-[10px] text-muted-foreground">{t('home.masterMindsSub', { count: THINKERS.length })}</p>
-          </div>
-          <span className="ml-auto text-accent font-bold text-sm">→</span>
-        </motion.button>
+        {/* MasterMinds + Glossary — side by side on desktop */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+          <motion.button
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.97 }}
+            onClick={() => navigate('/thinkers')}
+            className="w-full py-3 rounded-xl border-2 border-accent/50 bg-accent/5 hover:bg-accent/10 hover:border-accent transition-all flex items-center justify-center gap-3"
+          >
+            <span className="text-xl">🎓</span>
+            <div className="text-left">
+              <p className="font-bold text-sm text-foreground">{t('home.masterMinds')}</p>
+              <p className="text-[10px] text-muted-foreground">{t('home.masterMindsSub', { count: THINKERS.length })}</p>
+            </div>
+            <span className="ml-auto text-accent font-bold text-sm">→</span>
+          </motion.button>
 
-        {/* Glossary entry */}
-        <motion.button
-          whileHover={{ scale: 1.02 }}
-          whileTap={{ scale: 0.97 }}
-          onClick={() => navigate('/glossary')}
-          className="w-full py-3 rounded-xl border-2 border-primary/50 bg-primary/5 hover:bg-primary/10 hover:border-primary transition-all flex items-center justify-center gap-3"
-        >
-          <span className="text-xl">📖</span>
-          <div className="text-left">
-            <p className="font-bold text-sm text-foreground">Glossary</p>
-            <p className="text-[10px] text-muted-foreground">Flash cards for key terms across all fields</p>
-          </div>
-          <span className="ml-auto text-primary font-bold text-sm">→</span>
-        </motion.button>
+          <motion.button
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.97 }}
+            onClick={() => navigate('/glossary')}
+            className="w-full py-3 rounded-xl border-2 border-primary/50 bg-primary/5 hover:bg-primary/10 hover:border-primary transition-all flex items-center justify-center gap-3"
+          >
+            <span className="text-xl">📖</span>
+            <div className="text-left">
+              <p className="font-bold text-sm text-foreground">Glossary</p>
+              <p className="text-[10px] text-muted-foreground">Flash cards for key terms across all fields</p>
+            </div>
+            <span className="ml-auto text-primary font-bold text-sm">→</span>
+          </motion.button>
+        </div>
       </div>
 
       {/* Session summary */}
@@ -180,7 +181,7 @@ export function HomeScreen({
       </p>
 
       {/* Language Selector */}
-      <div className="w-full space-y-2">
+      <div className="w-full max-w-xl space-y-2">
         <h3 className="text-xs font-bold text-muted-foreground text-center">{t('language.title')}</h3>
         <LanguageSelector locale={locale} onChangeLocale={changeLocale} />
       </div>
