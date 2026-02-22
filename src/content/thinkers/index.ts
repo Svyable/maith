@@ -53,6 +53,15 @@ import { kashiwaraQuestions } from './kashiwara';
 import { birkarQuestions } from './birkar';
 import { grothendieckQuestions } from './grothendieck';
 import { kovalevskayaQuestions } from './kovalevskaya';
+// New additions
+import { jeffDeanQuestions } from './jeffdean';
+import { kaiFuLeeQuestions } from './kaifulee';
+import { schmidhuberQuestions } from './schmidhuber';
+import { linnainmaaQuestions } from './linnainmaa';
+import { kozyrkovQuestions } from './kozyrkov';
+import { suleymanQuestions } from './suleyman';
+import { hilbertQuestions } from './hilbert';
+import { gebruQuestions } from './gebru';
 import type { Question } from '../types';
 
 export const allThinkerQuestions: Question[] = [
@@ -113,6 +122,15 @@ export const allThinkerQuestions: Question[] = [
   ...birkarQuestions,
   ...grothendieckQuestions,
   ...kovalevskayaQuestions,
+  // New additions
+  ...jeffDeanQuestions,
+  ...kaiFuLeeQuestions,
+  ...schmidhuberQuestions,
+  ...linnainmaaQuestions,
+  ...kozyrkovQuestions,
+  ...suleymanQuestions,
+  ...hilbertQuestions,
+  ...gebruQuestions,
 ];
 
 export function getThinkerQuestions(slug: string): Question[] {
