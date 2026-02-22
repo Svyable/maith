@@ -2,19 +2,46 @@
 // Constants & Configuration — single source of truth
 // ============================================================
 
-export type Difficulty = 'EASY' | 'ADVN' | 'SOTA';
+export type Difficulty = 'EASY' | 'HARD' | 'SOTA';
+export type QuestionDifficulty = 'easy' | 'hard' | 'sota';
 export type TopicSlug = string;
+
+// ── Difficulty ↔ QuestionDifficulty mapping ──────────────────
+export function toQuestionDifficulty(d: Difficulty): QuestionDifficulty {
+  return d.toLowerCase() as QuestionDifficulty;
+}
+
+export function toDifficulty(qd: QuestionDifficulty): Difficulty {
+  return qd.toUpperCase() as Difficulty;
+}
+
+export function highestDifficulty(ds: Difficulty[]): Difficulty {
+  if (ds.includes('SOTA')) return 'SOTA';
+  if (ds.includes('HARD')) return 'HARD';
+  return 'EASY';
+}
+
+export function questionsForDifficulties(ds: Difficulty[]): number {
+  return Math.max(...ds.map((d) => getDifficultyMeta(d).questionsPerQuiz));
+}
 
 // ── Scoring ──────────────────────────────────────────────────
 export const BASE_POINTS: Record<Difficulty, number> = {
   EASY: 10,
-  ADVN: 20,
+  HARD: 20,
   SOTA: 35,
 };
 
 /** multiplier = 1 + streak * STREAK_STEP, capped at STREAK_CAP */
 export const STREAK_STEP = 0.05;
 export const STREAK_CAP = 2.0;
+
+// ── Per-question time limits (seconds) ──────────────────────
+export const QUESTION_TIME: Record<QuestionDifficulty, number> = {
+  easy: 30,
+  hard: 20,
+  sota: 15,
+};
 
 // ── Difficulty meta ──────────────────────────────────────────
 export interface DifficultyMeta {
@@ -40,9 +67,9 @@ export const DIFFICULTIES: DifficultyMeta[] = [
     color: 'success',
   },
   {
-    slug: 'ADVN',
-    label: 'Advanced',
-    tag: 'ADVN',
+    slug: 'HARD',
+    label: 'Hard',
+    tag: 'HARD',
     emoji: '⚡',
     description: 'Competitive difficulty — level up',
     questionsPerQuiz: 15,
@@ -129,5 +156,5 @@ export const TOPIC_MAP: Record<string, TopicMeta> = Object.fromEntries(
 );
 
 // ── Quiz defaults ────────────────────────────────────────────
-export const DEFAULT_DIFFICULTY: Difficulty = 'ADVN';
+export const DEFAULT_DIFFICULTY: Difficulty = 'HARD';
 export const CONTENT_VERSION = '2.0.0';

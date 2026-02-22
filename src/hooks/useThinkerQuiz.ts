@@ -2,7 +2,7 @@
 // Delegates all logic to src/domain/quiz/. No duplicated business logic.
 
 import { useState, useCallback } from 'react';
-import { getDifficultyMeta, type Difficulty } from '@/config/constants';
+import { questionsForDifficulties, toQuestionDifficulty, type Difficulty } from '@/config/constants';
 import {
   buildInitialState,
   applyAnswer,
@@ -19,11 +19,10 @@ import {
 export type { PublicQuestion, CheckResult };
 
 export interface ThinkerQuizState extends QuizState {
-  // Alias currentQuestions as questions for backward compat
   questions: PublicQuestion[];
 }
 
-export function useThinkerQuiz(difficulty: Difficulty = 'ADVN') {
+export function useThinkerQuiz(difficulties: Difficulty[] = ['HARD']) {
   const [state, setState] = useState<QuizState>(() => buildInitialState());
 
   const currentQuestion: PublicQuestion | null =
@@ -31,15 +30,16 @@ export function useThinkerQuiz(difficulty: Difficulty = 'ADVN') {
 
   const startThinker = useCallback(
     (slug: string) => {
-      const m = getDifficultyMeta(difficulty);
-      const questions = fetchThinkerQuestions(slug, m.questionsPerQuiz);
+      const count = questionsForDifficulties(difficulties);
+      const levels = difficulties.map(toQuestionDifficulty);
+      const questions = fetchThinkerQuestions(slug, levels, count);
       setState({
         ...buildInitialState(),
         currentQuestions: questions,
         loading: false,
       });
     },
-    [difficulty],
+    [difficulties],
   );
 
   const answer = useCallback(
@@ -47,10 +47,10 @@ export function useThinkerQuiz(difficulty: Difficulty = 'ADVN') {
       if (!currentQuestion) return null;
       const result = checkThinkerAnswer(currentQuestion.id, optionIndex);
       if (!result) return null;
-      setState((prev) => applyAnswer(prev, result, currentQuestion, difficulty, optionIndex));
+      setState((prev) => applyAnswer(prev, result, currentQuestion, optionIndex));
       return result;
     },
-    [currentQuestion, difficulty],
+    [currentQuestion],
   );
 
   const nextQuestion = useCallback(() => {

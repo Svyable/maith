@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { LatexRenderer } from './LatexRenderer';
 import { motion } from 'framer-motion';
-import { getDifficultyMeta, type Difficulty, TOPIC_MAP } from '@/config/constants';
+import { getDifficultyMeta, DIFFICULTIES, type Difficulty, TOPIC_MAP, toDifficulty } from '@/config/constants';
 import { THINKER_MAP } from '@/config/thinkers';
 import { t } from '@/i18n';
 import { ReviewMistakes } from './ReviewMistakes';
@@ -16,18 +16,28 @@ interface QuizResultsProps {
   correctAnswered: number;
   bestStreak: number;
   topicBreakdown: Record<string, { correct: number; total: number }>;
-  difficulty: Difficulty;
+  difficultyBreakdown: Record<string, { correct: number; total: number }>;
+  difficulties: Difficulty[];
   onRestart: () => void;
   onNewTopics?: () => void;
-  sessionCorrect: number;
-  sessionTotal: number;
   missedQuestions: MissedQuestion[];
   skippedQuestions: SkippedQuestion[];
 }
 
-export function QuizResults({ score, correctAnswered, totalAnswered, bestStreak, topicBreakdown, difficulty, onRestart, onNewTopics, missedQuestions, skippedQuestions }: QuizResultsProps) {
+export function QuizResults({
+  score,
+  correctAnswered,
+  totalAnswered,
+  bestStreak,
+  topicBreakdown,
+  difficultyBreakdown,
+  difficulties,
+  onRestart,
+  onNewTopics,
+  missedQuestions,
+  skippedQuestions,
+}: QuizResultsProps) {
   const pct = totalAnswered > 0 ? Math.round((correctAnswered / totalAnswered) * 100) : 0;
-  const diffMeta = getDifficultyMeta(difficulty);
   const { locale } = useLocale();
   const [quote] = useState(() => getRandomQuote(locale));
   const [showReview, setShowReview] = useState(false);
@@ -38,15 +48,26 @@ export function QuizResults({ score, correctAnswered, totalAnswered, bestStreak,
       <div className="text-6xl mb-2">{pct >= 90 ? '🏆' : pct >= 70 ? '🌟' : pct >= 50 ? '👍' : '💪'}</div>
       <h2 className="text-3xl font-bold font-display text-foreground">{t('results.title')}</h2>
 
-      <div className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold border ${
-        diffMeta.color === 'success'     ? 'bg-success/10 border-success/30 text-success' :
-        diffMeta.color === 'accent'      ? 'bg-accent/10 border-accent/30 text-accent' :
-        diffMeta.color === 'destructive' ? 'bg-destructive/10 border-destructive/30 text-destructive' :
-        'bg-primary/10 border-primary/30 text-primary'
-      }`}>
-        {diffMeta.emoji} {diffMeta.tag}
+      {/* Difficulty badges */}
+      <div className="flex items-center justify-center gap-2 flex-wrap">
+        {difficulties.map((d) => {
+          const dm = getDifficultyMeta(d);
+          return (
+            <span
+              key={d}
+              className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold border ${
+                dm.color === 'success'     ? 'bg-success/10 border-success/30 text-success' :
+                dm.color === 'accent'      ? 'bg-accent/10 border-accent/30 text-accent' :
+                'bg-destructive/10 border-destructive/30 text-destructive'
+              }`}
+            >
+              {dm.emoji} {dm.tag}
+            </span>
+          );
+        })}
       </div>
 
+      {/* Core stats */}
       <div className="grid grid-cols-4 gap-3">
         <div className="bg-card rounded-xl p-4 border border-border">
           <div className="text-2xl font-bold text-primary">{Math.round(score)}</div>
@@ -65,6 +86,31 @@ export function QuizResults({ score, correctAnswered, totalAnswered, bestStreak,
           <div className="text-xs text-muted-foreground">{t('results.skipped')}</div>
         </div>
       </div>
+
+      {/* Difficulty breakdown */}
+      {Object.keys(difficultyBreakdown).length > 0 && (
+        <div className="grid grid-cols-3 gap-2">
+          {DIFFICULTIES.map((dm) => {
+            const stat = difficultyBreakdown[dm.slug.toLowerCase()];
+            if (!stat || stat.total === 0) return null;
+            const diffPct = Math.round((stat.correct / stat.total) * 100);
+            const colorClass = dm.color === 'success' ? 'text-success' : dm.color === 'accent' ? 'text-accent' : 'text-destructive';
+            return (
+              <motion.div
+                key={dm.slug}
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                className="bg-card rounded-xl border border-border p-3 text-center"
+              >
+                <div className="text-lg">{dm.emoji}</div>
+                <div className={`text-lg font-bold font-mono ${colorClass}`}>{diffPct}%</div>
+                <div className="text-[10px] text-muted-foreground font-bold">{dm.tag}</div>
+                <div className="text-[9px] text-muted-foreground/60">{stat.correct}/{stat.total}</div>
+              </motion.div>
+            );
+          })}
+        </div>
+      )}
 
       {/* Field-level stats */}
       <FieldStatsBar topicBreakdown={topicBreakdown} />

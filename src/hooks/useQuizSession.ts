@@ -7,11 +7,20 @@ import confetti from 'canvas-confetti';
 import { useTimer } from '@/hooks/useTimer';
 import { useAuth } from '@/hooks/useAuth';
 import { submitSession } from '@/domain/quiz';
-import { getDifficultyMeta, CONTENT_VERSION, type Difficulty } from '@/config/constants';
+import {
+  getDifficultyMeta,
+  highestDifficulty,
+  CONTENT_VERSION,
+  QUESTION_TIME,
+  type Difficulty,
+  type QuestionDifficulty,
+} from '@/config/constants';
 import type { QuizState } from '@/domain/quiz';
 
 interface UseQuizSessionOptions {
-  difficulty: Difficulty;
+  difficulties: Difficulty[];
+  /** Current question's difficulty — drives the per-question timer */
+  currentQuestionDifficulty?: QuestionDifficulty;
   /** Whether the quiz screen is currently active */
   isQuizActive: boolean;
   /** Quiz engine state — needed for finish detection & submission */
@@ -23,7 +32,8 @@ interface UseQuizSessionOptions {
 }
 
 export function useQuizSession({
-  difficulty,
+  difficulties,
+  currentQuestionDifficulty,
   isQuizActive,
   quizState,
   sessionTag,
@@ -34,7 +44,10 @@ export function useQuizSession({
   const [sessionTotal, setSessionTotal] = useState(0);
   const submittedRef = useRef(false);
 
-  const diffMeta = getDifficultyMeta(difficulty);
+  // Per-question timer duration based on question's difficulty
+  const timerDuration = currentQuestionDifficulty
+    ? QUESTION_TIME[currentQuestionDifficulty]
+    : getDifficultyMeta(highestDifficulty(difficulties)).timePerQuestion;
 
   // Timer
   const handleTimeout = useCallback(() => {
@@ -42,7 +55,7 @@ export function useQuizSession({
   }, [isQuizActive]);
 
   const { timeLeft, reset: resetTimer, fraction } = useTimer(
-    diffMeta.timePerQuestion,
+    timerDuration,
     handleTimeout,
     isQuizActive,
   );
@@ -75,7 +88,7 @@ export function useQuizSession({
       submittedRef.current = true;
       submitSession(user.id, sessionTag, {
         topics: topics.length > 0 ? topics : Object.keys(quizState.topicBreakdown),
-        difficulty,
+        difficulty: highestDifficulty(difficulties),
         score: quizState.score,
         totalAnswered: quizState.totalAnswered,
         correctAnswered: quizState.correctAnswered,

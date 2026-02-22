@@ -22,10 +22,10 @@ export default function Thinkers() {
   const { isDark, toggle: toggleTheme } = useTheme();
   const [screen, setScreen] = useState<Screen>('gallery');
   const [selectedSlug, setSelectedSlug] = useState<string | null>(null);
-  const [selectedDifficulty, setSelectedDifficulty] = useState<Difficulty>(DEFAULT_DIFFICULTY);
+  const [selectedDifficulties, setSelectedDifficulties] = useState<Difficulty[]>([DEFAULT_DIFFICULTY]);
 
   const { state, questions, currentQuestion, startThinker, answer, nextQuestion, skipQuestion, endQuiz } =
-    useThinkerQuiz(selectedDifficulty);
+    useThinkerQuiz(selectedDifficulties);
 
   const {
     sessionCorrect, sessionTotal,
@@ -33,12 +33,23 @@ export default function Thinkers() {
     resetTimer, resetSession,
     handleSessionUpdate,
   } = useQuizSession({
-    difficulty: selectedDifficulty,
+    difficulties: selectedDifficulties,
+    currentQuestionDifficulty: currentQuestion ? currentQuestion.difficulty : undefined,
     isQuizActive: screen === 'quiz',
     quizState: state,
     sessionTag: 'thnk',
     topics: selectedSlug ? [selectedSlug] : [],
   });
+
+  const toggleDifficulty = useCallback((d: Difficulty) => {
+    setSelectedDifficulties((prev) => {
+      if (prev.includes(d)) {
+        if (prev.length <= 1) return prev;
+        return prev.filter((x) => x !== d);
+      }
+      return [...prev, d];
+    });
+  }, []);
 
   const handleStartThinker = useCallback(
     (slug: string) => {
@@ -101,7 +112,7 @@ export default function Thinkers() {
                 </p>
               </div>
 
-              <DifficultyPicker selected={selectedDifficulty} onSelect={setSelectedDifficulty} />
+              <DifficultyPicker selected={selectedDifficulties} onToggle={toggleDifficulty} />
 
               <div className="space-y-5">
                 <div>
@@ -162,7 +173,7 @@ export default function Thinkers() {
                 currentIndex={state.currentIndex}
                 totalQuestions={questions.length}
                 score={state.score}
-                difficulty={selectedDifficulty}
+                difficulties={selectedDifficulties}
                 streak={state.streak}
                 timerFraction={fraction}
                 timeLeft={timeLeft}
@@ -170,8 +181,6 @@ export default function Thinkers() {
                 onNext={handleNext}
                 onSkip={handleSkip}
                 onEndQuiz={handleEndQuiz}
-                sessionCorrect={sessionCorrect}
-                sessionTotal={sessionTotal}
                 onSessionUpdate={handleSessionUpdate}
               />
             </div>
@@ -186,9 +195,8 @@ export default function Thinkers() {
               correctAnswered={state.correctAnswered}
               bestStreak={state.bestStreak}
               topicBreakdown={state.topicBreakdown}
-              difficulty={selectedDifficulty}
-              sessionCorrect={sessionCorrect}
-              sessionTotal={sessionTotal}
+              difficultyBreakdown={state.difficultyBreakdown}
+              difficulties={selectedDifficulties}
               missedQuestions={state.missedQuestions}
               skippedQuestions={state.skippedQuestions}
               onRestart={() => setScreen('gallery')}

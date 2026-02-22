@@ -9,7 +9,7 @@ import { useQuizSession } from '@/hooks/useQuizSession';
 import { useTheme } from '@/hooks/useTheme';
 import { useAuth } from '@/hooks/useAuth';
 import { supabase } from '@/integrations/supabase/client';
-import { type Difficulty, getDifficultyMeta, DEFAULT_DIFFICULTY } from '@/config/constants';
+import { type Difficulty, DEFAULT_DIFFICULTY, toQuestionDifficulty } from '@/config/constants';
 import { FIELD_MAP } from '@/config/fields';
 import { t } from '@/i18n';
 
@@ -19,12 +19,13 @@ const Index = () => {
   const [screen, setScreen] = useState<Screen>('home');
   const [selectedTopics, setSelectedTopics] = useState<string[]>([]);
   const [selectedField, setSelectedField] = useState<string>('all');
-  const [selectedDifficulty, setSelectedDifficulty] = useState<Difficulty>(DEFAULT_DIFFICULTY);
+  const [selectedDifficulties, setSelectedDifficulties] = useState<Difficulty[]>([DEFAULT_DIFFICULTY]);
   const [displayName, setDisplayName] = useState<string | null>(null);
   const { isDark, toggle: toggleTheme } = useTheme();
   const { user, signOut } = useAuth();
 
-  const { state, currentQuestion, answer, nextQuestion, skipQuestion, endQuiz, restartQuiz, totalQuestions } = useQuiz(selectedTopics, selectedDifficulty);
+  const { state, currentQuestion, answer, nextQuestion, skipQuestion, endQuiz, restartQuiz, totalQuestions } =
+    useQuiz(selectedTopics, selectedDifficulties);
 
   const {
     sessionCorrect, sessionTotal,
@@ -32,7 +33,8 @@ const Index = () => {
     resetTimer, resetSession,
     handleSessionUpdate,
   } = useQuizSession({
-    difficulty: selectedDifficulty,
+    difficulties: selectedDifficulties,
+    currentQuestionDifficulty: currentQuestion ? currentQuestion.difficulty : undefined,
     isQuizActive: screen === 'quiz',
     quizState: state,
     sessionTag: 'quiz',
@@ -74,13 +76,23 @@ const Index = () => {
         : [];
     resetSession();
     setScreen('quiz');
-    await restartQuiz(effectiveTopics, selectedDifficulty);
-  }, [restartQuiz, selectedTopics, selectedField, selectedDifficulty, resetSession]);
+    await restartQuiz(effectiveTopics, selectedDifficulties);
+  }, [restartQuiz, selectedTopics, selectedField, selectedDifficulties, resetSession]);
 
   const toggleTopic = useCallback((topic: string) => {
     setSelectedTopics((prev) =>
       prev.includes(topic) ? prev.filter((t) => t !== topic) : [...prev, topic]
     );
+  }, []);
+
+  const toggleDifficulty = useCallback((d: Difficulty) => {
+    setSelectedDifficulties((prev) => {
+      if (prev.includes(d)) {
+        if (prev.length <= 1) return prev; // Must keep at least one
+        return prev.filter((x) => x !== d);
+      }
+      return [...prev, d];
+    });
   }, []);
 
   return (
@@ -99,8 +111,8 @@ const Index = () => {
             <HomeScreen
               selectedTopics={selectedTopics}
               onToggleTopic={toggleTopic}
-              selectedDifficulty={selectedDifficulty}
-              onSelectDifficulty={setSelectedDifficulty}
+              selectedDifficulties={selectedDifficulties}
+              onToggleDifficulty={toggleDifficulty}
               selectedField={selectedField}
               onSelectField={setSelectedField}
               onStart={startQuiz}
@@ -124,7 +136,7 @@ const Index = () => {
               currentIndex={state.currentIndex}
               totalQuestions={totalQuestions}
               score={state.score}
-              difficulty={selectedDifficulty}
+              difficulties={selectedDifficulties}
               streak={state.streak}
               timerFraction={fraction}
               timeLeft={timeLeft}
@@ -132,8 +144,6 @@ const Index = () => {
               onNext={handleNext}
               onSkip={handleSkip}
               onEndQuiz={handleEndQuiz}
-              sessionCorrect={sessionCorrect}
-              sessionTotal={sessionTotal}
               onSessionUpdate={handleSessionUpdate}
             />
           )}
@@ -145,9 +155,8 @@ const Index = () => {
               correctAnswered={state.correctAnswered}
               bestStreak={state.bestStreak}
               topicBreakdown={state.topicBreakdown}
-              difficulty={selectedDifficulty}
-              sessionCorrect={sessionCorrect}
-              sessionTotal={sessionTotal}
+              difficultyBreakdown={state.difficultyBreakdown}
+              difficulties={selectedDifficulties}
               missedQuestions={state.missedQuestions}
               skippedQuestions={state.skippedQuestions}
               onRestart={startQuiz}

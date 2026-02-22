@@ -1,6 +1,5 @@
 // ── Quiz Engine — pure, testable, zero React, zero I/O ────────────────
 import { calculatePoints } from '@/domain/scoring';
-import type { Difficulty } from '@/config/constants';
 import type { PublicQuestion, CheckResult, QuizState, SkippedQuestion } from './types';
 import type { Question } from '@/content/types';
 
@@ -37,6 +36,7 @@ export function buildInitialState(): QuizState {
     correctAnswered: 0,
     answeredIds: [],
     topicBreakdown: {},
+    difficultyBreakdown: {},
     isFinished: false,
     currentQuestions: [],
     loading: true,
@@ -48,26 +48,34 @@ export function buildInitialState(): QuizState {
 
 /**
  * Pure state transition for answering a question.
- * Returns the next QuizState given the previous state + check result.
+ * Scoring uses the question's own difficulty level directly.
  */
 export function applyAnswer(
   prev: QuizState,
   result: CheckResult,
   question: PublicQuestion,
-  difficulty: Difficulty,
   selectedIndex?: number,
 ): QuizState {
   const newStreak = result.correct ? prev.streak + 1 : 0;
   const newBestStreak = Math.max(prev.bestStreak, newStreak);
   const points = result.correct
-    ? calculatePoints(difficulty, question.difficulty, newStreak)
+    ? calculatePoints(question.difficulty, newStreak)
     : 0;
 
+  // Topic breakdown
   const topicBreakdown = { ...prev.topicBreakdown };
   const existing = topicBreakdown[question.topic] ?? { correct: 0, total: 0 };
   topicBreakdown[question.topic] = {
     correct: existing.correct + (result.correct ? 1 : 0),
     total: existing.total + 1,
+  };
+
+  // Difficulty breakdown
+  const difficultyBreakdown = { ...prev.difficultyBreakdown };
+  const existingDiff = difficultyBreakdown[question.difficulty] ?? { correct: 0, total: 0 };
+  difficultyBreakdown[question.difficulty] = {
+    correct: existingDiff.correct + (result.correct ? 1 : 0),
+    total: existingDiff.total + 1,
   };
 
   const missedQuestions = result.correct
@@ -83,6 +91,7 @@ export function applyAnswer(
     correctAnswered: prev.correctAnswered + (result.correct ? 1 : 0),
     answeredIds: [...prev.answeredIds, question.id],
     topicBreakdown,
+    difficultyBreakdown,
     lastCheckResult: result,
     missedQuestions,
   };

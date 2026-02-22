@@ -66,8 +66,9 @@ serve(async (req) => {
   }
 
   try {
-    const { topics, seenIds, count, locale } = await req.json() as {
+    const { topics, difficulties, seenIds, count, locale } = await req.json() as {
       topics?: string[];
+      difficulties?: string[];
       seenIds?: number[];
       count?: number;
       locale?: string;
@@ -81,6 +82,11 @@ serve(async (req) => {
     let pool = topics && topics.length > 0
       ? allQuestions.filter(q => topics.includes(q.topic))
       : [...allQuestions];
+
+    // Filter by difficulty levels (skip if all 3 or none selected)
+    if (difficulties && difficulties.length > 0 && difficulties.length < 3) {
+      pool = pool.filter(q => difficulties.includes(q.difficulty));
+    }
 
     pool = pool.filter(q => !seen.has(q.id));
 

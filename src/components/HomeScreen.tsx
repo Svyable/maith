@@ -4,7 +4,7 @@ import { TopicSelector } from './TopicSelector';
 import { FieldSelector } from './FieldSelector';
 import { DifficultyPicker } from './DifficultyPicker';
 import { LanguageSelector } from './LanguageSelector';
-import { type Difficulty, getDifficultyMeta, TOPIC_MAP } from '@/config/constants';
+import { type Difficulty, DIFFICULTIES, questionsForDifficulties, TOPIC_MAP } from '@/config/constants';
 import { FIELD_MAP } from '@/config/fields';
 import { allQuestions } from '@/content';
 import { t } from '@/i18n';
@@ -16,8 +16,8 @@ import { THINKERS } from '@/config/thinkers';
 interface HomeScreenProps {
   selectedTopics: string[];
   onToggleTopic: (topic: string) => void;
-  selectedDifficulty: Difficulty;
-  onSelectDifficulty: (d: Difficulty) => void;
+  selectedDifficulties: Difficulty[];
+  onToggleDifficulty: (d: Difficulty) => void;
   selectedField: string;
   onSelectField: (slug: string) => void;
   onStart: () => void;
@@ -28,8 +28,8 @@ interface HomeScreenProps {
 export function HomeScreen({
   selectedTopics,
   onToggleTopic,
-  selectedDifficulty,
-  onSelectDifficulty,
+  selectedDifficulties,
+  onToggleDifficulty,
   selectedField,
   onSelectField,
   onStart,
@@ -37,7 +37,6 @@ export function HomeScreen({
   onSignOut,
 }: HomeScreenProps) {
   const navigate = useNavigate();
-  const diffMeta = getDifficultyMeta(selectedDifficulty);
   const { locale, changeLocale } = useLocale();
   const [quote, setQuote] = useState<Quote>(() => getRandomQuote('en'));
 
@@ -74,6 +73,12 @@ export function HomeScreen({
     }
     return t('home.allTopics');
   }, [selectedTopics, selectedField]);
+
+  const diffLabels = selectedDifficulties
+    .map((d) => DIFFICULTIES.find((m) => m.slug === d)?.tag ?? d)
+    .join(' + ');
+
+  const totalQuestions = questionsForDifficulties(selectedDifficulties);
 
   return (
     <motion.div
@@ -149,7 +154,7 @@ export function HomeScreen({
 
       {/* Difficulty Picker */}
       <div className="w-full">
-        <DifficultyPicker selected={selectedDifficulty} onSelect={onSelectDifficulty} />
+        <DifficultyPicker selected={selectedDifficulties} onToggle={onToggleDifficulty} />
       </div>
 
       <motion.button
@@ -181,7 +186,7 @@ export function HomeScreen({
       </p>
 
       <p className="text-xs text-muted-foreground text-center">
-        {summaryTopicsLabel} · {diffMeta.tag} · {diffMeta.questionsPerQuiz} questions · {diffMeta.timePerQuestion}s timer
+        {summaryTopicsLabel} · {diffLabels} · {totalQuestions} questions
       </p>
       <div className="pb-6" />
     </motion.div>
