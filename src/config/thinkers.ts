@@ -12,7 +12,7 @@ export interface ThinkerMeta {
   description: string;
   color: string;
   tagline: string;
-  era_group: 'ancient' | 'modern' | 'contemporary';
+  era_group: 'ancient' | 'modern' | 'contemporary' | 'prodigy';
   funFact?: string;
 }
 
@@ -789,6 +789,111 @@ export const THINKERS: ThinkerMeta[] = [
     era_group: 'ancient',
     funFact: 'She entered a sham marriage just to leave Russia and attend university — because Russian women were not allowed to study abroad without a husband\'s permission.',
   },
+  // ── Prodigies — remarkable minds from a young age ──────────
+  {
+    slug: 'pascal',
+    name: 'Blaise Pascal',
+    archetype: 'The Inventor',
+    emoji: '🔧',
+    era: '1623–1662',
+    domain: 'Probability & Mechanics',
+    description: 'Pascaline Calculator, Pascal\'s Triangle, Probability Theory, Pascal\'s Wager',
+    color: 'primary',
+    tagline: 'He built a mechanical calculator at 19 and invented probability.',
+    era_group: 'prodigy',
+    funFact: 'He proved 32 propositions of Euclid by age 12, having taught himself geometry with charcoal drawings on tiles.',
+  },
+  {
+    slug: 'galois',
+    name: 'Évariste Galois',
+    archetype: 'The Revolutionary',
+    emoji: '⚔️',
+    era: '1811–1832',
+    domain: 'Abstract Algebra',
+    description: 'Galois Theory, Group Theory, Field Extensions, Unsolvability of Quintics',
+    color: 'destructive',
+    tagline: 'He invented group theory the night before he died in a duel — at age 20.',
+    era_group: 'prodigy',
+    funFact: 'He wrote his most important mathematical ideas in a letter the night before his fatal duel, scribbling "I have no time" in the margins.',
+  },
+  {
+    slug: 'hamilton-wr',
+    name: 'William Rowan Hamilton',
+    archetype: 'The Linguist-Mathematician',
+    emoji: '🌉',
+    era: '1805–1865',
+    domain: 'Algebra & Mechanics',
+    description: 'Quaternions, Hamiltonian Mechanics, Icosian Game, Optics',
+    color: 'accent',
+    tagline: 'He mastered 13 languages by 13 and carved quaternions into a bridge.',
+    era_group: 'prodigy',
+    funFact: 'By age 5 he could read Latin, Greek, and Hebrew. By 13 he spoke 13 languages including Persian, Arabic, and Sanskrit.',
+  },
+  {
+    slug: 'abel',
+    name: 'Niels Henrik Abel',
+    archetype: 'The Impossibilist',
+    emoji: '🏔️',
+    era: '1802–1829',
+    domain: 'Algebra & Analysis',
+    description: 'Abel–Ruffini Theorem, Abelian Groups, Elliptic Functions, Abel\'s Theorem',
+    color: 'success',
+    tagline: 'He proved the quintic unsolvable at 19 — then died at 26.',
+    era_group: 'prodigy',
+    funFact: 'He lived in extreme poverty and died of tuberculosis at 26. Two days after his death, a letter arrived offering him a prestigious professorship.',
+  },
+  {
+    slug: 'scholze',
+    name: 'Peter Scholze',
+    archetype: 'The Perfectoid',
+    emoji: '💎',
+    era: '1987–present',
+    domain: 'Arithmetic Geometry',
+    description: 'Perfectoid Spaces, Condensed Mathematics, p-adic Hodge Theory',
+    color: 'primary',
+    tagline: 'He became a full professor at 24 and won the Fields Medal at 30.',
+    era_group: 'prodigy',
+    funFact: 'He learned research-level mathematics as a teenager by reading Wiles\' proof of Fermat\'s Last Theorem — and understood it.',
+  },
+  {
+    slug: 'venkatesh',
+    name: 'Akshay Venkatesh',
+    archetype: 'The Connector',
+    emoji: '🔗',
+    era: '1981–present',
+    domain: 'Number Theory & Dynamics',
+    description: 'Automorphic Forms, Ergodic Methods, Subconvexity Bounds, Langlands Program',
+    color: 'accent',
+    tagline: 'He started university at 13 and connects worlds that shouldn\'t be connected.',
+    era_group: 'prodigy',
+    funFact: 'He won a bronze medal at the International Physics Olympiad at age 12 — then switched to mathematics and won the Fields Medal.',
+  },
+  {
+    slug: 'shakuntala-devi',
+    name: 'Shakuntala Devi',
+    archetype: 'The Human Computer',
+    emoji: '🧮',
+    era: '1929–2013',
+    domain: 'Mental Arithmetic & Number Theory',
+    description: 'Mental Multiplication, Cube Roots, Calendar Calculation, Guinness Records',
+    color: 'success',
+    tagline: 'She multiplied two 13-digit numbers in her head in 28 seconds.',
+    era_group: 'prodigy',
+    funFact: 'She could tell the day of the week for any date in history instantly. She also wrote one of India\'s first books advocating for LGBTQ rights (1977).',
+  },
+  {
+    slug: 'demaine',
+    name: 'Erik Demaine',
+    archetype: 'The Folder',
+    emoji: '📄',
+    era: '1981–present',
+    domain: 'Computational Geometry & Origami',
+    description: 'Fold-and-Cut Theorem, Computational Origami, PSPACE Puzzles, Data Structures',
+    color: 'destructive',
+    tagline: 'Youngest MIT professor at 20 — he proved origami is mathematics.',
+    era_group: 'prodigy',
+    funFact: 'He was homeschooled while traveling across North America and started his PhD at 14. His origami art is in the permanent collection of MoMA.',
+  },
 ];
 
 /** Typed registry map — O(1) lookup by slug */
@@ -806,3 +911,4 @@ export function getThinker(slug: string): ThinkerMeta | undefined {
 export const ANCIENT_THINKERS = THINKERS.filter((t) => t.era_group === 'ancient');
 export const MODERN_THINKERS = THINKERS.filter((t) => t.era_group === 'modern');
 export const CONTEMPORARY_THINKERS = THINKERS.filter((t) => t.era_group === 'contemporary');
+export const PRODIGY_THINKERS = THINKERS.filter((t) => t.era_group === 'prodigy');
