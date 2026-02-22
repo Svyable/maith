@@ -4,13 +4,11 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { QuizHeader } from '@/components/QuizHeader';
 import { QuizScreen } from '@/components/QuizScreen';
 import { QuizResults } from '@/components/QuizResults';
-import { ThinkerCard } from '@/components/ThinkerCard';
-import { DifficultyPicker } from '@/components/DifficultyPicker';
+import { ThinkerGallery } from '@/components/thinkers/ThinkerGallery';
 import { useTheme } from '@/hooks/useTheme';
 import { useThinkerQuiz } from '@/hooks/useThinkerQuiz';
 import { useQuizSession } from '@/hooks/useQuizSession';
-import { THINKERS, ANCIENT_THINKERS, MODERN_THINKERS, CONTEMPORARY_THINKERS, PRODIGY_THINKERS } from '@/config/thinkers';
-import { getThinkerQuestions } from '@/content/thinkers';
+import { THINKERS } from '@/config/thinkers';
 import { DEFAULT_DIFFICULTY } from '@/config/constants';
 import type { Difficulty } from '@/config/constants';
 import { t } from '@/i18n';
@@ -81,7 +79,6 @@ export default function Thinkers() {
     endQuiz();
   }, [endQuiz]);
 
-  // Transition to results
   useEffect(() => {
     if (state.isFinished && screen === 'quiz') {
       setScreen('results');
@@ -103,71 +100,15 @@ export default function Thinkers() {
       <main className="flex-1 px-4 py-6 max-w-lg mx-auto w-full">
         <AnimatePresence mode="wait">
 
-          {/* ── Gallery ── */}
           {screen === 'gallery' && (
-            <motion.div key="gallery" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }}
-              className="space-y-5"
-            >
-              <div className="text-center space-y-2">
-                <div className="text-5xl">🎓</div>
-                <h2 className="text-3xl font-display font-bold text-foreground">
-                  Master<span className="text-gradient-primary">Minds</span>
-                </h2>
-                <p className="text-sm text-muted-foreground max-w-xs mx-auto">
-                  {t('thinkers.gallerySubtitle')}
-                </p>
-              </div>
-
-              <DifficultyPicker selected={selectedDifficulties} onToggle={toggleDifficulty} />
-
-              <div className="space-y-5">
-                <div>
-                  <p className="text-[11px] font-bold text-muted-foreground uppercase tracking-widest mb-2 px-1">{t('thinkers.ancientMinds')}</p>
-                  <div className="space-y-3">
-                    {ANCIENT_THINKERS.map((thinker, i) => (
-                      <ThinkerCard key={thinker.slug} thinker={thinker} questionCount={getThinkerQuestions(thinker.slug).length} onSelect={handleStartThinker} index={i} />
-                    ))}
-                  </div>
-                </div>
-                <div>
-                  <p className="text-[11px] font-bold text-muted-foreground uppercase tracking-widest mb-2 px-1">{t('thinkers.modernPioneers')}</p>
-                  <div className="space-y-3">
-                    {MODERN_THINKERS.map((thinker, i) => (
-                      <ThinkerCard key={thinker.slug} thinker={thinker} questionCount={getThinkerQuestions(thinker.slug).length} onSelect={handleStartThinker} index={i} />
-                    ))}
-                  </div>
-                </div>
-                {CONTEMPORARY_THINKERS.length > 0 && (
-                  <div>
-                    <p className="text-[11px] font-bold text-muted-foreground uppercase tracking-widest mb-2 px-1">{t('thinkers.contemporary')}</p>
-                    <div className="space-y-3">
-                      {CONTEMPORARY_THINKERS.map((thinker, i) => (
-                        <ThinkerCard key={thinker.slug} thinker={thinker} questionCount={getThinkerQuestions(thinker.slug).length} onSelect={handleStartThinker} index={i} />
-                      ))}
-                    </div>
-                  </div>
-                )}
-                {PRODIGY_THINKERS.length > 0 && (
-                  <div>
-                    <p className="text-[11px] font-bold text-muted-foreground uppercase tracking-widest mb-2 px-1">🌟 {t('thinkers.prodigies') || 'Prodigies'}</p>
-                    <div className="space-y-3">
-                      {PRODIGY_THINKERS.map((thinker, i) => (
-                        <ThinkerCard key={thinker.slug} thinker={thinker} questionCount={getThinkerQuestions(thinker.slug).length} onSelect={handleStartThinker} index={i} />
-                      ))}
-                    </div>
-                  </div>
-                )}
-              </div>
-
-              <button onClick={() => navigate('/')}
-                className="w-full py-3 rounded-xl border border-border text-sm text-muted-foreground hover:text-foreground hover:border-foreground/30 transition-all">
-                {t('thinkers.backToHome')}
-              </button>
-              <div className="pb-6" />
-            </motion.div>
+            <ThinkerGallery
+              selectedDifficulties={selectedDifficulties}
+              onToggleDifficulty={toggleDifficulty}
+              onStartThinker={handleStartThinker}
+              onBack={() => navigate('/')}
+            />
           )}
 
-          {/* ── Quiz ── */}
           {screen === 'quiz' && currentQuestion && (
             <div key="quiz">
               {thinkerMeta && (
@@ -203,7 +144,6 @@ export default function Thinkers() {
             </div>
           )}
 
-          {/* ── Results ── */}
           {screen === 'results' && (
             <QuizResults
               key="results"
