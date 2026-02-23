@@ -176,6 +176,21 @@ export function HomeScreen({
           </div>
           <span className="text-primary font-bold text-lg">→</span>
         </motion.button>
+
+        {/* Logos — Greatest Equations */}
+        <motion.button
+          whileHover={{ scale: 1.03 }}
+          whileTap={{ scale: 0.97 }}
+          onClick={() => navigate('/logos')}
+          className="w-full py-4 rounded-2xl border-2 border-primary/60 bg-primary/10 hover:bg-primary/20 hover:border-primary transition-all flex items-center gap-4 px-5 glow-primary"
+        >
+          <span className="text-3xl">📜</span>
+          <div className="text-left flex-1">
+            <p className="font-bold text-lg text-foreground">Logos</p>
+            <p className="text-xs text-muted-foreground">Humanity's greatest equations — ranked & explored</p>
+          </div>
+          <span className="text-primary font-bold text-lg">→</span>
+        </motion.button>
       </div>
 
       {/* Stats showcase */}
