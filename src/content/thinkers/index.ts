@@ -139,6 +139,21 @@ import { mertonRobertQuestions } from './merton-robert';
 import { markowitzQuestions } from './markowitz';
 import { lamportQuestions } from './lamport';
 import { martinLofQuestions } from './martin-lof';
+// New thinkers: Math, Physics, CS, Statistics
+import { laplaceQuestions } from './laplace';
+import { bayesQuestions } from './bayes';
+import { cantorQuestions } from './cantor';
+import { cauchyQuestions } from './cauchy';
+import { fourierQuestions } from './fourier';
+import { schrodingerQuestions } from './schrodinger';
+import { heisenbergQuestions } from './heisenberg';
+import { fermiQuestions } from './fermi';
+import { knuthQuestions } from './knuth';
+import { dijkstraQuestions } from './dijkstra';
+import { mccarthyQuestions } from './mccarthy';
+import { hopperQuestions } from './hopper';
+import { fisherQuestions } from './fisher';
+import { pearsonQuestions } from './pearson';
 import type { Question } from '../types';
 
 export const allThinkerQuestions: Question[] = [
@@ -286,6 +301,21 @@ export const allThinkerQuestions: Question[] = [
   ...markowitzQuestions,
   ...lamportQuestions,
   ...martinLofQuestions,
+  // New thinkers: Math, Physics, CS, Statistics
+  ...laplaceQuestions,
+  ...bayesQuestions,
+  ...cantorQuestions,
+  ...cauchyQuestions,
+  ...fourierQuestions,
+  ...schrodingerQuestions,
+  ...heisenbergQuestions,
+  ...fermiQuestions,
+  ...knuthQuestions,
+  ...dijkstraQuestions,
+  ...mccarthyQuestions,
+  ...hopperQuestions,
+  ...fisherQuestions,
+  ...pearsonQuestions,
 ];
 export function getThinkerQuestions(slug: string): Question[] {
   return allThinkerQuestions.filter((q) => q.topic === slug);
