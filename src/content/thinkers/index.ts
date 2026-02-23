@@ -268,6 +268,12 @@ import { villaniQuestions } from './cedric-villani';
 import { michaelJordanMLQuestions } from './michael-jordan-ml';
 import { alexandrWangQuestions } from './alexandr-wang';
 import { benGreenQuestions } from './ben-green';
+// Thermodynamics & Physics thinkers
+import { boltzmannQuestions } from './boltzmann';
+import { danielBernoulliQuestions } from './daniel-bernoulli';
+import { nernstQuestions } from './nernst';
+import { rayleighQuestions } from './rayleigh';
+import { kelvinQuestions } from './kelvin';
 import type { Question } from '../types';
 
 export const allThinkerQuestions: Question[] = [
@@ -544,6 +550,12 @@ export const allThinkerQuestions: Question[] = [
   ...michaelJordanMLQuestions,
   ...alexandrWangQuestions,
   ...benGreenQuestions,
+  // Thermodynamics & Physics thinkers
+  ...boltzmannQuestions,
+  ...danielBernoulliQuestions,
+  ...nernstQuestions,
+  ...rayleighQuestions,
+  ...kelvinQuestions,
 ];
 export function getThinkerQuestions(slug: string): Question[] {
   return allThinkerQuestions.filter((q) => q.topic === slug);

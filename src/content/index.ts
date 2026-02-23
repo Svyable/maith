@@ -35,11 +35,12 @@ import { economicsQuestions } from './economics';
 // ── New topics in existing fields ──────────────────────────────
 import {
   electromagnetismQuestions,
-  thermodynamicsQuestions,
   numberTheoryQuestions,
   realAnalysisQuestions,
   riskManagementQuestions,
 } from './new-topics';
+// ── Dedicated thermodynamics pack ──────────────────────────────
+import { thermodynamicsTopicQuestions } from './thermodynamics';
 // ── New fields & topics ──────────────────────────────────────
 import { quantumComputingQuestions } from './quantum-computing';
 import { gameTheoryQuestions } from './game-theory';
@@ -124,7 +125,7 @@ export const allQuestions: Question[] = [
   // ── Physics ──────────────────────────────────────────────────
   ...physicsQuestions,
   ...electromagnetismQuestions,
-  ...thermodynamicsQuestions,
+  ...thermodynamicsTopicQuestions,
   ...nuclearPhysicsQuestions,
   ...fluidDynamicsQuestions,
   ...opticsQuestions,

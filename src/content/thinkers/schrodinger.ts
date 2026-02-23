@@ -28,4 +28,13 @@ export const schrodingerQuestions: Question[] = [
     realWorld: 'Atomic clocks use transitions between these energy levels — GPS satellites carry cesium clocks whose accuracy depends on knowing quantum energy levels to 15 significant figures.',
     hint: 'The energy levels get closer together as n increases — they scale as 1/n², not linearly.',
   },
+  {
+    id: 20504, topic: 'schrodinger', difficulty: 'hard',
+    question: 'Schrödinger\'s equation can be written in both time-dependent and time-independent forms. The time-independent form is used when:',
+    options: ['The Hamiltonian does not depend on time — yielding stationary states with definite energy', 'The system is always in motion', 'External fields are varying', 'Temperature is changing'],
+    correctIndex: 0,
+    explanation: 'When $\\hat{H}$ is time-independent, separation of variables gives $\\psi(\\mathbf{r},t) = \\phi(\\mathbf{r})e^{-iEt/\\hbar}$. The spatial part $\\phi$ satisfies $\\hat{H}\\phi = E\\phi$ — an eigenvalue problem whose solutions are stationary states.',
+    realWorld: 'Atomic orbitals, molecular bonding, and semiconductor band structures are all found by solving the time-independent Schrödinger equation.',
+    hint: 'Stationary states have constant probability densities $|\\psi|^2$ — only the phase oscillates.',
+  },
 ];
