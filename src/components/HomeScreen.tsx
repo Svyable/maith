@@ -4,6 +4,7 @@ import { TopicSelector } from './TopicSelector';
 import { FieldSelector } from './FieldSelector';
 import { DifficultyPicker } from './DifficultyPicker';
 import { LanguageSelector } from './LanguageSelector';
+import { SearchFilter } from './SearchFilter';
 import { type Difficulty, DIFFICULTIES, TOPIC_MAP } from '@/config/constants';
 import { FIELD_MAP } from '@/config/fields';
 import { allQuestions } from '@/content';
@@ -39,6 +40,7 @@ export function HomeScreen({
   const navigate = useNavigate();
   const { locale, changeLocale } = useLocale();
   const [quote, setQuote] = useState<Quote>(() => getRandomQuote('en'));
+  const [topicSearch, setTopicSearch] = useState('');
 
   useEffect(() => {
     setQuote(getRandomQuote(locale));
@@ -191,12 +193,23 @@ export function HomeScreen({
         <FieldSelector selectedField={selectedField} onSelectField={handleSelectField} />
       </div>
 
+      {/* Topic Search */}
+      <div className="w-full max-w-xl">
+        <SearchFilter
+          value={topicSearch}
+          onChange={setTopicSearch}
+          placeholder="Search topics…"
+          resultLabel="topics"
+        />
+      </div>
+
       {/* Topic Selector */}
       <div className="w-full">
         <TopicSelector
           selected={selectedTopics}
           onToggle={onToggleTopic}
           fieldFilter={fieldTopics}
+          searchFilter={topicSearch}
         />
       </div>
 
