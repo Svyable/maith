@@ -1009,7 +1009,7 @@ export const EQUATIONS: Equation[] = [
     name: "Ideal Gas Law",
     equation: "PV = nRT",
     discoverer: "Boyle / Charles / Gay-Lussac / Avogadro",
-    year: "17th–19th century",
+    year: "1600-1800s AD",
     field: "Thermodynamics",
     domain: "Physics",
     subDomain: "Thermodynamics & Stat Mech",
