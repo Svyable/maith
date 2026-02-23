@@ -8,14 +8,26 @@ interface TopicSelectorProps {
   onToggle: (topic: string) => void;
   /** If provided, only show topics whose slugs are in this list */
   fieldFilter?: string[];
+  /** Free-text search filter */
+  searchFilter?: string;
 }
 
-export function TopicSelector({ selected, onToggle, fieldFilter }: TopicSelectorProps) {
+export function TopicSelector({ selected, onToggle, fieldFilter, searchFilter }: TopicSelectorProps) {
   const { topics: allTopics, loading } = useTopics();
 
-  const topics = fieldFilter
+  let topics = fieldFilter
     ? allTopics.filter((tp) => fieldFilter.includes(tp.slug))
     : allTopics;
+
+  if (searchFilter?.trim()) {
+    const q = searchFilter.toLowerCase();
+    topics = topics.filter(
+      (tp) =>
+        tp.label.toLowerCase().includes(q) ||
+        tp.slug.toLowerCase().includes(q) ||
+        tp.description.toLowerCase().includes(q)
+    );
+  }
 
   if (loading) {
     return (

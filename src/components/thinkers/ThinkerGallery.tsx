@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { ThinkerCard } from '@/components/ThinkerCard';
 import { ThinkerFilters, FieldFilter, type EraFilter } from './ThinkerFilters';
 import { DifficultyPicker } from '@/components/DifficultyPicker';
+import { SearchFilter } from '@/components/SearchFilter';
 import { THINKERS, type ThinkerMeta } from '@/config/thinkers';
 import { getThinkerQuestions } from '@/content/thinkers';
 import { t } from '@/i18n';
@@ -30,15 +31,26 @@ export function ThinkerGallery({
 }: ThinkerGalleryProps) {
   const [selectedEra, setSelectedEra] = useState<EraFilter>('all');
   const [selectedField, setSelectedField] = useState<string | null>(null);
+  const [search, setSearch] = useState('');
 
-  // Filter thinkers by era and field
+  // Filter thinkers by era, field, and search
   const filteredThinkers = useMemo(() => {
     return THINKERS.filter((th) => {
       if (selectedEra !== 'all' && th.era_group !== selectedEra) return false;
       if (selectedField && !th.fields.includes(selectedField)) return false;
+      if (search.trim()) {
+        const q = search.toLowerCase();
+        if (
+          !th.name.toLowerCase().includes(q) &&
+          !th.archetype.toLowerCase().includes(q) &&
+          !th.domain.toLowerCase().includes(q) &&
+          !th.description.toLowerCase().includes(q) &&
+          !th.slug.toLowerCase().includes(q)
+        ) return false;
+      }
       return true;
     });
-  }, [selectedEra, selectedField]);
+  }, [selectedEra, selectedField, search]);
 
   // Derive available field slugs from era-filtered thinkers (so field chips update with era)
   const availableFieldSlugs = useMemo(() => {
@@ -85,6 +97,14 @@ export function ThinkerGallery({
       </div>
 
       <DifficultyPicker selected={selectedDifficulties} onToggle={onToggleDifficulty} />
+
+      <SearchFilter
+        value={search}
+        onChange={setSearch}
+        placeholder="Search thinkers…"
+        resultCount={filteredThinkers.length}
+        resultLabel="thinkers"
+      />
 
       <ThinkerFilters selectedEra={selectedEra} onEraChange={setSelectedEra} />
 
