@@ -15,9 +15,6 @@ import { useLocale } from '@/hooks/useLocale';
 import { useMemo, useState, useEffect } from 'react';
 import { getRandomQuote, type Quote } from '@/content/quotes';
 import { THINKERS } from '@/config/thinkers';
-import { useMemo, useState, useEffect } from 'react';
-import { getRandomQuote, type Quote } from '@/content/quotes';
-import { THINKERS } from '@/config/thinkers';
 
 interface HomeScreenProps {
   selectedTopics: string[];
