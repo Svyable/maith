@@ -70,7 +70,7 @@ export function QuizHeader({ streak, showStreak, isDark, onToggleTheme, onHome }
         )}
 
         {/* Mobile: icon-only nav */}
-        {isMobile && NAV_ITEMS.slice(0, 2).map((item) => (
+        {isMobile && NAV_ITEMS.map((item) => (
           <button
             key={item.path}
             onClick={() => navigate(item.path)}
