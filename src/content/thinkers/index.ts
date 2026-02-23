@@ -234,6 +234,19 @@ import { debreuQuestions } from './debreu';
 import { adelmanQuestions } from './adelman';
 import { goldinQuestions } from './goldin';
 import { schellingQuestions } from './schelling';
+// Pure Math Final Bosses
+import { perelmanQuestions } from './perelman';
+import { wilesQuestions } from './wiles';
+import { penroseQuestions } from './penrose';
+// Digital Architects
+import { ritchieQuestions } from './ritchie';
+import { bernersLeeQuestions } from './berners-lee';
+import { joanClarkeQuestions } from './joan-clarke';
+// Risk, Physics, and Markets
+import { talebQuestions } from './taleb';
+import { samuelsonQuestions } from './samuelson';
+import { wittenQuestions } from './witten';
+import { bellBurnellQuestions } from './bell-burnell';
 import type { Question } from '../types';
 
 export const allThinkerQuestions: Question[] = [
@@ -476,6 +489,19 @@ export const allThinkerQuestions: Question[] = [
   ...adelmanQuestions,
   ...goldinQuestions,
   ...schellingQuestions,
+  // Pure Math Final Bosses
+  ...perelmanQuestions,
+  ...wilesQuestions,
+  ...penroseQuestions,
+  // Digital Architects
+  ...ritchieQuestions,
+  ...bernersLeeQuestions,
+  ...joanClarkeQuestions,
+  // Risk, Physics, and Markets
+  ...talebQuestions,
+  ...samuelsonQuestions,
+  ...wittenQuestions,
+  ...bellBurnellQuestions,
 ];
 export function getThinkerQuestions(slug: string): Question[] {
   return allThinkerQuestions.filter((q) => q.topic === slug);
