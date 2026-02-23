@@ -176,6 +176,14 @@ import { payneQuestions } from './cecilia-payne';
 import { goeppertMayerQuestions } from './goeppert-mayer';
 import { leavittQuestions } from './henrietta-leavitt';
 import { daubechiesQuestions } from './ingrid-daubechies';
+// Prodigies batch 2
+import { landauQuestions } from './landau';
+import { feffermanQuestions } from './fefferman';
+import { elkiesQuestions } from './elkies';
+import { ruthLawrenceQuestions } from './ruth-lawrence';
+import { alissaCransQuestions } from './alissa-crans';
+import { juneHuhQuestions } from './june-huh';
+import { rudnickQuestions } from './rudnick';
 import type { Question } from '../types';
 
 export const allThinkerQuestions: Question[] = [
@@ -360,6 +368,14 @@ export const allThinkerQuestions: Question[] = [
   ...goeppertMayerQuestions,
   ...leavittQuestions,
   ...daubechiesQuestions,
+  // Prodigies batch 2
+  ...landauQuestions,
+  ...feffermanQuestions,
+  ...elkiesQuestions,
+  ...ruthLawrenceQuestions,
+  ...alissaCransQuestions,
+  ...juneHuhQuestions,
+  ...rudnickQuestions,
 ];
 export function getThinkerQuestions(slug: string): Question[] {
   return allThinkerQuestions.filter((q) => q.topic === slug);
