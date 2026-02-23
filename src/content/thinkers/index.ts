@@ -631,6 +631,13 @@ export const allThinkerQuestions: Question[] = [
   ...prigogineQuestions,
   ...batemanQuestions,
   ...richardsonQuestions,
+  // Non-Western & Global Mathematicians batch 2
+  ...bhaskaraQuestions,
+  ...qinJiushaoQuestions,
+  ...zhuShijieQuestions,
+  ...khayyamQuestions,
+  ...alKarajiQuestions,
+  ...takebeQuestions,
 ];
 export function getThinkerQuestions(slug: string): Question[] {
   return allThinkerQuestions.filter((q) => q.topic === slug);
