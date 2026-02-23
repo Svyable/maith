@@ -1,0 +1,88 @@
+import type { Question } from '../types';
+
+export const thermodynamicsTopicQuestions: Question[] = [
+  // ── Easy ──────────────────────────────────────────────
+  {
+    id: 21101, topic: 'thermodynamics', difficulty: 'easy',
+    question: 'The zeroth law of thermodynamics establishes the concept of:',
+    options: ['Temperature — if A is in thermal equilibrium with B and C, then B and C are in equilibrium', 'Energy conservation', 'Entropy increase', 'Absolute zero'],
+    correctIndex: 0,
+    explanation: 'The zeroth law defines temperature transitivity: thermal equilibrium is an equivalence relation, making thermometers meaningful.',
+    realWorld: 'Every thermometer works because of the zeroth law — it reaches thermal equilibrium with what it measures.',
+    hint: 'This law is so fundamental it was numbered "zero" after the first three were already established.',
+  },
+  {
+    id: 21102, topic: 'thermodynamics', difficulty: 'easy',
+    question: 'The first law of thermodynamics $\\Delta U = Q - W$ states that:',
+    options: ['Energy is conserved: internal energy change equals heat added minus work done', 'Entropy always increases', 'Temperature determines pressure', 'Heat flows from cold to hot spontaneously'],
+    correctIndex: 0,
+    explanation: 'The first law is energy conservation for thermodynamic systems. $Q$ is heat absorbed, $W$ is work done by the system, and $\\Delta U$ is the change in internal energy.',
+    realWorld: 'Every engine, refrigerator, and power plant obeys this law — you can convert energy forms but never create or destroy it.',
+    hint: 'Think of it as a bank account: deposits (heat in) minus withdrawals (work out) = balance change.',
+  },
+  {
+    id: 21103, topic: 'thermodynamics', difficulty: 'easy',
+    question: 'An ideal Carnot engine operating between temperatures $T_H$ and $T_C$ has efficiency:',
+    options: ['$\\eta = 1 - T_C/T_H$ — the maximum possible efficiency', '$\\eta = T_C/T_H$', '$\\eta = 1$ (100% efficient)', '$\\eta = (T_H - T_C)^2 / T_H^2$'],
+    correctIndex: 0,
+    explanation: 'Carnot\'s theorem proves no engine can exceed $\\eta = 1 - T_C/T_H$. This sets a fundamental limit from the second law of thermodynamics.',
+    realWorld: 'Modern gas turbines achieve ~60% of Carnot efficiency. Nuclear plants are limited to ~33% because of coolant temperature constraints.',
+    hint: 'The efficiency only depends on the ratio of absolute temperatures — use Kelvin!',
+  },
+  // ── Hard ──────────────────────────────────────────────
+  {
+    id: 21104, topic: 'thermodynamics', difficulty: 'hard',
+    question: 'The Maxwell-Boltzmann distribution gives the probability of a molecule having speed $v$ as $f(v) \\propto v^2 e^{-mv^2/2k_BT}$. The most probable speed is:',
+    options: ['$v_{mp} = \\sqrt{2k_BT/m}$ — where $df/dv = 0$', '$v_{mp} = \\sqrt{3k_BT/m}$ (rms speed)', '$v_{mp} = \\sqrt{8k_BT/\\pi m}$ (mean speed)', '$v_{mp} = k_BT/m$'],
+    correctIndex: 0,
+    explanation: 'Setting $df/dv = 0$ gives $v_{mp} = \\sqrt{2k_BT/m}$. The mean speed $\\bar{v} = \\sqrt{8k_BT/\\pi m}$ and rms speed $v_{rms} = \\sqrt{3k_BT/m}$ are both larger.',
+    realWorld: 'The Maxwell-Boltzmann distribution explains why only the fastest molecules escape a liquid (evaporation) and why stellar atmospheres lose light elements.',
+    hint: 'The $v^2$ factor shifts the peak away from zero. Differentiate and set to zero.',
+  },
+  {
+    id: 21105, topic: 'thermodynamics', difficulty: 'hard',
+    question: 'The Gibbs free energy $G = H - TS$ determines spontaneity at constant temperature and pressure. A reaction is spontaneous when:',
+    options: ['$\\Delta G < 0$ — the free energy decreases', '$\\Delta G > 0$', '$\\Delta H > 0$ always', '$\\Delta S < 0$ always'],
+    correctIndex: 0,
+    explanation: '$\\Delta G = \\Delta H - T\\Delta S < 0$ means the process releases "useful" energy. This combines the enthalpic and entropic driving forces into a single criterion.',
+    realWorld: 'Gibbs free energy predicts whether chemical reactions proceed, proteins fold, and batteries produce voltage.',
+    hint: 'Exothermic ($\\Delta H < 0$) and entropy-increasing ($\\Delta S > 0$) reactions are always spontaneous.',
+  },
+  {
+    id: 21106, topic: 'thermodynamics', difficulty: 'hard',
+    question: 'The Clausius inequality $\\oint \\frac{\\delta Q}{T} \\leq 0$ implies that for an irreversible cycle:',
+    options: ['The integral of $\\delta Q/T$ around the cycle is strictly negative — entropy is produced', 'Heat is fully converted to work', 'Temperature remains constant', 'The cycle is impossible'],
+    correctIndex: 0,
+    explanation: 'For reversible cycles $\\oint \\delta Q/T = 0$, defining entropy as a state function. For irreversible cycles, $\\oint \\delta Q/T < 0$, meaning entropy is generated internally.',
+    realWorld: 'The Clausius inequality is the mathematical foundation of the second law and proves perpetual motion machines of the second kind are impossible.',
+    hint: 'Equality holds for reversible processes only — real processes always produce some entropy.',
+  },
+  // ── SOTA ──────────────────────────────────────────────
+  {
+    id: 21107, topic: 'thermodynamics', difficulty: 'sota',
+    question: 'The Jarzynski equality $\\langle e^{-\\beta W} \\rangle = e^{-\\beta \\Delta F}$ is remarkable because it:',
+    options: ['Extracts equilibrium free energy differences from non-equilibrium work measurements', 'Only applies to reversible processes', 'Violates the second law of thermodynamics', 'Requires infinite sampling to be useful'],
+    correctIndex: 0,
+    explanation: 'Jarzynski (1997) showed that even irreversible work measurements contain equilibrium information. The exponential average of non-equilibrium work equals the equilibrium free energy difference, regardless of how far from equilibrium the process is.',
+    realWorld: 'Used with optical tweezers to measure free energies of RNA hairpin folding and protein unfolding at the single-molecule level.',
+    hint: 'The equality holds exactly, not approximately — even for violent, far-from-equilibrium processes.',
+  },
+  {
+    id: 21108, topic: 'thermodynamics', difficulty: 'sota',
+    question: 'Landauer\'s principle states that erasing one bit of information dissipates at least:',
+    options: ['$k_BT \\ln 2$ of energy as heat — connecting information theory to thermodynamics', '$k_BT$ of energy', '$h\\nu$ of energy (one photon)', 'Zero energy in principle'],
+    correctIndex: 0,
+    explanation: 'Landauer (1961) proved that logically irreversible computation (bit erasure) requires minimum energy dissipation $k_BT \\ln 2 \\approx 3 \\times 10^{-21}$ J at room temperature. This resolves Maxwell\'s demon paradox.',
+    realWorld: 'Modern transistors dissipate ~1000× the Landauer limit per operation. Reaching this limit is a key goal for ultra-efficient computing and resolves fundamental questions about the physics of computation.',
+    hint: 'Erasing information reduces the number of microstates by half — entropy must increase somewhere.',
+  },
+  {
+    id: 21109, topic: 'thermodynamics', difficulty: 'sota',
+    question: 'The fluctuation theorem $\\frac{P(\\Sigma = A)}{P(\\Sigma = -A)} = e^A$ describes:',
+    options: ['The probability ratio of observing positive vs negative entropy production — allowing transient violations of the second law', 'Why large systems always obey the second law exactly', 'The distribution of temperature fluctuations', 'The probability of reaching absolute zero'],
+    correctIndex: 0,
+    explanation: 'The fluctuation theorem (Evans, Cohen, Morriss, 1993) quantifies how second-law violations become exponentially unlikely as system size or time increases. For small systems and short times, entropy can decrease — but it is exponentially rare.',
+    realWorld: 'Verified experimentally in colloidal particle experiments and molecular motors. It provides the statistical foundation for why macroscopic irreversibility emerges from time-reversible microscopic laws.',
+    hint: 'The second law is statistical, not absolute — the FT quantifies exactly how rare violations are.',
+  },
+];
