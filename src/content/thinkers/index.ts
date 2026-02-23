@@ -211,6 +211,18 @@ import { russellQuestions } from './russell';
 import { banachTarskiQuestions } from './banach-tarski';
 import { brouwerQuestions } from './brouwer';
 import { quineQuestions } from './quine';
+// Synthesists, Morphologists, Market Physicists
+import { chowningQuestions } from './chowning';
+import { xenakisQuestions } from './xenakis';
+import { helmholtzQuestions } from './helmholtz';
+import { keplerQuestions } from './kepler';
+import { thompsonDarcyQuestions } from './thompson-darcy';
+import { conwayQuestions } from './conway';
+import { fibonacciQuestions } from './fibonacci';
+import { mendelQuestions } from './mendel';
+import { itoQuestions } from './ito';
+import { bachelierQuestions } from './bachelier';
+import { shapleyQuestions } from './shapley';
 import type { Question } from '../types';
 
 export const allThinkerQuestions: Question[] = [
@@ -430,6 +442,18 @@ export const allThinkerQuestions: Question[] = [
   ...banachTarskiQuestions,
   ...brouwerQuestions,
   ...quineQuestions,
+  // Synthesists, Morphologists, Market Physicists
+  ...chowningQuestions,
+  ...xenakisQuestions,
+  ...helmholtzQuestions,
+  ...keplerQuestions,
+  ...thompsonDarcyQuestions,
+  ...conwayQuestions,
+  ...fibonacciQuestions,
+  ...mendelQuestions,
+  ...itoQuestions,
+  ...bachelierQuestions,
+  ...shapleyQuestions,
 ];
 export function getThinkerQuestions(slug: string): Question[] {
   return allThinkerQuestions.filter((q) => q.topic === slug);
