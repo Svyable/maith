@@ -260,6 +260,14 @@ import { hollandQuestions } from './holland';
 import { gellMannQuestions } from './gell-mann';
 import { geoffreyWestQuestions } from './geoffrey-west';
 import { melanieMitchellQuestions } from './melanie-mitchell';
+// New Modern AI & Math thinkers
+import { khotQuestions } from './subhash-khot';
+import { candesQuestions } from './emmanuel-candes';
+import { aroraQuestions } from './sanjeev-arora';
+import { villaniQuestions } from './cedric-villani';
+import { michaelJordanMLQuestions } from './michael-jordan-ml';
+import { alexandrWangQuestions } from './alexandr-wang';
+import { benGreenQuestions } from './ben-green';
 import type { Question } from '../types';
 
 export const allThinkerQuestions: Question[] = [
@@ -528,6 +536,14 @@ export const allThinkerQuestions: Question[] = [
   ...gellMannQuestions,
   ...geoffreyWestQuestions,
   ...melanieMitchellQuestions,
+  // New Modern AI & Math thinkers
+  ...khotQuestions,
+  ...candesQuestions,
+  ...aroraQuestions,
+  ...villaniQuestions,
+  ...michaelJordanMLQuestions,
+  ...alexandrWangQuestions,
+  ...benGreenQuestions,
 ];
 export function getThinkerQuestions(slug: string): Question[] {
   return allThinkerQuestions.filter((q) => q.topic === slug);
