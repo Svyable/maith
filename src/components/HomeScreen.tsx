@@ -5,9 +5,11 @@ import { FieldSelector } from './FieldSelector';
 import { DifficultyPicker } from './DifficultyPicker';
 import { LanguageSelector } from './LanguageSelector';
 import { SearchFilter } from './SearchFilter';
+import { StatsShowcase } from './StatsShowcase';
 import { type Difficulty, DIFFICULTIES, TOPIC_MAP } from '@/config/constants';
-import { FIELD_MAP } from '@/config/fields';
+import { FIELD_MAP, FIELDS } from '@/config/fields';
 import { allQuestions } from '@/content';
+import { allGlossaryTerms } from '@/content/glossary';
 import { t } from '@/i18n';
 import { useLocale } from '@/hooks/useLocale';
 import { useMemo, useState, useEffect } from 'react';
@@ -177,10 +179,15 @@ export function HomeScreen({
         </div>
       </div>
 
-      {/* Session summary */}
-      <p className="text-xs text-muted-foreground text-center">
-        {summaryTopicsLabel} · {diffLabels} · {questionCount} questions available
-      </p>
+      {/* Stats showcase */}
+      <StatsShowcase
+        stats={[
+          { value: allQuestions.length, label: 'Questions', emoji: '❓' },
+          { value: allGlossaryTerms.length, label: 'Terms', emoji: '📖' },
+          { value: FIELDS.filter(f => f.slug !== 'all' && f.available).length, label: 'Fields', emoji: '🌐' },
+          { value: THINKERS.length, label: 'Thinkers', emoji: '🎓' },
+        ]}
+      />
 
       {/* Language Selector */}
       <div className="w-full max-w-xl space-y-2">
