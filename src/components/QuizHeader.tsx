@@ -15,6 +15,7 @@ interface QuizHeaderProps {
 const NAV_ITEMS = [
   { path: "/", label: "mAIth Quiz", emoji: "🧠", mobileOnly: false },
   { path: "/thinkers", label: "MasterMinds", emoji: "🎓", mobileOnly: false },
+  { path: "/logos", label: "Logos", emoji: "📜", mobileOnly: false },
   { path: "/glossary", label: "Glossary", emoji: "📖", mobileOnly: false },
   { path: "/leaderboard", label: "Leaderboard", emoji: "🏆", mobileOnly: false },
 ];
