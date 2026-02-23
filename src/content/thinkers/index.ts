@@ -280,6 +280,13 @@ import { friedmannQuestions } from './friedmann';
 import { gamowQuestions } from './gamow';
 import { chandrasekharQuestions } from './chandrasekhar';
 import { zwickyQuestions } from './zwicky';
+// Pure Math Titans batch
+import { jacobiQuestions } from './jacobi';
+import { liouvilleQuestions } from './liouville';
+import { kleinQuestions } from './klein';
+import { eisensteinQuestions } from './eisenstein';
+import { borelQuestions } from './borel';
+import { churchQuestions } from './church';
 import type { Question } from '../types';
 
 export const allThinkerQuestions: Question[] = [
@@ -568,6 +575,13 @@ export const allThinkerQuestions: Question[] = [
   ...gamowQuestions,
   ...chandrasekharQuestions,
   ...zwickyQuestions,
+  // Pure Math Titans batch
+  ...jacobiQuestions,
+  ...liouvilleQuestions,
+  ...kleinQuestions,
+  ...eisensteinQuestions,
+  ...borelQuestions,
+  ...churchQuestions,
 ];
 export function getThinkerQuestions(slug: string): Question[] {
   return allThinkerQuestions.filter((q) => q.topic === slug);
