@@ -179,10 +179,15 @@ export function HomeScreen({
         </div>
       </div>
 
-      {/* Session summary */}
-      <p className="text-xs text-muted-foreground text-center">
-        {summaryTopicsLabel} · {diffLabels} · {questionCount} questions available
-      </p>
+      {/* Stats showcase */}
+      <StatsShowcase
+        stats={[
+          { value: allQuestions.length, label: 'Questions', emoji: '❓' },
+          { value: allGlossaryTerms.length, label: 'Terms', emoji: '📖' },
+          { value: FIELDS.filter(f => f.slug !== 'all' && f.available).length, label: 'Fields', emoji: '🌐' },
+          { value: THINKERS.length, label: 'Thinkers', emoji: '🎓' },
+        ]}
+      />
 
       {/* Language Selector */}
       <div className="w-full max-w-xl space-y-2">
