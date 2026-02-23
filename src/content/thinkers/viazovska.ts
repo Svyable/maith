@@ -1,6 +1,6 @@
 import type { Question } from '../types';
 
-export const viazovska Questions: Question[] = [
+export const viazovskaQuestions: Question[] = [
   {
     id: 21240, topic: 'viazovska', difficulty: 'sota',
     question: 'Viazovska proved the optimal sphere packing in 8 dimensions uses which lattice?',

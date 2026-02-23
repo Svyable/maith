@@ -315,6 +315,12 @@ import { zhuShijieQuestions } from './zhu-shijie';
 import { khayyamQuestions } from './khayyam';
 import { alKarajiQuestions } from './al-karaji';
 import { takebeQuestions } from './takebe';
+// Ancient & Global thinkers batch 3
+import { yajnavalkyaQuestions } from './yajnavalkya';
+import { theaetetusQuestions } from './theaetetus';
+import { diophantusQuestions } from './diophantus';
+import { huaLuogengQuestions } from './hua-luogeng';
+import { viazovskaQuestions } from './viazovska';
 import type { Question } from '../types';
 
 export const allThinkerQuestions: Question[] = [
@@ -638,6 +644,12 @@ export const allThinkerQuestions: Question[] = [
   ...khayyamQuestions,
   ...alKarajiQuestions,
   ...takebeQuestions,
+  // Ancient & Global thinkers batch 3
+  ...yajnavalkyaQuestions,
+  ...theaetetusQuestions,
+  ...diophantusQuestions,
+  ...huaLuogengQuestions,
+  ...viazovskaQuestions,
 ];
 export function getThinkerQuestions(slug: string): Question[] {
   return allThinkerQuestions.filter((q) => q.topic === slug);
