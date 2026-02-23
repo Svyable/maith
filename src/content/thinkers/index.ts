@@ -184,6 +184,16 @@ import { ruthLawrenceQuestions } from './ruth-lawrence';
 import { alissaCransQuestions } from './alissa-crans';
 import { juneHuhQuestions } from './june-huh';
 import { rudnickQuestions } from './rudnick';
+// Foundational Architects, Chaos/Complexity, Neural Net pioneers, Scale
+import { booleQuestions } from './boole';
+import { markovQuestions } from './markov';
+import { lorenzQuestions } from './lorenz';
+import { mandelbrotQuestions } from './mandelbrot';
+import { hopfieldQuestions } from './hopfield';
+import { rosenblattQuestions } from './rosenblatt';
+import { margaretHamiltonQuestions } from './margaret-hamilton';
+import { mooreQuestions } from './moore';
+import { wolframQuestions } from './wolfram';
 import type { Question } from '../types';
 
 export const allThinkerQuestions: Question[] = [
@@ -376,6 +386,16 @@ export const allThinkerQuestions: Question[] = [
   ...alissaCransQuestions,
   ...juneHuhQuestions,
   ...rudnickQuestions,
+  // Foundational Architects, Chaos, Neural Nets, Scale
+  ...booleQuestions,
+  ...markovQuestions,
+  ...lorenzQuestions,
+  ...mandelbrotQuestions,
+  ...hopfieldQuestions,
+  ...rosenblattQuestions,
+  ...margaretHamiltonQuestions,
+  ...mooreQuestions,
+  ...wolframQuestions,
 ];
 export function getThinkerQuestions(slug: string): Question[] {
   return allThinkerQuestions.filter((q) => q.topic === slug);
