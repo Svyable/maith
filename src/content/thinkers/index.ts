@@ -154,6 +154,17 @@ import { mccarthyQuestions } from './mccarthy';
 import { hopperQuestions } from './hopper';
 import { fisherQuestions } from './fisher';
 import { pearsonQuestions } from './pearson';
+// Female thinkers additions
+import { hypatiaQuestions } from './hypatia';
+import { nightingaleQuestions } from './nightingale';
+import { meitnerQuestions } from './lise-meitner';
+import { wuQuestions } from './chien-shiung-wu';
+import { katherineJohnsonQuestions } from './katherine-johnson';
+import { hodgkinQuestions } from './dorothy-hodgkin';
+import { mcclintockQuestions } from './barbara-mcclintock';
+import { uhlenbeckQuestions } from './karen-uhlenbeck';
+import { dresselhausQuestions } from './mildred-dresselhaus';
+import { cartwrightQuestions } from './mary-cartwright';
 import type { Question } from '../types';
 
 export const allThinkerQuestions: Question[] = [
@@ -316,6 +327,17 @@ export const allThinkerQuestions: Question[] = [
   ...hopperQuestions,
   ...fisherQuestions,
   ...pearsonQuestions,
+  // Female thinkers
+  ...hypatiaQuestions,
+  ...nightingaleQuestions,
+  ...meitnerQuestions,
+  ...wuQuestions,
+  ...katherineJohnsonQuestions,
+  ...hodgkinQuestions,
+  ...mcclintockQuestions,
+  ...uhlenbeckQuestions,
+  ...dresselhausQuestions,
+  ...cartwrightQuestions,
 ];
 export function getThinkerQuestions(slug: string): Question[] {
   return allThinkerQuestions.filter((q) => q.topic === slug);
