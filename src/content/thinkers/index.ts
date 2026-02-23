@@ -194,6 +194,15 @@ import { rosenblattQuestions } from './rosenblatt';
 import { margaretHamiltonQuestions } from './margaret-hamilton';
 import { mooreQuestions } from './moore';
 import { wolframQuestions } from './wolfram';
+// Global Pioneers & Non-Western Titans
+import { perlmanQuestions } from './perlman';
+import { easleyQuestions } from './easley';
+import { saruhashiQuestions } from './saruhashi';
+import { madhavaQuestions } from './madhava';
+import { brahmaguptaQuestions } from './brahmagupta';
+import { boseQuestions } from './bose';
+import { alJazariQuestions } from './al-jazari';
+import { sekiQuestions } from './seki';
 import type { Question } from '../types';
 
 export const allThinkerQuestions: Question[] = [
@@ -396,6 +405,15 @@ export const allThinkerQuestions: Question[] = [
   ...margaretHamiltonQuestions,
   ...mooreQuestions,
   ...wolframQuestions,
+  // Global Pioneers & Non-Western Titans
+  ...perlmanQuestions,
+  ...easleyQuestions,
+  ...saruhashiQuestions,
+  ...madhavaQuestions,
+  ...brahmaguptaQuestions,
+  ...boseQuestions,
+  ...alJazariQuestions,
+  ...sekiQuestions,
 ];
 export function getThinkerQuestions(slug: string): Question[] {
   return allThinkerQuestions.filter((q) => q.topic === slug);
