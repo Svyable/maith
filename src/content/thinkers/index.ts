@@ -287,6 +287,15 @@ import { kleinQuestions } from './klein';
 import { eisensteinQuestions } from './eisenstein';
 import { borelQuestions } from './borel';
 import { churchQuestions } from './church';
+// Electromagnetism & Optics Pioneers
+import { olbersQuestions } from './olbers';
+import { huygensQuestions } from './huygens';
+import { thomasYoungQuestions } from './thomas-young';
+import { coulombQuestions } from './coulomb';
+import { ampereQuestions } from './ampere';
+import { lenzQuestions } from './lenz';
+import { biotSavartQuestions } from './biot-savart';
+import { ehrenfestQuestions } from './ehrenfest';
 import type { Question } from '../types';
 
 export const allThinkerQuestions: Question[] = [
@@ -582,6 +591,15 @@ export const allThinkerQuestions: Question[] = [
   ...eisensteinQuestions,
   ...borelQuestions,
   ...churchQuestions,
+  // Electromagnetism & Optics Pioneers
+  ...olbersQuestions,
+  ...huygensQuestions,
+  ...thomasYoungQuestions,
+  ...coulombQuestions,
+  ...ampereQuestions,
+  ...lenzQuestions,
+  ...biotSavartQuestions,
+  ...ehrenfestQuestions,
 ];
 export function getThinkerQuestions(slug: string): Question[] {
   return allThinkerQuestions.filter((q) => q.topic === slug);
