@@ -1,6 +1,5 @@
 import {
   electromagnetismQuestions,
-  thermodynamicsQuestions,
   numberTheoryQuestions,
   realAnalysisQuestions,
   riskManagementQuestions,
@@ -8,7 +7,6 @@ import {
 
 export {
   electromagnetismQuestions,
-  thermodynamicsQuestions,
   numberTheoryQuestions,
   realAnalysisQuestions,
   riskManagementQuestions,
