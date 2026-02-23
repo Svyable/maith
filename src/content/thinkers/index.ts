@@ -203,6 +203,14 @@ import { brahmaguptaQuestions } from './brahmagupta';
 import { boseQuestions } from './bose';
 import { alJazariQuestions } from './al-jazari';
 import { sekiQuestions } from './seki';
+// Paradox Masters & Foundational Logicians
+import { zenoQuestions } from './zeno';
+import { eubulidesQuestions } from './eubulides';
+import { torricelliQuestions } from './torricelli';
+import { russellQuestions } from './russell';
+import { banachTarskiQuestions } from './banach-tarski';
+import { brouwerQuestions } from './brouwer';
+import { quineQuestions } from './quine';
 import type { Question } from '../types';
 
 export const allThinkerQuestions: Question[] = [
@@ -414,6 +422,14 @@ export const allThinkerQuestions: Question[] = [
   ...boseQuestions,
   ...alJazariQuestions,
   ...sekiQuestions,
+  // Paradox Masters & Foundational Logicians
+  ...zenoQuestions,
+  ...eubulidesQuestions,
+  ...torricelliQuestions,
+  ...russellQuestions,
+  ...banachTarskiQuestions,
+  ...brouwerQuestions,
+  ...quineQuestions,
 ];
 export function getThinkerQuestions(slug: string): Question[] {
   return allThinkerQuestions.filter((q) => q.topic === slug);
