@@ -5043,6 +5043,1058 @@ export const EQUATIONS: Equation[] = [
     difficulty: "sota",
     tags: ["number theory", "modularity theorem", "elliptic curves", "Langlands", "Fermat"],
   },
+  {
+    rank: 251,
+    name: "Langlands Correspondence (Local)",
+    equation: "\\mathrm{Irr}(GL_n(F)) \\longleftrightarrow \\{\\text{n-dim Weil-Deligne reps of }W_F\\}",
+    discoverer: "Robert Langlands",
+    year: "1967",
+    field: "Number Theory / Representation Theory",
+    domain: "Mathematics",
+    subDomain: "Pure Mathematics",
+    domainEmoji: "📐",
+    significance:
+      "Langlands' visionary 1967 letter to Weil proposed a vast unification of number theory and representation theory via a correspondence between automorphic representations and Galois representations. Called 'a grand unified theory of mathematics,' it connects harmonic analysis, algebraic geometry, and arithmetic. The geometric Langlands programme was proved by a 800-page collaboration in 2024.",
+    constants:
+      "GL_n(F) = general linear group over local field F, W_F = Weil group, n-dimensional representations, L-functions",
+    applications:
+      "Fermat's Last Theorem (via modularity), Shimura varieties, automorphic forms, the geometric Langlands programme, string theory",
+    beauty: 10,
+    difficulty: "sota",
+    tags: ["Langlands programme", "number theory", "representation theory", "automorphic forms"],
+  },
+  {
+    rank: 252,
+    name: "Birch and Swinnerton-Dyer Conjecture",
+    equation: "\\mathrm{ord}_{s=1}L(E,s) = \\mathrm{rank}(E(\\mathbb{Q}))",
+    discoverer: "Birch & Swinnerton-Dyer",
+    year: "1965",
+    field: "Number Theory / Algebraic Geometry",
+    domain: "Mathematics",
+    subDomain: "Pure Mathematics",
+    domainEmoji: "📐",
+    significance:
+      "Conjectures that the order of vanishing of the L-function of an elliptic curve at s=1 equals the algebraic rank of the group of rational points. One of the seven Clay Millennium Prize Problems ($1M). Only the rank-0 and rank-1 cases are partially resolved.",
+    constants: "L(E,s) = Hasse-Weil L-function of elliptic curve E, rank(E(ℚ)) = rank of rational points group",
+    applications: "Arithmetic geometry, cryptography (elliptic curves), Langlands programme, congruent number problem",
+    beauty: 10,
+    difficulty: "sota",
+    millenniumProblem: true,
+    unsolved: true,
+    tags: ["Birch Swinnerton-Dyer", "elliptic curves", "Millennium Prize", "number theory"],
+  },
+  {
+    rank: 253,
+    name: "Wiles's Modularity Lifting",
+    equation: "\\rho: G_{\\mathbb{Q}} \\to GL_2(\\mathcal{O}) \\text{ is modular if }\\bar{\\rho}\\text{ is}",
+    discoverer: "Andrew Wiles / Richard Taylor",
+    year: "1995",
+    field: "Number Theory / Algebraic Geometry",
+    domain: "Mathematics",
+    subDomain: "Pure Mathematics",
+    domainEmoji: "📐",
+    significance:
+      "The technical core of Wiles's proof of Fermat's Last Theorem: a Galois representation is modular if its reduction mod p is modular. The R=T theorem (deformation rings equal Hecke algebras) unlocked the proof. This paradigm — 'modularity lifting' — now drives the entire Langlands programme.",
+    constants: "ρ = p-adic Galois representation, G_ℚ = absolute Galois group, ℴ = ring of integers, modular lifting",
+    applications: "Fermat's Last Theorem, Langlands programme, arithmetic geometry, automorphic forms",
+    beauty: 9,
+    difficulty: "sota",
+    tags: ["modularity lifting", "Galois representations", "Fermat", "Wiles"],
+  },
+  // ─────────────────────────────────────────────────────────────────────────
+  // RANDOM MATRIX THEORY
+  // ─────────────────────────────────────────────────────────────────────────
+  {
+    rank: 254,
+    name: "Wigner Semicircle Law",
+    equation: "\\rho(x) = \\frac{2}{\\pi R^2}\\sqrt{R^2 - x^2}, \\quad |x| \\leq R",
+    discoverer: "Eugene Wigner",
+    year: "1955",
+    field: "Random Matrix Theory",
+    domain: "Mathematics",
+    subDomain: "Pure Mathematics",
+    domainEmoji: "📐",
+    significance:
+      "The empirical spectral distribution of a large random symmetric matrix with i.i.d. entries converges to the semicircle law. Wigner introduced random matrices to model nuclear energy level statistics. The law appears in free probability, wireless communications, and deep learning.",
+    constants: "ρ(x) = eigenvalue density, R = spectral radius = 2√N (N = matrix size), semicircular support",
+    applications:
+      "Nuclear physics (heavy nuclei spectra), wireless MIMO channels, deep neural network weight matrices, financial correlation matrices",
+    beauty: 8,
+    difficulty: "sota",
+    tags: ["random matrix theory", "Wigner", "semicircle law", "eigenvalue distribution"],
+  },
+  {
+    rank: 255,
+    name: "Tracy-Widom Distribution",
+    equation: "F_2(s) = \\exp\\!\\left(-\\int_s^\\infty (x-s)q^2(x)\\,dx\\right)",
+    discoverer: "Craig Tracy & Harold Widom",
+    year: "1994",
+    field: "Random Matrix Theory / Probability",
+    domain: "Mathematics",
+    subDomain: "Pure Mathematics",
+    domainEmoji: "📐",
+    significance:
+      "The distribution of the largest eigenvalue of a GUE random matrix — a new universal law in probability, distinct from the Gaussian. Appears wherever correlated maxima arise: longest increasing subsequences, KPZ growth models, stochastic PDEs, and statistical physics.",
+    constants: "F₂ = GUE Tracy-Widom CDF, q(x) = solution to Painlevé II ODE, s = scaled maximal eigenvalue",
+    applications:
+      "Longest increasing subsequences, KPZ universality class, statistical physics, genomics (PCA), wireless communications",
+    beauty: 9,
+    difficulty: "sota",
+    tags: ["random matrix theory", "Tracy-Widom", "extreme eigenvalue", "universality"],
+  },
+  // ─────────────────────────────────────────────────────────────────────────
+  // OPTIMAL TRANSPORT
+  // ─────────────────────────────────────────────────────────────────────────
+  {
+    rank: 256,
+    name: "Monge-Kantorovich Optimal Transport",
+    equation: "W_p(\\mu,\\nu)^p = \\inf_{\\gamma\\in\\Pi(\\mu,\\nu)}\\int_{X\\times Y} c(x,y)\\,d\\gamma(x,y)",
+    discoverer: "Monge (1781) / Kantorovich (1942) / Villani (theory)",
+    year: "1781 / 1942",
+    field: "Optimal Transport / Probability",
+    domain: "Mathematics",
+    subDomain: "Optimization",
+    domainEmoji: "📐",
+    significance:
+      "Defines the Wasserstein distance between probability measures as the minimum cost of transporting one distribution into another. Kantorovich won the 1975 Nobel Prize for his linear programming formulation. Villani won the Fields Medal for the modern theory. Optimal transport now powers machine learning, imaging, and economics.",
+    constants:
+      "W_p = p-Wasserstein distance, μ,ν = probability measures, c(x,y) = transport cost, γ = coupling (transport plan)",
+    applications:
+      "Generative models (Wasserstein GANs), domain adaptation, image registration, economics (matching), fluid dynamics",
+    beauty: 9,
+    difficulty: "sota",
+    nobelPrize: true,
+    tags: ["optimal transport", "Wasserstein distance", "probability", "Kantorovich"],
+  },
+  {
+    rank: 257,
+    name: "Brenier's Theorem",
+    equation: "T^* = \\nabla\\varphi, \\quad T^*_{\\#}\\mu = \\nu, \\quad \\varphi\\text{ convex}",
+    discoverer: "Yann Brenier",
+    year: "1987",
+    field: "Optimal Transport",
+    domain: "Mathematics",
+    subDomain: "Optimization",
+    domainEmoji: "📐",
+    significance:
+      "The unique optimal transport map (for quadratic cost) is the gradient of a convex function — a generalised gradient. Connects optimal transport to the Monge-Ampère PDE and makes the map explicit. Foundation of computational optimal transport and fluid mechanics (Euler equations as geodesics).",
+    constants: "T* = optimal transport map, φ = Brenier potential (convex function), ∇φ = gradient, T*#μ = pushforward",
+    applications:
+      "Colour transfer in images, generative models (normalising flows), fluid dynamics, meteorology, computational geometry",
+    beauty: 8,
+    difficulty: "sota",
+    tags: ["optimal transport", "Brenier", "Monge-Ampère", "convex functions"],
+  },
+  // ─────────────────────────────────────────────────────────────────────────
+  // FREE PROBABILITY & NONCOMMUTATIVE GEOMETRY
+  // ─────────────────────────────────────────────────────────────────────────
+  {
+    rank: 258,
+    name: "Free Entropy (Voiculescu)",
+    equation: "\\chi(X) = \\int\\int \\log|s-t|\\,d\\mu(s)\\,d\\mu(t) + \\tfrac{3}{4} + \\tfrac{1}{2}\\log(2\\pi)",
+    discoverer: "Dan-Virgil Voiculescu",
+    year: "1991",
+    field: "Free Probability Theory",
+    domain: "Mathematics",
+    subDomain: "Pure Mathematics",
+    domainEmoji: "📐",
+    significance:
+      "Free entropy is the analogue of Boltzmann entropy for noncommutative random variables. Voiculescu's free probability theory — where independence is replaced by 'free independence' — explains random matrix eigenvalue statistics and provides a framework for von Neumann algebras.",
+    constants: "χ(X) = free entropy, μ = spectral measure, log = natural logarithm, free cumulants",
+    applications:
+      "Random matrix theory (free convolution), von Neumann algebras (free group factors), wireless communications, quantum groups",
+    beauty: 8,
+    difficulty: "sota",
+    tags: ["free probability", "Voiculescu", "random matrix theory", "noncommutative"],
+  },
+  {
+    rank: 259,
+    name: "Connes' Spectral Triple",
+    equation: "(\\mathcal{A}, \\mathcal{H}, D): \\|[D,a]\\|<\\infty\\;\\forall a\\in\\mathcal{A}",
+    discoverer: "Alain Connes",
+    year: "1994",
+    field: "Noncommutative Geometry",
+    domain: "Mathematics",
+    subDomain: "Pure Mathematics",
+    domainEmoji: "📐",
+    significance:
+      "A spectral triple (algebra, Hilbert space, Dirac operator) encodes Riemannian geometry purely in operator-algebraic terms, allowing geometry to be extended to noncommutative spaces. Connes won the Fields Medal for this framework, which unifies the Standard Model with gravity geometrically.",
+    constants:
+      "𝒜 = unital algebra, ℋ = Hilbert space, D = Dirac operator (self-adjoint, compact resolvent), [D,a] = commutator",
+    applications:
+      "Noncommutative geometry, Standard Model derivation, quantum gravity approaches, number theory (noncommutative tori)",
+    beauty: 9,
+    difficulty: "sota",
+    tags: ["noncommutative geometry", "Connes", "Dirac operator", "spectral triple"],
+  },
+  // ─────────────────────────────────────────────────────────────────────────
+  // PERCOLATION THEORY & STATISTICAL PHYSICS
+  // ─────────────────────────────────────────────────────────────────────────
+  {
+    rank: 260,
+    name: "Percolation Threshold",
+    equation: "P_{\\infty}(p) = \\begin{cases}0 & p < p_c \\\\ >0 & p > p_c\\end{cases}",
+    discoverer: "Broadbent & Hammersley",
+    year: "1957",
+    field: "Statistical Physics / Probability",
+    domain: "Mathematics",
+    subDomain: "Pure Mathematics",
+    domainEmoji: "📐",
+    significance:
+      "The probability of an infinite connected cluster jumps discontinuously at the percolation threshold p_c. One of the sharpest phase transitions in probability. Smirnovwon the 2010 Fields Medal for proving conformal invariance of percolation — connecting it to SLE curves.",
+    constants:
+      "P_∞(p) = infinite cluster probability, p = bond/site probability, p_c = critical threshold (e.g. ½ for 2D square bond)",
+    applications: "Epidemics (critical R₀), porous media, network robustness, forest fires, oil recovery, polymer gels",
+    beauty: 8,
+    difficulty: "sota",
+    tags: ["percolation theory", "phase transitions", "critical phenomena", "probability"],
+  },
+  {
+    rank: 261,
+    name: "Ising Model Partition Function",
+    equation:
+      "Z = \\sum_{\\{s_i\\}}\\exp\\!\\left(\\beta J\\sum_{\\langle i,j\\rangle}s_i s_j + \\beta h\\sum_i s_i\\right)",
+    discoverer: "Lenz / Ising / Onsager",
+    year: "1920 / 1944",
+    field: "Statistical Mechanics",
+    domain: "Physics",
+    subDomain: "Condensed Matter & Applied",
+    domainEmoji: "⚛️",
+    significance:
+      "The partition function of the Ising model of ferromagnetism. Onsager's exact 2D solution (1944) was a landmark in statistical mechanics — the first exact solution of a nontrivial interacting system. The model exhibits a phase transition and is the universal model of critical phenomena.",
+    constants:
+      "Z = partition function, s_i = ±1 spins, β = 1/k_BT, J = coupling constant, h = external field, ⟨i,j⟩ = nearest neighbours",
+    applications:
+      "Phase transitions, magnetic materials, neural networks (Hopfield), image processing (Markov random fields), computational complexity (#P-hard)",
+    beauty: 9,
+    difficulty: "sota",
+    tags: ["Ising model", "statistical mechanics", "phase transitions", "Onsager"],
+  },
+  {
+    rank: 262,
+    name: "Renormalisation Group Fixed Point (Wilson)",
+    equation: "\\beta(g^*) = 0, \\quad \\nu = -1/\\lambda_1",
+    discoverer: "Kenneth Wilson",
+    year: "1971",
+    field: "Statistical Mechanics / Critical Phenomena",
+    domain: "Physics",
+    subDomain: "Condensed Matter & Applied",
+    domainEmoji: "⚛️",
+    significance:
+      "At a second-order phase transition, the RG flow reaches a fixed point β(g*)=0. Critical exponents are determined by the eigenvalues of the linearised RG. Wilson's real-space and ε-expansion RG methods won him the 1982 Nobel Prize and unified the theory of critical phenomena.",
+    constants:
+      "g* = fixed-point coupling, β = RG beta function, ν = correlation length exponent, λ₁ = relevant eigenvalue",
+    applications:
+      "Phase transitions (universality classes), polymer scaling, turbulence (energy cascade), particle physics (asymptotic freedom)",
+    beauty: 9,
+    difficulty: "sota",
+    nobelPrize: true,
+    tags: ["renormalisation group", "critical phenomena", "phase transitions", "Wilson"],
+  },
+  // ─────────────────────────────────────────────────────────────────────────
+  // MAGNETISM & CONDENSED MATTER
+  // ─────────────────────────────────────────────────────────────────────────
+  {
+    rank: 263,
+    name: "Heisenberg Spin Exchange Hamiltonian",
+    equation:
+      "H = -J\\sum_{\\langle i,j\\rangle}\\mathbf{S}_i\\cdot\\mathbf{S}_j - g\\mu_B\\sum_i \\mathbf{B}\\cdot\\mathbf{S}_i",
+    discoverer: "Werner Heisenberg",
+    year: "1928",
+    field: "Quantum Magnetism",
+    domain: "Physics",
+    subDomain: "Condensed Matter & Applied",
+    domainEmoji: "⚛️",
+    significance:
+      "Describes the quantum mechanical exchange interaction between spins. J>0 gives ferromagnetism (parallel spins), J<0 antiferromagnetism. Foundation of all quantum magnetism, spin waves, frustrated magnets, and quantum spin liquids.",
+    constants: "J = exchange coupling, S_i = spin-½ operators, g = g-factor, μ_B = Bohr magneton, B = magnetic field",
+    applications:
+      "Magnetic materials, spintronics, quantum computing (spin qubits), frustrated magnets, high-temperature superconductivity",
+    beauty: 8,
+    difficulty: "hard",
+    tags: ["quantum magnetism", "Heisenberg model", "exchange interaction", "spins"],
+  },
+  {
+    rank: 264,
+    name: "Landau-Lifshitz-Gilbert Equation",
+    equation:
+      "\\frac{d\\mathbf{M}}{dt} = -\\gamma\\mathbf{M}\\times\\mathbf{H}_{\\text{eff}} + \\frac{\\alpha}{M_s}\\mathbf{M}\\times\\frac{d\\mathbf{M}}{dt}",
+    discoverer: "Landau & Lifshitz / Gilbert",
+    year: "1935 / 1955",
+    field: "Micromagnetics",
+    domain: "Physics",
+    subDomain: "Condensed Matter & Applied",
+    domainEmoji: "⚛️",
+    significance:
+      "Governs the precessional dynamics and damping of magnetisation in a ferromagnet. The equation of motion for every magnetic memory device. Foundation of spintronics and magnetic data storage — the physics inside every hard drive, MRAM, and magnetic sensor.",
+    constants:
+      "M = magnetisation vector, γ = gyromagnetic ratio, H_eff = effective field, α = damping constant, M_s = saturation magnetisation",
+    applications:
+      "Hard disk drives, MRAM (magnetic RAM), spin-torque oscillators, magnonic devices, magnetic skyrmions",
+    beauty: 7,
+    difficulty: "hard",
+    tags: ["micromagnetics", "magnetisation dynamics", "spintronics", "LLG equation"],
+  },
+  // ─────────────────────────────────────────────────────────────────────────
+  // SEMICONDUCTOR DEVICE PHYSICS
+  // ─────────────────────────────────────────────────────────────────────────
+  {
+    rank: 265,
+    name: "Shockley Diode Equation",
+    equation: "I = I_0\\left(e^{V/nV_T} - 1\\right), \\quad V_T = k_BT/q",
+    discoverer: "William Shockley",
+    year: "1949",
+    field: "Semiconductor Physics",
+    domain: "Physics",
+    subDomain: "Condensed Matter & Applied",
+    domainEmoji: "⚛️",
+    significance:
+      "The ideal diode equation describing current-voltage characteristics of a p-n junction. Foundation of all semiconductor device physics. Shockley, Bardeen, and Brattain won the 1956 Nobel Prize for the transistor — the device built from understanding these junctions.",
+    constants:
+      "I₀ = saturation current, V = applied voltage, n = ideality factor, V_T = thermal voltage ≈ 25.85 mV at 300 K, q = electron charge",
+    applications: "Diodes, solar cells, LEDs, transistors, rectifiers, all semiconductor electronics",
+    beauty: 7,
+    difficulty: "hard",
+    nobelPrize: true,
+    tags: ["semiconductor physics", "diode equation", "Shockley", "p-n junction"],
+  },
+  {
+    rank: 266,
+    name: "MOSFET Drain Current (Long-Channel)",
+    equation: "I_D = \\frac{\\mu_n C_{\\mathrm{ox}}W}{2L}(V_{GS}-V_{th})^2\\,(1+\\lambda V_{DS})",
+    discoverer: "Atalla & Kahng / Sah-Noyce-Shockley",
+    year: "1960",
+    field: "Semiconductor Device Physics",
+    domain: "Physics",
+    subDomain: "Condensed Matter & Applied",
+    domainEmoji: "⚛️",
+    significance:
+      "The saturation-region drain current of a MOSFET — the most manufactured object in human history. Every CPU, smartphone, and digital system is built from billions of transistors described by this equation. Moore's Law is fundamentally about making W/L smaller.",
+    constants:
+      "μₙ = electron mobility, C_ox = oxide capacitance/area, W/L = width-to-length ratio, V_GS = gate-source voltage, V_th = threshold voltage, λ = channel-length modulation",
+    applications:
+      "CPU/GPU design, memory (DRAM, flash), RF circuits, power electronics, integrated circuits, IoT devices",
+    beauty: 7,
+    difficulty: "hard",
+    tags: ["MOSFET", "transistor", "semiconductor devices", "digital electronics"],
+  },
+  // ─────────────────────────────────────────────────────────────────────────
+  // QUANTUM CHEMISTRY & DFT
+  // ─────────────────────────────────────────────────────────────────────────
+  {
+    rank: 267,
+    name: "Density Functional Theory (Kohn-Sham)",
+    equation:
+      "\\left(-\\frac{\\hbar^2}{2m}\\nabla^2 + V_{\\text{ext}} + V_H[n] + V_{xc}[n]\\right)\\phi_i = \\varepsilon_i\\phi_i",
+    discoverer: "Hohenberg-Kohn / Kohn-Sham",
+    year: "1964–1965",
+    field: "Computational Chemistry / Materials Science",
+    domain: "Chemistry",
+    subDomain: "Physical Chemistry",
+    domainEmoji: "🧪",
+    significance:
+      "DFT replaces the many-body Schrödinger equation with a set of one-particle equations for the electron density. Walter Kohn won the 1998 Nobel Prize. DFT is the workhorse of computational chemistry and materials science — used to design drugs, catalysts, battery materials, and semiconductors.",
+    constants:
+      "φ_i = Kohn-Sham orbital, n = electron density, V_ext = external potential, V_H = Hartree potential, V_xc = exchange-correlation potential",
+    applications:
+      "Drug design, catalyst design, battery materials, semiconductor design, surface chemistry, materials discovery",
+    beauty: 8,
+    difficulty: "sota",
+    nobelPrize: true,
+    tags: ["DFT", "density functional theory", "quantum chemistry", "Kohn-Sham"],
+  },
+  {
+    rank: 268,
+    name: "Hartree-Fock Equations",
+    equation: "f_i\\phi_i = \\left(h + \\sum_j(J_j - K_j)\\right)\\phi_i = \\varepsilon_i\\phi_i",
+    discoverer: "Hartree / Fock / Slater",
+    year: "1927–1935",
+    field: "Quantum Chemistry",
+    domain: "Chemistry",
+    subDomain: "Physical Chemistry",
+    domainEmoji: "🧪",
+    significance:
+      "The Hartree-Fock mean-field approximation reduces the many-electron Schrödinger equation to a set of one-electron equations. The foundation of all ab initio quantum chemistry. Coulomb (J) and exchange (K) integrals capture electron-electron interactions approximately.",
+    constants:
+      "φ_i = molecular orbital, h = one-electron Hamiltonian, J_j = Coulomb operator, K_j = exchange operator, ε_i = orbital energy",
+    applications:
+      "Quantum chemistry (structure, energetics, spectra), drug design, catalysis, molecular dynamics, post-HF methods",
+    beauty: 7,
+    difficulty: "sota",
+    tags: ["quantum chemistry", "Hartree-Fock", "molecular orbitals", "electronic structure"],
+  },
+  // ─────────────────────────────────────────────────────────────────────────
+  // METABOLIC SCALING & SYSTEMS BIOLOGY
+  // ─────────────────────────────────────────────────────────────────────────
+  {
+    rank: 269,
+    name: "Kleiber's Law (Metabolic Scaling)",
+    equation: "B = B_0 M^{3/4}",
+    discoverer: "Max Kleiber",
+    year: "1932",
+    field: "Metabolic Biology / Allometry",
+    domain: "Biology & Medicine",
+    subDomain: "Ecology & Systems Bio",
+    domainEmoji: "🧬",
+    significance:
+      "Metabolic rate scales as the ¾ power of body mass across 20+ orders of magnitude — from microbes to blue whales. The 3/4 exponent (vs the naively expected 2/3 from surface area) is explained by fractal vascular networks (West-Brown-Enquist theory). One of the most universal laws in biology.",
+    constants: "B = basal metabolic rate, B₀ = normalisation constant, M = body mass, exponent 3/4",
+    applications:
+      "Drug dosing (allometric scaling), ecology (energy flux), evolution (lifespan scaling), hospital ICU planning, ageing",
+    beauty: 8,
+    difficulty: "hard",
+    tags: ["metabolic scaling", "Kleiber's law", "allometry", "fractal biology"],
+  },
+  {
+    rank: 270,
+    name: "Michaelis-Menten with Hill Cooperativity",
+    equation: "v = \\frac{V_{\\max}[S]^n}{K_d^n + [S]^n}",
+    discoverer: "Hill / Monod-Wyman-Changeux",
+    year: "1910",
+    field: "Systems Biology / Biochemistry",
+    domain: "Biology & Medicine",
+    subDomain: "Molecular Biology",
+    domainEmoji: "🧬",
+    significance:
+      "The Hill equation extends Michaelis-Menten to cooperative binding with Hill coefficient n. n>1 produces sigmoidal (switch-like) responses critical in gene regulation networks. n=2 describes haemoglobin O₂ binding. Foundation of systems biology toggle switches and bistability.",
+    constants:
+      "n = Hill coefficient (cooperativity), K_d = dissociation constant, V_max = maximum rate, [S] = substrate concentration",
+    applications:
+      "Gene regulatory networks (bistability), haemoglobin O₂ binding, synthetic biology (genetic circuits), drug dose-response, cell signalling",
+    beauty: 7,
+    difficulty: "hard",
+    tags: ["Hill equation", "cooperativity", "systems biology", "gene regulation"],
+  },
+  // ─────────────────────────────────────────────────────────────────────────
+  // NETWORK SCIENCE
+  // ─────────────────────────────────────────────────────────────────────────
+  {
+    rank: 271,
+    name: "Barabási-Albert Preferential Attachment",
+    equation: "\\Pi(k_i) = \\frac{k_i}{\\sum_j k_j} \\Rightarrow P(k) \\sim k^{-\\gamma}",
+    discoverer: "Barabási & Albert",
+    year: "1999",
+    field: "Network Science / Complex Systems",
+    domain: "Mathematics",
+    subDomain: "Discrete Mathematics",
+    domainEmoji: "📐",
+    significance:
+      "New nodes attach preferentially to high-degree nodes ('rich get richer'), producing scale-free networks with power-law degree distributions. Explains why the World Wide Web, citation networks, and protein interaction networks have hub structure. The foundational model of complex networks.",
+    constants: "Π(k_i) = attachment probability, k_i = degree of node i, P(k) = degree distribution, γ ≈ 3",
+    applications:
+      "World Wide Web, citation networks, protein interaction networks, social networks, internet infrastructure",
+    beauty: 8,
+    difficulty: "hard",
+    tags: ["network science", "scale-free networks", "preferential attachment", "power laws"],
+  },
+  {
+    rank: 272,
+    name: "Watts-Strogatz Small-World Model",
+    equation: "L \\sim \\ln N / \\ln k, \\quad C \\gg C_{\\text{random}}",
+    discoverer: "Watts & Strogatz",
+    year: "1998",
+    field: "Network Science",
+    domain: "Mathematics",
+    subDomain: "Discrete Mathematics",
+    domainEmoji: "📐",
+    significance:
+      "Real networks have high clustering (C >> C_random) yet short average path lengths (L ~ ln N) — the 'small-world' property. Watts and Strogatz showed that randomly rewiring a few edges of a regular lattice creates small-world behaviour, explaining the 'six degrees of separation' phenomenon.",
+    constants: "L = average path length, N = network size, k = average degree, C = clustering coefficient",
+    applications:
+      "Social networks, epidemic spreading, neural networks (brain), power grids, the internet, epidemiology",
+    beauty: 8,
+    difficulty: "hard",
+    tags: ["network science", "small world", "complex networks", "Watts-Strogatz"],
+  },
+  {
+    rank: 273,
+    name: "SIR on Networks (Bond Percolation Mapping)",
+    equation: "R_0 = \\tau\\frac{\\langle k^2\\rangle - \\langle k\\rangle}{\\langle k\\rangle}",
+    discoverer: "Newman / Molloy-Reed / Pastor-Satorras",
+    year: "2001",
+    field: "Network Epidemiology",
+    domain: "Mathematics",
+    subDomain: "Applied Mathematics",
+    domainEmoji: "📐",
+    significance:
+      "The basic reproduction number on a heterogeneous network depends on the ratio of second to first moments of the degree distribution. Scale-free networks (⟨k²⟩ → ∞) have no epidemic threshold — any infection spreads. This explained why computer viruses and STIs spread in hub networks.",
+    constants:
+      "R₀ = network basic reproduction number, τ = transmission rate, ⟨k⟩ = mean degree, ⟨k²⟩ = second moment of degree distribution",
+    applications:
+      "COVID-19 network models, STI epidemiology, computer virus spreading, immunisation strategy, information cascades",
+    beauty: 8,
+    difficulty: "hard",
+    tags: ["network epidemiology", "SIR model", "percolation", "herd immunity"],
+  },
+  // ─────────────────────────────────────────────────────────────────────────
+  // FLUID TURBULENCE
+  // ─────────────────────────────────────────────────────────────────────────
+  {
+    rank: 274,
+    name: "Kolmogorov Energy Cascade (K41)",
+    equation: "E(k) = C_K \\varepsilon^{2/3} k^{-5/3}",
+    discoverer: "Andrei Kolmogorov",
+    year: "1941",
+    field: "Turbulence / Fluid Dynamics",
+    domain: "Physics",
+    subDomain: "Condensed Matter & Applied",
+    domainEmoji: "⚛️",
+    significance:
+      "In the inertial range of fully developed turbulence, the energy spectrum follows a k^(−5/3) power law. Kolmogorov's 1941 dimensional analysis — one of the most successful applications of scaling arguments — underpins all turbulence modelling. The −5/3 spectrum is observed everywhere from wind tunnels to the solar wind.",
+    constants: "E(k) = energy spectrum, C_K ≈ 1.5 (Kolmogorov constant), ε = energy dissipation rate, k = wavenumber",
+    applications:
+      "Turbulence modelling (LES, RANS), atmospheric dynamics, ocean mixing, astrophysical turbulence, aerodynamics",
+    beauty: 9,
+    difficulty: "sota",
+    tags: ["turbulence", "Kolmogorov", "energy cascade", "scaling laws"],
+  },
+  // ─────────────────────────────────────────────────────────────────────────
+  // ADDITIVE COMBINATORICS
+  // ─────────────────────────────────────────────────────────────────────────
+  {
+    rank: 275,
+    name: "Green-Tao Theorem",
+    equation: "\\text{Primes contain arithmetic progressions of every finite length}",
+    discoverer: "Ben Green & Terence Tao",
+    year: "2004",
+    field: "Additive Combinatorics / Number Theory",
+    domain: "Mathematics",
+    subDomain: "Discrete Mathematics",
+    domainEmoji: "📐",
+    significance:
+      "The primes contain arbitrarily long arithmetic progressions. The proof combined Fourier analysis (Hardy-Littlewood circle method), Szemerédi's theorem, and Gowers uniformity norms in a tour de force of modern combinatorics. Tao received the 2006 Fields Medal partly for this work.",
+    constants:
+      "Arithmetic progression: a, a+d, a+2d, ..., a+(k-1)d among primes, Gowers norms, correlation with nilsequences",
+    applications: "Number theory, additive combinatorics, Szemerédi's theorem, Gowers norms, coding theory",
+    beauty: 10,
+    difficulty: "sota",
+    tags: ["additive combinatorics", "Green-Tao", "prime numbers", "arithmetic progressions"],
+  },
+  {
+    rank: 276,
+    name: "Szemerédi Regularity Lemma",
+    equation: "\\text{Any graph can be partitioned into }k\\text{ parts where almost all pairs are pseudo-random}",
+    discoverer: "Endre Szemerédi",
+    year: "1975",
+    field: "Combinatorics / Graph Theory",
+    domain: "Mathematics",
+    subDomain: "Discrete Mathematics",
+    domainEmoji: "📐",
+    significance:
+      "Any sufficiently large graph can be decomposed into a bounded number of nearly uniform parts. A fundamental structure theorem in graph theory. Szemerédi won the 2012 Abel Prize. The regularity lemma enabled Green-Tao and is the foundation of the dense graph removal lemma and extremal graph theory.",
+    constants:
+      "ε-regular pair = edges distributed uniformly (density in any subsets within ε), partition size k ≤ tower(1/ε)",
+    applications:
+      "Extremal graph theory, Green-Tao theorem, property testing algorithms, graph limits (graphons), network analysis",
+    beauty: 8,
+    difficulty: "sota",
+    tags: ["combinatorics", "Szemerédi lemma", "graph theory", "regularity"],
+  },
+  // ─────────────────────────────────────────────────────────────────────────
+  // ROBUST STATISTICS & HIGH-DIMENSIONAL INFERENCE
+  // ─────────────────────────────────────────────────────────────────────────
+  {
+    rank: 277,
+    name: "Huber Loss",
+    equation:
+      "L_\\delta(y,\\hat{y}) = \\begin{cases}\\tfrac{1}{2}(y-\\hat{y})^2 & |y-\\hat{y}|\\leq\\delta \\\\ \\delta|y-\\hat{y}|-\\tfrac{\\delta^2}{2} & \\text{otherwise}\\end{cases}",
+    discoverer: "Peter J. Huber",
+    year: "1964",
+    field: "Robust Statistics",
+    domain: "Data Science",
+    subDomain: "Statistical Methods",
+    domainEmoji: "📡",
+    significance:
+      "Combines the squared-error loss (efficient near zero) with absolute loss (robust to outliers) via a threshold δ. Foundation of robust statistics and M-estimation. Widely used in machine learning loss functions and gradient boosting.",
+    constants: "δ = transition threshold, y = true value, ŷ = prediction, quadratic-linear hybrid",
+    applications:
+      "Robust regression, gradient boosting (XGBoost), object detection (smooth L1), outlier-robust model fitting",
+    beauty: 7,
+    difficulty: "hard",
+    tags: ["robust statistics", "Huber loss", "M-estimation", "outliers"],
+  },
+  {
+    rank: 278,
+    name: "Donoho-Jin Higher Criticism",
+    equation: "HC_n^* = \\max_{0<t\\leq t_0}\\frac{\\sqrt{n}(\\hat{F}(t)-t)}{\\sqrt{t(1-t)}}",
+    discoverer: "David Donoho & Jin",
+    year: "2004",
+    field: "High-Dimensional Statistics",
+    domain: "Data Science",
+    subDomain: "Statistical Methods",
+    domainEmoji: "📡",
+    significance:
+      "A second-level goodness-of-fit test that aggregates departures across many small p-values — detecting sparse signals invisible to individual tests. Optimal for detecting extremely sparse mixtures, with applications in genetics, astrophysics, and counter-terrorism.",
+    constants:
+      "HC*_n = Higher Criticism statistic, F̂(t) = empirical CDF of p-values, t = threshold, n = number of tests",
+    applications:
+      "Genomics (rare variant detection), astrophysics (point source detection), network intrusion detection, text analysis",
+    beauty: 7,
+    difficulty: "sota",
+    tags: ["multiple testing", "higher criticism", "sparse signals", "high-dimensional statistics"],
+  },
+  // ─────────────────────────────────────────────────────────────────────────
+  // EXTREME VALUE THEORY
+  // ─────────────────────────────────────────────────────────────────────────
+  {
+    rank: 279,
+    name: "Generalised Extreme Value Distribution",
+    equation: "G(x;\\mu,\\sigma,\\xi) = \\exp\\!\\left(-\\left(1+\\xi\\frac{x-\\mu}{\\sigma}\\right)^{-1/\\xi}\\right)",
+    discoverer: "Fisher & Tippett / Gnedenko / Gumbel",
+    year: "1928–1943",
+    field: "Extreme Value Theory",
+    domain: "Mathematics",
+    subDomain: "Probability & Statistics",
+    domainEmoji: "📐",
+    significance:
+      "The GEV distribution is the limiting distribution of block maxima from any underlying distribution (Extremal Types Theorem). Unifies Gumbel (ξ=0), Fréchet (ξ>0), and Weibull (ξ<0) families. The fundamental tool for quantifying tail risks.",
+    constants: "μ = location, σ = scale, ξ = shape (tail index), GEV encompasses three extreme value families",
+    applications:
+      "Flood frequency analysis, financial tail risk, wind speed extremes, seismic hazard, insurance (catastrophe modelling)",
+    beauty: 7,
+    difficulty: "hard",
+    tags: ["extreme value theory", "GEV distribution", "tail risk", "maxima"],
+  },
+  {
+    rank: 280,
+    name: "Pickands-Balkema-de Haan Theorem",
+    equation: "P(X-u > y \\mid X > u) \\to G_{\\xi,\\sigma_u}(y) \\text{ as } u \\to x^*",
+    discoverer: "Pickands / Balkema & de Haan",
+    year: "1974–1975",
+    field: "Extreme Value Theory",
+    domain: "Mathematics",
+    subDomain: "Probability & Statistics",
+    domainEmoji: "📐",
+    significance:
+      "Exceedances above a high threshold converge to a Generalised Pareto Distribution. This peaks-over-threshold approach is more data-efficient than block maxima. Foundation of extreme risk quantification and the Expected Shortfall estimation used in Basel III banking regulations.",
+    constants:
+      "G_{ξ,σ} = Generalised Pareto Distribution, u = threshold, ξ = shape, σ_u = scale, x* = distribution endpoint",
+    applications:
+      "Operational risk (Basel III), catastrophe reinsurance, coastal flooding, extreme wind loads, systemic financial risk",
+    beauty: 7,
+    difficulty: "hard",
+    tags: ["extreme value theory", "GPD", "peaks over threshold", "tail risk"],
+  },
+  // ─────────────────────────────────────────────────────────────────────────
+  // HIGH-FREQUENCY TRADING & MARKET MICROSTRUCTURE
+  // ─────────────────────────────────────────────────────────────────────────
+  {
+    rank: 281,
+    name: "Almgren-Chriss Optimal Execution",
+    equation: "\\min_{x(t)}\\left[\\int_0^T S_0\\dot{x}(t)g(\\dot{x})\\,dt + \\sigma^2\\int_0^T x^2(t)\\,dt\\right]",
+    discoverer: "Almgren & Chriss",
+    year: "2000",
+    field: "Market Microstructure / Quantitative Finance",
+    domain: "Finance & Quant",
+    subDomain: "Risk Management",
+    domainEmoji: "💹",
+    significance:
+      "Formulates the optimal execution of a large stock trade as a control problem balancing market impact (trading too fast) against price risk (trading too slow). The industry standard model for algorithmic execution used by every major investment bank and asset manager.",
+    constants:
+      "x(t) = shares remaining, ẋ = trading rate, g(ẋ) = market impact function, σ = volatility, T = execution horizon",
+    applications:
+      "Algorithmic trading, execution algorithms (TWAP, VWAP, IS), transaction cost analysis, smart order routing",
+    beauty: 7,
+    difficulty: "sota",
+    tags: ["algorithmic trading", "optimal execution", "market impact", "HFT"],
+  },
+  {
+    rank: 282,
+    name: "Hawkes Process Intensity",
+    equation: "\\lambda(t) = \\mu + \\sum_{t_i < t}\\phi(t - t_i)",
+    discoverer: "Alan Hawkes",
+    year: "1971",
+    field: "Stochastic Processes / Finance",
+    domain: "Mathematics",
+    subDomain: "Probability & Statistics",
+    domainEmoji: "📐",
+    significance:
+      "A self-exciting point process where each event increases the probability of future events. Natural model for clustering in financial order flow, earthquakes, and crime. The workhorse of high-frequency trading models and the basis of limit order book modelling.",
+    constants:
+      "λ(t) = intensity, μ = baseline rate, φ(t) = excitation kernel (e.g. exponential decay), t_i = past event times",
+    applications:
+      "High-frequency trading (order book dynamics), earthquake aftershock modelling, crime pattern analysis, social media cascades",
+    beauty: 7,
+    difficulty: "hard",
+    tags: ["Hawkes process", "self-exciting", "point processes", "high-frequency finance"],
+  },
+  // ─────────────────────────────────────────────────────────────────────────
+  // MEDICAL IMAGING & NEUROSCIENCE
+  // ─────────────────────────────────────────────────────────────────────────
+  {
+    rank: 283,
+    name: "Bloch Equations (MRI)",
+    equation: "\\frac{dM_z}{dt} = \\frac{M_0-M_z}{T_1}, \\quad \\frac{dM_{xy}}{dt} = -\\frac{M_{xy}}{T_2}",
+    discoverer: "Felix Bloch",
+    year: "1946",
+    field: "Nuclear Magnetic Resonance / Medical Imaging",
+    domain: "Physics",
+    subDomain: "Condensed Matter & Applied",
+    domainEmoji: "⚛️",
+    significance:
+      "Describes the relaxation of nuclear magnetisation after an RF pulse in an NMR experiment. T₁ (longitudinal) and T₂ (transverse) relaxation times encode tissue type in MRI. Bloch shared the 1952 Nobel Prize for NMR. Every MRI scan is built on solving these equations.",
+    constants:
+      "M_z = longitudinal magnetisation, M_xy = transverse magnetisation, T₁ = spin-lattice relaxation, T₂ = spin-spin relaxation, M₀ = equilibrium magnetisation",
+    applications:
+      "MRI contrast (tissue differentiation), fMRI (BOLD signal), NMR spectroscopy, qMRI, hyperpolarised MRI",
+    beauty: 7,
+    difficulty: "hard",
+    nobelPrize: true,
+    tags: ["MRI", "NMR", "Bloch equations", "medical imaging"],
+  },
+  {
+    rank: 284,
+    name: "Hemodynamic Response Function (BOLD fMRI)",
+    equation:
+      "y(t) = \\beta\\, h(t) * s(t) + \\varepsilon, \\quad h(t) = \\frac{t^{a_1-1}e^{-t/b_1}}{b_1^{a_1}\\Gamma(a_1)} - \\frac{c\\,t^{a_2-1}e^{-t/b_2}}{b_2^{a_2}\\Gamma(a_2)}",
+    discoverer: "Friston et al. / Boynton et al.",
+    year: "1994",
+    field: "Computational Neuroscience / Neuroimaging",
+    domain: "Biology & Medicine",
+    subDomain: "Neuroscience",
+    domainEmoji: "🧬",
+    significance:
+      "The canonical haemodynamic response function h(t) models the BOLD (Blood-Oxygen-Level Dependent) signal in fMRI as a gamma-function-shaped response to neural activity. Convolved with a stimulus s(t), it predicts the measured fMRI signal. Foundation of all fMRI data analysis.",
+    constants:
+      "h(t) = HRF, β = activation amplitude, s(t) = stimulus function, * = convolution, a₁,a₂,b₁,b₂,c = SPM parameters",
+    applications:
+      "fMRI brain imaging, cognitive neuroscience, clinical neurology, brain-computer interfaces, neurofeedback",
+    beauty: 6,
+    difficulty: "hard",
+    tags: ["fMRI", "BOLD", "neuroscience", "hemodynamic response"],
+  },
+  {
+    rank: 285,
+    name: "Cable Equation (Neuron Dendrite)",
+    equation:
+      "\\frac{\\partial V}{\\partial t} = \\frac{d}{4R_a C_m}\\frac{\\partial^2 V}{\\partial x^2} - \\frac{V-V_\\text{rest}}{\\tau_m}",
+    discoverer: "Wilfrid Rall",
+    year: "1957",
+    field: "Computational Neuroscience",
+    domain: "Biology & Medicine",
+    subDomain: "Neuroscience",
+    domainEmoji: "🧬",
+    significance:
+      "Describes voltage propagation along a dendritic cable — the passive spread of membrane potential in neuron dendrites. Rall's cable theory established how dendritic geometry shapes neural computation. The basis of all compartmental neuron models and multi-compartment simulations.",
+    constants:
+      "V = membrane potential, d = dendrite diameter, R_a = axial resistance, C_m = membrane capacitance, τ_m = membrane time constant",
+    applications:
+      "Neuron modelling (NEURON simulator), synaptic integration, dendritic computation, epilepsy modelling, brain-computer interfaces",
+    beauty: 7,
+    difficulty: "hard",
+    tags: ["cable equation", "computational neuroscience", "dendrites", "membrane potential"],
+  },
+  // ─────────────────────────────────────────────────────────────────────────
+  // ENVIRONMENTAL & ATMOSPHERIC SCIENCE
+  // ─────────────────────────────────────────────────────────────────────────
+  {
+    rank: 286,
+    name: "Advection-Diffusion Equation",
+    equation: "\\frac{\\partial c}{\\partial t} + \\mathbf{u}\\cdot\\nabla c = D\\nabla^2 c + R",
+    discoverer: "Various (continuum mechanics)",
+    year: "19th century",
+    field: "Fluid Dynamics / Environmental Science",
+    domain: "Physics",
+    subDomain: "Condensed Matter & Applied",
+    domainEmoji: "⚛️",
+    significance:
+      "Governs the transport of any scalar quantity (concentration, temperature, pollutant) in a flow field through advection (bulk transport) and diffusion (molecular mixing). The fundamental equation of atmospheric dispersion, ocean tracer transport, and contaminant spreading.",
+    constants: "c = concentration, u = velocity field, D = diffusion coefficient, R = source/sink term, ∇ = gradient",
+    applications:
+      "Air pollution modelling, ocean tracer transport, nuclear plume dispersion, drug delivery, industrial mixing",
+    beauty: 7,
+    difficulty: "hard",
+    tags: ["advection-diffusion", "transport equations", "atmospheric science", "fluid dynamics"],
+  },
+  {
+    rank: 287,
+    name: "Mie Scattering",
+    equation: "Q_{\\text{sca}} = \\frac{2}{x^2}\\sum_{n=1}^\\infty (2n+1)\\left(|a_n|^2+|b_n|^2\\right)",
+    discoverer: "Gustav Mie",
+    year: "1908",
+    field: "Electromagnetic Scattering / Atmospheric Optics",
+    domain: "Physics",
+    subDomain: "Electromagnetism",
+    domainEmoji: "⚛️",
+    significance:
+      "Exact solution for electromagnetic scattering by a sphere of any size — generalising Rayleigh scattering (x ≪ 1) to all size parameters x = 2πr/λ. Governs why clouds are white (all wavelengths scattered equally), radar return from rain, and lidar atmospheric sensing.",
+    constants:
+      "Q_sca = scattering efficiency, x = size parameter = 2πr/λ, a_n,b_n = Mie coefficients (Legendre functions)",
+    applications:
+      "Cloud physics, radar meteorology, lidar, atmospheric optics, particle sizing, plasmonic nanoparticles",
+    beauty: 7,
+    difficulty: "hard",
+    tags: ["Mie scattering", "electromagnetic scattering", "atmospheric optics", "light scattering"],
+  },
+  // ─────────────────────────────────────────────────────────────────────────
+  // MATERIALS SCIENCE & PHASE FIELD
+  // ─────────────────────────────────────────────────────────────────────────
+  {
+    rank: 288,
+    name: "Cahn-Hilliard Equation",
+    equation:
+      "\\frac{\\partial c}{\\partial t} = \\nabla\\cdot\\left(M\\nabla\\frac{\\delta F}{\\delta c}\\right), \\quad F = \\int\\left[f(c) + \\frac{\\kappa}{2}|\\nabla c|^2\\right]dV",
+    discoverer: "Cahn & Hilliard",
+    year: "1958",
+    field: "Materials Science / Phase Field Theory",
+    domain: "Physics",
+    subDomain: "Condensed Matter & Applied",
+    domainEmoji: "⚛️",
+    significance:
+      "Describes spinodal decomposition — how a homogeneous mixture spontaneously separates into two phases. The phase-field approach avoids tracking sharp interfaces explicitly. Foundation of computational materials science for solidification, corrosion, battery electrode evolution.",
+    constants:
+      "c = composition field, M = mobility, F = free energy functional, f(c) = bulk free energy, κ = gradient energy coefficient",
+    applications:
+      "Spinodal decomposition, solidification modelling, battery electrode microstructure, corrosion, polymer phase separation",
+    beauty: 7,
+    difficulty: "hard",
+    tags: ["Cahn-Hilliard", "phase field", "spinodal decomposition", "materials science"],
+  },
+  {
+    rank: 289,
+    name: "Peierls-Nabarro Model (Dislocation)",
+    equation:
+      "\\tau_P = \\frac{2\\mu}{1-\\nu}\\exp\\!\\left(-\\frac{2\\pi w}{b}\\right), \\quad w = \\frac{b}{2\\pi}\\frac{1}{1-\\nu}",
+    discoverer: "Peierls / Nabarro",
+    year: "1940–1947",
+    field: "Materials Science / Crystal Plasticity",
+    domain: "Physics",
+    subDomain: "Condensed Matter & Applied",
+    domainEmoji: "⚛️",
+    significance:
+      "Gives the minimum stress τ_P needed to move a dislocation in a crystal — the Peierls stress. Dislocations control plastic deformation of all metals. Understanding τ_P guides the design of high-strength materials and explains the brittleness of ceramics.",
+    constants: "τ_P = Peierls stress, μ = shear modulus, ν = Poisson ratio, b = Burgers vector, w = dislocation width",
+    applications:
+      "Mechanical properties of metals, high-strength alloy design, crystal plasticity modelling, semiconductor defects",
+    beauty: 6,
+    difficulty: "hard",
+    tags: ["materials science", "dislocations", "crystal plasticity", "Peierls stress"],
+  },
+  // ─────────────────────────────────────────────────────────────────────────
+  // ETHICS, DECISION THEORY & SOCIAL CHOICE
+  // ─────────────────────────────────────────────────────────────────────────
+  {
+    rank: 290,
+    name: "Arrow's Impossibility Theorem",
+    equation: "\\nexists\\text{ social choice rule satisfying: Pareto, IIA, non-dictatorship, unrestricted domain}",
+    discoverer: "Kenneth Arrow",
+    year: "1951",
+    field: "Social Choice Theory / Economics",
+    domain: "Economics",
+    subDomain: "Microeconomics",
+    domainEmoji: "📊",
+    significance:
+      "No voting system with 3+ choices can simultaneously satisfy: unanimity (Pareto), independence of irrelevant alternatives, and non-dictatorship. The most profound impossibility theorem in social science. Won Arrow the 1972 Nobel Prize and shaped the theory of voting, welfare economics, and democracy.",
+    constants:
+      "Social welfare function, Pareto condition, IIA = independence of irrelevant alternatives, n ≥ 3 alternatives",
+    applications:
+      "Voting systems design, welfare economics, AI preference aggregation, multi-objective optimisation, social choice",
+    beauty: 9,
+    difficulty: "hard",
+    nobelPrize: true,
+    tags: ["social choice", "Arrow's theorem", "voting theory", "impossibility"],
+  },
+  {
+    rank: 291,
+    name: "Expected Utility Theory",
+    equation: "U(L) = \\sum_i p_i u(x_i), \\quad \\text{rational agent maximises }U",
+    discoverer: "von Neumann & Morgenstern",
+    year: "1944",
+    field: "Decision Theory / Microeconomics",
+    domain: "Economics",
+    subDomain: "Microeconomics",
+    domainEmoji: "📊",
+    significance:
+      "The axiomatic foundation of rational choice under uncertainty: a rational agent maximises the expected value of a utility function. Von Neumann and Morgenstern's theorem shows this follows from four axioms. Foundation of game theory, insurance theory, and financial economics.",
+    constants:
+      "U = expected utility, p_i = probabilities, x_i = outcomes, u = utility function (concave for risk aversion)",
+    applications:
+      "Decision analysis, insurance pricing, financial economics, game theory, AI utility functions, risk management",
+    beauty: 8,
+    difficulty: "hard",
+    tags: ["decision theory", "expected utility", "von Neumann-Morgenstern", "rational choice"],
+  },
+  {
+    rank: 292,
+    name: "Rawls' Maximin Criterion",
+    equation: "\\text{Maximise the welfare of the worst-off individual: }\\max_{x} \\min_i u_i(x)",
+    discoverer: "John Rawls (formalised by Harsanyi/Arrow)",
+    year: "1971",
+    field: "Political Philosophy / Social Choice",
+    domain: "Economics",
+    subDomain: "Microeconomics",
+    domainEmoji: "📊",
+    significance:
+      "Behind a 'veil of ignorance' (not knowing one's position), rational agents would choose to maximise the minimum welfare — a maximin criterion. The mathematical formalisation of egalitarian justice. Influences policy design, AI fairness, and social welfare functions.",
+    constants: "u_i = utility of individual i, x = social allocation/policy choice, min_i = minimum over individuals",
+    applications:
+      "Social welfare policy, AI fairness (group-level guarantees), income redistribution, risk-averse decision making",
+    beauty: 7,
+    difficulty: "hard",
+    tags: ["social choice", "Rawls", "maximin", "distributive justice"],
+  },
+  // ─────────────────────────────────────────────────────────────────────────
+  // PHILOSOPHY OF MATHEMATICS — FORMAL SYSTEMS
+  // ─────────────────────────────────────────────────────────────────────────
+  {
+    rank: 293,
+    name: "Curry-Howard Correspondence",
+    equation:
+      "\\text{Propositions} \\leftrightarrow \\text{Types},\\quad \\text{Proofs} \\leftrightarrow \\text{Programs}",
+    discoverer: "Curry / Howard / Lambek",
+    year: "1934–1969",
+    field: "Logic / Type Theory",
+    domain: "Computer Science",
+    subDomain: "Theory of Computation",
+    domainEmoji: "💻",
+    significance:
+      "Mathematical proofs and computer programs are the same thing — just viewed differently. A proof of a proposition corresponds to a program of the corresponding type. The deep connection underlying all proof assistants (Lean, Coq, Agda) and dependently typed programming languages.",
+    constants:
+      "Proposition = type, proof = term, modus ponens ↔ function application, ∀ quantifier ↔ dependent product type",
+    applications:
+      "Formal verification, proof assistants (Lean, Coq), dependently typed languages, compiler correctness, AI theorem proving",
+    beauty: 10,
+    difficulty: "sota",
+    tags: ["type theory", "Curry-Howard", "formal verification", "logic", "programming languages"],
+  },
+  {
+    rank: 294,
+    name: "Lawvere's Fixed-Point Theorem",
+    equation: "\\text{If }A^A\\text{ is a retract of }A^X\\text{, every }f:A\\to A\\text{ has a fixed point}",
+    discoverer: "F. William Lawvere",
+    year: "1969",
+    field: "Category Theory / Logic",
+    domain: "Mathematics",
+    subDomain: "Pure Mathematics",
+    domainEmoji: "📐",
+    significance:
+      "A categorical generalisation unifying Cantor's theorem, Gödel's incompleteness, Turing's halting problem, and Russell's paradox as instances of the same diagonal argument. Shows these fundamental impossibility results are manifestations of one categorical fixed-point phenomenon.",
+    constants: "A = object in cartesian closed category, A^A = exponential (function space), retract, diagonal map",
+    applications:
+      "Foundations of mathematics, theoretical computer science, domain theory (denotational semantics), categorical logic",
+    beauty: 10,
+    difficulty: "sota",
+    tags: ["category theory", "fixed-point theorem", "Lawvere", "diagonal argument"],
+  },
+  // ─────────────────────────────────────────────────────────────────────────
+  // CODING THEORY & INFORMATION
+  // ─────────────────────────────────────────────────────────────────────────
+  {
+    rank: 295,
+    name: "Hamming Bound (Sphere-Packing Bound)",
+    equation: "M \\leq \\frac{q^n}{\\sum_{i=0}^t \\binom{n}{i}(q-1)^i}",
+    discoverer: "Richard Hamming",
+    year: "1950",
+    field: "Coding Theory / Information Theory",
+    domain: "Computer Science",
+    subDomain: "Theory of Computation",
+    domainEmoji: "💻",
+    significance:
+      "An upper bound on the number of codewords M in an error-correcting code with block length n, alphabet size q, and correction capability t. Hamming codes achieve this bound perfectly (perfect codes). Foundation of modern coding theory, enabling reliable digital communications.",
+    constants:
+      "M = number of codewords, n = block length, q = alphabet size, t = error correction capability, C(n,i) = binomial coefficient",
+    applications:
+      "Error-correcting codes (LDPC, turbo, polar), storage (RAID, QR codes), deep-space communications, 5G",
+    beauty: 7,
+    difficulty: "hard",
+    tags: ["coding theory", "Hamming bound", "error correction", "information theory"],
+  },
+  {
+    rank: 296,
+    name: "Shannon's Noisy Channel Coding Theorem",
+    equation: "R < C \\Rightarrow \\exists\\text{ code with }P_e \\to 0\\text{ as }n\\to\\infty",
+    discoverer: "Claude Shannon",
+    year: "1948",
+    field: "Information Theory",
+    domain: "Computer Science",
+    subDomain: "Theory of Computation",
+    domainEmoji: "💻",
+    significance:
+      "Any communication rate R below channel capacity C is achievable with arbitrarily small error probability using long codes. Conversely, R > C implies unavoidable errors. The deepest result in information theory — proved existence long before practical codes (turbo codes 1993, LDPC 1995) approached capacity.",
+    constants: "R = code rate (bits/symbol), C = channel capacity, P_e = block error probability, n = codeword length",
+    applications: "All digital communications: 5G, WiFi, satellite, deep space (Voyager), optical fibre, data storage",
+    beauty: 10,
+    difficulty: "sota",
+    tags: ["information theory", "Shannon", "channel coding", "capacity"],
+  },
+  // ─────────────────────────────────────────────────────────────────────────
+  // GEOMETRY — CLASSICAL & MODERN
+  // ─────────────────────────────────────────────────────────────────────────
+  {
+    rank: 297,
+    name: "Descartes' Rule of Signs",
+    equation: "\\text{Number of positive roots}\\leq\\text{sign changes in }p(x)\\text{ coefficient sequence}",
+    discoverer: "René Descartes",
+    year: "1637",
+    field: "Algebra / Polynomial Theory",
+    domain: "Mathematics",
+    subDomain: "Core Foundations",
+    domainEmoji: "📐",
+    significance:
+      "Bounds the number of positive real roots of a polynomial by the number of sign changes in its coefficients. A simple, powerful tool predating modern algebra. One of the first results in algebraic analysis of polynomials, from Descartes' foundational 1637 work.",
+    constants: "Sign changes in coefficient sequence of p(x), parity with actual positive root count",
+    applications: "Polynomial root finding, stability analysis (control theory), algebraic geometry, numerical methods",
+    beauty: 7,
+    difficulty: "easy",
+    tags: ["polynomial theory", "Descartes", "sign changes", "algebra"],
+  },
+  {
+    rank: 298,
+    name: "Cauchy's Theorem (Group Theory)",
+    equation: "p \\mid |G| \\Rightarrow \\exists\\, g\\in G: \\mathrm{ord}(g) = p",
+    discoverer: "Augustin-Louis Cauchy",
+    year: "1845",
+    field: "Group Theory / Abstract Algebra",
+    domain: "Mathematics",
+    subDomain: "Pure Mathematics",
+    domainEmoji: "📐",
+    significance:
+      "If a prime p divides the order of a finite group G, then G contains an element of order p. A fundamental structural theorem of group theory — the first major result relating prime divisors of |G| to subgroup structure. Precursor to Sylow's theorems.",
+    constants: "G = finite group, |G| = order of G, p = prime, ord(g) = order of element g",
+    applications:
+      "Group theory, cryptography (group order factorisation), molecular symmetry (spectroscopy), error-correcting codes",
+    beauty: 7,
+    difficulty: "hard",
+    tags: ["group theory", "Cauchy theorem", "abstract algebra", "prime divisors"],
+  },
+  {
+    rank: 299,
+    name: "Pick's Theorem",
+    equation: "A = I + \\frac{B}{2} - 1",
+    discoverer: "Georg Pick",
+    year: "1899",
+    field: "Combinatorial Geometry",
+    domain: "Mathematics",
+    subDomain: "Core Foundations",
+    domainEmoji: "📐",
+    significance:
+      "The area of a lattice polygon equals the number of interior lattice points plus half the boundary points minus 1. Elegant, counterintuitive, and very useful. A rare formula connecting combinatorics and geometry with perfect simplicity.",
+    constants: "A = polygon area, I = interior lattice points, B = boundary lattice points",
+    applications: "Computational geometry, lattice problems, integer programming, tiling, crystallography",
+    beauty: 8,
+    difficulty: "easy",
+    tags: ["combinatorial geometry", "lattice points", "Pick's theorem", "area"],
+  },
+  {
+    rank: 300,
+    name: "Banach Fixed-Point Theorem (Contraction Mapping)",
+    equation: "d(Tx, Ty) \\leq k\\,d(x,y),\\;k<1 \\Rightarrow \\exists!\\text{ fixed point }x^* = Tx^*",
+    discoverer: "Stefan Banach",
+    year: "1922",
+    field: "Functional Analysis / Metric Spaces",
+    domain: "Mathematics",
+    subDomain: "Pure Mathematics",
+    domainEmoji: "📐",
+    significance:
+      "A contraction mapping on a complete metric space has a unique fixed point, approached by iteration from any starting point. One of the most practically useful theorems in analysis — guaranteeing existence and convergence simultaneously. Proves existence of solutions to ODEs, PDEs, and integral equations.",
+    constants:
+      "T = contraction mapping, k < 1 = Lipschitz constant, d = metric, x* = unique fixed point, (X,d) = complete metric space",
+    applications:
+      "ODEs (Picard-Lindelöf theorem), PDEs, iterative numerical methods, Newton's method convergence, computer graphics (fractals via IFS)",
+    beauty: 9,
+    difficulty: "hard",
+    tags: ["fixed-point theorem", "Banach", "functional analysis", "contraction mapping"],
+  },
 ];
 
 // =============================================================================
