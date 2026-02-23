@@ -2978,6 +2978,1042 @@ export const EQUATIONS: Equation[] = [
     unsolved: true,
     tags: ["Millennium Prize", "PDEs", "turbulence", "existence theory", "open problem"],
   },
+  {
+    rank: 151,
+    name: "Atiyah-Singer Index Theorem",
+    equation: "\\mathrm{ind}(D) = \\int_M \\hat{A}(M)\\,\\mathrm{ch}(E)",
+    discoverer: "Michael Atiyah & Isadore Singer",
+    year: "1963",
+    field: "Differential Geometry / Algebraic Topology",
+    domain: "Mathematics",
+    subDomain: "Pure Mathematics",
+    domainEmoji: "📐",
+    significance:
+      "One of the deepest theorems of the 20th century, unifying topology, geometry, and analysis. Connects the analytical index of an elliptic differential operator to topological invariants of the underlying manifold. Generalises the Gauss-Bonnet theorem, Riemann-Roch, and Hirzebruch signature theorems as special cases. Earned Atiyah the Fields Medal and Abel Prize.",
+    constants:
+      "ind(D) = analytical index, Â(M) = Â-genus (Todd class), ch(E) = Chern character, D = elliptic differential operator, M = compact manifold",
+    applications:
+      "Theoretical physics (anomaly cancellation in QFT), string theory, condensed matter (topological phases), K-theory",
+    beauty: 10,
+    difficulty: "sota",
+    tags: ["algebraic topology", "differential geometry", "index theory", "Atiyah-Singer"],
+  },
+  {
+    rank: 152,
+    name: "Riemann-Roch Theorem",
+    equation: "\\ell(D) - \\ell(K - D) = \\deg(D) - g + 1",
+    discoverer: "Riemann / Roch",
+    year: "1857–1865",
+    field: "Algebraic Geometry / Complex Analysis",
+    domain: "Mathematics",
+    subDomain: "Pure Mathematics",
+    domainEmoji: "📐",
+    significance:
+      "Relates the dimension of the space of meromorphic functions with prescribed poles to the degree of the divisor and the genus of the curve. The foundational theorem of algebraic geometry and the prototype for the Atiyah-Singer index theorem. Its higher-dimensional generalisation (Grothendieck-Riemann-Roch) is a cornerstone of modern algebraic geometry.",
+    constants: "ℓ(D) = dimension of space of functions, D = divisor, K = canonical divisor, g = genus of curve",
+    applications:
+      "Algebraic geometry, coding theory (Goppa codes, error correction), cryptography (elliptic curves), string theory (worldsheet theory)",
+    beauty: 9,
+    difficulty: "sota",
+    tags: ["algebraic geometry", "Riemann-Roch", "divisors", "genus"],
+  },
+  {
+    rank: 153,
+    name: "Weil Conjectures (Deligne's Theorem)",
+    equation: "Z(X/\\mathbb{F}_q, T) = \\frac{P_1(T)\\cdots P_{2n-1}(T)}{P_0(T)\\cdots P_{2n}(T)}",
+    discoverer: "André Weil (conjectured) / Pierre Deligne (proved)",
+    year: "1949 / 1974",
+    field: "Algebraic Geometry / Number Theory",
+    domain: "Mathematics",
+    subDomain: "Pure Mathematics",
+    domainEmoji: "📐",
+    significance:
+      "Weil conjectured that the zeta function of a variety over a finite field satisfies a Riemann hypothesis analogue and factors via cohomological data. Deligne's proof required inventing étale cohomology and earned him the Fields Medal and Abel Prize. Opened modern arithmetic geometry.",
+    constants:
+      "Z(X,T) = Weil zeta function, P_i = characteristic polynomials of Frobenius on ℓ-adic cohomology, q = field size",
+    applications:
+      "Arithmetic geometry, coding theory, cryptography (elliptic curves over finite fields), motivic cohomology",
+    beauty: 10,
+    difficulty: "sota",
+    tags: ["algebraic geometry", "Weil conjectures", "number theory", "Deligne"],
+  },
+  {
+    rank: 154,
+    name: "Grothendieck-Riemann-Roch Theorem",
+    equation:
+      "\\mathrm{ch}(f_!(\\mathcal{F}))\\cdot\\mathrm{td}(Y) = f_*(\\mathrm{ch}(\\mathcal{F})\\cdot\\mathrm{td}(X))",
+    discoverer: "Alexander Grothendieck",
+    year: "1957",
+    field: "Algebraic Geometry / K-Theory",
+    domain: "Mathematics",
+    subDomain: "Pure Mathematics",
+    domainEmoji: "📐",
+    significance:
+      "Generalises the classical Riemann-Roch theorem to morphisms between schemes. Grothendieck introduced K-theory and sheaf-theoretic methods to prove it. Considered a paradigm shift in how mathematics is done — functorial, categorical, and maximally general.",
+    constants:
+      "ch = Chern character, td = Todd class, f! = derived pushforward, f* = pushforward on K-theory, ℱ = coherent sheaf",
+    applications: "Algebraic geometry, motivic cohomology, string theory (D-branes), intersection theory, K-theory",
+    beauty: 9,
+    difficulty: "sota",
+    tags: ["algebraic geometry", "K-theory", "Grothendieck", "Chern character"],
+  },
+  {
+    rank: 155,
+    name: "Poincaré Duality",
+    equation: "H^k(M;\\mathbb{Z}) \\cong H_{n-k}(M;\\mathbb{Z})",
+    discoverer: "Henri Poincaré",
+    year: "1895",
+    field: "Algebraic Topology",
+    domain: "Mathematics",
+    subDomain: "Pure Mathematics",
+    domainEmoji: "📐",
+    significance:
+      "For a closed orientable n-manifold, the k-th cohomology group is isomorphic to the (n−k)-th homology group. A fundamental symmetry of manifolds connecting topology in complementary dimensions. The prototype for all duality theorems in mathematics and physics.",
+    constants: "H^k = cohomology, H_k = homology, M = closed orientable n-manifold, ℤ = integer coefficients",
+    applications:
+      "Algebraic topology, differential geometry, mathematical physics (Hodge theory), string theory (mirror symmetry)",
+    beauty: 9,
+    difficulty: "sota",
+    tags: ["algebraic topology", "Poincaré duality", "cohomology", "manifolds"],
+  },
+  {
+    rank: 156,
+    name: "Lefschetz Fixed-Point Theorem",
+    equation: "\\Lambda(f) = \\sum_k (-1)^k \\mathrm{tr}(f_*|_{H^k}) \\neq 0 \\Rightarrow f \\text{ has a fixed point}",
+    discoverer: "Solomon Lefschetz",
+    year: "1926",
+    field: "Algebraic Topology",
+    domain: "Mathematics",
+    subDomain: "Pure Mathematics",
+    domainEmoji: "📐",
+    significance:
+      "Provides a topological criterion for the existence of fixed points via cohomological trace. Generalises Brouwer's fixed-point theorem and connects topology to dynamical systems. The Lefschetz number is a topological invariant of the map.",
+    constants: "Λ(f) = Lefschetz number, f_* = induced map on cohomology, tr = trace, H^k = cohomology groups",
+    applications:
+      "Dynamical systems (periodic orbits), game theory (Nash equilibrium existence), algebraic geometry (Frobenius fixed points), economics",
+    beauty: 8,
+    difficulty: "sota",
+    tags: ["algebraic topology", "fixed-point theory", "Lefschetz", "dynamical systems"],
+  },
+  // ─────────────────────────────────────────────────────────────────────────
+  // ANALYTIC NUMBER THEORY
+  // ─────────────────────────────────────────────────────────────────────────
+  {
+    rank: 157,
+    name: "Prime Number Theorem",
+    equation: "\\pi(x) \\sim \\frac{x}{\\ln x} \\quad (x \\to \\infty)",
+    discoverer: "Hadamard & de la Vallée Poussin",
+    year: "1896",
+    field: "Analytic Number Theory",
+    domain: "Mathematics",
+    subDomain: "Discrete Mathematics",
+    domainEmoji: "📐",
+    significance:
+      "Proves that the number of primes up to x is asymptotically x/ln(x). Conjectured by Gauss from tables and proved independently by Hadamard and de la Vallée Poussin using complex analysis. The proof requires the Riemann zeta function — a profound bridge between analysis and arithmetic.",
+    constants:
+      "π(x) = prime-counting function, x = upper limit, ln x = natural logarithm, Li(x) = logarithmic integral (sharper approximation)",
+    applications:
+      "Cryptography (prime generation), computational number theory, RSA key size selection, probabilistic primality testing",
+    beauty: 9,
+    difficulty: "sota",
+    tags: ["number theory", "primes", "prime number theorem", "analytic number theory"],
+  },
+  {
+    rank: 158,
+    name: "Dirichlet's Theorem on Primes in Arithmetic Progressions",
+    equation: "\\sum_{p \\equiv a\\,(\\mathrm{mod}\\,d)} \\frac{1}{p} = \\infty \\quad \\gcd(a,d)=1",
+    discoverer: "Peter Gustav Lejeune Dirichlet",
+    year: "1837",
+    field: "Analytic Number Theory",
+    domain: "Mathematics",
+    subDomain: "Discrete Mathematics",
+    domainEmoji: "📐",
+    significance:
+      "Proves there are infinitely many primes in any arithmetic progression a, a+d, a+2d, … when gcd(a,d)=1. First use of analysis (L-functions) to prove a number-theoretic result — the birth of analytic number theory. Introduced Dirichlet characters, fundamental to modern number theory.",
+    constants: "a = residue class, d = modulus, gcd(a,d) = 1 (coprimality condition), Dirichlet L-functions L(s,χ)",
+    applications: "Analytic number theory, cryptography (prime distribution), Dirichlet L-functions, automorphic forms",
+    beauty: 8,
+    difficulty: "sota",
+    tags: ["number theory", "Dirichlet", "arithmetic progressions", "L-functions"],
+  },
+  {
+    rank: 159,
+    name: "Chebyshev's Psi Function",
+    equation: "\\psi(x) = \\sum_{p^k \\leq x} \\ln p \\sim x",
+    discoverer: "Pafnuty Chebyshev",
+    year: "1852",
+    field: "Analytic Number Theory",
+    domain: "Mathematics",
+    subDomain: "Discrete Mathematics",
+    domainEmoji: "📐",
+    significance:
+      "Chebyshev's ψ-function counts prime powers with logarithmic weight, proving it is asymptotically x. Chebyshev's approach (before the PNT was proved) gave the first quantitative bounds on π(x) and introduced the essential tools later used to prove the prime number theorem.",
+    constants: "ψ(x) = von Mangoldt summatory function, p = prime, k = positive integer, ln = natural log",
+    applications: "Analytic number theory, prime distribution bounds, explicit formulae for ζ(s) zeros",
+    beauty: 7,
+    difficulty: "sota",
+    tags: ["number theory", "Chebyshev psi", "prime distribution", "von Mangoldt"],
+  },
+  // ─────────────────────────────────────────────────────────────────────────
+  // NONLINEAR DYNAMICS & CHAOS
+  // ─────────────────────────────────────────────────────────────────────────
+  {
+    rank: 160,
+    name: "Lorenz System",
+    equation: "\\dot{x}=\\sigma(y-x),\\;\\dot{y}=x(\\rho-z)-y,\\;\\dot{z}=xy-\\beta z",
+    discoverer: "Edward Lorenz",
+    year: "1963",
+    field: "Nonlinear Dynamics / Chaos Theory",
+    domain: "Mathematics",
+    subDomain: "Differential Equations",
+    domainEmoji: "📐",
+    significance:
+      "A simple 3D ODE system exhibiting the first mathematically described strange attractor — sensitive dependence on initial conditions (the butterfly effect). Founded the modern study of chaos theory and showed that deterministic systems can be unpredictable.",
+    constants: "σ = Prandtl number ≈ 10, ρ = Rayleigh number ≈ 28, β ≈ 8/3, x,y,z = state variables",
+    applications:
+      "Weather prediction (chaos and limits of forecasting), fluid turbulence, neural dynamics, cryptography, laser physics",
+    beauty: 9,
+    difficulty: "hard",
+    tags: ["chaos theory", "Lorenz attractor", "nonlinear dynamics", "butterfly effect"],
+  },
+  {
+    rank: 161,
+    name: "Lyapunov Exponent",
+    equation: "\\lambda = \\lim_{t\\to\\infty}\\frac{1}{t}\\ln\\frac{|\\delta\\mathbf{x}(t)|}{|\\delta\\mathbf{x}(0)|}",
+    discoverer: "Aleksandr Lyapunov",
+    year: "1892",
+    field: "Dynamical Systems / Chaos Theory",
+    domain: "Mathematics",
+    subDomain: "Pure Mathematics",
+    domainEmoji: "📐",
+    significance:
+      "Quantifies the rate of separation of infinitesimally close trajectories in phase space. A positive Lyapunov exponent is the mathematical signature of chaos. The maximal Lyapunov exponent measures the inverse of the horizon of predictability.",
+    constants: "λ = Lyapunov exponent, δx(t) = trajectory separation at time t, δx(0) = initial separation",
+    applications:
+      "Chaos characterisation, weather forecasting limits, cryptography, econophysics, neural network stability",
+    beauty: 8,
+    difficulty: "hard",
+    tags: ["dynamical systems", "chaos", "Lyapunov exponent", "stability"],
+  },
+  {
+    rank: 162,
+    name: "KAM Theorem",
+    equation:
+      "\\text{Quasi-periodic tori persist if } |\\omega\\cdot k| > \\gamma|k|^{-\\tau}\\;\\forall k\\in\\mathbb{Z}^n\\setminus\\{0\\}",
+    discoverer: "Kolmogorov / Arnold / Moser",
+    year: "1954–1962",
+    field: "Hamiltonian Dynamics / Perturbation Theory",
+    domain: "Mathematics",
+    subDomain: "Pure Mathematics",
+    domainEmoji: "📐",
+    significance:
+      "Proves that most quasi-periodic orbits in nearly-integrable Hamiltonian systems survive small perturbations, provided the frequency vector is sufficiently irrational (Diophantine). Resolved centuries of debate about the stability of the solar system and founded modern symplectic dynamics.",
+    constants: "ω = frequency vector, k = integer vector, γ,τ = Diophantine condition constants, quasi-periodic tori",
+    applications:
+      "Celestial mechanics (solar system stability), plasma physics (magnetic confinement), accelerator physics, astrodynamics",
+    beauty: 9,
+    difficulty: "sota",
+    tags: ["Hamiltonian dynamics", "KAM theory", "perturbation theory", "stability"],
+  },
+  // ─────────────────────────────────────────────────────────────────────────
+  // QUANTUM FIELD THEORY & HIGH ENERGY PHYSICS
+  // ─────────────────────────────────────────────────────────────────────────
+  {
+    rank: 163,
+    name: "Path Integral (Feynman)",
+    equation: "\\langle x_f|e^{-iHT}|x_i\\rangle = \\int \\mathcal{D}[x(t)]\\,e^{iS[x]/\\hbar}",
+    discoverer: "Richard Feynman",
+    year: "1948",
+    field: "Quantum Mechanics / Quantum Field Theory",
+    domain: "Physics",
+    subDomain: "Quantum Mechanics",
+    domainEmoji: "⚛️",
+    significance:
+      "Reformulates quantum mechanics as a sum over all possible paths, weighted by exp(iS/ℏ). In the classical limit ℏ→0, the stationary path dominates — recovering classical mechanics. The foundation of quantum field theory, string theory, and lattice QCD.",
+    constants: "S[x] = action functional, ℏ = reduced Planck constant, 𝒟[x] = path integral measure, H = Hamiltonian",
+    applications:
+      "Quantum field theory, particle physics (Feynman diagrams), statistical mechanics, finance (path-dependent options)",
+    beauty: 10,
+    difficulty: "sota",
+    tags: ["quantum mechanics", "path integral", "Feynman", "quantum field theory"],
+  },
+  {
+    rank: 164,
+    name: "QED Lagrangian",
+    equation:
+      "\\mathcal{L}_{\\mathrm{QED}} = \\bar{\\psi}(i\\gamma^\\mu D_\\mu - m)\\psi - \\tfrac{1}{4}F_{\\mu\\nu}F^{\\mu\\nu}",
+    discoverer: "Feynman / Schwinger / Tomonaga",
+    year: "1948",
+    field: "Quantum Electrodynamics",
+    domain: "Physics",
+    subDomain: "Quantum Mechanics",
+    domainEmoji: "⚛️",
+    significance:
+      "The Lagrangian density of quantum electrodynamics — the most accurately tested theory in science. Describes all electromagnetic interactions of matter via a U(1) gauge symmetry. Feynman, Schwinger, and Tomonaga shared the 1965 Nobel Prize for its development.",
+    constants:
+      "ψ = electron spinor, D_μ = covariant derivative, γ^μ = Dirac matrices, F_μν = electromagnetic field tensor, m = electron mass",
+    applications:
+      "Atomic physics (Lamb shift), magnetic moments (g−2), particle physics, quantum optics, precision tests of the Standard Model",
+    beauty: 9,
+    difficulty: "sota",
+    nobelPrize: true,
+    tags: ["quantum electrodynamics", "QED", "gauge theory", "Standard Model"],
+  },
+  {
+    rank: 165,
+    name: "Yang-Mills Equations",
+    equation:
+      "D_\\mu F^{\\mu\\nu} = J^\\nu, \\quad F_{\\mu\\nu} = \\partial_\\mu A_\\nu - \\partial_\\nu A_\\mu + [A_\\mu, A_\\nu]",
+    discoverer: "Chen-Ning Yang & Robert Mills",
+    year: "1954",
+    field: "Gauge Theory / Quantum Field Theory",
+    domain: "Physics",
+    subDomain: "Quantum Mechanics",
+    domainEmoji: "⚛️",
+    significance:
+      "Generalised Maxwell's equations to non-Abelian gauge groups. The mathematical framework underlying the strong and weak nuclear forces. The Yang-Mills existence and mass gap problem is a Clay Millennium Prize Problem. The Standard Model of particle physics is built entirely on Yang-Mills theories.",
+    constants:
+      "A_μ = gauge connection (matrix-valued), F_μν = curvature (field strength), J^ν = current, [·,·] = Lie bracket",
+    applications:
+      "Strong force (QCD), weak force (electroweak), Standard Model, quark confinement, lattice gauge theory",
+    beauty: 10,
+    difficulty: "sota",
+    millenniumProblem: true,
+    tags: ["gauge theory", "Yang-Mills", "Standard Model", "Millennium Prize", "QCD"],
+  },
+  {
+    rank: 166,
+    name: "Renormalisation Group (Callan-Symanzik)",
+    equation:
+      "\\left(\\mu\\frac{\\partial}{\\partial\\mu} + \\beta(g)\\frac{\\partial}{\\partial g} - n\\gamma\\right)G^{(n)} = 0",
+    discoverer: "Callan & Symanzik / Wilson",
+    year: "1970",
+    field: "Quantum Field Theory",
+    domain: "Physics",
+    subDomain: "Quantum Mechanics",
+    domainEmoji: "⚛️",
+    significance:
+      "Describes how coupling constants run (change) with energy scale. Wilson's RG framework earned him the 1982 Nobel Prize. The β function encodes asymptotic freedom in QCD and is the language of all modern particle physics and critical phenomena in condensed matter.",
+    constants:
+      "μ = renormalisation scale, β(g) = beta function (running of coupling), γ = anomalous dimension, G^(n) = n-point Green's function",
+    applications:
+      "Particle physics (running couplings), critical phenomena (phase transitions), condensed matter, string theory",
+    beauty: 9,
+    difficulty: "sota",
+    nobelPrize: true,
+    tags: ["renormalisation group", "QFT", "beta function", "Wilson", "asymptotic freedom"],
+  },
+  // ─────────────────────────────────────────────────────────────────────────
+  // CONDENSED MATTER PHYSICS
+  // ─────────────────────────────────────────────────────────────────────────
+  {
+    rank: 167,
+    name: "BCS Gap Equation",
+    equation:
+      "\\Delta = \\lambda\\int_0^{\\omega_D}\\frac{\\Delta}{\\sqrt{\\xi^2+\\Delta^2}}\\tanh\\frac{\\sqrt{\\xi^2+\\Delta^2}}{2k_BT}\\,d\\xi",
+    discoverer: "Bardeen, Cooper & Schrieffer",
+    year: "1957",
+    field: "Superconductivity",
+    domain: "Physics",
+    subDomain: "Condensed Matter & Applied",
+    domainEmoji: "⚛️",
+    significance:
+      "The self-consistency equation for the superconducting gap Δ in BCS theory. The first microscopic theory of superconductivity, explaining how Cooper pairs form and condense. Won Bardeen, Cooper, and Schrieffer the 1972 Nobel Prize.",
+    constants:
+      "Δ = superconducting gap, λ = electron-phonon coupling, ω_D = Debye frequency, ξ = electron energy, k_B T = thermal energy",
+    applications:
+      "Superconducting magnets (MRI, LHC), Josephson junctions, SQUIDs, quantum computing (superconducting qubits)",
+    beauty: 8,
+    difficulty: "sota",
+    nobelPrize: true,
+    tags: ["superconductivity", "BCS theory", "Cooper pairs", "condensed matter"],
+  },
+  {
+    rank: 168,
+    name: "Bloch's Theorem",
+    equation: "\\psi_{n\\mathbf{k}}(\\mathbf{r}) = e^{i\\mathbf{k}\\cdot\\mathbf{r}}\\, u_{n\\mathbf{k}}(\\mathbf{r})",
+    discoverer: "Felix Bloch",
+    year: "1928",
+    field: "Solid-State Physics",
+    domain: "Physics",
+    subDomain: "Condensed Matter & Applied",
+    domainEmoji: "⚛️",
+    significance:
+      "States that electron wavefunctions in a periodic crystal potential take a specific form: a plane wave modulated by a function with the periodicity of the lattice. Foundation of band theory and the entire physics of semiconductors, metals, and insulators.",
+    constants:
+      "ψ = Bloch wavefunction, k = crystal momentum (wavevector), u(r) = periodic lattice function, n = band index",
+    applications:
+      "Semiconductor physics, band gap engineering, transistors, solar cells, topological insulators, photonic crystals",
+    beauty: 8,
+    difficulty: "hard",
+    tags: ["solid-state physics", "Bloch's theorem", "band theory", "semiconductors"],
+  },
+  {
+    rank: 169,
+    name: "Ginzburg-Landau Equation",
+    equation:
+      "\\alpha\\psi + \\beta|\\psi|^2\\psi - \\frac{1}{2m}\\left(\\nabla - \\frac{2ie}{\\hbar c}\\mathbf{A}\\right)^2\\psi = 0",
+    discoverer: "Ginzburg & Landau",
+    year: "1950",
+    field: "Superconductivity / Phase Transitions",
+    domain: "Physics",
+    subDomain: "Condensed Matter & Applied",
+    domainEmoji: "⚛️",
+    significance:
+      "A phenomenological theory of superconductivity in terms of an order parameter ψ. Predicts vortices, the two types of superconductors (Type I/II), and the Abrikosov lattice. Landau's concept of order parameters became the universal language of phase transitions.",
+    constants:
+      "ψ = superconducting order parameter, α,β = GL coefficients, m = electron mass, A = vector potential, e = electron charge",
+    applications:
+      "Superconducting devices, Josephson junctions, vortex physics, Type II superconductors, topological defects",
+    beauty: 8,
+    difficulty: "sota",
+    nobelPrize: true,
+    tags: ["superconductivity", "Ginzburg-Landau", "order parameter", "phase transitions"],
+  },
+  // ─────────────────────────────────────────────────────────────────────────
+  // PLASMA PHYSICS & MAGNETOHYDRODYNAMICS
+  // ─────────────────────────────────────────────────────────────────────────
+  {
+    rank: 170,
+    name: "MHD Equations (Ideal)",
+    equation:
+      "\\frac{\\partial\\mathbf{B}}{\\partial t} = \\nabla\\times(\\mathbf{v}\\times\\mathbf{B}), \\quad \\rho\\frac{D\\mathbf{v}}{Dt} = -\\nabla p + \\frac{(\\nabla\\times\\mathbf{B})\\times\\mathbf{B}}{\\mu_0}",
+    discoverer: "Alfvén / MHD tradition",
+    year: "1942",
+    field: "Plasma Physics / MHD",
+    domain: "Physics",
+    subDomain: "Condensed Matter & Applied",
+    domainEmoji: "⚛️",
+    significance:
+      "Ideal magnetohydrodynamics couples fluid dynamics with electromagnetic induction to describe conducting plasma behaviour. Alfvén won the 1970 Nobel Prize for MHD wave discovery. Governs solar plasma, fusion reactor design, and magnetospheres.",
+    constants: "B = magnetic field, v = plasma velocity, ρ = density, p = pressure, μ₀ = permeability of free space",
+    applications:
+      "Fusion energy (tokamaks, stellarators), solar physics, space weather, astrophysical jets, Earth's magnetosphere",
+    beauty: 7,
+    difficulty: "sota",
+    nobelPrize: true,
+    tags: ["plasma physics", "MHD", "Alfvén waves", "fusion energy"],
+  },
+  // ─────────────────────────────────────────────────────────────────────────
+  // COMPUTATIONAL COMPLEXITY & INFORMATION
+  // ─────────────────────────────────────────────────────────────────────────
+  {
+    rank: 171,
+    name: "Cook-Levin Theorem (NP-Completeness)",
+    equation: "\\mathrm{SAT} \\in \\mathsf{NP\\text{-}complete}",
+    discoverer: "Stephen Cook & Leonid Levin",
+    year: "1971",
+    field: "Computational Complexity",
+    domain: "Computer Science",
+    subDomain: "Theory of Computation",
+    domainEmoji: "💻",
+    significance:
+      "Proves that Boolean satisfiability (SAT) is NP-complete — every NP problem reduces to SAT in polynomial time. Established NP-completeness theory, showing thousands of important problems are computationally equivalent. The central result around which the P vs NP question is framed.",
+    constants:
+      "SAT = Boolean satisfiability problem, NP-complete = hardest problems in NP, polynomial-time reduction ≤_p",
+    applications:
+      "Compiler optimisation (register allocation), circuit design (VLSI), AI planning, bioinformatics, scheduling",
+    beauty: 9,
+    difficulty: "sota",
+    tags: ["complexity theory", "NP-complete", "SAT", "Cook-Levin"],
+  },
+  {
+    rank: 172,
+    name: "Channel Capacity (Shannon)",
+    equation: "C = B\\log_2\\!\\left(1 + \\frac{S}{N}\\right)",
+    discoverer: "Claude Shannon",
+    year: "1948",
+    field: "Information Theory",
+    domain: "Computer Science",
+    subDomain: "Theory of Computation",
+    domainEmoji: "💻",
+    significance:
+      "The Shannon-Hartley theorem gives the maximum rate at which information can be transmitted over a channel with bandwidth B and signal-to-noise ratio S/N. Sets a hard theoretical limit on communication, approached but never exceeded. Foundation of all digital communications.",
+    constants: "C = channel capacity (bits/s), B = bandwidth (Hz), S/N = signal-to-noise ratio",
+    applications: "WiFi and 5G design, fiber optics, satellite communications, data modem design, wireless engineering",
+    beauty: 9,
+    difficulty: "hard",
+    tags: ["information theory", "Shannon capacity", "communications", "bandwidth"],
+  },
+  {
+    rank: 173,
+    name: "Minimum Description Length (MDL) Principle",
+    equation: "\\hat{H} = \\arg\\min_H [L(H) + L(D|H)]",
+    discoverer: "Jorma Rissanen",
+    year: "1978",
+    field: "Information Theory / Statistics",
+    domain: "Computer Science",
+    subDomain: "Theory of Computation",
+    domainEmoji: "💻",
+    significance:
+      "Formalises Occam's razor: the best model is the one that provides the shortest description of both itself and the data. The information-theoretic foundation of model selection, connecting Kolmogorov complexity to statistical inference.",
+    constants: "L(H) = code length of hypothesis, L(D|H) = code length of data given hypothesis",
+    applications: "Model selection, regularisation theory, Bayesian model comparison, compression, machine learning",
+    beauty: 8,
+    difficulty: "hard",
+    tags: ["information theory", "MDL", "model selection", "Occam's razor", "Kolmogorov"],
+  },
+  // ─────────────────────────────────────────────────────────────────────────
+  // REINFORCEMENT LEARNING & CONTROL
+  // ─────────────────────────────────────────────────────────────────────────
+  {
+    rank: 174,
+    name: "Bellman Equation",
+    equation: "V^*(s) = \\max_a \\left[R(s,a) + \\gamma\\sum_{s'} P(s'|s,a)V^*(s')\\right]",
+    discoverer: "Richard Bellman",
+    year: "1957",
+    field: "Dynamic Programming / Reinforcement Learning",
+    domain: "Computer Science",
+    subDomain: "AI & Machine Learning",
+    domainEmoji: "💻",
+    significance:
+      "Defines optimal value functions via the principle of optimality: the optimal policy from any state must be optimal for all subsequent states. The foundation of dynamic programming, Markov decision processes, and all modern reinforcement learning algorithms.",
+    constants:
+      "V*(s) = optimal value function, R(s,a) = reward, γ = discount factor, P(s'|s,a) = transition probability",
+    applications:
+      "Reinforcement learning (Q-learning, PPO, AlphaGo), robotics, optimal control, economics, operations research",
+    beauty: 9,
+    difficulty: "hard",
+    tags: ["reinforcement learning", "Bellman equation", "dynamic programming", "MDP"],
+  },
+  {
+    rank: 175,
+    name: "Policy Gradient Theorem",
+    equation:
+      "\\nabla_\\theta J(\\theta) = \\mathbb{E}_{\\pi_\\theta}\\!\\left[\\nabla_\\theta \\log\\pi_\\theta(a|s)\\,Q^{\\pi}(s,a)\\right]",
+    discoverer: "Sutton, McAllester, Singh & Mansour",
+    year: "1999",
+    field: "Reinforcement Learning",
+    domain: "Computer Science",
+    subDomain: "AI & Machine Learning",
+    domainEmoji: "💻",
+    significance:
+      "Provides the gradient of expected total reward with respect to policy parameters, enabling gradient-based policy optimisation in RL. Foundation of REINFORCE, actor-critic methods, PPO, and RLHF — the algorithm used to align LLMs like ChatGPT.",
+    constants: "θ = policy parameters, π_θ = parameterised policy, Q^π = action-value function, J(θ) = expected return",
+    applications:
+      "RLHF (LLM alignment), game-playing AI (AlphaGo/AlphaZero), robotics, autonomous vehicles, drug discovery",
+    beauty: 8,
+    difficulty: "hard",
+    tags: ["reinforcement learning", "policy gradient", "RLHF", "LLM alignment"],
+  },
+  {
+    rank: 176,
+    name: "Linear Quadratic Regulator (LQR)",
+    equation: "u^* = -K x, \\quad K = R^{-1}B^\\top P, \\quad A^\\top P + PA - PBR^{-1}B^\\top P + Q = 0",
+    discoverer: "Kalman / various",
+    year: "1960",
+    field: "Optimal Control Theory",
+    domain: "Engineering",
+    subDomain: "Electrical Engineering",
+    domainEmoji: "⚙️",
+    significance:
+      "The optimal feedback controller for linear systems with quadratic cost. The algebraic Riccati equation (ARE) gives the optimal gain matrix K in closed form. Foundation of modern optimal control and the precursor to Kalman filtering.",
+    constants:
+      "u = control input, x = state, K = gain matrix, P = solution to Riccati equation, Q,R = state/control cost matrices",
+    applications: "Aerospace autopilots, missile guidance, robotics, active noise cancellation, stability augmentation",
+    beauty: 7,
+    difficulty: "hard",
+    tags: ["optimal control", "LQR", "Riccati equation", "control theory"],
+  },
+  {
+    rank: 177,
+    name: "Kalman Filter Update",
+    equation:
+      "\\hat{x}_{k|k} = \\hat{x}_{k|k-1} + K_k(z_k - H\\hat{x}_{k|k-1}), \\quad K_k = P_{k|k-1}H^\\top(HP_{k|k-1}H^\\top + R)^{-1}",
+    discoverer: "Rudolf Kálmán",
+    year: "1960",
+    field: "Estimation Theory / Control",
+    domain: "Engineering",
+    subDomain: "Electrical Engineering",
+    domainEmoji: "⚙️",
+    significance:
+      "The optimal linear state estimator for systems with Gaussian noise. Recursively updates state estimates as new measurements arrive. Powers GPS navigation, Apollo guidance computers, radar tracking, and every modern autonomous vehicle.",
+    constants:
+      "x̂ = state estimate, K_k = Kalman gain, z_k = measurement, H = observation matrix, P = error covariance, R = measurement noise",
+    applications:
+      "GPS/INS navigation, autonomous vehicles, Apollo guidance, missile tracking, financial time series, SLAM (robotics)",
+    beauty: 8,
+    difficulty: "hard",
+    tags: ["Kalman filter", "state estimation", "control theory", "navigation"],
+  },
+  // ─────────────────────────────────────────────────────────────────────────
+  // CAUSAL INFERENCE & ECONOMETRICS
+  // ─────────────────────────────────────────────────────────────────────────
+  {
+    rank: 178,
+    name: "Potential Outcomes Framework (ATE)",
+    equation: "\\tau = \\mathbb{E}[Y_i(1) - Y_i(0)]",
+    discoverer: "Rubin / Neyman",
+    year: "1923 / 1974",
+    field: "Causal Inference / Econometrics",
+    domain: "Economics",
+    subDomain: "Econometrics",
+    domainEmoji: "📊",
+    significance:
+      "Defines the Average Treatment Effect as the expected difference between potential outcomes under treatment and control. The Rubin causal model formalised causation in statistics, enabling rigorous experimental and observational causal inference.",
+    constants: "τ = ATE, Y_i(1) = potential outcome under treatment, Y_i(0) = potential outcome under control",
+    applications:
+      "Randomised controlled trials, policy evaluation, A/B testing, program evaluation, epidemiology, economics",
+    beauty: 8,
+    difficulty: "hard",
+    tags: ["causal inference", "potential outcomes", "ATE", "econometrics"],
+  },
+  {
+    rank: 179,
+    name: "Instrumental Variables Estimator",
+    equation: "\\hat{\\beta}_{\\mathrm{IV}} = \\frac{\\mathrm{Cov}(Z, Y)}{\\mathrm{Cov}(Z, X)}",
+    discoverer: "Philip Wright / Working & Leontief",
+    year: "1928",
+    field: "Econometrics / Causal Inference",
+    domain: "Economics",
+    subDomain: "Econometrics",
+    domainEmoji: "📊",
+    significance:
+      "Estimates causal effects when explanatory variables are endogenous (correlated with the error term). The instrumental variable Z must affect X but not Y directly. The workhorse of empirical economics for identifying causal effects from observational data.",
+    constants: "β_IV = IV estimator, Z = instrument variable, Y = outcome, X = endogenous regressor, Cov = covariance",
+    applications: "Empirical economics, epidemiology, policy evaluation, labour economics, health economics",
+    beauty: 7,
+    difficulty: "hard",
+    tags: ["econometrics", "instrumental variables", "causal inference", "endogeneity"],
+  },
+  {
+    rank: 180,
+    name: "Difference-in-Differences",
+    equation:
+      "\\hat{\\tau}_{\\mathrm{DiD}} = (\\bar{Y}^1_{\\mathrm{post}} - \\bar{Y}^1_{\\mathrm{pre}}) - (\\bar{Y}^0_{\\mathrm{post}} - \\bar{Y}^0_{\\mathrm{pre}})",
+    discoverer: "Snow / Ashenfelter & Card",
+    year: "1854 / 1984",
+    field: "Causal Inference / Econometrics",
+    domain: "Economics",
+    subDomain: "Econometrics",
+    domainEmoji: "📊",
+    significance:
+      "Estimates treatment effects by comparing pre/post changes for treated vs control groups, removing time-invariant confounding. Card and Krueger's minimum wage study using DiD reshaped empirical economics and contributed to Card's 2021 Nobel Prize.",
+    constants: "τ_DiD = DiD estimator, Ȳ¹ = treated group mean, Ȳ⁰ = control group mean, pre/post = time periods",
+    applications: "Policy evaluation, natural experiments, public health, labour economics, A/B testing at scale",
+    beauty: 7,
+    difficulty: "hard",
+    nobelPrize: true,
+    tags: ["causal inference", "difference-in-differences", "econometrics", "policy evaluation"],
+  },
+  // ─────────────────────────────────────────────────────────────────────────
+  // TIME SERIES & STATISTICAL METHODS
+  // ─────────────────────────────────────────────────────────────────────────
+  {
+    rank: 181,
+    name: "AR(p) Process",
+    equation:
+      "X_t = \\sum_{i=1}^p \\phi_i X_{t-i} + \\varepsilon_t, \\quad \\varepsilon_t \\sim \\mathcal{N}(0,\\sigma^2)",
+    discoverer: "Yule / Walker",
+    year: "1927",
+    field: "Time Series Analysis",
+    domain: "Data Science",
+    subDomain: "Statistical Methods",
+    domainEmoji: "📡",
+    significance:
+      "The autoregressive model of order p — a time series depends linearly on its own p previous values plus noise. Foundation of time series analysis and econometric modelling. The basis of ARMA, ARIMA, GARCH, and state-space models.",
+    constants: "X_t = time series, φ_i = AR coefficients, ε_t = white noise innovation, σ² = variance, p = order",
+    applications: "Financial time series, economic forecasting, speech processing, signal analysis, climate modelling",
+    beauty: 7,
+    difficulty: "hard",
+    tags: ["time series", "autoregressive", "ARIMA", "forecasting"],
+  },
+  {
+    rank: 182,
+    name: "GARCH(1,1) Model",
+    equation: "\\sigma_t^2 = \\omega + \\alpha\\varepsilon_{t-1}^2 + \\beta\\sigma_{t-1}^2",
+    discoverer: "Engle (ARCH) / Bollerslev (GARCH)",
+    year: "1982 / 1986",
+    field: "Financial Econometrics",
+    domain: "Finance & Quant",
+    subDomain: "Risk Management",
+    domainEmoji: "💹",
+    significance:
+      "Models time-varying volatility — variance clusters in financial markets (high volatility follows high volatility). Engle won the 2003 Nobel Prize. GARCH is the standard model for financial volatility and the backbone of risk management and option pricing.",
+    constants: "σ²_t = conditional variance, ω = constant, α = ARCH coefficient, β = GARCH coefficient, ε = innovation",
+    applications:
+      "Financial risk management, VaR estimation, options pricing, high-frequency trading, portfolio optimisation",
+    beauty: 7,
+    difficulty: "hard",
+    nobelPrize: true,
+    tags: ["financial econometrics", "GARCH", "volatility", "risk management"],
+  },
+  {
+    rank: 183,
+    name: "Cointegration / Error Correction Model",
+    equation: "\\Delta Y_t = \\alpha(Y_{t-1} - \\beta X_{t-1}) + \\gamma\\Delta X_t + \\varepsilon_t",
+    discoverer: "Engle & Granger",
+    year: "1987",
+    field: "Econometrics / Time Series",
+    domain: "Economics",
+    subDomain: "Econometrics",
+    domainEmoji: "📊",
+    significance:
+      "Models the long-run equilibrium relationship between non-stationary time series. Engle and Granger shared the 2003 Nobel Prize for this. Essential for macroeconomic modelling, pairs trading, and any analysis of long-run relationships between financial or economic variables.",
+    constants: "Y_t, X_t = I(1) time series, α = adjustment speed, β = cointegrating vector, ε_t = error term",
+    applications: "Macroeconomics, central bank modelling, pairs trading (quant finance), long-run forecasting",
+    beauty: 7,
+    difficulty: "hard",
+    nobelPrize: true,
+    tags: ["cointegration", "time series", "error correction", "Engle-Granger"],
+  },
+  // ─────────────────────────────────────────────────────────────────────────
+  // ACTUARIAL & INSURANCE MATHEMATICS
+  // ─────────────────────────────────────────────────────────────────────────
+  {
+    rank: 184,
+    name: "Collective Risk Model (Compound Poisson)",
+    equation:
+      "S = \\sum_{i=1}^N X_i, \\quad N \\sim \\mathrm{Poisson}(\\lambda),\\; X_i \\stackrel{\\mathrm{iid}}{\\sim} F_X",
+    discoverer: "Cramér / actuarial tradition",
+    year: "1930",
+    field: "Actuarial Mathematics",
+    domain: "Mathematics",
+    subDomain: "Probability & Statistics",
+    domainEmoji: "📐",
+    significance:
+      "Models aggregate insurance losses as a sum of a Poisson-distributed number of individual claims. The foundation of non-life insurance pricing, reserving, and risk capital calculations. Generating functions of S are used to compute ruin probabilities.",
+    constants: "S = aggregate loss, N = claim count (Poisson), X_i = individual claim sizes, λ = claim frequency",
+    applications:
+      "General insurance pricing, reserving, solvency capital (Solvency II), catastrophe modelling, reinsurance",
+    beauty: 7,
+    difficulty: "hard",
+    tags: ["actuarial mathematics", "collective risk", "compound Poisson", "insurance"],
+  },
+  {
+    rank: 185,
+    name: "Cramér-Lundberg Ruin Formula",
+    equation: "\\psi(u) \\leq e^{-Ru}, \\quad \\phi(R) = \\lambda + cR - \\lambda M_X(R) = 0",
+    discoverer: "Cramér & Lundberg",
+    year: "1903–1930",
+    field: "Actuarial Mathematics / Ruin Theory",
+    domain: "Mathematics",
+    subDomain: "Probability & Statistics",
+    domainEmoji: "📐",
+    significance:
+      "Provides an exponential upper bound on the probability that an insurer's surplus becomes negative (ruin) given initial reserve u. The adjustment coefficient R solves Lundberg's equation. Foundation of classical ruin theory and solvency modelling.",
+    constants:
+      "ψ(u) = ruin probability, u = initial surplus, R = Lundberg adjustment coefficient, c = premium rate, λ = claim rate, M_X = MGF of claims",
+    applications:
+      "Insurance solvency regulation, optimal dividend strategies, reinsurance design, Solvency II, catastrophe bonds",
+    beauty: 7,
+    difficulty: "sota",
+    tags: ["ruin theory", "actuarial mathematics", "solvency", "Cramér-Lundberg"],
+  },
+  // ─────────────────────────────────────────────────────────────────────────
+  // OPERATIONS RESEARCH & OPTIMISATION
+  // ─────────────────────────────────────────────────────────────────────────
+  {
+    rank: 186,
+    name: "KKT Conditions",
+    equation:
+      "\\nabla f = \\sum_i \\mu_i\\nabla h_i + \\sum_j \\lambda_j\\nabla g_j, \\quad \\lambda_j g_j = 0,\\; \\lambda_j \\geq 0",
+    discoverer: "Karush / Kuhn & Tucker",
+    year: "1939 / 1951",
+    field: "Nonlinear Optimisation",
+    domain: "Mathematics",
+    subDomain: "Optimization",
+    domainEmoji: "📐",
+    significance:
+      "Karush-Kuhn-Tucker conditions generalise Lagrange multipliers to inequality constraints. Necessary (and sufficient for convex problems) conditions for constrained optimality. The theoretical foundation of all nonlinear programming and SVM training.",
+    constants: "f = objective, h_i = equality constraints, g_j = inequality constraints, μ_i, λ_j = multipliers",
+    applications:
+      "Nonlinear programming, SVM (support vector machines), neural network pruning, engineering design, economics",
+    beauty: 8,
+    difficulty: "hard",
+    tags: ["optimisation", "KKT conditions", "Lagrangian", "SVM", "nonlinear programming"],
+  },
+  {
+    rank: 187,
+    name: "Simplex Method (Duality)",
+    equation:
+      "\\max c^\\top x \\text{ s.t. } Ax\\leq b \\quad \\Leftrightarrow \\quad \\min b^\\top y \\text{ s.t. } A^\\top y\\geq c,\\;y\\geq 0",
+    discoverer: "George Dantzig (simplex) / von Neumann (duality)",
+    year: "1947",
+    field: "Linear Programming / Operations Research",
+    domain: "Mathematics",
+    subDomain: "Optimization",
+    domainEmoji: "📐",
+    significance:
+      "LP duality: every linear maximisation problem has a dual minimisation problem with equal optimal value (strong duality). The simplex method solves both. One of the most practically impactful algorithms ever devised, solving billions of optimisation problems daily.",
+    constants:
+      "c = objective coefficients, A = constraint matrix, b = right-hand side, x = primal variables, y = dual variables",
+    applications:
+      "Supply chain, logistics, scheduling, airline crew planning, network flow, telecommunications, finance",
+    beauty: 8,
+    difficulty: "hard",
+    tags: ["linear programming", "optimisation", "duality", "simplex", "operations research"],
+  },
+  {
+    rank: 188,
+    name: "Little's Law",
+    equation: "L = \\lambda W",
+    discoverer: "John Little",
+    year: "1961",
+    field: "Queueing Theory / Operations Research",
+    domain: "Mathematics",
+    subDomain: "Applied Mathematics",
+    domainEmoji: "📐",
+    significance:
+      "States that the average number of items in a stable queueing system equals the average arrival rate times the average time spent. Holds under astonishingly general conditions — no distributional assumptions required. Ubiquitous in operations, manufacturing, and computer systems.",
+    constants: "L = average number in system, λ = average arrival rate, W = average time in system",
+    applications:
+      "Manufacturing (WIP), software engineering (cycle time), hospital management, call centres, network design",
+    beauty: 9,
+    difficulty: "easy",
+    tags: ["queueing theory", "operations research", "Little's law", "systems"],
+  },
+  // ─────────────────────────────────────────────────────────────────────────
+  // GEOPHYSICS & EARTH SCIENCES
+  // ─────────────────────────────────────────────────────────────────────────
+  {
+    rank: 189,
+    name: "Richter / Moment Magnitude Scale",
+    equation: "M_w = \\frac{2}{3}\\log_{10}(M_0) - 10.7",
+    discoverer: "Richter (1935) / Hanks & Kanamori (Mw)",
+    year: "1935 / 1979",
+    field: "Seismology",
+    domain: "Earth & Space",
+    subDomain: "Geosciences",
+    domainEmoji: "🌍",
+    significance:
+      "Quantifies earthquake energy release via seismic moment M₀. Each unit increase = 31.6× more energy. The moment magnitude scale (Mw) replaced Richter for large earthquakes and is the standard used globally. A logarithmic scale connecting energy to a universally reported number.",
+    constants:
+      "M_w = moment magnitude, M₀ = seismic moment (N·m), constants chosen so Mw matches Richter at moderate magnitudes",
+    applications:
+      "Earthquake hazard assessment, building codes, tsunami warning, insurance (catastrophe risk), seismic monitoring",
+    beauty: 6,
+    difficulty: "easy",
+    tags: ["seismology", "earthquake", "magnitude scale", "geophysics"],
+  },
+  {
+    rank: 190,
+    name: "Radiometric Dating (Decay Law)",
+    equation:
+      "t = \\frac{1}{\\lambda}\\ln\\!\\left(1 + \\frac{D}{N}\\right) = \\frac{t_{1/2}}{\\ln 2}\\ln\\!\\left(\\frac{N_0}{N}\\right)",
+    discoverer: "Rutherford & Soddy",
+    year: "1902",
+    field: "Geochronology / Nuclear Physics",
+    domain: "Earth & Space",
+    subDomain: "Geosciences",
+    domainEmoji: "🌍",
+    significance:
+      "Uses the constant rate of radioactive decay to determine the age of rocks, fossils, and ancient artefacts. Established the age of Earth at 4.54 Gyr. The basis of carbon-14 dating and all radiometric geochronology.",
+    constants:
+      "t = age, λ = decay constant, t₁/₂ = half-life, N = current atoms, D = daughter atoms, N₀ = initial atoms",
+    applications:
+      "Geochronology (rock dating), archaeology (carbon-14), nuclear forensics, cosmochemistry, evolutionary timelines",
+    beauty: 7,
+    difficulty: "hard",
+    tags: ["geochronology", "radioactive decay", "carbon dating", "nuclear physics"],
+  },
+  // ─────────────────────────────────────────────────────────────────────────
+  // COSMOLOGY & ASTROPHYSICS
+  // ─────────────────────────────────────────────────────────────────────────
+  {
+    rank: 191,
+    name: "Bekenstein-Hawking Entropy",
+    equation: "S_{\\mathrm{BH}} = \\frac{k_B c^3}{4G\\hbar}\\,A = \\frac{A}{4l_P^2}",
+    discoverer: "Bekenstein & Hawking",
+    year: "1973–1974",
+    field: "Quantum Gravity / Black Hole Thermodynamics",
+    domain: "Physics",
+    subDomain: "Relativity & Gravity",
+    domainEmoji: "⚛️",
+    significance:
+      "The entropy of a black hole is proportional to the area of its event horizon, measured in Planck areas. This merging of GR, quantum mechanics, and thermodynamics is one of the deepest results in theoretical physics. The holographic principle emerged from this formula.",
+    constants:
+      "S_BH = black hole entropy, A = horizon area, k_B = Boltzmann constant, G = Newton's constant, ℏ = reduced Planck constant, l_P = Planck length",
+    applications:
+      "Quantum gravity, holographic principle, black hole information paradox, string theory (microstate counting), AdS/CFT",
+    beauty: 10,
+    difficulty: "sota",
+    tags: ["black holes", "quantum gravity", "entropy", "holographic principle", "Hawking"],
+  },
+  {
+    rank: 192,
+    name: "Hubble-Lemaître Law",
+    equation: "v = H_0 d",
+    discoverer: "Lemaître (1927) / Hubble (1929)",
+    year: "1927–1929",
+    field: "Cosmology",
+    domain: "Earth & Space",
+    subDomain: "Astronomy & Astrophysics",
+    domainEmoji: "🌍",
+    significance:
+      "Galaxies recede at velocities proportional to their distance — evidence for the expanding universe. The first observational confirmation of the Big Bang cosmological model. H₀ (the Hubble constant) is still debated at 1% level precision.",
+    constants: "v = recession velocity, H₀ = Hubble constant ≈ 70 km/s/Mpc, d = proper distance",
+    applications: "Cosmology, Big Bang theory, dark energy, cosmic distance ladder, expansion history of the universe",
+    beauty: 8,
+    difficulty: "easy",
+    tags: ["cosmology", "Hubble law", "expanding universe", "Big Bang"],
+  },
+  {
+    rank: 193,
+    name: "CMB Power Spectrum",
+    equation: "C_\\ell = \\frac{2}{\\pi}\\int_0^\\infty k^2 P(k)|\\Delta_\\ell(k)|^2\\,dk",
+    discoverer: "Sachs & Wolfe / WMAP / Planck teams",
+    year: "1967 / 2003",
+    field: "Cosmology",
+    domain: "Earth & Space",
+    subDomain: "Astronomy & Astrophysics",
+    domainEmoji: "🌍",
+    significance:
+      "The angular power spectrum of CMB temperature fluctuations encodes the entire history of the early universe. The acoustic peak positions and amplitudes constrain cosmological parameters (Ω, H₀, n_s) to percent-level precision. The Rosetta Stone of modern cosmology.",
+    constants:
+      "C_ℓ = angular power spectrum, P(k) = primordial power spectrum, Δ_ℓ = transfer function, k = wavenumber, ℓ = multipole",
+    applications:
+      "Cosmological parameter estimation, inflation models, dark matter/dark energy, Big Bang nucleosynthesis constraints",
+    beauty: 8,
+    difficulty: "sota",
+    tags: ["cosmology", "CMB", "power spectrum", "inflation", "cosmological parameters"],
+  },
+  // ─────────────────────────────────────────────────────────────────────────
+  // CHEMICAL ENGINEERING
+  // ─────────────────────────────────────────────────────────────────────────
+  {
+    rank: 194,
+    name: "Damköhler Number",
+    equation: "\\mathrm{Da} = \\frac{\\text{reaction rate}}{\\text{transport rate}} = \\frac{k\\tau}{1}",
+    discoverer: "Gerhard Damköhler",
+    year: "1936",
+    field: "Chemical Engineering / Reaction Engineering",
+    domain: "Engineering",
+    subDomain: "Chemical Engineering",
+    domainEmoji: "⚙️",
+    significance:
+      "A dimensionless number comparing the timescale of chemical reaction to the timescale of transport. If Da >> 1, reactions are transport-limited; if Da << 1, kinetics-limited. Governs reactor design, catalytic converters, and biological cell metabolism.",
+    constants: "Da = Damköhler number, k = reaction rate constant, τ = residence/transport time",
+    applications: "Chemical reactor design, catalytic converters, combustion engineering, bioprocessing, fuel cells",
+    beauty: 6,
+    difficulty: "hard",
+    tags: ["chemical engineering", "Damköhler", "reaction engineering", "dimensionless numbers"],
+  },
+  {
+    rank: 195,
+    name: "Reynolds Number",
+    equation: "\\mathrm{Re} = \\frac{\\rho v L}{\\mu} = \\frac{vL}{\\nu}",
+    discoverer: "Osborne Reynolds",
+    year: "1883",
+    field: "Fluid Dynamics / Dimensionless Analysis",
+    domain: "Physics",
+    subDomain: "Condensed Matter & Applied",
+    domainEmoji: "⚛️",
+    significance:
+      "The ratio of inertial to viscous forces in a fluid flow. The single most important dimensionless number in fluid mechanics. Determines whether flow is laminar or turbulent (Re > ~4000 for pipe flow). Enables scale models: a ship model and the real ship at the same Re have identical flow patterns.",
+    constants:
+      "ρ = fluid density, v = flow velocity, L = characteristic length, μ = dynamic viscosity, ν = kinematic viscosity",
+    applications:
+      "Aerospace design (wind tunnels), naval engineering, biomedical flows, HVAC, chemical reactors, sports engineering",
+    beauty: 8,
+    difficulty: "easy",
+    tags: ["fluid dynamics", "Reynolds number", "turbulence", "dimensionless analysis"],
+  },
+  // ─────────────────────────────────────────────────────────────────────────
+  // REPRESENTATION THEORY & SYMMETRY
+  // ─────────────────────────────────────────────────────────────────────────
+  {
+    rank: 196,
+    name: "Character Orthogonality Relations",
+    equation: "\\frac{1}{|G|}\\sum_{g\\in G}\\chi_i(g)\\overline{\\chi_j(g)} = \\delta_{ij}",
+    discoverer: "Frobenius / Schur",
+    year: "1896–1905",
+    field: "Representation Theory / Group Theory",
+    domain: "Mathematics",
+    subDomain: "Pure Mathematics",
+    domainEmoji: "📐",
+    significance:
+      "Characters of irreducible representations of a finite group form an orthonormal basis for class functions. The central theorem of representation theory and the foundation of harmonic analysis on groups. Applied to crystallography, particle physics symmetries, and quantum chemistry.",
+    constants: "χ_i = character of representation i, G = finite group, |G| = group order, δ_ij = Kronecker delta",
+    applications:
+      "Quantum chemistry (molecular orbitals), crystallography (space groups), particle physics (Standard Model representations), coding theory",
+    beauty: 9,
+    difficulty: "sota",
+    tags: ["representation theory", "group theory", "characters", "harmonic analysis"],
+  },
+  {
+    rank: 197,
+    name: "Peter-Weyl Theorem",
+    equation: "L^2(G) \\cong \\bigoplus_{\\pi\\in\\hat{G}} \\mathcal{H}_\\pi \\otimes \\mathcal{H}_\\pi^*",
+    discoverer: "Hermann Weyl & Fritz Peter",
+    year: "1927",
+    field: "Representation Theory / Harmonic Analysis",
+    domain: "Mathematics",
+    subDomain: "Pure Mathematics",
+    domainEmoji: "📐",
+    significance:
+      "Decomposes the L² space on a compact group G into matrix coefficients of irreducible unitary representations. The non-abelian generalisation of Fourier analysis — every L² function on a compact group is a sum of representation matrix elements. Foundation of non-abelian harmonic analysis.",
+    constants: "L²(G) = square-integrable functions on G, Ĝ = dual (set of irreps), ℋ_π = representation space",
+    applications:
+      "Harmonic analysis on groups, quantum mechanics (angular momentum), signal processing on spheres (CMB), machine learning on graphs",
+    beauty: 9,
+    difficulty: "sota",
+    tags: ["representation theory", "harmonic analysis", "compact groups", "Peter-Weyl"],
+  },
+  // ─────────────────────────────────────────────────────────────────────────
+  // MATHEMATICAL PHYSICS — INTEGRABLE SYSTEMS
+  // ─────────────────────────────────────────────────────────────────────────
+  {
+    rank: 198,
+    name: "KdV Equation",
+    equation:
+      "\\frac{\\partial u}{\\partial t} - 6u\\frac{\\partial u}{\\partial x} + \\frac{\\partial^3 u}{\\partial x^3} = 0",
+    discoverer: "Korteweg & de Vries",
+    year: "1895",
+    field: "Nonlinear PDEs / Integrable Systems",
+    domain: "Mathematics",
+    subDomain: "Differential Equations",
+    domainEmoji: "📐",
+    significance:
+      "Describes shallow water waves and is the first exactly solved nonlinear PDE via the inverse scattering transform. Exhibits soliton solutions — stable nonlinear waves that pass through each other without changing shape. Founded the theory of integrable systems.",
+    constants: "u(x,t) = wave amplitude, x = spatial coordinate, t = time, nonlinear convection + dispersion terms",
+    applications:
+      "Water waves, optical fibre solitons, plasma physics, Bose-Einstein condensates, quantum gravity models",
+    beauty: 9,
+    difficulty: "sota",
+    tags: ["integrable systems", "solitons", "nonlinear PDEs", "KdV equation"],
+  },
+  {
+    rank: 199,
+    name: "Yang-Baxter Equation",
+    equation: "R_{12}R_{13}R_{23} = R_{23}R_{13}R_{12}",
+    discoverer: "Yang (1967) & Baxter (1972)",
+    year: "1967–1972",
+    field: "Integrable Systems / Quantum Groups",
+    domain: "Mathematics",
+    subDomain: "Pure Mathematics",
+    domainEmoji: "📐",
+    significance:
+      "A consistency condition on scattering matrices in integrable quantum systems. Solutions yield exactly solvable models in statistical mechanics and quantum field theory. Drives the theory of quantum groups and braid groups, with deep connections to knot theory and topological quantum computation.",
+    constants:
+      "R_ij = R-matrix (scattering operator acting on tensor product), indices denote the two interacting particles",
+    applications:
+      "Quantum integrable systems, knot invariants (Jones polynomial), quantum groups, topological quantum computation",
+    beauty: 9,
+    difficulty: "sota",
+    tags: ["integrable systems", "Yang-Baxter", "quantum groups", "knot theory"],
+  },
+  {
+    rank: 200,
+    name: "Gross-Pitaevskii Equation",
+    equation:
+      "i\\hbar\\frac{\\partial\\psi}{\\partial t} = \\left(-\\frac{\\hbar^2}{2m}\\nabla^2 + V(\\mathbf{r}) + g|\\psi|^2\\right)\\psi",
+    discoverer: "Gross & Pitaevskii",
+    year: "1961",
+    field: "Quantum Physics / Bose-Einstein Condensation",
+    domain: "Physics",
+    subDomain: "Condensed Matter & Applied",
+    domainEmoji: "⚛️",
+    significance:
+      "A nonlinear Schrödinger equation governing the macroscopic wavefunction of a Bose-Einstein condensate. The mean-field theory of quantum fluids at ultra-cold temperatures. Describes superfluid vortex formation, matter-wave interference, and quantum turbulence.",
+    constants:
+      "ψ = condensate wavefunction (order parameter), g = interaction strength, V(r) = trapping potential, m = particle mass, ℏ = reduced Planck constant",
+    applications:
+      "Bose-Einstein condensates, atom lasers, superfluid helium, quantum computing with cold atoms, quantum simulation",
+    beauty: 8,
+    difficulty: "sota",
+    tags: ["Bose-Einstein condensate", "superfluidity", "nonlinear Schrödinger", "quantum fluids"],
+  },
 ];
 
 // =============================================================================
