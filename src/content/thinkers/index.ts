@@ -223,6 +223,17 @@ import { mendelQuestions } from './mendel';
 import { itoQuestions } from './ito';
 import { bachelierQuestions } from './bachelier';
 import { shapleyQuestions } from './shapley';
+// Market Architects & Strategic Minds
+import { arrowQuestions } from './arrow';
+import { solowQuestions } from './solow';
+import { ostromQuestions } from './ostrom';
+import { kantorovichQuestions } from './kantorovich';
+import { blackwellQuestions } from './blackwell';
+import { dufloQuestions } from './duflo';
+import { debreuQuestions } from './debreu';
+import { adelmanQuestions } from './adelman';
+import { goldinQuestions } from './goldin';
+import { schellingQuestions } from './schelling';
 import type { Question } from '../types';
 
 export const allThinkerQuestions: Question[] = [
@@ -454,6 +465,17 @@ export const allThinkerQuestions: Question[] = [
   ...itoQuestions,
   ...bachelierQuestions,
   ...shapleyQuestions,
+  // Market Architects & Strategic Minds
+  ...arrowQuestions,
+  ...solowQuestions,
+  ...ostromQuestions,
+  ...kantorovichQuestions,
+  ...blackwellQuestions,
+  ...dufloQuestions,
+  ...debreuQuestions,
+  ...adelmanQuestions,
+  ...goldinQuestions,
+  ...schellingQuestions,
 ];
 export function getThinkerQuestions(slug: string): Question[] {
   return allThinkerQuestions.filter((q) => q.topic === slug);
