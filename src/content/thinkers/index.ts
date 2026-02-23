@@ -165,6 +165,17 @@ import { mcclintockQuestions } from './barbara-mcclintock';
 import { uhlenbeckQuestions } from './karen-uhlenbeck';
 import { dresselhausQuestions } from './mildred-dresselhaus';
 import { cartwrightQuestions } from './mary-cartwright';
+// Female thinkers batch 2
+import { pandrosionQuestions } from './pandrosion';
+import { duchateletQuestions } from './duchatelet';
+import { agnesiQuestions } from './agnesi';
+import { vaughanQuestions } from './vaughan';
+import { robinsonQuestions } from './julia-robinson';
+import { germainQuestions } from './sophie-germain';
+import { payneQuestions } from './cecilia-payne';
+import { goeppertMayerQuestions } from './goeppert-mayer';
+import { leavittQuestions } from './henrietta-leavitt';
+import { daubechiesQuestions } from './ingrid-daubechies';
 import type { Question } from '../types';
 
 export const allThinkerQuestions: Question[] = [
@@ -338,6 +349,17 @@ export const allThinkerQuestions: Question[] = [
   ...uhlenbeckQuestions,
   ...dresselhausQuestions,
   ...cartwrightQuestions,
+  // Female thinkers batch 2
+  ...pandrosionQuestions,
+  ...duchateletQuestions,
+  ...agnesiQuestions,
+  ...vaughanQuestions,
+  ...robinsonQuestions,
+  ...germainQuestions,
+  ...payneQuestions,
+  ...goeppertMayerQuestions,
+  ...leavittQuestions,
+  ...daubechiesQuestions,
 ];
 export function getThinkerQuestions(slug: string): Question[] {
   return allThinkerQuestions.filter((q) => q.topic === slug);
