@@ -296,6 +296,18 @@ import { ampereQuestions } from './ampere';
 import { lenzQuestions } from './lenz';
 import { biotSavartQuestions } from './biot-savart';
 import { ehrenfestQuestions } from './ehrenfest';
+// Population, Mechanics, Numerical, Astro, Plasma, Neuro, StatPhys, Chemistry, Drag, Weather
+import { lotkaQuestions } from './lotka';
+import { verhulstQuestions } from './verhulst';
+import { stokesQuestions } from './stokes';
+import { rungeQuestions } from './runge';
+import { emdenQuestions } from './emden';
+import { hasegawaQuestions } from './hasegawa';
+import { fitzhughQuestions } from './fitzhugh';
+import { kardarQuestions } from './kardar';
+import { prigogineQuestions } from './prigogine';
+import { batemanQuestions } from './bateman';
+import { richardsonQuestions } from './richardson';
 import type { Question } from '../types';
 
 export const allThinkerQuestions: Question[] = [
@@ -600,6 +612,18 @@ export const allThinkerQuestions: Question[] = [
   ...lenzQuestions,
   ...biotSavartQuestions,
   ...ehrenfestQuestions,
+  // Population, Mechanics, Numerical, Astro, Plasma, Neuro, StatPhys, Chemistry, Drag, Weather
+  ...lotkaQuestions,
+  ...verhulstQuestions,
+  ...stokesQuestions,
+  ...rungeQuestions,
+  ...emdenQuestions,
+  ...hasegawaQuestions,
+  ...fitzhughQuestions,
+  ...kardarQuestions,
+  ...prigogineQuestions,
+  ...batemanQuestions,
+  ...richardsonQuestions,
 ];
 export function getThinkerQuestions(slug: string): Question[] {
   return allThinkerQuestions.filter((q) => q.topic === slug);
