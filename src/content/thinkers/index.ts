@@ -308,6 +308,13 @@ import { kardarQuestions } from './kardar';
 import { prigogineQuestions } from './prigogine';
 import { batemanQuestions } from './bateman';
 import { richardsonQuestions } from './richardson';
+// Non-Western & Global Mathematicians batch 2
+import { bhaskaraQuestions } from './bhaskara';
+import { qinJiushaoQuestions } from './qin-jiushao';
+import { zhuShijieQuestions } from './zhu-shijie';
+import { khayyamQuestions } from './khayyam';
+import { alKarajiQuestions } from './al-karaji';
+import { takebeQuestions } from './takebe';
 import type { Question } from '../types';
 
 export const allThinkerQuestions: Question[] = [
