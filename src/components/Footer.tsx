@@ -1,11 +1,11 @@
-import { motion } from 'framer-motion';
-import { useNavigate } from 'react-router-dom';
+import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 
 const FOOTER_LINKS = [
-  { label: 'Quiz', path: '/', emoji: '🧠' },
-  { label: 'MasterMinds', path: '/thinkers', emoji: '🎓' },
-  { label: 'Glossary', path: '/glossary', emoji: '📖' },
-  { label: 'Leaderboard', path: '/leaderboard', emoji: '🏆' },
+  { label: "Quiz", path: "/", emoji: "🧠" },
+  { label: "MasterMinds", path: "/thinkers", emoji: "🎓" },
+  { label: "Glossary", path: "/glossary", emoji: "📖" },
+  { label: "Leaderboard", path: "/leaderboard", emoji: "🏆" },
 ];
 
 export function Footer() {
@@ -18,10 +18,7 @@ export function Footer() {
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           {/* Brand */}
           <div className="flex flex-col items-center md:items-start gap-2">
-            <button
-              onClick={() => navigate('/')}
-              className="flex items-center gap-2 group"
-            >
+            <button onClick={() => navigate("/")} className="flex items-center gap-2 group">
               <span className="text-2xl group-hover:scale-110 transition-transform">🧠</span>
               <span className="font-display font-bold text-xl text-foreground">
                 m<span className="text-gradient-primary">AI</span>th
@@ -55,12 +52,10 @@ export function Footer() {
         {/* Bottom */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-3">
           <p className="text-[11px] text-muted-foreground font-mono-code">
-            © {new Date().getFullYear()} mAIth — knowledge is power
+            © {new Date().getFullYear()} mAIth = solve math == solve everything
           </p>
           <div className="flex items-center gap-3">
-            <span className="text-[11px] text-muted-foreground/50 font-mono-code">
-              ∑ ∫ ∇ π e ∞
-            </span>
+            <span className="text-[11px] text-muted-foreground/50 font-mono-code">∑ ∫ ∇ π e ∞</span>
           </div>
         </div>
       </div>
