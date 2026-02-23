@@ -1,0 +1,88 @@
+import type { Question } from '../types';
+
+export const astrophysicsQuestions: Question[] = [
+  // ── Easy ──────────────────────────────────────────────
+  {
+    id: 71001, topic: 'astrophysics', difficulty: 'easy',
+    question: 'The Hertzsprung-Russell diagram plots stars by:',
+    options: ['Luminosity vs. surface temperature', 'Mass vs. radius', 'Distance vs. velocity', 'Age vs. metallicity'],
+    correctIndex: 0,
+    explanation: 'The HR diagram plots stellar luminosity (or absolute magnitude) against spectral type (surface temperature). Most stars fall on the "main sequence" diagonal.',
+    realWorld: 'The HR diagram is the single most important tool in stellar astrophysics — it reveals a star\'s evolutionary stage at a glance.',
+    hint: 'Think brightness on one axis and color/heat on the other.',
+  },
+  {
+    id: 71002, topic: 'astrophysics', difficulty: 'easy',
+    question: 'A neutron star is the remnant of:',
+    options: ['A massive star\'s supernova', 'A white dwarf merger', 'A red dwarf cooling', 'A black hole evaporation'],
+    correctIndex: 0,
+    explanation: 'When stars with ~8–25 solar masses exhaust nuclear fuel, their cores collapse past the Chandrasekhar limit into neutron-degenerate matter, producing a neutron star.',
+    realWorld: 'Pulsars — rapidly rotating neutron stars — are so precise they rival atomic clocks and were briefly mistaken for alien signals ("LGM-1").',
+    hint: 'Stars much heavier than the Sun die violently — what\'s left after the explosion?',
+  },
+  {
+    id: 71003, topic: 'astrophysics', difficulty: 'easy',
+    question: 'The main source of energy in main-sequence stars is:',
+    options: ['Hydrogen fusion into helium', 'Gravitational contraction', 'Radioactive decay', 'Chemical combustion'],
+    correctIndex: 0,
+    explanation: 'Main-sequence stars fuse hydrogen into helium via the pp-chain or CNO cycle, converting mass to energy via $E = mc^2$.',
+    realWorld: 'The Sun converts ~600 million tons of hydrogen into helium every second, losing 4 million tons as pure energy.',
+    hint: 'Einstein\'s most famous equation tells you where the energy comes from.',
+  },
+  // ── Hard ──────────────────────────────────────────────
+  {
+    id: 71004, topic: 'astrophysics', difficulty: 'hard',
+    question: 'The Eddington luminosity limit arises from the balance between:',
+    options: ['Radiation pressure and gravitational force', 'Magnetic pressure and thermal pressure', 'Centrifugal and gravitational force', 'Degeneracy pressure and gravity'],
+    correctIndex: 0,
+    explanation: 'The Eddington limit $L_{\\text{Edd}} = 4\\pi G M c / \\kappa$ is where outward radiation pressure on infalling matter equals gravitational pull, setting the maximum luminosity for accretion.',
+    realWorld: 'Supermassive black holes in quasars radiate near the Eddington limit — powering the brightest objects in the universe.',
+    hint: 'What happens when light pushes outward as hard as gravity pulls inward?',
+  },
+  {
+    id: 71005, topic: 'astrophysics', difficulty: 'hard',
+    question: 'Type Ia supernovae are used as "standard candles" because:',
+    options: ['They have a consistent peak luminosity (~1.4 M☉ trigger)', 'They emit identical spectra', 'They occur at regular intervals', 'They always happen in spiral galaxies'],
+    correctIndex: 0,
+    explanation: 'Type Ia supernovae occur when white dwarfs accrete matter past the Chandrasekhar limit (~1.4 M☉), producing remarkably uniform peak luminosities that allow distance measurement.',
+    realWorld: 'Using Type Ia supernovae as standard candles led to the 1998 discovery that the universe\'s expansion is accelerating — earning the 2011 Nobel Prize.',
+    hint: 'A specific mass threshold triggers them all — giving uniform brightness.',
+  },
+  {
+    id: 71006, topic: 'astrophysics', difficulty: 'hard',
+    question: 'The Tolman-Oppenheimer-Volkoff (TOV) limit defines the maximum mass of:',
+    options: ['A neutron star', 'A white dwarf', 'A main-sequence star', 'A brown dwarf'],
+    correctIndex: 0,
+    explanation: 'The TOV limit (~2–3 M☉) is where neutron degeneracy pressure can no longer support a neutron star against gravitational collapse, forming a black hole.',
+    realWorld: 'LIGO gravitational wave detections help constrain the TOV limit by observing neutron star mergers.',
+    hint: 'Chandrasekhar set the white dwarf limit; this is the analogous limit for the next denser object.',
+  },
+  // ── SOTA ──────────────────────────────────────────────
+  {
+    id: 71007, topic: 'astrophysics', difficulty: 'sota',
+    question: 'The LIGO/Virgo detection of GW170817 was groundbreaking because it was the first:',
+    options: ['Multi-messenger observation of a neutron star merger', 'Detection of gravitational waves from a black hole', 'Observation of a kilonova', 'Measurement of the Hubble constant'],
+    correctIndex: 0,
+    explanation: 'GW170817 was detected in gravitational waves AND electromagnetic radiation (gamma rays, optical, radio), confirming neutron star mergers produce kilonovae and heavy elements (gold, platinum).',
+    realWorld: 'This single event confirmed r-process nucleosynthesis — we now know where gold and platinum come from.',
+    hint: 'Two different "messengers" (gravity and light) observed the same cosmic event for the first time.',
+  },
+  {
+    id: 71008, topic: 'astrophysics', difficulty: 'sota',
+    question: 'The Event Horizon Telescope (EHT) image of M87* confirmed predictions of:',
+    options: ['General relativity\'s photon ring around a black hole', 'Hawking radiation emission', 'Naked singularity existence', 'Wormhole traversability'],
+    correctIndex: 0,
+    explanation: 'The EHT\'s 2019 image showed a bright photon ring matching GR predictions for a 6.5 billion solar mass black hole, with shadow size within 10% of theoretical predictions.',
+    realWorld: 'The EHT used Earth-spanning radio telescopes as a virtual dish the size of the planet — achieving angular resolution of 20 microarcseconds.',
+    hint: 'The first-ever direct "photograph" of a black hole\'s shadow.',
+  },
+  {
+    id: 71009, topic: 'astrophysics', difficulty: 'sota',
+    question: 'JWST\'s discovery of galaxies at $z > 10$ challenges current models because these galaxies are:',
+    options: ['More massive and luminous than expected at such early times', 'Smaller than predicted', 'Lacking in heavy elements', 'Moving slower than expected'],
+    correctIndex: 0,
+    explanation: 'JWST found surprisingly massive, luminous galaxies within 500 Myr of the Big Bang, challenging $\\Lambda$CDM predictions for early galaxy assembly timescales and star formation efficiency.',
+    realWorld: 'These observations may require revisions to our understanding of dark matter halo growth and early star formation.',
+    hint: 'The James Webb Space Telescope looked further back in time than ever before — and found unexpectedly mature galaxies.',
+  },
+];

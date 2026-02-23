@@ -28,6 +28,8 @@ import { biologyQuestions } from './biology';
 import { computerScienceQuestions } from './computer-science';
 // ── Earth & Space ──────────────────────────────────────────────
 import { earthSpaceQuestions } from './earth-space';
+// ── Astrophysics ──────────────────────────────────────────────
+import { astrophysicsQuestions } from './astrophysics';
 // ── Engineering ──────────────────────────────────────────────
 import { engineeringQuestions } from './engineering';
 // ── Economics ──────────────────────────────────────────────
@@ -147,6 +149,7 @@ export const allQuestions: Question[] = [
   ...informationTheoryQuestions,
   // ── Earth & Space ──────────────────────────────────────────────
   ...earthSpaceQuestions,
+  ...astrophysicsQuestions,
   ...meteorologyQuestions,
   ...oceanographyQuestions,
   ...environmentalScienceQuestions,

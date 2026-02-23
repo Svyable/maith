@@ -145,6 +145,7 @@ export const TOPICS: TopicMeta[] = [
   { slug: 'meteorology',         label: 'Meteorology',          emoji: '🌦️', description: 'Weather prediction, Coriolis, AI forecasting',      field: 'earth-space' },
   { slug: 'oceanography',        label: 'Oceanography',         emoji: '🌊', description: 'Thermohaline circulation, acidification, AUVs',     field: 'earth-space' },
   { slug: 'environmental-science', label: 'Environmental Science', emoji: '♻️', description: 'Greenhouse effect, feedbacks, AI climate models', field: 'earth-space' },
+  { slug: 'astrophysics',          label: 'Astrophysics',          emoji: '🌟', description: 'Stellar evolution, neutron stars, black holes, JWST',  field: 'earth-space' },
   // ── Engineering ──────────────────────────────────────────
   { slug: 'electrical-engineering',  label: 'Electrical Engineering',  emoji: '🔌', description: 'Circuits, signals, control theory',           field: 'engineering' },
   { slug: 'mechanical-engineering',  label: 'Mechanical Engineering',  emoji: '⚙️', description: 'Stress, thermodynamics, FEA',                 field: 'engineering' },
