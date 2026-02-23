@@ -247,6 +247,19 @@ import { talebQuestions } from './taleb';
 import { samuelsonQuestions } from './samuelson';
 import { wittenQuestions } from './witten';
 import { bellBurnellQuestions } from './bell-burnell';
+// Nuclear Age
+import { oppenheimerQuestions } from './oppenheimer';
+import { ulamQuestions } from './ulam';
+import { szilardQuestions } from './szilard';
+import { wheelerQuestions } from './wheeler';
+import { betheQuestions } from './bethe';
+// Santa Fe Institute / Complexity Masters
+import { farmerQuestions } from './farmer';
+import { brianArthurQuestions } from './brian-arthur';
+import { hollandQuestions } from './holland';
+import { gellMannQuestions } from './gell-mann';
+import { geoffreyWestQuestions } from './geoffrey-west';
+import { melanieMitchellQuestions } from './melanie-mitchell';
 import type { Question } from '../types';
 
 export const allThinkerQuestions: Question[] = [
@@ -502,6 +515,19 @@ export const allThinkerQuestions: Question[] = [
   ...samuelsonQuestions,
   ...wittenQuestions,
   ...bellBurnellQuestions,
+  // Nuclear Age
+  ...oppenheimerQuestions,
+  ...ulamQuestions,
+  ...szilardQuestions,
+  ...wheelerQuestions,
+  ...betheQuestions,
+  // Santa Fe Institute / Complexity Masters
+  ...farmerQuestions,
+  ...brianArthurQuestions,
+  ...hollandQuestions,
+  ...gellMannQuestions,
+  ...geoffreyWestQuestions,
+  ...melanieMitchellQuestions,
 ];
 export function getThinkerQuestions(slug: string): Question[] {
   return allThinkerQuestions.filter((q) => q.topic === slug);
