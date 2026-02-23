@@ -1,8 +1,8 @@
-import { useAuth } from '@/hooks/useAuth';
-import { useNavigate, useLocation } from 'react-router-dom';
-import { t } from '@/i18n';
-import { motion } from 'framer-motion';
-import { useIsMobile } from '@/hooks/use-mobile';
+import { useAuth } from "@/hooks/useAuth";
+import { useNavigate, useLocation } from "react-router-dom";
+import { t } from "@/i18n";
+import { motion } from "framer-motion";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 interface QuizHeaderProps {
   streak: number;
@@ -13,10 +13,10 @@ interface QuizHeaderProps {
 }
 
 const NAV_ITEMS = [
-  { path: '/', label: 'Quiz', emoji: '🧠', mobileOnly: false },
-  { path: '/thinkers', label: 'MasterMinds', emoji: '🎓', mobileOnly: false },
-  { path: '/glossary', label: 'Glossary', emoji: '📖', mobileOnly: false },
-  { path: '/leaderboard', label: 'Leaderboard', emoji: '🏆', mobileOnly: false },
+  { path: "/", label: "mAIth Quiz", emoji: "🧠", mobileOnly: false },
+  { path: "/thinkers", label: "MasterMinds", emoji: "🎓", mobileOnly: false },
+  { path: "/glossary", label: "Glossary", emoji: "📖", mobileOnly: false },
+  { path: "/leaderboard", label: "Leaderboard", emoji: "🏆", mobileOnly: false },
 ];
 
 export function QuizHeader({ streak, showStreak, isDark, onToggleTheme, onHome }: QuizHeaderProps) {
@@ -26,11 +26,14 @@ export function QuizHeader({ streak, showStreak, isDark, onToggleTheme, onHome }
   const isMobile = useIsMobile();
 
   return (
-    <header className="flex items-center justify-between px-4 py-2.5 border-b border-border bg-card/50 backdrop-blur-sm sticky top-0 z-10" style={{ paddingTop: 'calc(0.5rem + env(safe-area-inset-top))' }}>
+    <header
+      className="flex items-center justify-between px-4 py-2.5 border-b border-border bg-card/50 backdrop-blur-sm sticky top-0 z-10"
+      style={{ paddingTop: "calc(0.5rem + env(safe-area-inset-top))" }}
+    >
       <motion.button
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
-        onClick={() => navigate('/')}
+        onClick={() => navigate("/")}
         className="flex items-center gap-2 min-w-0"
       >
         <span className="text-xl flex-shrink-0">🧠</span>
@@ -58,8 +61,8 @@ export function QuizHeader({ streak, showStreak, isDark, onToggleTheme, onHome }
                   onClick={() => navigate(item.path)}
                   className={`px-2.5 py-1.5 rounded-lg text-xs font-medium transition-colors ${
                     isActive
-                      ? 'bg-primary/15 text-primary'
-                      : 'text-muted-foreground hover:text-foreground hover:bg-secondary/60'
+                      ? "bg-primary/15 text-primary"
+                      : "text-muted-foreground hover:text-foreground hover:bg-secondary/60"
                   }`}
                 >
                   {item.emoji} {item.label}
@@ -70,46 +73,47 @@ export function QuizHeader({ streak, showStreak, isDark, onToggleTheme, onHome }
         )}
 
         {/* Mobile: icon-only nav */}
-        {isMobile && NAV_ITEMS.map((item) => (
-          <button
-            key={item.path}
-            onClick={() => navigate(item.path)}
-            title={item.label}
-            className={`w-9 h-9 rounded-lg flex items-center justify-center text-sm transition-colors ${
-              location.pathname === item.path
-                ? 'bg-primary/15 text-primary'
-                : 'bg-secondary text-foreground hover:bg-secondary/80'
-            }`}
-          >
-            {item.emoji}
-          </button>
-        ))}
+        {isMobile &&
+          NAV_ITEMS.map((item) => (
+            <button
+              key={item.path}
+              onClick={() => navigate(item.path)}
+              title={item.label}
+              className={`w-9 h-9 rounded-lg flex items-center justify-center text-sm transition-colors ${
+                location.pathname === item.path
+                  ? "bg-primary/15 text-primary"
+                  : "bg-secondary text-foreground hover:bg-secondary/80"
+              }`}
+            >
+              {item.emoji}
+            </button>
+          ))}
 
         <button
           onClick={onToggleTheme}
           className="w-9 h-9 rounded-lg bg-secondary flex items-center justify-center text-foreground hover:bg-secondary/80 transition-colors"
         >
-          {isDark ? '☀️' : '🌙'}
+          {isDark ? "☀️" : "🌙"}
         </button>
 
         {user ? (
           <button
-            onClick={() => navigate('/profile')}
-            title={t('nav.profile')}
+            onClick={() => navigate("/profile")}
+            title={t("nav.profile")}
             className={`w-9 h-9 rounded-lg flex items-center justify-center text-sm transition-colors ${
-              location.pathname === '/profile'
-                ? 'bg-primary/15 text-primary'
-                : 'bg-secondary text-foreground hover:bg-secondary/80'
+              location.pathname === "/profile"
+                ? "bg-primary/15 text-primary"
+                : "bg-secondary text-foreground hover:bg-secondary/80"
             }`}
           >
             👤
           </button>
         ) : (
           <button
-            onClick={() => navigate('/auth')}
+            onClick={() => navigate("/auth")}
             className="px-3 py-1.5 rounded-lg bg-primary text-primary-foreground text-xs font-semibold whitespace-nowrap"
           >
-            {t('nav.signIn')}
+            {t("nav.signIn")}
           </button>
         )}
       </div>
