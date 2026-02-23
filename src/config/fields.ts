@@ -81,7 +81,7 @@ export const FIELDS: FieldMeta[] = [
     label: 'Earth & Space',
     emoji: '🌍',
     description: 'Astronomy, Geology, Climate Science, Meteorology, Oceanography, Environmental Science',
-    topics: ['astronomy', 'geology', 'climate-science', 'meteorology', 'oceanography', 'environmental-science'],
+    topics: ['astronomy', 'geology', 'climate-science', 'meteorology', 'oceanography', 'environmental-science', 'astrophysics'],
     color: 'primary',
     available: true,
   },

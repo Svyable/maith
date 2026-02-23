@@ -274,6 +274,12 @@ import { danielBernoulliQuestions } from './daniel-bernoulli';
 import { nernstQuestions } from './nernst';
 import { rayleighQuestions } from './rayleigh';
 import { kelvinQuestions } from './kelvin';
+// Earth & Space thinkers batch 2
+import { arrheniusQuestions } from './arrhenius';
+import { friedmannQuestions } from './friedmann';
+import { gamowQuestions } from './gamow';
+import { chandrasekharQuestions } from './chandrasekhar';
+import { zwickyQuestions } from './zwicky';
 import type { Question } from '../types';
 
 export const allThinkerQuestions: Question[] = [
@@ -556,6 +562,12 @@ export const allThinkerQuestions: Question[] = [
   ...nernstQuestions,
   ...rayleighQuestions,
   ...kelvinQuestions,
+  // Earth & Space thinkers batch 2
+  ...arrheniusQuestions,
+  ...friedmannQuestions,
+  ...gamowQuestions,
+  ...chandrasekharQuestions,
+  ...zwickyQuestions,
 ];
 export function getThinkerQuestions(slug: string): Question[] {
   return allThinkerQuestions.filter((q) => q.topic === slug);
