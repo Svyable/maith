@@ -191,6 +191,21 @@ export function HomeScreen({
           </div>
           <span className="text-primary font-bold text-lg">→</span>
         </motion.button>
+
+        {/* Vault — Classified Secrets */}
+        <motion.button
+          whileHover={{ scale: 1.03 }}
+          whileTap={{ scale: 0.97 }}
+          onClick={() => navigate('/vault')}
+          className="w-full py-4 rounded-2xl border-2 border-destructive/60 bg-destructive/10 hover:bg-destructive/20 hover:border-destructive transition-all flex items-center gap-4 px-5"
+        >
+          <span className="text-3xl">🔐</span>
+          <div className="text-left flex-1">
+            <p className="font-bold text-lg text-foreground">The Vault</p>
+            <p className="text-xs text-muted-foreground">Classified secrets — declassified, ranked & explored</p>
+          </div>
+          <span className="text-destructive font-bold text-lg">→</span>
+        </motion.button>
       </div>
 
       {/* Stats showcase */}
