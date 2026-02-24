@@ -440,8 +440,6 @@ export default function Vault() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {VAULT_ENTRIES.map((entry, i) => {
             const unlocked = isUnlocked(entry.id);
-            // Can challenge: either unlocked (already done) or the next one to unlock
-            const canChallenge = !unlocked && (i === 0 || isUnlocked(VAULT_ENTRIES[i - 1]?.id ?? ''));
 
             return (
               <VaultCard
@@ -449,7 +447,7 @@ export default function Vault() {
                 entry={entry}
                 index={i}
                 isUnlocked={unlocked}
-                onChallenge={() => canChallenge ? handleChallenge(i) : undefined}
+                onChallenge={() => handleChallenge(i)}
               />
             );
           })}
