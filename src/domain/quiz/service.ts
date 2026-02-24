@@ -140,16 +140,10 @@ export async function checkAnswer(
   selectedIndex: number,
   pool: Question[] = allQuestions,
 ): Promise<CheckResult | null> {
-  const locale = getLocale();
-  try {
-    const { data, error } = await supabase.functions.invoke('quiz-check', {
-      body: { questionId, selectedIndex, locale },
-    });
-    if (error) throw error;
-    return data as CheckResult;
-  } catch {
-    return localFallbackCheck(questionId, selectedIndex, pool);
-  }
+  // Use local check — instant, has full question bank.
+  // The quiz-check edge function only has a small subset of questions
+  // and adds unnecessary latency for a simple index comparison.
+  return localFallbackCheck(questionId, selectedIndex, pool);
 }
 
 /**
