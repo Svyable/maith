@@ -104,6 +104,8 @@ import { marketMicrostructureQuestions } from './market-microstructure';
 import { creditRiskQuestions } from './credit-risk';
 import { formalVerificationQuestions } from './formal-verification';
 import { informationTheoryQuestions } from './information-theory';
+// ── Vault ──────────────────────────────────────────────────
+import { vaultQuestions } from './vault';
 
 import type { Question } from './types';
 
@@ -194,6 +196,8 @@ export const allQuestions: Question[] = [
   ...medicalQuestions,
   // ── Data Science ──────────────────────────────────────────────
   ...dataScienceQuestions,
+  // ── Vault ──────────────────────────────────────────────
+  ...vaultQuestions,
 ];
 
 /** Get questions filtered by topic slugs (standard pool only — no thinkers) */

@@ -1,0 +1,88 @@
+import type { Question } from '../types';
+
+export const vaultQuestions: Question[] = [
+  {
+    id: 50001, topic: 'cybersecurity', difficulty: 'hard',
+    question: 'Clifford Cocks at GCHQ independently invented RSA in 1973, four years before the public discovery. His key insight was:',
+    options: [
+      'Using the computational hardness of factoring the product of two large primes as a trapdoor function for public-key encryption',
+      'Using elliptic curves over finite fields for key exchange',
+      'Implementing a hash-based signature scheme resistant to quantum attacks',
+      'Designing a symmetric cipher based on substitution-permutation networks',
+    ],
+    correctIndex: 0,
+    explanation: 'Cocks recognized that $n = pq$ (product of two large primes) could serve as a trapdoor: encryption with the public key is easy, but decryption requires knowing $p$ and $q$. This is mathematically identical to RSA as published by Rivest, Shamir, and Adleman in 1978.',
+    realWorld: 'GCHQ\'s discovery was classified for 24 years. James Ellis, who conceived the idea of "non-secret encryption," died 23 days before GCHQ acknowledged his priority.',
+    hint: 'The trapdoor function relies on multiplication being easy but factoring being hard.',
+  },
+  {
+    id: 50002, topic: 'cybersecurity', difficulty: 'hard',
+    question: 'IBM discovered differential cryptanalysis in 1974 and designed DES S-boxes to resist it. Differential cryptanalysis works by:',
+    options: [
+      'Analyzing how specific differences in plaintext pairs propagate through the cipher to produce predictable differences in ciphertext pairs',
+      'Brute-forcing all possible keys until the correct decryption is found',
+      'Exploiting timing side-channels in the cipher\'s hardware implementation',
+      'Using linear approximations of the cipher\'s Boolean functions',
+    ],
+    correctIndex: 0,
+    explanation: 'Differential cryptanalysis traces input difference pairs $\\Delta X$ through each round, exploiting non-uniform output difference distributions in S-boxes. IBM\'s S-boxes were designed so that all differential characteristics had uniformly low probability.',
+    realWorld: 'The technique was independently rediscovered by Biham and Shamir in 1990 — 16 years later. IBM\'s silence is the most consequential suppression of a mathematical technique in civilian cryptography.',
+    hint: 'It studies how XOR differences between plaintext pairs affect ciphertext differences.',
+  },
+  {
+    id: 50003, topic: 'cybersecurity', difficulty: 'sota',
+    question: 'The NSA\'s Dual_EC_DRBG backdoor relied on the relationship between two elliptic curve points $P$ and $Q$. If the NSA knew the discrete logarithm $e$ such that $Q = eP$, they could:',
+    options: [
+      'Predict all future outputs of the pseudorandom number generator from a single 32-byte output sample, enabling decryption of any TLS session using it',
+      'Only decrypt messages if they also had the server\'s TLS certificate private key',
+      'Recover the seed but not predict future outputs due to forward secrecy',
+      'Only attack implementations using P-256 curves, not P-384',
+    ],
+    correctIndex: 0,
+    explanation: 'With $Q = eP$, observing output $r = x(kP)$ lets the attacker compute $e^{-1} \\cdot rP = kQ$, recovering the internal state. From there, all future outputs are deterministic. This is a complete break of the PRNG.',
+    realWorld: 'RSA Security made Dual_EC the default in BSAFE, reportedly after receiving $10M from the NSA. Snowden\'s documents confirmed the BULLRUN program to subvert cryptographic standards.',
+    hint: 'Knowing the discrete log between P and Q lets you reverse-engineer the internal state from any output.',
+  },
+  {
+    id: 50004, topic: 'cryptography', difficulty: 'hard',
+    question: 'The VENONA project broke Soviet one-time pad messages — which are theoretically unbreakable (Shannon 1949). This was possible because:',
+    options: [
+      'Soviet manufacturing errors caused some one-time pad key pages to be duplicated, creating "depth" that enabled cryptanalysis via known-plaintext techniques',
+      'The US had stolen copies of the Soviet codebooks through espionage',
+      'Quantum computing prototypes at Bell Labs could factor the key material',
+      'The Soviets used a weak pseudo-random generator instead of truly random keys',
+    ],
+    correctIndex: 0,
+    explanation: 'A one-time pad is unbreakable if and only if each key page is used exactly once. When two messages share the same key (called "depth"), XORing the ciphertexts yields the XOR of the plaintexts, which can be solved using linguistic analysis.',
+    realWorld: 'VENONA ran from 1943 to 1980 and was declassified in 1995 — a 52-year secret that identified the Rosenbergs, Klaus Fuchs, and dozens of Soviet spies in the Manhattan Project.',
+    hint: 'The one-time pad is perfect — but only if you never reuse the pad.',
+  },
+  {
+    id: 50005, topic: 'cybersecurity', difficulty: 'hard',
+    question: 'Skipjack, the NSA\'s classified block cipher used in the Clipper chip, violated a fundamental cryptographic principle known as:',
+    options: [
+      'Kerckhoffs\'s principle — a cryptosystem should be secure even if everything about the system, except the key, is public knowledge',
+      'Shannon\'s maxim — the enemy knows the system, but confusion and diffusion ensure security',
+      'The Dolev-Yao threat model — the attacker controls the network but cannot break the cipher',
+      'The random oracle model — hash functions behave as ideal random functions',
+    ],
+    correctIndex: 0,
+    explanation: 'Kerckhoffs\'s principle (1883) states that security must reside in the key alone, not in the secrecy of the algorithm. Skipjack\'s security relied on its classification — when declassified in 1998, Biham and Shamir attacked 31 of 32 rounds within months.',
+    realWorld: 'The Clipper chip\'s failure established the modern norm that all public cryptographic standards (AES, SHA-3, post-quantum) must undergo open review.',
+    hint: 'A cipher should be secure even if the enemy knows exactly how it works — only the key should be secret.',
+  },
+  {
+    id: 50006, topic: 'cryptography', difficulty: 'sota',
+    question: 'The Enigma machine\'s critical mathematical weakness that Turing exploited was:',
+    options: [
+      'The reciprocal property — Enigma never encrypted a letter as itself, providing a constraint that eliminated vast portions of the key space',
+      'The rotor wiring was identical across all machines, allowing pre-computation',
+      'The plugboard connections were predictable based on the date',
+      'Messages always began with "Heil Hitler," providing known plaintext',
+    ],
+    correctIndex: 0,
+    explanation: 'The reciprocal substitution (if A→K then K→A) combined with the no-self-encryption property meant that for any crib (suspected plaintext), contradictions could rapidly eliminate incorrect rotor settings. Turing\'s Bombe exploited these constraints to test ~17,576 settings in minutes.',
+    realWorld: 'Ultra intelligence shortened WWII by an estimated 2 years and saved ~14 million lives. The 10,000 people who worked at Bletchley Park kept the secret for 29 years.',
+    hint: 'A letter can never encrypt to itself — this seemingly minor constraint is catastrophic for the cipher\'s security.',
+  },
+];

@@ -12,6 +12,7 @@ const Leaderboard = lazy(() => import("./pages/Leaderboard"));
 const Thinkers = lazy(() => import("./pages/Thinkers"));
 const Glossary = lazy(() => import("./pages/Glossary"));
 const Logos = lazy(() => import("./pages/Logos"));
+const Vault = lazy(() => import("./pages/Vault"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
@@ -31,6 +32,7 @@ const App = () => (
             <Route path="/thinkers" element={<Thinkers />} />
             <Route path="/glossary" element={<Glossary />} />
             <Route path="/logos" element={<Logos />} />
+            <Route path="/vault" element={<Vault />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
