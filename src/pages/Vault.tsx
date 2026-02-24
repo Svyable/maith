@@ -192,30 +192,28 @@ function VaultCard({
 }) {
   const [expanded, setExpanded] = useState(false);
 
+  const handleClick = () => {
+    if (isUnlocked) setExpanded(!expanded);
+    else if (!expanded) setExpanded(!expanded); // allow preview expand
+  };
+
   return (
     <motion.div
       layout
       initial={{ opacity: 0, y: 24 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: Math.min(index * 0.04, 0.35) }}
-      className={`group relative overflow-hidden rounded-2xl border transition-all duration-300 ${
-        isUnlocked
-          ? 'bg-card/80 backdrop-blur-sm border-border/60 hover:border-destructive/30 cursor-pointer'
-          : 'bg-card/30 backdrop-blur-sm border-border/30 cursor-pointer'
-      }`}
-      onClick={() => {
-        if (isUnlocked) setExpanded(!expanded);
-        else onChallenge();
-      }}
+      className="group relative overflow-hidden rounded-2xl border bg-card/80 backdrop-blur-sm border-border/60 hover:border-destructive/30 transition-all duration-300 cursor-pointer"
+      onClick={handleClick}
     >
       {/* Top-secret corner stripe */}
       <div className="absolute top-0 right-0 w-20 h-20 overflow-hidden pointer-events-none">
         <div className={`absolute top-3 -right-6 rotate-45 text-[8px] font-bold px-6 py-0.5 tracking-widest ${
           isUnlocked
             ? 'bg-destructive/80 text-destructive-foreground'
-            : 'bg-muted-foreground/40 text-muted'
+            : 'bg-muted-foreground/60 text-muted'
         }`}>
-          {isUnlocked ? 'TOP SECRET' : 'LOCKED'}
+          {isUnlocked ? 'DECLASSIFIED' : 'LOCKED'}
         </div>
       </div>
 
@@ -231,136 +229,130 @@ function VaultCard({
         )}
       </div>
 
-      <div className={`relative p-5 pt-8 ${!isUnlocked ? 'select-none' : ''}`}>
-        {/* Header */}
+      <div className="relative p-5 pt-8">
+        {/* Header — always visible */}
         <div className="flex items-start gap-3 mb-3">
-          <span className={`text-2xl flex-shrink-0 ${!isUnlocked ? 'opacity-40 blur-[2px]' : ''}`}>
-            {entry.domainEmoji}
-          </span>
+          <span className="text-2xl flex-shrink-0">{entry.domainEmoji}</span>
           <div className="min-w-0 flex-1">
-            <h3 className={`font-display font-bold text-base leading-tight ${
-              isUnlocked ? 'text-foreground' : 'text-muted-foreground/60'
-            }`}>
-              {isUnlocked ? entry.name : '█████ ██████████'}
+            <h3 className="font-display font-bold text-foreground text-base leading-tight">
+              {entry.name}
             </h3>
             {entry.codename && (
-              <p className={`text-[10px] font-mono mt-0.5 ${
-                isUnlocked ? 'text-accent' : 'text-muted-foreground/30'
-              }`}>
-                CODENAME: {isUnlocked ? entry.codename : '████████'}
+              <p className="text-[10px] font-mono text-accent mt-0.5">
+                CODENAME: {entry.codename}
               </p>
             )}
-            <p className={`text-xs mt-0.5 ${isUnlocked ? 'text-muted-foreground' : 'text-muted-foreground/30'}`}>
-              {isUnlocked ? `${entry.agency} · ${entry.field}` : '██████ · ██████████'}
+            <p className="text-xs text-muted-foreground mt-0.5">
+              {entry.agency} · {entry.field}
             </p>
           </div>
         </div>
 
-        {isUnlocked ? (
-          <>
-            {/* Classification status */}
-            <div className="mb-3">
-              <ClassificationBadge entry={entry} />
+        {/* Classification status — always visible */}
+        <div className="mb-3">
+          <ClassificationBadge entry={entry} />
+        </div>
+
+        {/* Timeline bar — always visible */}
+        <div className="rounded-xl bg-background/60 border border-border/40 p-3 mb-3">
+          <div className="flex items-center justify-between text-xs">
+            <div className="text-center">
+              <p className="text-[10px] text-muted-foreground uppercase tracking-wide">Classified</p>
+              <p className="font-bold font-mono text-destructive">{entry.classifiedYear}</p>
             </div>
-
-            {/* Timeline bar */}
-            <div className="rounded-xl bg-background/60 border border-border/40 p-3 mb-3">
-              <div className="flex items-center justify-between text-xs">
-                <div className="text-center">
-                  <p className="text-[10px] text-muted-foreground uppercase tracking-wide">Classified</p>
-                  <p className="font-bold font-mono text-destructive">{entry.classifiedYear}</p>
-                </div>
-                <div className="flex-1 mx-3 h-px bg-gradient-to-r from-destructive/60 via-muted-foreground/30 to-success/60" />
-                <div className="text-center">
-                  <p className="text-[10px] text-muted-foreground uppercase tracking-wide">Declassified</p>
-                  <p className="font-bold font-mono text-success">{entry.declassifiedYear}</p>
-                </div>
-              </div>
+            <div className="flex-1 mx-3 h-px bg-gradient-to-r from-destructive/60 via-muted-foreground/30 to-success/60" />
+            <div className="text-center">
+              <p className="text-[10px] text-muted-foreground uppercase tracking-wide">Declassified</p>
+              <p className="font-bold font-mono text-success">{entry.declassifiedYear}</p>
             </div>
+          </div>
+        </div>
 
-            {/* Summary */}
-            <p className="text-sm text-foreground/85 leading-relaxed mb-3">{entry.summary}</p>
+        {/* Summary — always visible */}
+        <p className="text-sm text-foreground/85 leading-relaxed mb-3">{entry.summary}</p>
 
-            {/* Meters */}
-            <div className="space-y-1.5 mb-2">
-              <div className="flex items-center gap-2">
-                <span className="text-[10px] text-muted-foreground w-14">Secrecy</span>
-                <SecrecyMeter level={entry.secrecyLevel} />
-              </div>
-              <div className="flex items-center gap-2">
-                <span className="text-[10px] text-muted-foreground w-14">Impact</span>
-                <SecrecyMeter level={entry.impact} />
-              </div>
-            </div>
+        {/* Meters — always visible */}
+        <div className="space-y-1.5 mb-2">
+          <div className="flex items-center gap-2">
+            <span className="text-[10px] text-muted-foreground w-14">Secrecy</span>
+            <SecrecyMeter level={entry.secrecyLevel} />
+          </div>
+          <div className="flex items-center gap-2">
+            <span className="text-[10px] text-muted-foreground w-14">Impact</span>
+            <SecrecyMeter level={entry.impact} />
+          </div>
+        </div>
 
-            {/* Tags */}
-            <div className="flex flex-wrap gap-1.5 mb-2">
-              <Badge variant="outline" className="text-[10px] px-2 py-0.5 border-destructive/30 text-destructive">
-                {entry.agency}
-              </Badge>
-              <Badge variant="outline" className="text-[10px] px-2 py-0.5 border-border">
-                {entry.domain}
-              </Badge>
-            </div>
+        {/* Tags — always visible */}
+        <div className="flex flex-wrap gap-1.5 mb-2">
+          <Badge variant="outline" className="text-[10px] px-2 py-0.5 border-destructive/30 text-destructive">
+            {entry.agency}
+          </Badge>
+          <Badge variant="outline" className="text-[10px] px-2 py-0.5 border-border">
+            {entry.domain}
+          </Badge>
+        </div>
 
-            {/* Expandable details */}
-            <AnimatePresence>
-              {expanded && (
-                <motion.div
-                  initial={{ height: 0, opacity: 0 }}
-                  animate={{ height: 'auto', opacity: 1 }}
-                  exit={{ height: 0, opacity: 0 }}
-                  transition={{ duration: 0.3 }}
-                  className="overflow-hidden"
-                >
-                  <div className="mt-4 pt-4 border-t border-border/40 space-y-4 text-sm">
-                    <div>
-                      <p className="text-xs font-bold text-destructive/80 uppercase tracking-wide mb-1">📁 Full Story</p>
-                      <p className="text-foreground/90 leading-relaxed">{entry.fullStory}</p>
-                    </div>
-                    <div>
-                      <p className="text-xs font-bold text-muted-foreground uppercase tracking-wide mb-1">👤 Key Figures</p>
-                      <div className="flex flex-wrap gap-1.5">
-                        {entry.keyFigures.map((f) => (
-                          <Badge key={f} variant="secondary" className="text-[10px]">{f}</Badge>
-                        ))}
-                      </div>
-                    </div>
-                    <div>
-                      <p className="text-xs font-bold text-muted-foreground uppercase tracking-wide mb-1">⚡ Historical Significance</p>
-                      <p className="text-foreground/80 leading-relaxed">{entry.significance}</p>
-                    </div>
-                    <div>
-                      <p className="text-xs font-bold text-muted-foreground uppercase tracking-wide mb-1">🌍 Legacy</p>
-                      <p className="text-foreground/80 leading-relaxed">{entry.legacy}</p>
+        {/* Expanded section — locked behind challenge if not unlocked */}
+        <AnimatePresence>
+          {expanded && (
+            <motion.div
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: 'auto', opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              className="overflow-hidden"
+            >
+              {isUnlocked ? (
+                <div className="mt-4 pt-4 border-t border-border/40 space-y-4 text-sm">
+                  <div>
+                    <p className="text-xs font-bold text-destructive/80 uppercase tracking-wide mb-1">📁 Full Story</p>
+                    <p className="text-foreground/90 leading-relaxed">{entry.fullStory}</p>
+                  </div>
+                  <div>
+                    <p className="text-xs font-bold text-muted-foreground uppercase tracking-wide mb-1">👤 Key Figures</p>
+                    <div className="flex flex-wrap gap-1.5">
+                      {entry.keyFigures.map((f) => (
+                        <Badge key={f} variant="secondary" className="text-[10px]">{f}</Badge>
+                      ))}
                     </div>
                   </div>
-                </motion.div>
+                  <div>
+                    <p className="text-xs font-bold text-muted-foreground uppercase tracking-wide mb-1">⚡ Historical Significance</p>
+                    <p className="text-foreground/80 leading-relaxed">{entry.significance}</p>
+                  </div>
+                  <div>
+                    <p className="text-xs font-bold text-muted-foreground uppercase tracking-wide mb-1">🌍 Legacy</p>
+                    <p className="text-foreground/80 leading-relaxed">{entry.legacy}</p>
+                  </div>
+                </div>
+              ) : (
+                <div className="mt-4 pt-4 border-t border-border/40 text-center space-y-3 py-4">
+                  <div className="flex justify-center">
+                    <div className="w-12 h-12 rounded-full bg-destructive/10 flex items-center justify-center">
+                      <Lock className="w-5 h-5 text-destructive/60" />
+                    </div>
+                  </div>
+                  <p className="text-xs text-muted-foreground">
+                    Full story, key figures & legacy are <span className="text-destructive font-bold">CLASSIFIED</span>
+                  </p>
+                  <button
+                    onClick={(e) => { e.stopPropagation(); onChallenge(); }}
+                    className="px-4 py-2 rounded-xl bg-destructive/10 hover:bg-destructive/20 border border-destructive/30 text-destructive text-xs font-bold transition-colors"
+                  >
+                    🔓 Answer Challenge to Unlock
+                  </button>
+                </div>
               )}
-            </AnimatePresence>
+            </motion.div>
+          )}
+        </AnimatePresence>
 
-            <div className="mt-2 text-center">
-              <span className="text-[10px] text-muted-foreground/50">
-                {expanded ? '▲ collapse' : '▼ tap to declassify'}
-              </span>
-            </div>
-          </>
-        ) : (
-          /* Locked state */
-          <div className="mt-2 text-center space-y-3">
-            <div className="flex justify-center">
-              <div className="w-12 h-12 rounded-full bg-muted/50 flex items-center justify-center">
-                <Lock className="w-6 h-6 text-muted-foreground/40" />
-              </div>
-            </div>
-            <p className="text-xs text-muted-foreground/60">
-              Answer the challenge question to unlock this level
-            </p>
-            <button className="px-4 py-2 rounded-xl bg-destructive/10 hover:bg-destructive/20 border border-destructive/30 text-destructive text-xs font-bold transition-colors">
-              🔓 Attempt Unlock
-            </button>
-          </div>
-        )}
+        <div className="mt-2 text-center">
+          <span className="text-[10px] text-muted-foreground/50">
+            {expanded ? '▲ collapse' : (isUnlocked ? '▼ tap to read full story' : '▼ tap to preview · 🔒 unlock to read')}
+          </span>
+        </div>
       </div>
     </motion.div>
   );
