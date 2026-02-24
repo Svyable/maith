@@ -79,7 +79,12 @@ export async function fetchQuestions(
       body: { topics, difficulties: levels, seenIds: [], count: 9999, locale },
     });
     if (error) throw error;
-    return (data?.questions as PublicQuestion[]) ?? [];
+    const serverQuestions = (data?.questions as PublicQuestion[]) ?? [];
+    // Fall back to local pool if server returned nothing but local content exists
+    if (serverQuestions.length === 0) {
+      return selectQuestionsLocal(pool, topics, levels);
+    }
+    return serverQuestions;
   } catch {
     return selectQuestionsLocal(pool, topics, levels);
   }
