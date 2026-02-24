@@ -74,6 +74,7 @@ export default function Profile() {
   const { user, loading: authLoading, signOut } = useAuth();
   const navigate = useNavigate();
   const { isDark, toggle: toggleTheme } = useTheme();
+  const { totalUnlocked, totalEntries } = useVaultProgress();
   const [stats, setStats] = useState<UserStats | null>(null);
   const [topicStats, setTopicStats] = useState<TopicStat[]>([]);
   const [difficultyStats, setDifficultyStats] = useState<DifficultyStat[]>([]);
