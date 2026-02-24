@@ -1,6 +1,7 @@
 import type { Question } from '../types';
 
 export const vaultQuestions: Question[] = [
+  // ── Original 6 questions ──────────────────────────────────
   {
     id: 50001, topic: 'cybersecurity', difficulty: 'hard',
     question: 'Clifford Cocks at GCHQ independently invented RSA in 1973, four years before the public discovery. His key insight was:',
@@ -84,5 +85,118 @@ export const vaultQuestions: Question[] = [
     explanation: 'The reciprocal substitution (if A→K then K→A) combined with the no-self-encryption property meant that for any crib (suspected plaintext), contradictions could rapidly eliminate incorrect rotor settings. Turing\'s Bombe exploited these constraints to test ~17,576 settings in minutes.',
     realWorld: 'Ultra intelligence shortened WWII by an estimated 2 years and saved ~14 million lives. The 10,000 people who worked at Bletchley Park kept the secret for 29 years.',
     hint: 'A letter can never encrypt to itself — this seemingly minor constraint is catastrophic for the cipher\'s security.',
+  },
+  // ── 8 NEW questions for new vault entries ──────────────────
+  {
+    id: 50007, topic: 'cryptography', difficulty: 'sota',
+    question: 'Bill Tutte reverse-engineered the Lorenz SZ40/42 cipher machine at Bletchley Park without ever seeing the physical device. His method relied on:',
+    options: [
+      'Statistical analysis of the depth (overlapping key streams) in two messages encrypted with the same wheel settings, revealing the logical structure of all 12 rotors',
+      'Capturing a physical Lorenz machine from a German submarine',
+      'Using Enigma decrypts to infer the Lorenz key structure',
+      'Brute-force testing all possible rotor configurations on Colossus',
+    ],
+    correctIndex: 0,
+    explanation: 'When two messages were accidentally sent with identical wheel positions, Tutte obtained the XOR of two plaintexts. By analyzing the statistical properties of this "depth," he deduced the number of pins on each of the 12 wheels and their interaction patterns — reconstructing the entire machine\'s logic from pure mathematics.',
+    realWorld: 'Tommy Flowers built Colossus — the world\'s first programmable electronic computer — to operationalize Tutte\'s cryptanalysis. Its existence was classified until 2000, meaning ENIAC was wrongly credited as the first for 55 years.',
+    hint: 'Two messages encrypted with the same settings create a "depth" — the XOR of the plaintexts leaks structural information about the cipher.',
+  },
+  {
+    id: 50008, topic: 'cryptography', difficulty: 'hard',
+    question: 'William Friedman\'s team cracked Japan\'s Purple cipher machine in 1940 by deducing that its encryption mechanism used:',
+    options: [
+      'Telephone stepping switches (6×25 uniselectors) rather than rotors, creating a polyalphabetic substitution with a period determined by the switch stepping sequence',
+      'Enigma-style rotors modified with Japanese Katakana character sets',
+      'A one-time pad system distributed via diplomatic pouch',
+      'A book cipher based on standardized Japanese diplomatic codebooks',
+    ],
+    correctIndex: 0,
+    explanation: 'Genevieve Grotjan identified repeating patterns in the ciphertext at intervals of 25 — the number of positions on a telephone stepping switch. This insight revealed that Purple split the alphabet into a group of 6 and a group of 20, each enciphered by separate stepping switch banks.',
+    realWorld: 'The MAGIC intelligence from Purple decrypts gave US leaders advance knowledge of Japanese diplomatic positions, but the Pearl Harbor attack succeeded because tactical military ciphers used different systems.',
+    hint: 'The repeating period of 25 in the ciphertext pointed to an electromechanical component with exactly 25 positions.',
+  },
+  {
+    id: 50009, topic: 'cryptography', difficulty: 'hard',
+    question: 'The Navajo Code Talkers\' code was never broken because it employed a dual-layer encoding system. The first layer was:',
+    options: [
+      'Substituting military terms with unrelated Navajo words (e.g., "turtle" for "tank"), while the second layer used multiple Navajo words per English letter to prevent frequency analysis',
+      'A simple word-for-word translation from English to Navajo',
+      'A mathematically generated cipher using Navajo phonemes as the key alphabet',
+      'Standard military codes translated into Navajo syntax',
+    ],
+    correctIndex: 0,
+    explanation: 'The code used ~450 military terms mapped to Navajo words chosen for metaphorical associations (fighter plane = "hummingbird"). For words not in the vocabulary, a Navajo alphabet was used where each English letter could be represented by multiple Navajo words (e.g., "A" could be "ant," "apple," or "axe" in Navajo), defeating frequency analysis.',
+    realWorld: 'The Code Talkers could encode, transmit, and decode a three-line message in 20 seconds — a task that took cipher machines 30 minutes. Speed and unbreakability in one system.',
+    hint: 'Having multiple possible encodings for each letter prevents the statistical patterns that frequency analysis exploits.',
+  },
+  {
+    id: 50010, topic: 'cryptography', difficulty: 'hard',
+    question: 'The Zimmermann Telegram, decrypted by Room 40 in 1917, proposed that Germany would help Mexico reconquer which US territories?',
+    options: [
+      'Texas, New Mexico, and Arizona — territories lost in the Mexican-American War of 1846-1848',
+      'California, Nevada, and Oregon — the entire Pacific coast',
+      'Florida and Louisiana — territories with historical Spanish claims',
+      'All US states south of the Mason-Dixon line',
+    ],
+    correctIndex: 0,
+    explanation: 'Zimmermann proposed that if the US entered WWI against Germany, Mexico should attack the United States with German financial support, recovering Texas, New Mexico, and Arizona (lost in the Treaty of Guadalupe Hidalgo, 1848). The British had to devise a cover story to hide the fact they were reading German diplomatic traffic via transatlantic cable taps.',
+    realWorld: 'When the telegram was published, Arthur Zimmermann himself confirmed its authenticity — a catastrophic diplomatic blunder. The US declared war on Germany five weeks later, decisively tipping the balance of WWI.',
+    hint: 'The territories named were those Mexico had ceded to the US after the Mexican-American War.',
+  },
+  {
+    id: 50011, topic: 'cybersecurity', difficulty: 'sota',
+    question: 'Stuxnet targeted Iran\'s nuclear centrifuges at Natanz by manipulating Siemens S7-315/417 PLCs. The worm\'s most sophisticated feature was:',
+    options: [
+      'A man-in-the-middle attack on physical reality — it replayed normal telemetry to operators while secretly altering centrifuge rotor speeds to cause mechanical failure',
+      'Encrypting all centrifuge data with ransomware until Iran paid a cryptocurrency ransom',
+      'Disabling the facility\'s cooling systems to cause a nuclear meltdown',
+      'Sending false intelligence reports to IAEA inspectors',
+    ],
+    correctIndex: 0,
+    explanation: 'Stuxnet intercepted the communication between the SCADA system and the PLCs, recording normal operating data during a reconnaissance phase. During attack cycles, it altered rotor speeds between 1,410 Hz and 2 Hz (normal: 1,064 Hz) while replaying the recorded normal telemetry — operators saw everything as normal while centrifuges tore themselves apart.',
+    realWorld: 'An estimated 984 centrifuges were destroyed. The worm used four zero-day exploits simultaneously — unprecedented sophistication that immediately pointed to a nation-state actor.',
+    hint: 'The attack was invisible to operators because the worm showed them what they expected to see, not what was actually happening.',
+  },
+  {
+    id: 50012, topic: 'cybersecurity', difficulty: 'hard',
+    question: 'The Heartbleed vulnerability (CVE-2014-0160) in OpenSSL allowed attackers to read server memory because:',
+    options: [
+      'The TLS Heartbeat implementation failed to validate the payload length field, allowing an attacker to request up to 64KB of adjacent memory with each heartbeat request',
+      'The SSL private key was stored in plaintext in a world-readable configuration file',
+      'A buffer overflow in the TLS handshake allowed arbitrary code execution',
+      'The random number generator used for session keys had insufficient entropy',
+    ],
+    correctIndex: 0,
+    explanation: 'RFC 6520 defines TLS Heartbeat: a client sends a payload with a length field, and the server echoes it back. OpenSSL\'s implementation used `memcpy` with the client-supplied length without checking if the actual payload was that long. An attacker could claim a 64KB payload while sending only 1 byte, causing the server to return 64KB of whatever happened to be in memory — private keys, passwords, session tokens.',
+    realWorld: 'The fix was a single bounds check: `if (1 + 2 + payload + 16 > s->s3->rrec.length) return 0;` — perhaps the most consequential one-line patch in software history.',
+    hint: 'The server trusted the client\'s claimed payload length without verifying it against the actual data received.',
+  },
+  {
+    id: 50013, topic: 'cryptography', difficulty: 'sota',
+    question: 'Google\'s SHAttered attack produced the first practical SHA-1 collision. The computational cost was approximately:',
+    options: [
+      '$2^{63.1}$ SHA-1 computations — 100,000× faster than brute force ($2^{80}$) but still requiring 6,500 CPU-years, demonstrating the gap between theoretical and practical breaks',
+      '$2^{80}$ computations — identical to brute force, proving theoretical attacks provided no speedup',
+      '$2^{40}$ computations — trivially achievable on a single laptop in hours',
+      '$2^{128}$ computations — requiring more than SHA-256\'s theoretical collision resistance',
+    ],
+    correctIndex: 0,
+    explanation: 'Wang\'s 2005 theoretical attack reduced SHA-1 collision resistance from $2^{80}$ to approximately $2^{69}$. Stevens et al. refined this to $2^{63.1}$ operations using differential path analysis. Google provided the equivalent of 6,500 CPU-years (110 GPU-years) of cloud compute to execute it — proving the attack was practical for well-resourced adversaries.',
+    realWorld: 'Within hours of SHAttered\'s publication, WebKit\'s SVN repository was disrupted by a proof-of-concept using the collision PDFs. Linus Torvalds accelerated Git\'s transition from SHA-1 to SHA-256.',
+    hint: 'The attack was vastly faster than brute force but still required massive computational resources — only feasible for nation-states or tech giants.',
+  },
+  {
+    id: 50014, topic: 'cybersecurity', difficulty: 'sota',
+    question: 'The NSA\'s XKeyscore system, revealed by Snowden in 2013, was distinguished from other surveillance programs because:',
+    options: [
+      'It allowed analysts to search the full content of emails, chats, and browsing history in real-time with no prior court authorization — just a self-certified justification form',
+      'It only collected metadata (sender, recipient, timestamps) and never accessed message content',
+      'It required a FISA court warrant for each individual search query',
+      'It only monitored communications entering or leaving the United States, not domestic traffic',
+    ],
+    correctIndex: 0,
+    explanation: 'XKeyscore\'s training materials stated analysts could search "nearly everything a typical user does on the internet" using a simple web form. Unlike PRISM (which collected from company servers under legal compulsion), XKeyscore operated on raw internet traffic at collection points worldwide, with analyst self-certification as the only access control.',
+    realWorld: 'NSA training slides showed XKeyscore could find "all the encrypted word documents" from a target country, search by language, or find anyone who searched for specific terms — capabilities that stunned even seasoned intelligence professionals.',
+    hint: 'The key distinction was the absence of external oversight — analysts were their own gatekeepers.',
   },
 ];
