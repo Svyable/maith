@@ -381,11 +381,9 @@ export default function Vault() {
   const handleChallengeSuccess = useCallback(() => {
     if (challengeIndex === null) return;
     const entry = VAULT_ENTRIES[challengeIndex];
-    if (entry) unlockNext(entry.id);
-    // Also unlock the current entry if not already
-    // (first entry is always unlocked, but for subsequent ones this is needed)
+    if (entry) unlockEntry(entry.id);
     setTimeout(() => setChallengeIndex(null), 800);
-  }, [challengeIndex, unlockNext]);
+  }, [challengeIndex, unlockEntry]);
 
   const progressPercent = Math.round((totalUnlocked / totalEntries) * 100);
 
