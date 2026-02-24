@@ -371,7 +371,7 @@ function VaultCard({
 export default function Vault() {
   const { isDark, toggle: toggleTheme } = useTheme();
   const navigate = useNavigate();
-  const { isUnlocked, unlockNext, resetProgress, totalUnlocked, totalEntries } = useVaultProgress();
+  const { isUnlocked, unlockEntry, resetProgress, totalUnlocked, totalEntries } = useVaultProgress();
   const [challengeIndex, setChallengeIndex] = useState<number | null>(null);
 
   const handleChallenge = useCallback((index: number) => {
