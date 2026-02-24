@@ -76,7 +76,7 @@ serve(async (req) => {
 
     const allQuestions = await getQuestions();
     const translations = await getTranslations(locale ?? 'en');
-    const batchSize = Math.min(count ?? 15, 30);
+    const batchSize = count ?? 30;
     const seen = new Set(seenIds ?? []);
 
     let pool = topics && topics.length > 0
