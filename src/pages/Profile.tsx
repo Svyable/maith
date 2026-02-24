@@ -139,9 +139,23 @@ export default function Profile() {
               <p className="text-sm text-muted-foreground">{user?.email}</p>
             </div>
             {/* Level badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-card border border-border">
-              <span className="text-xs font-bold text-primary">LVL {level.level}</span>
-              <span className="text-xs font-medium text-foreground">{level.title}</span>
+            <div className="flex items-center justify-center gap-2 flex-wrap">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-card border border-border">
+                <span className="text-xs font-bold text-primary">LVL {level.level}</span>
+                <span className="text-xs font-medium text-foreground">{level.title}</span>
+              </div>
+              {/* Vault Classified Level */}
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-destructive/10 border border-destructive/30">
+                {totalUnlocked >= totalEntries ? (
+                  <Unlock className="w-3.5 h-3.5 text-destructive" />
+                ) : (
+                  <Lock className="w-3.5 h-3.5 text-destructive" />
+                )}
+                <span className="text-xs font-bold text-destructive">
+                  🔐 {totalUnlocked}/{totalEntries}
+                </span>
+                <span className="text-[10px] font-medium text-destructive/70">CLASSIFIED</span>
+              </div>
             </div>
             {/* XP progress bar */}
             <div className="max-w-xs mx-auto">
