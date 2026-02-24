@@ -1,22 +1,22 @@
-import { motion } from 'framer-motion';
-import { useNavigate } from 'react-router-dom';
-import { TopicSelector } from './TopicSelector';
-import { FieldSelector } from './FieldSelector';
-import { DifficultyPicker } from './DifficultyPicker';
-import { LanguageSelector } from './LanguageSelector';
-import { SearchFilter } from './SearchFilter';
-import { StatsShowcase } from './StatsShowcase';
-import { type Difficulty, DIFFICULTIES, TOPIC_MAP, TOPICS } from '@/config/constants';
-import { FIELD_MAP, FIELDS } from '@/config/fields';
-import { allQuestions } from '@/content';
-import { allGlossaryTerms } from '@/content/glossary';
-import { VAULT_ENTRIES } from '@/config/vault';
-import { vaultQuestions } from '@/content/vault';
-import { t } from '@/i18n';
-import { useLocale } from '@/hooks/useLocale';
-import { useMemo, useState, useEffect } from 'react';
-import { getRandomQuote, type Quote } from '@/content/quotes';
-import { THINKERS } from '@/config/thinkers';
+import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
+import { TopicSelector } from "./TopicSelector";
+import { FieldSelector } from "./FieldSelector";
+import { DifficultyPicker } from "./DifficultyPicker";
+import { LanguageSelector } from "./LanguageSelector";
+import { SearchFilter } from "./SearchFilter";
+import { StatsShowcase } from "./StatsShowcase";
+import { type Difficulty, DIFFICULTIES, TOPIC_MAP, TOPICS } from "@/config/constants";
+import { FIELD_MAP, FIELDS } from "@/config/fields";
+import { allQuestions } from "@/content";
+import { allGlossaryTerms } from "@/content/glossary";
+import { VAULT_ENTRIES } from "@/config/vault";
+import { vaultQuestions } from "@/content/vault";
+import { t } from "@/i18n";
+import { useLocale } from "@/hooks/useLocale";
+import { useMemo, useState, useEffect } from "react";
+import { getRandomQuote, type Quote } from "@/content/quotes";
+import { THINKERS } from "@/config/thinkers";
 
 interface HomeScreenProps {
   selectedTopics: string[];
@@ -43,8 +43,8 @@ export function HomeScreen({
 }: HomeScreenProps) {
   const navigate = useNavigate();
   const { locale, changeLocale } = useLocale();
-  const [quote, setQuote] = useState<Quote>(() => getRandomQuote('en'));
-  const [topicSearch, setTopicSearch] = useState('');
+  const [quote, setQuote] = useState<Quote>(() => getRandomQuote("en"));
+  const [topicSearch, setTopicSearch] = useState("");
 
   useEffect(() => {
     setQuote(getRandomQuote(locale));
@@ -56,30 +56,29 @@ export function HomeScreen({
   };
 
   const fieldTopics = useMemo<string[] | undefined>(() => {
-    if (selectedField === 'all') return undefined;
+    if (selectedField === "all") return undefined;
     return FIELD_MAP[selectedField]?.topics ?? undefined;
   }, [selectedField]);
 
   const questionCount = useMemo(() => {
-    const pool = selectedTopics.length === 0
-      ? allQuestions.filter((q) => fieldTopics === undefined || fieldTopics.includes(q.topic))
-      : allQuestions.filter((q) => selectedTopics.includes(q.topic));
+    const pool =
+      selectedTopics.length === 0
+        ? allQuestions.filter((q) => fieldTopics === undefined || fieldTopics.includes(q.topic))
+        : allQuestions.filter((q) => selectedTopics.includes(q.topic));
     return pool.length;
   }, [selectedTopics, fieldTopics]);
 
   const summaryTopicsLabel = useMemo(() => {
     if (selectedTopics.length > 0) {
-      return selectedTopics.map((tp) => TOPIC_MAP[tp]?.label ?? tp).join(', ');
+      return selectedTopics.map((tp) => TOPIC_MAP[tp]?.label ?? tp).join(", ");
     }
-    if (selectedField !== 'all') {
-      return FIELD_MAP[selectedField]?.label ?? t('home.allTopics');
+    if (selectedField !== "all") {
+      return FIELD_MAP[selectedField]?.label ?? t("home.allTopics");
     }
-    return t('home.allTopics');
+    return t("home.allTopics");
   }, [selectedTopics, selectedField]);
 
-  const diffLabels = selectedDifficulties
-    .map((d) => DIFFICULTIES.find((m) => m.slug === d)?.tag ?? d)
-    .join(' + ');
+  const diffLabels = selectedDifficulties.map((d) => DIFFICULTIES.find((m) => m.slug === d)?.tag ?? d).join(" + ");
 
   return (
     <motion.div
@@ -92,12 +91,13 @@ export function HomeScreen({
       {/* User greeting */}
       {displayName && (
         <div className="w-full flex items-center justify-between">
-          <p className="text-sm text-muted-foreground">
-            {t('home.greeting', { name: displayName })}
-          </p>
+          <p className="text-sm text-muted-foreground">{t("home.greeting", { name: displayName })}</p>
           {onSignOut && (
-            <button onClick={onSignOut} className="text-xs text-muted-foreground hover:text-foreground transition-colors">
-              {t('home.signOut')}
+            <button
+              onClick={onSignOut}
+              className="text-xs text-muted-foreground hover:text-foreground transition-colors"
+            >
+              {t("home.signOut")}
             </button>
           )}
         </div>
@@ -115,9 +115,7 @@ export function HomeScreen({
         <h2 className="text-4xl md:text-5xl font-display font-bold text-foreground">
           m<span className="text-gradient-primary">AI</span>th
         </h2>
-        <p className="text-muted-foreground max-w-xs md:max-w-md mx-auto">
-          {t('app.tagline')}
-        </p>
+        <p className="text-muted-foreground max-w-xs md:max-w-md mx-auto">{t("app.tagline")}</p>
       </div>
 
       {/* Motivational Quote */}
@@ -128,9 +126,7 @@ export function HomeScreen({
         transition={{ duration: 0.5 }}
         className="w-full max-w-xl rounded-xl border border-border/60 bg-card/50 p-4 text-center"
       >
-        <p className="text-sm italic text-muted-foreground leading-relaxed">
-          &ldquo;{quote.text}&rdquo;
-        </p>
+        <p className="text-sm italic text-muted-foreground leading-relaxed">&ldquo;{quote.text}&rdquo;</p>
         <p className="text-xs font-semibold text-accent mt-2">— {quote.author}</p>
       </motion.div>
 
@@ -146,20 +142,20 @@ export function HomeScreen({
           onClick={onStart}
           className="w-full py-5 rounded-2xl bg-primary text-primary-foreground font-bold text-2xl glow-primary animate-pulse-glow tracking-wide"
         >
-          {t('home.startQuiz')} 🚀
+          {t("home.startQuiz")} 🚀
         </motion.button>
 
         {/* MasterMinds */}
         <motion.button
           whileHover={{ scale: 1.03 }}
           whileTap={{ scale: 0.97 }}
-          onClick={() => navigate('/thinkers')}
+          onClick={() => navigate("/thinkers")}
           className="w-full py-4 rounded-2xl border-2 border-accent/60 bg-accent/10 hover:bg-accent/20 hover:border-accent transition-all flex items-center gap-4 px-5 glow-accent"
         >
           <span className="text-3xl">🎓</span>
           <div className="text-left flex-1">
-            <p className="font-bold text-lg text-foreground">{t('home.masterMinds')}</p>
-            <p className="text-xs text-muted-foreground">{t('home.masterMindsSub', { count: THINKERS.length })}</p>
+            <p className="font-bold text-lg text-foreground">{t("home.masterMinds")}</p>
+            <p className="text-xs text-muted-foreground">{t("home.masterMindsSub", { count: THINKERS.length })}</p>
           </div>
           <span className="text-accent font-bold text-lg">→</span>
         </motion.button>
@@ -168,13 +164,13 @@ export function HomeScreen({
         <motion.button
           whileHover={{ scale: 1.03 }}
           whileTap={{ scale: 0.97 }}
-          onClick={() => navigate('/glossary')}
+          onClick={() => navigate("/glossary")}
           className="w-full py-4 rounded-2xl border-2 border-primary/60 bg-primary/10 hover:bg-primary/20 hover:border-primary transition-all flex items-center gap-4 px-5 glow-primary"
         >
           <span className="text-3xl">📖</span>
           <div className="text-left flex-1">
-            <p className="font-bold text-lg text-foreground">{t('home.glossary')}</p>
-            <p className="text-xs text-muted-foreground">{t('home.glossarySub')}</p>
+            <p className="font-bold text-lg text-foreground">{t("home.glossary")}</p>
+            <p className="text-xs text-muted-foreground">{t("home.glossarySub")}</p>
           </div>
           <span className="text-primary font-bold text-lg">→</span>
         </motion.button>
@@ -183,13 +179,13 @@ export function HomeScreen({
         <motion.button
           whileHover={{ scale: 1.03 }}
           whileTap={{ scale: 0.97 }}
-          onClick={() => navigate('/logos')}
+          onClick={() => navigate("/logos")}
           className="w-full py-4 rounded-2xl border-2 border-primary/60 bg-primary/10 hover:bg-primary/20 hover:border-primary transition-all flex items-center gap-4 px-5 glow-primary"
         >
           <span className="text-3xl">📜</span>
           <div className="text-left flex-1">
-            <p className="font-bold text-lg text-foreground">{t('home.logos')}</p>
-            <p className="text-xs text-muted-foreground">{t('home.logosSub')}</p>
+            <p className="font-bold text-lg text-foreground">{t("home.logos")}</p>
+            <p className="text-xs text-muted-foreground">{t("home.logosSub")}</p>
           </div>
           <span className="text-primary font-bold text-lg">→</span>
         </motion.button>
@@ -198,13 +194,13 @@ export function HomeScreen({
         <motion.button
           whileHover={{ scale: 1.03 }}
           whileTap={{ scale: 0.97 }}
-          onClick={() => navigate('/vault')}
+          onClick={() => navigate("/vault")}
           className="w-full py-4 rounded-2xl border-2 border-destructive/60 bg-destructive/10 hover:bg-destructive/20 hover:border-destructive transition-all flex items-center gap-4 px-5"
         >
           <span className="text-3xl">🔐</span>
           <div className="text-left flex-1">
-            <p className="font-bold text-lg text-foreground">{t('home.vault')}</p>
-            <p className="text-xs text-muted-foreground">{t('home.vaultSub')}</p>
+            <p className="font-bold text-lg text-foreground">{t("home.vault")}</p>
+            <p className="text-xs text-muted-foreground">{t("home.vaultSub")}</p>
           </div>
           <span className="text-destructive font-bold text-lg">→</span>
         </motion.button>
@@ -213,18 +209,18 @@ export function HomeScreen({
       {/* Stats showcase — 2 rows of 3 */}
       <StatsShowcase
         stats={[
-          { value: allQuestions.length, label: t('stats.questions'), emoji: '❓' },
-          { value: allGlossaryTerms.length, label: t('stats.terms'), emoji: '📖' },
-          { value: THINKERS.length, label: t('stats.thinkers'), emoji: '🎓' },
-          { value: TOPICS.length, label: t('stats.topics'), emoji: '🧩' },
-          { value: VAULT_ENTRIES.length, label: t('stats.secrets'), emoji: '🔐' },
-          { value: vaultQuestions.length, label: t('stats.equations'), emoji: '📐' },
+          { value: allQuestions.length, label: t("stats.questions"), emoji: "❓" },
+          { value: allGlossaryTerms.length, label: t("stats.terms"), emoji: "📖" },
+          { value: THINKERS.length, label: t("stats.thinkers"), emoji: "🎓" },
+          { value: TOPICS.length, label: t("stats.topics"), emoji: "🧩" },
+          { value: VAULT_ENTRIES.length, label: t("stats.secrets"), emoji: "🔐" },
+          { value: vaultQuestions.length, label: t("stats.equations"), emoji: "📐" },
         ]}
       />
 
       {/* Language Selector */}
       <div className="w-full max-w-xl space-y-2">
-        <h3 className="text-xs font-bold text-muted-foreground text-center">{t('language.title')}</h3>
+        <h3 className="text-xs font-bold text-muted-foreground text-center">{t("language.title")}</h3>
         <LanguageSelector locale={locale} onChangeLocale={changeLocale} />
       </div>
 
@@ -238,12 +234,22 @@ export function HomeScreen({
         <FieldSelector selectedField={selectedField} onSelectField={handleSelectField} />
       </div>
 
+      {/* Start Quiz */}
+      <motion.button
+        whileHover={{ scale: 1.03 }}
+        whileTap={{ scale: 0.97 }}
+        onClick={onStart}
+        className="w-full py-5 rounded-2xl bg-primary text-primary-foreground font-bold text-2xl glow-primary animate-pulse-glow tracking-wide"
+      >
+        {t("home.startQuiz")} 🚀
+      </motion.button>
+
       {/* Topic Search */}
       <div className="w-full max-w-xl">
         <SearchFilter
           value={topicSearch}
           onChange={setTopicSearch}
-          placeholder={t('home.searchTopics')}
+          placeholder={t("home.searchTopics")}
           resultLabel="topics"
         />
       </div>
@@ -266,13 +272,11 @@ export function HomeScreen({
           onClick={onStart}
           className="w-full py-5 rounded-2xl bg-primary text-primary-foreground font-bold text-2xl glow-primary animate-pulse-glow tracking-wide"
         >
-          {t('home.startQuiz')} 🚀
+          {t("home.startQuiz")} 🚀
         </motion.button>
       </div>
 
-      <p className="text-xs font-medium text-accent text-center">
-        {t('quiz.questionCount', { count: questionCount })}
-      </p>
+      <p className="text-xs font-medium text-accent text-center">{t("quiz.questionCount", { count: questionCount })}</p>
 
       <div className="pb-6" />
     </motion.div>
