@@ -7,7 +7,9 @@ import { TOPICS, TOPIC_MAP, DIFFICULTIES } from '@/config/constants';
 import { TopicHeatmap } from '@/components/TopicHeatmap';
 import { FieldStatsBar } from '@/components/FieldStatsBar';
 import { useTheme } from '@/hooks/useTheme';
+import { useVaultProgress } from '@/hooks/useVaultProgress';
 import { QuizHeader } from '@/components/QuizHeader';
+import { Lock, Unlock } from 'lucide-react';
 import { t } from '@/i18n';
 
 interface UserStats {
