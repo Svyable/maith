@@ -6,10 +6,12 @@ import { DifficultyPicker } from './DifficultyPicker';
 import { LanguageSelector } from './LanguageSelector';
 import { SearchFilter } from './SearchFilter';
 import { StatsShowcase } from './StatsShowcase';
-import { type Difficulty, DIFFICULTIES, TOPIC_MAP } from '@/config/constants';
+import { type Difficulty, DIFFICULTIES, TOPIC_MAP, TOPICS } from '@/config/constants';
 import { FIELD_MAP, FIELDS } from '@/config/fields';
 import { allQuestions } from '@/content';
 import { allGlossaryTerms } from '@/content/glossary';
+import { VAULT_ENTRIES } from '@/config/vault';
+import { vaultQuestions } from '@/content/vault';
 import { t } from '@/i18n';
 import { useLocale } from '@/hooks/useLocale';
 import { useMemo, useState, useEffect } from 'react';
@@ -208,13 +210,15 @@ export function HomeScreen({
         </motion.button>
       </div>
 
-      {/* Stats showcase */}
+      {/* Stats showcase — 2 rows of 3 */}
       <StatsShowcase
         stats={[
           { value: allQuestions.length, label: 'Questions', emoji: '❓' },
           { value: allGlossaryTerms.length, label: 'Terms', emoji: '📖' },
-          { value: FIELDS.filter(f => f.slug !== 'all' && f.available).length, label: 'Fields', emoji: '🌐' },
           { value: THINKERS.length, label: 'Thinkers', emoji: '🎓' },
+          { value: TOPICS.length, label: 'Topics', emoji: '🧩' },
+          { value: VAULT_ENTRIES.length, label: 'Secrets', emoji: '🔐' },
+          { value: vaultQuestions.length, label: 'Equations', emoji: '📐' },
         ]}
       />
 
@@ -222,6 +226,11 @@ export function HomeScreen({
       <div className="w-full max-w-xl space-y-2">
         <h3 className="text-xs font-bold text-muted-foreground text-center">{t('language.title')}</h3>
         <LanguageSelector locale={locale} onChangeLocale={changeLocale} />
+      </div>
+
+      {/* Duplicate Difficulty Picker under Language */}
+      <div className="w-full max-w-xl">
+        <DifficultyPicker selected={selectedDifficulties} onToggle={onToggleDifficulty} />
       </div>
 
       {/* Field Selector */}
@@ -247,6 +256,18 @@ export function HomeScreen({
           fieldFilter={fieldTopics}
           searchFilter={topicSearch}
         />
+      </div>
+
+      {/* Duplicate Start Quiz under Topics */}
+      <div className="w-full max-w-xl">
+        <motion.button
+          whileHover={{ scale: 1.03 }}
+          whileTap={{ scale: 0.97 }}
+          onClick={onStart}
+          className="w-full py-5 rounded-2xl bg-primary text-primary-foreground font-bold text-2xl glow-primary animate-pulse-glow tracking-wide"
+        >
+          {t('home.startQuiz')} 🚀
+        </motion.button>
       </div>
 
       <p className="text-xs font-medium text-accent text-center">
