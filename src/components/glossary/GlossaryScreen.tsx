@@ -15,7 +15,7 @@ export function GlossaryScreen() {
 
   const fieldChips = useMemo(() => {
     return [
-      { slug: 'all', label: 'All Fields', emoji: '🌐' },
+      { slug: 'all', label: t('glossary.allFields'), emoji: '🌐' },
       ...FIELDS.filter(
         (f) => f.slug !== 'all' && f.available && availableFields.includes(f.slug)
       ).map((f) => ({ slug: f.slug, label: f.label, emoji: f.emoji })),
@@ -27,9 +27,9 @@ export function GlossaryScreen() {
     if (search.trim()) {
       const q = search.toLowerCase();
       pool = pool.filter(
-        (t) =>
-          t.term.toLowerCase().includes(q) ||
-          t.definition.toLowerCase().includes(q)
+        (term) =>
+          term.term.toLowerCase().includes(q) ||
+          term.definition.toLowerCase().includes(q)
       );
     }
     return pool;
@@ -50,17 +50,17 @@ export function GlossaryScreen() {
           Gloss<span className="text-gradient-primary">ary</span>
         </h2>
         <p className="text-sm text-muted-foreground max-w-xs mx-auto">
-          Flip through key terms across every field. Tap a card to reveal its definition.
+          {t('glossary.subtitle')}
         </p>
         <p className="text-xs text-muted-foreground/70">
-          {allGlossaryTerms.length} terms · {availableFields.length} fields
+          {t('glossary.count', { terms: allGlossaryTerms.length, fields: availableFields.length })}
         </p>
       </div>
 
       {/* Search */}
       <input
         type="text"
-        placeholder="Search terms…"
+        placeholder={t('glossary.searchPlaceholder')}
         value={search}
         onChange={(e) => setSearch(e.target.value)}
         className="w-full px-4 py-2.5 rounded-xl border border-border bg-card text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/40"
@@ -96,7 +96,7 @@ export function GlossaryScreen() {
         ))}
         {terms.length === 0 && (
           <p className="text-center text-sm text-muted-foreground py-8">
-            No terms found. Try a different search or field.
+            {t('glossary.noResults')}
           </p>
         )}
       </div>
@@ -105,7 +105,7 @@ export function GlossaryScreen() {
         onClick={() => navigate('/')}
         className="w-full py-3 rounded-xl border border-border text-sm text-muted-foreground hover:text-foreground hover:border-foreground/30 transition-all"
       >
-        ← Back to Home
+        {t('glossary.backHome')}
       </button>
       <div className="pb-6" />
     </motion.div>

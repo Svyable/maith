@@ -8,6 +8,7 @@ import { LatexRenderer } from '@/components/LatexRenderer';
 import { useTheme } from '@/hooks/useTheme';
 import { EQUATIONS, EQUATION_DOMAINS, type Equation } from '@/config/equations';
 import { Badge } from '@/components/ui/badge';
+import { t } from '@/i18n';
 
 type SortKey = 'rank' | 'beauty' | 'year' | 'name';
 
@@ -17,18 +18,14 @@ const DIFFICULTY_STYLES: Record<string, string> = {
   sota: 'bg-destructive/15 text-destructive border-destructive/30',
 };
 
-const DIFFICULTY_LABEL: Record<string, string> = {
-  easy: 'Accessible',
-  hard: 'Advanced',
-  sota: 'Frontier',
-};
-
-const SORT_OPTIONS: { key: SortKey; label: string }[] = [
-  { key: 'rank', label: '🏆 Rank' },
-  { key: 'beauty', label: '✨ Beauty' },
-  { key: 'year', label: '📅 Era' },
-  { key: 'name', label: '🔤 A–Z' },
-];
+function getDifficultyLabel(d: string): string {
+  const map: Record<string, string> = {
+    easy: 'logos.accessible',
+    hard: 'logos.advanced',
+    sota: 'logos.frontier',
+  };
+  return t(map[d] ?? d);
+}
 
 function parseYear(y: string): number {
   const m = y.match(/-?\d+/);
@@ -104,7 +101,7 @@ function EquationCard({ eq, index }: { eq: Equation; index: number }) {
             {eq.field}
           </Badge>
           <span className={`inline-flex items-center rounded-full border px-2 py-0.5 text-[10px] font-semibold ${DIFFICULTY_STYLES[eq.difficulty]}`}>
-            {DIFFICULTY_LABEL[eq.difficulty]}
+            {getDifficultyLabel(eq.difficulty)}
           </span>
         </div>
 
@@ -123,15 +120,15 @@ function EquationCard({ eq, index }: { eq: Equation; index: number }) {
             >
               <div className="mt-4 pt-4 border-t border-border/40 space-y-3 text-sm">
                 <div>
-                  <p className="text-xs font-bold text-muted-foreground uppercase tracking-wide mb-1">Historical Significance</p>
+                  <p className="text-xs font-bold text-muted-foreground uppercase tracking-wide mb-1">{t('logos.significance')}</p>
                   <p className="text-foreground/90 leading-relaxed">{eq.significance}</p>
                 </div>
                 <div>
-                  <p className="text-xs font-bold text-muted-foreground uppercase tracking-wide mb-1">Key Constants</p>
+                  <p className="text-xs font-bold text-muted-foreground uppercase tracking-wide mb-1">{t('logos.constants')}</p>
                   <p className="text-foreground/80 font-mono-code text-xs">{eq.constants}</p>
                 </div>
                 <div>
-                  <p className="text-xs font-bold text-muted-foreground uppercase tracking-wide mb-1">Real-World Applications</p>
+                  <p className="text-xs font-bold text-muted-foreground uppercase tracking-wide mb-1">{t('logos.applications')}</p>
                   <p className="text-foreground/80">{eq.applications}</p>
                 </div>
               </div>
@@ -142,7 +139,7 @@ function EquationCard({ eq, index }: { eq: Equation; index: number }) {
         {/* Expand hint */}
         <div className="mt-2 text-center">
           <span className="text-[10px] text-muted-foreground/50">
-            {expanded ? '▲ collapse' : '▼ tap to explore'}
+            {expanded ? t('logos.collapse') : t('logos.tapToExplore')}
           </span>
         </div>
       </div>
@@ -157,20 +154,17 @@ export default function Logos() {
   const [domainFilter, setDomainFilter] = useState<string>('all');
   const [difficultyFilter, setDifficultyFilter] = useState<string>('all');
 
+  const sortOptions: { key: SortKey; labelKey: string }[] = [
+    { key: 'rank', labelKey: 'logos.sortRank' },
+    { key: 'beauty', labelKey: 'logos.sortBeauty' },
+    { key: 'year', labelKey: 'logos.sortEra' },
+    { key: 'name', labelKey: 'logos.sortName' },
+  ];
+
   const filtered = useMemo(() => {
     let pool = [...EQUATIONS];
-
-    // Domain filter
-    if (domainFilter !== 'all') {
-      pool = pool.filter((e) => e.domain === domainFilter);
-    }
-
-    // Difficulty filter
-    if (difficultyFilter !== 'all') {
-      pool = pool.filter((e) => e.difficulty === difficultyFilter);
-    }
-
-    // Search
+    if (domainFilter !== 'all') pool = pool.filter((e) => e.domain === domainFilter);
+    if (difficultyFilter !== 'all') pool = pool.filter((e) => e.difficulty === difficultyFilter);
     if (search.trim()) {
       const q = search.toLowerCase();
       pool = pool.filter(
@@ -182,53 +176,33 @@ export default function Logos() {
           e.applications.toLowerCase().includes(q)
       );
     }
-
-    // Sort
     pool.sort((a, b) => {
       switch (sortBy) {
-        case 'rank':
-          return a.rank - b.rank;
-        case 'beauty':
-          return b.beauty - a.beauty || a.rank - b.rank;
-        case 'year':
-          return parseYear(a.year) - parseYear(b.year);
-        case 'name':
-          return a.name.localeCompare(b.name);
-        default:
-          return 0;
+        case 'rank': return a.rank - b.rank;
+        case 'beauty': return b.beauty - a.beauty || a.rank - b.rank;
+        case 'year': return parseYear(a.year) - parseYear(b.year);
+        case 'name': return a.name.localeCompare(b.name);
+        default: return 0;
       }
     });
-
     return pool;
   }, [search, sortBy, domainFilter, difficultyFilter]);
 
   return (
     <div className="min-h-screen bg-background flex flex-col relative">
       <FloatingBackground />
-      <QuizHeader
-        streak={0}
-        showStreak={false}
-        isDark={isDark}
-        onToggleTheme={toggleTheme}
-        onHome={() => {}}
-      />
+      <QuizHeader streak={0} showStreak={false} isDark={isDark} onToggleTheme={toggleTheme} onHome={() => {}} />
 
       <main className="relative z-10 flex-1 px-4 py-6 max-w-5xl mx-auto w-full">
         {/* Hero */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="text-center mb-8"
-        >
+        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-center mb-8">
           <div className="text-5xl mb-3">📜</div>
           <h1 className="text-3xl md:text-4xl font-display font-bold text-foreground">
-            <span className="text-gradient-primary">Logos</span>
+            <span className="text-gradient-primary">{t('logos.title')}</span>
           </h1>
-          <p className="text-muted-foreground mt-2 max-w-md mx-auto">
-            Humanity's greatest equations — ranked, tagged & explored.
-          </p>
+          <p className="text-muted-foreground mt-2 max-w-md mx-auto">{t('logos.subtitle')}</p>
           <p className="text-xs text-muted-foreground/70 mt-1">
-            {EQUATIONS.length} equations across {EQUATION_DOMAINS.length} domains
+            {t('logos.count', { count: EQUATIONS.length, domains: EQUATION_DOMAINS.length })}
           </p>
         </motion.div>
 
@@ -237,14 +211,14 @@ export default function Logos() {
           <SearchFilter
             value={search}
             onChange={setSearch}
-            placeholder="Search equations, discoverers, applications…"
+            placeholder={t('logos.searchPlaceholder')}
             resultCount={filtered.length}
-            resultLabel="equations"
+            resultLabel={t('stats.equations').toLowerCase()}
           />
 
           {/* Sort buttons */}
           <div className="flex flex-wrap gap-1.5 justify-center">
-            {SORT_OPTIONS.map((opt) => (
+            {sortOptions.map((opt) => (
               <button
                 key={opt.key}
                 onClick={() => setSortBy(opt.key)}
@@ -254,35 +228,32 @@ export default function Logos() {
                     : 'bg-secondary text-muted-foreground hover:text-foreground border border-transparent'
                 }`}
               >
-                {opt.label}
+                {t(opt.labelKey)}
               </button>
             ))}
           </div>
 
           {/* Filter row */}
           <div className="flex flex-wrap gap-1.5 justify-center">
-            {/* Domain filter */}
             <select
               value={domainFilter}
               onChange={(e) => setDomainFilter(e.target.value)}
               className="px-3 py-1.5 rounded-lg text-xs font-medium bg-secondary text-foreground border border-border focus:outline-none focus:ring-2 focus:ring-primary/40"
             >
-              <option value="all">All Domains</option>
+              <option value="all">{t('logos.allDomains')}</option>
               {EQUATION_DOMAINS.map((d) => (
                 <option key={d} value={d}>{d}</option>
               ))}
             </select>
-
-            {/* Difficulty filter */}
             <select
               value={difficultyFilter}
               onChange={(e) => setDifficultyFilter(e.target.value)}
               className="px-3 py-1.5 rounded-lg text-xs font-medium bg-secondary text-foreground border border-border focus:outline-none focus:ring-2 focus:ring-primary/40"
             >
-              <option value="all">All Levels</option>
-              <option value="easy">Accessible</option>
-              <option value="hard">Advanced</option>
-              <option value="sota">Frontier</option>
+              <option value="all">{t('logos.allLevels')}</option>
+              <option value="easy">{t('logos.accessible')}</option>
+              <option value="hard">{t('logos.advanced')}</option>
+              <option value="sota">{t('logos.frontier')}</option>
             </select>
           </div>
         </div>
@@ -299,7 +270,7 @@ export default function Logos() {
         {filtered.length === 0 && (
           <div className="text-center py-12">
             <p className="text-3xl mb-2">🔍</p>
-            <p className="text-muted-foreground">No equations match your search.</p>
+            <p className="text-muted-foreground">{t('logos.noResults')}</p>
           </div>
         )}
 

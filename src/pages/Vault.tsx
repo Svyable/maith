@@ -12,6 +12,7 @@ import { vaultQuestions } from '@/content/vault';
 import { Badge } from '@/components/ui/badge';
 import { Progress } from '@/components/ui/progress';
 import { Lock, Unlock, Check, X, RotateCcw } from 'lucide-react';
+import { t } from '@/i18n';
 
 // ── Sub-components ───────────────────────────────────────────
 
@@ -42,7 +43,7 @@ function ClassificationBadge({ entry }: { entry: VaultEntry }) {
         : 'bg-success/15 text-success border-success/40'
     }`}>
       <span className={`w-1.5 h-1.5 rounded-full ${isStillClassified ? 'bg-destructive animate-pulse' : 'bg-success'}`} />
-      {isStillClassified ? 'STILL CLASSIFIED' : 'DECLASSIFIED'}
+      {isStillClassified ? t('vault.stillClassified') : t('vault.statusDeclassified')}
     </div>
   );
 }
@@ -95,21 +96,18 @@ function ChallengeModal({ entryIndex, entry, onSuccess, onClose }: ChallengeModa
         <div className="flex items-center gap-2 mb-4">
           <Lock className="w-4 h-4 text-destructive" />
           <span className="text-xs font-bold text-destructive uppercase tracking-wider">
-            Level {entryIndex + 1} — Unlock Challenge
+            {t('vault.challengeHeader', { level: entryIndex + 1 })}
           </span>
         </div>
 
         <h3 className="text-sm font-semibold text-foreground mb-1">
-          Unlock: {entry.name}
+          {t('vault.challengeUnlock', { name: entry.name })}
         </h3>
-        <p className="text-xs text-muted-foreground mb-4">Answer correctly to declassify this entry.</p>
+        <p className="text-xs text-muted-foreground mb-4">{t('vault.challengePrompt')}</p>
 
         {/* Question */}
         <div className="bg-background/60 rounded-xl border border-border/40 p-4 mb-4">
-          <LatexRenderer
-            text={question.question}
-            className="text-sm font-medium text-foreground leading-relaxed"
-          />
+          <LatexRenderer text={question.question} className="text-sm font-medium text-foreground leading-relaxed" />
         </div>
 
         {/* Options */}
@@ -150,7 +148,7 @@ function ChallengeModal({ entryIndex, entry, onSuccess, onClose }: ChallengeModa
               className="flex items-center gap-2 p-3 rounded-xl bg-success/15 border border-success/30 text-success text-sm font-semibold"
             >
               <Check className="w-4 h-4" />
-              <span>DECLASSIFIED! Unlocking…</span>
+              <span>{t('vault.challengeSuccess')}</span>
             </motion.div>
           )}
           {result === 'wrong' && (
@@ -161,13 +159,13 @@ function ChallengeModal({ entryIndex, entry, onSuccess, onClose }: ChallengeModa
             >
               <div className="flex items-center gap-2 p-3 rounded-xl bg-destructive/15 border border-destructive/30 text-destructive text-sm font-semibold">
                 <X className="w-4 h-4" />
-                <span>ACCESS DENIED — Wrong answer</span>
+                <span>{t('vault.challengeFail')}</span>
               </div>
               <button
                 onClick={() => { setSelected(null); setResult('pending'); }}
                 className="w-full py-2 text-xs text-muted-foreground hover:text-foreground transition-colors"
               >
-                Try Again
+                {t('vault.tryAgain')}
               </button>
             </motion.div>
           )}
@@ -194,7 +192,7 @@ function VaultCard({
 
   const handleClick = () => {
     if (isUnlocked) setExpanded(!expanded);
-    else if (!expanded) setExpanded(!expanded); // allow preview expand
+    else if (!expanded) setExpanded(!expanded);
   };
 
   return (
@@ -213,14 +211,14 @@ function VaultCard({
             ? 'bg-destructive/80 text-destructive-foreground'
             : 'bg-muted-foreground/60 text-muted'
         }`}>
-          {isUnlocked ? 'DECLASSIFIED' : 'LOCKED'}
+          {isUnlocked ? t('vault.statusDeclassified') : t('vault.statusLocked')}
         </div>
       </div>
 
       {/* Level number */}
       <div className="absolute top-3 left-3 z-10 flex items-center gap-1.5">
         <span className="text-xs font-bold font-mono text-muted-foreground/60">
-          LVL {index + 1}
+          {t('vault.levelLabel', { level: index + 1 })}
         </span>
         {isUnlocked ? (
           <Unlock className="w-3 h-3 text-success" />
@@ -239,7 +237,7 @@ function VaultCard({
             </h3>
             {entry.codename && (
               <p className="text-[10px] font-mono text-accent mt-0.5">
-                CODENAME: {entry.codename}
+                {t('vault.codename', { name: entry.codename })}
               </p>
             )}
             <p className="text-xs text-muted-foreground mt-0.5">
@@ -248,42 +246,42 @@ function VaultCard({
           </div>
         </div>
 
-        {/* Classification status — always visible */}
+        {/* Classification status */}
         <div className="mb-3">
           <ClassificationBadge entry={entry} />
         </div>
 
-        {/* Timeline bar — always visible */}
+        {/* Timeline bar */}
         <div className="rounded-xl bg-background/60 border border-border/40 p-3 mb-3">
           <div className="flex items-center justify-between text-xs">
             <div className="text-center">
-              <p className="text-[10px] text-muted-foreground uppercase tracking-wide">Classified</p>
+              <p className="text-[10px] text-muted-foreground uppercase tracking-wide">{t('vault.classified')}</p>
               <p className="font-bold font-mono text-destructive">{entry.classifiedYear}</p>
             </div>
             <div className="flex-1 mx-3 h-px bg-gradient-to-r from-destructive/60 via-muted-foreground/30 to-success/60" />
             <div className="text-center">
-              <p className="text-[10px] text-muted-foreground uppercase tracking-wide">Declassified</p>
+              <p className="text-[10px] text-muted-foreground uppercase tracking-wide">{t('vault.declassified')}</p>
               <p className="font-bold font-mono text-success">{entry.declassifiedYear}</p>
             </div>
           </div>
         </div>
 
-        {/* Summary — always visible */}
+        {/* Summary */}
         <p className="text-sm text-foreground/85 leading-relaxed mb-3">{entry.summary}</p>
 
-        {/* Meters — always visible */}
+        {/* Meters */}
         <div className="space-y-1.5 mb-2">
           <div className="flex items-center gap-2">
-            <span className="text-[10px] text-muted-foreground w-14">Secrecy</span>
+            <span className="text-[10px] text-muted-foreground w-14">{t('vault.secrecy')}</span>
             <SecrecyMeter level={entry.secrecyLevel} />
           </div>
           <div className="flex items-center gap-2">
-            <span className="text-[10px] text-muted-foreground w-14">Impact</span>
+            <span className="text-[10px] text-muted-foreground w-14">{t('vault.impact')}</span>
             <SecrecyMeter level={entry.impact} />
           </div>
         </div>
 
-        {/* Tags — always visible */}
+        {/* Tags */}
         <div className="flex flex-wrap gap-1.5 mb-2">
           <Badge variant="outline" className="text-[10px] px-2 py-0.5 border-destructive/30 text-destructive">
             {entry.agency}
@@ -293,7 +291,7 @@ function VaultCard({
           </Badge>
         </div>
 
-        {/* Expanded section — locked behind challenge if not unlocked */}
+        {/* Expanded section */}
         <AnimatePresence>
           {expanded && (
             <motion.div
@@ -306,11 +304,11 @@ function VaultCard({
               {isUnlocked ? (
                 <div className="mt-4 pt-4 border-t border-border/40 space-y-4 text-sm">
                   <div>
-                    <p className="text-xs font-bold text-destructive/80 uppercase tracking-wide mb-1">📁 Full Story</p>
+                    <p className="text-xs font-bold text-destructive/80 uppercase tracking-wide mb-1">{t('vault.fullStory')}</p>
                     <p className="text-foreground/90 leading-relaxed">{entry.fullStory}</p>
                   </div>
                   <div>
-                    <p className="text-xs font-bold text-muted-foreground uppercase tracking-wide mb-1">👤 Key Figures</p>
+                    <p className="text-xs font-bold text-muted-foreground uppercase tracking-wide mb-1">{t('vault.keyFigures')}</p>
                     <div className="flex flex-wrap gap-1.5">
                       {entry.keyFigures.map((f) => (
                         <Badge key={f} variant="secondary" className="text-[10px]">{f}</Badge>
@@ -318,11 +316,11 @@ function VaultCard({
                     </div>
                   </div>
                   <div>
-                    <p className="text-xs font-bold text-muted-foreground uppercase tracking-wide mb-1">⚡ Historical Significance</p>
+                    <p className="text-xs font-bold text-muted-foreground uppercase tracking-wide mb-1">{t('vault.significance')}</p>
                     <p className="text-foreground/80 leading-relaxed">{entry.significance}</p>
                   </div>
                   <div>
-                    <p className="text-xs font-bold text-muted-foreground uppercase tracking-wide mb-1">🌍 Legacy</p>
+                    <p className="text-xs font-bold text-muted-foreground uppercase tracking-wide mb-1">{t('vault.legacy')}</p>
                     <p className="text-foreground/80 leading-relaxed">{entry.legacy}</p>
                   </div>
                 </div>
@@ -334,13 +332,13 @@ function VaultCard({
                     </div>
                   </div>
                   <p className="text-xs text-muted-foreground">
-                    Full story, key figures & legacy are <span className="text-destructive font-bold">CLASSIFIED</span>
+                    {t('vault.lockedMessage')} <span className="text-destructive font-bold">{t('vault.lockedLabel')}</span>
                   </p>
                   <button
                     onClick={(e) => { e.stopPropagation(); onChallenge(); }}
                     className="px-4 py-2 rounded-xl bg-destructive/10 hover:bg-destructive/20 border border-destructive/30 text-destructive text-xs font-bold transition-colors"
                   >
-                    🔓 Answer Challenge to Unlock
+                    {t('vault.unlockButton')}
                   </button>
                 </div>
               )}
@@ -350,7 +348,7 @@ function VaultCard({
 
         <div className="mt-2 text-center">
           <span className="text-[10px] text-muted-foreground/50">
-            {expanded ? '▲ collapse' : (isUnlocked ? '▼ tap to read full story' : '▼ tap to preview · 🔒 unlock to read')}
+            {expanded ? t('vault.collapse') : (isUnlocked ? t('vault.tapToRead') : t('vault.tapToPreview'))}
           </span>
         </div>
       </div>
@@ -382,47 +380,30 @@ export default function Vault() {
   return (
     <div className="min-h-screen bg-background flex flex-col relative">
       <FloatingBackground />
-      <QuizHeader
-        streak={0}
-        showStreak={false}
-        isDark={isDark}
-        onToggleTheme={toggleTheme}
-        onHome={() => navigate('/')}
-      />
+      <QuizHeader streak={0} showStreak={false} isDark={isDark} onToggleTheme={toggleTheme} onHome={() => navigate('/')} />
 
       <main className="relative z-10 flex-1 px-4 py-6 max-w-5xl mx-auto w-full">
         {/* Hero */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="text-center mb-6"
-        >
+        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-center mb-6">
           <div className="text-5xl mb-3">🔐</div>
           <h1 className="text-3xl md:text-4xl font-display font-bold text-foreground">
-            The <span className="text-destructive">Vault</span>
+            {t('vault.title').split('Vault')[0]}<span className="text-destructive">Vault</span>
           </h1>
-          <p className="text-muted-foreground mt-2 max-w-lg mx-auto">
-            Humanity's greatest classified secrets — unlock them level by level.
-          </p>
+          <p className="text-muted-foreground mt-2 max-w-lg mx-auto">{t('vault.subtitle')}</p>
         </motion.div>
 
         {/* Progress bar */}
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.15 }}
-          className="max-w-md mx-auto mb-8 space-y-2"
-        >
+        <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.15 }} className="max-w-md mx-auto mb-8 space-y-2">
           <div className="flex items-center justify-between text-xs">
             <span className="text-muted-foreground font-mono">
-              {totalUnlocked}/{totalEntries} DECLASSIFIED
+              {t('vault.declassifiedProgress', { count: totalUnlocked, total: totalEntries })}
             </span>
             <span className="font-bold text-destructive font-mono">{progressPercent}%</span>
           </div>
           <Progress value={progressPercent} className="h-2.5 bg-muted/50" />
           <div className="flex justify-between items-center">
             <p className="text-[10px] text-muted-foreground/60">
-              {vaultQuestions.length} challenge questions
+              {t('vault.challengeQuestions', { count: vaultQuestions.length })}
             </p>
             {totalUnlocked > 1 && (
               <button
@@ -430,7 +411,7 @@ export default function Vault() {
                 className="flex items-center gap-1 text-[10px] text-muted-foreground/50 hover:text-destructive transition-colors"
               >
                 <RotateCcw className="w-3 h-3" />
-                Reset
+                {t('vault.reset')}
               </button>
             )}
           </div>
@@ -438,19 +419,15 @@ export default function Vault() {
 
         {/* Level Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {VAULT_ENTRIES.map((entry, i) => {
-            const unlocked = isUnlocked(entry.id);
-
-            return (
-              <VaultCard
-                key={entry.id}
-                entry={entry}
-                index={i}
-                isUnlocked={unlocked}
-                onChallenge={() => handleChallenge(i)}
-              />
-            );
-          })}
+          {VAULT_ENTRIES.map((entry, i) => (
+            <VaultCard
+              key={entry.id}
+              entry={entry}
+              index={i}
+              isUnlocked={isUnlocked(entry.id)}
+              onChallenge={() => handleChallenge(i)}
+            />
+          ))}
         </div>
 
         <div className="pb-8" />
