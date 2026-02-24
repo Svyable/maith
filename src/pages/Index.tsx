@@ -77,7 +77,7 @@ const Index = () => {
     }
   }, [state.isFinished, screen]);
 
-  const startQuiz = useCallback(async () => {
+  const startQuiz = useCallback(() => {
     const effectiveTopics = selectedTopics.length > 0
       ? selectedTopics
       : selectedField !== 'all'
@@ -85,7 +85,7 @@ const Index = () => {
         : [];
     resetSession();
     setScreen('quiz');
-    await restartQuiz(effectiveTopics, selectedDifficulties);
+    restartQuiz(effectiveTopics, selectedDifficulties);
   }, [restartQuiz, selectedTopics, selectedField, selectedDifficulties, resetSession]);
 
   const toggleTopic = useCallback((topic: string) => {
