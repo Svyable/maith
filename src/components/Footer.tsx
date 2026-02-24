@@ -1,11 +1,12 @@
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
+import { t } from "@/i18n";
 
 const FOOTER_LINKS = [
-  { label: "Quiz", path: "/", emoji: "🧠" },
-  { label: "MasterMinds", path: "/thinkers", emoji: "🎓" },
-  { label: "Glossary", path: "/glossary", emoji: "📖" },
-  { label: "Leaderboard", path: "/leaderboard", emoji: "🏆" },
+  { key: "footer.quiz", path: "/", emoji: "🧠" },
+  { key: "footer.masterMinds", path: "/thinkers", emoji: "🎓" },
+  { key: "footer.glossary", path: "/glossary", emoji: "📖" },
+  { key: "footer.leaderboard", path: "/leaderboard", emoji: "🏆" },
 ];
 
 export function Footer() {
@@ -25,7 +26,7 @@ export function Footer() {
               </span>
             </button>
             <p className="text-xs text-muted-foreground max-w-[200px] text-center md:text-left">
-              Train your mind across every field of science & mathematics.
+              {t('app.footerTagline')}
             </p>
           </div>
 
@@ -40,7 +41,7 @@ export function Footer() {
                 className="px-3 py-2 rounded-lg text-sm text-muted-foreground hover:text-foreground hover:bg-secondary/50 transition-colors flex items-center gap-1.5"
               >
                 <span className="text-xs">{link.emoji}</span>
-                {link.label}
+                {t(link.key)}
               </motion.button>
             ))}
           </div>
@@ -52,7 +53,7 @@ export function Footer() {
         {/* Bottom */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-3">
           <p className="text-[11px] text-muted-foreground font-mono-code">
-            © {new Date().getFullYear()} mAIth = solve math == solve everything
+            {t('app.copyright', { year: new Date().getFullYear() })}
           </p>
           <div className="flex items-center gap-3">
             <span className="text-[11px] text-muted-foreground/50 font-mono-code">∑ ∫ ∇ π e ∞</span>

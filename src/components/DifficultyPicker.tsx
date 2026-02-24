@@ -22,7 +22,7 @@ export function DifficultyPicker({ selected, onToggle }: DifficultyPickerProps) 
         ))}
       </div>
       <p className="text-[10px] text-muted-foreground/50 text-center">
-        Select one or more levels
+        {t('difficulty.selectHint')}
       </p>
     </div>
   );

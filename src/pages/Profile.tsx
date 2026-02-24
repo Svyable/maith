@@ -154,7 +154,7 @@ export default function Profile() {
                 <span className="text-xs font-bold text-destructive">
                   🔐 {totalUnlocked}/{totalEntries}
                 </span>
-                <span className="text-[10px] font-medium text-destructive/70">CLASSIFIED</span>
+                <span className="text-[10px] font-medium text-destructive/70">{t('profile.classified')}</span>
               </div>
             </div>
             {/* XP progress bar */}
@@ -228,7 +228,7 @@ export default function Profile() {
                           <div className="text-[10px] text-muted-foreground">🔥{stat.best_streak}</div>
                         </>
                       ) : (
-                        <div className="text-xs text-muted-foreground/50 italic">No data</div>
+                        <div className="text-xs text-muted-foreground/50 italic">{t('profile.noData')}</div>
                       )}
                     </div>
                   );

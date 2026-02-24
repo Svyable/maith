@@ -173,8 +173,8 @@ export function HomeScreen({
         >
           <span className="text-3xl">📖</span>
           <div className="text-left flex-1">
-            <p className="font-bold text-lg text-foreground">Glossary</p>
-            <p className="text-xs text-muted-foreground">Flash cards for key terms across all fields</p>
+            <p className="font-bold text-lg text-foreground">{t('home.glossary')}</p>
+            <p className="text-xs text-muted-foreground">{t('home.glossarySub')}</p>
           </div>
           <span className="text-primary font-bold text-lg">→</span>
         </motion.button>
@@ -188,8 +188,8 @@ export function HomeScreen({
         >
           <span className="text-3xl">📜</span>
           <div className="text-left flex-1">
-            <p className="font-bold text-lg text-foreground">Logos</p>
-            <p className="text-xs text-muted-foreground">Humanity's greatest equations — ranked & explored</p>
+            <p className="font-bold text-lg text-foreground">{t('home.logos')}</p>
+            <p className="text-xs text-muted-foreground">{t('home.logosSub')}</p>
           </div>
           <span className="text-primary font-bold text-lg">→</span>
         </motion.button>
@@ -203,8 +203,8 @@ export function HomeScreen({
         >
           <span className="text-3xl">🔐</span>
           <div className="text-left flex-1">
-            <p className="font-bold text-lg text-foreground">The Vault</p>
-            <p className="text-xs text-muted-foreground">Classified secrets — declassified, ranked & explored</p>
+            <p className="font-bold text-lg text-foreground">{t('home.vault')}</p>
+            <p className="text-xs text-muted-foreground">{t('home.vaultSub')}</p>
           </div>
           <span className="text-destructive font-bold text-lg">→</span>
         </motion.button>
@@ -213,12 +213,12 @@ export function HomeScreen({
       {/* Stats showcase — 2 rows of 3 */}
       <StatsShowcase
         stats={[
-          { value: allQuestions.length, label: 'Questions', emoji: '❓' },
-          { value: allGlossaryTerms.length, label: 'Terms', emoji: '📖' },
-          { value: THINKERS.length, label: 'Thinkers', emoji: '🎓' },
-          { value: TOPICS.length, label: 'Topics', emoji: '🧩' },
-          { value: VAULT_ENTRIES.length, label: 'Secrets', emoji: '🔐' },
-          { value: vaultQuestions.length, label: 'Equations', emoji: '📐' },
+          { value: allQuestions.length, label: t('stats.questions'), emoji: '❓' },
+          { value: allGlossaryTerms.length, label: t('stats.terms'), emoji: '📖' },
+          { value: THINKERS.length, label: t('stats.thinkers'), emoji: '🎓' },
+          { value: TOPICS.length, label: t('stats.topics'), emoji: '🧩' },
+          { value: VAULT_ENTRIES.length, label: t('stats.secrets'), emoji: '🔐' },
+          { value: vaultQuestions.length, label: t('stats.equations'), emoji: '📐' },
         ]}
       />
 
@@ -243,7 +243,7 @@ export function HomeScreen({
         <SearchFilter
           value={topicSearch}
           onChange={setTopicSearch}
-          placeholder="Search topics…"
+          placeholder={t('home.searchTopics')}
           resultLabel="topics"
         />
       </div>
