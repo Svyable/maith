@@ -35,6 +35,9 @@ export const STREAK_CAP = 2.0;
 // ── Universal timer (seconds per question, regardless of difficulty) ─
 export const QUESTION_TIME_SECONDS = 30;
 
+// ── Default quiz question cap ───────────────────────────────
+export const DEFAULT_QUIZ_CAP = 10;
+
 // ── Difficulty meta ──────────────────────────────────────────
 export interface DifficultyMeta {
   slug: Difficulty;
