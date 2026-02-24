@@ -2,14 +2,14 @@
 // Business logic lives in src/domain/quiz/. This hook only manages React state.
 
 import { useState, useCallback } from 'react';
-import { type Difficulty } from '@/config/constants';
+import { type Difficulty, DEFAULT_QUIZ_CAP } from '@/config/constants';
 import {
   buildInitialState,
   applyAnswer,
   advanceQuestion,
   skipCurrentQuestion,
   endQuiz as endQuizEngine,
-  fetchQuestions,
+  fetchQuestionsLocalFirst,
   checkAnswer,
   type QuizState,
   type PublicQuestion,
@@ -25,11 +25,26 @@ export function useQuiz(selectedTopics: string[] = [], difficulties: Difficulty[
   const currentQuestion: PublicQuestion | null =
     state.currentQuestions[state.currentIndex] ?? null;
 
-  const initQuiz = useCallback(async (topics: string[], diffs: Difficulty[]) => {
+  const initQuiz = useCallback((topics: string[], diffs: Difficulty[]) => {
     setState(buildInitialState());
-    // Fetch ALL matching questions (no count limit)
-    const questions = await fetchQuestions(topics, diffs);
-    setState((prev) => ({ ...prev, currentQuestions: questions, loading: false }));
+
+    // 1. Instantly load local questions — quiz can start with 0ms wait
+    const localQuestions = fetchQuestionsLocalFirst(
+      topics,
+      diffs,
+      allQuestions,
+      DEFAULT_QUIZ_CAP,
+      // 2. If server returns better data, swap in (only if user hasn't started answering)
+      (serverQuestions) => {
+        setState((prev) => {
+          // Only swap if user hasn't answered any questions yet
+          if (prev.totalAnswered > 0) return prev;
+          return { ...prev, currentQuestions: serverQuestions, loading: false };
+        });
+      },
+    );
+
+    setState((prev) => ({ ...prev, currentQuestions: localQuestions, loading: false }));
   }, []);
 
   const answer = useCallback(
@@ -58,8 +73,8 @@ export function useQuiz(selectedTopics: string[] = [], difficulties: Difficulty[
   }, []);
 
   const restartQuiz = useCallback(
-    async (topics: string[] = [], diffs: Difficulty[] = difficulties) => {
-      await initQuiz(topics, diffs);
+    (topics: string[] = [], diffs: Difficulty[] = difficulties) => {
+      initQuiz(topics, diffs);
     },
     [difficulties, initQuiz],
   );

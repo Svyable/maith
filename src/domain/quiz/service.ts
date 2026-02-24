@@ -7,7 +7,7 @@ import { allQuestions } from '@/content';
 import { allThinkerQuestions } from '@/content/thinkers';
 import { getLocale } from '@/i18n';
 import { tQuestion, tQuestionOptions } from '@/i18n/tQuestion';
-import { toQuestionDifficulty, type Difficulty, type QuestionDifficulty } from '@/config/constants';
+import { toQuestionDifficulty, DEFAULT_QUIZ_CAP, type Difficulty, type QuestionDifficulty } from '@/config/constants';
 import { fisherYatesShuffle, stripAnswers } from './engine';
 import type { PublicQuestion, CheckResult, SessionSubmitParams } from './types';
 import type { Question } from '@/content/types';
@@ -25,12 +25,13 @@ function applyClientTranslations(q: PublicQuestion): PublicQuestion {
 
 /**
  * Local fallback: select from a given question pool, filter by topic &
- * difficulty, shuffle, strip, translate.
+ * difficulty, shuffle, strip, translate. Caps to `cap` questions.
  */
 export function selectQuestionsLocal(
   pool: Question[],
   topics: string[],
   difficulties: QuestionDifficulty[],
+  cap: number = DEFAULT_QUIZ_CAP,
 ): PublicQuestion[] {
   let filtered = topics.length === 0 ? pool : pool.filter((q) => topics.includes(q.topic));
 
@@ -40,6 +41,7 @@ export function selectQuestionsLocal(
   }
 
   return fisherYatesShuffle(filtered)
+    .slice(0, cap)
     .map((q) => applyClientTranslations(stripAnswers(q)));
 }
 
@@ -64,35 +66,74 @@ export function localFallbackCheck(
 // ── Server calls ─────────────────────────────────────────────────────
 
 /**
- * Fetch sanitized questions from the edge function, falling back to local
- * selection from `pool` if the edge function is unavailable.
+ * Fetch questions with an instant local-first strategy:
+ * 1. Immediately return local questions (capped) so the quiz can start.
+ * 2. Fire a background server fetch; if it resolves with better data,
+ *    call `onServerQuestions` to swap in the server batch.
+ *
+ * For synchronous callers (no callback), just returns the local set.
+ */
+export function fetchQuestionsLocalFirst(
+  topics: string[],
+  difficulties: Difficulty[],
+  pool: Question[] = allQuestions,
+  cap: number = DEFAULT_QUIZ_CAP,
+  onServerQuestions?: (questions: PublicQuestion[]) => void,
+): PublicQuestion[] {
+  const levels = difficulties.map(toQuestionDifficulty);
+  const localQuestions = selectQuestionsLocal(pool, topics, levels, cap);
+
+  // Fire-and-forget server fetch for potentially richer/shuffled data
+  if (onServerQuestions) {
+    const locale = getLocale();
+    supabase.functions
+      .invoke('quiz-next', {
+        body: { topics, difficulties: levels, seenIds: [], count: cap, locale },
+      })
+      .then(({ data, error }) => {
+        if (error) return; // keep local
+        const serverQuestions = (data?.questions as PublicQuestion[]) ?? [];
+        if (serverQuestions.length > 0) {
+          onServerQuestions(serverQuestions.slice(0, cap));
+        }
+      })
+      .catch(() => {
+        // silently keep local set
+      });
+  }
+
+  return localQuestions;
+}
+
+/**
+ * Legacy async fetch — used where awaiting is acceptable.
+ * Still caps to DEFAULT_QUIZ_CAP.
  */
 export async function fetchQuestions(
   topics: string[],
   difficulties: Difficulty[],
   pool: Question[] = allQuestions,
+  cap: number = DEFAULT_QUIZ_CAP,
 ): Promise<PublicQuestion[]> {
   const locale = getLocale();
   const levels = difficulties.map(toQuestionDifficulty);
   try {
     const { data, error } = await supabase.functions.invoke('quiz-next', {
-      body: { topics, difficulties: levels, seenIds: [], count: 9999, locale },
+      body: { topics, difficulties: levels, seenIds: [], count: cap, locale },
     });
     if (error) throw error;
     const serverQuestions = (data?.questions as PublicQuestion[]) ?? [];
-    // Fall back to local pool if server returned nothing but local content exists
     if (serverQuestions.length === 0) {
-      return selectQuestionsLocal(pool, topics, levels);
+      return selectQuestionsLocal(pool, topics, levels, cap);
     }
-    return serverQuestions;
+    return serverQuestions.slice(0, cap);
   } catch {
-    return selectQuestionsLocal(pool, topics, levels);
+    return selectQuestionsLocal(pool, topics, levels, cap);
   }
 }
 
 /**
  * Check an answer via the edge function, with local fallback.
- * Pass `pool` to select the correct local pool (main vs. thinker).
  */
 export async function checkAnswer(
   questionId: number,
@@ -113,7 +154,6 @@ export async function checkAnswer(
 
 /**
  * Submit a completed quiz session to the database.
- * Idempotent — caller is responsible for dedup (see submittedRef pattern).
  */
 export async function submitSession(
   userId: string,
@@ -139,6 +179,7 @@ export async function submitSession(
 export function fetchThinkerQuestions(
   slug: string,
   difficulties: QuestionDifficulty[],
+  cap: number = DEFAULT_QUIZ_CAP,
 ): PublicQuestion[] {
   let pool = allThinkerQuestions.filter((q) => q.topic === slug);
 
@@ -147,6 +188,7 @@ export function fetchThinkerQuestions(
   }
 
   return fisherYatesShuffle(pool)
+    .slice(0, cap)
     .map(stripAnswers);
 }
 
