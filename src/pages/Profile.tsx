@@ -2,6 +2,7 @@ import { useEffect, useState, useMemo } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '@/hooks/useAuth';
+import { useProfile } from '@/hooks/useProfile';
 import { supabase } from '@/integrations/supabase/client';
 import { TOPICS, TOPIC_MAP, DIFFICULTIES } from '@/config/constants';
 import { TopicHeatmap } from '@/components/TopicHeatmap';
@@ -9,7 +10,7 @@ import { FieldStatsBar } from '@/components/FieldStatsBar';
 import { useTheme } from '@/hooks/useTheme';
 import { useVaultProgress } from '@/hooks/useVaultProgress';
 import { QuizHeader } from '@/components/QuizHeader';
-import { Lock, Unlock } from 'lucide-react';
+import { Lock, Unlock, Pencil, Check, X } from 'lucide-react';
 import { t } from '@/i18n';
 
 interface UserStats {
@@ -72,6 +73,7 @@ function getLevel(xp: number) {
 
 export default function Profile() {
   const { user, loading: authLoading, signOut } = useAuth();
+  const { profile, loading: profileLoading, updateProfile } = useProfile();
   const navigate = useNavigate();
   const { isDark, toggle: toggleTheme } = useTheme();
   const { totalUnlocked, totalEntries } = useVaultProgress();
@@ -79,8 +81,9 @@ export default function Profile() {
   const [topicStats, setTopicStats] = useState<TopicStat[]>([]);
   const [difficultyStats, setDifficultyStats] = useState<DifficultyStat[]>([]);
   const [recentSessions, setRecentSessions] = useState<RecentSession[]>([]);
-  const [displayName, setDisplayName] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
+  const [editingName, setEditingName] = useState(false);
+  const [editName, setEditName] = useState('');
 
   useEffect(() => {
     if (authLoading) return;
@@ -88,15 +91,14 @@ export default function Profile() {
 
     async function fetchData() {
       setLoading(true);
-      const [profileRes, statsRes, topicRes, diffRes, sessionsRes] = await Promise.all([
-        supabase.from('profiles').select('display_name, username').eq('id', user!.id).maybeSingle(),
+      const [statsRes, topicRes, diffRes, sessionsRes] = await Promise.all([
         supabase.from('user_stats').select('*').eq('user_id', user!.id).maybeSingle(),
         supabase.from('user_topic_stats').select('*').eq('user_id', user!.id),
         supabase.from('user_difficulty_stats' as any).select('*').eq('user_id', user!.id),
         supabase.from('quiz_sessions').select('*').eq('user_id', user!.id).order('created_at', { ascending: false }).limit(10),
       ]);
 
-      setDisplayName(profileRes.data?.display_name || profileRes.data?.username || null);
+
       if (statsRes.data) setStats(statsRes.data as UserStats);
       if (topicRes.data) setTopicStats(topicRes.data as TopicStat[]);
       if (diffRes.data) setDifficultyStats(diffRes.data as unknown as DifficultyStat[]);
@@ -134,10 +136,54 @@ export default function Profile() {
             <div className="w-20 h-20 rounded-full bg-primary/20 flex items-center justify-center mx-auto text-4xl border-2 border-primary/30">
               {level.emoji}
             </div>
-            <div>
-              <h2 className="text-2xl font-display font-bold text-foreground">{displayName || t('profile.defaultName')}</h2>
-              <p className="text-sm text-muted-foreground">{user?.email}</p>
+            <div className="flex items-center justify-center gap-2">
+              {editingName ? (
+                <div className="flex items-center gap-2">
+                  <input
+                    type="text"
+                    value={editName}
+                    onChange={(e) => setEditName(e.target.value)}
+                    maxLength={20}
+                    className="px-3 py-1 rounded-lg bg-card border border-border text-foreground text-center text-lg font-bold focus:outline-none focus:ring-2 focus:ring-primary/50 w-48"
+                    autoFocus
+                  />
+                  <button
+                    onClick={async () => {
+                      const trimmed = editName.trim();
+                      if (trimmed.length >= 2) {
+                        await updateProfile({ display_name: trimmed });
+                        setEditingName(false);
+                      }
+                    }}
+                    className="p-1.5 rounded-lg bg-primary/20 text-primary hover:bg-primary/30 transition-colors"
+                  >
+                    <Check className="w-4 h-4" />
+                  </button>
+                  <button
+                    onClick={() => setEditingName(false)}
+                    className="p-1.5 rounded-lg bg-secondary text-muted-foreground hover:text-foreground transition-colors"
+                  >
+                    <X className="w-4 h-4" />
+                  </button>
+                </div>
+              ) : (
+                <>
+                  <h2 className="text-2xl font-display font-bold text-foreground">
+                    {profile?.display_name || t('profile.defaultName')}
+                  </h2>
+                  <button
+                    onClick={() => {
+                      setEditName(profile?.display_name || '');
+                      setEditingName(true);
+                    }}
+                    className="p-1.5 rounded-lg text-muted-foreground hover:text-primary transition-colors"
+                  >
+                    <Pencil className="w-3.5 h-3.5" />
+                  </button>
+                </>
+              )}
             </div>
+              <p className="text-sm text-muted-foreground">{user?.email}</p>
             {/* Level badge */}
             <div className="flex items-center justify-center gap-2 flex-wrap">
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-card border border-border">
