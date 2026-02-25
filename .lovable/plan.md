@@ -1,67 +1,147 @@
-## Auth Page Fix + Global Animated Background
 
-### What's Changing
 
-**1. Extract a reusable `FloatingBackground` component**
+# Profile Onboarding and Leaderboard Alignment
 
-- Create `src/components/FloatingBackground.tsx` — a shared animated background with floating math symbols AND floating equations (replacing the ticker tape)
-- The component will render both symbols (`∑`, `∫`, `π`, etc.) and famous equations (`E = mc²`, `e^{iπ} + 1 = 0`, `∇ × B = μ₀J`, etc.) as floating, drifting elements at varying sizes, speeds, and opacities
-- Uses `framer-motion` for smooth, organic animations (float, drift, subtle rotation)
-- Fully `pointer-events-none` and `aria-hidden` so it never interferes with interaction
+## Problem
+- New users (both email signup and OAuth) get auto-generated usernames like `user_a3f8b2c1` with no opportunity to choose a display name
+- OAuth users (Google/Apple) often have `null` display_name since the trigger only reads `raw_user_meta_data`
+- The leaderboard shows `display_name || username`, resulting in cryptic entries
+- There is no post-signup onboarding screen to collect a preferred username
+- The Profile page displays but cannot edit the username/display_name
 
-**2. Fix the Auth page composition**
+## Solution
 
-- Remove the ticker tape / scrolling formula strip entirely from Auth
-- Remove the left-panel brand hero (the big brain + tagline + ticker + field badges) — it's redundant with the floating background
-- Simplify to a single centered auth card with the `FloatingBackground` behind it
-- Keep: mode tabs, form inputs, OAuth buttons, "play without account" link, footer copyright
-- Add the `Footer` component to the auth page for brand consistency
+### 1. Add a username onboarding screen (`src/pages/Onboarding.tsx`)
+A simple page shown after first login when the user has no custom display_name set. Contains:
+- A text input for choosing a display name (required, 2-20 chars)
+- An optional avatar emoji picker (or keep default)
+- A "Save and Continue" button that writes to the `profiles` table
+- Redirects to `/` after saving
 
-**3. Apply `FloatingBackground` globally**
+### 2. Create a `useProfile` hook (`src/hooks/useProfile.ts`)
+- Fetches the current user's profile row on auth state change
+- Exposes `profile`, `loading`, `updateProfile(fields)`, and `needsOnboarding` (true when display_name is null or matches the auto-generated pattern `user_XXXXXXXX`)
+- Used by Index.tsx, Profile.tsx, and Onboarding.tsx to avoid scattered `supabase.from('profiles')` calls
 
-- Add it to `Index.tsx` (behind home, quiz, and results screens)
-- Add it to `Thinkers.tsx` (behind gallery and quiz)
-- Add it to `Glossary.tsx`
-- Add it to `Leaderboard.tsx`
-- Each page wraps content in `relative z-10` so it layers above the background
+### 3. Update the `handle_new_user` trigger (DB migration)
+- For OAuth users, also extract `full_name` / `name` from `raw_user_meta_data` (Google/Apple provide these)
+- Store it as `display_name` so OAuth users at least have a real name as fallback
 
-**4. Additional enhancements and creature comforts**
+### 4. Add onboarding redirect logic in `App.tsx`
+- After auth state resolves, if user is logged in and `needsOnboarding` is true, redirect to `/onboarding`
+- The onboarding route is protected (requires auth)
 
-- Add `Footer` to Thinkers, Glossary, and Leaderboard pages (currently only on Index home screen)
-- Widen Leaderboard to use the same responsive max-widths as other pages (`max-w-lg md:max-w-3xl lg:max-w-5xl`)
+### 5. Make Profile page editable
+- Add an "Edit" button next to the display name on `Profile.tsx`
+- Inline edit field that calls `updateProfile({ display_name })` on save
+- Updates reflect immediately on the leaderboard views
+
+### 6. Ensure leaderboard views show the right name
+- The existing views (`leaderboard_all_time`, `leaderboard_weekly`, `leaderboard_by_topic`) already join on `profiles.display_name` and `profiles.username`
+- No schema change needed -- once profiles have proper display_names, leaderboard displays correctly
 
 ---
 
-### Technical Details
+## Technical Details
 
-**New file: `src/components/FloatingBackground.tsx**`
+### New files
+| File | Purpose |
+|---|---|
+| `src/pages/Onboarding.tsx` | Post-signup username picker screen |
+| `src/hooks/useProfile.ts` | Shared profile fetch/update hook |
 
-- Props: none (pure decoration)
-- Renders ~14 math symbols + ~8 equations as absolutely positioned `motion.span` elements
-- Each element gets randomized position via golden-ratio distribution, variable font sizes, and staggered animation delays
-- Symbols: gentle float up/down + subtle rotation, opacity pulse between 0.03-0.12
-- Equations: slower drift, slightly larger, even more transparent (0.02-0.08)
-- All wrapped in `<div className="fixed inset-0 pointer-events-none overflow-hidden z-0">`
+### Modified files
+| File | Change |
+|---|---|
+| `src/App.tsx` | Add `/onboarding` route, add redirect guard |
+| `src/pages/Index.tsx` | Use `useProfile` instead of inline profile fetch |
+| `src/pages/Profile.tsx` | Use `useProfile`, add inline display_name editing |
+| `src/pages/Auth.tsx` | After successful login, navigate to `/onboarding` if needed |
 
-**Auth page restructure (`src/pages/Auth.tsx`):**
-
-- Remove `FORMULAS` array and ticker tape JSX
-- Remove left-panel brand hero section
-- Remove inline floating symbols (replaced by shared component)
-- Import and render `<FloatingBackground />`
-- Center the auth form card vertically with a clean `flex items-center justify-center` layout
-- Import and add `<Footer />` at the bottom
-
-**Pages updated to add background:**
-
-- `src/pages/Index.tsx` — add `<FloatingBackground />` inside root div
-- `src/pages/Thinkers.tsx` — add `<FloatingBackground />`
-- `src/pages/Glossary.tsx` — add `<FloatingBackground />`
-- `src/pages/Leaderboard.tsx` — add `<FloatingBackground />`, widen container, add `<Footer />`
-
-**Files created:** 1 (`FloatingBackground.tsx`)
-**Files modified:** 5 (`Auth.tsx`, `Index.tsx`, `Thinkers.tsx`, `Glossary.tsx`, `Leaderboard.tsx`)  
+### Database migration
+```sql
+-- Improve handle_new_user to extract name from OAuth providers
+CREATE OR REPLACE FUNCTION public.handle_new_user()
+RETURNS trigger
+LANGUAGE plpgsql
+SECURITY DEFINER
+SET search_path TO 'public'
+AS $$
+DECLARE
+  base_username text;
+  v_display_name text;
+BEGIN
+  base_username := 'user_' || substr(NEW.id::text, 1, 8);
   
-And add some new thinkers we dont have yet that are obvious like hubble or einstein or green or maxwell and tesla etc
+  -- Try multiple metadata fields (Google sends full_name/name, Apple sends name)
+  v_display_name := COALESCE(
+    NEW.raw_user_meta_data->>'display_name',
+    NEW.raw_user_meta_data->>'full_name',
+    NEW.raw_user_meta_data->>'name',
+    NULL
+  );
 
-&nbsp;
+  INSERT INTO public.profiles (id, username, display_name, avatar_url, locale, is_public)
+  VALUES (
+    NEW.id,
+    base_username,
+    v_display_name,
+    COALESCE(NEW.raw_user_meta_data->>'avatar_url', NULL),
+    COALESCE(NEW.raw_user_meta_data->>'locale', 'en'),
+    true
+  )
+  ON CONFLICT (id) DO NOTHING;
+
+  INSERT INTO public.user_stats (user_id)
+  VALUES (NEW.id)
+  ON CONFLICT (user_id) DO NOTHING;
+
+  RETURN NEW;
+END;
+$$;
+```
+
+### `useProfile` hook shape
+```typescript
+interface Profile {
+  id: string;
+  username: string;
+  display_name: string | null;
+  avatar_url: string | null;
+  locale: string;
+}
+
+interface UseProfileReturn {
+  profile: Profile | null;
+  loading: boolean;
+  needsOnboarding: boolean;
+  updateProfile: (fields: Partial<Profile>) => Promise<void>;
+}
+```
+
+### Onboarding flow
+```text
+[User signs up / OAuth] --> [handle_new_user trigger creates profile row]
+        |
+        v
+[App.tsx checks needsOnboarding]
+        |
+  true  |  false
+   v         v
+[/onboarding]  [/ (home)]
+   |
+   v
+[User picks display name] --> [UPDATE profiles SET display_name = ...]
+   |
+   v
+[Redirect to /]
+```
+
+### Sequencing
+1. DB migration (update `handle_new_user` trigger)
+2. Create `useProfile` hook
+3. Create `Onboarding.tsx` page
+4. Wire routing in `App.tsx`
+5. Refactor `Index.tsx` and `Profile.tsx` to use `useProfile`
+6. Add edit capability to `Profile.tsx`
+
