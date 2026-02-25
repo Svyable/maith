@@ -10,7 +10,7 @@ import { useQuiz } from '@/hooks/useQuiz';
 import { useQuizSession } from '@/hooks/useQuizSession';
 import { useTheme } from '@/hooks/useTheme';
 import { useAuth } from '@/hooks/useAuth';
-import { supabase } from '@/integrations/supabase/client';
+import { useProfile } from '@/hooks/useProfile';
 import { type Difficulty, DEFAULT_DIFFICULTIES } from '@/config/constants';
 import { FIELD_MAP } from '@/config/fields';
 import { t } from '@/i18n';
@@ -22,9 +22,9 @@ const Index = () => {
   const [selectedTopics, setSelectedTopics] = useState<string[]>([]);
   const [selectedField, setSelectedField] = useState<string>('all');
   const [selectedDifficulties, setSelectedDifficulties] = useState<Difficulty[]>(DEFAULT_DIFFICULTIES);
-  const [displayName, setDisplayName] = useState<string | null>(null);
   const { isDark, toggle: toggleTheme } = useTheme();
   const { user, signOut } = useAuth();
+  const { profile } = useProfile();
 
   const { state, currentQuestion, answer, nextQuestion, skipQuestion, endQuiz, restartQuiz, totalQuestions } =
     useQuiz(selectedTopics, selectedDifficulties);
@@ -50,12 +50,8 @@ const Index = () => {
     onTimeout: handleTimeout,
   });
 
-  // Fetch display name
-  useEffect(() => {
-    if (!user) { setDisplayName(null); return; }
-    supabase.from('profiles').select('display_name').eq('id', user.id).maybeSingle()
-      .then(({ data }) => setDisplayName(data?.display_name ?? null));
-  }, [user]);
+
+
 
   const handleNext = useCallback(() => {
     nextQuestion();
@@ -126,7 +122,7 @@ const Index = () => {
               selectedField={selectedField}
               onSelectField={setSelectedField}
               onStart={startQuiz}
-              displayName={displayName}
+              displayName={profile?.display_name ?? null}
               onSignOut={user ? signOut : undefined}
             />
           )}
