@@ -106,6 +106,13 @@
   "auth.createAccount": "Create Account",
   "auth.checkEmail": "Check your email to confirm your account!",
 
+  "onboarding.title": "Choose your name",
+  "onboarding.subtitle": "This is how you'll appear on the leaderboard",
+  "onboarding.placeholder": "Enter display name…",
+  "onboarding.minChars": "Min 2 characters",
+  "onboarding.nameError": "Name must be 2–20 characters",
+  "onboarding.save": "Save & Continue",
+
   "nav.home": "Home",
   "nav.leaderboard": "Leaderboard",
   "nav.profile": "Profile",
