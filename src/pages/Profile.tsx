@@ -8,9 +8,9 @@ import { TOPICS, TOPIC_MAP, DIFFICULTIES } from '@/config/constants';
 import { TopicHeatmap } from '@/components/TopicHeatmap';
 import { FieldStatsBar } from '@/components/FieldStatsBar';
 import { useTheme } from '@/hooks/useTheme';
-import { useVaultProgress } from '@/hooks/useVaultProgress';
+import { useVaultProgress, getClearanceLevel } from '@/hooks/useVaultProgress';
 import { QuizHeader } from '@/components/QuizHeader';
-import { Lock, Unlock, Pencil, Check, X } from 'lucide-react';
+import { Lock, Unlock, Pencil, Check, X, Shield } from 'lucide-react';
 import { t } from '@/i18n';
 
 interface UserStats {
@@ -76,7 +76,7 @@ export default function Profile() {
   const { profile, loading: profileLoading, updateProfile } = useProfile();
   const navigate = useNavigate();
   const { isDark, toggle: toggleTheme } = useTheme();
-  const { totalUnlocked, totalEntries } = useVaultProgress();
+  const { totalUnlocked, totalEntries, clearance } = useVaultProgress();
   const [stats, setStats] = useState<UserStats | null>(null);
   const [topicStats, setTopicStats] = useState<TopicStat[]>([]);
   const [difficultyStats, setDifficultyStats] = useState<DifficultyStat[]>([]);
@@ -97,7 +97,6 @@ export default function Profile() {
         supabase.from('user_difficulty_stats' as any).select('*').eq('user_id', user!.id),
         supabase.from('quiz_sessions').select('*').eq('user_id', user!.id).order('created_at', { ascending: false }).limit(10),
       ]);
-
 
       if (statsRes.data) setStats(statsRes.data as UserStats);
       if (topicRes.data) setTopicStats(topicRes.data as TopicStat[]);
@@ -125,17 +124,21 @@ export default function Profile() {
     );
   }
 
+  const avatarEmoji = profile?.avatar_url || level.emoji;
+
   return (
     <div className="min-h-screen bg-background flex flex-col">
       <QuizHeader streak={0} showStreak={false} isDark={isDark} onToggleTheme={toggleTheme} onHome={() => navigate('/')} />
 
       <main className="flex-1 px-4 py-6 max-w-lg mx-auto w-full space-y-6">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="space-y-6">
-          {/* Profile header with level */}
+          {/* Profile header */}
           <div className="text-center space-y-3">
             <div className="w-20 h-20 rounded-full bg-primary/20 flex items-center justify-center mx-auto text-4xl border-2 border-primary/30">
-              {level.emoji}
+              {avatarEmoji}
             </div>
+
+            {/* Editable display name */}
             <div className="flex items-center justify-center gap-2">
               {editingName ? (
                 <div className="flex items-center gap-2">
@@ -146,6 +149,17 @@ export default function Profile() {
                     maxLength={20}
                     className="px-3 py-1 rounded-lg bg-card border border-border text-foreground text-center text-lg font-bold focus:outline-none focus:ring-2 focus:ring-primary/50 w-48"
                     autoFocus
+                    onKeyDown={(e) => {
+                      if (e.key === 'Enter') {
+                        const trimmed = editName.trim();
+                        if (trimmed.length >= 2) {
+                          updateProfile({ display_name: trimmed });
+                          setEditingName(false);
+                        }
+                      } else if (e.key === 'Escape') {
+                        setEditingName(false);
+                      }
+                    }}
                   />
                   <button
                     onClick={async () => {
@@ -183,26 +197,24 @@ export default function Profile() {
                 </>
               )}
             </div>
-              <p className="text-sm text-muted-foreground">{user?.email}</p>
-            {/* Level badge */}
+            <p className="text-sm text-muted-foreground">{user?.email}</p>
+
+            {/* Level + Clearance badges */}
             <div className="flex items-center justify-center gap-2 flex-wrap">
+              {/* XP Level */}
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-card border border-border">
                 <span className="text-xs font-bold text-primary">LVL {level.level}</span>
                 <span className="text-xs font-medium text-foreground">{level.title}</span>
               </div>
-              {/* Vault Classified Level */}
+              {/* Vault Clearance */}
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-destructive/10 border border-destructive/30">
-                {totalUnlocked >= totalEntries ? (
-                  <Unlock className="w-3.5 h-3.5 text-destructive" />
-                ) : (
-                  <Lock className="w-3.5 h-3.5 text-destructive" />
-                )}
+                <Shield className="w-3.5 h-3.5 text-destructive" />
                 <span className="text-xs font-bold text-destructive">
-                  🔐 {totalUnlocked}/{totalEntries}
+                  {clearance.emoji} {clearance.label}
                 </span>
-                <span className="text-[10px] font-medium text-destructive/70">{t('profile.classified')}</span>
               </div>
             </div>
+
             {/* XP progress bar */}
             <div className="max-w-xs mx-auto">
               <div className="flex justify-between text-[10px] text-muted-foreground mb-1">
@@ -215,6 +227,24 @@ export default function Profile() {
                   initial={{ width: 0 }}
                   animate={{ width: `${level.progress}%` }}
                   transition={{ duration: 1, ease: 'easeOut' }}
+                />
+              </div>
+            </div>
+
+            {/* Vault progress bar */}
+            <div className="max-w-xs mx-auto">
+              <div className="flex justify-between text-[10px] text-muted-foreground mb-1">
+                <span>🔐 {totalUnlocked}/{totalEntries} declassified</span>
+                {clearance.next && (
+                  <span>{clearance.next.emoji} {clearance.next.label} at {clearance.next.min}</span>
+                )}
+              </div>
+              <div className="h-2 bg-secondary rounded-full overflow-hidden">
+                <motion.div
+                  className="h-full bg-destructive rounded-full"
+                  initial={{ width: 0 }}
+                  animate={{ width: `${Math.round((totalUnlocked / totalEntries) * 100)}%` }}
+                  transition={{ duration: 1, ease: 'easeOut', delay: 0.3 }}
                 />
               </div>
             </div>

@@ -173,6 +173,24 @@ export type Database = {
         }
         Relationships: []
       }
+      user_vault_progress: {
+        Row: {
+          entry_id: string
+          unlocked_at: string
+          user_id: string
+        }
+        Insert: {
+          entry_id: string
+          unlocked_at?: string
+          user_id: string
+        }
+        Update: {
+          entry_id?: string
+          unlocked_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       leaderboard_all_time: {
