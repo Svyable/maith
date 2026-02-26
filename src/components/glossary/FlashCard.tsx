@@ -1,20 +1,8 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { LatexRenderer } from '@/components/LatexRenderer';
+import { t } from '@/i18n';
 import type { GlossaryTerm } from '@/content/glossary/types';
-
-interface FlashCardProps {
-  term: GlossaryTerm;
-  index: number;
-}
-
-type TabKey = 'definition' | 'latex' | 'code';
-
-const TAB_LABELS: Record<TabKey, string> = {
-  definition: '📖 Definition',
-  latex: '𝕃 LaTeX',
-  code: '⌨ Code',
-};
 
 export function FlashCard({ term, index }: FlashCardProps) {
   const [flipped, setFlipped] = useState(false);
