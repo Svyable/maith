@@ -13,4 +13,12 @@ export interface GlossaryTerm {
   example?: string;
   /** Related term ids for "see also" links */
   related?: string[];
+  /** Hero formula rendered large via KaTeX (e.g. '$E = mc^2$') */
+  formula?: string;
+  /** Raw LaTeX source for the formula (shown in source tab) */
+  latex?: string;
+  /** Lean 4 / pseudocode representation */
+  code?: string;
+  /** Quiz question IDs linked to this term (for future cross-ref) */
+  questionIds?: string[];
 }
