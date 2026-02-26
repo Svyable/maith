@@ -181,11 +181,14 @@ function VaultCard({
   entry,
   index,
   isUnlocked,
+  isSealed,
   onChallenge,
 }: {
   entry: VaultEntry;
   index: number;
   isUnlocked: boolean;
+  /** Entry is challengeable but not yet solved */
+  isSealed: boolean;
   onChallenge: () => void;
 }) {
   const [expanded, setExpanded] = useState(false);
