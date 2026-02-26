@@ -1,7 +1,7 @@
 {
   "app.title": "mAIth",
-  "app.tagline": "Master science, mathematics, engineering, and beyond — one question at a time.",
-  "app.footerTagline": "Train your mind across every field of science & mathematics.",
+  "app.tagline": "Solve maith = Solve everything.",
+  "app.footerTagline": "Train your mind in the art of mathematics.",
   "app.copyright": "© {{year}} mAIth = solve math == solve everything",
 
   "home.greeting": "Hey, {{name}} 👋",
