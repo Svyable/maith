@@ -69,7 +69,7 @@ export function localFallbackCheck(
 export async function checkAnswer(
   questionId: number,
   selectedIndex: number,
-  pool: Question[] = allQuestions,
+  pool: Question[],
 ): Promise<CheckResult | null> {
   // Use local check — instant, has full question bank.
   // The quiz-check edge function only has a small subset of questions
