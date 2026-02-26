@@ -1,6 +1,7 @@
 import { useState, useMemo, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from '@/hooks/useAuth';
 import { QuizHeader } from '@/components/QuizHeader';
 import { FloatingBackground } from '@/components/FloatingBackground';
 import { Footer } from '@/components/Footer';
@@ -366,12 +367,20 @@ function VaultCard({
 export default function Vault() {
   const { isDark, toggle: toggleTheme } = useTheme();
   const navigate = useNavigate();
+  const { user } = useAuth();
   const { isUnlocked, unlockEntry, resetProgress, totalUnlocked, totalEntries } = useVaultProgress();
   const [challengeIndex, setChallengeIndex] = useState<number | null>(null);
 
+  const GUEST_LEVEL_CAP = 2; // guests can only unlock up to level 2
+
   const handleChallenge = useCallback((index: number) => {
+    // If guest and trying to go past the cap, redirect to auth
+    if (!user && index >= GUEST_LEVEL_CAP) {
+      navigate('/auth');
+      return;
+    }
     setChallengeIndex(index);
-  }, []);
+  }, [user, navigate]);
 
   const handleChallengeSuccess = useCallback(() => {
     if (challengeIndex === null) return;
