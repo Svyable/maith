@@ -4,15 +4,17 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from '@/hooks/useAuth';
 import { useProfile } from '@/hooks/useProfile';
 import { supabase } from '@/integrations/supabase/client';
-import { TOPICS, TOPIC_MAP, DIFFICULTIES } from '@/config/constants';
+import { TOPIC_MAP } from '@/config/constants';
 import { TopicHeatmap } from '@/components/TopicHeatmap';
 import { FieldStatsBar } from '@/components/FieldStatsBar';
+import { ProfileGamescapeStats } from '@/components/ProfileGamescapeStats';
 import { useTheme } from '@/hooks/useTheme';
 import { useVaultProgress, getClearanceLevel } from '@/hooks/useVaultProgress';
 import { QuizHeader } from '@/components/QuizHeader';
 import { FloatingBackground } from '@/components/FloatingBackground';
-import { Lock, Unlock, Pencil, Check, X, Shield } from 'lucide-react';
+import { Pencil, Check, X, Shield } from 'lucide-react';
 import { t } from '@/i18n';
+import { DIFFICULTIES } from '@/config/constants';
 
 interface UserStats {
   score_total: number;
@@ -110,9 +112,6 @@ export default function Profile() {
   }, [user, authLoading, navigate]);
 
   const level = useMemo(() => getLevel(stats?.score_total ?? 0), [stats]);
-  const accuracy = stats && stats.total_answered > 0
-    ? Math.round((stats.correct_answered / stats.total_answered) * 100)
-    : 0;
 
   if (authLoading || loading) {
     return (
@@ -210,12 +209,10 @@ export default function Profile() {
 
             {/* Level + Clearance badges */}
             <div className="flex items-center justify-center gap-2 flex-wrap">
-              {/* XP Level */}
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-card border border-border">
                 <span className="text-xs font-bold text-primary">LVL {level.level}</span>
                 <span className="text-xs font-medium text-foreground">{level.title}</span>
               </div>
-              {/* Vault Clearance */}
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-destructive/10 border border-destructive/30">
                 <Shield className="w-3.5 h-3.5 text-destructive" />
                 <span className="text-xs font-bold text-destructive">
@@ -259,21 +256,12 @@ export default function Profile() {
             </div>
           </div>
 
-          {/* Stats overview */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-            {[
-              { label: t('profile.score'), value: stats?.score_total ?? 0, emoji: '⭐' },
-              { label: t('profile.answered'), value: stats?.total_answered ?? 0, emoji: '📝' },
-              { label: t('profile.accuracy'), value: `${accuracy}%`, emoji: '🎯' },
-              { label: t('profile.streak'), value: stats?.best_streak ?? 0, emoji: '🔥' },
-            ].map((s) => (
-              <div key={s.label} className="bg-card rounded-xl p-3 border border-border text-center">
-                <div className="text-lg">{s.emoji}</div>
-                <div className="text-lg font-bold text-foreground font-mono">{s.value}</div>
-                <div className="text-[10px] text-muted-foreground">{s.label}</div>
-              </div>
-            ))}
-          </div>
+          {/* Gamescape stats — replaces old stats + difficulty cards */}
+          <ProfileGamescapeStats
+            stats={stats}
+            topicStats={topicStats}
+            difficultyStats={difficultyStats}
+          />
 
           {/* Field-level overview */}
           {topicStats.length > 0 && (
@@ -284,41 +272,6 @@ export default function Profile() {
                   topicStats.map((s) => [s.topic, { correct: s.correct_answered, total: s.total_answered }])
                 )}
               />
-            </div>
-          )}
-
-          {/* Difficulty breakdown */}
-          {difficultyStats.length > 0 && (
-            <div className="space-y-3">
-              <h3 className="text-sm font-bold text-muted-foreground">{t('profile.difficultyStats')}</h3>
-              <div className="grid grid-cols-3 gap-2">
-                {DIFFICULTIES.map((d) => {
-                  const stat = difficultyStats.find((s) => s.difficulty === d.slug);
-                  const pct = stat && stat.total_answered > 0
-                    ? Math.round((stat.correct_answered / stat.total_answered) * 100)
-                    : 0;
-                  const colorClass = d.color === 'success' ? 'text-success' : d.color === 'accent' ? 'text-accent' : 'text-destructive';
-                  const bgClass = d.color === 'success' ? 'bg-success' : d.color === 'accent' ? 'bg-accent' : 'bg-destructive';
-                  return (
-                    <div key={d.slug} className="bg-card rounded-xl p-3 border border-border text-center space-y-1.5">
-                      <div className="text-lg">{d.emoji}</div>
-                      <div className="text-xs font-bold text-muted-foreground">{d.tag}</div>
-                      {stat ? (
-                        <>
-                          <div className={`text-xl font-bold font-mono ${colorClass}`}>{pct}%</div>
-                          <div className="h-1.5 bg-secondary rounded-full overflow-hidden">
-                            <div className={`h-full rounded-full ${bgClass}`} style={{ width: `${pct}%` }} />
-                          </div>
-                          <div className="text-[10px] text-muted-foreground">{stat.correct_answered}/{stat.total_answered} · ⭐{stat.score_total}</div>
-                          <div className="text-[10px] text-muted-foreground">🔥{stat.best_streak}</div>
-                        </>
-                      ) : (
-                        <div className="text-xs text-muted-foreground/50 italic">{t('profile.noData')}</div>
-                      )}
-                    </div>
-                  );
-                })}
-              </div>
             </div>
           )}
 
