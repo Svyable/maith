@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { useProfile } from '@/hooks/useProfile';
@@ -10,17 +10,21 @@ const EMOJI_OPTIONS = ['🧠', '🎓', '⚡', '🔥', '🏆', '👑', '💎', '�
 
 export default function Onboarding() {
   const navigate = useNavigate();
-  const { user } = useAuth();
+  const { user, signOut } = useAuth();
   const { updateProfile, loading } = useProfile();
   const [name, setName] = useState('');
   const [emoji, setEmoji] = useState('🧠');
   const [saving, setSaving] = useState(false);
+  const [signingOut, setSigningOut] = useState(false);
   const [error, setError] = useState('');
 
-  if (!user) {
-    navigate('/auth');
-    return null;
-  }
+  useEffect(() => {
+    if (!loading && !user) {
+      navigate('/auth', { replace: true });
+    }
+  }, [loading, user, navigate]);
+
+  if (!user) return null;
 
   const handleSave = async () => {
     const trimmed = name.trim();
@@ -28,11 +32,30 @@ export default function Onboarding() {
       setError(t('onboarding.nameError') || 'Name must be 2-20 characters');
       return;
     }
+
     setSaving(true);
     setError('');
-    await updateProfile({ display_name: trimmed, avatar_url: emoji });
+
+    const { error: updateError } = await updateProfile({
+      display_name: trimmed,
+      avatar_url: emoji,
+    });
+
     setSaving(false);
-    navigate('/');
+
+    if (updateError) {
+      setError(updateError);
+      return;
+    }
+
+    navigate('/', { replace: true });
+  };
+
+  const handleSignOut = async () => {
+    setSigningOut(true);
+    await signOut();
+    setSigningOut(false);
+    navigate('/auth', { replace: true });
   };
 
   if (loading) {
@@ -46,6 +69,17 @@ export default function Onboarding() {
   return (
     <div className="min-h-screen bg-background flex flex-col relative">
       <FloatingBackground />
+
+      <div className="relative z-10 flex justify-end px-4 pt-4">
+        <button
+          onClick={handleSignOut}
+          disabled={saving || signingOut}
+          className="rounded-lg border border-border bg-card px-3 py-1.5 text-xs font-semibold text-muted-foreground transition-colors hover:text-foreground disabled:opacity-50"
+        >
+          {signingOut ? '...' : t('profile.signOut') || 'Sign out'}
+        </button>
+      </div>
+
       <div className="relative z-10 flex-1 flex items-center justify-center px-4 py-8">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -64,11 +98,10 @@ export default function Onboarding() {
               {t('onboarding.title') || 'Choose your name'}
             </h1>
             <p className="text-sm text-muted-foreground">
-              {t('onboarding.subtitle') || 'This is how you\'ll appear on the leaderboard'}
+              {t('onboarding.subtitle') || "This is how you'll appear on the leaderboard"}
             </p>
           </div>
 
-          {/* Emoji picker */}
           <div className="flex flex-wrap justify-center gap-2">
             {EMOJI_OPTIONS.map((e) => (
               <button
@@ -85,7 +118,6 @@ export default function Onboarding() {
             ))}
           </div>
 
-          {/* Name input */}
           <div className="space-y-2">
             <input
               type="text"
@@ -109,13 +141,14 @@ export default function Onboarding() {
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             onClick={handleSave}
-            disabled={saving || name.trim().length < 2}
+            disabled={saving || signingOut || name.trim().length < 2}
             className="w-full py-3 rounded-xl bg-primary text-primary-foreground font-bold text-lg disabled:opacity-50 glow-primary"
           >
-            {saving ? '...' : t('onboarding.save') || 'Save & Continue'}
+            {saving ? (t('common.saving') || 'Saving...') : t('onboarding.save') || 'Save & Continue'}
           </motion.button>
         </motion.div>
       </div>
     </div>
   );
 }
+
