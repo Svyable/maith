@@ -440,7 +440,7 @@ export default function Vault() {
               />
             );
           })}
-          ))}
+
         </div>
 
         <div className="pb-8" />
