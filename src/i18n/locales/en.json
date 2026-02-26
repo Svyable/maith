@@ -152,6 +152,7 @@
   "vault.stillClassified": "STILL CLASSIFIED",
   "vault.statusDeclassified": "DECLASSIFIED",
   "vault.statusLocked": "LOCKED",
+  "vault.statusSealed": "SEALED",
   "vault.secrecy": "Secrecy",
   "vault.impact": "Impact",
   "vault.fullStory": "📁 Full Story",

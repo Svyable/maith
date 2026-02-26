@@ -181,11 +181,14 @@ function VaultCard({
   entry,
   index,
   isUnlocked,
+  isSealed,
   onChallenge,
 }: {
   entry: VaultEntry;
   index: number;
   isUnlocked: boolean;
+  /** Entry is challengeable but not yet solved */
+  isSealed: boolean;
   onChallenge: () => void;
 }) {
   const [expanded, setExpanded] = useState(false);
@@ -208,10 +211,12 @@ function VaultCard({
       <div className="absolute top-0 right-0 w-20 h-20 overflow-hidden pointer-events-none">
         <div className={`absolute top-3 -right-6 rotate-45 text-[8px] font-bold px-6 py-0.5 tracking-widest ${
           isUnlocked
-            ? 'bg-destructive/80 text-destructive-foreground'
-            : 'bg-muted-foreground/60 text-muted'
+            ? 'bg-success/80 text-success-foreground'
+            : isSealed
+              ? 'bg-destructive/80 text-destructive-foreground'
+              : 'bg-muted-foreground/60 text-muted'
         }`}>
-          {isUnlocked ? t('vault.statusDeclassified') : t('vault.statusLocked')}
+          {isUnlocked ? t('vault.statusDeclassified') : isSealed ? t('vault.statusSealed') : t('vault.statusLocked')}
         </div>
       </div>
 
@@ -419,15 +424,23 @@ export default function Vault() {
 
         {/* Level Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {VAULT_ENTRIES.map((entry, i) => (
-            <VaultCard
-              key={entry.id}
-              entry={entry}
-              index={i}
-              isUnlocked={isUnlocked(entry.id)}
-              onChallenge={() => handleChallenge(i)}
-            />
-          ))}
+          {VAULT_ENTRIES.map((entry, i) => {
+            const unlocked = isUnlocked(entry.id);
+            // Sealed = not unlocked but previous entry IS unlocked (or it's the first entry)
+            const prevUnlocked = i === 0 || isUnlocked(VAULT_ENTRIES[i - 1]?.id ?? '');
+            const sealed = !unlocked && prevUnlocked;
+            return (
+              <VaultCard
+                key={entry.id}
+                entry={entry}
+                index={i}
+                isUnlocked={unlocked}
+                isSealed={sealed}
+                onChallenge={() => handleChallenge(i)}
+              />
+            );
+          })}
+
         </div>
 
         <div className="pb-8" />

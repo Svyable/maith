@@ -45,20 +45,21 @@ export function useVaultProgress() {
   // Load from DB or localStorage
   useEffect(() => {
     if (user) {
-      // Load from DB
       supabase
-        .from('user_vault_progress' as any)
+        .from('user_vault_progress')
         .select('entry_id')
         .eq('user_id', user.id)
-        .then(({ data }) => {
-          const ids = new Set<string>((data ?? []).map((r: any) => r.entry_id));
+        .then(({ data, error }) => {
+          if (error) {
+            console.error('[vault] Failed to load progress:', error.message);
+          }
+          const ids = new Set<string>((data ?? []).map((r) => r.entry_id));
           // Always include first entry
           if (VAULT_ENTRIES[0]) ids.add(VAULT_ENTRIES[0].id);
           setUnlockedIds(ids);
           setDbLoaded(true);
         });
     } else {
-      // localStorage fallback
       try {
         const raw = localStorage.getItem(STORAGE_KEY);
         if (raw) {
@@ -91,12 +92,15 @@ export function useVaultProgress() {
         const newIds = localIds.filter((id) => !unlockedIds.has(id));
         if (newIds.length > 0) {
           const rows = newIds.map((entry_id) => ({ user_id: user.id, entry_id }));
-          supabase.from('user_vault_progress' as any).upsert(rows as any).then(() => {
-            setUnlockedIds((prev) => {
-              const next = new Set(prev);
-              newIds.forEach((id) => next.add(id));
-              return next;
-            });
+          supabase.from('user_vault_progress').upsert(rows).then(({ error }) => {
+            if (error) console.error('[vault] Sync failed:', error.message);
+            else {
+              setUnlockedIds((prev) => {
+                const next = new Set(prev);
+                newIds.forEach((id) => next.add(id));
+                return next;
+              });
+            }
           });
         }
       }
@@ -105,31 +109,34 @@ export function useVaultProgress() {
 
   const isUnlocked = useCallback((id: string) => unlockedIds.has(id), [unlockedIds]);
 
-  const unlockNext = useCallback((currentId: string) => {
-    const idx = VAULT_ENTRIES.findIndex((e) => e.id === currentId);
-    const next = VAULT_ENTRIES[idx + 1];
-    if (next) {
-      setUnlockedIds((prev) => new Set([...prev, next.id]));
-      if (user) {
-        supabase.from('user_vault_progress' as any).upsert({ user_id: user.id, entry_id: next.id } as any);
-      }
+  const unlockEntry = useCallback((id: string) => {
+    setUnlockedIds((prev) => {
+      const next = new Set(prev);
+      next.add(id);
+      return next;
+    });
+    if (user) {
+      supabase
+        .from('user_vault_progress')
+        .upsert({ user_id: user.id, entry_id: id }, { onConflict: 'user_id,entry_id' })
+        .then(({ error }) => {
+          if (error) console.error('[vault] Failed to persist unlock:', error.message);
+        });
     }
   }, [user]);
 
-  const unlockEntry = useCallback((id: string) => {
-    setUnlockedIds((prev) => new Set([...prev, id]));
-    if (user) {
-      supabase.from('user_vault_progress' as any).upsert({ user_id: user.id, entry_id: id } as any);
-    }
-  }, [user]);
+  const unlockNext = useCallback((currentId: string) => {
+    const idx = VAULT_ENTRIES.findIndex((e) => e.id === currentId);
+    const next = VAULT_ENTRIES[idx + 1];
+    if (next) unlockEntry(next.id);
+  }, [unlockEntry]);
 
   const resetProgress = useCallback(() => {
     const initial = new Set([VAULT_ENTRIES[0]?.id ?? '']);
     setUnlockedIds(initial);
     if (user) {
-      // Delete all except first entry
       supabase
-        .from('user_vault_progress' as any)
+        .from('user_vault_progress')
         .delete()
         .eq('user_id', user.id)
         .neq('entry_id', VAULT_ENTRIES[0]?.id ?? '')

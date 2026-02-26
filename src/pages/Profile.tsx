@@ -124,7 +124,9 @@ export default function Profile() {
     );
   }
 
-  const avatarEmoji = profile?.avatar_url || level.emoji;
+  const avatarUrl = profile?.avatar_url;
+  const isImageUrl = avatarUrl && (avatarUrl.startsWith('http://') || avatarUrl.startsWith('https://'));
+  const avatarEmoji = (!avatarUrl || isImageUrl) ? level.emoji : avatarUrl;
 
   return (
     <div className="min-h-screen bg-background flex flex-col">
@@ -134,8 +136,12 @@ export default function Profile() {
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="space-y-6">
           {/* Profile header */}
           <div className="text-center space-y-3">
-            <div className="w-20 h-20 rounded-full bg-primary/20 flex items-center justify-center mx-auto text-4xl border-2 border-primary/30">
-              {avatarEmoji}
+            <div className="w-20 h-20 rounded-full bg-primary/20 flex items-center justify-center mx-auto text-4xl border-2 border-primary/30 overflow-hidden">
+              {isImageUrl ? (
+                <img src={avatarUrl} alt="Avatar" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+              ) : (
+                avatarEmoji
+              )}
             </div>
 
             {/* Editable display name */}
