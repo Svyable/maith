@@ -10,6 +10,7 @@ import { FieldStatsBar } from '@/components/FieldStatsBar';
 import { useTheme } from '@/hooks/useTheme';
 import { useVaultProgress, getClearanceLevel } from '@/hooks/useVaultProgress';
 import { QuizHeader } from '@/components/QuizHeader';
+import { FloatingBackground } from '@/components/FloatingBackground';
 import { Lock, Unlock, Pencil, Check, X, Shield } from 'lucide-react';
 import { t } from '@/i18n';
 
@@ -115,7 +116,8 @@ export default function Profile() {
 
   if (authLoading || loading) {
     return (
-      <div className="min-h-screen bg-background flex flex-col">
+      <div className="min-h-screen bg-background flex flex-col relative">
+        <FloatingBackground />
         <QuizHeader streak={0} showStreak={false} isDark={isDark} onToggleTheme={toggleTheme} onHome={() => navigate('/')} />
         <div className="flex-1 flex items-center justify-center">
           <div className="text-muted-foreground animate-pulse">{t('profile.loading')}</div>
@@ -129,10 +131,11 @@ export default function Profile() {
   const avatarEmoji = (!avatarUrl || isImageUrl) ? level.emoji : avatarUrl;
 
   return (
-    <div className="min-h-screen bg-background flex flex-col">
+    <div className="min-h-screen bg-background flex flex-col relative">
+      <FloatingBackground />
       <QuizHeader streak={0} showStreak={false} isDark={isDark} onToggleTheme={toggleTheme} onHome={() => navigate('/')} />
 
-      <main className="flex-1 px-4 py-6 max-w-lg mx-auto w-full space-y-6">
+      <main className="relative z-10 flex-1 px-4 py-6 max-w-lg mx-auto w-full space-y-6">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="space-y-6">
           {/* Profile header */}
           <div className="text-center space-y-3">
