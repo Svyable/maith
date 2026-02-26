@@ -3,10 +3,8 @@ export type { PublicQuestion, CheckResult, QuizState, QuizConfig, SessionSubmitP
 export { fisherYatesShuffle, stripAnswers, buildInitialState, applyAnswer, advanceQuestion, skipCurrentQuestion, endQuiz } from './engine';
 export {
   fetchQuestions,
-  fetchQuestionsLocalFirst,
   checkAnswer,
   submitSession,
-  selectQuestionsLocal,
   localFallbackCheck,
   fetchThinkerQuestions,
   checkThinkerAnswer,
