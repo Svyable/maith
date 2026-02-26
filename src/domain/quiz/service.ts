@@ -5,7 +5,7 @@
 import { supabase } from '@/integrations/supabase/client';
 import { allThinkerQuestions } from '@/content/thinkers';
 import { tQuestion, tQuestionOptions } from '@/i18n/tQuestion';
-import { toQuestionDifficulty, DEFAULT_QUIZ_CAP, type Difficulty, type QuestionDifficulty } from '@/config/constants';
+import { DEFAULT_QUIZ_CAP, type QuestionDifficulty } from '@/config/constants';
 import { fisherYatesShuffle, stripAnswers } from './engine';
 import type { PublicQuestion, CheckResult, SessionSubmitParams } from './types';
 import type { Question } from '@/content/types';

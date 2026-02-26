@@ -2,7 +2,7 @@
 // Business logic lives in src/domain/quiz/. This hook only manages React state.
 
 import { useState, useCallback } from 'react';
-import { type Difficulty, DEFAULT_QUIZ_CAP } from '@/config/constants';
+import { type Difficulty, DEFAULT_QUIZ_CAP, toQuestionDifficulty } from '@/config/constants';
 import {
   buildInitialState,
   applyAnswer,
@@ -27,8 +27,7 @@ export function useQuiz(selectedTopics: string[] = [], difficulties: Difficulty[
 
   const initQuiz = useCallback((topics: string[], diffs: Difficulty[]) => {
     setState(buildInitialState());
-    const levels = diffs.map((d) => d === 'EASY' ? 'easy' : d === 'HARD' ? 'hard' : 'sota' as const);
-    const questions = fetchQuestions(allQuestions, topics, levels, DEFAULT_QUIZ_CAP);
+    const questions = fetchQuestions(allQuestions, topics, diffs.map(toQuestionDifficulty), DEFAULT_QUIZ_CAP);
     setState((prev) => ({ ...prev, currentQuestions: questions, loading: false }));
   }, []);
 
