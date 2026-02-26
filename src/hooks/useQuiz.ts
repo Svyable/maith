@@ -2,14 +2,14 @@
 // Business logic lives in src/domain/quiz/. This hook only manages React state.
 
 import { useState, useCallback } from 'react';
-import { type Difficulty, DEFAULT_QUIZ_CAP } from '@/config/constants';
+import { type Difficulty, DEFAULT_QUIZ_CAP, toQuestionDifficulty } from '@/config/constants';
 import {
   buildInitialState,
   applyAnswer,
   advanceQuestion,
   skipCurrentQuestion,
   endQuiz as endQuizEngine,
-  fetchQuestionsLocalFirst,
+  fetchQuestions,
   checkAnswer,
   type QuizState,
   type PublicQuestion,
@@ -27,24 +27,8 @@ export function useQuiz(selectedTopics: string[] = [], difficulties: Difficulty[
 
   const initQuiz = useCallback((topics: string[], diffs: Difficulty[]) => {
     setState(buildInitialState());
-
-    // 1. Instantly load local questions — quiz can start with 0ms wait
-    const localQuestions = fetchQuestionsLocalFirst(
-      topics,
-      diffs,
-      allQuestions,
-      DEFAULT_QUIZ_CAP,
-      // 2. If server returns better data, swap in (only if user hasn't started answering)
-      (serverQuestions) => {
-        setState((prev) => {
-          // Only swap if user hasn't answered any questions yet
-          if (prev.totalAnswered > 0) return prev;
-          return { ...prev, currentQuestions: serverQuestions, loading: false };
-        });
-      },
-    );
-
-    setState((prev) => ({ ...prev, currentQuestions: localQuestions, loading: false }));
+    const questions = fetchQuestions(allQuestions, topics, diffs.map(toQuestionDifficulty), DEFAULT_QUIZ_CAP);
+    setState((prev) => ({ ...prev, currentQuestions: questions, loading: false }));
   }, []);
 
   const answer = useCallback(
