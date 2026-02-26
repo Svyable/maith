@@ -2,7 +2,6 @@ import { useState, useMemo, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '@/hooks/useAuth';
-import { useNavigate } from 'react-router-dom';
 import { QuizHeader } from '@/components/QuizHeader';
 import { FloatingBackground } from '@/components/FloatingBackground';
 import { Footer } from '@/components/Footer';
