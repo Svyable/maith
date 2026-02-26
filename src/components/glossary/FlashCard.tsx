@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { LatexRenderer } from '@/components/LatexRenderer';
+import { t } from '@/i18n';
 import type { GlossaryTerm } from '@/content/glossary/types';
 
 interface FlashCardProps {
@@ -10,10 +11,10 @@ interface FlashCardProps {
 
 type TabKey = 'definition' | 'latex' | 'code';
 
-const TAB_LABELS: Record<TabKey, string> = {
-  definition: '📖 Definition',
-  latex: '𝕃 LaTeX',
-  code: '⌨ Code',
+const TAB_KEYS: Record<TabKey, string> = {
+  definition: 'glossary.tabDefinition',
+  latex: 'glossary.tabLatex',
+  code: 'glossary.tabCode',
 };
 
 export function FlashCard({ term, index }: FlashCardProps) {
@@ -31,20 +32,23 @@ export function FlashCard({ term, index }: FlashCardProps) {
     setActiveTab(tab);
   };
 
+  const handleFlip = () => setFlipped((f) => !f);
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 16 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: index * 0.04 }}
-      onClick={() => setFlipped((f) => !f)}
       className="cursor-pointer perspective-1000"
     >
       <div
         className={`relative w-full min-h-[180px] transition-transform duration-500 preserve-3d ${flipped ? 'rotate-y-180' : ''}`}
       >
-        {/* ── Front ── */}
-        <div className="absolute inset-0 backface-hidden rounded-xl border border-border bg-card p-5 flex flex-col justify-between overflow-hidden">
-          {/* Subtle corner glow */}
+        {/* ── Front ── click flips */}
+        <div
+          onClick={handleFlip}
+          className="absolute inset-0 backface-hidden rounded-xl border border-border bg-card p-5 flex flex-col justify-between overflow-hidden"
+        >
           <div className="absolute -top-8 -right-8 w-24 h-24 rounded-full bg-primary/10 blur-2xl pointer-events-none" />
 
           <div className="flex flex-col gap-3 relative z-10">
@@ -52,7 +56,6 @@ export function FlashCard({ term, index }: FlashCardProps) {
               <LatexRenderer text={term.term} />
             </p>
 
-            {/* Formula hero */}
             {term.formula && (
               <div className="py-3 px-4 rounded-lg bg-muted/50 border border-border/50 text-center">
                 <div className="text-base md:text-lg text-foreground">
@@ -63,18 +66,18 @@ export function FlashCard({ term, index }: FlashCardProps) {
           </div>
 
           <p className="text-[10px] text-muted-foreground mt-3 uppercase tracking-widest relative z-10">
-            Tap to reveal
+            {t('glossary.tapToReveal')}
           </p>
         </div>
 
-        {/* ── Back ── */}
+        {/* ── Back ── does NOT flip on click; has explicit close button */}
         <div className="absolute inset-0 backface-hidden rotate-y-180 rounded-xl border border-primary/30 bg-card p-4 flex flex-col overflow-hidden">
-          {/* Corner glow */}
           <div className="absolute -bottom-8 -left-8 w-24 h-24 rounded-full bg-primary/10 blur-2xl pointer-events-none" />
 
-          {/* Tabs (only show if there are multiple) */}
-          {availableTabs.length > 1 && (
-            <div className="flex gap-1 mb-3 relative z-10">
+          {/* Top bar: tabs + close button */}
+          <div className="flex items-center justify-between mb-3 relative z-10">
+            {/* Tabs */}
+            <div className="flex gap-1">
               {availableTabs.map((tab) => (
                 <button
                   key={tab}
@@ -85,11 +88,20 @@ export function FlashCard({ term, index }: FlashCardProps) {
                       : 'text-muted-foreground hover:text-foreground border border-transparent'
                   }`}
                 >
-                  {TAB_LABELS[tab]}
+                  {t(TAB_KEYS[tab])}
                 </button>
               ))}
             </div>
-          )}
+
+            {/* Flip-back button */}
+            <button
+              onClick={handleFlip}
+              className="px-2 py-1 rounded-md text-[10px] font-medium text-muted-foreground hover:text-foreground border border-border hover:border-foreground/30 transition-all"
+              title={t('glossary.tapToClose')}
+            >
+              ✕
+            </button>
+          </div>
 
           {/* Tab content */}
           <div className="flex-1 overflow-auto relative z-10">
@@ -126,7 +138,6 @@ export function FlashCard({ term, index }: FlashCardProps) {
                   <pre className="text-xs font-mono text-foreground bg-muted/50 rounded-lg p-3 overflow-x-auto whitespace-pre-wrap border border-border/50">
                     {term.latex}
                   </pre>
-                  {/* Rendered preview below source */}
                   <div className="text-center py-2 px-3 rounded-lg bg-background/50 border border-border/30">
                     <LatexRenderer text={`$${term.latex}$`} />
                   </div>

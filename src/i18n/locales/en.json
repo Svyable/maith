@@ -199,6 +199,11 @@
   "glossary.allFields": "All Fields",
   "glossary.noResults": "No terms found. Try a different search or field.",
   "glossary.backHome": "← Back to Home",
+  "glossary.tapToReveal": "Tap to reveal",
+  "glossary.tapToClose": "Tap to close",
+  "glossary.tabDefinition": "📖 Definition",
+  "glossary.tabLatex": "𝕃 LaTeX",
+  "glossary.tabCode": "⌨ Code",
 
   "footer.quiz": "Quiz",
   "footer.masterMinds": "MasterMinds",
