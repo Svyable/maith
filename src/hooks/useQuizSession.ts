@@ -81,9 +81,13 @@ export function useQuizSession({
     resetTimer();
   }, [resetTimer]);
 
-  // Submit to DB when quiz finishes (single-submission guard)
+  // Submit to DB when quiz finishes (single-submission guard).
+  // NOTE: We intentionally do NOT gate on `isQuizActive` here because the
+  // parent screen may transition away (e.g. screen → 'results') in the same
+  // render cycle that sets isFinished=true, causing a race where submission
+  // is skipped. The `submittedRef` guard is sufficient to prevent duplicates.
   useEffect(() => {
-    if (quizState.isFinished && isQuizActive && user && !submittedRef.current) {
+    if (quizState.isFinished && user && !submittedRef.current) {
       submittedRef.current = true;
       submitSession(user.id, sessionTag, {
         topics: topics.length > 0 ? topics : Object.keys(quizState.topicBreakdown),
@@ -98,7 +102,7 @@ export function useQuizSession({
     }
     if (!quizState.isFinished) submittedRef.current = false;
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [quizState.isFinished, isQuizActive, user]);
+  }, [quizState.isFinished, user]);
 
   return {
     sessionCorrect,
