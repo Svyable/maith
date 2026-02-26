@@ -1,7 +1,7 @@
 {
   "app.title": "mAIth",
-  "app.tagline": "Solve maith = Solve everything.",
-  "app.footerTagline": "Train your mind in the art of mathematics.",
+  "app.tagline": "Solve mAIth = Solve everything.",
+  "app.footerTagline": "Solve mAIth = Solve everything.",
   "app.copyright": "© {{year}} mAIth = solve math == solve everything",
 
   "home.greeting": "Hey, {{name}} 👋",
