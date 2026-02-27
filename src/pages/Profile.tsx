@@ -316,6 +316,23 @@ export default function Profile() {
             </div>
           )}
 
+          {/* Theme toggle */}
+          <div className="bg-card rounded-xl p-4 border border-border flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <span className="text-lg">{isDark ? '🌙' : '☀️'}</span>
+              <div>
+                <p className="text-sm font-medium text-foreground">{isDark ? 'Dark Mode' : 'Light Mode'}</p>
+                <p className="text-xs text-muted-foreground">Toggle appearance</p>
+              </div>
+            </div>
+            <button
+              onClick={toggleTheme}
+              className="px-4 py-2 rounded-lg bg-secondary text-foreground text-sm font-medium hover:bg-secondary/80 transition-colors"
+            >
+              {isDark ? '☀️ Light' : '🌙 Dark'}
+            </button>
+          </div>
+
           {/* Sign out */}
           <button
             onClick={signOut}
