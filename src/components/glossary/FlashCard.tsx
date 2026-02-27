@@ -1,38 +1,48 @@
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { LatexRenderer } from '@/components/LatexRenderer';
-import { t } from '@/i18n';
-import type { GlossaryTerm } from '@/content/glossary/types';
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { LatexRenderer } from "@/components/LatexRenderer";
+import { t } from "@/i18n";
+import type { GlossaryTerm } from "@/content/glossary/types";
+import type { MouseEvent } from "react";
 
 interface FlashCardProps {
   term: GlossaryTerm;
   index: number;
 }
 
-type TabKey = 'definition' | 'latex' | 'code';
+type TabKey = "definition" | "latex" | "code";
 
 const TAB_KEYS: Record<TabKey, string> = {
-  definition: 'glossary.tabDefinition',
-  latex: 'glossary.tabLatex',
-  code: 'glossary.tabCode',
+  definition: "glossary.tabDefinition",
+  latex: "glossary.tabLatex",
+  code: "glossary.tabCode",
 };
 
 export function FlashCard({ term, index }: FlashCardProps) {
   const [flipped, setFlipped] = useState(false);
-  const [activeTab, setActiveTab] = useState<TabKey>('definition');
+  const [activeTab, setActiveTab] = useState<TabKey>("definition");
 
   const availableTabs: TabKey[] = [
-    'definition',
-    ...(term.latex ? ['latex' as TabKey] : []),
-    ...(term.code ? ['code' as TabKey] : []),
+    "definition",
+    ...(term.latex ? (["latex"] as const) : []),
+    ...(term.code ? (["code"] as const) : []),
   ];
 
-  const handleTabClick = (e: React.MouseEvent, tab: TabKey) => {
+  // Front card "hero math": prefer formula (already $...$), else render latex (wrap in $...$)
+  const frontMath = term.formula ?? (term.latex ? `$${term.latex}$` : undefined);
+
+  const handleTabClick = (e: MouseEvent<HTMLButtonElement>, tab: TabKey) => {
     e.stopPropagation();
     setActiveTab(tab);
   };
 
-  const handleFlip = () => setFlipped((f) => !f);
+  const handleFlip = () => {
+    setFlipped((f) => {
+      const next = !f;
+      if (next) setActiveTab("definition"); // reset when opening
+      return next;
+    });
+  };
 
   return (
     <motion.div
@@ -42,7 +52,9 @@ export function FlashCard({ term, index }: FlashCardProps) {
       className="cursor-pointer perspective-1000"
     >
       <div
-        className={`relative w-full min-h-[180px] transition-transform duration-500 preserve-3d ${flipped ? 'rotate-y-180' : ''}`}
+        className={`relative w-full min-h-[180px] transition-transform duration-500 preserve-3d ${
+          flipped ? "rotate-y-180" : ""
+        }`}
       >
         {/* ── Front ── click flips */}
         <div
@@ -56,17 +68,17 @@ export function FlashCard({ term, index }: FlashCardProps) {
               <LatexRenderer text={term.term} />
             </p>
 
-            {term.formula && (
+            {frontMath && (
               <div className="py-3 px-4 rounded-lg bg-muted/50 border border-border/50 text-center">
                 <div className="text-base md:text-lg text-foreground">
-                  <LatexRenderer text={term.formula} />
+                  <LatexRenderer text={frontMath} />
                 </div>
               </div>
             )}
           </div>
 
           <p className="text-[10px] text-muted-foreground mt-3 uppercase tracking-widest relative z-10">
-            {t('glossary.tapToReveal')}
+            {t("glossary.tapToReveal")}
           </p>
         </div>
 
@@ -76,28 +88,32 @@ export function FlashCard({ term, index }: FlashCardProps) {
 
           {/* Top bar: tabs + close button */}
           <div className="flex items-center justify-between mb-3 relative z-10">
-            {/* Tabs */}
-            <div className="flex gap-1">
-              {availableTabs.map((tab) => (
-                <button
-                  key={tab}
-                  onClick={(e) => handleTabClick(e, tab)}
-                  className={`px-2.5 py-1 rounded-md text-[10px] font-medium transition-all ${
-                    activeTab === tab
-                      ? 'bg-primary/15 text-primary border border-primary/30'
-                      : 'text-muted-foreground hover:text-foreground border border-transparent'
-                  }`}
-                >
-                  {t(TAB_KEYS[tab])}
-                </button>
-              ))}
-            </div>
+            {/* Tabs (only if multiple) */}
+            {availableTabs.length > 1 ? (
+              <div className="flex gap-1">
+                {availableTabs.map((tab) => (
+                  <button
+                    key={tab}
+                    onClick={(e) => handleTabClick(e, tab)}
+                    className={`px-2.5 py-1 rounded-md text-[10px] font-medium transition-all ${
+                      activeTab === tab
+                        ? "bg-primary/15 text-primary border border-primary/30"
+                        : "text-muted-foreground hover:text-foreground border border-transparent"
+                    }`}
+                  >
+                    {t(TAB_KEYS[tab])}
+                  </button>
+                ))}
+              </div>
+            ) : (
+              <div />
+            )}
 
             {/* Flip-back button */}
             <button
               onClick={handleFlip}
               className="px-2 py-1 rounded-md text-[10px] font-medium text-muted-foreground hover:text-foreground border border-border hover:border-foreground/30 transition-all"
-              title={t('glossary.tapToClose')}
+              title={t("glossary.tapToClose")}
             >
               ✕
             </button>
@@ -106,7 +122,7 @@ export function FlashCard({ term, index }: FlashCardProps) {
           {/* Tab content */}
           <div className="flex-1 overflow-auto relative z-10">
             <AnimatePresence mode="wait">
-              {activeTab === 'definition' && (
+              {activeTab === "definition" && (
                 <motion.div
                   key="def"
                   initial={{ opacity: 0, x: -8 }}
@@ -118,15 +134,11 @@ export function FlashCard({ term, index }: FlashCardProps) {
                   <p className="text-sm text-foreground leading-relaxed">
                     <LatexRenderer text={term.definition} />
                   </p>
-                  {term.example && (
-                    <p className="text-xs text-muted-foreground italic mt-1">
-                      💡 {term.example}
-                    </p>
-                  )}
+                  {term.example && <p className="text-xs text-muted-foreground italic mt-1">💡 {term.example}</p>}
                 </motion.div>
               )}
 
-              {activeTab === 'latex' && term.latex && (
+              {activeTab === "latex" && term.latex && (
                 <motion.div
                   key="latex"
                   initial={{ opacity: 0, x: -8 }}
@@ -144,7 +156,7 @@ export function FlashCard({ term, index }: FlashCardProps) {
                 </motion.div>
               )}
 
-              {activeTab === 'code' && term.code && (
+              {activeTab === "code" && term.code && (
                 <motion.div
                   key="code"
                   initial={{ opacity: 0, x: -8 }}
