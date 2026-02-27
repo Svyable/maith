@@ -1,6 +1,6 @@
-import type { GlossaryTerm } from './types';
+import type { GlossaryTerm } from '../types';
 
-export const earthSpaceTerms: GlossaryTerm[] = [
+export const earthSpaceTerms_en: GlossaryTerm[] = [
   {
     id: 'plate-tectonics',
     field: 'earth-space',

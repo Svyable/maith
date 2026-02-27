@@ -1,13 +1,15 @@
 import { useEffect, useState } from 'react';
-import { getLocale, setLocale } from '@/i18n';
+import { getLocale, setLocale, SUPPORTED_LOCALES } from '@/i18n';
 
-const LOCALES = [
+type Locale = typeof SUPPORTED_LOCALES[number]['code'];
+
+const LOCALES: { code: Locale; label: string; flag: string }[] = [
   { code: 'en', label: 'English', flag: '🇺🇸' },
   { code: 'es', label: 'Español', flag: '🇪🇸' },
 ];
 
 export function LanguageFlags() {
-  const [locale, setLocal] = useState(getLocale());
+  const [locale, setLocal] = useState<Locale>(getLocale());
 
   useEffect(() => {
     const id = setInterval(() => setLocal(getLocale()), 300);
@@ -22,7 +24,7 @@ export function LanguageFlags() {
           <button
             key={l.code}
             onClick={() => {
-              setLocale(l.code);
+              setLocale(l.code as Locale);
               setLocal(l.code);
             }}
             className={`px-3 py-1.5 rounded-full text-xs border transition-all ${
