@@ -3,6 +3,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { t } from "@/i18n";
 import { motion } from "framer-motion";
 import { useIsMobile } from "@/hooks/use-mobile";
+import { LanguageFlags } from "@/components/LanguageFlags";
 
 interface QuizHeaderProps {
   streak: number;
@@ -90,6 +91,8 @@ export function QuizHeader({ streak, showStreak, isDark, onToggleTheme, onHome }
               {item.emoji}
             </button>
           ))}
+
+        <LanguageFlags />
 
         <button
           onClick={onToggleTheme}

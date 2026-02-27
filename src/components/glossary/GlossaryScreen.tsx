@@ -5,15 +5,16 @@ import { FlashCard } from './FlashCard';
 import { getAllGlossaryTerms, getGlossaryByField, getGlossaryFields } from '@/content/glossary';
 import { FIELDS } from '@/config/fields';
 import { t } from '@/i18n';
-import { LanguageFlags } from '@/components/LanguageFlags';
+import { useLocale } from '@/hooks/useLocale';
 
 export function GlossaryScreen() {
   const navigate = useNavigate();
+  const { locale } = useLocale();
   const [selectedField, setSelectedField] = useState('all');
   const [search, setSearch] = useState('');
 
-  const allTerms = useMemo(() => getAllGlossaryTerms(), [/* re-run when locale changes via rerender */]);
-  const availableFields = useMemo(() => getGlossaryFields(), [/* same */]);
+  const allTerms = useMemo(() => getAllGlossaryTerms(), [locale]);
+  const availableFields = useMemo(() => getGlossaryFields(), [locale]);
 
   const fieldChips = useMemo(() => {
     return [
@@ -22,7 +23,7 @@ export function GlossaryScreen() {
         (f) => ({ slug: f.slug, label: f.label, emoji: f.emoji })
       ),
     ];
-  }, [availableFields]);
+  }, [availableFields, locale]);
 
   const terms = useMemo(() => {
     let pool = getGlossaryByField(selectedField);
@@ -37,7 +38,7 @@ export function GlossaryScreen() {
     }
 
     return pool;
-  }, [selectedField, search]);
+  }, [selectedField, search, locale]);
 
   return (
     <motion.div
@@ -53,8 +54,6 @@ export function GlossaryScreen() {
         <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground">
           Gloss<span className="text-gradient-primary">ary</span>
         </h2>
-
-        <LanguageFlags />
 
         <p className="text-sm text-muted-foreground max-w-md mx-auto">
           {t('glossary.subtitle')}

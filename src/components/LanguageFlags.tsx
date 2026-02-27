@@ -1,41 +1,25 @@
-import { useEffect, useState } from 'react';
-import { getLocale, setLocale, SUPPORTED_LOCALES } from '@/i18n';
-
-type Locale = typeof SUPPORTED_LOCALES[number]['code'];
-
-const LOCALES: { code: Locale; label: string; flag: string }[] = [
-  { code: 'en', label: 'English', flag: '🇺🇸' },
-  { code: 'es', label: 'Español', flag: '🇪🇸' },
-];
+import { useLocale } from '@/hooks/useLocale';
 
 export function LanguageFlags() {
-  const [locale, setLocal] = useState<Locale>(getLocale());
-
-  useEffect(() => {
-    const id = setInterval(() => setLocal(getLocale()), 300);
-    return () => clearInterval(id);
-  }, []);
+  const { locale, changeLocale, SUPPORTED_LOCALES } = useLocale();
 
   return (
-    <div className="flex items-center justify-center gap-2">
-      {LOCALES.map((l) => {
+    <div className="flex items-center gap-1">
+      {SUPPORTED_LOCALES.map((l) => {
         const active = locale === l.code;
         return (
           <button
             key={l.code}
-            onClick={() => {
-              setLocale(l.code as Locale);
-              setLocal(l.code);
-            }}
-            className={`px-3 py-1.5 rounded-full text-xs border transition-all ${
+            onClick={() => changeLocale(l.code)}
+            className={`w-8 h-8 rounded-lg flex items-center justify-center text-sm transition-all ${
               active
-                ? 'bg-primary/15 border-primary text-primary'
-                : 'bg-secondary border-border text-muted-foreground hover:text-foreground hover:border-muted-foreground/50'
+                ? 'bg-primary/15 ring-1 ring-primary/40 scale-110'
+                : 'bg-secondary hover:bg-secondary/80'
             }`}
             title={l.label}
             aria-label={l.label}
           >
-            <span className="text-base">{l.flag}</span>
+            {l.flag}
           </button>
         );
       })}
