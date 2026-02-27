@@ -1,5 +1,4 @@
-// src/components/glossary/FlashCard.tsx
-import { useState } from 'react';
+import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import type { MouseEvent } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { LatexRenderer } from '@/components/LatexRenderer';
@@ -20,20 +19,30 @@ const TAB_KEYS: Record<TabKey, string> = {
   code: 'glossary.tabCode',
 };
 
-const TAB_ROW_HEIGHT = 40; // px; used to reserve space on front for perfect alignment
-
 export function FlashCard({ term, index }: FlashCardProps) {
   const [flipped, setFlipped] = useState(false);
   const [activeTab, setActiveTab] = useState<TabKey>('definition');
+  const [containerH, setContainerH] = useState<number | null>(null);
 
-  const availableTabs: TabKey[] = [
-    'definition',
-    ...(term.latex ? (['latex'] as const) : []),
-    ...(term.code ? (['code'] as const) : []),
-  ];
+  const frontRef = useRef<HTMLDivElement>(null);
+  const backRef = useRef<HTMLDivElement>(null);
 
-  // Prefer formula (already $...$) else wrap latex
+  const availableTabs: TabKey[] = useMemo(
+    () => [
+      'definition',
+      ...(term.latex ? (['latex'] as const) : []),
+      ...(term.code ? (['code'] as const) : []),
+    ],
+    [term.latex, term.code]
+  );
+
+  // Front hero math: prefer formula (already $...$), else wrap latex
   const frontMath = term.formula ?? (term.latex ? `$${term.latex}$` : undefined);
+
+  const topic =
+    (term.topic as string | undefined) ??
+    // @ts-expect-error
+    (Array.isArray(term.topics) ? (term.topics[0] as string | undefined) : undefined);
 
   const handleTabClick = (e: MouseEvent<HTMLButtonElement>, tab: TabKey) => {
     e.stopPropagation();
@@ -48,233 +57,250 @@ export function FlashCard({ term, index }: FlashCardProps) {
     });
   };
 
-  // Optional topic extraction (backwards-compatible)
-  const topic =
-    // @ts-expect-error
-    (term.topic as string | undefined) ??
-    // @ts-expect-error
-    (Array.isArray(term.topics) ? (term.topics[0] as string | undefined) : undefined);
+  const measure = () => {
+    const fh = frontRef.current?.offsetHeight ?? 0;
+    const bh = backRef.current?.offsetHeight ?? 0;
+    const next = Math.max(fh, bh);
+    if (next > 0) setContainerH(next);
+  };
+
+  // Measure after layout changes
+  useLayoutEffect(() => {
+    measure();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [term.id, flipped, activeTab]);
+
+  // Re-measure on resize (and if fonts load late)
+  useEffect(() => {
+    const onResize = () => measure();
+    window.addEventListener('resize', onResize);
+
+    // Optional: handle late font loading
+    // @ts-ignore
+    const fontReady = (document as any).fonts?.ready;
+    if (fontReady?.then) fontReady.then(() => measure()).catch(() => {});
+
+    return () => window.removeEventListener('resize', onResize);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   /**
-   * Shared face layout uses CSS grid:
-   * grid-template-rows: header (auto) / tabsRow (fixed) / body (1fr) / footer (auto)
-   * Tabs row is reserved on the front but rendered invisibly so the flip doesn't shift vertical rhythm.
+   * Shared face base styling:
+   * - padding + rounded + border + subtle background
+   * - internal layout: header/body/footer
+   * - NO fixed heights; let content dictate
    */
-  const faceBaseClass =
-    'absolute inset-0 rounded-xl border bg-card p-4 overflow-hidden backface-hidden flex flex-col';
-
-  const header = (
-    <div className="shrink-0">
-      <p className="text-lg font-semibold text-foreground leading-tight">
-        <LatexRenderer text={term.term} />
-      </p>
-    </div>
-  );
-
-  const footerFront = (
-    <div className="flex items-center justify-between gap-2">
-      <TermMeta field={term.field as any} topic={topic ?? null} />
-      <span className="text-[10px] text-muted-foreground uppercase tracking-widest">
-        👆 {t('glossary.tapToReveal')}
-      </span>
-    </div>
-  );
-
-  const footerBack = (
-    <div className="flex items-center justify-between gap-2">
-      <TermMeta field={term.field as any} topic={topic ?? null} />
-      <span className="text-[10px] text-muted-foreground uppercase tracking-widest">
-        👇 {t('glossary.tapToClose')}
-      </span>
-    </div>
-  );
-
-  // tab-row JSX for back; re-used invisible on front to reserve space
-  const tabsRow = (
-    <div
-      style={{ height: TAB_ROW_HEIGHT }}
-      className="flex items-center justify-between gap-2"
-      aria-hidden
-    >
-      <div className="flex gap-2">
-        {availableTabs.length > 1 ? (
-          availableTabs.map((tab) => (
-            <button
-              key={tab}
-              onClick={(e) => handleTabClick(e, tab)}
-              className={`px-2.5 py-1 rounded-md text-[10px] font-medium transition-all whitespace-nowrap ${
-                activeTab === tab
-                  ? 'bg-primary/15 text-primary border border-primary/30'
-                  : 'text-muted-foreground hover:text-foreground border border-transparent'
-              }`}
-            >
-              {t(TAB_KEYS[tab])}
-            </button>
-          ))
-        ) : (
-          // Keep an empty placeholder so width/layout is stable
-          <div className="w-0" />
-        )}
+  const Face = ({
+    side,
+    faceRef,
+    onClick,
+    children,
+    className = '',
+  }: {
+    side: 'front' | 'back';
+    faceRef: React.RefObject<HTMLDivElement>;
+    onClick?: (e: React.MouseEvent) => void;
+    children: React.ReactNode;
+    className?: string;
+  }) => {
+    const isFront = side === 'front';
+    return (
+      <div
+        ref={faceRef}
+        onClick={onClick}
+        className={[
+          'absolute inset-0 rounded-2xl border bg-card overflow-hidden',
+          'p-6 md:p-7', // bigger feel
+          'backface-hidden',
+          isFront ? 'border-border' : 'border-primary/30 rotate-y-180',
+          className,
+        ].join(' ')}
+      >
+        {/* glow */}
+        <div
+          className={[
+            'absolute w-28 h-28 rounded-full bg-primary/10 blur-2xl pointer-events-none',
+            isFront ? '-top-10 -right-10' : '-bottom-10 -left-10',
+          ].join(' ')}
+        />
+        <div className="relative z-10 h-full flex flex-col">{children}</div>
       </div>
-
-      <div />
-    </div>
-  );
+    );
+  };
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 14 }}
+      initial={{ opacity: 0, y: 16 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: index * 0.04 }}
       className="perspective-1000"
     >
       <div
-        className={`relative w-full min-h-[180px] transition-transform duration-500 preserve-3d ${
+        className={`relative w-full transition-transform duration-500 preserve-3d ${
           flipped ? 'rotate-y-180' : ''
         }`}
+        style={{
+          height: containerH ?? 'auto', // dynamic! max(front, back)
+        }}
       >
-        {/* ── FRONT ── */}
-        <div
+        {/* FRONT */}
+        <Face
+          side="front"
+          faceRef={frontRef}
           onClick={handleFlip}
-          className={`${faceBaseClass} ${
-            !flipped ? 'pointer-events-auto cursor-pointer' : 'pointer-events-none'
-          }`}
-          style={{
-            // grid: header / tabsRow / body / footer
-            display: 'grid',
-            gridTemplateRows: `auto ${TAB_ROW_HEIGHT}px 1fr auto`,
-            gap: '0.5rem',
-            borderColor: 'var(--border)', // Tailwind var usage neutral; keep consistent with border classes
-          }}
+          className={flipped ? 'pointer-events-none' : 'pointer-events-auto cursor-pointer'}
         >
-          {/* decorative glow (top-right) */}
-          <div className="absolute -top-6 -right-6 w-24 h-24 rounded-full bg-primary/10 blur-2xl pointer-events-none" />
+          {/* Header */}
+          <div className="flex items-start justify-between gap-4">
+            <div className="min-w-0">
+              <h3 className="text-xl md:text-2xl font-semibold text-foreground leading-tight">
+                <LatexRenderer text={term.term} />
+              </h3>
+            </div>
+          </div>
 
-          {/* header */}
-          <div className="px-1">{header}</div>
-
-          {/* invisible tabs row (keeps the layout identical to the back) */}
-          <div className="px-1 opacity-0 pointer-events-none">{tabsRow}</div>
-
-          {/* body */}
-          <div className="px-1">
-            <div className="flex flex-col gap-3 h-full">
-              {/* hero math / formula in same body area as back's content */}
-              {frontMath ? (
-                <div className="py-3 px-4 rounded-lg bg-muted/50 border border-border/50 text-center">
-                  <div className="text-base md:text-lg text-foreground">
-                    <LatexRenderer text={frontMath} />
-                  </div>
+          {/* Body */}
+          <div className="mt-4 flex flex-col gap-4 flex-1">
+            {frontMath ? (
+              <div className="py-4 px-5 rounded-xl bg-muted/50 border border-border/50 text-center">
+                <div className="text-lg md:text-xl text-foreground">
+                  <LatexRenderer text={frontMath} />
                 </div>
-              ) : null}
-
-              {/* short definition preview - constrained to two lines visually */}
-              <div className="text-sm text-muted-foreground leading-relaxed max-h-12 overflow-hidden">
-                {/* If Tailwind line-clamp plugin not available, this uses max-height overflow approach */}
-                <LatexRenderer text={term.definition} />
-                {/* gradient fade at bottom for long defs */}
-                <div
-                  aria-hidden
-                  style={{
-                    height: 18,
-                    marginTop: -6,
-                    background:
-                      'linear-gradient(180deg, rgba(0,0,0,0), rgba(0,0,0,0.25))',
-                    pointerEvents: 'none',
-                  }}
-                />
               </div>
-            </div>
+            ) : null}
+
+            <p className="text-sm md:text-[15px] text-muted-foreground leading-relaxed line-clamp-3">
+              <LatexRenderer text={term.definition} />
+            </p>
           </div>
 
-          {/* footer with chips */}
-          <div className="px-1">{footerFront}</div>
-        </div>
+          {/* Footer */}
+          <div className="mt-5 flex items-center justify-between gap-3">
+            <TermMeta field={term.field as any} topic={topic ?? null} />
+            <span className="text-[11px] text-muted-foreground uppercase tracking-widest flex items-center gap-2">
+              <span className="text-[12px]">👆</span>
+              <span className="hidden sm:inline">{t('glossary.tapToReveal')}</span>
+            </span>
+          </div>
+        </Face>
 
-        {/* ── BACK ── */}
-        <div
+        {/* BACK */}
+        <Face
+          side="back"
+          faceRef={backRef}
           onClick={(e) => e.stopPropagation()}
-          className={`${faceBaseClass} rotate-y-180 ${
-            flipped ? 'pointer-events-auto' : 'pointer-events-none'
-          }`}
-          style={{
-            display: 'grid',
-            gridTemplateRows: `auto ${TAB_ROW_HEIGHT}px 1fr auto`,
-            gap: '0.5rem',
-            // stronger border tint to visually separate back
-            borderColor: 'rgba(124, 58, 237, 0.18)',
-          }}
+          className={flipped ? 'pointer-events-auto' : 'pointer-events-none'}
         >
-          {/* decorative glow (bottom-left) */}
-          <div className="absolute -bottom-6 -left-6 w-24 h-24 rounded-full bg-primary/10 blur-2xl pointer-events-none" />
-
-          {/* header */}
-          <div className="px-1">{header}</div>
-
-          {/* visible tabs row */}
-          <div className="px-1">{tabsRow}</div>
-
-          {/* body - tab content */}
-          <div className="px-1">
-            <div className="flex flex-col gap-3 h-full">
-              <AnimatePresence mode="wait">
-                {activeTab === 'definition' && (
-                  <motion.div
-                    key="def"
-                    initial={{ opacity: 0, x: -6 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: 6 }}
-                    transition={{ duration: 0.15 }}
-                    className="flex flex-col gap-2 h-full"
-                  >
-                    <div className="text-sm text-foreground leading-relaxed">
-                      <LatexRenderer text={term.definition} />
-                    </div>
-                    {term.example ? (
-                      <p className="text-xs text-muted-foreground italic mt-1">💡 {term.example}</p>
-                    ) : null}
-                  </motion.div>
-                )}
-
-                {activeTab === 'latex' && term.latex && (
-                  <motion.div
-                    key="latex"
-                    initial={{ opacity: 0, x: -6 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: 6 }}
-                    transition={{ duration: 0.15 }}
-                    className="flex flex-col gap-2 h-full"
-                  >
-                    <pre className="text-xs font-mono text-foreground bg-muted/50 rounded-lg p-3 overflow-x-auto whitespace-pre-wrap border border-border/50 flex-shrink-0">
-                      {term.latex}
-                    </pre>
-                    <div className="text-center py-2 px-3 rounded-lg bg-background/50 border border-border/30">
-                      <LatexRenderer text={`$${term.latex}$`} />
-                    </div>
-                  </motion.div>
-                )}
-
-                {activeTab === 'code' && term.code && (
-                  <motion.div
-                    key="code"
-                    initial={{ opacity: 0, x: -6 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: 6 }}
-                    transition={{ duration: 0.15 }}
-                    className="flex flex-col gap-2 h-full"
-                  >
-                    <pre className="text-xs font-mono text-foreground bg-muted/50 rounded-lg p-3 overflow-x-auto whitespace-pre-wrap border border-border/50 leading-relaxed">
-                      {term.code}
-                    </pre>
-                  </motion.div>
-                )}
-              </AnimatePresence>
+          {/* Header (same place as front) */}
+          <div className="flex items-start justify-between gap-4">
+            <div className="min-w-0">
+              <h3 className="text-xl md:text-2xl font-semibold text-foreground leading-tight">
+                <LatexRenderer text={term.term} />
+              </h3>
             </div>
           </div>
 
-          {/* footer */}
-          <div className="px-1">{footerBack}</div>
-        </div>
+          {/* Tabs + close */}
+          <div className="mt-3 flex items-center justify-between gap-3">
+            {availableTabs.length > 1 ? (
+              <div className="flex gap-1.5">
+                {availableTabs.map((tab) => (
+                  <button
+                    key={tab}
+                    onClick={(e) => handleTabClick(e, tab)}
+                    className={`px-3 py-1.5 rounded-lg text-[11px] font-medium transition-all border ${
+                      activeTab === tab
+                        ? 'bg-primary/15 text-primary border-primary/30'
+                        : 'text-muted-foreground hover:text-foreground border-transparent'
+                    }`}
+                  >
+                    {t(TAB_KEYS[tab])}
+                  </button>
+                ))}
+              </div>
+            ) : (
+              <div />
+            )}
+
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                handleFlip();
+              }}
+              className="px-2.5 py-1.5 rounded-lg text-[11px] font-medium text-muted-foreground hover:text-foreground border border-border hover:border-foreground/30 transition-all"
+              title={t('glossary.tapToClose')}
+              aria-label={t('glossary.tapToClose')}
+            >
+              ✕
+            </button>
+          </div>
+
+          {/* Content */}
+          <div className="mt-4 flex-1 min-h-0 overflow-auto">
+            <AnimatePresence mode="wait">
+              {activeTab === 'definition' && (
+                <motion.div
+                  key="def"
+                  initial={{ opacity: 0, x: -8 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: 8 }}
+                  transition={{ duration: 0.15 }}
+                  className="flex flex-col gap-2"
+                >
+                  <p className="text-sm md:text-[15px] text-foreground leading-relaxed">
+                    <LatexRenderer text={term.definition} />
+                  </p>
+                  {term.example ? (
+                    <p className="text-xs md:text-[13px] text-muted-foreground italic mt-1">
+                      💡 {term.example}
+                    </p>
+                  ) : null}
+                </motion.div>
+              )}
+
+              {activeTab === 'latex' && term.latex && (
+                <motion.div
+                  key="latex"
+                  initial={{ opacity: 0, x: -8 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: 8 }}
+                  transition={{ duration: 0.15 }}
+                  className="flex flex-col gap-3"
+                >
+                  <pre className="text-xs md:text-[13px] font-mono text-foreground bg-muted/50 rounded-xl p-4 overflow-auto whitespace-pre-wrap border border-border/50">
+                    {term.latex}
+                  </pre>
+                  <div className="text-center py-3 px-4 rounded-xl bg-background/50 border border-border/30">
+                    <LatexRenderer text={`$${term.latex}$`} />
+                  </div>
+                </motion.div>
+              )}
+
+              {activeTab === 'code' && term.code && (
+                <motion.div
+                  key="code"
+                  initial={{ opacity: 0, x: -8 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: 8 }}
+                  transition={{ duration: 0.15 }}
+                >
+                  <pre className="text-xs md:text-[13px] font-mono text-foreground bg-muted/50 rounded-xl p-4 overflow-auto whitespace-pre-wrap border border-border/50 leading-relaxed">
+                    {term.code}
+                  </pre>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
+
+          {/* Footer */}
+          <div className="mt-5 flex items-center justify-between gap-3">
+            <TermMeta field={term.field as any} topic={topic ?? null} />
+            <span className="text-[11px] text-muted-foreground uppercase tracking-widest flex items-center gap-2">
+              <span className="text-[12px]">👇</span>
+              <span className="hidden sm:inline">{t('glossary.tapToClose')}</span>
+            </span>
+          </div>
+        </Face>
       </div>
     </motion.div>
   );
