@@ -19,10 +19,13 @@ const TAB_KEYS: Record<TabKey, string> = {
   code: 'glossary.tabCode',
 };
 
+// Nice default so cards are visible before first measure
+const FALLBACK_MIN_HEIGHT = 220;
+
 export function FlashCard({ term, index }: FlashCardProps) {
   const [flipped, setFlipped] = useState(false);
   const [activeTab, setActiveTab] = useState<TabKey>('definition');
-  const [containerH, setContainerH] = useState<number | null>(null);
+  const [containerH, setContainerH] = useState<number>(FALLBACK_MIN_HEIGHT);
 
   const frontRef = useRef<HTMLDivElement>(null);
   const backRef = useRef<HTMLDivElement>(null);
@@ -36,7 +39,6 @@ export function FlashCard({ term, index }: FlashCardProps) {
     [term.latex, term.code]
   );
 
-  // Front hero math: prefer formula (already $...$), else wrap latex
   const frontMath = term.formula ?? (term.latex ? `$${term.latex}$` : undefined);
 
   const topic =
@@ -58,72 +60,76 @@ export function FlashCard({ term, index }: FlashCardProps) {
   };
 
   const measure = () => {
-    const fh = frontRef.current?.offsetHeight ?? 0;
-    const bh = backRef.current?.offsetHeight ?? 0;
-    const next = Math.max(fh, bh);
-    if (next > 0) setContainerH(next);
+    const fh = frontRef.current?.getBoundingClientRect().height ?? 0;
+    const bh = backRef.current?.getBoundingClientRect().height ?? 0;
+    const next = Math.max(fh, bh, FALLBACK_MIN_HEIGHT);
+    if (Number.isFinite(next) && next > 0) setContainerH(next);
   };
 
-  // Measure after layout changes
+  // Measure right after mount + whenever key state changes
   useLayoutEffect(() => {
-    measure();
+    // Let the browser lay out first (important after tab changes)
+    requestAnimationFrame(() => measure());
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [term.id, flipped, activeTab]);
 
-  // Re-measure on resize (and if fonts load late)
+  // ResizeObserver for true dynamic sizing (fonts, wrapping, content changes)
   useEffect(() => {
+    if (!frontRef.current || !backRef.current) return;
+
+    const ro = new ResizeObserver(() => measure());
+    ro.observe(frontRef.current);
+    ro.observe(backRef.current);
+
     const onResize = () => measure();
     window.addEventListener('resize', onResize);
 
-    // Optional: handle late font loading
-    // @ts-ignore
-    const fontReady = (document as any).fonts?.ready;
-    if (fontReady?.then) fontReady.then(() => measure()).catch(() => {});
-
-    return () => window.removeEventListener('resize', onResize);
+    return () => {
+      ro.disconnect();
+      window.removeEventListener('resize', onResize);
+    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  /**
-   * Shared face base styling:
-   * - padding + rounded + border + subtle background
-   * - internal layout: header/body/footer
-   * - NO fixed heights; let content dictate
-   */
   const Face = ({
     side,
     faceRef,
     onClick,
-    children,
     className = '',
+    children,
   }: {
     side: 'front' | 'back';
     faceRef: React.RefObject<HTMLDivElement>;
     onClick?: (e: React.MouseEvent) => void;
-    children: React.ReactNode;
     className?: string;
+    children: React.ReactNode;
   }) => {
     const isFront = side === 'front';
+
     return (
       <div
         ref={faceRef}
         onClick={onClick}
         className={[
-          'absolute inset-0 rounded-2xl border bg-card overflow-hidden',
-          'p-6 md:p-7', // bigger feel
+          // KEY CHANGE: NOT inset-0. Let height be auto.
+          'absolute left-0 top-0 w-full',
+          'rounded-2xl border bg-card overflow-hidden',
+          'p-6 md:p-7',
           'backface-hidden',
           isFront ? 'border-border' : 'border-primary/30 rotate-y-180',
           className,
         ].join(' ')}
       >
-        {/* glow */}
         <div
           className={[
             'absolute w-28 h-28 rounded-full bg-primary/10 blur-2xl pointer-events-none',
             isFront ? '-top-10 -right-10' : '-bottom-10 -left-10',
           ].join(' ')}
         />
-        <div className="relative z-10 h-full flex flex-col">{children}</div>
+
+        <div className="relative z-10 flex flex-col">
+          {children}
+        </div>
       </div>
     );
   };
@@ -135,13 +141,12 @@ export function FlashCard({ term, index }: FlashCardProps) {
       transition={{ delay: index * 0.04 }}
       className="perspective-1000"
     >
+      {/* Wrapper MUST have height because children are absolute */}
       <div
         className={`relative w-full transition-transform duration-500 preserve-3d ${
           flipped ? 'rotate-y-180' : ''
         }`}
-        style={{
-          height: containerH ?? 'auto', // dynamic! max(front, back)
-        }}
+        style={{ height: containerH }}
       >
         {/* FRONT */}
         <Face
@@ -151,16 +156,12 @@ export function FlashCard({ term, index }: FlashCardProps) {
           className={flipped ? 'pointer-events-none' : 'pointer-events-auto cursor-pointer'}
         >
           {/* Header */}
-          <div className="flex items-start justify-between gap-4">
-            <div className="min-w-0">
-              <h3 className="text-xl md:text-2xl font-semibold text-foreground leading-tight">
-                <LatexRenderer text={term.term} />
-              </h3>
-            </div>
-          </div>
+          <h3 className="text-xl md:text-2xl font-semibold text-foreground leading-tight">
+            <LatexRenderer text={term.term} />
+          </h3>
 
           {/* Body */}
-          <div className="mt-4 flex flex-col gap-4 flex-1">
+          <div className="mt-4 flex flex-col gap-4">
             {frontMath ? (
               <div className="py-4 px-5 rounded-xl bg-muted/50 border border-border/50 text-center">
                 <div className="text-lg md:text-xl text-foreground">
@@ -191,14 +192,10 @@ export function FlashCard({ term, index }: FlashCardProps) {
           onClick={(e) => e.stopPropagation()}
           className={flipped ? 'pointer-events-auto' : 'pointer-events-none'}
         >
-          {/* Header (same place as front) */}
-          <div className="flex items-start justify-between gap-4">
-            <div className="min-w-0">
-              <h3 className="text-xl md:text-2xl font-semibold text-foreground leading-tight">
-                <LatexRenderer text={term.term} />
-              </h3>
-            </div>
-          </div>
+          {/* Header */}
+          <h3 className="text-xl md:text-2xl font-semibold text-foreground leading-tight">
+            <LatexRenderer text={term.term} />
+          </h3>
 
           {/* Tabs + close */}
           <div className="mt-3 flex items-center justify-between gap-3">
@@ -236,7 +233,7 @@ export function FlashCard({ term, index }: FlashCardProps) {
           </div>
 
           {/* Content */}
-          <div className="mt-4 flex-1 min-h-0 overflow-auto">
+          <div className="mt-4">
             <AnimatePresence mode="wait">
               {activeTab === 'definition' && (
                 <motion.div
@@ -267,7 +264,7 @@ export function FlashCard({ term, index }: FlashCardProps) {
                   transition={{ duration: 0.15 }}
                   className="flex flex-col gap-3"
                 >
-                  <pre className="text-xs md:text-[13px] font-mono text-foreground bg-muted/50 rounded-xl p-4 overflow-auto whitespace-pre-wrap border border-border/50">
+                  <pre className="text-xs md:text-[13px] font-mono text-foreground bg-muted/50 rounded-xl p-4 overflow-auto whitespace-pre-wrap border border-border/50 max-h-[240px]">
                     {term.latex}
                   </pre>
                   <div className="text-center py-3 px-4 rounded-xl bg-background/50 border border-border/30">
@@ -284,7 +281,7 @@ export function FlashCard({ term, index }: FlashCardProps) {
                   exit={{ opacity: 0, x: 8 }}
                   transition={{ duration: 0.15 }}
                 >
-                  <pre className="text-xs md:text-[13px] font-mono text-foreground bg-muted/50 rounded-xl p-4 overflow-auto whitespace-pre-wrap border border-border/50 leading-relaxed">
+                  <pre className="text-xs md:text-[13px] font-mono text-foreground bg-muted/50 rounded-xl p-4 overflow-auto whitespace-pre-wrap border border-border/50 leading-relaxed max-h-[240px]">
                     {term.code}
                   </pre>
                 </motion.div>
