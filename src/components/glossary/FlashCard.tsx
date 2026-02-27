@@ -1,3 +1,4 @@
+// src/components/glossary/FlashCard.tsx
 import { useState } from 'react';
 import type { MouseEvent } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -19,14 +20,7 @@ const TAB_KEYS: Record<TabKey, string> = {
   code: 'glossary.tabCode',
 };
 
-/**
- * Layout constants: keep header and tab-bar heights fixed so the front/back body areas align perfectly.
- * Adjust these to match your design tokens.
- */
-const HEADER_HEIGHT = 44; // px (title row)
-const TABBAR_HEIGHT = 36; // px (tabs + close)
-const FOOTER_HEIGHT = 36; // px (meta + hint)
-const BODY_MIN_HEIGHT = 90; // minimum space reserved for the body area
+const TAB_ROW_HEIGHT = 40; // px; used to reserve space on front for perfect alignment
 
 export function FlashCard({ term, index }: FlashCardProps) {
   const [flipped, setFlipped] = useState(false);
@@ -38,7 +32,7 @@ export function FlashCard({ term, index }: FlashCardProps) {
     ...(term.code ? (['code'] as const) : []),
   ];
 
-  // prefer formula (already wrapped in $...$) else wrap latex
+  // Prefer formula (already $...$) else wrap latex
   const frontMath = term.formula ?? (term.latex ? `$${term.latex}$` : undefined);
 
   const handleTabClick = (e: MouseEvent<HTMLButtonElement>, tab: TabKey) => {
@@ -49,120 +43,123 @@ export function FlashCard({ term, index }: FlashCardProps) {
   const handleFlip = () => {
     setFlipped((f) => {
       const next = !f;
-      if (next) setActiveTab('definition'); // reset to definition when opening back
+      if (next) setActiveTab('definition');
       return next;
     });
   };
 
+  // Optional topic extraction (backwards-compatible)
   const topic =
-    // @ts-expect-error future-proof: topic or topics
+    // @ts-expect-error
     (term.topic as string | undefined) ??
     // @ts-expect-error
     (Array.isArray(term.topics) ? (term.topics[0] as string | undefined) : undefined);
 
   /**
-   * The FaceShell keeps the same structure on both sides:
-   *  - header (fixed)
-   *  - tabBar spacer (fixed height, visible on back, invisible spacer on front)
-   *  - body (flexible area with min height)
-   *  - footer (fixed)
-   *
-   * This ensures pixel-perfect vertical alignment when flipping.
+   * Shared face layout uses CSS grid:
+   * grid-template-rows: header (auto) / tabsRow (fixed) / body (1fr) / footer (auto)
+   * Tabs row is reserved on the front but rendered invisibly so the flip doesn't shift vertical rhythm.
    */
-  const FaceShell = ({
-    isFront,
-    onClick,
-    childrenHeader,
-    childrenTabbar,
-    childrenBody,
-    childrenFooter,
-    className = '',
-  }: {
-    isFront: boolean;
-    onClick?: (e: React.MouseEvent) => void;
-    childrenHeader: React.ReactNode;
-    childrenTabbar: React.ReactNode;
-    childrenBody: React.ReactNode;
-    childrenFooter: React.ReactNode;
-    className?: string;
-  }) => {
-    const baseBorder = isFront ? 'border-border' : 'border-primary/30 rotate-y-180';
-    const pointer = isFront ? (flipped ? 'pointer-events-none' : 'pointer-events-auto cursor-pointer') : (flipped ? 'pointer-events-auto' : 'pointer-events-none');
+  const faceBaseClass =
+    'absolute inset-0 rounded-xl border bg-card p-4 overflow-hidden backface-hidden flex flex-col';
 
-    return (
-      <div
-        onClick={onClick}
-        className={[
-          'absolute inset-0 rounded-xl p-5 overflow-hidden flex flex-col backface-hidden bg-card border',
-          baseBorder,
-          pointer,
-          className,
-        ].join(' ')}
-      >
-        {/* decorative glow */}
-        <div
-          className={[
-            'absolute w-24 h-24 rounded-full bg-primary/10 blur-2xl pointer-events-none',
-            isFront ? '-top-8 -right-8' : '-bottom-8 -left-8',
-          ].join(' ')}
-        />
+  const header = (
+    <div className="shrink-0">
+      <p className="text-lg font-semibold text-foreground leading-tight">
+        <LatexRenderer text={term.term} />
+      </p>
+    </div>
+  );
 
-        {/* Header: fixed height (title row) */}
-        <div style={{ height: HEADER_HEIGHT }} className="relative z-10 flex items-center">
-          {childrenHeader}
-        </div>
+  const footerFront = (
+    <div className="flex items-center justify-between gap-2">
+      <TermMeta field={term.field as any} topic={topic ?? null} />
+      <span className="text-[10px] text-muted-foreground uppercase tracking-widest">
+        👆 {t('glossary.tapToReveal')}
+      </span>
+    </div>
+  );
 
-        {/* Tab bar spacer (fixed height) - on back this shows tabs, on front it's an invisible spacer */}
-        <div style={{ height: TABBAR_HEIGHT }} className="relative z-10 mt-2">
-          {childrenTabbar}
-        </div>
+  const footerBack = (
+    <div className="flex items-center justify-between gap-2">
+      <TermMeta field={term.field as any} topic={topic ?? null} />
+      <span className="text-[10px] text-muted-foreground uppercase tracking-widest">
+        👇 {t('glossary.tapToClose')}
+      </span>
+    </div>
+  );
 
-        {/* Body: flexible, but with minimum reserved height so things don't jump */}
-        <div
-          style={{ minHeight: BODY_MIN_HEIGHT }}
-          className="relative z-10 mt-3 flex-1 overflow-auto"
-        >
-          {childrenBody}
-        </div>
-
-        {/* Footer: fixed height, contains TermMeta and small hint */}
-        <div style={{ height: FOOTER_HEIGHT }} className="relative z-10 mt-3 flex items-center justify-between gap-2">
-          {childrenFooter}
-        </div>
+  // tab-row JSX for back; re-used invisible on front to reserve space
+  const tabsRow = (
+    <div
+      style={{ height: TAB_ROW_HEIGHT }}
+      className="flex items-center justify-between gap-2"
+      aria-hidden
+    >
+      <div className="flex gap-2">
+        {availableTabs.length > 1 ? (
+          availableTabs.map((tab) => (
+            <button
+              key={tab}
+              onClick={(e) => handleTabClick(e, tab)}
+              className={`px-2.5 py-1 rounded-md text-[10px] font-medium transition-all whitespace-nowrap ${
+                activeTab === tab
+                  ? 'bg-primary/15 text-primary border border-primary/30'
+                  : 'text-muted-foreground hover:text-foreground border border-transparent'
+              }`}
+            >
+              {t(TAB_KEYS[tab])}
+            </button>
+          ))
+        ) : (
+          // Keep an empty placeholder so width/layout is stable
+          <div className="w-0" />
+        )}
       </div>
-    );
-  };
+
+      <div />
+    </div>
+  );
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 16 }}
+      initial={{ opacity: 0, y: 14 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: index * 0.04 }}
       className="perspective-1000"
     >
       <div
-        className={`relative w-full min-h-[${HEADER_HEIGHT + TABBAR_HEIGHT + BODY_MIN_HEIGHT + FOOTER_HEIGHT}px] transition-transform duration-500 preserve-3d ${
+        className={`relative w-full min-h-[180px] transition-transform duration-500 preserve-3d ${
           flipped ? 'rotate-y-180' : ''
         }`}
       >
-        {/* FRONT */}
-        <FaceShell
-          isFront
+        {/* ── FRONT ── */}
+        <div
           onClick={handleFlip}
-          childrenHeader={
-            <div className="w-full">
-              <p className="text-lg font-bold text-foreground leading-tight">
-                <LatexRenderer text={term.term} />
-              </p>
-            </div>
-          }
-          childrenTabbar={
-            /* invisible spacer so body lines up with back */
-            <div className="w-full h-full" aria-hidden />
-          }
-          childrenBody={
-            <div className="flex flex-col gap-3">
-              {/* Formula / LaTeX hero */}
+          className={`${faceBaseClass} ${
+            !flipped ? 'pointer-events-auto cursor-pointer' : 'pointer-events-none'
+          }`}
+          style={{
+            // grid: header / tabsRow / body / footer
+            display: 'grid',
+            gridTemplateRows: `auto ${TAB_ROW_HEIGHT}px 1fr auto`,
+            gap: '0.5rem',
+            borderColor: 'var(--border)', // Tailwind var usage neutral; keep consistent with border classes
+          }}
+        >
+          {/* decorative glow (top-right) */}
+          <div className="absolute -top-6 -right-6 w-24 h-24 rounded-full bg-primary/10 blur-2xl pointer-events-none" />
+
+          {/* header */}
+          <div className="px-1">{header}</div>
+
+          {/* invisible tabs row (keeps the layout identical to the back) */}
+          <div className="px-1 opacity-0 pointer-events-none">{tabsRow}</div>
+
+          {/* body */}
+          <div className="px-1">
+            <div className="flex flex-col gap-3 h-full">
+              {/* hero math / formula in same body area as back's content */}
               {frontMath ? (
                 <div className="py-3 px-4 rounded-lg bg-muted/50 border border-border/50 text-center">
                   <div className="text-base md:text-lg text-foreground">
@@ -171,98 +168,84 @@ export function FlashCard({ term, index }: FlashCardProps) {
                 </div>
               ) : null}
 
-              {/* definition preview — clamped to two lines but uses same slot as back */}
-              <p className="text-sm text-muted-foreground leading-relaxed line-clamp-2">
+              {/* short definition preview - constrained to two lines visually */}
+              <div className="text-sm text-muted-foreground leading-relaxed max-h-12 overflow-hidden">
+                {/* If Tailwind line-clamp plugin not available, this uses max-height overflow approach */}
                 <LatexRenderer text={term.definition} />
-              </p>
+                {/* gradient fade at bottom for long defs */}
+                <div
+                  aria-hidden
+                  style={{
+                    height: 18,
+                    marginTop: -6,
+                    background:
+                      'linear-gradient(180deg, rgba(0,0,0,0), rgba(0,0,0,0.25))',
+                    pointerEvents: 'none',
+                  }}
+                />
+              </div>
             </div>
-          }
-          childrenFooter={
-            <>
-              <TermMeta field={term.field as any} topic={topic ?? null} />
-              <span className="text-[11px] text-muted-foreground uppercase tracking-widest flex items-center gap-2">
-                <span className="text-[12px]">👆</span>
-                <span className="hidden sm:inline">{t('glossary.tapToReveal')}</span>
-              </span>
-            </>
-          }
-        />
+          </div>
 
-        {/* BACK */}
-        <FaceShell
-          isFront={false}
+          {/* footer with chips */}
+          <div className="px-1">{footerFront}</div>
+        </div>
+
+        {/* ── BACK ── */}
+        <div
           onClick={(e) => e.stopPropagation()}
-          childrenHeader={
-            <div className="w-full">
-              <p className="text-lg font-bold text-foreground leading-tight">
-                <LatexRenderer text={term.term} />
-              </p>
-            </div>
-          }
-          childrenTabbar={
-            <div className="flex items-center justify-between gap-2">
-              {availableTabs.length > 1 ? (
-                <div className="flex gap-1">
-                  {availableTabs.map((tab) => (
-                    <button
-                      key={tab}
-                      onClick={(e) => handleTabClick(e, tab)}
-                      className={`px-2.5 py-1 rounded-md text-[10px] font-medium transition-all ${
-                        activeTab === tab
-                          ? 'bg-primary/15 text-primary border border-primary/30'
-                          : 'text-muted-foreground hover:text-foreground border border-transparent'
-                      }`}
-                    >
-                      {t(TAB_KEYS[tab])}
-                    </button>
-                  ))}
-                </div>
-              ) : (
-                <div />
-              )}
+          className={`${faceBaseClass} rotate-y-180 ${
+            flipped ? 'pointer-events-auto' : 'pointer-events-none'
+          }`}
+          style={{
+            display: 'grid',
+            gridTemplateRows: `auto ${TAB_ROW_HEIGHT}px 1fr auto`,
+            gap: '0.5rem',
+            // stronger border tint to visually separate back
+            borderColor: 'rgba(124, 58, 237, 0.18)',
+          }}
+        >
+          {/* decorative glow (bottom-left) */}
+          <div className="absolute -bottom-6 -left-6 w-24 h-24 rounded-full bg-primary/10 blur-2xl pointer-events-none" />
 
-              <button
-                onClick={(e) => {
-                  e.stopPropagation();
-                  handleFlip();
-                }}
-                className="px-2 py-1 rounded-md text-[10px] font-medium text-muted-foreground hover:text-foreground border border-border hover:border-foreground/30 transition-all"
-                title={t('glossary.tapToClose')}
-                aria-label={t('glossary.tapToClose')}
-              >
-                ✕
-              </button>
-            </div>
-          }
-          childrenBody={
-            <div className="flex flex-col gap-3">
+          {/* header */}
+          <div className="px-1">{header}</div>
+
+          {/* visible tabs row */}
+          <div className="px-1">{tabsRow}</div>
+
+          {/* body - tab content */}
+          <div className="px-1">
+            <div className="flex flex-col gap-3 h-full">
               <AnimatePresence mode="wait">
                 {activeTab === 'definition' && (
                   <motion.div
                     key="def"
-                    initial={{ opacity: 0, x: -8 }}
+                    initial={{ opacity: 0, x: -6 }}
                     animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: 8 }}
+                    exit={{ opacity: 0, x: 6 }}
                     transition={{ duration: 0.15 }}
-                    className="flex flex-col gap-2"
+                    className="flex flex-col gap-2 h-full"
                   >
-                    <p className="text-sm text-foreground leading-relaxed">
+                    <div className="text-sm text-foreground leading-relaxed">
                       <LatexRenderer text={term.definition} />
-                    </p>
-                    {term.example ? <p className="text-xs text-muted-foreground italic mt-1">💡 {term.example}</p> : null}
+                    </div>
+                    {term.example ? (
+                      <p className="text-xs text-muted-foreground italic mt-1">💡 {term.example}</p>
+                    ) : null}
                   </motion.div>
                 )}
 
                 {activeTab === 'latex' && term.latex && (
                   <motion.div
                     key="latex"
-                    initial={{ opacity: 0, x: -8 }}
+                    initial={{ opacity: 0, x: -6 }}
                     animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: 8 }}
+                    exit={{ opacity: 0, x: 6 }}
                     transition={{ duration: 0.15 }}
-                    className="flex flex-col gap-2"
+                    className="flex flex-col gap-2 h-full"
                   >
-                    <pre className="text-xs font-mono text-foreground bg-muted/50 rounded-lg p-3 overflow-x-auto whitespace-pre-wrap border border-border/50 max-h-[220px]">
+                    <pre className="text-xs font-mono text-foreground bg-muted/50 rounded-lg p-3 overflow-x-auto whitespace-pre-wrap border border-border/50 flex-shrink-0">
                       {term.latex}
                     </pre>
                     <div className="text-center py-2 px-3 rounded-lg bg-background/50 border border-border/30">
@@ -274,29 +257,24 @@ export function FlashCard({ term, index }: FlashCardProps) {
                 {activeTab === 'code' && term.code && (
                   <motion.div
                     key="code"
-                    initial={{ opacity: 0, x: -8 }}
+                    initial={{ opacity: 0, x: -6 }}
                     animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: 8 }}
+                    exit={{ opacity: 0, x: 6 }}
                     transition={{ duration: 0.15 }}
+                    className="flex flex-col gap-2 h-full"
                   >
-                    <pre className="text-xs font-mono text-foreground bg-muted/50 rounded-lg p-3 overflow-auto whitespace-pre-wrap border border-border/50 max-h-[220px] leading-relaxed">
+                    <pre className="text-xs font-mono text-foreground bg-muted/50 rounded-lg p-3 overflow-x-auto whitespace-pre-wrap border border-border/50 leading-relaxed">
                       {term.code}
                     </pre>
                   </motion.div>
                 )}
               </AnimatePresence>
             </div>
-          }
-          childrenFooter={
-            <>
-              <TermMeta field={term.field as any} topic={topic ?? null} />
-              <span className="text-[11px] text-muted-foreground uppercase tracking-widest flex items-center gap-2">
-                <span className="text-[12px]">👇</span>
-                <span className="hidden sm:inline">{t('glossary.tapToClose')}</span>
-              </span>
-            </>
-          }
-        />
+          </div>
+
+          {/* footer */}
+          <div className="px-1">{footerBack}</div>
+        </div>
       </div>
     </motion.div>
   );
