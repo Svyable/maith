@@ -95,9 +95,6 @@ export default function Thinkers() {
       <QuizHeader
         streak={state.streak}
         showStreak={screen === 'quiz'}
-        isDark={isDark}
-        onToggleTheme={toggleTheme}
-        onHome={() => { setScreen('gallery'); setSelectedSlug(null); }}
       />
 
       <main className="relative z-10 flex-1 px-4 py-6 max-w-lg md:max-w-3xl lg:max-w-5xl mx-auto w-full">

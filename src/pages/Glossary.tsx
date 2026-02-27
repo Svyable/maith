@@ -15,9 +15,6 @@ export default function Glossary() {
       <QuizHeader
         streak={0}
         showStreak={false}
-        isDark={isDark}
-        onToggleTheme={toggleTheme}
-        onHome={() => navigate('/')}
       />
       <main className="relative flex-1 py-6 w-full mx-auto">
         <GlossaryScreen />

@@ -115,7 +115,7 @@ export default function Leaderboard() {
   return (
     <div className="min-h-screen bg-background flex flex-col relative">
       <FloatingBackground />
-      <QuizHeader streak={0} showStreak={false} isDark={isDark} onToggleTheme={toggleTheme} onHome={() => navigate('/')} />
+      <QuizHeader streak={0} showStreak={false} />
 
       <main className="relative z-10 flex-1 px-4 py-6 max-w-lg md:max-w-3xl lg:max-w-5xl mx-auto w-full space-y-6">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="space-y-6">
