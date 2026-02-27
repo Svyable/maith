@@ -1,147 +1,70 @@
 
 
-# Profile Onboarding and Leaderboard Alignment
+# Fix Header, Language Switcher, Locale Reactivity & Mobile Spacing
 
-## Problem
-- New users (both email signup and OAuth) get auto-generated usernames like `user_a3f8b2c1` with no opportunity to choose a display name
-- OAuth users (Google/Apple) often have `null` display_name since the trigger only reads `raw_user_meta_data`
-- The leaderboard shows `display_name || username`, resulting in cryptic entries
-- There is no post-signup onboarding screen to collect a preferred username
-- The Profile page displays but cannot edit the username/display_name
+## Issues to Fix
 
-## Solution
-
-### 1. Add a username onboarding screen (`src/pages/Onboarding.tsx`)
-A simple page shown after first login when the user has no custom display_name set. Contains:
-- A text input for choosing a display name (required, 2-20 chars)
-- An optional avatar emoji picker (or keep default)
-- A "Save and Continue" button that writes to the `profiles` table
-- Redirects to `/` after saving
-
-### 2. Create a `useProfile` hook (`src/hooks/useProfile.ts`)
-- Fetches the current user's profile row on auth state change
-- Exposes `profile`, `loading`, `updateProfile(fields)`, and `needsOnboarding` (true when display_name is null or matches the auto-generated pattern `user_XXXXXXXX`)
-- Used by Index.tsx, Profile.tsx, and Onboarding.tsx to avoid scattered `supabase.from('profiles')` calls
-
-### 3. Update the `handle_new_user` trigger (DB migration)
-- For OAuth users, also extract `full_name` / `name` from `raw_user_meta_data` (Google/Apple provide these)
-- Store it as `display_name` so OAuth users at least have a real name as fallback
-
-### 4. Add onboarding redirect logic in `App.tsx`
-- After auth state resolves, if user is logged in and `needsOnboarding` is true, redirect to `/onboarding`
-- The onboarding route is protected (requires auth)
-
-### 5. Make Profile page editable
-- Add an "Edit" button next to the display name on `Profile.tsx`
-- Inline edit field that calls `updateProfile({ display_name })` on save
-- Updates reflect immediately on the leaderboard views
-
-### 6. Ensure leaderboard views show the right name
-- The existing views (`leaderboard_all_time`, `leaderboard_weekly`, `leaderboard_by_topic`) already join on `profiles.display_name` and `profiles.username`
-- No schema change needed -- once profiles have proper display_names, leaderboard displays correctly
+1. **Language flags too crowded in header** -- 10 flag buttons overflow on mobile
+2. **Locale switch doesn't update glossary in real-time** -- each `useLocale()` call creates independent state; no cross-component sync
+3. **Mobile spacing broken on glossary page** -- layout/padding issues
+4. **Header not properly fixed** -- content scrolls on top of the header instead of behind it (z-index issue)
 
 ---
 
-## Technical Details
+## Plan
 
-### New files
-| File | Purpose |
-|---|---|
-| `src/pages/Onboarding.tsx` | Post-signup username picker screen |
-| `src/hooks/useProfile.ts` | Shared profile fetch/update hook |
+### 1. Language Switcher: Dropdown on Mobile, Inline on Desktop
 
-### Modified files
+Refactor `LanguageFlags` to show:
+- **Desktop**: All 10 flags inline (current behavior, works fine on wide screens)
+- **Mobile**: A single button showing the active flag; clicking it opens a dropdown/popover with all flag choices
+
+Use `useIsMobile` hook and a simple `useState` toggle for the dropdown. No new dependencies needed -- just a positioned `div` with the flag grid.
+
+**File**: `src/components/LanguageFlags.tsx`
+
+### 2. Fix Cross-Component Locale Reactivity with React Context
+
+The root cause: `useLocale()` creates independent `useState` per component. When `LanguageFlags` calls `changeLocale`, only its own state updates. `GlossaryScreen`'s separate `useLocale()` instance never gets notified.
+
+**Solution**: Create a `LocaleProvider` context that wraps the app. All consumers share the same reactive state.
+
+- Create `src/contexts/LocaleContext.tsx` -- a React context provider that holds the locale state and `changeLocale` function. All components that need locale reactivity will consume this context instead of independent hooks.
+- Update `src/hooks/useLocale.ts` -- rewrite to simply consume the context (keeps the same API surface so no other files break)
+- Wrap the app with `<LocaleProvider>` in `src/App.tsx` (or the root layout)
+
+This ensures that when a flag is clicked in the header, every component consuming locale (GlossaryScreen, FlashCard, etc.) immediately re-renders with the new locale.
+
+### 3. Fix Header Stacking (z-index)
+
+The header has `sticky top-0 z-10` but page content also uses `relative z-10`, causing content to render on top of the header.
+
+**Fix**:
+- Bump the header to `z-50` so it always sits above content
+- Ensure page content stays at `z-10` or lower
+
+**File**: `src/components/QuizHeader.tsx` -- change `z-10` to `z-50`
+
+### 4. Fix Glossary Mobile Spacing
+
+The Glossary page wrapper has `max-w-lg` on mobile which, combined with GlossaryScreen's own `max-w-6xl px-4`, creates double-constraint issues and awkward spacing.
+
+**Fix**:
+- In `src/pages/Glossary.tsx`, simplify the `<main>` container to use consistent responsive widths that don't conflict with GlossaryScreen's own max-width
+- Ensure proper padding for mobile (the `px-4` on both the page and the screen component creates double padding)
+
+**File**: `src/pages/Glossary.tsx`
+
+---
+
+## Technical Summary
+
 | File | Change |
-|---|---|
-| `src/App.tsx` | Add `/onboarding` route, add redirect guard |
-| `src/pages/Index.tsx` | Use `useProfile` instead of inline profile fetch |
-| `src/pages/Profile.tsx` | Use `useProfile`, add inline display_name editing |
-| `src/pages/Auth.tsx` | After successful login, navigate to `/onboarding` if needed |
-
-### Database migration
-```sql
--- Improve handle_new_user to extract name from OAuth providers
-CREATE OR REPLACE FUNCTION public.handle_new_user()
-RETURNS trigger
-LANGUAGE plpgsql
-SECURITY DEFINER
-SET search_path TO 'public'
-AS $$
-DECLARE
-  base_username text;
-  v_display_name text;
-BEGIN
-  base_username := 'user_' || substr(NEW.id::text, 1, 8);
-  
-  -- Try multiple metadata fields (Google sends full_name/name, Apple sends name)
-  v_display_name := COALESCE(
-    NEW.raw_user_meta_data->>'display_name',
-    NEW.raw_user_meta_data->>'full_name',
-    NEW.raw_user_meta_data->>'name',
-    NULL
-  );
-
-  INSERT INTO public.profiles (id, username, display_name, avatar_url, locale, is_public)
-  VALUES (
-    NEW.id,
-    base_username,
-    v_display_name,
-    COALESCE(NEW.raw_user_meta_data->>'avatar_url', NULL),
-    COALESCE(NEW.raw_user_meta_data->>'locale', 'en'),
-    true
-  )
-  ON CONFLICT (id) DO NOTHING;
-
-  INSERT INTO public.user_stats (user_id)
-  VALUES (NEW.id)
-  ON CONFLICT (user_id) DO NOTHING;
-
-  RETURN NEW;
-END;
-$$;
-```
-
-### `useProfile` hook shape
-```typescript
-interface Profile {
-  id: string;
-  username: string;
-  display_name: string | null;
-  avatar_url: string | null;
-  locale: string;
-}
-
-interface UseProfileReturn {
-  profile: Profile | null;
-  loading: boolean;
-  needsOnboarding: boolean;
-  updateProfile: (fields: Partial<Profile>) => Promise<void>;
-}
-```
-
-### Onboarding flow
-```text
-[User signs up / OAuth] --> [handle_new_user trigger creates profile row]
-        |
-        v
-[App.tsx checks needsOnboarding]
-        |
-  true  |  false
-   v         v
-[/onboarding]  [/ (home)]
-   |
-   v
-[User picks display name] --> [UPDATE profiles SET display_name = ...]
-   |
-   v
-[Redirect to /]
-```
-
-### Sequencing
-1. DB migration (update `handle_new_user` trigger)
-2. Create `useProfile` hook
-3. Create `Onboarding.tsx` page
-4. Wire routing in `App.tsx`
-5. Refactor `Index.tsx` and `Profile.tsx` to use `useProfile`
-6. Add edit capability to `Profile.tsx`
+|------|--------|
+| `src/contexts/LocaleContext.tsx` | **New** -- shared locale React context + provider |
+| `src/hooks/useLocale.ts` | Rewrite to consume context (same API) |
+| `src/App.tsx` | Wrap app with `LocaleProvider` |
+| `src/components/LanguageFlags.tsx` | Dropdown on mobile, inline on desktop |
+| `src/components/QuizHeader.tsx` | `z-10` to `z-50` |
+| `src/pages/Glossary.tsx` | Fix `<main>` responsive widths / padding |
 
