@@ -47,7 +47,6 @@ export function FlashCard({ term, index }: FlashCardProps) {
 
   // Topic support (optional): if you add `topic` or `topics` later this will just work
   const topic =
-    // @ts-expect-error - allow future schema expansion without breaking build
     (term.topic as string | undefined) ??
     // @ts-expect-error
     (Array.isArray(term.topics) ? (term.topics[0] as string | undefined) : undefined);
