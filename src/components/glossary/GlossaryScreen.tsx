@@ -2,16 +2,18 @@ import { useMemo, useState } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { FlashCard } from './FlashCard';
-import { allGlossaryTerms, getGlossaryByField, getGlossaryFields } from '@/content/glossary';
+import { getAllGlossaryTerms, getGlossaryByField, getGlossaryFields } from '@/content/glossary';
 import { FIELDS } from '@/config/fields';
 import { t } from '@/i18n';
+import { LanguageFlags } from '@/components/LanguageFlags';
 
 export function GlossaryScreen() {
   const navigate = useNavigate();
   const [selectedField, setSelectedField] = useState('all');
   const [search, setSearch] = useState('');
 
-  const availableFields = useMemo(() => getGlossaryFields(), []);
+  const allTerms = useMemo(() => getAllGlossaryTerms(), [/* re-run when locale changes via rerender */]);
+  const availableFields = useMemo(() => getGlossaryFields(), [/* same */]);
 
   const fieldChips = useMemo(() => {
     return [
@@ -51,14 +53,14 @@ export function GlossaryScreen() {
         <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground">
           Gloss<span className="text-gradient-primary">ary</span>
         </h2>
+
+        <LanguageFlags />
+
         <p className="text-sm text-muted-foreground max-w-md mx-auto">
           {t('glossary.subtitle')}
         </p>
         <p className="text-xs text-muted-foreground/70">
-          {t('glossary.count', {
-            terms: allGlossaryTerms.length,
-            fields: availableFields.length,
-          })}
+          {t('glossary.count', { terms: allTerms.length, fields: availableFields.length })}
         </p>
       </div>
 
@@ -89,8 +91,7 @@ export function GlossaryScreen() {
         <div className="flex flex-wrap gap-2">
           {fieldChips.map((f) => {
             const isActive = selectedField === f.slug;
-            const count =
-              f.slug === 'all' ? allGlossaryTerms.length : getGlossaryByField(f.slug).length;
+            const count = f.slug === 'all' ? allTerms.length : getGlossaryByField(f.slug).length;
 
             return (
               <motion.button
@@ -131,10 +132,12 @@ export function GlossaryScreen() {
         </div>
       </div>
 
-      {/* Cards */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 items-start">
+      {/* Masonry cards */}
+      <div className="columns-1 lg:columns-2 gap-4 [column-fill:_balance]">
         {terms.map((term, i) => (
-          <FlashCard key={term.id} term={term} index={i} />
+          <div key={term.id} className="mb-4 break-inside-avoid">
+            <FlashCard term={term} index={i} />
+          </div>
         ))}
 
         {terms.length === 0 && (
