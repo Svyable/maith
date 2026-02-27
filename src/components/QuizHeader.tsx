@@ -1,7 +1,6 @@
 import { useAuth } from "@/hooks/useAuth";
 import { useNavigate, useLocation } from "react-router-dom";
 import { t } from "@/i18n";
-import { motion } from "framer-motion";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { LanguageFlags } from "@/components/LanguageFlags";
 
@@ -27,10 +26,10 @@ export function QuizHeader({ streak, showStreak }: QuizHeaderProps) {
 
   return (
     <header
-      className="flex items-center justify-between px-4 py-2.5 border-b border-border bg-card/50 backdrop-blur-sm sticky top-0 z-50"
+      className="flex items-center justify-center px-4 py-2.5 border-b border-border bg-card sticky top-0 z-50"
       style={{ paddingTop: "calc(0.5rem + env(safe-area-inset-top))" }}
     >
-      <div className="flex items-center gap-1">
+      <div className="flex items-center gap-1 flex-wrap justify-center">
         {showStreak && (
           <div className="flex items-center gap-1 mr-1">
             <span className="text-accent animate-streak-fire">🔥</span>
