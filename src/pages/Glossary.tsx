@@ -19,7 +19,7 @@ export default function Glossary() {
         onToggleTheme={toggleTheme}
         onHome={() => navigate('/')}
       />
-      <main className="relative z-10 flex-1 px-4 py-6 max-w-lg md:max-w-3xl lg:max-w-5xl mx-auto w-full">
+      <main className="relative flex-1 py-6 w-full mx-auto">
         <GlossaryScreen />
       </main>
       <div className="relative z-10"><Footer /></div>

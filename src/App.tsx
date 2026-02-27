@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route, Navigate, useLocation } from "react-route
 import { lazy, Suspense } from "react";
 import { useProfile } from "@/hooks/useProfile";
 import { useAuth } from "@/hooks/useAuth";
+import { LocaleProvider } from "@/contexts/LocaleContext";
 import Index from "./pages/Index";
 
 const Auth = lazy(() => import("./pages/Auth"));
@@ -37,6 +38,7 @@ function OnboardingGuard({ children }: { children: React.ReactNode }) {
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
+    <LocaleProvider>
     <TooltipProvider>
       <Toaster />
       <Sonner />
@@ -60,6 +62,7 @@ const App = () => (
         </Suspense>
       </BrowserRouter>
     </TooltipProvider>
+    </LocaleProvider>
   </QueryClientProvider>
 );
 
