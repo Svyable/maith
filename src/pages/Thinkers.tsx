@@ -7,7 +7,7 @@ import { Footer } from '@/components/Footer';
 import { QuizScreen } from '@/components/QuizScreen';
 import { QuizResults } from '@/components/QuizResults';
 import { ThinkerGallery } from '@/components/thinkers/ThinkerGallery';
-import { useTheme } from '@/hooks/useTheme';
+
 import { useThinkerQuiz } from '@/hooks/useThinkerQuiz';
 import { useQuizSession } from '@/hooks/useQuizSession';
 import { THINKERS } from '@/config/thinkers';
@@ -19,7 +19,7 @@ type Screen = 'gallery' | 'quiz' | 'results';
 
 export default function Thinkers() {
   const navigate = useNavigate();
-  const { isDark, toggle: toggleTheme } = useTheme();
+  
   const [screen, setScreen] = useState<Screen>('gallery');
   const [selectedSlug, setSelectedSlug] = useState<string | null>(null);
   const [selectedDifficulties, setSelectedDifficulties] = useState<Difficulty[]>(DEFAULT_DIFFICULTIES);
@@ -95,9 +95,6 @@ export default function Thinkers() {
       <QuizHeader
         streak={state.streak}
         showStreak={screen === 'quiz'}
-        isDark={isDark}
-        onToggleTheme={toggleTheme}
-        onHome={() => { setScreen('gallery'); setSelectedSlug(null); }}
       />
 
       <main className="relative z-10 flex-1 px-4 py-6 max-w-lg md:max-w-3xl lg:max-w-5xl mx-auto w-full">

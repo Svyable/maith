@@ -3,9 +3,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '@/hooks/useAuth';
 import { t } from '@/i18n';
-import { useLocale } from '@/hooks/useLocale';
 import { lovable } from '@/integrations/lovable/index';
-import { LanguageSelector } from '@/components/LanguageSelector';
+import { QuizHeader } from '@/components/QuizHeader';
 import { FloatingBackground } from '@/components/FloatingBackground';
 import { Footer } from '@/components/Footer';
 
@@ -20,7 +19,6 @@ export default function Auth() {
   const [appleLoading, setAppleLoading] = useState(false);
   const [googleLoading, setGoogleLoading] = useState(false);
   const { signIn, signUp } = useAuth();
-  const { locale, changeLocale } = useLocale();
   const navigate = useNavigate();
 
   const handleAppleSignIn = async () => {
@@ -57,22 +55,7 @@ export default function Auth() {
   return (
     <div className="min-h-screen bg-background flex flex-col relative">
       <FloatingBackground />
-
-      {/* Top bar */}
-      <div className="relative z-10 flex items-center justify-between px-4 md:px-8 pt-4 pb-2">
-        <motion.button
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          onClick={() => navigate('/')}
-          className="flex items-center gap-2 group"
-        >
-          <span className="text-2xl group-hover:scale-110 transition-transform">🧠</span>
-          <span className="font-display font-bold text-lg text-foreground">
-            m<span className="text-gradient-primary">AI</span>th
-          </span>
-        </motion.button>
-        <LanguageSelector locale={locale} onChangeLocale={changeLocale} />
-      </div>
+      <QuizHeader streak={0} showStreak={false} />
 
       {/* Centered auth card */}
       <div className="relative z-10 flex-1 flex items-center justify-center px-4 py-8">

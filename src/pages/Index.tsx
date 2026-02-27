@@ -8,7 +8,7 @@ import { QuizScreen } from '@/components/QuizScreen';
 import { QuizResults } from '@/components/QuizResults';
 import { useQuiz } from '@/hooks/useQuiz';
 import { useQuizSession } from '@/hooks/useQuizSession';
-import { useTheme } from '@/hooks/useTheme';
+
 import { useAuth } from '@/hooks/useAuth';
 import { useProfile } from '@/hooks/useProfile';
 import { type Difficulty, DEFAULT_DIFFICULTIES } from '@/config/constants';
@@ -22,7 +22,7 @@ const Index = () => {
   const [selectedTopics, setSelectedTopics] = useState<string[]>([]);
   const [selectedField, setSelectedField] = useState<string>('all');
   const [selectedDifficulties, setSelectedDifficulties] = useState<Difficulty[]>(DEFAULT_DIFFICULTIES);
-  const { isDark, toggle: toggleTheme } = useTheme();
+  
   const { user, signOut } = useAuth();
   const { profile } = useProfile();
 
@@ -106,9 +106,6 @@ const Index = () => {
       <QuizHeader
         streak={state.streak}
         showStreak={screen === 'quiz'}
-        isDark={isDark}
-        onToggleTheme={toggleTheme}
-        onHome={() => setScreen('home')}
       />
 
       <main className="relative z-10 flex-1 px-4 py-6 max-w-lg md:max-w-3xl lg:max-w-5xl mx-auto w-full">

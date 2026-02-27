@@ -6,7 +6,7 @@ import { QuizHeader } from '@/components/QuizHeader';
 import { FloatingBackground } from '@/components/FloatingBackground';
 import { Footer } from '@/components/Footer';
 import { LatexRenderer } from '@/components/LatexRenderer';
-import { useTheme } from '@/hooks/useTheme';
+
 import { useVaultProgress } from '@/hooks/useVaultProgress';
 import { VAULT_ENTRIES, type VaultEntry } from '@/config/vault';
 import { vaultQuestions } from '@/content/vault';
@@ -365,7 +365,7 @@ function VaultCard({
 // ── Main Page ────────────────────────────────────────────────
 
 export default function Vault() {
-  const { isDark, toggle: toggleTheme } = useTheme();
+  
   const navigate = useNavigate();
   const { user } = useAuth();
   const { isUnlocked, unlockEntry, resetProgress, totalUnlocked, totalEntries } = useVaultProgress();
@@ -394,7 +394,7 @@ export default function Vault() {
   return (
     <div className="min-h-screen bg-background flex flex-col relative">
       <FloatingBackground />
-      <QuizHeader streak={0} showStreak={false} isDark={isDark} onToggleTheme={toggleTheme} onHome={() => navigate('/')} />
+      <QuizHeader streak={0} showStreak={false} />
 
       <main className="relative z-10 flex-1 px-4 py-6 max-w-5xl mx-auto w-full">
         {/* Hero */}
