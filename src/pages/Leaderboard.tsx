@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { supabase } from '@/integrations/supabase/client';
 import { useAuth } from '@/hooks/useAuth';
-import { useTheme } from '@/hooks/useTheme';
+
 import { QuizHeader } from '@/components/QuizHeader';
 import { FloatingBackground } from '@/components/FloatingBackground';
 import { Footer } from '@/components/Footer';
@@ -61,7 +61,7 @@ function normalizeTopicRow(r: TopicRow) {
 
 export default function Leaderboard() {
   const { user } = useAuth();
-  const { isDark, toggle: toggleTheme } = useTheme();
+  
   const navigate = useNavigate();
   const [tab, setTab] = useState<Tab>('all-time');
   const [allTime, setAllTime] = useState<LeaderboardRow[]>([]);

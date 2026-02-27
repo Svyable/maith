@@ -2,7 +2,7 @@ import { QuizHeader } from '@/components/QuizHeader';
 import { GlossaryScreen } from '@/components/glossary/GlossaryScreen';
 import { FloatingBackground } from '@/components/FloatingBackground';
 import { Footer } from '@/components/Footer';
-import { useTheme } from '@/hooks/useTheme';
+
 import { useNavigate } from 'react-router-dom';
 
 export default function Glossary() {

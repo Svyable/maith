@@ -5,7 +5,7 @@ import { FloatingBackground } from '@/components/FloatingBackground';
 import { Footer } from '@/components/Footer';
 import { SearchFilter } from '@/components/SearchFilter';
 import { LatexRenderer } from '@/components/LatexRenderer';
-import { useTheme } from '@/hooks/useTheme';
+
 import { EQUATIONS, EQUATION_DOMAINS, type Equation } from '@/config/equations';
 import { Badge } from '@/components/ui/badge';
 import { t } from '@/i18n';
@@ -148,7 +148,7 @@ function EquationCard({ eq, index }: { eq: Equation; index: number }) {
 }
 
 export default function Logos() {
-  const { isDark, toggle: toggleTheme } = useTheme();
+  
   const [search, setSearch] = useState('');
   const [sortBy, setSortBy] = useState<SortKey>('rank');
   const [domainFilter, setDomainFilter] = useState<string>('all');

@@ -8,7 +8,7 @@ import { QuizScreen } from '@/components/QuizScreen';
 import { QuizResults } from '@/components/QuizResults';
 import { useQuiz } from '@/hooks/useQuiz';
 import { useQuizSession } from '@/hooks/useQuizSession';
-import { useTheme } from '@/hooks/useTheme';
+
 import { useAuth } from '@/hooks/useAuth';
 import { useProfile } from '@/hooks/useProfile';
 import { type Difficulty, DEFAULT_DIFFICULTIES } from '@/config/constants';
@@ -22,7 +22,7 @@ const Index = () => {
   const [selectedTopics, setSelectedTopics] = useState<string[]>([]);
   const [selectedField, setSelectedField] = useState<string>('all');
   const [selectedDifficulties, setSelectedDifficulties] = useState<Difficulty[]>(DEFAULT_DIFFICULTIES);
-  const { isDark, toggle: toggleTheme } = useTheme();
+  
   const { user, signOut } = useAuth();
   const { profile } = useProfile();
 
