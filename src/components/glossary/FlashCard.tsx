@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { LatexRenderer } from '@/components/LatexRenderer';
 import { t } from '@/i18n';
 import type { GlossaryTerm } from '@/content/glossary/types';
-import { TermMeta } from './TermMeta';
+import { TermMeta } from '@/components/glossary/TermMeta';
 
 interface FlashCardProps {
   term: GlossaryTerm;
