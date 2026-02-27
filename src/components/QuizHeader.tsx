@@ -30,7 +30,7 @@ export function QuizHeader({ streak, showStreak, isDark, onToggleTheme, onHome }
 
   return (
     <header
-      className="flex items-center justify-between px-4 py-2.5 border-b border-border bg-card/50 backdrop-blur-sm sticky top-0 z-10"
+      className="flex items-center justify-between px-4 py-2.5 border-b border-border bg-card/50 backdrop-blur-sm sticky top-0 z-50"
       style={{ paddingTop: "calc(0.5rem + env(safe-area-inset-top))" }}
     >
       <motion.button
