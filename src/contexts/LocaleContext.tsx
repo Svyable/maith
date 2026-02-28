@@ -1,6 +1,9 @@
 import { createContext, useState, useCallback, useEffect, type ReactNode } from 'react';
 import { setLocale as setI18nLocale, getLocale, SUPPORTED_LOCALES } from '@/i18n';
 import { preloadQuestionTranslations } from '@/i18n/tQuestion';
+import { preloadVaultTranslations } from '@/i18n/tVault';
+import { preloadGlossaryTranslations } from '@/i18n/tGlossary';
+import { preloadFormulaTranslations } from '@/i18n/tFormulas';
 
 type Locale = typeof SUPPORTED_LOCALES[number]['code'];
 
@@ -36,9 +39,12 @@ export function LocaleProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     if (locale !== 'en') {
       setI18nLocale(locale).then(() => {
-        preloadQuestionTranslations(locale);
-        // Force a state "bump" so children re-render with loaded translations
-        setLocaleState(locale);
+        Promise.all([
+          preloadQuestionTranslations(locale),
+          preloadVaultTranslations(locale),
+          preloadGlossaryTranslations(locale),
+          preloadFormulaTranslations(locale),
+        ]).then(() => setLocaleState(locale));
       });
     }
     // persist detected locale so it sticks
@@ -47,7 +53,12 @@ export function LocaleProvider({ children }: { children: ReactNode }) {
 
   const changeLocale = useCallback(async (newLocale: Locale) => {
     await setI18nLocale(newLocale);
-    await preloadQuestionTranslations(newLocale);
+    await Promise.all([
+      preloadQuestionTranslations(newLocale),
+      preloadVaultTranslations(newLocale),
+      preloadGlossaryTranslations(newLocale),
+      preloadFormulaTranslations(newLocale),
+    ]);
     localStorage.setItem(STORAGE_KEY, newLocale);
     setLocaleState(newLocale);
   }, []);
