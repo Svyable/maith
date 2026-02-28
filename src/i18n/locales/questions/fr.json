@@ -86,5 +86,32 @@
   "q.14.options.3": "Le paramètre de taux $\\lambda$",
   "q.14.explanation": "La distribution normale est entièrement caractérisée par sa moyenne $\\mu$ et sa variance $\\sigma^2$.",
   "q.14.realWorld": "Les gaussiennes sous-tendent les modèles de bruit, les GANs et les autoencodeurs variationnels.",
-  "q.14.hint": "Cette courbe en cloche a besoin exactement de deux paramètres : le centre et la largeur."
+  "q.14.hint": "Cette courbe en cloche a besoin exactement de deux paramètres : le centre et la largeur.",
+
+  "q.82100.question": "En science actuarielle, la fonction de survie S(x) représente :",
+  "q.82100.options.0": "La probabilité qu'une vie depuis l'âge 0 survive jusqu'à l'âge x",
+  "q.82100.options.1": "La probabilité de décès avant l'âge x",
+  "q.82100.options.2": "Le nombre attendu de sinistres par an",
+  "q.82100.options.3": "Le facteur de chargement de la prime",
+  "q.82100.explanation": "S(x) = P(T > x) = 1 - F(x), où T est la variable aléatoire de durée de vie future.",
+  "q.82100.realWorld": "Les assureurs vie utilisent des tables de mortalité (essentiellement des S(x) discrètes) pour tarifer les polices d'assurance vie temporaire.",
+  "q.82100.hint": "C'est le complément de la CDF de la durée de vie.",
+
+  "q.82101.question": "La force de mortalité μ(x) est liée à la fonction de survie par :",
+  "q.82101.options.0": "μ(x) = -S'(x)/S(x) = -d/dx[ln S(x)]",
+  "q.82101.options.1": "μ(x) = S(x)²",
+  "q.82101.options.2": "μ(x) = 1/S(x)",
+  "q.82101.options.3": "μ(x) = S(x) × f(x)",
+  "q.82101.explanation": "La force de mortalité est le taux instantané de mortalité, analogue au taux de hasard en analyse de survie.",
+  "q.82101.realWorld": "Les lois de Gompertz et Makeham modélisent μ(x) paramétriquement pour les populations humaines.",
+  "q.82101.hint": "C'est la fonction de hasard — le taux instantané de défaillance.",
+
+  "q.82102.question": "Le modèle de prévision de mortalité de Lee-Carter modélise les taux logarithmiques de décès comme :",
+  "q.82102.options.0": "ln(m(x,t)) = a(x) + b(x)·k(t), avec k(t) modélisé comme marche aléatoire avec dérive",
+  "q.82102.options.1": "Une constante pour tous les âges et toutes les années",
+  "q.82102.options.2": "Une fonction polynomiale purement déterministe",
+  "q.82102.options.3": "Indépendant de l'année calendaire t",
+  "q.82102.explanation": "Lee-Carter décompose la mortalité en patron d'âge a(x), sensibilité b(x) et tendance temporelle k(t), permettant des prévisions stochastiques.",
+  "q.82102.realWorld": "Les fonds de pension et la Sécurité Sociale utilisent des variantes de Lee-Carter pour projeter le risque de longévité sur des décennies.",
+  "q.82102.hint": "C'est un modèle factoriel de la mortalité avec des composantes d'âge et de temps."
 }

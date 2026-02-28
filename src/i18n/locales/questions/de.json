@@ -958,5 +958,32 @@
   "q.120.options.3": "$O(2^n)$",
   "q.120.explanation": "FFT nutzt die Symmetrie in der DFT-Matrix, um $O(n^2)$ auf $O(n \\log n)$ zu reduzieren — einer der wichtigsten Algorithmen überhaupt.",
   "q.120.realWorld": "Verwendet in der Signalverarbeitung, Audioanalyse, Polynommultiplikation und dem effizienten Training von CNNs.",
-  "q.120.hint": "Teile das Problem in gerade und ungerade Indizes, löse rekursiv."
+  "q.120.hint": "Teile das Problem in gerade und ungerade Indizes, löse rekursiv.",
+
+  "q.82100.question": "In der Versicherungsmathematik stellt die Überlebensfunktion S(x) dar:",
+  "q.82100.options.0": "Die Wahrscheinlichkeit, dass ein Neugeborenes das Alter x erreicht",
+  "q.82100.options.1": "Die Wahrscheinlichkeit des Todes vor dem Alter x",
+  "q.82100.options.2": "Die erwartete Anzahl von Schadensfällen pro Jahr",
+  "q.82100.options.3": "Den Prämienzuschlagsfaktor",
+  "q.82100.explanation": "S(x) = P(T > x) = 1 - F(x), wobei T die Zufallsvariable der zukünftigen Lebensdauer ist.",
+  "q.82100.realWorld": "Lebensversicherer verwenden Sterbetafeln (im Wesentlichen diskrete S(x)) zur Tarifierung von Risikolebensversicherungen.",
+  "q.82100.hint": "Es ist das Komplement der CDF der Lebensdauer.",
+
+  "q.82101.question": "Die Sterblichkeitsintensität μ(x) hängt mit der Überlebensfunktion zusammen durch:",
+  "q.82101.options.0": "μ(x) = -S'(x)/S(x) = -d/dx[ln S(x)]",
+  "q.82101.options.1": "μ(x) = S(x)²",
+  "q.82101.options.2": "μ(x) = 1/S(x)",
+  "q.82101.options.3": "μ(x) = S(x) × f(x)",
+  "q.82101.explanation": "Die Sterblichkeitsintensität ist die momentane Sterberate, analog zur Hazardrate in der Überlebensanalyse.",
+  "q.82101.realWorld": "Die Gesetze von Gompertz und Makeham modellieren μ(x) parametrisch für menschliche Populationen.",
+  "q.82101.hint": "Es ist die Hazardfunktion — die momentane Ausfallrate.",
+
+  "q.82102.question": "Das Lee-Carter-Sterblichkeitsprognosemodell modelliert die logarithmischen Sterberaten als:",
+  "q.82102.options.0": "ln(m(x,t)) = a(x) + b(x)·k(t), wobei k(t) als Random Walk mit Drift modelliert wird",
+  "q.82102.options.1": "Eine Konstante über alle Alter und Jahre",
+  "q.82102.options.2": "Eine rein deterministische Polynomfunktion",
+  "q.82102.options.3": "Unabhängig vom Kalenderjahr t",
+  "q.82102.explanation": "Lee-Carter zerlegt die Sterblichkeit in Altersmuster a(x), Sensitivität b(x) und Zeittrend k(t), was stochastische Prognosen ermöglicht.",
+  "q.82102.realWorld": "Pensionsfonds und die Sozialversicherung verwenden Lee-Carter-Varianten, um das Langlebigkeitsrisiko über Jahrzehnte zu projizieren.",
+  "q.82102.hint": "Es ist ein Faktormodell der Sterblichkeit mit Alters- und Zeitkomponenten."
 }
