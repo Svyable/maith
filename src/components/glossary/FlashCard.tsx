@@ -3,6 +3,7 @@ import type { MouseEvent } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { LatexRenderer } from '@/components/LatexRenderer';
 import { t } from '@/i18n';
+import { tGlossary } from '@/i18n/tGlossary';
 import type { GlossaryTerm } from '@/content/glossary/types';
 import { TermMeta } from '@/components/glossary/TermMeta';
 
@@ -157,7 +158,7 @@ export function FlashCard({ term, index }: FlashCardProps) {
         >
           {/* Header */}
           <h3 className="text-xl md:text-2xl font-semibold text-foreground leading-tight">
-            <LatexRenderer text={term.term} />
+            <LatexRenderer text={tGlossary(term.id, 'term', term.term)} />
           </h3>
 
           {/* Body */}
@@ -171,7 +172,7 @@ export function FlashCard({ term, index }: FlashCardProps) {
             ) : null}
 
             <p className="text-sm md:text-[15px] text-muted-foreground leading-relaxed line-clamp-3">
-              <LatexRenderer text={term.definition} />
+              <LatexRenderer text={tGlossary(term.id, 'definition', term.definition)} />
             </p>
           </div>
 
@@ -194,7 +195,7 @@ export function FlashCard({ term, index }: FlashCardProps) {
         >
           {/* Header */}
           <h3 className="text-xl md:text-2xl font-semibold text-foreground leading-tight">
-            <LatexRenderer text={term.term} />
+            <LatexRenderer text={tGlossary(term.id, 'term', term.term)} />
           </h3>
 
           {/* Tabs + close */}
@@ -245,11 +246,11 @@ export function FlashCard({ term, index }: FlashCardProps) {
                   className="flex flex-col gap-2"
                 >
                   <p className="text-sm md:text-[15px] text-foreground leading-relaxed">
-                    <LatexRenderer text={term.definition} />
+                    <LatexRenderer text={tGlossary(term.id, 'definition', term.definition)} />
                   </p>
                   {term.example ? (
                     <p className="text-xs md:text-[13px] text-muted-foreground italic mt-1">
-                      💡 {term.example}
+                      💡 {tGlossary(term.id, 'example', term.example)}
                     </p>
                   ) : null}
                 </motion.div>

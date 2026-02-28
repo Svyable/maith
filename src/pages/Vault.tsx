@@ -14,6 +14,7 @@ import { Badge } from '@/components/ui/badge';
 import { Progress } from '@/components/ui/progress';
 import { Lock, Unlock, Check, X, RotateCcw } from 'lucide-react';
 import { t } from '@/i18n';
+import { tVault } from '@/i18n/tVault';
 
 // ── Sub-components ───────────────────────────────────────────
 
@@ -239,11 +240,11 @@ function VaultCard({
           <span className="text-2xl flex-shrink-0">{entry.domainEmoji}</span>
           <div className="min-w-0 flex-1">
             <h3 className="font-display font-bold text-foreground text-base leading-tight">
-              {entry.name}
+              {tVault(entry.id, 'name', entry.name)}
             </h3>
             {entry.codename && (
               <p className="text-[10px] font-mono text-accent mt-0.5">
-                {t('vault.codename', { name: entry.codename })}
+                {t('vault.codename', { name: tVault(entry.id, 'codename', entry.codename) })}
               </p>
             )}
             <p className="text-xs text-muted-foreground mt-0.5">
@@ -273,7 +274,7 @@ function VaultCard({
         </div>
 
         {/* Summary */}
-        <p className="text-sm text-foreground/85 leading-relaxed mb-3">{entry.summary}</p>
+        <p className="text-sm text-foreground/85 leading-relaxed mb-3">{tVault(entry.id, 'summary', entry.summary)}</p>
 
         {/* Meters */}
         <div className="space-y-1.5 mb-2">
@@ -311,7 +312,7 @@ function VaultCard({
                 <div className="mt-4 pt-4 border-t border-border/40 space-y-4 text-sm">
                   <div>
                     <p className="text-xs font-bold text-destructive/80 uppercase tracking-wide mb-1">{t('vault.fullStory')}</p>
-                    <p className="text-foreground/90 leading-relaxed">{entry.fullStory}</p>
+                    <p className="text-foreground/90 leading-relaxed">{tVault(entry.id, 'fullStory', entry.fullStory)}</p>
                   </div>
                   <div>
                     <p className="text-xs font-bold text-muted-foreground uppercase tracking-wide mb-1">{t('vault.keyFigures')}</p>
@@ -323,11 +324,11 @@ function VaultCard({
                   </div>
                   <div>
                     <p className="text-xs font-bold text-muted-foreground uppercase tracking-wide mb-1">{t('vault.significance')}</p>
-                    <p className="text-foreground/80 leading-relaxed">{entry.significance}</p>
+                    <p className="text-foreground/80 leading-relaxed">{tVault(entry.id, 'significance', entry.significance)}</p>
                   </div>
                   <div>
                     <p className="text-xs font-bold text-muted-foreground uppercase tracking-wide mb-1">{t('vault.legacy')}</p>
-                    <p className="text-foreground/80 leading-relaxed">{entry.legacy}</p>
+                    <p className="text-foreground/80 leading-relaxed">{tVault(entry.id, 'legacy', entry.legacy)}</p>
                   </div>
                 </div>
               ) : (
