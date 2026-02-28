@@ -98,7 +98,7 @@ function XpBar({ xp }: { xp: number }) {
   const level = getLevel(xp);
   return (
     <div className="flex items-center gap-1.5 min-w-0">
-      <span className="text-xs" title={level.name}>{level.emoji}</span>
+      <span className="text-xs" title={t(level.nameKey)}>{level.emoji}</span>
       <div className="flex-1 h-1.5 rounded-full bg-secondary overflow-hidden min-w-[40px]">
         <motion.div
           className="h-full rounded-full bg-gradient-to-r from-primary to-accent"
@@ -169,15 +169,15 @@ function LeaderRow({
           <span className="text-sm font-semibold text-foreground truncate">
             {name}
           </span>
-          {isMe && <span className="text-[10px] px-1.5 py-0.5 rounded-full bg-primary/20 text-primary font-bold">YOU</span>}
-          <span className="text-[10px] px-1.5 py-0.5 rounded-full bg-secondary text-muted-foreground font-medium" title={level.name}>
-            {level.emoji} {level.name}
+          {isMe && <span className="text-[10px] px-1.5 py-0.5 rounded-full bg-primary/20 text-primary font-bold">{t('leaderboard.you')}</span>}
+          <span className="text-[10px] px-1.5 py-0.5 rounded-full bg-secondary text-muted-foreground font-medium" title={t(level.nameKey)}>
+            {level.emoji} {t(level.nameKey)}
           </span>
         </div>
 
         {/* Stats row */}
         <div className="flex flex-wrap gap-x-3 gap-y-0.5 text-[11px] text-muted-foreground">
-          <span>{accuracy}% acc</span>
+          <span>{t('leaderboard.acc', { value: accuracy })}</span>
           {streak > 0 && <span>🔥{streak}</span>}
           <span>📝{answered}</span>
           {gamesPlayed > 0 && <span>🎮{gamesPlayed}</span>}
@@ -191,7 +191,7 @@ function LeaderRow({
       {/* Score */}
       <div className="text-right flex-shrink-0">
         <div className="text-base font-bold font-mono text-foreground">{score.toLocaleString()}</div>
-        <div className="text-[10px] text-muted-foreground">{tab === 'topics' ? 'correct' : 'XP'}</div>
+        <div className="text-[10px] text-muted-foreground">{tab === 'topics' ? t('leaderboard.correct') : t('leaderboard.xp')}</div>
       </div>
     </motion.div>
   );
@@ -239,7 +239,7 @@ export default function Leaderboard() {
   const tabs: { key: Tab; label: string; emoji: string }[] = [
     { key: 'all-time', label: t('leaderboard.allTime'), emoji: '🏆' },
     { key: 'weekly', label: t('leaderboard.weekly'), emoji: '📅' },
-    { key: 'topics', label: 'Topics', emoji: '📊' },
+    { key: 'topics', label: t('leaderboard.topics'), emoji: '📊' },
   ];
 
   return (
@@ -253,18 +253,18 @@ export default function Leaderboard() {
           <div className="text-center">
             <div className="text-5xl mb-2">🏆</div>
             <h1 className="text-2xl font-display font-bold text-foreground">{t('leaderboard.title')}</h1>
-            <p className="text-sm text-muted-foreground mt-1">Compete, climb ranks, and earn XP</p>
+            <p className="text-sm text-muted-foreground mt-1">{t('leaderboard.subtitle')}</p>
           </div>
 
           {/* Level legend */}
           <div className="flex flex-wrap justify-center gap-1.5">
             {LEVELS.map((l) => (
               <span
-                key={l.name}
+                key={l.nameKey}
                 className="text-[10px] px-2 py-0.5 rounded-full bg-secondary text-muted-foreground"
                 title={`${l.min}+ XP`}
               >
-                {l.emoji} {l.name} ({l.min}+)
+                {l.emoji} {t(l.nameKey)} ({l.min}+)
               </span>
             ))}
           </div>
@@ -313,11 +313,11 @@ export default function Leaderboard() {
               ))}
             </div>
           ) : tab === 'all-time' && allTime.length === 0 ? (
-            <EmptyState message="No players yet. Be the first!" />
+            <EmptyState message={t('leaderboard.empty')} />
           ) : tab === 'weekly' && weekly.length === 0 ? (
-            <EmptyState message="No games played this week yet. Start a quiz to claim the #1 spot! 🚀" />
+            <EmptyState message={t('leaderboard.emptyWeekly')} />
           ) : tab === 'topics' && filteredTopicRows.length === 0 ? (
-            <EmptyState message="No data for this topic yet." />
+            <EmptyState message={t('leaderboard.emptyTopic')} />
           ) : (
             <div className="space-y-2">
               {tab === 'all-time' && allTime.map((row, i) => (
