@@ -14,7 +14,7 @@ const Profile = lazy(() => import("./pages/Profile"));
 const Leaderboard = lazy(() => import("./pages/Leaderboard"));
 const Thinkers = lazy(() => import("./pages/Thinkers"));
 const Glossary = lazy(() => import("./pages/Glossary"));
-const Logos = lazy(() => import("./pages/Logos"));
+const Formulas = lazy(() => import("./pages/Formulas"));
 const Vault = lazy(() => import("./pages/Vault"));
 const Onboarding = lazy(() => import("./pages/Onboarding"));
 const NotFound = lazy(() => import("./pages/NotFound"));
@@ -53,7 +53,8 @@ const App = () => (
               <Route path="/leaderboard" element={<Leaderboard />} />
               <Route path="/thinkers" element={<Thinkers />} />
               <Route path="/glossary" element={<Glossary />} />
-              <Route path="/logos" element={<Logos />} />
+              <Route path="/formulas" element={<Formulas />} />
+              <Route path="/logos" element={<Navigate to="/formulas" replace />} />
               <Route path="/vault" element={<Vault />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />

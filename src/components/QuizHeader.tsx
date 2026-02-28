@@ -12,7 +12,7 @@ interface QuizHeaderProps {
 const NAV_ITEMS = [
   { path: "/", label: "Quiz", emoji: "🧠", mobileOnly: false },
   { path: "/thinkers", label: "MasterMinds", emoji: "🎓", mobileOnly: false },
-  { path: "/logos", label: "Logos", emoji: "📜", mobileOnly: false },
+  { path: "/formulas", label: "Formulas", emoji: "📜", mobileOnly: false },
   { path: "/vault", label: "Vault", emoji: "🔐", mobileOnly: false },
   { path: "/glossary", label: "Glossary", emoji: "📖", mobileOnly: false },
   { path: "/leaderboard", label: "Leaderboard", emoji: "🏆", mobileOnly: false },
@@ -39,14 +39,14 @@ export function QuizHeader({ streak, showStreak }: QuizHeaderProps) {
 
         {/* Desktop: text nav links */}
         {!isMobile && (
-          <nav className="flex items-center gap-0.5 mr-2">
+          <nav className="flex items-center gap-1">
             {NAV_ITEMS.map((item) => {
               const isActive = location.pathname === item.path;
               return (
                 <button
                   key={item.path}
                   onClick={() => navigate(item.path)}
-                  className={`px-2.5 py-1.5 rounded-lg text-xs font-medium transition-colors ${
+                  className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-colors ${
                     isActive
                       ? "bg-primary/15 text-primary"
                       : "text-muted-foreground hover:text-foreground hover:bg-secondary/60"
