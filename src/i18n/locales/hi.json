@@ -115,6 +115,19 @@
   "onboarding.save": "सहेजें और जारी रखें",
 
   "nav.home": "होम",
+  "nav.quiz": "क्विज़",
+  "nav.masterMinds": "महान मस्तिष्क",
+  "nav.formulas": "सूत्र",
+  "nav.vault": "वॉल्ट",
+  "nav.glossary": "शब्दावली",
+  "nav.leaderboard": "लीडरबोर्ड",
+  "nav.profile": "प्रोफ़ाइल",
+  "nav.signIn": "साइन इन",
+  "nav.darkMode": "डार्क मोड",
+  "nav.lightMode": "लाइट मोड",
+  "nav.changeLanguage": "भाषा बदलें"
+
+  "nav.home": "होम",
   "nav.leaderboard": "लीडरबोर्ड",
   "nav.profile": "प्रोफ़ाइल",
   "nav.signIn": "साइन इन",

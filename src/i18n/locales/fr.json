@@ -115,6 +115,19 @@
   "onboarding.save": "Enregistrer & Continuer",
 
   "nav.home": "Accueil",
+  "nav.quiz": "Quiz",
+  "nav.masterMinds": "Esprits Maîtres",
+  "nav.formulas": "Formules",
+  "nav.vault": "Coffre",
+  "nav.glossary": "Glossaire",
+  "nav.leaderboard": "Classement",
+  "nav.profile": "Profil",
+  "nav.signIn": "Se connecter",
+  "nav.darkMode": "Mode sombre",
+  "nav.lightMode": "Mode clair",
+  "nav.changeLanguage": "Changer de langue"
+
+  "nav.home": "Accueil",
   "nav.leaderboard": "Classement",
   "nav.profile": "Profil",
   "nav.signIn": "Se connecter",

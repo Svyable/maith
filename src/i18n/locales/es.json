@@ -115,6 +115,19 @@
   "onboarding.save": "Guardar y continuar",
 
   "nav.home": "Inicio",
+  "nav.quiz": "Quiz",
+  "nav.masterMinds": "Mentes Maestras",
+  "nav.formulas": "Fórmulas",
+  "nav.vault": "Bóveda",
+  "nav.glossary": "Glosario",
+  "nav.leaderboard": "Clasificación",
+  "nav.profile": "Perfil",
+  "nav.signIn": "Iniciar sesión",
+  "nav.darkMode": "Modo oscuro",
+  "nav.lightMode": "Modo claro",
+  "nav.changeLanguage": "Cambiar idioma"
+
+  "nav.home": "Inicio",
   "nav.leaderboard": "Clasificación",
   "nav.profile": "Perfil",
   "nav.signIn": "Iniciar sesión",

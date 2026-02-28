@@ -115,6 +115,19 @@
   "onboarding.save": "保存并继续",
 
   "nav.home": "首页",
+  "nav.quiz": "测验",
+  "nav.masterMinds": "大师思想家",
+  "nav.formulas": "公式",
+  "nav.vault": "档案库",
+  "nav.glossary": "术语表",
+  "nav.leaderboard": "排行榜",
+  "nav.profile": "个人资料",
+  "nav.signIn": "登录",
+  "nav.darkMode": "深色模式",
+  "nav.lightMode": "浅色模式",
+  "nav.changeLanguage": "切换语言"
+
+  "nav.home": "首页",
   "nav.leaderboard": "排行榜",
   "nav.profile": "个人资料",
   "nav.signIn": "登录",

@@ -115,6 +115,19 @@
   "onboarding.save": "저장하고 계속",
 
   "nav.home": "홈",
+  "nav.quiz": "퀴즈",
+  "nav.masterMinds": "마스터마인드",
+  "nav.formulas": "공식",
+  "nav.vault": "볼트",
+  "nav.glossary": "용어집",
+  "nav.leaderboard": "리더보드",
+  "nav.profile": "프로필",
+  "nav.signIn": "로그인",
+  "nav.darkMode": "다크 모드",
+  "nav.lightMode": "라이트 모드",
+  "nav.changeLanguage": "언어 변경"
+
+  "nav.home": "홈",
   "nav.leaderboard": "리더보드",
   "nav.profile": "프로필",
   "nav.signIn": "로그인",

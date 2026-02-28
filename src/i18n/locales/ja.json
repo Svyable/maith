@@ -115,6 +115,19 @@
   "onboarding.save": "保存して続行",
 
   "nav.home": "ホーム",
+  "nav.quiz": "クイズ",
+  "nav.masterMinds": "マスターマインド",
+  "nav.formulas": "公式",
+  "nav.vault": "ヴォールト",
+  "nav.glossary": "用語集",
+  "nav.leaderboard": "ランキング",
+  "nav.profile": "プロフィール",
+  "nav.signIn": "ログイン",
+  "nav.darkMode": "ダークモード",
+  "nav.lightMode": "ライトモード",
+  "nav.changeLanguage": "言語を変更"
+
+  "nav.home": "ホーム",
   "nav.leaderboard": "ランキング",
   "nav.profile": "プロフィール",
   "nav.signIn": "サインイン",
