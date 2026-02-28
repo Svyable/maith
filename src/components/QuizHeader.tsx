@@ -12,12 +12,12 @@ interface QuizHeaderProps {
 }
 
 const NAV_ITEMS = [
-  { path: "/", label: "Quiz", emoji: "🧠", mobileOnly: false },
-  { path: "/thinkers", label: "MasterMinds", emoji: "🎓", mobileOnly: false },
-  { path: "/formulas", label: "Formulas", emoji: "📜", mobileOnly: false },
-  { path: "/vault", label: "Vault", emoji: "🔐", mobileOnly: false },
-  { path: "/glossary", label: "Glossary", emoji: "📖", mobileOnly: false },
-  { path: "/leaderboard", label: "Leaderboard", emoji: "🏆", mobileOnly: false },
+  { path: "/", labelKey: "nav.quiz", emoji: "🧠" },
+  { path: "/thinkers", labelKey: "nav.masterMinds", emoji: "🎓" },
+  { path: "/formulas", labelKey: "nav.formulas", emoji: "📜" },
+  { path: "/vault", labelKey: "nav.vault", emoji: "🔐" },
+  { path: "/glossary", labelKey: "nav.glossary", emoji: "📖" },
+  { path: "/leaderboard", labelKey: "nav.leaderboard", emoji: "🏆" },
 ];
 
 export function QuizHeader({ streak, showStreak }: QuizHeaderProps) {
@@ -55,7 +55,7 @@ export function QuizHeader({ streak, showStreak }: QuizHeaderProps) {
                       : "text-muted-foreground hover:text-foreground hover:bg-secondary/60"
                   }`}
                 >
-                  {item.emoji} {item.label}
+                  {item.emoji} {t(item.labelKey)}
                 </button>
               );
             })}
@@ -68,7 +68,7 @@ export function QuizHeader({ streak, showStreak }: QuizHeaderProps) {
             <button
               key={item.path}
               onClick={() => navigate(item.path)}
-              title={item.label}
+              title={t(item.labelKey)}
               className={`w-9 h-9 rounded-lg flex items-center justify-center text-sm transition-colors ${
                 location.pathname === item.path
                   ? "bg-primary/15 text-primary"
@@ -83,7 +83,7 @@ export function QuizHeader({ streak, showStreak }: QuizHeaderProps) {
 
         <button
           onClick={toggleTheme}
-          title={isDark ? 'Light mode' : 'Dark mode'}
+          title={isDark ? t('nav.lightMode') : t('nav.darkMode')}
           className="w-9 h-9 rounded-lg flex items-center justify-center text-sm transition-colors bg-secondary text-foreground hover:bg-secondary/80"
         >
           {isDark ? '☀️' : '🌙'}

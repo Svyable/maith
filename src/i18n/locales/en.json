@@ -115,9 +115,17 @@
   "onboarding.save": "Save & Continue",
 
   "nav.home": "Home",
+  "nav.quiz": "Quiz",
+  "nav.masterMinds": "MasterMinds",
+  "nav.formulas": "Formulas",
+  "nav.vault": "Vault",
+  "nav.glossary": "Glossary",
   "nav.leaderboard": "Leaderboard",
   "nav.profile": "Profile",
   "nav.signIn": "Sign In",
+  "nav.darkMode": "Dark mode",
+  "nav.lightMode": "Light mode",
+  "nav.changeLanguage": "Change language",
 
   "heatmap.mastered": "Mastered",
   "heatmap.strong": "Strong",
