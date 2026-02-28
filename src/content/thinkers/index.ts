@@ -324,6 +324,7 @@ import { viazovskaQuestions } from './viazovska';
 // Prediction Markets & Market Microstructure
 import { hansonQuestions } from './hanson';
 import { avellanedaQuestions } from './avellaneda';
+import { glostenMilgromQuestions } from './glosten-milgrom';
 import type { Question } from '../types';
 
 export const allThinkerQuestions: Question[] = [
@@ -656,6 +657,7 @@ export const allThinkerQuestions: Question[] = [
   // Prediction Markets & Market Microstructure
   ...hansonQuestions,
   ...avellanedaQuestions,
+  ...glostenMilgromQuestions,
 ];
 export function getThinkerQuestions(slug: string): Question[] {
   return allThinkerQuestions.filter((q) => q.topic === slug);
