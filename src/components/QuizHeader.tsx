@@ -2,7 +2,9 @@ import { useAuth } from "@/hooks/useAuth";
 import { useNavigate, useLocation } from "react-router-dom";
 import { t } from "@/i18n";
 import { useIsMobile } from "@/hooks/use-mobile";
+import { useTheme } from "@/hooks/useTheme";
 import { LanguageFlags } from "@/components/LanguageFlags";
+import { Moon, Sun } from "lucide-react";
 
 interface QuizHeaderProps {
   streak: number;
@@ -23,6 +25,7 @@ export function QuizHeader({ streak, showStreak }: QuizHeaderProps) {
   const navigate = useNavigate();
   const location = useLocation();
   const isMobile = useIsMobile();
+  const { isDark, toggle: toggleTheme } = useTheme();
 
   return (
     <header
@@ -77,6 +80,14 @@ export function QuizHeader({ streak, showStreak }: QuizHeaderProps) {
           ))}
 
         <LanguageFlags />
+
+        <button
+          onClick={toggleTheme}
+          title={isDark ? 'Light mode' : 'Dark mode'}
+          className="w-9 h-9 rounded-lg flex items-center justify-center text-sm transition-colors bg-secondary text-foreground hover:bg-secondary/80"
+        >
+          {isDark ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
+        </button>
 
         {user ? (
           <button
