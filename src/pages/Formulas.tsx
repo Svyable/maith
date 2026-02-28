@@ -147,7 +147,7 @@ function EquationCard({ eq, index }: { eq: Equation; index: number }) {
   );
 }
 
-export default function Logos() {
+export default function Formulas() {
   
   const [search, setSearch] = useState('');
   const [sortBy, setSortBy] = useState<SortKey>('rank');

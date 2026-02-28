@@ -175,17 +175,17 @@ export function HomeScreen({
           <span className="text-primary font-bold text-lg">→</span>
         </motion.button>
 
-        {/* Logos — Greatest Equations */}
+        {/* Formulas — Greatest Equations */}
         <motion.button
           whileHover={{ scale: 1.03 }}
           whileTap={{ scale: 0.97 }}
-          onClick={() => navigate("/logos")}
+          onClick={() => navigate("/formulas")}
           className="w-full py-4 rounded-2xl border-2 border-primary/60 bg-primary/10 hover:bg-primary/20 hover:border-primary transition-all flex items-center gap-4 px-5 glow-primary"
         >
           <span className="text-3xl">📜</span>
           <div className="text-left flex-1">
-            <p className="font-bold text-lg text-foreground">{t("home.logos")}</p>
-            <p className="text-xs text-muted-foreground">{t("home.logosSub")}</p>
+            <p className="font-bold text-lg text-foreground">{t("home.formulas")}</p>
+            <p className="text-xs text-muted-foreground">{t("home.formulasSub")}</p>
           </div>
           <span className="text-primary font-bold text-lg">→</span>
         </motion.button>
