@@ -125,12 +125,7 @@
   "nav.signIn": "ログイン",
   "nav.darkMode": "ダークモード",
   "nav.lightMode": "ライトモード",
-  "nav.changeLanguage": "言語を変更"
-
-  "nav.home": "ホーム",
-  "nav.leaderboard": "ランキング",
-  "nav.profile": "プロフィール",
-  "nav.signIn": "サインイン",
+  "nav.changeLanguage": "言語を変更",
 
   "heatmap.mastered": "習得済み",
   "heatmap.strong": "強い",

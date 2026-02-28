@@ -125,12 +125,7 @@
   "nav.signIn": "साइन इन",
   "nav.darkMode": "डार्क मोड",
   "nav.lightMode": "लाइट मोड",
-  "nav.changeLanguage": "भाषा बदलें"
-
-  "nav.home": "होम",
-  "nav.leaderboard": "लीडरबोर्ड",
-  "nav.profile": "प्रोफ़ाइल",
-  "nav.signIn": "साइन इन",
+  "nav.changeLanguage": "भाषा बदलें",
 
   "heatmap.mastered": "महारत हासिल",
   "heatmap.strong": "मजबूत",

@@ -125,12 +125,7 @@
   "nav.signIn": "登录",
   "nav.darkMode": "深色模式",
   "nav.lightMode": "浅色模式",
-  "nav.changeLanguage": "切换语言"
-
-  "nav.home": "首页",
-  "nav.leaderboard": "排行榜",
-  "nav.profile": "个人资料",
-  "nav.signIn": "登录",
+  "nav.changeLanguage": "切换语言",
 
   "heatmap.mastered": "已掌握",
   "heatmap.strong": "强",

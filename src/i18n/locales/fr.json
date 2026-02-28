@@ -125,12 +125,7 @@
   "nav.signIn": "Se connecter",
   "nav.darkMode": "Mode sombre",
   "nav.lightMode": "Mode clair",
-  "nav.changeLanguage": "Changer de langue"
-
-  "nav.home": "Accueil",
-  "nav.leaderboard": "Classement",
-  "nav.profile": "Profil",
-  "nav.signIn": "Se connecter",
+  "nav.changeLanguage": "Changer de langue",
 
   "heatmap.mastered": "Maîtrisé",
   "heatmap.strong": "Fort",

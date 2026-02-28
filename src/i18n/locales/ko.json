@@ -125,12 +125,7 @@
   "nav.signIn": "로그인",
   "nav.darkMode": "다크 모드",
   "nav.lightMode": "라이트 모드",
-  "nav.changeLanguage": "언어 변경"
-
-  "nav.home": "홈",
-  "nav.leaderboard": "리더보드",
-  "nav.profile": "프로필",
-  "nav.signIn": "로그인",
+  "nav.changeLanguage": "언어 변경",
 
   "heatmap.mastered": "마스터함",
   "heatmap.strong": "강함",

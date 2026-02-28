@@ -125,12 +125,7 @@
   "nav.signIn": "Entrar",
   "nav.darkMode": "Modo escuro",
   "nav.lightMode": "Modo claro",
-  "nav.changeLanguage": "Alterar idioma"
-
-  "nav.home": "Início",
-  "nav.leaderboard": "Classificação",
-  "nav.profile": "Perfil",
-  "nav.signIn": "Entrar",
+  "nav.changeLanguage": "Alterar idioma",
 
   "heatmap.mastered": "Dominado",
   "heatmap.strong": "Forte",

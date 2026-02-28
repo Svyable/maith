@@ -115,9 +115,17 @@
   "onboarding.save": "Speichern & Weiter",
 
   "nav.home": "Start",
+  "nav.quiz": "Quiz",
+  "nav.masterMinds": "MeisterGeister",
+  "nav.formulas": "Formeln",
+  "nav.vault": "Tresor",
+  "nav.glossary": "Glossar",
   "nav.leaderboard": "Bestenliste",
   "nav.profile": "Profil",
   "nav.signIn": "Anmelden",
+  "nav.darkMode": "Dunkelmodus",
+  "nav.lightMode": "Hellmodus",
+  "nav.changeLanguage": "Sprache ändern",
 
   "heatmap.mastered": "Gemeistert",
   "heatmap.strong": "Stark",
