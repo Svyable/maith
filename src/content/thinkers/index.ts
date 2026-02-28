@@ -321,6 +321,9 @@ import { theaetetusQuestions } from './theaetetus';
 import { diophantusQuestions } from './diophantus';
 import { huaLuogengQuestions } from './hua-luogeng';
 import { viazovskaQuestions } from './viazovska';
+// Prediction Markets & Market Microstructure
+import { hansonQuestions } from './hanson';
+import { avellanedaQuestions } from './avellaneda';
 import type { Question } from '../types';
 
 export const allThinkerQuestions: Question[] = [
@@ -650,6 +653,9 @@ export const allThinkerQuestions: Question[] = [
   ...diophantusQuestions,
   ...huaLuogengQuestions,
   ...viazovskaQuestions,
+  // Prediction Markets & Market Microstructure
+  ...hansonQuestions,
+  ...avellanedaQuestions,
 ];
 export function getThinkerQuestions(slug: string): Question[] {
   return allThinkerQuestions.filter((q) => q.topic === slug);
