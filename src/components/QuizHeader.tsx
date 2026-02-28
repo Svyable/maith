@@ -2,7 +2,9 @@ import { useAuth } from "@/hooks/useAuth";
 import { useNavigate, useLocation } from "react-router-dom";
 import { t } from "@/i18n";
 import { useIsMobile } from "@/hooks/use-mobile";
+import { useTheme } from "@/hooks/useTheme";
 import { LanguageFlags } from "@/components/LanguageFlags";
+import { Moon, Sun } from "lucide-react";
 
 interface QuizHeaderProps {
   streak: number;
