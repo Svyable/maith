@@ -4042,6 +4042,20 @@ export const THINKERS: ThinkerMeta[] = [
     era_group: 'contemporary',
     funFact: 'Originally from Argentina, he was a pure mathematician at the Courant Institute who became one of Wall Street\'s most cited quant researchers — his market making paper is the bible of HFT.',
   },
+  {
+    slug: 'glosten-milgrom',
+    name: 'Glosten & Milgrom',
+    archetype: 'The Spread Makers',
+    emoji: '📊',
+    era: '1985',
+    domain: 'Market Microstructure',
+    fields: ['quant', 'economics'],
+    description: 'Adverse Selection, Bid-Ask Spread, Bayesian Price Discovery',
+    color: 'primary',
+    tagline: 'They proved that the spread is the price of ignorance.',
+    era_group: 'modern',
+    funFact: 'Their 1985 paper showed that bid-ask spreads can exist even with zero transaction costs — purely from information asymmetry between traders.',
+  },
 ];
 
 /** Typed registry map — O(1) lookup by slug */
