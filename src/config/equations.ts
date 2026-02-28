@@ -60,6 +60,8 @@ export type SubDomain =
   | "Portfolio Theory"
   | "Risk Management"
   | "Stochastic Calculus"
+  | "Market Microstructure"
+  | "Prediction Markets"
   // Economics
   | "Microeconomics"
   | "Macroeconomics"
@@ -6094,6 +6096,130 @@ export const EQUATIONS: Equation[] = [
     beauty: 9,
     difficulty: "hard",
     tags: ["fixed-point theorem", "Banach", "functional analysis", "contraction mapping"],
+  },
+
+  // ─────────────────────────────────────────────────────────────────────────
+  // PREDICTION MARKETS & MARKET MICROSTRUCTURE
+  // ─────────────────────────────────────────────────────────────────────────
+  {
+    rank: 301,
+    name: "Kelly Criterion",
+    equation: "f^* = \\frac{p(b+1) - 1}{b} = p - \\frac{q}{b}",
+    discoverer: "John L. Kelly Jr.",
+    year: "1956",
+    field: "Information Theory / Betting",
+    domain: "Finance & Quant",
+    subDomain: "Prediction Markets",
+    domainEmoji: "📈",
+    significance:
+      "The Kelly criterion maximizes the expected geometric growth rate of wealth. It determines the optimal fraction of bankroll to wager given edge and odds. Derived from Shannon's information theory — the connection between gambling and communication channels.",
+    constants:
+      "f* = optimal fraction of bankroll, p = probability of winning, q = 1−p = probability of losing, b = net odds (payout per $1 wagered)",
+    applications:
+      "Sports betting, prediction markets (Kalshi, Polymarket), hedge fund position sizing, blackjack card counting (Ed Thorp), venture capital allocation",
+    beauty: 9,
+    difficulty: "hard",
+    tags: ["Kelly", "bet sizing", "information theory", "prediction markets", "bankroll management"],
+  },
+  {
+    rank: 302,
+    name: "Brier Score (Forecast Calibration)",
+    equation: "\\text{BS} = \\frac{1}{N}\\sum_{i=1}^N (f_i - o_i)^2",
+    discoverer: "Glenn W. Brier",
+    year: "1950",
+    field: "Forecast Verification",
+    domain: "Finance & Quant",
+    subDomain: "Prediction Markets",
+    domainEmoji: "📈",
+    significance:
+      "The Brier score measures the accuracy of probabilistic predictions. It decomposes into reliability (calibration), resolution (sharpness), and uncertainty. A perfectly calibrated forecaster who says 70% should be right exactly 70% of the time.",
+    constants:
+      "BS ∈ [0,1], f_i = forecast probability, o_i = outcome (0 or 1), N = number of forecasts. Lower is better. BS = 0 is perfect.",
+    applications:
+      "Weather forecasting (NWS), prediction market scoring, election forecasting (FiveThirtyEight), clinical trial predictions, IARPA forecasting tournaments",
+    beauty: 7,
+    difficulty: "easy",
+    tags: ["Brier", "calibration", "forecast", "prediction markets", "scoring rule"],
+  },
+  {
+    rank: 303,
+    name: "Avellaneda-Stoikov Reservation Price",
+    equation: "r = s - q \\cdot \\gamma \\sigma^2 (T - t)",
+    discoverer: "Marco Avellaneda & Sasha Stoikov",
+    year: "2008",
+    field: "Market Microstructure",
+    domain: "Finance & Quant",
+    subDomain: "Market Microstructure",
+    domainEmoji: "📈",
+    significance:
+      "The A-S model provides the optimal market-making strategy under inventory risk. The reservation price shades the midprice based on inventory, risk aversion, volatility, and time to expiry. Foundation of modern electronic market making.",
+    constants:
+      "r = reservation price, s = midprice, q = inventory (signed), γ = risk aversion, σ² = forecast variance, T−t = time to settlement",
+    applications:
+      "HFT equity market making, crypto AMMs, prediction market making (Kalshi weather bins), optimal quoting algorithms",
+    beauty: 8,
+    difficulty: "hard",
+    tags: ["Avellaneda-Stoikov", "market making", "inventory risk", "reservation price", "prediction markets"],
+  },
+  {
+    rank: 304,
+    name: "Avellaneda-Stoikov Optimal Spread",
+    equation: "\\delta = \\gamma\\sigma^2(T-t) + \\frac{2}{\\gamma}\\ln\\!\\left(1 + \\frac{\\gamma}{\\kappa}\\right)",
+    discoverer: "Marco Avellaneda & Sasha Stoikov",
+    year: "2008",
+    field: "Market Microstructure",
+    domain: "Finance & Quant",
+    subDomain: "Market Microstructure",
+    domainEmoji: "📈",
+    significance:
+      "The optimal half-spread has two components: inventory risk compensation (grows near expiry) and pure liquidity profit (survives even when risk aversion → 0). κ is the order arrival rate — high κ means tight spreads are sustainable.",
+    constants:
+      "δ = optimal half-spread, γ = risk aversion, σ² = variance, T−t = time remaining, κ = order arrival intensity",
+    applications:
+      "Automated market-making strategies, spread optimization in illiquid markets, prediction market quoting, crypto DEX liquidity provision",
+    beauty: 8,
+    difficulty: "sota",
+    tags: ["Avellaneda-Stoikov", "optimal spread", "market making", "liquidity", "order arrival"],
+  },
+  {
+    rank: 305,
+    name: "LMSR Cost Function (Hanson)",
+    equation: "C(\\mathbf{q}) = b \\cdot \\ln\\!\\left(\\sum_{i=1}^n e^{q_i/b}\\right)",
+    discoverer: "Robin Hanson",
+    year: "2003",
+    field: "Prediction Market Design",
+    domain: "Finance & Quant",
+    subDomain: "Prediction Markets",
+    domainEmoji: "📈",
+    significance:
+      "The Logarithmic Market Scoring Rule provides continuous liquidity via an automated market maker with bounded worst-case loss of b·ln(n). It connects information aggregation to convex optimization and is the theoretical foundation of modern prediction markets.",
+    constants:
+      "C = cost function, q_i = outstanding shares of outcome i, b = liquidity parameter, n = number of outcomes. Max loss = b·ln(n)",
+    applications:
+      "Prediction market platforms (Augur, Polymarket), corporate forecasting, intelligence analysis (IARPA), combinatorial prediction markets",
+    beauty: 9,
+    difficulty: "hard",
+    tags: ["LMSR", "Hanson", "market scoring rule", "prediction markets", "automated market maker"],
+  },
+  {
+    rank: 306,
+    name: "VPIN (Volume-Synchronized PIN)",
+    equation: "\\text{VPIN} = \\frac{\\sum_{\\tau=1}^n |V_B^\\tau - V_S^\\tau|}{n \\cdot V}",
+    discoverer: "Easley, López de Prado & O'Hara",
+    year: "2012",
+    field: "Market Microstructure",
+    domain: "Finance & Quant",
+    subDomain: "Market Microstructure",
+    domainEmoji: "📈",
+    significance:
+      "VPIN estimates order flow toxicity in real time by measuring buy-sell imbalance in fixed-volume buckets. It spiked before the 2010 Flash Crash, demonstrating its predictive power for market stress events.",
+    constants:
+      "V_B^τ = buy volume in bucket τ, V_S^τ = sell volume, V = bucket volume, n = number of buckets. VPIN ∈ [0,1]; high = toxic",
+    applications:
+      "Flash crash prediction, market maker risk management, exchange circuit breakers, HFT toxicity detection, prediction market spread management",
+    beauty: 7,
+    difficulty: "hard",
+    tags: ["VPIN", "order flow toxicity", "informed trading", "flash crash", "market microstructure"],
   },
 ];
 

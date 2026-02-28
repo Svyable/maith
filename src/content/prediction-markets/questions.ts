@@ -144,8 +144,101 @@ export const predictionMarketsSotaQuestions: Question[] = [
   },
 ];
 
+export const predictionMarketsKellyQuestions: Question[] = [
+  {
+    id: 186016, topic: 'prediction-markets', difficulty: 'easy',
+    question: 'The Kelly criterion determines the optimal bet size as $f^* = p - q/b$. If you believe an event has 60% probability and the market offers even odds ($b = 1$), the Kelly fraction is:',
+    options: ['20% of bankroll', '60% of bankroll', '40% of bankroll', '50% of bankroll'],
+    correctIndex: 0,
+    explanation: '$f^* = p - q/b = 0.6 - 0.4/1 = 0.20$. Kelly says wager 20% of your bankroll. This maximizes long-run geometric growth rate while avoiding ruin.',
+    realWorld: 'Ed Thorp used Kelly criterion in blackjack and later to build one of the most successful hedge funds (Princeton-Newport Partners).',
+    hint: '$p = 0.6$, $q = 0.4$, $b = 1$. Just plug into the formula.',
+  },
+  {
+    id: 186017, topic: 'prediction-markets', difficulty: 'hard',
+    question: 'The "half-Kelly" strategy (betting $f^*/2$) is popular because:',
+    options: ['It achieves ~75% of the growth rate but with significantly lower variance and drawdown risk', 'It doubles the expected return', 'It eliminates all risk', 'It is optimal for correlated bets'],
+    correctIndex: 0,
+    explanation: 'Full Kelly maximizes growth but with high variance. Half-Kelly sacrifices only ~25% of the growth rate while cutting variance roughly in half. The growth rate function is a concave parabola — oversizing bets is more costly than undersizing.',
+    realWorld: 'Most professional bettors and quant funds use fractional Kelly (typically 25-50%) to manage drawdown risk.',
+    hint: 'The growth curve is parabolic — flat near the top but steep on the overbetting side.',
+  },
+  {
+    id: 186018, topic: 'prediction-markets', difficulty: 'sota',
+    question: 'For a portfolio of $n$ simultaneous prediction market bets with correlated outcomes, the multivariate Kelly criterion requires solving:',
+    options: ['$\\mathbf{f}^* = \\Sigma^{-1}(\\mathbf{p} - \\mathbf{r})$, where $\\Sigma$ is the covariance matrix of returns', '$f_i = p_i - q_i/b_i$ independently for each bet', 'Equal allocation across all bets', 'Maximum diversification regardless of edge'],
+    correctIndex: 0,
+    explanation: 'The multivariate Kelly is the mean-variance optimal portfolio: $\\mathbf{f}^* = \\Sigma^{-1}\\boldsymbol{\\mu}$. Correlations between prediction market outcomes (e.g., weather bins) mean you cannot size each bet independently.',
+    realWorld: 'A trader with positions across 5 correlated Kalshi temperature bins must solve the matrix equation to avoid overconcentration in correlated risks.',
+    hint: 'Same as Markowitz portfolio optimization — Kelly IS the optimal growth portfolio.',
+  },
+];
+
+export const predictionMarketsBrierQuestions: Question[] = [
+  {
+    id: 186019, topic: 'prediction-markets', difficulty: 'easy',
+    question: 'A forecaster predicts 80% probability for rain, and it rains. Their Brier score for this forecast is:',
+    options: ['$(0.8 - 1)^2 = 0.04$', '$(0.8 - 0)^2 = 0.64$', '$0.80$', '$0.20$'],
+    correctIndex: 0,
+    explanation: 'Brier score $= (f - o)^2 = (0.8 - 1.0)^2 = 0.04$. Lower is better. A perfect forecast (100% for an event that occurs) scores 0. Maximum ignorance (50/50) on binary events scores 0.25.',
+    realWorld: 'The National Weather Service averages Brier scores around 0.10 for precipitation — well calibrated but not perfect.',
+    hint: '$f = 0.8$ (predicted probability), $o = 1$ (it did rain). Square the difference.',
+  },
+  {
+    id: 186020, topic: 'prediction-markets', difficulty: 'hard',
+    question: 'The Brier score decomposes into three components: $\\text{BS} = \\text{REL} - \\text{RES} + \\text{UNC}$. A forecaster improves their Brier score by:',
+    options: ['Improving calibration (lower REL) and resolution (higher RES) — saying different probabilities for different situations', 'Always predicting 50%', 'Predicting the base rate for every event', 'Making more predictions'],
+    correctIndex: 0,
+    explanation: 'REL (reliability) measures calibration error — lower is better. RES (resolution) measures how much forecasts vary — higher is better. UNC (uncertainty) is fixed by the data. Good forecasters are both well-calibrated AND sharp (discriminating).',
+    realWorld: 'Superforecasters in IARPA tournaments have low REL (well-calibrated) and high RES (they actually distinguish likely from unlikely events).',
+    hint: 'Just saying "30%" for everything is calibrated but useless. Good forecasters say different probabilities for different situations.',
+  },
+  {
+    id: 186021, topic: 'prediction-markets', difficulty: 'sota',
+    question: 'The logarithmic scoring rule $\\text{LS} = \\ln(f_o)$ (where $f_o$ is the probability assigned to the outcome that occurred) is "strictly proper." This means:',
+    options: ['A forecaster maximizes their expected score by reporting their true beliefs — any distortion reduces expected score', 'The score is always positive', 'It penalizes overconfidence more than underconfidence', 'It only works for binary outcomes'],
+    correctIndex: 0,
+    explanation: 'A proper scoring rule incentivizes honest probability reporting. $\\text{LS}$ is strictly proper: $\\mathbb{E}[\\ln(f_o)] \\leq \\mathbb{E}[\\ln(p_o)]$ where $p$ is the true distribution. Equality holds iff $f = p$. This connects to KL-divergence.',
+    realWorld: 'Prediction markets use proper scoring rules to ensure participants have no incentive to misrepresent beliefs — the price IS the probability.',
+    hint: 'If you believe 70% but report 90%, your expected log score is worse than reporting 70%. Truth-telling is optimal.',
+  },
+];
+
+export const predictionMarketsCorrelationQuestions: Question[] = [
+  {
+    id: 186022, topic: 'prediction-markets', difficulty: 'hard',
+    question: 'In a strip of mutually exclusive prediction market bins (e.g., temperature ranges), the correlation between adjacent bins is:',
+    options: ['Negative — if one bin pays out, its neighbors cannot', 'Positive — adjacent bins are more likely to co-occur', 'Zero — bins are independent', 'Undefined without more information'],
+    correctIndex: 0,
+    explanation: 'Mutually exclusive bins have negative correlation by construction: $P(A \\cap B) = 0$ for distinct bins, so $\\text{Cov}(A,B) = -P(A)P(B) < 0$. This is critical for portfolio risk management across bin strips.',
+    realWorld: 'A Kalshi trader long on both 80-85°F and 85-90°F bins has partially offsetting positions — the correlation reduces net portfolio risk vs. a single bin bet.',
+    hint: 'If exactly one bin can win, then all bins are negatively correlated with each other.',
+  },
+  {
+    id: 186023, topic: 'prediction-markets', difficulty: 'sota',
+    question: 'Cross-event correlation trading in prediction markets exploits:',
+    options: ['Statistical relationships between seemingly independent markets that share latent factors', 'Random price fluctuations', 'Exchange fee differences', 'Time zone arbitrage'],
+    correctIndex: 0,
+    explanation: 'Example: a heatwave forecast simultaneously affects "Chicago >90°F," "electricity demand spike," and "ice cream sales record" markets. Traders who model the latent temperature factor can identify mispricings across all three markets.',
+    realWorld: 'Sophisticated Kalshi/Polymarket traders build factor models that link weather, economic, and political prediction markets to find correlated mispricings.',
+    hint: 'Think about what underlying real-world factors drive multiple prediction markets simultaneously.',
+  },
+  {
+    id: 186024, topic: 'prediction-markets', difficulty: 'sota',
+    question: 'The copula approach to modeling dependence across prediction market outcomes allows traders to:',
+    options: ['Separate marginal probabilities from the dependence structure, enabling flexible joint distribution modeling', 'Assume all events are independent', 'Only model linear correlations', 'Ignore tail dependencies'],
+    correctIndex: 0,
+    explanation: 'Sklar\'s theorem: any joint distribution $F(x,y) = C(F_X(x), F_Y(y))$ where $C$ is the copula. This lets you use market prices for marginal probabilities while separately modeling how events co-move — especially in the tails.',
+    realWorld: 'Copula mispricing contributed to the 2008 financial crisis (Gaussian copula). In prediction markets, Frank or Clayton copulas better model asymmetric tail dependencies.',
+    hint: 'Marginals tell you about individual events; the copula tells you how they move together.',
+  },
+];
+
 export const predictionMarketsQuestions = [
   ...predictionMarketsEasyQuestions,
   ...predictionMarketsHardQuestions,
   ...predictionMarketsSotaQuestions,
+  ...predictionMarketsKellyQuestions,
+  ...predictionMarketsBrierQuestions,
+  ...predictionMarketsCorrelationQuestions,
 ];
