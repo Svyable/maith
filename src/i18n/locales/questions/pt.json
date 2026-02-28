@@ -86,5 +86,32 @@
   "q.14.options.3": "Parâmetro de taxa $\\lambda$",
   "q.14.explanation": "A distribuição normal é completamente caracterizada por sua média $\\mu$ e variância $\\sigma^2$.",
   "q.14.realWorld": "As gaussianas sustentam modelos de ruído, GANs, autoencoders variacionais e o Teorema do Limite Central.",
-  "q.14.hint": "Essa curva em sino precisa de exatamente dois parâmetros: centro e largura."
+  "q.14.hint": "Essa curva em sino precisa de exatamente dois parâmetros: centro e largura.",
+
+  "q.82100.question": "Na ciência atuarial, a função de sobrevivência S(x) representa:",
+  "q.82100.options.0": "A probabilidade de que uma vida desde a idade 0 sobreviva até a idade x",
+  "q.82100.options.1": "A probabilidade de morte antes da idade x",
+  "q.82100.options.2": "O número esperado de sinistros por ano",
+  "q.82100.options.3": "O fator de carregamento do prêmio",
+  "q.82100.explanation": "S(x) = P(T > x) = 1 - F(x), onde T é a variável aleatória do tempo de vida futuro.",
+  "q.82100.realWorld": "Seguradoras de vida usam tábuas de mortalidade (essencialmente S(x) discretas) para precificar apólices de vida a termo.",
+  "q.82100.hint": "É o complemento da CDF do tempo de vida.",
+
+  "q.82101.question": "A força de mortalidade μ(x) se relaciona com a função de sobrevivência por:",
+  "q.82101.options.0": "μ(x) = -S'(x)/S(x) = -d/dx[ln S(x)]",
+  "q.82101.options.1": "μ(x) = S(x)²",
+  "q.82101.options.2": "μ(x) = 1/S(x)",
+  "q.82101.options.3": "μ(x) = S(x) × f(x)",
+  "q.82101.explanation": "A força de mortalidade é a taxa instantânea de mortalidade, análoga à taxa de risco na análise de sobrevivência.",
+  "q.82101.realWorld": "As leis de Gompertz e Makeham modelam μ(x) parametricamente para populações humanas.",
+  "q.82101.hint": "É a função de risco — a taxa instantânea de falha.",
+
+  "q.82102.question": "O modelo de previsão de mortalidade de Lee-Carter modela as taxas logarítmicas de morte como:",
+  "q.82102.options.0": "ln(m(x,t)) = a(x) + b(x)·k(t), com k(t) modelado como passeio aleatório com deriva",
+  "q.82102.options.1": "Uma constante para todas as idades e anos",
+  "q.82102.options.2": "Uma função polinomial puramente determinística",
+  "q.82102.options.3": "Independente do ano calendário t",
+  "q.82102.explanation": "Lee-Carter decompõe a mortalidade em padrão de idade a(x), sensibilidade b(x) e tendência temporal k(t), permitindo previsões estocásticas.",
+  "q.82102.realWorld": "Fundos de pensão e a Previdência Social usam variantes de Lee-Carter para projetar o risco de longevidade décadas à frente.",
+  "q.82102.hint": "É um modelo de fatores para a mortalidade com componentes de idade e tempo."
 }

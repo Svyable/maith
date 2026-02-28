@@ -454,5 +454,32 @@
   "q.99.options.3": "Reduce el conjunto de datos",
   "q.99.explanation": "Fuerza representaciones redundantes al desactivar neuronas al azar.",
   "q.99.realWorld": "Técnica revolucionaria de regularización en redes neuronales.",
-  "q.99.hint": "Apagar neuronas aleatoriamente fuerza un aprendizaje distribuido."
+  "q.99.hint": "Apagar neuronas aleatoriamente fuerza un aprendizaje distribuido.",
+
+  "q.82100.question": "En ciencias actuariales, la función de supervivencia S(x) representa:",
+  "q.82100.options.0": "La probabilidad de que una vida desde edad 0 sobreviva hasta la edad x",
+  "q.82100.options.1": "La probabilidad de muerte antes de la edad x",
+  "q.82100.options.2": "El número esperado de reclamaciones por año",
+  "q.82100.options.3": "El factor de carga de la prima",
+  "q.82100.explanation": "S(x) = P(T > x) = 1 - F(x), donde T es la variable aleatoria del tiempo de vida futuro.",
+  "q.82100.realWorld": "Las aseguradoras de vida usan tablas de mortalidad (esencialmente S(x) discretas) para tarificar pólizas de vida a término.",
+  "q.82100.hint": "Es el complemento de la CDF del tiempo de vida.",
+
+  "q.82101.question": "La fuerza de mortalidad μ(x) se relaciona con la función de supervivencia por:",
+  "q.82101.options.0": "μ(x) = -S'(x)/S(x) = -d/dx[ln S(x)]",
+  "q.82101.options.1": "μ(x) = S(x)²",
+  "q.82101.options.2": "μ(x) = 1/S(x)",
+  "q.82101.options.3": "μ(x) = S(x) × f(x)",
+  "q.82101.explanation": "La fuerza de mortalidad es la tasa instantánea de mortalidad, análoga a la tasa de riesgo en análisis de supervivencia.",
+  "q.82101.realWorld": "Las leyes de Gompertz y Makeham modelan μ(x) paramétricamente para poblaciones humanas.",
+  "q.82101.hint": "Es la función de riesgo — la tasa instantánea de fallo.",
+
+  "q.82102.question": "El modelo de pronóstico de mortalidad de Lee-Carter modela las tasas logarítmicas de muerte como:",
+  "q.82102.options.0": "ln(m(x,t)) = a(x) + b(x)·k(t), con k(t) modelado como caminata aleatoria con deriva",
+  "q.82102.options.1": "Una constante para todas las edades y años",
+  "q.82102.options.2": "Una función polinómica puramente determinista",
+  "q.82102.options.3": "Independiente del año calendario t",
+  "q.82102.explanation": "Lee-Carter descompone la mortalidad en patrón de edad a(x), sensibilidad b(x) y tendencia temporal k(t), permitiendo pronósticos estocásticos.",
+  "q.82102.realWorld": "Los fondos de pensiones y la Seguridad Social usan variantes de Lee-Carter para proyectar el riesgo de longevidad décadas adelante.",
+  "q.82102.hint": "Es un modelo de factores para la mortalidad con componentes de edad y tiempo."
 }
