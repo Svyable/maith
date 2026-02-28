@@ -25,6 +25,7 @@ export function QuizHeader({ streak, showStreak }: QuizHeaderProps) {
   const navigate = useNavigate();
   const location = useLocation();
   const isMobile = useIsMobile();
+  const { isDark, toggle: toggleTheme } = useTheme();
 
   return (
     <header
