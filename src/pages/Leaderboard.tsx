@@ -13,14 +13,14 @@ type Tab = 'all-time' | 'weekly' | 'topics';
 
 /* ── XP Level System ── */
 const LEVELS = [
-  { name: 'Novice', emoji: '🌱', min: 0 },
-  { name: 'Apprentice', emoji: '📘', min: 50 },
-  { name: 'Scholar', emoji: '🎓', min: 200 },
-  { name: 'Adept', emoji: '⚡', min: 500 },
-  { name: 'Expert', emoji: '🔥', min: 1000 },
-  { name: 'Master', emoji: '👑', min: 2500 },
-  { name: 'Grandmaster', emoji: '💎', min: 5000 },
-  { name: 'Legend', emoji: '🏆', min: 10000 },
+  { nameKey: 'leaderboard.levelNovice', emoji: '🌱', min: 0 },
+  { nameKey: 'leaderboard.levelApprentice', emoji: '📘', min: 50 },
+  { nameKey: 'leaderboard.levelScholar', emoji: '🎓', min: 200 },
+  { nameKey: 'leaderboard.levelAdept', emoji: '⚡', min: 500 },
+  { nameKey: 'leaderboard.levelExpert', emoji: '🔥', min: 1000 },
+  { nameKey: 'leaderboard.levelMaster', emoji: '👑', min: 2500 },
+  { nameKey: 'leaderboard.levelGrandmaster', emoji: '💎', min: 5000 },
+  { nameKey: 'leaderboard.levelLegend', emoji: '🏆', min: 10000 },
 ];
 
 function getLevel(xp: number) {
