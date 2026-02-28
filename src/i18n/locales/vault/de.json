@@ -1,3 +1,4 @@
+import type { Question } from '../types'; export const vaultQuestions: Question[] =
 [
   {
     "id": 50001,
@@ -639,4 +640,4 @@
     "realWorld": "Staaten sammeln heute verschlüsselte Daten, um sie später mit Quantencomputern zu entschlüsseln („harvest now, decrypt later“). Die Post-Quantum-Migration ist der größte kryptographische Umstieg der Geschichte.",
     "hint": "Der Quantenvorteil kommt vom Finden von Periodizität – etwas, worin die Quanten-Fourier-Transformation stark ist."
   }
-]
+];
