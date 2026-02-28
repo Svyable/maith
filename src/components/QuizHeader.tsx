@@ -83,7 +83,7 @@ export function QuizHeader({ streak, showStreak }: QuizHeaderProps) {
 
         <button
           onClick={toggleTheme}
-          title={isDark ? 'Light mode' : 'Dark mode'}
+          title={isDark ? t('nav.lightMode') : t('nav.darkMode')}
           className="w-9 h-9 rounded-lg flex items-center justify-center text-sm transition-colors bg-secondary text-foreground hover:bg-secondary/80"
         >
           {isDark ? '☀️' : '🌙'}
