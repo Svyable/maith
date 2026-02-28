@@ -173,6 +173,7 @@ export const TOPICS: TopicMeta[] = [
   { slug: 'fixed-income',         label: 'Fixed Income',           emoji: '🏦', description: 'Duration, convexity, yield curves, HJM',        field: 'quant'   },
   { slug: 'algo-trading',         label: 'Algorithmic Trading',    emoji: '⚡', description: 'VWAP, Almgren-Chriss, RL execution',            field: 'quant'   },
   { slug: 'market-microstructure', label: 'Market Microstructure',  emoji: '🔬', description: 'Kyle\'s lambda, order books, Hawkes processes',   field: 'quant'   },
+  { slug: 'prediction-markets',   label: 'Prediction Markets',     emoji: '🎯', description: 'Kalshi, LMSR, binary contracts, A-S for event markets', field: 'quant'   },
   { slug: 'credit-risk',          label: 'Credit Risk',            emoji: '💳', description: 'Merton, CDS, CVA, IFRS 9, XGBoost scoring',      field: 'quant'   },
   // ── CFA Program ──────────────────────────────────────
   { slug: 'cfa-ethics',           label: 'CFA Ethics & Standards', emoji: '📜', description: 'Code of Ethics, GIPS, fiduciary duty',          field: 'cfa'     },

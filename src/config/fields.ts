@@ -108,7 +108,7 @@ export const FIELDS: FieldMeta[] = [
     label: 'Quant / Finance',
     emoji: '📈',
     description: 'Stochastic Calculus, Derivatives, Risk, Portfolio Theory, Fixed Income, Algo Trading',
-    topics: ['stochastic-calculus', 'derivatives-pricing', 'risk-management', 'portfolio-theory', 'fixed-income', 'algo-trading', 'market-microstructure', 'credit-risk'],
+    topics: ['stochastic-calculus', 'derivatives-pricing', 'risk-management', 'portfolio-theory', 'fixed-income', 'algo-trading', 'market-microstructure', 'credit-risk', 'prediction-markets'],
     color: 'destructive',
     available: true,
   },

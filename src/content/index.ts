@@ -102,6 +102,7 @@ import { behavioralEconomicsQuestions } from './behavioral-economics';
 import { developmentEconomicsQuestions } from './development-economics';
 import { marketMicrostructureQuestions } from './market-microstructure';
 import { creditRiskQuestions } from './credit-risk';
+import { predictionMarketsQuestions } from './prediction-markets';
 import { formalVerificationQuestions } from './formal-verification';
 import { informationTheoryQuestions } from './information-theory';
 // ── Vault ──────────────────────────────────────────────────
@@ -172,6 +173,7 @@ export const allQuestions: Question[] = [
   ...riskManagementQuestions,
   ...marketMicrostructureQuestions,
   ...creditRiskQuestions,
+  ...predictionMarketsQuestions,
   // ── Human Sciences ──────────────────────────────────────────
   ...psychologyQuestions,
   ...linguisticsQuestions,
