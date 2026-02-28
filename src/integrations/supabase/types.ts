@@ -200,6 +200,8 @@ export type Database = {
           best_streak: number | null
           correct_answered: number | null
           display_name: string | null
+          games_played: number | null
+          member_since: string | null
           score_total: number | null
           total_answered: number | null
           updated_at: string | null
@@ -228,6 +230,7 @@ export type Database = {
           best_streak_week: number | null
           correct_answered_week: number | null
           display_name: string | null
+          games_played_week: number | null
           score_total_week: number | null
           total_answered_week: number | null
           user_id: string | null
