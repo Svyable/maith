@@ -81,6 +81,14 @@ export function QuizHeader({ streak, showStreak }: QuizHeaderProps) {
 
         <LanguageFlags />
 
+        <button
+          onClick={toggleTheme}
+          title={isDark ? 'Light mode' : 'Dark mode'}
+          className="w-9 h-9 rounded-lg flex items-center justify-center text-sm transition-colors bg-secondary text-foreground hover:bg-secondary/80"
+        >
+          {isDark ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
+        </button>
+
         {user ? (
           <button
             onClick={() => navigate("/profile")}
