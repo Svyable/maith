@@ -1,1 +1,19 @@
-{}
+{
+  "vault.50001.question": "Clifford Cocks bei GCHQ erfand RSA 1973 unabhängig – vier Jahre vor der öffentlichen Entdeckung. Seine zentrale Erkenntnis war:",
+  "vault.50001.options.0": "Die rechnerische Schwierigkeit, das Produkt zweier großer Primzahlen zu faktorisieren, als Falltürfunktion für Public-Key-Verschlüsselung zu nutzen",
+  "vault.50001.options.1": "Elliptische Kurven über endlichen Körpern für den Schlüsselaustausch zu verwenden",
+  "vault.50001.options.2": "Ein hashbasiertes Signaturschema zu implementieren, das gegen Quantenangriffe resistent ist",
+  "vault.50001.options.3": "Eine symmetrische Chiffre auf Basis von Substitutions-Permutations-Netzwerken zu entwerfen",
+  "vault.50001.explanation": "Cocks erkannte, dass $n=pq$ (Produkt zweier großer Primzahlen) als Falltür dienen kann: Verschlüsselung mit dem öffentlichen Schlüssel ist leicht, aber Entschlüsselung erfordert die Kenntnis von $p$ und $q$. Das ist mathematisch identisch mit RSA, wie es Rivest, Shamir und Adleman 1978 veröffentlichten.",
+  "vault.50001.realWorld": "Die Entdeckung von GCHQ blieb 24 Jahre lang geheim. James Ellis, der die Idee der „nicht-geheimen Verschlüsselung“ formulierte, starb 23 Tage bevor GCHQ seine Priorität anerkannte.",
+  "vault.50001.hint": "Die Falltürfunktion beruht darauf, dass Multiplizieren leicht ist, Faktorisieren aber schwer.",
+
+  "vault.50040.question": "Shors Algorithmus faktorisiert ganze Zahlen exponentiell schneller, indem er Quantenmechanik nutzt, um effizient zu finden:",
+  "vault.50040.options.0": "die Periode $r$ der modularen Exponentialfunktion $f(x)=a^x\\bmod N$, aus der dann Faktoren via $\\gcd(a^{r/2}\\pm 1, N)$ gewonnen werden",
+  "vault.50040.options.1": "die Primfaktoren direkt durch Testen aller Teiler in Quanten-Superposition",
+  "vault.50040.options.2": "den diskreten Logarithmus von $N$ zu einer Zufallsbasis, der die Faktorisierung verrät",
+  "vault.50040.options.3": "Kollisionen in einer aus $N$ abgeleiteten Hashfunktion, die Faktorenbeziehungen offenlegen",
+  "vault.50040.explanation": "Klassische Computer finden die Periode von $a^x\\bmod N$ nicht effizient, aber ein Quantencomputer kann mit der Quanten-Fourier-Transformation die Periode aus einer Superposition vieler Werte extrahieren. Ist $r$ bekannt, werden Faktoren klassisch über $\\gcd(a^{r/2}\\pm 1, N)$ mit hoher Wahrscheinlichkeit gefunden.",
+  "vault.50040.realWorld": "Staaten sammeln heute verschlüsselte Daten, um sie später mit Quantencomputern zu entschlüsseln („harvest now, decrypt later“). Die Post-Quantum-Migration ist der größte kryptographische Umstieg der Geschichte.",
+  "vault.50040.hint": "Der Quantenvorteil kommt vom Finden von Periodizität – etwas, worin die Quanten-Fourier-Transformation stark ist."
+}
