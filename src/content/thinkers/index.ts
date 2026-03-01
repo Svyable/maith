@@ -414,6 +414,10 @@ import { berzeliusQuestions } from "./berzelius";
 import { davyQuestions } from "./davy";
 import { michelsonQuestions } from "./michelson";
 import { kirchhoffQuestions } from "./kirchhoff";
+import { wolfeQuestions } from "./wolfe";
+import { farkasQuestions } from "./farkas";
+import { gomoryQuestions } from "./gomory";
+import { bendersQuestions } from "./benders";
 
 // The System Thinkers (Biology, Engineering & Philosophy)
 import { leeuwenhoekQuestions } from "./leeuwenhoek";
@@ -436,6 +440,9 @@ import { kuhnQuestions } from "./kuhn";
 import { fullerQuestions } from "./fuller";
 import { herbertSimonQuestions } from "./herbert-simon";
 import { coaseQuestions } from "./coase";
+import { farkasQuestions } from "./farkas";
+import { gomoryQuestions } from "./gomory";
+import { bendersQuestions } from "./benders";
 
 export const allThinkerQuestions: Question[] = [
   // Original 10
@@ -856,6 +863,10 @@ export const allThinkerQuestions: Question[] = [
   ...davyQuestions,
   ...michelsonQuestions,
   ...kirchhoffQuestions,
+  ...wolfeQuestions,
+  ...farkasQuestions,
+  ...gomoryQuestions,
+  ...bendersQuestions,
 
   // The System Thinkers (Biology, Engineering & Philosophy)
   ...leeuwenhoekQuestions,
