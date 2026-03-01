@@ -424,7 +424,7 @@ import { sangerQuestions } from "./sanger";
 import { mullisQuestions } from "./mullis";
 import { salkQuestions } from "./salk";
 import { claudeBernardQuestions } from "./bernard";
-import { morganQuestions } from "./morgan";
+import { huntmorganQuestions } from "./huntmorgan";
 import { heavisideQuestions } from "./heaviside";
 import { nyquistQuestions } from "./nyquist";
 import { dieselQuestions } from "./diesel";
