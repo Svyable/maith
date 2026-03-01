@@ -4,7 +4,7 @@ export const minskyQuestions: Question[] = [
   {
     id: 31005,
     topic: 'minsky',
-    difficulty: 'medium',
+    difficulty: 'hard',
     question: 'In their highly influential 1969 book "Perceptrons," Minsky and Papert mathematically proved that single-layer neural networks could NOT compute which fundamental logic function?',
     options: [
       'The exclusive-OR (XOR) function, because it is not linearly separable.',

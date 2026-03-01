@@ -7,7 +7,7 @@ export const babbageQuestions: Question[] = [
   {
     id: 31000,
     topic: 'babbage',
-    difficulty: 'medium',
+    difficulty: 'easy',
     question: 'What fundamental architectural leap distinguished Babbage’s unbuilt Analytical Engine from his earlier Difference Engine?',
     options: [
       'It incorporated conditional branching and looping via punched cards.',
