@@ -8,4 +8,6 @@ export {
   localFallbackCheck,
   fetchThinkerQuestions,
   checkThinkerAnswer,
+  fetchBonafideQuestions,
+  checkBonafideAnswer,
 } from './service';

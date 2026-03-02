@@ -16,6 +16,7 @@ const Thinkers = lazy(() => import("./pages/Thinkers"));
 const Glossary = lazy(() => import("./pages/Glossary"));
 const Formulas = lazy(() => import("./pages/Formulas"));
 const Vault = lazy(() => import("./pages/Vault"));
+const Bonafides = lazy(() => import("./pages/Bonafides"));
 const Onboarding = lazy(() => import("./pages/Onboarding"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
@@ -56,6 +57,7 @@ const App = () => (
               <Route path="/formulas" element={<Formulas />} />
               <Route path="/logos" element={<Navigate to="/formulas" replace />} />
               <Route path="/vault" element={<Vault />} />
+              <Route path="/bonafides" element={<Bonafides />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>
