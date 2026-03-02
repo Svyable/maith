@@ -265,6 +265,7 @@ import { davidBlackwellQuestions } from "./david-blackwell";
 import { estherDufloQuestions } from "./esther-duflo";
 import { gerardDebreuQuestions } from "./gerard-debreu";
 import { leonardAdlemanQuestions } from "./leonard-adleman";
+import { adelmanQuestions } from "./adelman";
 import { claudiaGoldinQuestions } from "./claudia-goldin";
 import { thomasSchellingQuestions } from "./thomas-schelling";
 
@@ -732,6 +733,7 @@ export const allThinkerQuestions: Question[] = [
   ...estherDufloQuestions,
   ...gerardDebreuQuestions,
   ...leonardAdlemanQuestions,
+  ...adelmanQuestions,
   ...claudiaGoldinQuestions,
   ...thomasSchellingQuestions,
   // Pure Math Final Bosses
