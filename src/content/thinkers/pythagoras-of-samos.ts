@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const pythagorasQuestions: Question[] = [
   {
     id: 11401,
-    topic: 'pythagoras',
+    topic: 'pythagoras-of-samos',
     difficulty: 'easy',
     question: 'The Pythagorean theorem states that for a right triangle with legs $a$, $b$ and hypotenuse $c$:',
     options: [
@@ -19,7 +19,7 @@ export const pythagorasQuestions: Question[] = [
   },
   {
     id: 11402,
-    topic: 'pythagoras',
+    topic: 'pythagoras-of-samos',
     difficulty: 'easy',
     question: 'The Pythagoreans discovered that $\\sqrt{2}$ is irrational. The proof proceeds by:',
     options: [
@@ -35,7 +35,7 @@ export const pythagorasQuestions: Question[] = [
   },
   {
     id: 11403,
-    topic: 'pythagoras',
+    topic: 'pythagoras-of-samos',
     difficulty: 'easy',
     question: 'Pythagorean triples are integer solutions to $a^2 + b^2 = c^2$. The general formula generates them as:',
     options: [
@@ -51,7 +51,7 @@ export const pythagorasQuestions: Question[] = [
   },
   {
     id: 11404,
-    topic: 'pythagoras',
+    topic: 'pythagoras-of-samos',
     difficulty: 'easy',
     question: 'In music theory, the Pythagorean tuning system is based on:',
     options: [
@@ -67,7 +67,7 @@ export const pythagorasQuestions: Question[] = [
   },
   {
     id: 11405,
-    topic: 'pythagoras',
+    topic: 'pythagoras-of-samos',
     difficulty: 'hard',
     question: 'The generalization of the Pythagorean theorem to inner product spaces states that for orthogonal vectors $u \\perp v$:',
     options: [
@@ -83,7 +83,7 @@ export const pythagorasQuestions: Question[] = [
   },
   {
     id: 11406,
-    topic: 'pythagoras',
+    topic: 'pythagoras-of-samos',
     difficulty: 'hard',
     question: 'Fermat\'s Last Theorem (proved 1995) states that $a^n + b^n = c^n$ has no positive integer solutions for $n \\geq 3$. Pythagorean triples exist for $n=2$ because:',
     options: [
@@ -99,7 +99,7 @@ export const pythagorasQuestions: Question[] = [
   },
   {
     id: 11407,
-    topic: 'pythagoras',
+    topic: 'pythagoras-of-samos',
     difficulty: 'hard',
     question: 'The law of cosines generalizes the Pythagorean theorem to arbitrary triangles as $c^2 = a^2 + b^2 - 2ab\\cos C$. When $C = 90°$ this reduces to $a^2+b^2=c^2$ because:',
     options: [
@@ -115,7 +115,7 @@ export const pythagorasQuestions: Question[] = [
   },
   {
     id: 11408,
-    topic: 'pythagoras',
+    topic: 'pythagoras-of-samos',
     difficulty: 'sota',
     question: 'The Pythagorean theorem in $L^p$ spaces generalizes distance as $d_p(x,y) = (\\sum|x_i-y_i|^p)^{1/p}$. For $p=2$ this is Euclidean. The choice of $p$ affects machine learning because:',
     options: [
@@ -131,7 +131,7 @@ export const pythagorasQuestions: Question[] = [
   },
   {
     id: 11409,
-    topic: 'pythagoras',
+    topic: 'pythagoras-of-samos',
     difficulty: 'sota',
     question: 'The Parseval-Plancherel identity $\\|f\\|_{L^2}^2 = \\|\\hat{f}\\|_{L^2}^2$ is the infinite-dimensional Pythagorean theorem. It states:',
     options: [
@@ -147,7 +147,7 @@ export const pythagorasQuestions: Question[] = [
   },
   {
     id: 11410,
-    topic: 'pythagoras',
+    topic: 'pythagoras-of-samos',
     difficulty: 'sota',
     question: 'Bregman divergences generalize the squared Euclidean distance. The squared L2 distance $\\|x-y\\|^2$ corresponds to the Bregman divergence with generator $\\phi(x)=$',
     options: [
