@@ -63,7 +63,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'He reportedly set Roman ships on fire using mirrors to focus sunlight — the original "death ray."',
   },
   {
-    slug: 'alkhwarizmi',
+    slug: 'muhammad-al-khwarizmi',
     name: 'Al-Khwarizmi',
     archetype: 'The Algebraist',
     emoji: '📜',
@@ -330,7 +330,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'He contributed to 25+ fields including topology, turbulence, linguistics, and music — possibly the most versatile mathematician of the 20th century.',
   },
   {
-    slug: 'vonneumann',
+    slug: 'john-von-neumann',
     name: 'John von Neumann',
     archetype: 'The Architect',
     emoji: '🏛️',
@@ -569,7 +569,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'She cleaned houses and worked in a dry cleaner as a teenager after immigrating to the US — then became one of the most influential AI scientists in history.',
   },
   {
-    slug: 'ilya',
+    slug: 'ilya-sutskever',
     name: 'Ilya Sutskever',
     archetype: 'The Believer',
     emoji: '🔬',
@@ -4215,34 +4215,6 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'Lorentz transformations preserve $s^2=c^2t^2-x^2-y^2-z^2$, the geometric core of special relativity.'
   },
   {
-    slug: 'edward-lorenz',
-    name: 'Edward N. Lorenz',
-    archetype: 'The Chaos Forecaster',
-    emoji: '🦋',
-    era: '1917–2008',
-    domain: 'Chaos & Meteorology',
-    fields: ['earth-space', 'math', 'physics'],
-    description: 'Lorenz attractor, sensitive dependence, low-dimensional chaos in weather models',
-    color: 'destructive',
-    tagline: 'He showed deterministic equations can still be practically unpredictable.',
-    era_group: 'modern',
-    funFact: 'A rounding change in initial conditions produced wildly different weather trajectories—launching the “butterfly effect.”'
-  },
-  {
-    slug: 'rudolf-diesel',
-    name: 'Rudolf Diesel',
-    archetype: 'The Compression-Ignition Inventor',
-    emoji: '🛠️',
-    era: '1858–1913',
-    domain: 'Thermodynamics & Engines',
-    fields: ['engineering', 'physics'],
-    description: 'Diesel engine concept, high compression ignition, ideal Diesel cycle (constant-pressure heat addition)',
-    color: 'warning',
-    tagline: 'He turned compression into ignition—and efficiency into an engineering mission.',
-    era_group: 'modern',
-    funFact: 'The ideal Diesel cycle highlights why higher compression ratios can yield higher efficiency than spark-ignition cycles.'
-  },
-  {
     slug: 'john-kelly',
     name: 'John L. Kelly Jr.',
     archetype: 'The Bet-Sizing Prophet',
@@ -4483,49 +4455,6 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'ARIMA is compactly $\\phi(B)(1-B)^dY_t=\\theta(B)\\varepsilon_t$—a single operator equation covering many patterns.'
   },
 
-  // ── Macro / Probability (already in your list) ───────────────
-  {
-    slug: 'frank-ramsey',
-    name: 'Frank P. Ramsey',
-    archetype: 'The Optimal Planner',
-    emoji: '📈',
-    era: '1903–1930',
-    domain: 'Economics & Philosophy',
-    fields: ['econ', 'math', 'philosophy'],
-    description: 'Ramsey optimal growth, Euler equation, transversality condition, Ramsey taxation',
-    color: 'warning',
-    tagline: 'He wrote the blueprint for optimal savings and optimal taxation before age 27.',
-    era_group: 'modern',
-    funFact: 'The Ramsey steady state satisfies $f\'(k^*)=\\rho+\\delta$ when $\\dot c=0$ and $r=f\'(k)-\\delta$.'
-  },
-  {
-    slug: 'john-muth',
-    name: 'John F. Muth',
-    archetype: 'The Expectations Engineer',
-    emoji: '🧠',
-    era: '1930–2005',
-    domain: 'Macroeconomics',
-    fields: ['econ'],
-    description: 'Rational expectations, orthogonality of forecast errors, modern equilibrium solution logic',
-    color: 'accent',
-    tagline: 'He replaced adaptive rules with model-consistent expectations.',
-    era_group: 'modern',
-    funFact: 'Rational expectations implies $x_{t+1}-E_t[x_{t+1}]$ is uncorrelated with any variable in the information set $\\mathcal{I}_t$.'
-  },
-  {
-    slug: 'albert-shiryaev',
-    name: 'Albert N. Shiryaev',
-    archetype: 'The Change-Point Strategist',
-    emoji: '🚨',
-    era: '1934–present',
-    domain: 'Probability & Stochastic Control',
-    fields: ['math', 'cs'],
-    description: 'Quickest change detection, Shiryaev–Roberts statistic, Bayesian optimal stopping',
-    color: 'success',
-    tagline: 'He made anomaly detection an optimal stopping problem.',
-    era_group: 'contemporary',
-    funFact: 'The Shiryaev–Roberts recursion is $R_t=(1+R_{t-1})\\Lambda_t$, where $\\Lambda_t$ is a likelihood ratio.'
-  },
   {
     slug: 'rene-descartes',
     name: 'René Descartes',
@@ -4553,20 +4482,6 @@ export const THINKERS: ThinkerMeta[] = [
     tagline: 'He cracked the cubic—and accidentally invited complex numbers to the party.',
     era_group: 'ancient',
     funFact: 'Cardano published the cubic solution in Ars Magna (1545), igniting centuries of work on solvability by radicals.'
-  },
-  {
-    slug: 'john-napier',
-    name: 'John Napier',
-    archetype: 'The Logarithm Inventor',
-    emoji: '📚',
-    era: '1550–1617',
-    domain: 'Computation & Applied Math',
-    fields: ['math'],
-    description: 'Logarithms, Napier’s bones, spherical trigonometry tools',
-    color: 'success',
-    tagline: 'He turned multiplication into addition—powering science for centuries.',
-    era_group: 'ancient',
-    funFact: 'Log tables were the backbone of navigation, astronomy, and engineering long before calculators existed.'
   },
   {
     slug: 'brook-taylor',
@@ -4709,7 +4624,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'KAM theory explains why many quasi-periodic orbits survive small perturbations—why the solar system isn’t instantly chaotic.'
   },
   {
-    slug: 'jean-pierre-serre',
+    slug: 'jeanpierre-serre',
     name: 'Jean-Pierre Serre',
     archetype: 'The Cohomology Virtuoso',
     emoji: '🧬',
@@ -4835,7 +4750,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'Carnot efficiency $\\eta=1-T_c/T_h$ sets the upper bound for all heat engines.'
   },
   {
-    slug: 'josiah-willard-gibbs',
+    slug: 'willard-gibbs',
     name: 'J. Willard Gibbs',
     archetype: 'The Thermodynamic Geometer',
     emoji: '📊',
@@ -4875,20 +4790,6 @@ export const THINKERS: ThinkerMeta[] = [
     tagline: 'He discovered the first subatomic particle.',
     era_group: 'ancient',
     funFact: 'Thomson measured $e/m$ for the electron, proving atoms were divisible.'
-  },
-  {
-    slug: 'hendrik-lorentz',
-    name: 'Hendrik A. Lorentz',
-    archetype: 'The Transformation Master',
-    emoji: '🌀',
-    era: '1853–1928',
-    domain: 'Electromagnetism & Relativity',
-    fields: ['physics', 'math'],
-    description: 'Lorentz transformations, Lorentz force, pre-relativity symmetry',
-    color: 'accent',
-    tagline: 'He wrote the symmetry equations of spacetime.',
-    era_group: 'ancient',
-    funFact: 'Lorentz transformations preserve $c^2t^2-x^2-y^2-z^2$, later central to Einstein’s relativity.'
   },
   {
     slug: 'hermann-minkowski',
