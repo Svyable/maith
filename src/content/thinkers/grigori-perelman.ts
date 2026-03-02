@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const perelmanQuestions: Question[] = [
   {
     id: 21000,
-    topic: 'perelman',
+    topic: 'grigori-perelman',
     difficulty: 'sota',
     question: 'Perelman\'s proof of the Poincaré Conjecture relies on which geometric flow?',
     options: ['Ricci flow with surgery', 'Mean curvature flow', 'Yamabe flow', 'Kähler–Ricci flow'],
@@ -14,7 +14,7 @@ export const perelmanQuestions: Question[] = [
   },
   {
     id: 21001,
-    topic: 'perelman',
+    topic: 'grigori-perelman',
     difficulty: 'sota',
     question: 'The Poincaré Conjecture states that every simply connected, closed 3-manifold is homeomorphic to which object?',
     options: ['The 3-sphere $S^3$', 'The 3-torus $T^3$', 'Real projective space $\\mathbb{R}P^3$', 'The Poincaré homology sphere'],
@@ -25,7 +25,7 @@ export const perelmanQuestions: Question[] = [
   },
   {
     id: 21002,
-    topic: 'perelman',
+    topic: 'grigori-perelman',
     difficulty: 'sota',
     question: 'Perelman introduced which key monotonic quantity to control Ricci flow singularities?',
     options: ['The $\\mathcal{W}$-entropy functional', 'The Boltzmann entropy', 'The Yang–Mills action', 'The Dirichlet energy'],
@@ -36,7 +36,7 @@ export const perelmanQuestions: Question[] = [
   },
   {
     id: 21003,
-    topic: 'perelman',
+    topic: 'grigori-perelman',
     difficulty: 'sota',
     question: 'Perelman\'s work proves which broader conjecture that classifies all compact 3-manifolds?',
     options: ['Thurston\'s Geometrization Conjecture', 'The Borel Conjecture', 'The Virtual Haken Conjecture', 'The Novikov Conjecture'],
@@ -47,7 +47,7 @@ export const perelmanQuestions: Question[] = [
   },
   {
     id: 21004,
-    topic: 'perelman',
+    topic: 'grigori-perelman',
     difficulty: 'sota',
     question: 'What is the total prize money Perelman declined for his proof of the Poincaré Conjecture?',
     options: ['$1,000,000 (Clay Millennium Prize)', '$500,000 (Abel Prize)', '$250,000 (Breakthrough Prize)', '$15,000 (Fields Medal)'],

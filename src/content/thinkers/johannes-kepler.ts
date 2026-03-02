@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const keplerQuestions: Question[] = [
   {
     id: 20730,
-    topic: 'kepler',
+    topic: 'johannes-kepler',
     difficulty: 'hard',
     question: 'Kepler\'s Third Law states that the square of the orbital period $T$ is proportional to the cube of the semi-major axis $a$: $T^2 \\propto a^3$. What provides the proportionality constant?',
     options: ['The mass of the central body ($T^2 = \\frac{4\\pi^2}{GM}a^3$)', 'The orbital eccentricity', 'The planet\'s mass', 'The speed of light'],
@@ -14,7 +14,7 @@ export const keplerQuestions: Question[] = [
   },
   {
     id: 20731,
-    topic: 'kepler',
+    topic: 'johannes-kepler',
     difficulty: 'sota',
     question: 'Kepler\'s conjecture (1611) about the densest possible sphere packing was finally proven in which year?',
     options: ['2017 (Hales\' formal proof verified by computer)', '1900', '1961', '2005'],
@@ -25,7 +25,7 @@ export const keplerQuestions: Question[] = [
   },
   {
     id: 20732,
-    topic: 'kepler',
+    topic: 'johannes-kepler',
     difficulty: 'easy',
     question: 'Kepler discovered that planetary orbits are not circles but:',
     options: ['Ellipses with the Sun at one focus', 'Parabolas', 'Perfect circles', 'Spirals'],

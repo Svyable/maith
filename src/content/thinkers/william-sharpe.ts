@@ -4,7 +4,7 @@ import type { Question } from '../types';
 export const sharpeQuestions: Question[] = [
   {
     id: 69150,
-    topic: 'sharpe',
+    topic: 'william-sharpe',
     difficulty: 'easy',
     question: 'Sharpe Ratio measures?',
     options: [
@@ -20,7 +20,7 @@ export const sharpeQuestions: Question[] = [
   },
   {
     id: 69151,
-    topic: 'sharpe',
+    topic: 'william-sharpe',
     difficulty: 'hard',
     question: 'Sharpe optimal portfolio?',
     options: [
@@ -36,7 +36,7 @@ export const sharpeQuestions: Question[] = [
   },
   {
     id: 69152,
-    topic: 'sharpe',
+    topic: 'william-sharpe',
     difficulty: 'sota',
     question: 'Sharpe style analysis?',
     options: [
@@ -52,7 +52,7 @@ export const sharpeQuestions: Question[] = [
   },
   {
     id: 69153,
-    topic: 'sharpe',
+    topic: 'william-sharpe',
     difficulty: 'hard',
     question: 'Information Ratio vs Sharpe?',
     options: [
@@ -68,7 +68,7 @@ export const sharpeQuestions: Question[] = [
   },
   {
     id: 69154,
-    topic: 'sharpe',
+    topic: 'william-sharpe',
     difficulty: 'sota',
     question: 'Sharpe annualized formula?',
     options: [

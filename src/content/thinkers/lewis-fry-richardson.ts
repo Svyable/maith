@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const richardsonQuestions: Question[] = [
   {
     id: 9531,
-    topic: 'richardson',
+    topic: 'lewis-fry-richardson',
     difficulty: 'sota',
     question: 'Richardson\'s 1922 weather prediction attempt discretized the atmosphere into cells and computed by hand. His forecast failed primarily because:',
     options: [
@@ -19,7 +19,7 @@ export const richardsonQuestions: Question[] = [
   },
   {
     id: 9532,
-    topic: 'richardson',
+    topic: 'lewis-fry-richardson',
     difficulty: 'sota',
     question: 'Richardson\'s cascade model of turbulence is summarized by his famous verse: "Big whorls have little whorls..." This describes energy transfer:',
     options: [
@@ -35,7 +35,7 @@ export const richardsonQuestions: Question[] = [
   },
   {
     id: 9533,
-    topic: 'richardson',
+    topic: 'lewis-fry-richardson',
     difficulty: 'sota',
     question: 'Richardson\'s $t^3$ law for turbulent particle dispersion states that the mean-square separation of particle pairs grows as:',
     options: [

@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const lotkaQuestions: Question[] = [
   {
     id: 9501,
-    topic: 'lotka',
+    topic: 'alfred-lotka',
     difficulty: 'sota',
     question: 'In the Lotka-Volterra predator-prey model $\\frac{dx}{dt} = \\alpha x - \\beta xy$, $\\frac{dy}{dt} = \\delta xy - \\gamma y$, what is the conserved quantity (first integral)?',
     options: [
@@ -19,7 +19,7 @@ export const lotkaQuestions: Question[] = [
   },
   {
     id: 9502,
-    topic: 'lotka',
+    topic: 'alfred-lotka',
     difficulty: 'sota',
     question: 'The Lotka-Volterra equilibrium $(x^*, y^*) = (\\gamma/\\delta, \\alpha/\\beta)$ is classified as what type of fixed point?',
     options: [
@@ -35,7 +35,7 @@ export const lotkaQuestions: Question[] = [
   },
   {
     id: 9503,
-    topic: 'lotka',
+    topic: 'alfred-lotka',
     difficulty: 'sota',
     question: 'Lotka\'s principle of maximum energy flux states that in autocatalytic chemical reactions, the system evolves to:',
     options: [

@@ -4,7 +4,7 @@ import type { Question } from '../types';
 export const farkasQuestions: Question[] = [
   {
     id: 65300,
-    topic: 'farkas',
+    topic: 'julius-farkas',
     difficulty: 'easy',
     question: 'Farkas Lemma: either Ax≤b feasible OR?',
     options: [
@@ -20,7 +20,7 @@ export const farkasQuestions: Question[] = [
   },
   {
     id: 65301,
-    topic: 'farkas',
+    topic: 'julius-farkas',
     difficulty: 'hard',
     question: 'Farkas for polyhedra: P=∅ iff?',
     options: [
@@ -36,7 +36,7 @@ export const farkasQuestions: Question[] = [
   },
   {
     id: 65302,
-    topic: 'farkas',
+    topic: 'julius-farkas',
     difficulty: 'sota',
     question: 'Tucker homogeneous Farkas variants?',
     options: [
@@ -52,7 +52,7 @@ export const farkasQuestions: Question[] = [
   },
   {
     id: 65303,
-    topic: 'farkas',
+    topic: 'julius-farkas',
     difficulty: 'hard',
     question: 'Strictly feasible Farkas?',
     options: [
@@ -68,7 +68,7 @@ export const farkasQuestions: Question[] = [
   },
   {
     id: 65304,
-    topic: 'farkas',
+    topic: 'julius-farkas',
     difficulty: 'sota',
     question: 'Motzkin transposition theorem generalizes?',
     options: [
@@ -84,7 +84,7 @@ export const farkasQuestions: Question[] = [
   },
   {
     id: 65305,
-    topic: 'farkas',
+    topic: 'julius-farkas',
     difficulty: 'easy',
     question:
       'One common statement of Farkas’ Lemma says: exactly one of the following systems has a solution.\n\n(1) $Ax\\le b$.\n\nIf (1) is infeasible, what is the correct “certificate of infeasibility” alternative?',
@@ -104,7 +104,7 @@ export const farkasQuestions: Question[] = [
   },
   {
     id: 65306,
-    topic: 'farkas',
+    topic: 'julius-farkas',
     difficulty: 'hard',
     question:
       'A closely related “affine” form of Farkas says: exactly one of the following holds.\n\n(1) $Ax=b,\\ x\\ge 0$.\n\nIf (1) is infeasible, what is the correct alternative system?',
@@ -124,7 +124,7 @@ export const farkasQuestions: Question[] = [
   },
   {
     id: 65307,
-    topic: 'farkas',
+    topic: 'julius-farkas',
     difficulty: 'sota',
     question:
       'Tucker’s (homogeneous) theorem of alternatives is often taught as a “complete status” taxonomy for linear programs. What is the key idea?',
@@ -144,7 +144,7 @@ export const farkasQuestions: Question[] = [
   },
   {
     id: 65308,
-    topic: 'farkas',
+    topic: 'julius-farkas',
     difficulty: 'hard',
     question:
       'There is also a “strict” version of Farkas used in convex optimization, tied to Slater-type conditions. Which statement best matches the strict-feasibility intuition?',
@@ -164,7 +164,7 @@ export const farkasQuestions: Question[] = [
   },
   {
     id: 65309,
-    topic: 'farkas',
+    topic: 'julius-farkas',
     difficulty: 'sota',
     question:
       'Motzkin’s transposition theorem is often presented as a generalization of Farkas. What does it mainly generalize?',

@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const popperQuestions: Question[] = [
   {
     id: 13325,
-    topic: 'popper',
+    topic: 'karl-popper',
     difficulty: 'easy',
     question:
       'Popper’s demarcation criterion says a theory is “scientific” only if it is falsifiable. What does falsifiable mean in practice?',
@@ -22,7 +22,7 @@ export const popperQuestions: Question[] = [
   },
   {
     id: 13326,
-    topic: 'popper',
+    topic: 'karl-popper',
     difficulty: 'easy',
     question:
       'Popper argued that confirmations do not logically prove universal laws (problem of induction). Which statement captures this?',
@@ -41,7 +41,7 @@ export const popperQuestions: Question[] = [
   },
   {
     id: 13327,
-    topic: 'popper',
+    topic: 'karl-popper',
     difficulty: 'hard',
     question:
       'Popper distinguishes “corroboration” from “verification.” After a theory survives severe tests, Popper says it is:',
@@ -60,7 +60,7 @@ export const popperQuestions: Question[] = [
   },
   {
     id: 13328,
-    topic: 'popper',
+    topic: 'karl-popper',
     difficulty: 'hard',
     question:
       'Popper also emphasized that “ad hoc” modifications can immunize theories from falsification. Which change is most “ad hoc” in Popper’s sense?',
@@ -79,7 +79,7 @@ export const popperQuestions: Question[] = [
   },
   {
     id: 13329,
-    topic: 'popper',
+    topic: 'karl-popper',
     difficulty: 'sota',
     question:
       'In ML evaluation, a Popper-like “severe test” mindset is best approximated by which practice?',

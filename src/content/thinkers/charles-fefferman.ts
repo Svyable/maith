@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const feffermanQuestions: Question[] = [
   {
     id: 22010,
-    topic: 'fefferman',
+    topic: 'charles-fefferman',
     difficulty: 'hard',
     question: 'Fefferman\'s theorem characterises the dual of the Hardy space $H^1(\\mathbb{R}^n)$. What is this dual space?',
     options: [
@@ -19,7 +19,7 @@ export const feffermanQuestions: Question[] = [
   },
   {
     id: 22011,
-    topic: 'fefferman',
+    topic: 'charles-fefferman',
     difficulty: 'sota',
     question: 'Fefferman\'s uncertainty principle in PDE theory states that the potential $V$ is form-bounded relative to $-\\Delta$ if and only if $V$ belongs to which class?',
     options: [
@@ -35,7 +35,7 @@ export const feffermanQuestions: Question[] = [
   },
   {
     id: 22012,
-    topic: 'fefferman',
+    topic: 'charles-fefferman',
     difficulty: 'sota',
     question: 'At age 22, Fefferman became the youngest full professor in the US. His Fields Medal work centred on which area?',
     options: [

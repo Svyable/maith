@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const poincareQuestions: Question[] = [
   {
     id: 10031,
-    topic: 'poincare',
+    topic: 'henri-poincare',
     difficulty: 'easy',
     question: 'In topology, two spaces are considered equivalent if they are:',
     options: [
@@ -19,7 +19,7 @@ export const poincareQuestions: Question[] = [
   },
   {
     id: 10032,
-    topic: 'poincare',
+    topic: 'henri-poincare',
     difficulty: 'easy',
     question: 'The Poincaré Conjecture (proved by Perelman 2003) states:',
     options: [
@@ -35,7 +35,7 @@ export const poincareQuestions: Question[] = [
   },
   {
     id: 10033,
-    topic: 'poincare',
+    topic: 'henri-poincare',
     difficulty: 'easy',
     question: 'Poincaré\'s discovery of chaos arose from studying:',
     options: [
@@ -51,7 +51,7 @@ export const poincareQuestions: Question[] = [
   },
   {
     id: 10034,
-    topic: 'poincare',
+    topic: 'henri-poincare',
     difficulty: 'easy',
     question: 'A manifold is a mathematical space that:',
     options: [
@@ -67,7 +67,7 @@ export const poincareQuestions: Question[] = [
   },
   {
     id: 10035,
-    topic: 'poincare',
+    topic: 'henri-poincare',
     difficulty: 'hard',
     question: 'The Euler characteristic $\\chi$ of a surface satisfies $\\chi = V - E + F$. For a sphere, $\\chi = 2$; for a torus, $\\chi = 0$. What does this classify?',
     options: [
@@ -83,7 +83,7 @@ export const poincareQuestions: Question[] = [
   },
   {
     id: 10036,
-    topic: 'poincare',
+    topic: 'henri-poincare',
     difficulty: 'hard',
     question: 'Poincaré\'s recurrence theorem states: for a measure-preserving dynamical system with finite measure, almost every point:',
     options: [
@@ -99,7 +99,7 @@ export const poincareQuestions: Question[] = [
   },
   {
     id: 10037,
-    topic: 'poincare',
+    topic: 'henri-poincare',
     difficulty: 'hard',
     question: 'In dynamical systems, a Poincaré section (or map) is used to:',
     options: [
@@ -115,7 +115,7 @@ export const poincareQuestions: Question[] = [
   },
   {
     id: 10038,
-    topic: 'poincare',
+    topic: 'henri-poincare',
     difficulty: 'sota',
     question: 'The manifold hypothesis in deep learning posits that data lives on a low-dimensional manifold $\\mathcal{M} \\subset \\mathbb{R}^D$. A key implication for generative models is:',
     options: [
@@ -131,7 +131,7 @@ export const poincareQuestions: Question[] = [
   },
   {
     id: 10039,
-    topic: 'poincare',
+    topic: 'henri-poincare',
     difficulty: 'sota',
     question: 'Lyapunov exponents characterize chaos by measuring:',
     options: [
@@ -147,7 +147,7 @@ export const poincareQuestions: Question[] = [
   },
   {
     id: 10040,
-    topic: 'poincare',
+    topic: 'henri-poincare',
     difficulty: 'sota',
     question: 'Poincaré duality for a closed orientable $n$-manifold $M$ states:',
     options: [

@@ -2,7 +2,7 @@ import type { Question } from '../types';
 
 export const hypatiaQuestions: Question[] = [
   {
-    id: 20100, topic: 'hypatia', difficulty: 'easy',
+    id: 20100, topic: 'hypatia-of-alexandria', difficulty: 'easy',
     question: 'What city was Hypatia primarily associated with as a center of learning?',
     options: ['Alexandria', 'Athens', 'Rome', 'Carthage'],
     correctIndex: 0,
@@ -11,7 +11,7 @@ export const hypatiaQuestions: Question[] = [
     hint: 'This Egyptian city housed the most famous ancient library.',
   },
   {
-    id: 20101, topic: 'hypatia', difficulty: 'hard',
+    id: 20101, topic: 'hypatia-of-alexandria', difficulty: 'hard',
     question: 'Hypatia is known to have written commentaries on which ancient mathematical text?',
     options: ["Apollonius' Conics", "Euclid's Optics", "Archimedes' Sand Reckoner", "Ptolemy's Syntaxis"],
     correctIndex: 0,
@@ -20,7 +20,7 @@ export const hypatiaQuestions: Question[] = [
     hint: 'This work studied curves formed by slicing a cone at different angles.',
   },
   {
-    id: 20102, topic: 'hypatia', difficulty: 'sota',
+    id: 20102, topic: 'hypatia-of-alexandria', difficulty: 'sota',
     question: 'Which instrument, used for astronomical measurement, is Hypatia credited with improving?',
     options: ['Astrolabe', 'Sextant', 'Orrery', 'Armillary sphere'],
     correctIndex: 0,

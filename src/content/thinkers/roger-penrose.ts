@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const penroseQuestions: Question[] = [
   {
     id: 21020,
-    topic: 'penrose',
+    topic: 'roger-penrose',
     difficulty: 'sota',
     question: 'Penrose\'s singularity theorem proves that gravitational collapse inevitably produces singularities under what key condition?',
     options: ['The existence of a trapped surface', 'The presence of a Killing vector field', 'The vanishing of the Weyl tensor', 'The absence of angular momentum'],
@@ -14,7 +14,7 @@ export const penroseQuestions: Question[] = [
   },
   {
     id: 21021,
-    topic: 'penrose',
+    topic: 'roger-penrose',
     difficulty: 'sota',
     question: 'Penrose tilings are a famous example of what mathematical property?',
     options: ['Aperiodicity — they tile the plane without repeating', 'Fractality — they are self-similar at every scale', 'Hyperbolicity — they tile the hyperbolic plane', 'Periodicity — they have a fundamental domain'],
@@ -25,7 +25,7 @@ export const penroseQuestions: Question[] = [
   },
   {
     id: 21022,
-    topic: 'penrose',
+    topic: 'roger-penrose',
     difficulty: 'sota',
     question: 'What is the name of Penrose\'s graphical notation for multilinear algebra in general relativity?',
     options: ['Penrose graphical notation (tensor diagrams)', 'Feynman diagrams', 'Dynkin diagrams', 'Chord diagrams'],
@@ -36,7 +36,7 @@ export const penroseQuestions: Question[] = [
   },
   {
     id: 21023,
-    topic: 'penrose',
+    topic: 'roger-penrose',
     difficulty: 'sota',
     question: 'Penrose\'s twistor theory reformulates spacetime geometry using objects in which kind of space?',
     options: ['Complex projective 3-space $\\mathbb{CP}^3$', 'Real projective 4-space $\\mathbb{RP}^4$', 'Minkowski space $\\mathbb{R}^{3,1}$', 'Hilbert space $\\mathcal{H}$'],
@@ -47,7 +47,7 @@ export const penroseQuestions: Question[] = [
   },
   {
     id: 21024,
-    topic: 'penrose',
+    topic: 'roger-penrose',
     difficulty: 'sota',
     question: 'In 2023, what geometric breakthrough related to Penrose was achieved with a single tile shape?',
     options: ['The "einstein" aperiodic monotile was discovered', 'A periodic monotile was found to tile all dimensions', 'Penrose tilings were proven to be periodic after all', 'A single tile was shown to tile hyperbolic space'],

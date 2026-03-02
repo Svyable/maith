@@ -2,7 +2,7 @@ import type { Question } from '../types';
 
 export const hubbleQuestions: Question[] = [
   {
-    id: 96101, topic: 'hubble', difficulty: 'easy',
+    id: 96101, topic: 'edwin-hubble', difficulty: 'easy',
     question: 'Edwin Hubble\'s most revolutionary discovery was that:',
     options: ['The universe is expanding — galaxies are moving away from us, with velocity proportional to distance', 'The Milky Way is the only galaxy in the universe', 'Stars are powered by nuclear fusion', 'The speed of light is constant in all reference frames'],
     correctIndex: 0,
@@ -11,7 +11,7 @@ export const hubbleQuestions: Question[] = [
     hint: 'The farther away a galaxy is, the faster it recedes.',
   },
   {
-    id: 96102, topic: 'hubble', difficulty: 'hard',
+    id: 96102, topic: 'edwin-hubble', difficulty: 'hard',
     question: 'Hubble proved that "spiral nebulae" were actually separate galaxies by identifying:',
     options: ['Cepheid variable stars in the Andromeda Nebula, showing it was far beyond the Milky Way', 'Radio waves emanating from spiral structures', 'Spectral lines matching our Sun in distant objects', 'Gravitational lensing effects predicted by Einstein'],
     correctIndex: 0,
@@ -20,7 +20,7 @@ export const hubbleQuestions: Question[] = [
     hint: 'These stars pulsate with a period directly related to their true brightness.',
   },
   {
-    id: 96103, topic: 'hubble', difficulty: 'sota',
+    id: 96103, topic: 'edwin-hubble', difficulty: 'sota',
     question: 'The Hubble constant H₀ relates recession velocity to distance via v = H₀d. Modern measurements show a "Hubble tension" because:',
     options: ['The value measured from the local distance ladder (~73 km/s/Mpc) disagrees with the CMB prediction (~67 km/s/Mpc) at >5σ significance', 'Different telescopes give inconsistent redshift measurements', 'The Hubble Space Telescope\'s optics distort distance calculations', 'General relativity breaks down at cosmological scales'],
     correctIndex: 0,

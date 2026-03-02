@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const shapleyQuestions: Question[] = [
   {
     id: 20800,
-    topic: 'shapley',
+    topic: 'lloyd-shapley',
     difficulty: 'hard',
     question: 'The Gale-Shapley "deferred acceptance" algorithm for stable matching has which computational complexity?',
     options: ['$O(n^2)$ in the worst case', '$O(n \\log n)$', '$O(n^3)$', '$O(2^n)$'],
@@ -14,7 +14,7 @@ export const shapleyQuestions: Question[] = [
   },
   {
     id: 20801,
-    topic: 'shapley',
+    topic: 'lloyd-shapley',
     difficulty: 'sota',
     question: 'The Shapley value $\\phi_i(v) = \\sum_{S \\subseteq N \\setminus \\{i\\}} \\frac{|S|!(n-|S|-1)!}{n!}[v(S \\cup \\{i\\}) - v(S)]$ satisfies which uniqueness property?',
     options: ['It is the unique allocation satisfying efficiency, symmetry, linearity, and null player axioms', 'It always gives equal shares', 'It maximizes the minimum payout', 'It only applies to zero-sum games'],
@@ -25,7 +25,7 @@ export const shapleyQuestions: Question[] = [
   },
   {
     id: 20802,
-    topic: 'shapley',
+    topic: 'lloyd-shapley',
     difficulty: 'easy',
     question: 'Shapley won the Nobel Prize in Economics for his work on stable matching. What is the classic framing of the stable matching problem?',
     options: ['The stable marriage problem (matching pairs with preferences)', 'The traveling salesman problem', 'The knapsack problem', 'The prisoner\'s dilemma'],

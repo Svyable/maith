@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const pauliQuestions: Question[] = [
   {
     id: 31165,
-    topic: 'pauli',
+    topic: 'wolfgang-pauli',
     difficulty: 'easy',
     question: 'Wolfgang Pauli fundamentally structured the periodic table by proposing the Pauli Exclusion Principle. What absolute quantum restriction does this principle mathematically enforce?',
     options: [
@@ -19,7 +19,7 @@ export const pauliQuestions: Question[] = [
   },
   {
     id: 31166,
-    topic: 'pauli',
+    topic: 'wolfgang-pauli',
     difficulty: 'hard',
     question: 'The Pauli spin matrices ($\\sigma_x, \\sigma_y, \\sigma_z$) are strictly $2 \\times 2$ complex Hermitian matrices. What foundational continuous Lie algebra do these matrices mathematically generate?',
     options: [
@@ -35,7 +35,7 @@ export const pauliQuestions: Question[] = [
   },
   {
     id: 31167,
-    topic: 'pauli',
+    topic: 'wolfgang-pauli',
     difficulty: 'sota',
     question: 'In 1940, Pauli derived the Spin-Statistics Theorem strictly from the axioms of relativistic quantum field theory. What profoundly rigid correlation does this theorem mathematically prove?',
     options: [
@@ -51,7 +51,7 @@ export const pauliQuestions: Question[] = [
   },
   {
     id: 31168,
-    topic: 'pauli',
+    topic: 'wolfgang-pauli',
     difficulty: 'hard',
     question: 'To save the absolute laws of conservation of energy and momentum during beta decay, Pauli made a "desperate remedy." What physical entity did he mathematically propose the existence of in 1930?',
     options: [
@@ -67,7 +67,7 @@ export const pauliQuestions: Question[] = [
   },
   {
     id: 31169,
-    topic: 'pauli',
+    topic: 'wolfgang-pauli',
     difficulty: 'easy',
     question: 'Despite his legendary brilliance as a theoretical mathematical physicist, Pauli was notoriously feared by experimental physicists due to the "Pauli Effect." What was this highly documented phenomenon?',
     options: [

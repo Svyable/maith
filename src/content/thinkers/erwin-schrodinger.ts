@@ -2,7 +2,7 @@ import type { Question } from '../types';
 
 export const schrodingerQuestions: Question[] = [
   {
-    id: 20501, topic: 'schrodinger', difficulty: 'easy',
+    id: 20501, topic: 'erwin-schrodinger', difficulty: 'easy',
     question: 'The Schrödinger equation $i\\hbar \\frac{\\partial}{\\partial t}|\\psi\\rangle = \\hat{H}|\\psi\\rangle$ describes:',
     options: ['How quantum states evolve in time, governed by the Hamiltonian operator', 'The trajectory of classical particles', 'Electromagnetic wave propagation', 'Statistical mechanics of ideal gases'],
     correctIndex: 0,
@@ -11,7 +11,7 @@ export const schrodingerQuestions: Question[] = [
     hint: 'The quantum analog of Newton\'s F=ma — it tells you how the quantum state changes over time.',
   },
   {
-    id: 20502, topic: 'schrodinger', difficulty: 'hard',
+    id: 20502, topic: 'erwin-schrodinger', difficulty: 'hard',
     question: 'Schrödinger\'s cat thought experiment illustrates:',
     options: ['The measurement problem — quantum superposition seems absurd at macroscopic scales', 'That cats can exist in two states simultaneously', 'That quantum mechanics is wrong', 'The many-worlds interpretation is correct'],
     correctIndex: 0,
@@ -20,7 +20,7 @@ export const schrodingerQuestions: Question[] = [
     hint: 'The cat is entangled with a quantum event — but we never see cats in superposition. Why not?',
   },
   {
-    id: 20503, topic: 'schrodinger', difficulty: 'sota',
+    id: 20503, topic: 'erwin-schrodinger', difficulty: 'sota',
     question: 'The time-independent Schrödinger equation $\\hat{H}|\\psi\\rangle = E|\\psi\\rangle$ is an eigenvalue problem. For the hydrogen atom, the energy eigenvalues are:',
     options: ['$E_n = -13.6\\,\\text{eV}/n^2$, explaining discrete spectral lines', '$E_n = n\\hbar\\omega$ (harmonic oscillator levels)', '$E = p^2/2m$ (free particle, continuous)', '$E_n = -13.6\\,\\text{eV} \\cdot n$ (linear in $n$)'],
     correctIndex: 0,
@@ -29,7 +29,7 @@ export const schrodingerQuestions: Question[] = [
     hint: 'The energy levels get closer together as n increases — they scale as 1/n², not linearly.',
   },
   {
-    id: 20504, topic: 'schrodinger', difficulty: 'hard',
+    id: 20504, topic: 'erwin-schrodinger', difficulty: 'hard',
     question: 'Schrödinger\'s equation can be written in both time-dependent and time-independent forms. The time-independent form is used when:',
     options: ['The Hamiltonian does not depend on time — yielding stationary states with definite energy', 'The system is always in motion', 'External fields are varying', 'Temperature is changing'],
     correctIndex: 0,

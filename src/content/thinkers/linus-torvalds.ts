@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const torvaldsQuestions: Question[] = [
   {
     id: 31020,
-    topic: 'torvalds',
+    topic: 'linus-torvalds',
     difficulty: 'hard',
     question: 'In 1992, Torvalds engaged in a famous Usenet debate with Andrew Tanenbaum regarding kernel architecture. What was the core of their disagreement?',
     options: [
@@ -19,7 +19,7 @@ export const torvaldsQuestions: Question[] = [
   },
   {
     id: 31021,
-    topic: 'torvalds',
+    topic: 'linus-torvalds',
     difficulty: 'easy',
     question: 'Why did Linus Torvalds create Git in exactly 10 days in 2005?',
     options: [
@@ -35,7 +35,7 @@ export const torvaldsQuestions: Question[] = [
   },
   {
     id: 31022,
-    topic: 'torvalds',
+    topic: 'linus-torvalds',
     difficulty: 'hard',
     question: 'At a mathematical level, how does Git fundamentally store the history of a codebase?',
     options: [
@@ -51,7 +51,7 @@ export const torvaldsQuestions: Question[] = [
   },
   {
     id: 31023,
-    topic: 'torvalds',
+    topic: 'linus-torvalds',
     difficulty: 'sota',
     question: 'Which highly specific synchronization mechanism did Torvalds champion to allow the Linux kernel to scale massively on multi-core processors without lock contention?',
     options: [
@@ -67,7 +67,7 @@ export const torvaldsQuestions: Question[] = [
   },
   {
     id: 31024,
-    topic: 'torvalds',
+    topic: 'linus-torvalds',
     difficulty: 'easy',
     question: 'What was Torvalds’ original personal motivation for writing the code that eventually became the Linux kernel?',
     options: [

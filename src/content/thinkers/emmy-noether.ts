@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const noetherQuestions: Question[] = [
   {
     id: 10141,
-    topic: 'noether',
+    topic: 'emmy-noether',
     difficulty: 'easy',
     question: 'Noether\'s theorem establishes a deep connection between:',
     options: [
@@ -19,7 +19,7 @@ export const noetherQuestions: Question[] = [
   },
   {
     id: 10142,
-    topic: 'noether',
+    topic: 'emmy-noether',
     difficulty: 'hard',
     question: 'Noether\'s contributions to abstract algebra include founding:',
     options: [
@@ -35,7 +35,7 @@ export const noetherQuestions: Question[] = [
   },
   {
     id: 10143,
-    topic: 'noether',
+    topic: 'emmy-noether',
     difficulty: 'sota',
     question: 'Noether\'s second theorem addresses systems with:',
     options: [

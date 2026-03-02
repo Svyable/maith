@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const eisensteinQuestions: Question[] = [
   {
     id: 21730,
-    topic: 'eisenstein',
+    topic: 'gotthold-eisenstein',
     difficulty: 'sota',
     question: 'Eisenstein\'s criterion states a polynomial f(x) = aₙxⁿ + ... + a₀ is irreducible over ℚ if a prime p satisfies what conditions?',
     options: [
@@ -19,7 +19,7 @@ export const eisensteinQuestions: Question[] = [
   },
   {
     id: 21731,
-    topic: 'eisenstein',
+    topic: 'gotthold-eisenstein',
     difficulty: 'sota',
     question: 'Quadratic reciprocity relates the Legendre symbols (p/q) and (q/p) for odd primes p, q. What is the law?',
     options: [
@@ -35,7 +35,7 @@ export const eisensteinQuestions: Question[] = [
   },
   {
     id: 21732,
-    topic: 'eisenstein',
+    topic: 'gotthold-eisenstein',
     difficulty: 'sota',
     question: 'Eisenstein integers ℤ[ω] where ω = e^(2πi/3) form a ring. What is the norm of a + bω?',
     options: [

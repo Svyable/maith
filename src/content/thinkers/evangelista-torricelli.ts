@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const torricelliQuestions: Question[] = [
   {
     id: 20620,
-    topic: 'torricelli',
+    topic: 'evangelista-torricelli',
     difficulty: 'hard',
     question: 'Torricelli\'s "Gabriel\'s Horn" (the solid of revolution of $y=1/x$ for $x \\geq 1$) has finite volume but infinite surface area. What is the volume?',
     options: ['$\\pi$', '$2\\pi$', '$\\infty$', '$1$'],
@@ -14,7 +14,7 @@ export const torricelliQuestions: Question[] = [
   },
   {
     id: 20621,
-    topic: 'torricelli',
+    topic: 'evangelista-torricelli',
     difficulty: 'sota',
     question: 'Gabriel\'s Horn can be "filled with paint" (finite volume) but not "painted" (infinite surface area). This apparent paradox assumes:',
     options: ['Paint has zero thickness — real paint has finite thickness, resolving the paradox', 'Paint is infinitely compressible', 'Surface area is poorly defined', 'The horn is not a valid solid'],
@@ -25,7 +25,7 @@ export const torricelliQuestions: Question[] = [
   },
   {
     id: 20622,
-    topic: 'torricelli',
+    topic: 'evangelista-torricelli',
     difficulty: 'easy',
     question: 'Besides Gabriel\'s Horn, Torricelli is famous for inventing which scientific instrument?',
     options: ['The barometer (mercury barometer)', 'The telescope', 'The thermometer', 'The microscope'],

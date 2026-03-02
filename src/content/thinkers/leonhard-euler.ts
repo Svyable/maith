@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const eulerQuestions: Question[] = [
   {
     id: 11301,
-    topic: 'euler',
+    topic: 'leonhard-euler',
     difficulty: 'easy',
     question: 'Euler\'s identity $e^{i\\pi} + 1 = 0$ is considered the most beautiful in mathematics because it combines:',
     options: [
@@ -19,7 +19,7 @@ export const eulerQuestions: Question[] = [
   },
   {
     id: 11302,
-    topic: 'euler',
+    topic: 'leonhard-euler',
     difficulty: 'easy',
     question: 'Euler\'s formula for polyhedra states that for any convex polyhedron:',
     options: [
@@ -35,7 +35,7 @@ export const eulerQuestions: Question[] = [
   },
   {
     id: 11303,
-    topic: 'euler',
+    topic: 'leonhard-euler',
     difficulty: 'easy',
     question: 'The Basel problem, solved by Euler, showed that $\\sum_{n=1}^{\\infty} \\frac{1}{n^2} =$',
     options: [
@@ -51,7 +51,7 @@ export const eulerQuestions: Question[] = [
   },
   {
     id: 11304,
-    topic: 'euler',
+    topic: 'leonhard-euler',
     difficulty: 'easy',
     question: 'Graph theory was invented by Euler to solve the Königsberg bridge problem. His key insight was:',
     options: [
@@ -67,7 +67,7 @@ export const eulerQuestions: Question[] = [
   },
   {
     id: 11305,
-    topic: 'euler',
+    topic: 'leonhard-euler',
     difficulty: 'hard',
     question: 'Euler\'s product formula connects the zeta function to primes: $\\zeta(s) = \\prod_{p \\text{ prime}} \\frac{1}{1-p^{-s}}$. This implies:',
     options: [
@@ -83,7 +83,7 @@ export const eulerQuestions: Question[] = [
   },
   {
     id: 11306,
-    topic: 'euler',
+    topic: 'leonhard-euler',
     difficulty: 'hard',
     question: 'The Euler-Lagrange equation $\\frac{\\partial L}{\\partial q} - \\frac{d}{dt}\\frac{\\partial L}{\\partial \\dot{q}} = 0$ describes:',
     options: [
@@ -99,7 +99,7 @@ export const eulerQuestions: Question[] = [
   },
   {
     id: 11307,
-    topic: 'euler',
+    topic: 'leonhard-euler',
     difficulty: 'hard',
     question: 'Euler\'s totient function $\\phi(n)$ counts integers up to $n$ coprime to $n$. For prime $p$: $\\phi(p) = p-1$. Euler\'s theorem states:',
     options: [
@@ -115,7 +115,7 @@ export const eulerQuestions: Question[] = [
   },
   {
     id: 11308,
-    topic: 'euler',
+    topic: 'leonhard-euler',
     difficulty: 'sota',
     question: 'The Euler characteristic in higher dimensions satisfies $\\chi = \\sum_k (-1)^k \\beta_k$ where $\\beta_k$ are Betti numbers. For a torus $\\mathbb{T}^2$:',
     options: [
@@ -131,7 +131,7 @@ export const eulerQuestions: Question[] = [
   },
   {
     id: 11309,
-    topic: 'euler',
+    topic: 'leonhard-euler',
     difficulty: 'sota',
     question: 'Euler\'s method for ODEs approximates the solution to $y\' = f(t,y)$ by:',
     options: [
@@ -147,7 +147,7 @@ export const eulerQuestions: Question[] = [
   },
   {
     id: 11310,
-    topic: 'euler',
+    topic: 'leonhard-euler',
     difficulty: 'sota',
     question: 'Euler\'s formula $e^{i\\theta} = \\cos\\theta + i\\sin\\theta$ makes complex exponentials the natural basis for the Discrete Fourier Transform. The DFT matrix $F$ satisfies:',
     options: [

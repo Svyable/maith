@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const weierstrassQuestions: Question[] = [
   {
     id: 31075,
-    topic: 'weierstrass',
+    topic: 'karl-weierstrass',
     difficulty: 'easy',
     question: 'Karl Weierstrass is known as the "father of modern analysis" primarily for introducing which rigorous logical framework to calculus?',
     options: [
@@ -19,7 +19,7 @@ export const weierstrassQuestions: Question[] = [
   },
   {
     id: 31076,
-    topic: 'weierstrass',
+    topic: 'karl-weierstrass',
     difficulty: 'hard',
     question: 'In 1872, Weierstrass shocked the mathematical world by presenting the "Weierstrass function." What previously assumed mathematical rule did this bizarre function utterly destroy?',
     options: [
@@ -35,7 +35,7 @@ export const weierstrassQuestions: Question[] = [
   },
   {
     id: 31077,
-    topic: 'weierstrass',
+    topic: 'karl-weierstrass',
     difficulty: 'sota',
     question: 'The Bolzano-Weierstrass theorem is a fundamental, load-bearing pillar of topology and real analysis. What does it mathematically guarantee about infinite sequences bounded in a finite space?',
     options: [
@@ -51,7 +51,7 @@ export const weierstrassQuestions: Question[] = [
   },
   {
     id: 31078,
-    topic: 'weierstrass',
+    topic: 'karl-weierstrass',
     difficulty: 'hard',
     question: 'Weierstrass also formulated a powerful approximation theorem. What does the Weierstrass Approximation Theorem explicitly state regarding continuous functions?',
     options: [
@@ -67,7 +67,7 @@ export const weierstrassQuestions: Question[] = [
   },
   {
     id: 31079,
-    topic: 'weierstrass',
+    topic: 'karl-weierstrass',
     difficulty: 'hard',
     question: 'Weierstrass suffered incredibly from what physical condition, which eventually forced him to teach his advanced university mathematics classes entirely from a sofa?',
     options: [

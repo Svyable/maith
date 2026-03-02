@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const arnoldQuestions: Question[] = [
   {
     id: 31090,
-    topic: 'arnold',
+    topic: 'vladimir-arnold',
     difficulty: 'sota',
     question: 'Vladimir Arnold solved Hilbert\'s 13th problem by proving a profound theorem about the superposition of continuous functions. What did the Kolmogorov–Arnold representation theorem mathematically establish?',
     options: [
@@ -19,7 +19,7 @@ export const arnoldQuestions: Question[] = [
   },
   {
     id: 31091,
-    topic: 'arnold',
+    topic: 'vladimir-arnold',
     difficulty: 'hard',
     question: 'The KAM theorem (Kolmogorov–Arnold–Moser) explains what happens when a perfectly integrable Hamiltonian system is slightly perturbed. What mathematical condition must the orbital frequencies $\\boldsymbol{\\omega}$ satisfy for the invariant tori to survive?',
     options: [
@@ -35,7 +35,7 @@ export const arnoldQuestions: Question[] = [
   },
   {
     id: 31092,
-    topic: 'arnold',
+    topic: 'vladimir-arnold',
     difficulty: 'sota',
     question: 'The Arnold Conjecture fundamentally bridges dynamics and topology within symplectic geometry. What lower bound does it establish for the number of fixed points of a Hamiltonian diffeomorphism on a compact symplectic manifold $M$?',
     options: [
@@ -51,7 +51,7 @@ export const arnoldQuestions: Question[] = [
   },
   {
     id: 31093,
-    topic: 'arnold',
+    topic: 'vladimir-arnold',
     difficulty: 'hard',
     question: 'Arnold classified the simple singularities of smooth functions, which stunningly mapped perfectly to the ADE classification. This connected geometric singularities directly to the Dynkin diagrams of which algebraic structures?',
     options: [
@@ -67,7 +67,7 @@ export const arnoldQuestions: Question[] = [
   },
   {
     id: 31094,
-    topic: 'arnold',
+    topic: 'vladimir-arnold',
     difficulty: 'hard',
     question: 'Arnold reformulated the Euler equations for the motion of an incompressible, inviscid fluid. He proved that the fluid\'s path describes a geodesic curve moving across which highly abstract mathematical space?',
     options: [

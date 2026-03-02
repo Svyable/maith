@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const satoshiQuestions: Question[] = [
   {
     id: 14201,
-    topic: 'satoshi',
+    topic: 'satoshi-nakamoto',
     difficulty: 'easy',
     question: 'Satoshi Nakamoto\'s Bitcoin whitepaper (2008) proposed solving the double-spending problem without a trusted third party using:',
     options: [
@@ -19,7 +19,7 @@ export const satoshiQuestions: Question[] = [
   },
   {
     id: 14202,
-    topic: 'satoshi',
+    topic: 'satoshi-nakamoto',
     difficulty: 'hard',
     question: 'Bitcoin\'s proof-of-work requires miners to find a nonce such that the SHA-256 hash of the block header satisfies:',
     options: [
@@ -35,7 +35,7 @@ export const satoshiQuestions: Question[] = [
   },
   {
     id: 14203,
-    topic: 'satoshi',
+    topic: 'satoshi-nakamoto',
     difficulty: 'sota',
     question: 'The Bitcoin script system is intentionally NOT Turing-complete. The primary security reason is:',
     options: [

@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const batemanQuestions: Question[] = [
   {
     id: 9528,
-    topic: 'bateman',
+    topic: 'harry-bateman',
     difficulty: 'sota',
     question: 'For quadratic drag $m\\frac{dv}{dt} = mg - kv^2$, the terminal velocity is:',
     options: [
@@ -19,7 +19,7 @@ export const batemanQuestions: Question[] = [
   },
   {
     id: 9529,
-    topic: 'bateman',
+    topic: 'harry-bateman',
     difficulty: 'sota',
     question: 'Bateman\'s equations for radioactive decay chains $\\frac{dN_i}{dt} = \\lambda_{i-1}N_{i-1} - \\lambda_i N_i$ describe:',
     options: [
@@ -35,7 +35,7 @@ export const batemanQuestions: Question[] = [
   },
   {
     id: 9530,
-    topic: 'bateman',
+    topic: 'harry-bateman',
     difficulty: 'sota',
     question: 'Bateman showed that conformal transformations of Maxwell\'s equations in Minkowski spacetime form:',
     options: [

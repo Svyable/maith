@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const vapnikQuestions: Question[] = [
   {
     id: 12001,
-    topic: 'vapnik',
+    topic: 'vladimir-vapnik',
     difficulty: 'easy',
     question: 'Support Vector Machines (SVMs), developed by Vapnik, find the decision boundary that:',
     options: [
@@ -19,7 +19,7 @@ export const vapnikQuestions: Question[] = [
   },
   {
     id: 12002,
-    topic: 'vapnik',
+    topic: 'vladimir-vapnik',
     difficulty: 'easy',
     question: 'The "kernel trick" used in SVMs computes inner products in high-dimensional feature spaces:',
     options: [
@@ -35,7 +35,7 @@ export const vapnikQuestions: Question[] = [
   },
   {
     id: 12003,
-    topic: 'vapnik',
+    topic: 'vladimir-vapnik',
     difficulty: 'easy',
     question: 'VC dimension (Vapnik-Chervonenkis dimension) measures model capacity by:',
     options: [
@@ -51,7 +51,7 @@ export const vapnikQuestions: Question[] = [
   },
   {
     id: 12004,
-    topic: 'vapnik',
+    topic: 'vladimir-vapnik',
     difficulty: 'easy',
     question: 'The soft-margin SVM introduces slack variables $\\xi_i$ to handle:',
     options: [
@@ -67,7 +67,7 @@ export const vapnikQuestions: Question[] = [
   },
   {
     id: 12005,
-    topic: 'vapnik',
+    topic: 'vladimir-vapnik',
     difficulty: 'hard',
     question: 'The SVM dual optimization problem is: $\\max_\\alpha \\sum_i \\alpha_i - \\frac{1}{2}\\sum_{i,j} \\alpha_i \\alpha_j y_i y_j K(x_i, x_j)$ subject to $\\sum_i \\alpha_i y_i = 0$ and $0 \\leq \\alpha_i \\leq C$. The prediction function is:',
     options: [
@@ -83,7 +83,7 @@ export const vapnikQuestions: Question[] = [
   },
   {
     id: 12006,
-    topic: 'vapnik',
+    topic: 'vladimir-vapnik',
     difficulty: 'hard',
     question: 'The PAC learning bound (Vapnik-Chervonenkis) guarantees that with probability $1-\\delta$, the generalization error satisfies:',
     options: [
@@ -99,7 +99,7 @@ export const vapnikQuestions: Question[] = [
   },
   {
     id: 12007,
-    topic: 'vapnik',
+    topic: 'vladimir-vapnik',
     difficulty: 'hard',
     question: 'Structural Risk Minimization (SRM), Vapnik\'s framework, selects models by:',
     options: [
@@ -115,7 +115,7 @@ export const vapnikQuestions: Question[] = [
   },
   {
     id: 12008,
-    topic: 'vapnik',
+    topic: 'vladimir-vapnik',
     difficulty: 'sota',
     question: 'The "double descent" phenomenon (contradicting classical VC theory) shows that:',
     options: [
@@ -131,7 +131,7 @@ export const vapnikQuestions: Question[] = [
   },
   {
     id: 12009,
-    topic: 'vapnik',
+    topic: 'vladimir-vapnik',
     difficulty: 'sota',
     question: 'Kernel methods and neural networks are connected by the Neural Tangent Kernel (NTK). For infinitely wide networks, training is equivalent to:',
     options: [
@@ -147,7 +147,7 @@ export const vapnikQuestions: Question[] = [
   },
   {
     id: 12010,
-    topic: 'vapnik',
+    topic: 'vladimir-vapnik',
     difficulty: 'sota',
     question: 'Vapnik\'s "Statistical Learning Theory" framework with VC theory applies when samples are i.i.d. Modern ML violates this because:',
     options: [

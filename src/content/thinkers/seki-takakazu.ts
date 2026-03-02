@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const sekiQuestions: Question[] = [
   {
     id: 20534,
-    topic: 'seki',
+    topic: 'seki-takakazu',
     difficulty: 'hard',
     question: 'Seki Kōwa independently discovered the concept of determinants before Leibniz. His method, called "kigen shōhō," computed determinants of matrices up to what size?',
     options: ['5×5 matrices', '2×2 matrices', '3×3 matrices', '10×10 matrices'],
@@ -14,7 +14,7 @@ export const sekiQuestions: Question[] = [
   },
   {
     id: 20535,
-    topic: 'seki',
+    topic: 'seki-takakazu',
     difficulty: 'sota',
     question: 'Seki developed "yenri" (circle principle), a method for computing areas and volumes using inscribed/circumscribed polygons. This is equivalent to which Western concept?',
     options: ['Integration by exhaustion (proto-calculus)', 'Fourier analysis', 'Projective geometry', 'Differential equations'],
@@ -25,7 +25,7 @@ export const sekiQuestions: Question[] = [
   },
   {
     id: 20536,
-    topic: 'seki',
+    topic: 'seki-takakazu',
     difficulty: 'easy',
     question: 'Seki Kōwa developed his mathematics during which period of Japanese history, when the country was almost completely isolated?',
     options: ['The Edo period (1603–1868)', 'The Meiji Restoration', 'The Heian period', 'The Shōwa era'],

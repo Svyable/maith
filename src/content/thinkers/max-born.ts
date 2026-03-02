@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const bornQuestions: Question[] = [
   {
     id: 31170,
-    topic: 'born',
+    topic: 'max-born',
     difficulty: 'easy',
     question: 'Max Born completely rewrote the philosophical reality of the universe by introducing the "Born Rule." What does the mathematical expression $|\\psi(x)|^2$ physically represent in quantum mechanics?',
     options: [
@@ -19,7 +19,7 @@ export const bornQuestions: Question[] = [
   },
   {
     id: 31171,
-    topic: 'born',
+    topic: 'max-born',
     difficulty: 'hard',
     question: 'The Born-Oppenheimer approximation is the absolute foundation of modern computational chemistry. What immense mathematical simplification does this approximation strictly justify?',
     options: [
@@ -35,7 +35,7 @@ export const bornQuestions: Question[] = [
   },
   {
     id: 31172,
-    topic: 'born',
+    topic: 'max-born',
     difficulty: 'sota',
     question: 'When Werner Heisenberg handed Born his highly abstract paper on quantum mechanics, Born realized Heisenberg\'s weird tables of numbers were actually matrices. Born then mathematically formulated which absolute foundational equation of quantum mechanics?',
     options: [
@@ -51,7 +51,7 @@ export const bornQuestions: Question[] = [
   },
   {
     id: 31173,
-    topic: 'born',
+    topic: 'max-born',
     difficulty: 'hard',
     question: 'To fix the infinite self-energy problem of the classical electron, Born heavily collaborated with Leopold Infeld to mathematically construct what highly unique field theory?',
     options: [
@@ -67,7 +67,7 @@ export const bornQuestions: Question[] = [
   },
   {
     id: 31174,
-    topic: 'born',
+    topic: 'max-born',
     difficulty: 'hard',
     question: 'Born was a remarkably close friend of Albert Einstein, and they debated quantum mechanics for decades. In 1926, Einstein wrote a famous letter to Born rejecting Born\'s probabilistic math. What famous quote did Einstein use in this letter?',
     options: [

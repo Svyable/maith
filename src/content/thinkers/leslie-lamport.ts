@@ -2,7 +2,7 @@ import type { Question } from '../types';
 
 export const lamportQuestions: Question[] = [
   {
-    id: 19601, topic: 'lamport', difficulty: 'easy',
+    id: 19601, topic: 'leslie-lamport', difficulty: 'easy',
     question: 'Leslie Lamport is best known for creating:',
     options: ['LaTeX typesetting system and foundational distributed systems theory', 'The Linux kernel', 'The Python programming language', 'The TCP/IP protocol'],
     correctIndex: 0,
@@ -11,7 +11,7 @@ export const lamportQuestions: Question[] = [
     hint: 'He won the 2013 Turing Award — the highest honor in computer science.',
   },
   {
-    id: 19602, topic: 'lamport', difficulty: 'hard',
+    id: 19602, topic: 'leslie-lamport', difficulty: 'hard',
     question: 'Lamport\'s logical clocks solve the problem of:',
     options: ['Ordering events in a distributed system without synchronized physical clocks', 'Speeding up computation', 'Encrypting messages', 'Compressing data for transmission'],
     correctIndex: 0,
@@ -20,7 +20,7 @@ export const lamportQuestions: Question[] = [
     hint: 'If event A could have caused event B, then A\'s timestamp must be less than B\'s.',
   },
   {
-    id: 19603, topic: 'lamport', difficulty: 'sota',
+    id: 19603, topic: 'leslie-lamport', difficulty: 'sota',
     question: 'TLA+ (Temporal Logic of Actions), designed by Lamport, is used to:',
     options: ['Formally specify and verify concurrent and distributed systems', 'Write high-performance code', 'Design user interfaces', 'Optimize database queries'],
     correctIndex: 0,

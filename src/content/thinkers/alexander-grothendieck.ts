@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const grothendieckQuestions: Question[] = [
   {
     id: 12301,
-    topic: 'grothendieck',
+    topic: 'alexander-grothendieck',
     difficulty: 'easy',
     question: 'Alexander Grothendieck revolutionized algebraic geometry by introducing:',
     options: [
@@ -19,7 +19,7 @@ export const grothendieckQuestions: Question[] = [
   },
   {
     id: 12302,
-    topic: 'grothendieck',
+    topic: 'alexander-grothendieck',
     difficulty: 'easy',
     question: 'Grothendieck\'s approach to mathematics was characterized by:',
     options: [
@@ -35,7 +35,7 @@ export const grothendieckQuestions: Question[] = [
   },
   {
     id: 12303,
-    topic: 'grothendieck',
+    topic: 'alexander-grothendieck',
     difficulty: 'hard',
     question: 'Grothendieck\'s étale cohomology theory was created specifically to:',
     options: [
@@ -51,7 +51,7 @@ export const grothendieckQuestions: Question[] = [
   },
   {
     id: 12304,
-    topic: 'grothendieck',
+    topic: 'alexander-grothendieck',
     difficulty: 'hard',
     question: 'Grothendieck\'s introduction of toposes generalized the notion of:',
     options: [
@@ -67,7 +67,7 @@ export const grothendieckQuestions: Question[] = [
   },
   {
     id: 12305,
-    topic: 'grothendieck',
+    topic: 'alexander-grothendieck',
     difficulty: 'sota',
     question: 'Grothendieck\'s "six operations" formalism for derived categories ($f^*, f_*, f^!, f_!, \\otimes, \\mathcal{Hom}$) achieves:',
     options: [

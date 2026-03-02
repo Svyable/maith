@@ -2,7 +2,7 @@ import type { Question } from '../types';
 
 export const cartwrightQuestions: Question[] = [
   {
-    id: 20127, topic: 'cartwright', difficulty: 'easy',
+    id: 20127, topic: 'mary-cartwright', difficulty: 'easy',
     question: 'Mary Cartwright was a pioneer in what area of mathematics, decades before it was formally named?',
     options: ['Chaos theory', 'Category theory', 'Game theory', 'Graph theory'],
     correctIndex: 0,
@@ -11,7 +11,7 @@ export const cartwrightQuestions: Question[] = [
     hint: 'This field studies systems where small changes in initial conditions lead to wildly different outcomes.',
   },
   {
-    id: 20128, topic: 'cartwright', difficulty: 'hard',
+    id: 20128, topic: 'mary-cartwright', difficulty: 'hard',
     question: 'The Cartwright-Littlewood theorem concerns solutions to which type of equation?',
     options: ['Forced nonlinear oscillators (van der Pol)', 'Linear wave equations', 'Stochastic differential equations', 'Partial differential equations'],
     correctIndex: 0,
@@ -20,7 +20,7 @@ export const cartwrightQuestions: Question[] = [
     hint: 'This self-oscillating circuit equation was originally developed to model vacuum tube circuits.',
   },
   {
-    id: 20129, topic: 'cartwright', difficulty: 'sota',
+    id: 20129, topic: 'mary-cartwright', difficulty: 'sota',
     question: 'Cartwright\'s work on the van der Pol oscillator was motivated by problems in which wartime technology?',
     options: ['Radar signal amplification', 'Cryptography', 'Sonar detection', 'Ballistic computation'],
     correctIndex: 0,

@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const gellMannQuestions: Question[] = [
   {
     id: 21180,
-    topic: 'gell-mann',
+    topic: 'murray-gell-mann',
     difficulty: 'sota',
     question: 'Gell-Mann\'s "Eightfold Way" organized hadrons using which mathematical structure?',
     options: ['The SU(3) flavor symmetry group', 'The SU(2) isospin group', 'The U(1) electromagnetic gauge group', 'The Poincaré group of spacetime symmetries'],
@@ -14,7 +14,7 @@ export const gellMannQuestions: Question[] = [
   },
   {
     id: 21181,
-    topic: 'gell-mann',
+    topic: 'murray-gell-mann',
     difficulty: 'sota',
     question: 'Gell-Mann proposed that hadrons are composed of fractionally charged constituents he named after a word from which literary work?',
     options: ['Finnegans Wake by James Joyce', 'Ulysses by James Joyce', 'The Waste Land by T.S. Eliot', 'Moby-Dick by Herman Melville'],
@@ -25,7 +25,7 @@ export const gellMannQuestions: Question[] = [
   },
   {
     id: 21182,
-    topic: 'gell-mann',
+    topic: 'murray-gell-mann',
     difficulty: 'sota',
     question: 'Quantum chromodynamics (QCD), which Gell-Mann helped develop, describes the strong force using which gauge group?',
     options: ['SU(3) color symmetry', 'SU(2) × U(1) electroweak symmetry', 'U(1) electromagnetic symmetry', 'SO(10) grand unified symmetry'],
@@ -36,7 +36,7 @@ export const gellMannQuestions: Question[] = [
   },
   {
     id: 21183,
-    topic: 'gell-mann',
+    topic: 'murray-gell-mann',
     difficulty: 'sota',
     question: 'Gell-Mann co-founded which interdisciplinary research institute dedicated to complexity science?',
     options: ['The Santa Fe Institute', 'The Perimeter Institute', 'The Institute for Advanced Study', 'CERN'],
@@ -47,7 +47,7 @@ export const gellMannQuestions: Question[] = [
   },
   {
     id: 21184,
-    topic: 'gell-mann',
+    topic: 'murray-gell-mann',
     difficulty: 'sota',
     question: 'Gell-Mann\'s concept of "effective complexity" distinguishes between which two types of information in a system?',
     options: ['Regular (compressible) patterns versus random (incompressible) noise', 'Classical versus quantum information', 'Syntactic versus semantic information', 'Analog versus digital information'],

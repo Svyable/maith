@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const coaseQuestions: Question[] = [
   {
     id: 13345,
-    topic: 'coase',
+    topic: 'ronald-coase',
     difficulty: 'easy',
     question:
       'Ronald Coase argued that markets are not frictionless. What are “transaction costs,” and why do they matter for economic organization?',
@@ -22,7 +22,7 @@ export const coaseQuestions: Question[] = [
   },
   {
     id: 13346,
-    topic: 'coase',
+    topic: 'ronald-coase',
     difficulty: 'easy',
     question:
       'The classic Coase theorem (in its strongest textbook form) says: if property rights are well-defined and transaction costs are zero, then bargaining will lead to:',
@@ -41,7 +41,7 @@ export const coaseQuestions: Question[] = [
   },
   {
     id: 13347,
-    topic: 'coase',
+    topic: 'ronald-coase',
     difficulty: 'hard',
     question:
       'Coase’s 1937 question “Why do firms exist?” can be stated as a cost comparison. A firm expands until what condition roughly holds between internal coordination cost and market transaction cost?',
@@ -60,7 +60,7 @@ export const coaseQuestions: Question[] = [
   },
   {
     id: 13348,
-    topic: 'coase',
+    topic: 'ronald-coase',
     difficulty: 'hard',
     question:
       'Why does the Coase theorem often fail as a practical policy guide even if it is conceptually illuminating? Pick the best “Coasean” reason.',
@@ -79,7 +79,7 @@ export const coaseQuestions: Question[] = [
   },
   {
     id: 13349,
-    topic: 'coase',
+    topic: 'ronald-coase',
     difficulty: 'sota',
     question:
       'A digital platform (marketplace/app store) can be interpreted through Coase: it reduces transaction costs. Which formal-ish mapping best matches this idea?',

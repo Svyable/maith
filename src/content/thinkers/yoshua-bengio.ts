@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const bengioQuestions: Question[] = [
   {
     id: 11601,
-    topic: 'bengio',
+    topic: 'yoshua-bengio',
     difficulty: 'easy',
     question: 'Bengio, LeCun, and Hinton won the 2018 Turing Award for their contributions to:',
     options: [
@@ -19,7 +19,7 @@ export const bengioQuestions: Question[] = [
   },
   {
     id: 11602,
-    topic: 'bengio',
+    topic: 'yoshua-bengio',
     difficulty: 'easy',
     question: 'Bengio\'s work on word embeddings and neural language models (early 2000s) showed that words could be represented as:',
     options: [
@@ -35,7 +35,7 @@ export const bengioQuestions: Question[] = [
   },
   {
     id: 11603,
-    topic: 'bengio',
+    topic: 'yoshua-bengio',
     difficulty: 'easy',
     question: 'The "attention mechanism" in transformers computes weighted sums over values. Bengio\'s group at Mila contributed foundational work on attention via:',
     options: [
@@ -51,7 +51,7 @@ export const bengioQuestions: Question[] = [
   },
   {
     id: 11604,
-    topic: 'bengio',
+    topic: 'yoshua-bengio',
     difficulty: 'easy',
     question: 'Bengio\'s research on "consciousness priors" and "system 2 deep learning" argues that AI needs:',
     options: [
@@ -67,7 +67,7 @@ export const bengioQuestions: Question[] = [
   },
   {
     id: 11605,
-    topic: 'bengio',
+    topic: 'yoshua-bengio',
     difficulty: 'hard',
     question: 'Bengio et al. (2013) proved that deep networks can represent certain functions exponentially more efficiently than shallow networks. This "depth advantage" relies on:',
     options: [
@@ -83,7 +83,7 @@ export const bengioQuestions: Question[] = [
   },
   {
     id: 11606,
-    topic: 'bengio',
+    topic: 'yoshua-bengio',
     difficulty: 'hard',
     question: 'Variational Autoencoders (VAEs), connected to Bengio\'s generative modeling work, maximize the ELBO:',
     options: [
@@ -99,7 +99,7 @@ export const bengioQuestions: Question[] = [
   },
   {
     id: 11607,
-    topic: 'bengio',
+    topic: 'yoshua-bengio',
     difficulty: 'hard',
     question: 'Curriculum learning (Bengio et al., 2009) improves training by:',
     options: [
@@ -115,7 +115,7 @@ export const bengioQuestions: Question[] = [
   },
   {
     id: 11608,
-    topic: 'bengio',
+    topic: 'yoshua-bengio',
     difficulty: 'sota',
     question: 'Bengio\'s "GFlowNets" (2021) are trained to sample objects proportional to a reward $R(x)$. Unlike MCMC which samples from $p(x) \\propto R(x)$, GFlowNets:',
     options: [
@@ -131,7 +131,7 @@ export const bengioQuestions: Question[] = [
   },
   {
     id: 11609,
-    topic: 'bengio',
+    topic: 'yoshua-bengio',
     difficulty: 'sota',
     question: 'The Bengio-Courville-Vincent textbook "Deep Learning" defines representation learning as:',
     options: [
@@ -147,7 +147,7 @@ export const bengioQuestions: Question[] = [
   },
   {
     id: 11610,
-    topic: 'bengio',
+    topic: 'yoshua-bengio',
     difficulty: 'sota',
     question: 'Bengio\'s "Causal Representation Learning" agenda argues that ML models fail to generalize out-of-distribution because:',
     options: [

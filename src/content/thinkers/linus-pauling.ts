@@ -2,7 +2,7 @@ import type { Question } from '../types';
 
 export const paulingQuestions: Question[] = [
   {
-    id: 96030, topic: 'pauling', difficulty: 'easy',
+    id: 96030, topic: 'linus-pauling', difficulty: 'easy',
     question: 'Linus Pauling\'s concept of electronegativity describes:',
     options: ['An atom\'s tendency to attract shared electrons in a bond', 'The total number of electrons in an atom', 'The energy released during nuclear fission', 'The speed of electron orbit'],
     correctIndex: 0,
@@ -11,7 +11,7 @@ export const paulingQuestions: Question[] = [
     hint: 'Fluorine has the highest value on this scale.',
   },
   {
-    id: 96031, topic: 'pauling', difficulty: 'hard',
+    id: 96031, topic: 'linus-pauling', difficulty: 'hard',
     question: 'Pauling\'s hybridization theory explains molecular geometry by:',
     options: ['Mixing atomic orbitals to form equivalent hybrid orbitals (sp, sp², sp³)', 'Counting total electron pairs only', 'Using relativistic corrections to Schrödinger\'s equation', 'Applying molecular orbital theory exclusively'],
     correctIndex: 0,
@@ -20,7 +20,7 @@ export const paulingQuestions: Question[] = [
     hint: 'Carbon in methane uses four equivalent orbitals arranged tetrahedrally.',
   },
   {
-    id: 96032, topic: 'pauling', difficulty: 'sota',
+    id: 96032, topic: 'linus-pauling', difficulty: 'sota',
     question: 'Pauling\'s prediction of the protein α-helix was confirmed by:',
     options: ['X-ray diffraction patterns matching his model\'s predicted repeat distance of 5.4 Å', 'NMR spectroscopy of amino acids', 'Electron microscopy of denatured proteins', 'Mass spectrometry of peptide fragments'],
     correctIndex: 0,

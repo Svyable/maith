@@ -4,7 +4,7 @@ import type { Question } from '../types';
 export const ramseyQuestions: Question[] = [
   {
     id: 67000,
-    topic: 'ramsey',
+    topic: 'frank-ramsey',
     difficulty: 'easy',
     question:
       'In the Ramsey (1928) optimal growth model, a social planner chooses consumption $c(t)$ to maximize discounted utility\n$$\\max \\int_0^{\\infty} e^{-\\rho t} u(c(t)) dt$$\nsubject to capital accumulation. What is the canonical capital law of motion?',
@@ -24,7 +24,7 @@ export const ramseyQuestions: Question[] = [
   },
   {
     id: 67001,
-    topic: 'ramsey',
+    topic: 'frank-ramsey',
     difficulty: 'hard',
     question:
       'The Ramsey Euler equation (CRRA utility $u(c)=\\frac{c^{1-\\theta}-1}{1-\\theta}$) implies:',
@@ -44,7 +44,7 @@ export const ramseyQuestions: Question[] = [
   },
   {
     id: 67002,
-    topic: 'ramsey',
+    topic: 'frank-ramsey',
     difficulty: 'sota',
     question:
       'Ramsey taxation minimizes excess burden by choosing taxes $\\tau$ to minimize:',
@@ -64,7 +64,7 @@ export const ramseyQuestions: Question[] = [
   },
   {
     id: 67003,
-    topic: 'ramsey',
+    topic: 'frank-ramsey',
     difficulty: 'hard',
     question:
       'The transversality condition in the Ramsey model requires:',
@@ -84,7 +84,7 @@ export const ramseyQuestions: Question[] = [
   },
   {
     id: 67004,
-    topic: 'ramsey',
+    topic: 'frank-ramsey',
     difficulty: 'sota',
     question:
       'Ramsey–Cass–Koopmans steady state condition implies:',

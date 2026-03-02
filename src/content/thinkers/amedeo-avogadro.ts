@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const avogadroQuestions: Question[] = [
   {
     id: 31205,
-    topic: 'avogadro',
+    topic: 'amedeo-avogadro',
     difficulty: 'easy',
     question: 'Amedeo Avogadro mathematically formulated Avogadro\'s Law in 1811 ($V \\propto n$). What deeply elegant, incredibly simple chemical truth does this foundational physical law dictate?',
     options: [
@@ -19,7 +19,7 @@ export const avogadroQuestions: Question[] = [
   },
   {
     id: 31206,
-    topic: 'avogadro',
+    topic: 'amedeo-avogadro',
     difficulty: 'hard',
     question: 'To mathematically make his massive gas law strictly function, Avogadro had to propose a radically controversial structural idea that completely contradicted the prevailing theories of John Dalton. What did Avogadro mathematically propose?',
     options: [
@@ -35,7 +35,7 @@ export const avogadroQuestions: Question[] = [
   },
   {
     id: 31207,
-    topic: 'avogadro',
+    topic: 'amedeo-avogadro',
     difficulty: 'sota',
     question: 'The Avogadro constant ($N_A$) was absolutely redefined in 2019 to completely uncouple it from physical, localized macroscopic artifacts. How is the constant $N_A \approx 6.02214076 \\times 10^{23} \\text{ mol}^{-1}$ mathematically defined today?',
     options: [
@@ -51,7 +51,7 @@ export const avogadroQuestions: Question[] = [
   },
   {
     id: 31208,
-    topic: 'avogadro',
+    topic: 'amedeo-avogadro',
     difficulty: 'hard',
     question: 'Avogadro\'s constant $N_A$ serves as a critical mathematical bridge between macroscopic thermodynamics and localized quantum statistical mechanics. It rigorously links the macroscopic ideal gas constant ($R$) directly to which fundamental microscopic constant?',
     options: [
@@ -67,7 +67,7 @@ export const avogadroQuestions: Question[] = [
   },
   {
     id: 31209,
-    topic: 'avogadro',
+    topic: 'amedeo-avogadro',
     difficulty: 'easy',
     question: 'Amedeo Avogadro was an extremely obscure figure during his absolute physical lifetime. What was his primary official professional career outside of his massive localized theoretical chemical research?',
     options: [

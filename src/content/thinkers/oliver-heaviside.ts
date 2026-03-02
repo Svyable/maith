@@ -4,7 +4,7 @@ import type { Question } from '../types';
 export const heavisideQuestions: Question[] = [
   {
     id: 50090,
-    topic: 'heaviside',
+    topic: 'oliver-heaviside',
     difficulty: 'easy',
     question: 'Heaviside step function H(t) defined?',
     options: [
@@ -20,7 +20,7 @@ export const heavisideQuestions: Question[] = [
   },
   {
     id: 50091,
-    topic: 'heaviside',
+    topic: 'oliver-heaviside',
     difficulty: 'hard',
     question: 'Heaviside operational calculus solves?',
     options: [
@@ -36,7 +36,7 @@ export const heavisideQuestions: Question[] = [
   },
   {
     id: 50092,
-    topic: 'heaviside',
+    topic: 'oliver-heaviside',
     difficulty: 'sota',
     question: 'Heaviside layer jumping?',
     options: [
@@ -52,7 +52,7 @@ export const heavisideQuestions: Question[] = [
   },
   {
     id: 50093,
-    topic: 'heaviside',
+    topic: 'oliver-heaviside',
     difficulty: 'hard',
     question: 'Heaviside expansion theorem?',
     options: [
@@ -68,7 +68,7 @@ export const heavisideQuestions: Question[] = [
   },
   {
     id: 50094,
-    topic: 'heaviside',
+    topic: 'oliver-heaviside',
     difficulty: 'sota',
     question: 'Heaviside Gibbs phenomenon?',
     options: [

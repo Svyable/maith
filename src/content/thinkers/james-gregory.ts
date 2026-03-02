@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const gregoryQuestions: Question[] = [
   {
     id: 11021,
-    topic: 'gregory',
+    topic: 'james-gregory',
     difficulty: 'easy',
     question: 'The Gregory–Leibniz series $\\frac{\\pi}{4} = 1 - \\frac{1}{3} + \\frac{1}{5} - \\frac{1}{7} + \\cdots$ is:',
     options: [
@@ -19,7 +19,7 @@ export const gregoryQuestions: Question[] = [
   },
   {
     id: 11022,
-    topic: 'gregory',
+    topic: 'james-gregory',
     difficulty: 'hard',
     question: 'Why is the Gregory–Leibniz series for $\\pi$ considered extremely slowly convergent?',
     options: [
@@ -35,7 +35,7 @@ export const gregoryQuestions: Question[] = [
   },
   {
     id: 11023,
-    topic: 'gregory',
+    topic: 'james-gregory',
     difficulty: 'sota',
     question: 'Gregory also discovered the reflection formula for the polygamma function and anticipated the integral test for series convergence. His most advanced anticipation was:',
     options: [

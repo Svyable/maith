@@ -4,7 +4,7 @@ import type { Question } from '../types';
 export const kochQuestions: Question[] = [
   {
     id: 50020,
-    topic: 'koch',
+    topic: 'robert-koch',
     difficulty: 'easy',
     question: 'Koch isolated causative agent of?',
     options: [
@@ -20,7 +20,7 @@ export const kochQuestions: Question[] = [
   },
   {
     id: 50021,
-    topic: 'koch',
+    topic: 'robert-koch',
     difficulty: 'hard',
     question: 'Koch\'s Postulates require?',
     options: [
@@ -36,7 +36,7 @@ export const kochQuestions: Question[] = [
   },
   {
     id: 50022,
-    topic: 'koch',
+    topic: 'robert-koch',
     difficulty: 'sota',
     question: 'Koch\'s TB inoculation experiments?',
     options: [

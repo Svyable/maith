@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const wallisQuestions: Question[] = [
   {
     id: 11011,
-    topic: 'wallis',
+    topic: 'john-wallis',
     difficulty: 'easy',
     question: 'Wallis\'s product formula for $\\pi/2$ is:',
     options: [
@@ -19,7 +19,7 @@ export const wallisQuestions: Question[] = [
   },
   {
     id: 11012,
-    topic: 'wallis',
+    topic: 'john-wallis',
     difficulty: 'hard',
     question: 'The key difference between Viète\'s and Wallis\'s products for $\\pi$ is:',
     options: [
@@ -35,7 +35,7 @@ export const wallisQuestions: Question[] = [
   },
   {
     id: 11013,
-    topic: 'wallis',
+    topic: 'john-wallis',
     difficulty: 'sota',
     question: 'Wallis derived his product by computing $\\int_0^{\\pi/2} \\sin^n(x)\\,dx$ for integer $n$. The recursion for these integrals yields:',
     options: [

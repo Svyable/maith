@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const chernQuestions: Question[] = [
   {
     id: 11801,
-    topic: 'chern',
+    topic: 'shiing-shen-chern',
     difficulty: 'easy',
     question: 'Shiing-Shen Chern is most famous for developing Chern classes. What do they classify?',
     options: [
@@ -19,7 +19,7 @@ export const chernQuestions: Question[] = [
   },
   {
     id: 11802,
-    topic: 'chern',
+    topic: 'shiing-shen-chern',
     difficulty: 'easy',
     question: 'The Chern–Gauss–Bonnet theorem generalizes the classical Gauss–Bonnet theorem by relating:',
     options: [
@@ -35,7 +35,7 @@ export const chernQuestions: Question[] = [
   },
   {
     id: 11803,
-    topic: 'chern',
+    topic: 'shiing-shen-chern',
     difficulty: 'hard',
     question: 'Chern–Simons theory, co-developed with James Simons, defines a secondary characteristic class that:',
     options: [
@@ -51,7 +51,7 @@ export const chernQuestions: Question[] = [
   },
   {
     id: 11804,
-    topic: 'chern',
+    topic: 'shiing-shen-chern',
     difficulty: 'hard',
     question: 'In the classification of fiber bundles, Chern\'s work showed that complex vector bundles over a space $X$ are classified by:',
     options: [
@@ -67,7 +67,7 @@ export const chernQuestions: Question[] = [
   },
   {
     id: 11805,
-    topic: 'chern',
+    topic: 'shiing-shen-chern',
     difficulty: 'sota',
     question: 'The Chern number in condensed matter physics quantizes the Hall conductance because:',
     options: [

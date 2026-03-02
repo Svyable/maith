@@ -2,7 +2,7 @@ import type { Question } from '../types';
 
 export const hopperQuestions: Question[] = [
   {
-    id: 21101, topic: 'hopper', difficulty: 'easy',
+    id: 21101, topic: 'grace-hopper', difficulty: 'easy',
     question: 'Grace Hopper\'s most significant contribution to computing was:',
     options: ['Developing the first compiler and pioneering machine-independent programming languages (COBOL)', 'Building the first personal computer', 'Inventing the mouse', 'Creating the Unix operating system'],
     correctIndex: 0,
@@ -11,7 +11,7 @@ export const hopperQuestions: Question[] = [
     hint: 'She proved you could write programs in human-readable language — the machine could translate them automatically.',
   },
   {
-    id: 21102, topic: 'hopper', difficulty: 'hard',
+    id: 21102, topic: 'grace-hopper', difficulty: 'hard',
     question: 'Hopper popularized the term "debugging" after:',
     options: ['Finding an actual moth causing a relay malfunction in the Harvard Mark II computer', 'Running a static analysis tool on COBOL code', 'Using a debugger tool she invented', 'Reading about bugs in Charles Babbage\'s notes'],
     correctIndex: 0,
@@ -20,7 +20,7 @@ export const hopperQuestions: Question[] = [
     hint: 'It was a literal insect causing a hardware failure — she taped it into the logbook.',
   },
   {
-    id: 21103, topic: 'hopper', difficulty: 'sota',
+    id: 21103, topic: 'grace-hopper', difficulty: 'sota',
     question: 'Hopper\'s philosophy that "it\'s easier to ask forgiveness than permission" influenced:',
     options: ['Agile development, rapid prototyping, and the Silicon Valley "move fast and break things" culture', 'Waterfall project management', 'Formal verification methods', 'Military procurement processes'],
     correctIndex: 0,

@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const eubulidesQuestions: Question[] = [
   {
     id: 20610,
-    topic: 'eubulides',
+    topic: 'eubulides-of-miletus',
     difficulty: 'hard',
     question: 'Eubulides\' Liar Paradox ("This statement is false") demonstrates which property of self-referential systems?',
     options: ['They can produce undecidable propositions', 'They always converge', 'They are always consistent', 'They can be resolved by adding axioms'],
@@ -14,7 +14,7 @@ export const eubulidesQuestions: Question[] = [
   },
   {
     id: 20611,
-    topic: 'eubulides',
+    topic: 'eubulides-of-miletus',
     difficulty: 'sota',
     question: 'The Sorites Paradox ("paradox of the heap") challenges which property of classical logic?',
     options: ['The law of the excluded middle (bivalence) when applied to vague predicates', 'The law of non-contradiction', 'Modus ponens', 'De Morgan\'s laws'],
@@ -25,7 +25,7 @@ export const eubulidesQuestions: Question[] = [
   },
   {
     id: 20612,
-    topic: 'eubulides',
+    topic: 'eubulides-of-miletus',
     difficulty: 'easy',
     question: 'Eubulides\' "Sorites Paradox" asks: if you remove one grain of sand from a heap, is it still a heap? This is a paradox about:',
     options: ['Vagueness — where exactly is the boundary?', 'Counting errors', 'Sand physics', 'Gravity'],

@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const hausdorffQuestions: Question[] = [
   {
     id: 31125,
-    topic: 'hausdorff',
+    topic: 'felix-hausdorff',
     difficulty: 'easy',
     question: 'Felix Hausdorff profoundly shattered our understanding of classical geometry by defining "Hausdorff dimension." What highly counterintuitive mathematical concept does this explicitly allow?',
     options: [
@@ -19,7 +19,7 @@ export const hausdorffQuestions: Question[] = [
   },
   {
     id: 31126,
-    topic: 'hausdorff',
+    topic: 'felix-hausdorff',
     difficulty: 'hard',
     question: 'In general topology, the vast majority of useful spaces (including the real number line) are designated as "Hausdorff spaces" (or $T_2$ spaces). What precise separation axiom strictly defines a Hausdorff space?',
     options: [
@@ -35,7 +35,7 @@ export const hausdorffQuestions: Question[] = [
   },
   {
     id: 31127,
-    topic: 'hausdorff',
+    topic: 'felix-hausdorff',
     difficulty: 'sota',
     question: 'The incredible Baker-Campbell-Hausdorff (BCH) formula is absolutely fundamental to Lie theory. It algebraically expresses the solution $Z$ in the equation $e^X e^Y = e^Z$ strictly in terms of what mathematical operations?',
     options: [
@@ -51,7 +51,7 @@ export const hausdorffQuestions: Question[] = [
   },
   {
     id: 31128,
-    topic: 'hausdorff',
+    topic: 'felix-hausdorff',
     difficulty: 'hard',
     question: 'The "Hausdorff distance" mathematically measures the absolute extent to which two distinct subsets of a metric space differ from each other. How is this highly robust metric formally defined?',
     options: [
@@ -67,7 +67,7 @@ export const hausdorffQuestions: Question[] = [
   },
   {
     id: 31129,
-    topic: 'hausdorff',
+    topic: 'felix-hausdorff',
     difficulty: 'easy',
     question: 'Hausdorff\'s monumental 1914 book, *Grundzüge der Mengenlehre* (Basics of Set Theory), effectively created the modern field of topology. Tragically, how did Hausdorff\'s life mathematically and physically end?',
     options: [

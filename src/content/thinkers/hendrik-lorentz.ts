@@ -4,7 +4,7 @@ import type { Question } from '../types';
 export const lorentzQuestions: Question[] = [
   {
     id: 67050,
-    topic: 'lorentz',
+    topic: 'hendrik-lorentz',
     difficulty: 'easy',
     question:
       'Hendrik Lorentz’s name is attached to the Lorentz transformation. For motion along $x$ with speed $v$, which pair of formulas is correct (using $\\gamma=1/\\sqrt{1-v^2/c^2}$)?',
@@ -23,7 +23,7 @@ export const lorentzQuestions: Question[] = [
   },
   {
     id: 67051,
-    topic: 'lorentz',
+    topic: 'hendrik-lorentz',
     difficulty: 'hard',
     question:
       'Lorentz invariance says the spacetime interval is preserved. Which quantity is invariant under Lorentz transformations?',
@@ -42,7 +42,7 @@ export const lorentzQuestions: Question[] = [
   },
   {
     id: 67052,
-    topic: 'lorentz',
+    topic: 'hendrik-lorentz',
     difficulty: 'hard',
     question:
       'The Lorentz force law gives the force on a charge $q$ moving with velocity $\\mathbf{v}$ in fields $\\mathbf{E},\\mathbf{B}$. Which is correct?',
@@ -61,7 +61,7 @@ export const lorentzQuestions: Question[] = [
   },
   {
     id: 67053,
-    topic: 'lorentz',
+    topic: 'hendrik-lorentz',
     difficulty: 'sota',
     question:
       'Time dilation follows from Lorentz transformations. If a clock moves at speed $v$, how are proper time $\\Delta\\tau$ and coordinate time $\\Delta t$ related?',
@@ -80,7 +80,7 @@ export const lorentzQuestions: Question[] = [
   },
   {
     id: 67054,
-    topic: 'lorentz',
+    topic: 'hendrik-lorentz',
     difficulty: 'sota',
     question:
       'The Lorentz group is the set of linear transformations preserving the Minkowski metric. In matrix form, what condition characterizes $\\Lambda$ (with metric $\\eta$)?',

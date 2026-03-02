@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const searleQuestions: Question[] = [
   {
     id: 13320,
-    topic: 'searle',
+    topic: 'john-searle',
     difficulty: 'easy',
     question:
       'Searle’s “Chinese Room” targets “Strong AI.” What claim is he trying to refute by imagining a person manipulating symbols using a rulebook?',
@@ -22,7 +22,7 @@ export const searleQuestions: Question[] = [
   },
   {
     id: 13321,
-    topic: 'searle',
+    topic: 'john-searle',
     difficulty: 'easy',
     question:
       'Searle often contrasts “syntax” and “semantics.” Which pairing best matches his usage?',
@@ -41,7 +41,7 @@ export const searleQuestions: Question[] = [
   },
   {
     id: 13322,
-    topic: 'searle',
+    topic: 'john-searle',
     difficulty: 'hard',
     question:
       'Searle’s “speech act” theory emphasizes illocutionary force. Which example is closest to a *performative* utterance where saying it (under the right conditions) constitutes doing it?',
@@ -60,7 +60,7 @@ export const searleQuestions: Question[] = [
   },
   {
     id: 13323,
-    topic: 'searle',
+    topic: 'john-searle',
     difficulty: 'hard',
     question:
       'Searle’s account of “institutional facts” often uses the schema “$X$ counts as $Y$ in context $C$.” Which is the best illustration?',
@@ -79,7 +79,7 @@ export const searleQuestions: Question[] = [
   },
   {
     id: 13324,
-    topic: 'searle',
+    topic: 'john-searle',
     difficulty: 'sota',
     question:
       'A modern “Searle-ish” critique of LLMs points out that next-token prediction optimizes a distribution like $p_\\theta(w_t\\mid w_{<t})$. Why might Searle argue this is insufficient for understanding?',

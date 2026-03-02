@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const perlmanQuestions: Question[] = [
   {
     id: 20500,
-    topic: 'perlman',
+    topic: 'radia-perlman',
     difficulty: 'hard',
     question: 'Radia Perlman\'s Spanning Tree Protocol (STP) prevents broadcast storms by constructing which graph structure over a bridged LAN?',
     options: ['A minimum spanning tree rooted at a designated bridge', 'A complete bipartite graph', 'A Hamiltonian cycle', 'A directed acyclic graph'],
@@ -14,7 +14,7 @@ export const perlmanQuestions: Question[] = [
   },
   {
     id: 20501,
-    topic: 'perlman',
+    topic: 'radia-perlman',
     difficulty: 'hard',
     question: 'RSTP (802.1w) improved STP convergence from ~50 seconds to approximately:',
     options: ['1–2 seconds', '10–15 seconds', '30 seconds', '5 minutes'],
@@ -25,7 +25,7 @@ export const perlmanQuestions: Question[] = [
   },
   {
     id: 20502,
-    topic: 'perlman',
+    topic: 'radia-perlman',
     difficulty: 'sota',
     question: 'Perlman later invented TRILL (Transparent Interconnection of Lots of Links). How does TRILL improve on STP?',
     options: ['It uses IS-IS routing to enable multi-path forwarding while preventing loops', 'It removes the need for MAC addresses', 'It replaces Ethernet with token ring', 'It uses TCP for Layer 2 forwarding'],
@@ -36,7 +36,7 @@ export const perlmanQuestions: Question[] = [
   },
   {
     id: 20503,
-    topic: 'perlman',
+    topic: 'radia-perlman',
     difficulty: 'sota',
     question: 'In STP, the Bridge Protocol Data Unit (BPDU) election uses a tuple $(priority, MAC)$. What is the default bridge priority value in IEEE 802.1D?',
     options: ['32768', '0', '65535', '128'],
@@ -47,7 +47,7 @@ export const perlmanQuestions: Question[] = [
   },
   {
     id: 20504,
-    topic: 'perlman',
+    topic: 'radia-perlman',
     difficulty: 'easy',
     question: 'Radia Perlman is often called the "Mother of the Internet" for inventing which protocol?',
     options: ['Spanning Tree Protocol (STP)', 'TCP/IP', 'HTTP', 'DNS'],

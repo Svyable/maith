@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const huygensQuestions: Question[] = [
   {
     id: 21810,
-    topic: 'huygens',
+    topic: 'christiaan-huygens',
     difficulty: 'sota',
     question: 'Huygens\' principle states that every point on a wavefront acts as a source of what?',
     options: [
@@ -19,7 +19,7 @@ export const huygensQuestions: Question[] = [
   },
   {
     id: 21811,
-    topic: 'huygens',
+    topic: 'christiaan-huygens',
     difficulty: 'sota',
     question: 'Huygens derived the formula for the period of a physical pendulum. For a simple pendulum of length L, the small-angle period is T = ?',
     options: [
@@ -35,7 +35,7 @@ export const huygensQuestions: Question[] = [
   },
   {
     id: 21812,
-    topic: 'huygens',
+    topic: 'christiaan-huygens',
     difficulty: 'sota',
     question: 'Huygens discovered that the tautochrone curve — where descent time is independent of starting height — is what shape?',
     options: [

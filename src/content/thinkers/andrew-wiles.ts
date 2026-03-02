@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const wilesQuestions: Question[] = [
   {
     id: 21010,
-    topic: 'wiles',
+    topic: 'andrew-wiles',
     difficulty: 'sota',
     question: 'Wiles proved Fermat\'s Last Theorem by establishing which major conjecture about elliptic curves?',
     options: ['The Taniyama–Shimura–Weil conjecture (for semistable curves)', 'The Birch and Swinnerton-Dyer conjecture', 'The Langlands correspondence for GL(2)', 'The Sato–Tate conjecture'],
@@ -14,7 +14,7 @@ export const wilesQuestions: Question[] = [
   },
   {
     id: 21011,
-    topic: 'wiles',
+    topic: 'andrew-wiles',
     difficulty: 'sota',
     question: 'Fermat\'s Last Theorem states that $a^n + b^n = c^n$ has no positive integer solutions for $n$ greater than which value?',
     options: ['2', '1', '3', '4'],
@@ -25,7 +25,7 @@ export const wilesQuestions: Question[] = [
   },
   {
     id: 21012,
-    topic: 'wiles',
+    topic: 'andrew-wiles',
     difficulty: 'sota',
     question: 'Which mathematician proved the crucial link between Fermat\'s Last Theorem and the modularity conjecture?',
     options: ['Kenneth Ribet', 'Jean-Pierre Serre', 'Gerhard Frey', 'Richard Taylor'],
@@ -36,7 +36,7 @@ export const wilesQuestions: Question[] = [
   },
   {
     id: 21013,
-    topic: 'wiles',
+    topic: 'andrew-wiles',
     difficulty: 'sota',
     question: 'When a gap was found in Wiles\'s 1993 proof, who helped him repair it?',
     options: ['Richard Taylor', 'Kenneth Ribet', 'Barry Mazur', 'Peter Sarnak'],
@@ -47,7 +47,7 @@ export const wilesQuestions: Question[] = [
   },
   {
     id: 21014,
-    topic: 'wiles',
+    topic: 'andrew-wiles',
     difficulty: 'sota',
     question: 'Wiles\'s proof primarily uses deformation theory applied to which type of mathematical representation?',
     options: ['Galois representations', 'Linear representations of finite groups', 'Unitary representations of Lie groups', 'Permutation representations'],

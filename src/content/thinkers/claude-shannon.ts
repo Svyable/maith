@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const shannonQuestions: Question[] = [
   {
     id: 10021,
-    topic: 'shannon',
+    topic: 'claude-shannon',
     difficulty: 'easy',
     question: 'Shannon entropy $H(X)$ of a discrete random variable $X$ measures:',
     options: [
@@ -19,7 +19,7 @@ export const shannonQuestions: Question[] = [
   },
   {
     id: 10022,
-    topic: 'shannon',
+    topic: 'claude-shannon',
     difficulty: 'easy',
     question: 'Shannon\'s Channel Capacity theorem (1948) states:',
     options: [
@@ -35,7 +35,7 @@ export const shannonQuestions: Question[] = [
   },
   {
     id: 10023,
-    topic: 'shannon',
+    topic: 'claude-shannon',
     difficulty: 'easy',
     question: 'Huffman coding achieves compression by:',
     options: [
@@ -51,7 +51,7 @@ export const shannonQuestions: Question[] = [
   },
   {
     id: 10024,
-    topic: 'shannon',
+    topic: 'claude-shannon',
     difficulty: 'easy',
     question: 'Mutual information $I(X; Y)$ between two variables measures:',
     options: [
@@ -67,7 +67,7 @@ export const shannonQuestions: Question[] = [
   },
   {
     id: 10025,
-    topic: 'shannon',
+    topic: 'claude-shannon',
     difficulty: 'hard',
     question: 'The source coding theorem (Shannon\'s first theorem) states that the minimum average code length $L$ satisfies:',
     options: [
@@ -83,7 +83,7 @@ export const shannonQuestions: Question[] = [
   },
   {
     id: 10026,
-    topic: 'shannon',
+    topic: 'claude-shannon',
     difficulty: 'hard',
     question: 'KL divergence $D_{KL}(P \\| Q)$ is related to Shannon entropy by:',
     options: [
@@ -99,7 +99,7 @@ export const shannonQuestions: Question[] = [
   },
   {
     id: 10027,
-    topic: 'shannon',
+    topic: 'claude-shannon',
     difficulty: 'hard',
     question: 'Lempel-Ziv compression (LZ77/LZ78) achieves entropy-rate compression by:',
     options: [
@@ -115,7 +115,7 @@ export const shannonQuestions: Question[] = [
   },
   {
     id: 10028,
-    topic: 'shannon',
+    topic: 'claude-shannon',
     difficulty: 'sota',
     question: 'Shannon\'s noisy channel coding theorem guarantees reliable communication at rate $R < C$ by:',
     options: [
@@ -131,7 +131,7 @@ export const shannonQuestions: Question[] = [
   },
   {
     id: 10029,
-    topic: 'shannon',
+    topic: 'claude-shannon',
     difficulty: 'sota',
     question: 'The data processing inequality states: for a Markov chain $X \\to Y \\to Z$:',
     options: [
@@ -147,7 +147,7 @@ export const shannonQuestions: Question[] = [
   },
   {
     id: 10030,
-    topic: 'shannon',
+    topic: 'claude-shannon',
     difficulty: 'sota',
     question: 'Rate-distortion theory addresses the tradeoff between:',
     options: [

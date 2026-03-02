@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const bachelierQuestions: Question[] = [
   {
     id: 20790,
-    topic: 'bachelier',
+    topic: 'louis-bachelier',
     difficulty: 'hard',
     question: 'Bachelier\'s 1900 thesis modeled stock prices as arithmetic Brownian motion: $dS = \\sigma\\,dW$. What is the main flaw of this model?',
     options: ['Prices can become negative', 'Prices grow too fast', 'Volatility is time-dependent', 'It assumes discrete trading'],
@@ -14,7 +14,7 @@ export const bachelierQuestions: Question[] = [
   },
   {
     id: 20791,
-    topic: 'bachelier',
+    topic: 'louis-bachelier',
     difficulty: 'sota',
     question: 'Bachelier derived an option pricing formula in 1900 that anticipated Black-Scholes by 73 years. His formula assumed which risk-free rate?',
     options: ['Zero (no discounting)', 'The bank rate of France', 'A continuous compounding rate', 'The inflation rate'],
@@ -25,7 +25,7 @@ export const bachelierQuestions: Question[] = [
   },
   {
     id: 20792,
-    topic: 'bachelier',
+    topic: 'louis-bachelier',
     difficulty: 'easy',
     question: 'Bachelier\'s 1900 PhD thesis "The Theory of Speculation" was the first to apply advanced mathematics to:',
     options: ['Financial markets (stock and option pricing)', 'Weather prediction', 'Population growth', 'Fluid dynamics'],

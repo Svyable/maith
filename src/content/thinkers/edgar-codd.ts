@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const coddQuestions: Question[] = [
   {
     id: 31010,
-    topic: 'codd',
+    topic: 'edgar-codd',
     difficulty: 'easy',
     question: 'Before Codd published his 1970 paper on the Relational Model, how were large-scale corporate databases primarily structured?',
     options: [
@@ -19,7 +19,7 @@ export const coddQuestions: Question[] = [
   },
   {
     id: 31011,
-    topic: 'codd',
+    topic: 'edgar-codd',
     difficulty: 'hard',
     question: 'In Codd’s Relational Algebra, which mathematical operation is responsible for extracting specific COLUMNS from a table?',
     options: [
@@ -35,7 +35,7 @@ export const coddQuestions: Question[] = [
   },
   {
     id: 31012,
-    topic: 'codd',
+    topic: 'edgar-codd',
     difficulty: 'easy',
     question: 'According to Codd’s definition of First Normal Form (1NF), what must be true about the data inside a relational table?',
     options: [
@@ -51,7 +51,7 @@ export const coddQuestions: Question[] = [
   },
   {
     id: 31013,
-    topic: 'codd',
+    topic: 'edgar-codd',
     difficulty: 'sota',
     question: 'What is the absolute mandate of "Rule 0" in Codd’s famous 12 Rules for Relational Database Systems?',
     options: [
@@ -67,7 +67,7 @@ export const coddQuestions: Question[] = [
   },
   {
     id: 31014,
-    topic: 'codd',
+    topic: 'edgar-codd',
     difficulty: 'hard',
     question: 'Which theoretical concept did Codd introduce to ensure that a database does not lose information when it is split into multiple smaller tables?',
     options: [

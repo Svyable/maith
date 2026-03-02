@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const hassabisQuestions: Question[] = [
   {
     id: 12001,
-    topic: 'hassabis',
+    topic: 'demis-hassabis',
     difficulty: 'easy',
     question: 'DeepMind\'s AlphaGo defeated the world Go champion by combining:',
     options: [
@@ -19,7 +19,7 @@ export const hassabisQuestions: Question[] = [
   },
   {
     id: 12002,
-    topic: 'hassabis',
+    topic: 'demis-hassabis',
     difficulty: 'hard',
     question: 'AlphaFold 2 predicts protein 3D structure by:',
     options: [
@@ -35,7 +35,7 @@ export const hassabisQuestions: Question[] = [
   },
   {
     id: 12003,
-    topic: 'hassabis',
+    topic: 'demis-hassabis',
     difficulty: 'sota',
     question: 'Hassabis\'s neuroscience background influenced DeepMind\'s approach through:',
     options: [

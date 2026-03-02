@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const verhulstQuestions: Question[] = [
   {
     id: 9504,
-    topic: 'verhulst',
+    topic: 'pierre-verhulst',
     difficulty: 'sota',
     question: 'The logistic equation $\\frac{dN}{dt} = rN\\left(1 - \\frac{N}{K}\\right)$ has the exact solution:',
     options: [
@@ -19,7 +19,7 @@ export const verhulstQuestions: Question[] = [
   },
   {
     id: 9505,
-    topic: 'verhulst',
+    topic: 'pierre-verhulst',
     difficulty: 'sota',
     question: 'The discrete logistic map $x_{n+1} = rx_n(1-x_n)$ undergoes its first period-doubling bifurcation at:',
     options: [
@@ -35,7 +35,7 @@ export const verhulstQuestions: Question[] = [
   },
   {
     id: 9506,
-    topic: 'verhulst',
+    topic: 'pierre-verhulst',
     difficulty: 'sota',
     question: 'Verhulst\'s carrying capacity $K$ in the logistic model represents:',
     options: [

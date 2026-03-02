@@ -4,7 +4,7 @@ import type { Question } from '../types';
 export const karpQuestions: Question[] = [
   {
     id: 67035,
-    topic: 'karp',
+    topic: 'richard-karp',
     difficulty: 'easy',
     question:
       'Richard Karp is famous for the 1972 paper listing 21 NP-complete problems. What was the main impact of that list?',
@@ -24,7 +24,7 @@ export const karpQuestions: Question[] = [
   },
   {
     id: 67036,
-    topic: 'karp',
+    topic: 'richard-karp',
     difficulty: 'hard',
     question:
       'Which of the following is one of Karp’s classic NP-complete graph problems?',
@@ -44,7 +44,7 @@ export const karpQuestions: Question[] = [
   },
   {
     id: 67037,
-    topic: 'karp',
+    topic: 'richard-karp',
     difficulty: 'hard',
     question:
       'The Karp reduction framework uses polynomial-time many-one reductions. If problem $A$ reduces to $B$, what does that imply about difficulty?',
@@ -64,7 +64,7 @@ export const karpQuestions: Question[] = [
   },
   {
     id: 67038,
-    topic: 'karp',
+    topic: 'richard-karp',
     difficulty: 'sota',
     question:
       'Karp also did foundational work in randomized algorithms and parallel complexity. In broad terms, what does it mean for an algorithm to be “randomized” in complexity theory?',
@@ -84,7 +84,7 @@ export const karpQuestions: Question[] = [
   },
   {
     id: 67039,
-    topic: 'karp',
+    topic: 'richard-karp',
     difficulty: 'sota',
     question:
       'Many Karp NP-complete problems have good approximation algorithms. For VERTEX COVER, what is a classic approximation guarantee?',

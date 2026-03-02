@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const mirzakhaniQuestions: Question[] = [
   {
     id: 11701,
-    topic: 'mirzakhani',
+    topic: 'maryam-mirzakhani',
     difficulty: 'easy',
     question: 'Maryam Mirzakhani made history in 2014 by becoming:',
     options: [
@@ -19,7 +19,7 @@ export const mirzakhaniQuestions: Question[] = [
   },
   {
     id: 11702,
-    topic: 'mirzakhani',
+    topic: 'maryam-mirzakhani',
     difficulty: 'easy',
     question: 'Mirzakhani\'s Fields Medal work primarily concerned the geometry and dynamics of:',
     options: [
@@ -35,7 +35,7 @@ export const mirzakhaniQuestions: Question[] = [
   },
   {
     id: 11703,
-    topic: 'mirzakhani',
+    topic: 'maryam-mirzakhani',
     difficulty: 'hard',
     question: 'Mirzakhani\'s thesis gave a new proof of Witten\'s conjecture by computing:',
     options: [
@@ -51,7 +51,7 @@ export const mirzakhaniQuestions: Question[] = [
   },
   {
     id: 11704,
-    topic: 'mirzakhani',
+    topic: 'maryam-mirzakhani',
     difficulty: 'hard',
     question: 'Mirzakhani proved that the number of simple closed geodesics of length ≤ L on a hyperbolic surface grows as:',
     options: [
@@ -67,7 +67,7 @@ export const mirzakhaniQuestions: Question[] = [
   },
   {
     id: 11705,
-    topic: 'mirzakhani',
+    topic: 'maryam-mirzakhani',
     difficulty: 'sota',
     question: 'Mirzakhani and Alex Eskin\'s landmark theorem on $\\text{SL}(2,\\mathbb{R})$ orbit closures in moduli space showed:',
     options: [

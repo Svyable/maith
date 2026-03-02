@@ -2,7 +2,7 @@ import type { Question } from '../types';
 
 export const thalerQuestions: Question[] = [
   {
-    id: 19201, topic: 'thaler', difficulty: 'easy',
+    id: 19201, topic: 'richard-thaler', difficulty: 'easy',
     question: 'Richard Thaler\'s "nudge" concept involves:',
     options: ['Changing choice architecture to guide better decisions without restricting freedom', 'Forcing people to make specific choices', 'Providing financial penalties for bad decisions', 'Removing all options except the best one'],
     correctIndex: 0,
@@ -11,7 +11,7 @@ export const thalerQuestions: Question[] = [
     hint: 'Make the better choice the path of least resistance.',
   },
   {
-    id: 19202, topic: 'thaler', difficulty: 'hard',
+    id: 19202, topic: 'richard-thaler', difficulty: 'hard',
     question: 'Thaler\'s concept of "mental accounting" explains why people:',
     options: ['Treat money differently depending on its source or intended use, violating fungibility', 'Always maximize expected utility', 'Never save money', 'Invest rationally in diversified portfolios'],
     correctIndex: 0,
@@ -20,7 +20,7 @@ export const thalerQuestions: Question[] = [
     hint: 'Money is money — but our brains don\'t treat it that way.',
   },
   {
-    id: 19203, topic: 'thaler', difficulty: 'sota',
+    id: 19203, topic: 'richard-thaler', difficulty: 'sota',
     question: 'The "planner-doer" model in Thaler\'s behavioral economics treats individuals as:',
     options: ['Having two selves — a far-sighted planner and a myopic doer — in perpetual conflict', 'Perfectly rational utility maximizers', 'Always following social norms', 'Random decision makers'],
     correctIndex: 0,

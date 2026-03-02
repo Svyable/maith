@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const rosenblattQuestions: Question[] = [
   {
     id: 20450,
-    topic: 'rosenblatt',
+    topic: 'frank-rosenblatt',
     difficulty: 'hard',
     question: 'The Perceptron Convergence Theorem guarantees that the perceptron learning algorithm converges in finite steps if and only if:',
     options: ['The data is linearly separable', 'The data is normalized', 'The learning rate is less than 1', 'The data has no outliers'],
@@ -14,7 +14,7 @@ export const rosenblattQuestions: Question[] = [
   },
   {
     id: 20451,
-    topic: 'rosenblatt',
+    topic: 'frank-rosenblatt',
     difficulty: 'sota',
     question: 'Minsky & Papert\'s 1969 critique showed single-layer perceptrons cannot compute XOR. What is the minimum network architecture that can?',
     options: ['Two-layer network with 2 hidden neurons', 'Single neuron with polynomial activation', 'Three-layer network with 100 neurons', 'A recurrent network'],
@@ -25,7 +25,7 @@ export const rosenblattQuestions: Question[] = [
   },
   {
     id: 20452,
-    topic: 'rosenblatt',
+    topic: 'frank-rosenblatt',
     difficulty: 'easy',
     question: 'What was the name of Rosenblatt\'s physical perceptron machine built in 1958?',
     options: ['Mark I Perceptron', 'ENIAC', 'Colossus', 'UNIVAC'],

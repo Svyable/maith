@@ -4,7 +4,7 @@ import type { Question } from '../types';
 export const boxQuestions: Question[] = [
   {
     id: 69700,
-    topic: 'box',
+    topic: 'george-box',
     difficulty: 'easy',
     question: 'Box-Jenkins methodology?',
     options: [
@@ -20,7 +20,7 @@ export const boxQuestions: Question[] = [
   },
   {
     id: 69701,
-    topic: 'box',
+    topic: 'george-box',
     difficulty: 'hard',
     question: 'Box-Cox transformation?',
     options: [
@@ -36,7 +36,7 @@ export const boxQuestions: Question[] = [
   },
   {
     id: 69702,
-    topic: 'box',
+    topic: 'george-box',
     difficulty: 'sota',
     question: 'Box-Pierce Q-statistic?',
     options: [
@@ -52,7 +52,7 @@ export const boxQuestions: Question[] = [
   },
   {
     id: 69703,
-    topic: 'box',
+    topic: 'george-box',
     difficulty: 'hard',
     question: 'Box-Tiao intervention analysis?',
     options: [
@@ -68,7 +68,7 @@ export const boxQuestions: Question[] = [
   },
   {
     id: 69704,
-    topic: 'box',
+    topic: 'george-box',
     difficulty: 'sota',
     question: 'Box-Jenkins airline model?',
     options: [
@@ -84,7 +84,7 @@ export const boxQuestions: Question[] = [
   },
   {
     id: 69705,
-    topic: 'box',
+    topic: 'george-box',
     difficulty: 'easy',
     question:
       'What is the core **Box–Jenkins** methodology for building ARIMA models?',
@@ -104,7 +104,7 @@ export const boxQuestions: Question[] = [
   },
   {
     id: 69706,
-    topic: 'box',
+    topic: 'george-box',
     difficulty: 'hard',
     question:
       'The **Box–Cox** transformation is a parametric power transform used to stabilize variance and make errors closer to normal. What is the standard definition (for $y>0$)?',
@@ -124,7 +124,7 @@ export const boxQuestions: Question[] = [
   },
   {
     id: 69707,
-    topic: 'box',
+    topic: 'george-box',
     difficulty: 'sota',
     question:
       'The **Box–Pierce** portmanteau statistic tests whether residual autocorrelations up to lag $h$ are jointly zero. What is the statistic and its approximate null distribution?',
@@ -144,7 +144,7 @@ export const boxQuestions: Question[] = [
   },
   {
     id: 69708,
-    topic: 'box',
+    topic: 'george-box',
     difficulty: 'hard',
     question:
       'Box–Tiao **intervention analysis** models how an event/policy shock changes a time series while accounting for autocorrelation. Which description best matches the idea?',
@@ -164,7 +164,7 @@ export const boxQuestions: Question[] = [
   },
   {
     id: 69709,
-    topic: 'box',
+    topic: 'george-box',
     difficulty: 'sota',
     question:
       'The famous Box–Jenkins “airline model” for monthly data is a benchmark seasonal ARIMA. Which model is it, and what is its compact difference/operator form?',

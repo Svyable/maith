@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const cayleyQuestions: Question[] = [
   {
     id: 31060,
-    topic: 'cayley',
+    topic: 'arthur-cayley',
     difficulty: 'easy',
     question: 'What fundamental algebraic concept did Arthur Cayley mathematically formalize, which now serves as the computational engine for all modern 3D graphics and machine learning?',
     options: [
@@ -19,7 +19,7 @@ export const cayleyQuestions: Question[] = [
   },
   {
     id: 31061,
-    topic: 'cayley',
+    topic: 'arthur-cayley',
     difficulty: 'hard',
     question: 'Cayley\'s Theorem is a profound foundational result in group theory. What profound connection does it establish regarding abstract mathematical groups?',
     options: [
@@ -35,7 +35,7 @@ export const cayleyQuestions: Question[] = [
   },
   {
     id: 31062,
-    topic: 'cayley',
+    topic: 'arthur-cayley',
     difficulty: 'sota',
     question: 'Cayley and Sylvester collaborated extensively to found Invariant Theory. What is the central object of study within this highly abstract 19th-century field?',
     options: [
@@ -51,7 +51,7 @@ export const cayleyQuestions: Question[] = [
   },
   {
     id: 31063,
-    topic: 'cayley',
+    topic: 'arthur-cayley',
     difficulty: 'hard',
     question: 'In addition to his pure algebraic discoveries, Cayley made pioneering contributions to graph theory by using trees to mathematically enumerate what physical phenomena?',
     options: [
@@ -67,7 +67,7 @@ export const cayleyQuestions: Question[] = [
   },
   {
     id: 31064,
-    topic: 'cayley',
+    topic: 'arthur-cayley',
     difficulty: 'hard',
     question: 'Cayley discovered the "octonions" almost immediately after Hamilton discovered quaternions. What fundamental algebraic property is permanently lost when moving from quaternions up to octonions?',
     options: [

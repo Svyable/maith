@@ -6,7 +6,7 @@ import type { Question } from '../types';
 export const babbageQuestions: Question[] = [
   {
     id: 31000,
-    topic: 'babbage',
+    topic: 'charles-babbage',
     difficulty: 'easy',
     question: 'What fundamental architectural leap distinguished Babbage’s unbuilt Analytical Engine from his earlier Difference Engine?',
     options: [
@@ -22,7 +22,7 @@ export const babbageQuestions: Question[] = [
   },
   {
     id: 31001,
-    topic: 'babbage',
+    topic: 'charles-babbage',
     difficulty: 'easy',
     question: 'Babbage separated his Analytical Engine into two primary physical components: the "Store" and the "Mill." What are their modern equivalents?',
     options: [
@@ -38,7 +38,7 @@ export const babbageQuestions: Question[] = [
   },
   {
     id: 31002,
-    topic: 'babbage',
+    topic: 'charles-babbage',
     difficulty: 'hard',
     question: 'Unlike modern computers that operate on binary (base-2) logic, how did Babbage’s engines represent numerical values?',
     options: [
@@ -54,7 +54,7 @@ export const babbageQuestions: Question[] = [
   },
   {
     id: 31003,
-    topic: 'babbage',
+    topic: 'charles-babbage',
     difficulty: 'sota',
     question: 'Ada Lovelace wrote the world’s first published computer algorithm for the Analytical Engine. What mathematical sequence did this program compute?',
     options: [
@@ -70,7 +70,7 @@ export const babbageQuestions: Question[] = [
   },
   {
     id: 31004,
-    topic: 'babbage',
+    topic: 'charles-babbage',
     difficulty: 'hard',
     question: 'Why did the British government ultimately pull funding for Babbage’s Difference Engine Project No. 1 in 1842?',
     options: [

@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const diracQuestions: Question[] = [
   {
     id: 10171,
-    topic: 'dirac',
+    topic: 'paul-dirac',
     difficulty: 'easy',
     question: 'The Dirac equation describes:',
     options: [
@@ -19,7 +19,7 @@ export const diracQuestions: Question[] = [
   },
   {
     id: 10172,
-    topic: 'dirac',
+    topic: 'paul-dirac',
     difficulty: 'hard',
     question: 'Dirac\'s bra-ket notation $\\langle\\phi|\\psi\\rangle$ represents:',
     options: [
@@ -35,7 +35,7 @@ export const diracQuestions: Question[] = [
   },
   {
     id: 10173,
-    topic: 'dirac',
+    topic: 'paul-dirac',
     difficulty: 'sota',
     question: 'The Dirac delta function $\\delta(x)$ is not a true function but rather:',
     options: [

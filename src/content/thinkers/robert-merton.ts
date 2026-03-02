@@ -2,7 +2,7 @@ import type { Question } from '../types';
 
 export const mertonRobertQuestions: Question[] = [
   {
-    id: 19401, topic: 'merton-robert', difficulty: 'easy',
+    id: 19401, topic: 'robert-merton', difficulty: 'easy',
     question: 'Robert C. Merton shared the 1997 Nobel Prize for:',
     options: ['Developing a method for pricing derivatives (Black-Scholes-Merton model)', 'Creating the first hedge fund', 'Inventing portfolio optimization', 'Founding modern macroeconomics'],
     correctIndex: 0,
@@ -11,7 +11,7 @@ export const mertonRobertQuestions: Question[] = [
     hint: 'He made the Black-Scholes formula mathematically rigorous using continuous-time methods.',
   },
   {
-    id: 19402, topic: 'merton-robert', difficulty: 'hard',
+    id: 19402, topic: 'robert-merton', difficulty: 'hard',
     question: 'Merton\'s structural model of credit risk treats a firm\'s equity as:',
     options: ['A call option on the firm\'s assets with strike equal to debt face value', 'A bond with fixed coupons', 'A put option on interest rates', 'A forward contract on earnings'],
     correctIndex: 0,
@@ -20,7 +20,7 @@ export const mertonRobertQuestions: Question[] = [
     hint: 'Shareholders have limited liability — their payoff looks like a call option payoff.',
   },
   {
-    id: 19403, topic: 'merton-robert', difficulty: 'sota',
+    id: 19403, topic: 'robert-merton', difficulty: 'sota',
     question: 'Merton\'s Intertemporal CAPM (ICAPM) extends the standard CAPM by:',
     options: ['Adding hedging demands — investors hedge against changes in future investment opportunities', 'Using a single-period framework', 'Ignoring risk-free rates', 'Assuming constant volatility'],
     correctIndex: 0,

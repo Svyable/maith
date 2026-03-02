@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const weylQuestions: Question[] = [
   {
     id: 31085,
-    topic: 'weyl',
+    topic: 'hermann-weyl',
     difficulty: 'easy',
     question: 'Hermann Weyl profoundly bridged the gap between pure mathematics and theoretical physics. Which massive area of modern physics relies heavily on Weyl\'s work with symmetry and group theory?',
     options: [
@@ -19,7 +19,7 @@ export const weylQuestions: Question[] = [
   },
   {
     id: 31086,
-    topic: 'weyl',
+    topic: 'hermann-weyl',
     difficulty: 'hard',
     question: 'In 1918, Weyl attempted to unify electromagnetism and gravity using geometry. Although his specific physical theory failed, he accidentally invented what absolutely foundational concept of modern physics?',
     options: [
@@ -35,7 +35,7 @@ export const weylQuestions: Question[] = [
   },
   {
     id: 31087,
-    topic: 'weyl',
+    topic: 'hermann-weyl',
     difficulty: 'sota',
     question: 'The "Weyl Tensor" is a crucial mathematical tool used in general relativity. How does it physically differ from the standard Ricci curvature tensor?',
     options: [
@@ -51,7 +51,7 @@ export const weylQuestions: Question[] = [
   },
   {
     id: 31088,
-    topic: 'weyl',
+    topic: 'hermann-weyl',
     difficulty: 'hard',
     question: 'In quantum mechanics, a "Weyl fermion" is a theoretical particle that possesses a specific, inherent geometric property. What is this property?',
     options: [
@@ -67,7 +67,7 @@ export const weylQuestions: Question[] = [
   },
   {
     id: 31089,
-    topic: 'weyl',
+    topic: 'hermann-weyl',
     difficulty: 'hard',
     question: 'Weyl fled Nazi Germany in 1933 and joined the newly established Institute for Advanced Study in Princeton. Which famous physicist was his most prominent colleague and close philosophical confidant there?',
     options: [

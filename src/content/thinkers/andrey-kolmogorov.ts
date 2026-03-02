@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const kolmogorovQuestions: Question[] = [
   {
     id: 10161,
-    topic: 'kolmogorov',
+    topic: 'andrey-kolmogorov',
     difficulty: 'easy',
     question: 'Kolmogorov\'s axioms of probability (1933) formalize probability as:',
     options: [
@@ -19,7 +19,7 @@ export const kolmogorovQuestions: Question[] = [
   },
   {
     id: 10162,
-    topic: 'kolmogorov',
+    topic: 'andrey-kolmogorov',
     difficulty: 'hard',
     question: 'Kolmogorov complexity $K(x)$ of a string $x$ is:',
     options: [
@@ -35,7 +35,7 @@ export const kolmogorovQuestions: Question[] = [
   },
   {
     id: 10163,
-    topic: 'kolmogorov',
+    topic: 'andrey-kolmogorov',
     difficulty: 'sota',
     question: 'A fundamental result about Kolmogorov complexity is that it is:',
     options: [

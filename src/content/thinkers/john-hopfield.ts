@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const hopfieldQuestions: Question[] = [
   {
     id: 20440,
-    topic: 'hopfield',
+    topic: 'john-hopfield',
     difficulty: 'hard',
     question: 'In a Hopfield network, the energy function $E = -\\frac{1}{2}\\sum_{i \\neq j} w_{ij} s_i s_j$ is guaranteed to do what during asynchronous updates?',
     options: ['Monotonically decrease or stay constant', 'Increase', 'Oscillate', 'Remain exactly constant'],
@@ -14,7 +14,7 @@ export const hopfieldQuestions: Question[] = [
   },
   {
     id: 20441,
-    topic: 'hopfield',
+    topic: 'john-hopfield',
     difficulty: 'hard',
     question: 'The storage capacity of a Hopfield network with $N$ neurons using Hebbian learning is approximately:',
     options: ['$0.14N$ patterns', '$N^2$ patterns', '$2^N$ patterns', '$N$ patterns'],
@@ -25,7 +25,7 @@ export const hopfieldQuestions: Question[] = [
   },
   {
     id: 20442,
-    topic: 'hopfield',
+    topic: 'john-hopfield',
     difficulty: 'sota',
     question: 'The modern Hopfield network (Ramsauer et al., 2020) replaces the quadratic energy with an exponential interaction. What is the resulting storage capacity?',
     options: ['Exponential in $N$', 'Linear in $N$', 'Logarithmic in $N$', 'Polynomial in $N$'],
@@ -36,7 +36,7 @@ export const hopfieldQuestions: Question[] = [
   },
   {
     id: 20443,
-    topic: 'hopfield',
+    topic: 'john-hopfield',
     difficulty: 'sota',
     question: 'Hopfield shared the 2024 Nobel Prize in Physics. The Nobel committee cited his work as foundational to which broader paradigm?',
     options: ['Machine learning using artificial neural networks', 'Quantum computing', 'String theory', 'Topological insulators'],
@@ -47,7 +47,7 @@ export const hopfieldQuestions: Question[] = [
   },
   {
     id: 20444,
-    topic: 'hopfield',
+    topic: 'john-hopfield',
     difficulty: 'easy',
     question: 'Hopfield drew an analogy between neural networks and which physical system?',
     options: ['Spin glasses (magnetic systems)', 'Planetary orbits', 'Fluid flow', 'Crystal growth'],

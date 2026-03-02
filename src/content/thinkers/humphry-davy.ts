@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const davyQuestions: Question[] = [
   {
     id: 31215,
-    topic: 'davy',
+    topic: 'humphry-davy',
     difficulty: 'easy',
     question: 'Humphry Davy mathematically revolutionized elemental discovery by utilizing Alessandro Volta\'s newly invented electric battery. What incredibly aggressive chemical technique did Davy invent to physically rip apart previously unbreakable compounds?',
     options: [
@@ -19,7 +19,7 @@ export const davyQuestions: Question[] = [
   },
   {
     id: 31216,
-    topic: 'davy',
+    topic: 'humphry-davy',
     difficulty: 'sota',
     question: 'Davy completely overturned Antoine Lavoisier\'s massive fundamental theory of acids. What absolute chemical fact did Davy mathematically prove by analyzing highly localized muriatic acid (hydrochloric acid)?',
     options: [
@@ -35,7 +35,7 @@ export const davyQuestions: Question[] = [
   },
   {
     id: 31217,
-    topic: 'davy',
+    topic: 'humphry-davy',
     difficulty: 'hard',
     question: 'Davy saved countless massive thousands of lives by mathematically designing the "Davy Lamp" for deep subterranean coal miners. How did this deeply simple geometric invention physically prevent massively localized continuous explosions of strictly flammable "firedamp" (methane) gas?',
     options: [
@@ -51,7 +51,7 @@ export const davyQuestions: Question[] = [
   },
   {
     id: 31218,
-    topic: 'davy',
+    topic: 'humphry-davy',
     difficulty: 'hard',
     question: 'In his incredibly highly reckless early career at the deeply localized continuous Pneumatic Institution, Davy became absolutely famously obsessed with synthesizing and inhaling incredibly massive quantities of which specific localized chemical gas?',
     options: [
@@ -67,7 +67,7 @@ export const davyQuestions: Question[] = [
   },
   {
     id: 31219,
-    topic: 'davy',
+    topic: 'humphry-davy',
     difficulty: 'easy',
     question: 'When asked later in his highly illustrious life what he considered to be his absolute single greatest continuous massive localized scientific discovery, what did Davy absolutely famously reply?',
     options: [

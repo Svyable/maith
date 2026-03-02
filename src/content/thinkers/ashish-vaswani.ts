@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const vaswaniQuestions: Question[] = [
   {
     id: 12011,
-    topic: 'vaswani',
+    topic: 'ashish-vaswani',
     difficulty: 'easy',
     question: 'The Transformer architecture\'s key innovation is:',
     options: [
@@ -19,7 +19,7 @@ export const vaswaniQuestions: Question[] = [
   },
   {
     id: 12012,
-    topic: 'vaswani',
+    topic: 'ashish-vaswani',
     difficulty: 'hard',
     question: 'Scaled dot-product attention computes:',
     options: [
@@ -35,7 +35,7 @@ export const vaswaniQuestions: Question[] = [
   },
   {
     id: 12013,
-    topic: 'vaswani',
+    topic: 'ashish-vaswani',
     difficulty: 'sota',
     question: 'Positional encodings in the original Transformer use:',
     options: [

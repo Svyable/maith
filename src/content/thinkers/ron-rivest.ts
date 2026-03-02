@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const rivestQuestions: Question[] = [
   {
     id: 14701,
-    topic: 'rivest',
+    topic: 'ron-rivest',
     difficulty: 'easy',
     question: 'Ron Rivest co-invented RSA and also created the widely used MD5 and RC4. The RSA algorithm\'s security relies on:',
     options: [
@@ -19,7 +19,7 @@ export const rivestQuestions: Question[] = [
   },
   {
     id: 14702,
-    topic: 'rivest',
+    topic: 'ron-rivest',
     difficulty: 'hard',
     question: 'Rivest designed the RC4 stream cipher, which was widely used in WEP and early TLS. It was eventually deprecated because:',
     options: [
@@ -35,7 +35,7 @@ export const rivestQuestions: Question[] = [
   },
   {
     id: 14703,
-    topic: 'rivest',
+    topic: 'ron-rivest',
     difficulty: 'sota',
     question: 'Rivest proposed the concept of "time-lock puzzles" (1996), which are cryptographic puzzles that:',
     options: [

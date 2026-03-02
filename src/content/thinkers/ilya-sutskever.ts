@@ -2,7 +2,7 @@ import type { Question } from '../types';
 
 export const ilyaQuestions: Question[] = [
   {
-    id: 95016, topic: 'ilya', difficulty: 'easy',
+    id: 95016, topic: 'ilya-sutskever', difficulty: 'easy',
     question: 'Ilya Sutskever co-authored the AlexNet paper that won ImageNet 2012 by using:',
     options: ['Deep convolutional neural networks trained on GPUs', 'Support vector machines with RBF kernels', 'Random forests with hand-crafted features', 'Bayesian neural networks'],
     correctIndex: 0,
@@ -11,7 +11,7 @@ export const ilyaQuestions: Question[] = [
     hint: 'Two GPUs, five convolutional layers, and a dramatic error reduction.',
   },
   {
-    id: 95017, topic: 'ilya', difficulty: 'hard',
+    id: 95017, topic: 'ilya-sutskever', difficulty: 'hard',
     question: 'The sequence-to-sequence (seq2seq) framework co-developed by Sutskever maps:',
     options: ['Variable-length input sequences to variable-length output sequences via encoder-decoder architecture', 'Fixed-length vectors to fixed-length vectors', 'Images to captions using CNNs only', 'Graphs to adjacency matrices'],
     correctIndex: 0,
@@ -20,7 +20,7 @@ export const ilyaQuestions: Question[] = [
     hint: 'Encoder compresses, decoder generates — bridging two sequences.',
   },
   {
-    id: 95018, topic: 'ilya', difficulty: 'sota',
+    id: 95018, topic: 'ilya-sutskever', difficulty: 'sota',
     question: 'Sutskever\'s new company SSI (Safe Superintelligence Inc.) focuses exclusively on:',
     options: ['Building safe superintelligence as a single focused goal', 'Cloud computing infrastructure', 'Consumer chatbot products', 'Open-source model releases'],
     correctIndex: 0,

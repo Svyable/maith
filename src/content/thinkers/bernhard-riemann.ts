@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const riemannQuestions: Question[] = [
   {
     id: 10041,
-    topic: 'riemann',
+    topic: 'bernhard-riemann',
     difficulty: 'easy',
     question: 'A Riemannian metric on a manifold $M$ is:',
     options: [
@@ -19,7 +19,7 @@ export const riemannQuestions: Question[] = [
   },
   {
     id: 10042,
-    topic: 'riemann',
+    topic: 'bernhard-riemann',
     difficulty: 'easy',
     question: 'A geodesic on a Riemannian manifold is:',
     options: [
@@ -35,7 +35,7 @@ export const riemannQuestions: Question[] = [
   },
   {
     id: 10043,
-    topic: 'riemann',
+    topic: 'bernhard-riemann',
     difficulty: 'easy',
     question: 'The Riemann Hypothesis concerns the zeros of the Riemann zeta function $\\zeta(s)$. It conjectures:',
     options: [
@@ -51,7 +51,7 @@ export const riemannQuestions: Question[] = [
   },
   {
     id: 10044,
-    topic: 'riemann',
+    topic: 'bernhard-riemann',
     difficulty: 'easy',
     question: 'The Gaussian curvature $K$ of a surface at a point is:',
     options: [
@@ -67,7 +67,7 @@ export const riemannQuestions: Question[] = [
   },
   {
     id: 10045,
-    topic: 'riemann',
+    topic: 'bernhard-riemann',
     difficulty: 'hard',
     question: 'The Riemann curvature tensor $R^\\rho{}_{\\sigma\\mu\\nu}$ measures:',
     options: [
@@ -83,7 +83,7 @@ export const riemannQuestions: Question[] = [
   },
   {
     id: 10046,
-    topic: 'riemann',
+    topic: 'bernhard-riemann',
     difficulty: 'hard',
     question: 'Natural gradient descent uses the Fisher information matrix $F$ as a Riemannian metric. Compared to standard gradient descent, it:',
     options: [
@@ -99,7 +99,7 @@ export const riemannQuestions: Question[] = [
   },
   {
     id: 10047,
-    topic: 'riemann',
+    topic: 'bernhard-riemann',
     difficulty: 'hard',
     question: 'Sectional curvature $K(\\sigma)$ of a Riemannian manifold in a 2-plane $\\sigma \\subset T_pM$ determines:',
     options: [
@@ -115,7 +115,7 @@ export const riemannQuestions: Question[] = [
   },
   {
     id: 10048,
-    topic: 'riemann',
+    topic: 'bernhard-riemann',
     difficulty: 'sota',
     question: 'The Atiyah-Singer Index Theorem connects Riemannian geometry to analysis by stating:',
     options: [
@@ -131,7 +131,7 @@ export const riemannQuestions: Question[] = [
   },
   {
     id: 10049,
-    topic: 'riemann',
+    topic: 'bernhard-riemann',
     difficulty: 'sota',
     question: 'Ricci flow $\\frac{\\partial g_{ij}}{\\partial t} = -2 R_{ij}$ evolves a Riemannian metric by:',
     options: [
@@ -147,7 +147,7 @@ export const riemannQuestions: Question[] = [
   },
   {
     id: 10050,
-    topic: 'riemann',
+    topic: 'bernhard-riemann',
     difficulty: 'sota',
     question: 'In information geometry, the statistical manifold of a parametric family $\\{p(x;\\theta)\\}$ has the Fisher-Rao metric. The geodesic distance between two distributions $p$ and $q$ relates to:',
     options: [

@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const maclaurinQuestions: Question[] = [
   {
     id: 31050,
-    topic: 'maclaurin',
+    topic: 'colin-maclaurin',
     difficulty: 'easy',
     question: 'A "Maclaurin series" is a massive staple of modern calculus. How does it specifically differ from a standard Taylor series?',
     options: [
@@ -19,7 +19,7 @@ export const maclaurinQuestions: Question[] = [
   },
   {
     id: 31051,
-    topic: 'maclaurin',
+    topic: 'colin-maclaurin',
     difficulty: 'hard',
     question: 'The Euler-Maclaurin formula is a profound mathematical discovery that provides a powerful theoretical connection between what two fundamental operations?',
     options: [
@@ -35,7 +35,7 @@ export const maclaurinQuestions: Question[] = [
   },
   {
     id: 31052,
-    topic: 'maclaurin',
+    topic: 'colin-maclaurin',
     difficulty: 'sota',
     question: 'Maclaurin\'s inequality is a classic result in abstract algebra. It establishes a strict mathematical ordering between which specific values?',
     options: [
@@ -51,7 +51,7 @@ export const maclaurinQuestions: Question[] = [
   },
   {
     id: 31053,
-    topic: 'maclaurin',
+    topic: 'colin-maclaurin',
     difficulty: 'hard',
     question: 'In 1742, Maclaurin wrote his *Treatise of Fluxions* specifically to defend Isaac Newton\'s calculus against fierce philosophical criticism from which notable figure?',
     options: [
@@ -67,7 +67,7 @@ export const maclaurinQuestions: Question[] = [
   },
   {
     id: 31054,
-    topic: 'maclaurin',
+    topic: 'colin-maclaurin',
     difficulty: 'hard',
     question: 'Maclaurin made a significant contribution to geophysics by proving theoretically that a homogeneous rotating fluid mass will take what specific physical shape?',
     options: [

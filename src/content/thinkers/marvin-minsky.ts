@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const minskyQuestions: Question[] = [
   {
     id: 31005,
-    topic: 'minsky',
+    topic: 'marvin-minsky',
     difficulty: 'hard',
     question: 'In their highly influential 1969 book "Perceptrons," Minsky and Papert mathematically proved that single-layer neural networks could NOT compute which fundamental logic function?',
     options: [
@@ -19,7 +19,7 @@ export const minskyQuestions: Question[] = [
   },
   {
     id: 31006,
-    topic: 'minsky',
+    topic: 'marvin-minsky',
     difficulty: 'hard',
     question: 'Before defining modern AI, Minsky invented and patented the SNARC in 1951. What was it?',
     options: [
@@ -35,7 +35,7 @@ export const minskyQuestions: Question[] = [
   },
   {
     id: 31007,
-    topic: 'minsky',
+    topic: 'marvin-minsky',
     difficulty: 'sota',
     question: 'In his landmark 1986 book "The Society of Mind," Minsky theorized that human intelligence is not a single unified system, but rather:',
     options: [
@@ -51,7 +51,7 @@ export const minskyQuestions: Question[] = [
   },
   {
     id: 31008,
-    topic: 'minsky',
+    topic: 'marvin-minsky',
     difficulty: 'hard',
     question: 'In 1974, Minsky introduced the concept of "Frames" to Artificial Intelligence. What does a Frame represent in this context?',
     options: [
@@ -67,7 +67,7 @@ export const minskyQuestions: Question[] = [
   },
   {
     id: 31009,
-    topic: 'minsky',
+    topic: 'marvin-minsky',
     difficulty: 'easy',
     question: 'Outside of computer science, Minsky held a patent for an optical invention that fundamentally changed biological research. What was it?',
     options: [

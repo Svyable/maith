@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const prigogineQuestions: Question[] = [
   {
     id: 9525,
-    topic: 'prigogine',
+    topic: 'ilya-prigogine',
     difficulty: 'sota',
     question: 'Prigogine\'s dissipative structures arise in systems that are:',
     options: [
@@ -19,7 +19,7 @@ export const prigogineQuestions: Question[] = [
   },
   {
     id: 9526,
-    topic: 'prigogine',
+    topic: 'ilya-prigogine',
     difficulty: 'sota',
     question: 'The Brusselator model $\\frac{dx}{dt} = A + x^2y - Bx - x$ undergoes a Hopf bifurcation (sustained oscillations) when:',
     options: [
@@ -35,7 +35,7 @@ export const prigogineQuestions: Question[] = [
   },
   {
     id: 9527,
-    topic: 'prigogine',
+    topic: 'ilya-prigogine',
     difficulty: 'sota',
     question: 'Prigogine\'s minimum entropy production theorem applies to systems:',
     options: [

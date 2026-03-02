@@ -4,7 +4,7 @@ import type { Question } from '../types';
 export const wilmottQuestions: Question[] = [
   {
     id: 69310,
-    topic: 'wilmott',
+    topic: 'paul-wilmott',
     difficulty: 'easy',
     question: 'Wilmott sticky delta convention?',
     options: [
@@ -20,7 +20,7 @@ export const wilmottQuestions: Question[] = [
   },
   {
     id: 69311,
-    topic: 'wilmott',
+    topic: 'paul-wilmott',
     difficulty: 'hard',
     question: 'Wilmott vol cone construction?',
     options: [
@@ -36,7 +36,7 @@ export const wilmottQuestions: Question[] = [
   },
   {
     id: 69312,
-    topic: 'wilmott',
+    topic: 'paul-wilmott',
     difficulty: 'sota',
     question: 'Wilmott PDE numerical schemes?',
     options: [
@@ -52,7 +52,7 @@ export const wilmottQuestions: Question[] = [
   },
   {
     id: 69313,
-    topic: 'wilmott',
+    topic: 'paul-wilmott',
     difficulty: 'hard',
     question: 'Wilmott Greeks: vanna = ?',
     options: [
@@ -68,7 +68,7 @@ export const wilmottQuestions: Question[] = [
   },
   {
     id: 69314,
-    topic: 'wilmott',
+    topic: 'paul-wilmott',
     difficulty: 'sota',
     question: 'Wilmott utility indifference pricing?',
     options: [

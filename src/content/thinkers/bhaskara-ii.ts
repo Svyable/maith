@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const bhaskaraQuestions: Question[] = [
   {
     id: 9601,
-    topic: 'bhaskara',
+    topic: 'bhaskara-ii',
     difficulty: 'sota',
     question: 'Bhāskara II\'s concept of instantaneous velocity (tātkālika gati) computed the derivative of $\\sin\\theta$ using:',
     options: [
@@ -19,7 +19,7 @@ export const bhaskaraQuestions: Question[] = [
   },
   {
     id: 9602,
-    topic: 'bhaskara',
+    topic: 'bhaskara-ii',
     difficulty: 'sota',
     question: 'Bhāskara II\'s chakravāla method solves Pell\'s equation $x^2 - Ny^2 = 1$ by:',
     options: [
@@ -35,7 +35,7 @@ export const bhaskaraQuestions: Question[] = [
   },
   {
     id: 9603,
-    topic: 'bhaskara',
+    topic: 'bhaskara-ii',
     difficulty: 'sota',
     question: 'In Līlāvatī, Bhāskara II\'s approximation for $\\sin\\theta$ (in degrees) is:',
     options: [

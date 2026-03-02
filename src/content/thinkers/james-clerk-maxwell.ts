@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const maxwellQuestions: Question[] = [
   {
     id: 11111,
-    topic: 'maxwell',
+    topic: 'james-clerk-maxwell',
     difficulty: 'easy',
     question: 'Maxwell\'s equations unified electricity, magnetism, and light by showing that:',
     options: [
@@ -19,7 +19,7 @@ export const maxwellQuestions: Question[] = [
   },
   {
     id: 11112,
-    topic: 'maxwell',
+    topic: 'james-clerk-maxwell',
     difficulty: 'hard',
     question: 'The Maxwell–Boltzmann distribution $f(v) = 4\\pi n \\left(\\frac{m}{2\\pi k_BT}\\right)^{3/2} v^2 e^{-mv^2/(2k_BT)}$ describes:',
     options: [
@@ -35,7 +35,7 @@ export const maxwellQuestions: Question[] = [
   },
   {
     id: 11113,
-    topic: 'maxwell',
+    topic: 'james-clerk-maxwell',
     difficulty: 'sota',
     question: 'Maxwell\'s equations in differential form include $\\nabla \\times \\mathbf{B} = \\mu_0\\mathbf{J} + \\mu_0\\epsilon_0\\frac{\\partial \\mathbf{E}}{\\partial t}$. The displacement current term $\\epsilon_0\\frac{\\partial \\mathbf{E}}{\\partial t}$ was Maxwell\'s key addition because:',
     options: [

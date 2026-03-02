@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const demaineQuestions: Question[] = [
   {
     id: 12901,
-    topic: 'demaine',
+    topic: 'erik-demaine',
     difficulty: 'easy',
     question: 'Erik Demaine became the youngest professor in MIT history at age 20. His research uniquely combines:',
     options: [
@@ -19,7 +19,7 @@ export const demaineQuestions: Question[] = [
   },
   {
     id: 12902,
-    topic: 'demaine',
+    topic: 'erik-demaine',
     difficulty: 'hard',
     question: 'Demaine\'s "fold-and-cut theorem" proves something remarkable about flat origami. The theorem states:',
     options: [
@@ -35,7 +35,7 @@ export const demaineQuestions: Question[] = [
   },
   {
     id: 12903,
-    topic: 'demaine',
+    topic: 'erik-demaine',
     difficulty: 'sota',
     question: 'Demaine proved that many classic puzzles are computationally hard. His result that "sliding block puzzles are PSPACE-complete" means:',
     options: [

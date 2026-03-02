@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const takebeQuestions: Question[] = [
   {
     id: 9616,
-    topic: 'takebe',
+    topic: 'takebe-katahiro',
     difficulty: 'sota',
     question: 'Takebe Katahiro\'s series expansion for $\\arcsin^2(x)$ was remarkable because:',
     options: [
@@ -19,7 +19,7 @@ export const takebeQuestions: Question[] = [
   },
   {
     id: 9617,
-    topic: 'takebe',
+    topic: 'takebe-katahiro',
     difficulty: 'sota',
     question: 'Takebe\'s method for computing $\\pi$ to 41 decimal places used:',
     options: [
@@ -35,7 +35,7 @@ export const takebeQuestions: Question[] = [
   },
   {
     id: 9618,
-    topic: 'takebe',
+    topic: 'takebe-katahiro',
     difficulty: 'sota',
     question: 'The Wasan (和算) mathematical tradition that Takebe belonged to developed independently because:',
     options: [

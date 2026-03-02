@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const hansonQuestions: Question[] = [
   {
     id: 20900,
-    topic: 'hanson',
+    topic: 'robin-hanson',
     difficulty: 'easy',
     question: 'Robin Hanson\'s key insight behind prediction markets is that:',
     options: ['Market prices aggregate dispersed information more effectively than polls or expert panels', 'Markets always reflect the truth', 'Only experts should be allowed to trade', 'Prediction markets require government regulation to work'],
@@ -14,7 +14,7 @@ export const hansonQuestions: Question[] = [
   },
   {
     id: 20901,
-    topic: 'hanson',
+    topic: 'robin-hanson',
     difficulty: 'hard',
     question: 'Hanson\'s LMSR cost function $C(\\mathbf{q}) = b \\cdot \\ln(\\sum_i e^{q_i/b})$ has the property that the price of outcome $j$ is:',
     options: ['$p_j = \\frac{e^{q_j/b}}{\\sum_i e^{q_i/b}}$ — a softmax function', '$p_j = q_j / \\sum q_i$', '$p_j = 1/n$ always', '$p_j = b \\cdot q_j$'],
@@ -25,7 +25,7 @@ export const hansonQuestions: Question[] = [
   },
   {
     id: 20902,
-    topic: 'hanson',
+    topic: 'robin-hanson',
     difficulty: 'sota',
     question: 'Hanson proposed "futarchy" — a governance model where elected officials define welfare metrics and prediction markets decide policies. The key mechanism is:',
     options: ['Conditional prediction markets: "GDP growth IF Policy A" vs "GDP growth IF Policy B" — adopt the policy with higher predicted outcome', 'Direct democracy via blockchain voting', 'Expert panels selecting optimal policies', 'AI systems choosing policies based on historical data'],

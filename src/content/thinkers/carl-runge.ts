@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const rungeQuestions: Question[] = [
   {
     id: 9510,
-    topic: 'runge',
+    topic: 'carl-runge',
     difficulty: 'sota',
     question: 'The classical RK4 method $y_{n+1} = y_n + \\frac{h}{6}(k_1 + 2k_2 + 2k_3 + k_4)$ has a local truncation error of order:',
     options: [
@@ -19,7 +19,7 @@ export const rungeQuestions: Question[] = [
   },
   {
     id: 9511,
-    topic: 'runge',
+    topic: 'carl-runge',
     difficulty: 'sota',
     question: 'Runge\'s phenomenon demonstrates that polynomial interpolation on equally-spaced nodes for $f(x) = \\frac{1}{1+25x^2}$:',
     options: [
@@ -35,7 +35,7 @@ export const rungeQuestions: Question[] = [
   },
   {
     id: 9512,
-    topic: 'runge',
+    topic: 'carl-runge',
     difficulty: 'sota',
     question: 'An explicit Runge-Kutta method is A-stable (unconditionally stable for stiff ODEs) when:',
     options: [

@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const fullerQuestions: Question[] = [
   {
     id: 13335,
-    topic: 'fuller',
+    topic: 'buckminster-fuller',
     difficulty: 'easy',
     question:
       'Buckminster Fuller is most associated with geodesic domes. What structural principle makes a geodesic dome strong for its weight?',
@@ -22,7 +22,7 @@ export const fullerQuestions: Question[] = [
   },
   {
     id: 13336,
-    topic: 'fuller',
+    topic: 'buckminster-fuller',
     difficulty: 'easy',
     question:
       'Fuller popularized “ephemeralization,” often summarized as “doing more with less.” Which idea best captures it?',
@@ -41,7 +41,7 @@ export const fullerQuestions: Question[] = [
   },
   {
     id: 13337,
-    topic: 'fuller',
+    topic: 'buckminster-fuller',
     difficulty: 'hard',
     question:
       'In “synergetics,” Fuller emphasized whole-systems behavior. Which statement best expresses the “systems” point in a quasi-mathematical way?',
@@ -60,7 +60,7 @@ export const fullerQuestions: Question[] = [
   },
   {
     id: 13338,
-    topic: 'fuller',
+    topic: 'buckminster-fuller',
     difficulty: 'hard',
     question:
       'A key design lesson from geodesic/triangulated structures is stiffness scaling. Very roughly, why can increasing depth/geometry improve stiffness more than simply adding material?',
@@ -79,7 +79,7 @@ export const fullerQuestions: Question[] = [
   },
   {
     id: 13339,
-    topic: 'fuller',
+    topic: 'buckminster-fuller',
     difficulty: 'sota',
     question:
       'A “Fuller-ish” sustainability objective might be expressed as maximizing a ratio like $\\frac{\\text{service delivered}}{\\text{resources used}}$. Which is the best example of that kind of whole-system metric?',

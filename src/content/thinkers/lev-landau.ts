@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const landauQuestions: Question[] = [
   {
     id: 22000,
-    topic: 'landau',
+    topic: 'lev-landau',
     difficulty: 'hard',
     question: 'In Landau\'s classification of phase transitions, what distinguishes a second-order transition from a first-order one?',
     options: [
@@ -19,7 +19,7 @@ export const landauQuestions: Question[] = [
   },
   {
     id: 22001,
-    topic: 'landau',
+    topic: 'lev-landau',
     difficulty: 'sota',
     question: 'Landau\'s Fermi liquid theory predicts that low-energy excitations of an interacting Fermi system behave as quasiparticles. What quantity is renormalised but remains finite?',
     options: [
@@ -35,7 +35,7 @@ export const landauQuestions: Question[] = [
   },
   {
     id: 22002,
-    topic: 'landau',
+    topic: 'lev-landau',
     difficulty: 'sota',
     question: 'In Landau\'s theory of superfluidity, the critical velocity $v_c$ for superfluid helium-4 is determined by the minimum of which ratio?',
     options: [

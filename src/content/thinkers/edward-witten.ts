@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const wittenQuestions: Question[] = [
   {
     id: 21080,
-    topic: 'witten',
+    topic: 'edward-witten',
     difficulty: 'sota',
     question: 'Witten\'s M-theory unifies the five consistent superstring theories in how many spacetime dimensions?',
     options: ['11', '10', '26', '12'],
@@ -14,7 +14,7 @@ export const wittenQuestions: Question[] = [
   },
   {
     id: 21081,
-    topic: 'witten',
+    topic: 'edward-witten',
     difficulty: 'sota',
     question: 'Witten won the Fields Medal (1990) primarily for his work applying physics to which area of pure mathematics?',
     options: ['Topological quantum field theory and knot invariants', 'Algebraic geometry', 'Number theory', 'Combinatorics'],
@@ -25,7 +25,7 @@ export const wittenQuestions: Question[] = [
   },
   {
     id: 21082,
-    topic: 'witten',
+    topic: 'edward-witten',
     difficulty: 'sota',
     question: 'The AdS/CFT correspondence, closely related to Witten\'s work, conjectures an equivalence between which two theories?',
     options: ['A gravitational theory in anti-de Sitter space and a conformal field theory on its boundary', 'String theory and loop quantum gravity', 'Classical and quantum electrodynamics', 'General relativity and Newtonian gravity'],
@@ -36,7 +36,7 @@ export const wittenQuestions: Question[] = [
   },
   {
     id: 21083,
-    topic: 'witten',
+    topic: 'edward-witten',
     difficulty: 'sota',
     question: 'Witten\'s Chern-Simons theory provides a 3-dimensional topological field theory interpretation of which mathematical invariant?',
     options: ['The Jones polynomial of knots', 'The Alexander polynomial', 'The Euler characteristic', 'The Betti numbers'],
@@ -47,7 +47,7 @@ export const wittenQuestions: Question[] = [
   },
   {
     id: 21084,
-    topic: 'witten',
+    topic: 'edward-witten',
     difficulty: 'sota',
     question: 'Before becoming a physicist, what was Edward Witten\'s undergraduate major?',
     options: ['History', 'Physics', 'Mathematics', 'Philosophy'],

@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const hilbertQuestions: Question[] = [
   {
     id: 13001,
-    topic: 'hilbert',
+    topic: 'david-hilbert',
     difficulty: 'easy',
     question: 'David Hilbert is most famous for:',
     options: [
@@ -19,7 +19,7 @@ export const hilbertQuestions: Question[] = [
   },
   {
     id: 13002,
-    topic: 'hilbert',
+    topic: 'david-hilbert',
     difficulty: 'easy',
     question: 'A Hilbert space, named after David Hilbert, is:',
     options: [
@@ -35,7 +35,7 @@ export const hilbertQuestions: Question[] = [
   },
   {
     id: 13003,
-    topic: 'hilbert',
+    topic: 'david-hilbert',
     difficulty: 'hard',
     question: 'Hilbert\'s program aimed to:',
     options: [
@@ -51,7 +51,7 @@ export const hilbertQuestions: Question[] = [
   },
   {
     id: 13004,
-    topic: 'hilbert',
+    topic: 'david-hilbert',
     difficulty: 'hard',
     question: 'Hilbert\'s 6th problem asked for:',
     options: [
@@ -67,7 +67,7 @@ export const hilbertQuestions: Question[] = [
   },
   {
     id: 13005,
-    topic: 'hilbert',
+    topic: 'david-hilbert',
     difficulty: 'sota',
     question: 'The Entscheidungsproblem (decision problem), posed by Hilbert, asked whether:',
     options: [

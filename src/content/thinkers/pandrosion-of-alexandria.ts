@@ -2,7 +2,7 @@ import type { Question } from '../types';
 
 export const pandrosionQuestions: Question[] = [
   {
-    id: 20200, topic: 'pandrosion', difficulty: 'easy',
+    id: 20200, topic: 'pandrosion-of-alexandria', difficulty: 'easy',
     question: 'Pandrosion, a female mathematician in Alexandria (~320 AD), was mentioned in critiques by which later mathematician?',
     options: ['Pappus of Alexandria', 'Euclid', 'Archimedes', 'Ptolemy'],
     correctIndex: 0,
@@ -11,7 +11,7 @@ export const pandrosionQuestions: Question[] = [
     hint: 'This 4th-century mathematician compiled an 8-volume summary of Greek mathematics.',
   },
   {
-    id: 20201, topic: 'pandrosion', difficulty: 'hard',
+    id: 20201, topic: 'pandrosion-of-alexandria', difficulty: 'hard',
     question: 'Pandrosion proposed a geometric construction for which classical problem that Pappus criticized?',
     options: ['Doubling the cube (two mean proportionals)', 'Squaring the circle', 'Trisecting an angle', 'Constructing a regular heptagon'],
     correctIndex: 0,
@@ -20,7 +20,7 @@ export const pandrosionQuestions: Question[] = [
     hint: 'This problem reduces to finding $x$ and $y$ such that $a/x = x/y = y/2a$.',
   },
   {
-    id: 20202, topic: 'pandrosion', difficulty: 'sota',
+    id: 20202, topic: 'pandrosion-of-alexandria', difficulty: 'sota',
     question: 'Pandrosion predates Hypatia by roughly how many decades, making her possibly the earliest named female mathematical teacher?',
     options: ['~50–70 years', '~10 years', '~200 years', '~500 years'],
     correctIndex: 0,

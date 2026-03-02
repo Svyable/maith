@@ -2,7 +2,7 @@ import type { Question } from '../types';
 
 export const hodgkinQuestions: Question[] = [
   {
-    id: 20115, topic: 'hodgkin', difficulty: 'easy',
+    id: 20115, topic: 'dorothy-hodgkin', difficulty: 'easy',
     question: 'Dorothy Hodgkin won the Nobel Prize in Chemistry for her work using which technique?',
     options: ['X-ray crystallography', 'NMR spectroscopy', 'Mass spectrometry', 'Electron microscopy'],
     correctIndex: 0,
@@ -11,7 +11,7 @@ export const hodgkinQuestions: Question[] = [
     hint: 'Crystals diffract electromagnetic radiation to reveal atomic positions.',
   },
   {
-    id: 20116, topic: 'hodgkin', difficulty: 'hard',
+    id: 20116, topic: 'dorothy-hodgkin', difficulty: 'hard',
     question: 'Which molecule\'s structure took Hodgkin 35 years to solve, completed in 1969?',
     options: ['Insulin', 'Penicillin', 'Vitamin B12', 'Cholesterol'],
     correctIndex: 0,
@@ -20,7 +20,7 @@ export const hodgkinQuestions: Question[] = [
     hint: 'This hormone regulates blood sugar and was the first protein to be sequenced.',
   },
   {
-    id: 20117, topic: 'hodgkin', difficulty: 'sota',
+    id: 20117, topic: 'dorothy-hodgkin', difficulty: 'sota',
     question: 'In solving vitamin B12\'s structure, Hodgkin applied which technique to resolve the crystallographic phase problem?',
     options: ['Isomorphous replacement', 'Direct methods', 'Molecular replacement', 'Anomalous dispersion'],
     correctIndex: 0,

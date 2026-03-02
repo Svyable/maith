@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const lecunQuestions: Question[] = [
   {
     id: 11701,
-    topic: 'lecun',
+    topic: 'yann-lecun',
     difficulty: 'easy',
     question: 'LeCun\'s Convolutional Neural Networks (CNNs) use convolution rather than full connections because:',
     options: [
@@ -19,7 +19,7 @@ export const lecunQuestions: Question[] = [
   },
   {
     id: 11702,
-    topic: 'lecun',
+    topic: 'yann-lecun',
     difficulty: 'easy',
     question: 'LeNet-5, LeCun\'s seminal 1998 CNN, was trained to recognize handwritten digits using:',
     options: [
@@ -35,7 +35,7 @@ export const lecunQuestions: Question[] = [
   },
   {
     id: 11703,
-    topic: 'lecun',
+    topic: 'yann-lecun',
     difficulty: 'easy',
     question: 'LeCun argues that "Energy-Based Models" (EBMs) are more general than probabilistic models because:',
     options: [
@@ -51,7 +51,7 @@ export const lecunQuestions: Question[] = [
   },
   {
     id: 11704,
-    topic: 'lecun',
+    topic: 'yann-lecun',
     difficulty: 'easy',
     question: 'LeCun proposed "JEPA" (Joint Embedding Predictive Architecture) as an alternative to generative models for self-supervised learning. JEPA learns by:',
     options: [
@@ -67,7 +67,7 @@ export const lecunQuestions: Question[] = [
   },
   {
     id: 11705,
-    topic: 'lecun',
+    topic: 'yann-lecun',
     difficulty: 'hard',
     question: 'The receptive field of a neuron in layer $l$ of a CNN with stride $s$ and kernel size $k$ grows as:',
     options: [
@@ -83,7 +83,7 @@ export const lecunQuestions: Question[] = [
   },
   {
     id: 11706,
-    topic: 'lecun',
+    topic: 'yann-lecun',
     difficulty: 'hard',
     question: 'LeCun\'s document recognition system used Connectionist Temporal Classification (CTC). CTC loss allows sequence prediction without:',
     options: [
@@ -99,7 +99,7 @@ export const lecunQuestions: Question[] = [
   },
   {
     id: 11707,
-    topic: 'lecun',
+    topic: 'yann-lecun',
     difficulty: 'hard',
     question: 'LeCun\'s "flat minima" hypothesis about generalization states:',
     options: [
@@ -115,7 +115,7 @@ export const lecunQuestions: Question[] = [
   },
   {
     id: 11708,
-    topic: 'lecun',
+    topic: 'yann-lecun',
     difficulty: 'sota',
     question: 'LeCun\'s "World Models" framework argues that intelligent systems need an internal model that can predict consequences of actions. This connects to:',
     options: [
@@ -131,7 +131,7 @@ export const lecunQuestions: Question[] = [
   },
   {
     id: 11709,
-    topic: 'lecun',
+    topic: 'yann-lecun',
     difficulty: 'sota',
     question: 'The "manifold hypothesis" underlying deep learning representations states that:',
     options: [
@@ -147,7 +147,7 @@ export const lecunQuestions: Question[] = [
   },
   {
     id: 11710,
-    topic: 'lecun',
+    topic: 'yann-lecun',
     difficulty: 'sota',
     question: 'LeCun\'s objection to autoregressive LLMs as a path to AGI centers on their inability to:',
     options: [

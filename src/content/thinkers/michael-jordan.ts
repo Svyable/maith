@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const michaelJordanMLQuestions: Question[] = [
   {
     id: 21240,
-    topic: 'michael-jordan-ml',
+    topic: 'michael-jordan',
     difficulty: 'sota',
     question: 'In variational inference, the Evidence Lower Bound (ELBO) decomposes into which two terms?',
     options: [
@@ -19,7 +19,7 @@ export const michaelJordanMLQuestions: Question[] = [
   },
   {
     id: 21241,
-    topic: 'michael-jordan-ml',
+    topic: 'michael-jordan',
     difficulty: 'sota',
     question: 'Jordan\'s work on graphical models introduced the distinction between which two fundamental graph structures?',
     options: [
@@ -35,7 +35,7 @@ export const michaelJordanMLQuestions: Question[] = [
   },
   {
     id: 21242,
-    topic: 'michael-jordan-ml',
+    topic: 'michael-jordan',
     difficulty: 'sota',
     question: 'Jordan\'s mean-field variational inference approximates the true posterior by assuming what?',
     options: [

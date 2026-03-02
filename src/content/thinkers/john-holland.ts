@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const hollandQuestions: Question[] = [
   {
     id: 21170,
-    topic: 'holland',
+    topic: 'john-holland',
     difficulty: 'sota',
     question: 'John Holland\'s genetic algorithms use which operators inspired by biological evolution?',
     options: ['Selection, crossover (recombination), and mutation', 'Gradient descent and backpropagation', 'Simulated annealing and cooling schedules', 'Branch and bound with pruning'],
@@ -14,7 +14,7 @@ export const hollandQuestions: Question[] = [
   },
   {
     id: 21171,
-    topic: 'holland',
+    topic: 'john-holland',
     difficulty: 'sota',
     question: 'Holland\'s "Schema Theorem" provides a theoretical foundation for genetic algorithms by showing what?',
     options: ['Short, low-order, above-average schemata receive exponentially increasing trials', 'All schemata converge to the global optimum', 'Crossover is always superior to mutation alone', 'Genetic algorithms find exact solutions in polynomial time'],
@@ -25,7 +25,7 @@ export const hollandQuestions: Question[] = [
   },
   {
     id: 21172,
-    topic: 'holland',
+    topic: 'john-holland',
     difficulty: 'sota',
     question: 'Holland\'s classifier systems combine genetic algorithms with which learning paradigm?',
     options: ['Reinforcement learning — rules compete for credit based on environmental rewards', 'Supervised learning with labeled datasets', 'Unsupervised clustering of input data', 'Transfer learning from pre-trained models'],
@@ -36,7 +36,7 @@ export const hollandQuestions: Question[] = [
   },
   {
     id: 21173,
-    topic: 'holland',
+    topic: 'john-holland',
     difficulty: 'sota',
     question: 'Holland\'s concept of "complex adaptive systems" (CAS) identifies which key property shared by economies, ecosystems, and immune systems?',
     options: ['Emergence — system-level patterns arise from local interactions of adaptive agents', 'Central control by a single agent', 'Linear predictability from initial conditions', 'Convergence to a single equilibrium state'],
@@ -47,7 +47,7 @@ export const hollandQuestions: Question[] = [
   },
   {
     id: 21174,
-    topic: 'holland',
+    topic: 'john-holland',
     difficulty: 'sota',
     question: 'Holland\'s "royal road" functions were designed to test which hypothesis about genetic algorithms?',
     options: ['That GAs exploit building blocks (schemata) through crossover', 'That mutation alone is sufficient for optimization', 'That larger populations always perform better', 'That elitism prevents premature convergence'],

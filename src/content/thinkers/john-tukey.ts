@@ -2,7 +2,7 @@ import type { Question } from '../types';
 
 export const tukeyQuestions: Question[] = [
   {
-    id: 96100, topic: 'tukey', difficulty: 'easy',
+    id: 96100, topic: 'john-tukey', difficulty: 'easy',
     question: 'John Tukey coined the term "bit" (binary digit) and invented:',
     options: ['The box plot and exploratory data analysis (EDA)', 'The bar chart', 'SQL databases', 'The spreadsheet'],
     correctIndex: 0,
@@ -11,7 +11,7 @@ export const tukeyQuestions: Question[] = [
     hint: 'He believed in looking at data before testing hypotheses.',
   },
   {
-    id: 96101, topic: 'tukey', difficulty: 'hard',
+    id: 96101, topic: 'john-tukey', difficulty: 'hard',
     question: 'Tukey co-invented the Fast Fourier Transform (FFT) algorithm, which reduced DFT computation from $O(n^2)$ to:',
     options: ['$O(n \\log n)$', '$O(n)$', '$O(\\log n)$', '$O(n^3)$'],
     correctIndex: 0,
@@ -20,7 +20,7 @@ export const tukeyQuestions: Question[] = [
     hint: 'It uses a divide-and-conquer strategy on the transform.',
   },
   {
-    id: 96102, topic: 'tukey', difficulty: 'sota',
+    id: 96102, topic: 'john-tukey', difficulty: 'sota',
     question: 'Tukey\'s philosophical distinction between "exploratory" and "confirmatory" data analysis influenced:',
     options: ['Modern data science workflows that separate hypothesis generation from hypothesis testing', 'Only traditional statistics', 'Database management only', 'Computer hardware design'],
     correctIndex: 0,

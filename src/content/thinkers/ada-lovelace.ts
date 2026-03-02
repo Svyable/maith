@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const lovelaceQuestions: Question[] = [
   {
     id: 10131,
-    topic: 'lovelace',
+    topic: 'ada-lovelace',
     difficulty: 'easy',
     question: 'Ada Lovelace is recognized as the first person to:',
     options: [
@@ -19,7 +19,7 @@ export const lovelaceQuestions: Question[] = [
   },
   {
     id: 10132,
-    topic: 'lovelace',
+    topic: 'ada-lovelace',
     difficulty: 'hard',
     question: 'Lovelace\'s key insight beyond Babbage\'s vision was:',
     options: [
@@ -35,7 +35,7 @@ export const lovelaceQuestions: Question[] = [
   },
   {
     id: 10133,
-    topic: 'lovelace',
+    topic: 'ada-lovelace',
     difficulty: 'sota',
     question: '"Lady Lovelace\'s Objection," as discussed by Turing, claims:',
     options: [

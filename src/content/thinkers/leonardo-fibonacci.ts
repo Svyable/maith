@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const fibonacciQuestions: Question[] = [
   {
     id: 20760,
-    topic: 'fibonacci',
+    topic: 'leonardo-fibonacci',
     difficulty: 'hard',
     question: 'The ratio of consecutive Fibonacci numbers $F_{n+1}/F_n$ converges to which value as $n \\to \\infty$?',
     options: ['The golden ratio $\\phi = \\frac{1+\\sqrt{5}}{2} \\approx 1.618$', '$\\pi$', '$e$', '$\\sqrt{2}$'],
@@ -14,7 +14,7 @@ export const fibonacciQuestions: Question[] = [
   },
   {
     id: 20761,
-    topic: 'fibonacci',
+    topic: 'leonardo-fibonacci',
     difficulty: 'sota',
     question: 'Binet\'s formula gives $F_n = \\frac{\\phi^n - \\psi^n}{\\sqrt{5}}$ where $\\psi = \\frac{1-\\sqrt{5}}{2}$. Since $|\\psi| < 1$, what is the practical consequence?',
     options: ['$F_n = \\text{round}(\\phi^n / \\sqrt{5})$ — the nearest integer to a simple exponential', '$F_n$ alternates sign', '$F_n$ grows polynomially', '$F_n$ is always prime'],
@@ -25,7 +25,7 @@ export const fibonacciQuestions: Question[] = [
   },
   {
     id: 20762,
-    topic: 'fibonacci',
+    topic: 'leonardo-fibonacci',
     difficulty: 'easy',
     question: 'Fibonacci introduced his famous sequence as a model for the population growth of which animal?',
     options: ['Rabbits', 'Bees', 'Sheep', 'Mice'],

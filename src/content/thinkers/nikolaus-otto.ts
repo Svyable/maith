@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const ottoQuestions: Question[] = [
   {
     id: 13310,
-    topic: 'otto',
+    topic: 'nikolaus-otto',
     difficulty: 'easy',
     question:
       'The ideal Otto cycle is the canonical thermodynamic model for what kind of engine, and what key idealization does it make about heat addition?',
@@ -22,7 +22,7 @@ export const ottoQuestions: Question[] = [
   },
   {
     id: 13311,
-    topic: 'otto',
+    topic: 'nikolaus-otto',
     difficulty: 'easy',
     question:
       'For an ideal Otto cycle, the thermal efficiency is often written as $\\eta = 1-\\tfrac{1}{r^{\\gamma-1}}$. What do $r$ and $\\gamma$ represent?',
@@ -41,7 +41,7 @@ export const ottoQuestions: Question[] = [
   },
   {
     id: 13312,
-    topic: 'otto',
+    topic: 'nikolaus-otto',
     difficulty: 'hard',
     question:
       'Why does engine knock constrain the maximum usable compression ratio in spark-ignition engines? Give the mechanism in terms of end-gas auto-ignition and pressure/temperature.',
@@ -60,7 +60,7 @@ export const ottoQuestions: Question[] = [
   },
   {
     id: 13313,
-    topic: 'otto',
+    topic: 'nikolaus-otto',
     difficulty: 'hard',
     question:
       'A turbocharged gasoline engine can raise effective compression pressure but still avoid knock. Which strategy most directly reduces knock for a given boost by lowering charge temperature?',
@@ -79,7 +79,7 @@ export const ottoQuestions: Question[] = [
   },
   {
     id: 13314,
-    topic: 'otto',
+    topic: 'nikolaus-otto',
     difficulty: 'sota',
     question:
       'Many hybrids run an “Atkinson-style” gasoline engine. In modern engines, this is often achieved by late intake valve closing (LIVC). What is the thermodynamic intuition (use effective compression vs expansion ratio)?',

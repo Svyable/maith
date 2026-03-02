@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const alkhwarizmiQuestions: Question[] = [
   {
     id: 10121,
-    topic: 'alkhwarizmi',
+    topic: 'muhammad-al-khwarizmi',
     difficulty: 'easy',
     question: 'Al-Khwarizmi\'s book "Al-Jabr" introduced:',
     options: [
@@ -19,7 +19,7 @@ export const alkhwarizmiQuestions: Question[] = [
   },
   {
     id: 10122,
-    topic: 'alkhwarizmi',
+    topic: 'muhammad-al-khwarizmi',
     difficulty: 'hard',
     question: 'Al-Khwarizmi solved quadratic equations using:',
     options: [
@@ -35,7 +35,7 @@ export const alkhwarizmiQuestions: Question[] = [
   },
   {
     id: 10123,
-    topic: 'alkhwarizmi',
+    topic: 'muhammad-al-khwarizmi',
     difficulty: 'sota',
     question: 'Al-Khwarizmi\'s transmission of the Hindu-Arabic numeral system to the Islamic world ultimately:',
     options: [

@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const descartesQuestions: Question[] = [
   {
     id: 31030,
-    topic: 'descartes',
+    topic: 'rene-descartes',
     difficulty: 'easy',
     question: 'What profound mathematical unification was achieved when René Descartes introduced the Cartesian coordinate system?',
     options: [
@@ -19,7 +19,7 @@ export const descartesQuestions: Question[] = [
   },
   {
     id: 31031,
-    topic: 'descartes',
+    topic: 'rene-descartes',
     difficulty: 'hard',
     question: 'Descartes\' "Rule of Signs" provides a highly efficient method for determining what specific property of a polynomial?',
     options: [
@@ -35,7 +35,7 @@ export const descartesQuestions: Question[] = [
   },
   {
     id: 31032,
-    topic: 'descartes',
+    topic: 'rene-descartes',
     difficulty: 'sota',
     question: 'In studying algebraic curves, Descartes proposed the "Folium of Descartes" specifically to challenge which contemporary mathematical rival?',
     options: [
@@ -51,7 +51,7 @@ export const descartesQuestions: Question[] = [
   },
   {
     id: 31033,
-    topic: 'descartes',
+    topic: 'rene-descartes',
     difficulty: 'hard',
     question: 'While mathematically brilliant, Descartes\' physical laws of motion contained a critical flaw regarding the conservation of movement. What did he incorrectly assert?',
     options: [
@@ -67,7 +67,7 @@ export const descartesQuestions: Question[] = [
   },
   {
     id: 31034,
-    topic: 'descartes',
+    topic: 'rene-descartes',
     difficulty: 'easy',
     question: 'Legend has it that Descartes invented his famous coordinate system while lying in bed, observing what specific creature moving across his ceiling?',
     options: [

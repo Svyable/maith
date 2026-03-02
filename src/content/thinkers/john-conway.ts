@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const conwayQuestions: Question[] = [
   {
     id: 20750,
-    topic: 'conway',
+    topic: 'john-conway',
     difficulty: 'hard',
     question: 'Conway\'s Game of Life uses four rules on a 2D grid. A dead cell becomes alive if it has exactly how many live neighbors?',
     options: ['Exactly 3', 'Exactly 2', 'Exactly 4', '1 or more'],
@@ -14,7 +14,7 @@ export const conwayQuestions: Question[] = [
   },
   {
     id: 20751,
-    topic: 'conway',
+    topic: 'john-conway',
     difficulty: 'hard',
     question: 'Conway\'s Game of Life has been proven to be Turing-complete. What does this mean?',
     options: ['It can simulate any computation that a Turing machine can perform', 'It always halts', 'It can only compute finite functions', 'It requires external input'],
@@ -25,7 +25,7 @@ export const conwayQuestions: Question[] = [
   },
   {
     id: 20752,
-    topic: 'conway',
+    topic: 'john-conway',
     difficulty: 'sota',
     question: 'Conway\'s "Monstrous Moonshine" conjecture (with Simon Norton) connected the Monster group to modular functions. What is the order of the Monster group?',
     options: ['$\\approx 8 \\times 10^{53}$', '$\\approx 10^{20}$', '$\\approx 10^{100}$', '$\\approx 2^{256}$'],
@@ -36,7 +36,7 @@ export const conwayQuestions: Question[] = [
   },
   {
     id: 20753,
-    topic: 'conway',
+    topic: 'john-conway',
     difficulty: 'sota',
     question: 'Conway invented the "surreal numbers" — a number system that contains:',
     options: ['All reals, all ordinals, infinitesimals, and every combinatorial game value', 'Only integers and rationals', 'Only complex numbers', 'Only non-standard reals'],
@@ -47,7 +47,7 @@ export const conwayQuestions: Question[] = [
   },
   {
     id: 20754,
-    topic: 'conway',
+    topic: 'john-conway',
     difficulty: 'easy',
     question: 'Conway famously grew to dislike his most popular invention. What was it?',
     options: ['The Game of Life', 'Surreal numbers', 'The Monster group', 'Sprouts'],

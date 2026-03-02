@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const ramanQuestions: Question[] = [
   {
     id: 11601,
-    topic: 'raman',
+    topic: 'chandrasekhara-v-raman',
     difficulty: 'easy',
     question: 'C.V. Raman won the Nobel Prize in Physics (1930) for discovering the Raman effect. What is it?',
     options: [
@@ -19,7 +19,7 @@ export const ramanQuestions: Question[] = [
   },
   {
     id: 11602,
-    topic: 'raman',
+    topic: 'chandrasekhara-v-raman',
     difficulty: 'easy',
     question: 'Raman famously explained the blue color of the sea. His explanation was based on:',
     options: [
@@ -35,7 +35,7 @@ export const ramanQuestions: Question[] = [
   },
   {
     id: 11603,
-    topic: 'raman',
+    topic: 'chandrasekhara-v-raman',
     difficulty: 'hard',
     question: 'In Raman scattering, the frequency shifts (Stokes and anti-Stokes lines) directly correspond to:',
     options: [
@@ -51,7 +51,7 @@ export const ramanQuestions: Question[] = [
   },
   {
     id: 11604,
-    topic: 'raman',
+    topic: 'chandrasekhara-v-raman',
     difficulty: 'hard',
     question: 'The intensity ratio of anti-Stokes to Stokes lines in Raman scattering depends on:',
     options: [
@@ -67,7 +67,7 @@ export const ramanQuestions: Question[] = [
   },
   {
     id: 11605,
-    topic: 'raman',
+    topic: 'chandrasekhara-v-raman',
     difficulty: 'sota',
     question: 'Modern coherent anti-Stokes Raman scattering (CARS) microscopy achieves:',
     options: [

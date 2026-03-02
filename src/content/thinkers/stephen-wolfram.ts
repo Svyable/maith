@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const wolframQuestions: Question[] = [
   {
     id: 20480,
-    topic: 'wolfram',
+    topic: 'stephen-wolfram',
     difficulty: 'hard',
     question: 'Wolfram\'s "A New Kind of Science" argues that simple programs (cellular automata) can produce complex behavior. Which of his elementary cellular automata is Turing-complete?',
     options: ['Rule 110', 'Rule 30', 'Rule 90', 'Rule 184'],
@@ -14,7 +14,7 @@ export const wolframQuestions: Question[] = [
   },
   {
     id: 20481,
-    topic: 'wolfram',
+    topic: 'stephen-wolfram',
     difficulty: 'hard',
     question: 'Wolfram classified elementary cellular automata into four behavioral classes. Class IV automata exhibit which behavior?',
     options: ['Complex patterns at the edge of chaos (neither periodic nor fully chaotic)', 'Fixed points only', 'Simple periodic oscillations', 'Complete randomness'],
@@ -25,7 +25,7 @@ export const wolframQuestions: Question[] = [
   },
   {
     id: 20482,
-    topic: 'wolfram',
+    topic: 'stephen-wolfram',
     difficulty: 'sota',
     question: 'Wolfram\'s "Wolfram Physics Project" (2020) proposes that spacetime emerges from hypergraph rewriting. What is the key structure in this model?',
     options: ['A multiway system of hypergraph transformations', 'A lattice of spin networks', 'A conformal field theory on the boundary', 'A tensor network in AdS space'],
@@ -36,7 +36,7 @@ export const wolframQuestions: Question[] = [
   },
   {
     id: 20483,
-    topic: 'wolfram',
+    topic: 'stephen-wolfram',
     difficulty: 'sota',
     question: 'Wolfram created Mathematica in 1988. Its core evaluation model is based on which computational paradigm?',
     options: ['Term rewriting (pattern matching on symbolic expressions)', 'Object-oriented programming', 'Lambda calculus with lazy evaluation', 'Stack-based concatenative programming'],
@@ -47,7 +47,7 @@ export const wolframQuestions: Question[] = [
   },
   {
     id: 20484,
-    topic: 'wolfram',
+    topic: 'stephen-wolfram',
     difficulty: 'easy',
     question: 'What computational knowledge engine did Stephen Wolfram create that can answer factual questions?',
     options: ['Wolfram Alpha', 'Mathematica', 'ChatGPT', 'Google Scholar'],

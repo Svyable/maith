@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const markovQuestions: Question[] = [
   {
     id: 20410,
-    topic: 'markov',
+    topic: 'andrey-markov',
     difficulty: 'hard',
     question: 'The Markov property states that $P(X_{n+1} | X_n, X_{n-1}, \\ldots, X_0) = P(X_{n+1} | X_n)$. What is this property commonly called?',
     options: ['Memorylessness', 'Stationarity', 'Ergodicity', 'Recurrence'],
@@ -14,7 +14,7 @@ export const markovQuestions: Question[] = [
   },
   {
     id: 20411,
-    topic: 'markov',
+    topic: 'andrey-markov',
     difficulty: 'hard',
     question: 'For an irreducible, aperiodic Markov chain with finite state space, what does the Perron-Frobenius theorem guarantee about the transition matrix?',
     options: ['A unique stationary distribution exists', 'All eigenvalues are complex', 'The chain is transient', 'The mixing time is exponential'],
@@ -25,7 +25,7 @@ export const markovQuestions: Question[] = [
   },
   {
     id: 20412,
-    topic: 'markov',
+    topic: 'andrey-markov',
     difficulty: 'sota',
     question: 'The mixing time $t_{\\text{mix}}(\\varepsilon)$ of a Markov chain is bounded by the spectral gap $\\gamma$ of its transition matrix. What is the relationship?',
     options: ['$t_{\\text{mix}} = O(\\gamma^{-1} \\log(1/\\varepsilon))$', '$t_{\\text{mix}} = O(\\gamma^2)$', '$t_{\\text{mix}} = O(e^{\\gamma})$', '$t_{\\text{mix}} = O(1/\\varepsilon)$'],
@@ -36,7 +36,7 @@ export const markovQuestions: Question[] = [
   },
   {
     id: 20413,
-    topic: 'markov',
+    topic: 'andrey-markov',
     difficulty: 'sota',
     question: 'In Hidden Markov Models (HMMs), the Baum-Welch algorithm is an instance of which general optimization framework?',
     options: ['Expectation-Maximization (EM)', 'Gradient descent', 'Simulated annealing', 'Linear programming'],
@@ -47,7 +47,7 @@ export const markovQuestions: Question[] = [
   },
   {
     id: 20414,
-    topic: 'markov',
+    topic: 'andrey-markov',
     difficulty: 'easy',
     question: 'What did Markov originally study to demonstrate his chain theory?',
     options: ['Vowel-consonant patterns in a Russian poem', 'Stock market prices', 'Weather patterns', 'Dice rolls'],

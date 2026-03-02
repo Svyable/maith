@@ -2,7 +2,7 @@ import type { Question } from '../types';
 
 export const kalmanQuestions: Question[] = [
   {
-    id: 19001, topic: 'kalman', difficulty: 'easy',
+    id: 19001, topic: 'rudolf-kalman', difficulty: 'easy',
     question: 'The Kalman filter is used to:',
     options: ['Optimally estimate the state of a dynamic system from noisy measurements', 'Compress audio signals', 'Train neural networks', 'Sort large datasets'],
     correctIndex: 0,
@@ -11,7 +11,7 @@ export const kalmanQuestions: Question[] = [
     hint: 'It fuses predictions with measurements — giving more weight to whichever is more precise.',
   },
   {
-    id: 19002, topic: 'kalman', difficulty: 'hard',
+    id: 19002, topic: 'rudolf-kalman', difficulty: 'hard',
     question: 'The Kalman gain $K_k$ determines:',
     options: ['How much to trust the measurement vs. the prediction at each step', 'The learning rate of a neural network', 'The bandwidth of a filter', 'The number of iterations needed'],
     correctIndex: 0,
@@ -20,7 +20,7 @@ export const kalmanQuestions: Question[] = [
     hint: 'If the measurement is very noisy ($R$ large), $K$ is small — trust the model more.',
   },
   {
-    id: 19003, topic: 'kalman', difficulty: 'sota',
+    id: 19003, topic: 'rudolf-kalman', difficulty: 'sota',
     question: 'The Extended Kalman Filter (EKF) handles nonlinear systems by:',
     options: ['Linearizing the system dynamics around the current estimate using Jacobians', 'Using particle sampling', 'Solving the full nonlinear Bayesian posterior', 'Applying deep learning to the state estimate'],
     correctIndex: 0,

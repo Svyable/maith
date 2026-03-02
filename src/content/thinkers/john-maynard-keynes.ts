@@ -2,7 +2,7 @@ import type { Question } from '../types';
 
 export const keynesQuestions: Question[] = [
   {
-    id: 96016, topic: 'keynes', difficulty: 'easy',
+    id: 96016, topic: 'john-maynard-keynes', difficulty: 'easy',
     question: 'Keynes argued that during a recession, the most effective response is:',
     options: ['Government increases spending to boost aggregate demand', 'Government cuts spending to balance the budget', 'Central banks raise interest rates', 'Wait for markets to self-correct naturally'],
     correctIndex: 0,
@@ -11,7 +11,7 @@ export const keynesQuestions: Question[] = [
     hint: 'When consumers stop spending, someone else must step in.',
   },
   {
-    id: 96017, topic: 'keynes', difficulty: 'hard',
+    id: 96017, topic: 'john-maynard-keynes', difficulty: 'hard',
     question: 'The Keynesian multiplier effect means that $1 of government spending generates:',
     options: ['More than $1 of total economic output through successive rounds of spending', 'Exactly $1 of GDP growth', 'Less than $1 due to waste and inefficiency', '$0 because it crowds out private investment'],
     correctIndex: 0,
@@ -20,7 +20,7 @@ export const keynesQuestions: Question[] = [
     hint: 'Each dollar gets spent, re-spent, and re-spent again.',
   },
   {
-    id: 96018, topic: 'keynes', difficulty: 'sota',
+    id: 96018, topic: 'john-maynard-keynes', difficulty: 'sota',
     question: 'Keynes\'s "liquidity trap" occurs when:',
     options: ['Interest rates hit zero and monetary policy becomes ineffective, only fiscal policy works', 'Banks have too much cash and refuse to lend', 'The government runs out of bonds to sell', 'Inflation spirals out of control'],
     correctIndex: 0,

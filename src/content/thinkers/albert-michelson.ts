@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const michelsonQuestions: Question[] = [
   {
     id: 31220,
-    topic: 'michelson',
+    topic: 'albert-michelson',
     difficulty: 'easy',
     question: 'What did the 1887 Michelson-Morley experiment fail to detect?',
     options: [
@@ -19,7 +19,7 @@ export const michelsonQuestions: Question[] = [
   },
   {
     id: 31221,
-    topic: 'michelson',
+    topic: 'albert-michelson',
     difficulty: 'hard',
     question: 'How does Michelson interferometer measure tiny phase shifts?',
     options: [
@@ -35,7 +35,7 @@ export const michelsonQuestions: Question[] = [
   },
   {
     id: 31222,
-    topic: 'michelson',
+    topic: 'albert-michelson',
     difficulty: 'sota',
     question: 'Michelson\'s 1926 Mt. Wilson $c$ measurement used what?',
     options: [
@@ -51,7 +51,7 @@ export const michelsonQuestions: Question[] = [
   },
   {
     id: 31223,
-    topic: 'michelson',
+    topic: 'albert-michelson',
     difficulty: 'hard',
     question: 'Michelson achieved greatness by becoming what?',
     options: [
@@ -67,7 +67,7 @@ export const michelsonQuestions: Question[] = [
   },
   {
     id: 31224,
-    topic: 'michelson',
+    topic: 'albert-michelson',
     difficulty: 'hard',
     question: 'Michelson-Morley expected fringe shift of $\\Delta = ?$',
     options: [

@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const abelQuestions: Question[] = [
   {
     id: 12501,
-    topic: 'abel',
+    topic: 'niels-henrik-abel',
     difficulty: 'easy',
     question: 'Niels Henrik Abel proved at age 19 that something mathematicians had sought for centuries was impossible. What was it?',
     options: [
@@ -19,7 +19,7 @@ export const abelQuestions: Question[] = [
   },
   {
     id: 12502,
-    topic: 'abel',
+    topic: 'niels-henrik-abel',
     difficulty: 'hard',
     question: 'Abel also made foundational contributions to analysis. An "abelian group" is named after him because:',
     options: [
@@ -35,7 +35,7 @@ export const abelQuestions: Question[] = [
   },
   {
     id: 12503,
-    topic: 'abel',
+    topic: 'niels-henrik-abel',
     difficulty: 'sota',
     question: 'Abel\'s work on elliptic functions and abelian integrals laid groundwork for modern algebraic geometry. The modern "Abel-Jacobi map" connects:',
     options: [

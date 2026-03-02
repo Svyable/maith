@@ -4,7 +4,7 @@ import type { Question } from '../types';
 export const hoareQuestions: Question[] = [
   {
     id: 67020,
-    topic: 'hoare',
+    topic: 'tony-hoare',
     difficulty: 'easy',
     question:
       'Tony Hoare introduced Hoare logic for reasoning about program correctness. What does a Hoare triple $\\{P\\}\\ C\\ \\{Q\\}$ mean?',
@@ -24,7 +24,7 @@ export const hoareQuestions: Question[] = [
   },
   {
     id: 67021,
-    topic: 'hoare',
+    topic: 'tony-hoare',
     difficulty: 'hard',
     question:
       'Which loop invariant best supports proving correctness of a loop that computes the sum $S=\\sum_{i=1}^{n} i$ using a counter $i$ and accumulator $s$?',
@@ -44,7 +44,7 @@ export const hoareQuestions: Question[] = [
   },
   {
     id: 67022,
-    topic: 'hoare',
+    topic: 'tony-hoare',
     difficulty: 'hard',
     question:
       'Hoare’s partition scheme is central to Quicksort. What property does partitioning guarantee after choosing a pivot $p$?',
@@ -64,7 +64,7 @@ export const hoareQuestions: Question[] = [
   },
   {
     id: 67023,
-    topic: 'hoare',
+    topic: 'tony-hoare',
     difficulty: 'sota',
     question:
       'Hoare’s CSP (Communicating Sequential Processes) models concurrency with message passing. What is a core CSP idea compared to shared-memory locking?',
@@ -84,7 +84,7 @@ export const hoareQuestions: Question[] = [
   },
   {
     id: 67024,
-    topic: 'hoare',
+    topic: 'tony-hoare',
     difficulty: 'sota',
     question:
       'Hoare famously warned: “There are two ways of constructing a software design…” Which completion matches his point?',

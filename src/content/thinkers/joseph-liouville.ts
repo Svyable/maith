@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const liouvilleQuestions: Question[] = [
   {
     id: 21710,
-    topic: 'liouville',
+    topic: 'joseph-liouville',
     difficulty: 'sota',
     question: 'Liouville\'s theorem in complex analysis states that every bounded entire function is what?',
     options: [
@@ -19,7 +19,7 @@ export const liouvilleQuestions: Question[] = [
   },
   {
     id: 21711,
-    topic: 'liouville',
+    topic: 'joseph-liouville',
     difficulty: 'sota',
     question: 'Liouville constructed the first proven transcendental numbers. What property defines a Liouville number?',
     options: [
@@ -35,7 +35,7 @@ export const liouvilleQuestions: Question[] = [
   },
   {
     id: 21712,
-    topic: 'liouville',
+    topic: 'joseph-liouville',
     difficulty: 'sota',
     question: 'Liouville\'s theorem in Hamiltonian mechanics states that phase space volume is preserved. What mathematical object captures this?',
     options: [

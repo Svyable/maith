@@ -2,7 +2,7 @@ import type { Question } from '../types';
 
 export const uhlenbeckQuestions: Question[] = [
   {
-    id: 20121, topic: 'uhlenbeck', difficulty: 'easy',
+    id: 20121, topic: 'karen-uhlenbeck', difficulty: 'easy',
     question: 'Karen Uhlenbeck was the first woman to win which prestigious mathematics prize?',
     options: ['Abel Prize', 'Fields Medal', 'Wolf Prize', 'Breakthrough Prize'],
     correctIndex: 0,
@@ -11,7 +11,7 @@ export const uhlenbeckQuestions: Question[] = [
     hint: 'This Norwegian prize is often considered the mathematical equivalent of the Nobel.',
   },
   {
-    id: 20122, topic: 'uhlenbeck', difficulty: 'hard',
+    id: 20122, topic: 'karen-uhlenbeck', difficulty: 'hard',
     question: 'Uhlenbeck\'s gauge theory work was foundational for which mathematical breakthrough?',
     options: ['Donaldson\'s exotic 4-manifold theory', 'Perelman\'s Poincaré proof', 'Wiles\' Fermat proof', 'Freedman\'s topological 4-manifolds'],
     correctIndex: 0,
@@ -20,7 +20,7 @@ export const uhlenbeckQuestions: Question[] = [
     hint: 'This mathematician used Yang-Mills theory to discover exotic smooth structures on 4-manifolds.',
   },
   {
-    id: 20123, topic: 'uhlenbeck', difficulty: 'sota',
+    id: 20123, topic: 'karen-uhlenbeck', difficulty: 'sota',
     question: 'Uhlenbeck\'s compactness theorem addresses what phenomenon in Yang-Mills connections?',
     options: ['Bubbling — curvature concentrating at points', 'Tunneling between gauge orbits', 'Symmetry breaking in fiber bundles', 'Holonomy reduction'],
     correctIndex: 0,

@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const ramanujanQuestions: Question[] = [
   {
     id: 10091,
-    topic: 'ramanujan',
+    topic: 'srinivasa-ramanujan',
     difficulty: 'easy',
     question: 'Ramanujan\'s formula for $\\pi$ converges extremely rapidly. The Rogers-Ramanujan continued fraction satisfies:',
     options: [
@@ -19,7 +19,7 @@ export const ramanujanQuestions: Question[] = [
   },
   {
     id: 10092,
-    topic: 'ramanujan',
+    topic: 'srinivasa-ramanujan',
     difficulty: 'easy',
     question: 'The partition function $p(n)$ counts:',
     options: [
@@ -35,7 +35,7 @@ export const ramanujanQuestions: Question[] = [
   },
   {
     id: 10093,
-    topic: 'ramanujan',
+    topic: 'srinivasa-ramanujan',
     difficulty: 'easy',
     question: 'The "taxicab number" 1729 is famous because Ramanujan noted:',
     options: [
@@ -51,7 +51,7 @@ export const ramanujanQuestions: Question[] = [
   },
   {
     id: 10094,
-    topic: 'ramanujan',
+    topic: 'srinivasa-ramanujan',
     difficulty: 'easy',
     question: 'Modular forms are complex functions satisfying $f\\left(\\frac{az+b}{cz+d}\\right) = (cz+d)^k f(z)$ for $\\begin{pmatrix}a&b\\\\c&d\\end{pmatrix} \\in SL_2(\\mathbb{Z})$. Ramanujan\'s $\\tau$ function appears in:',
     options: [
@@ -67,7 +67,7 @@ export const ramanujanQuestions: Question[] = [
   },
   {
     id: 10095,
-    topic: 'ramanujan',
+    topic: 'srinivasa-ramanujan',
     difficulty: 'hard',
     question: 'Ramanujan\'s master theorem states: $\\int_0^\\infty x^{s-1}\\sum_{k=0}^\\infty \\frac{(-1)^k \\phi(k)}{k!} x^k\\,dx = \\frac{\\pi}{\\sin(\\pi s)}\\phi(-s)$. This is remarkable because:',
     options: [
@@ -83,7 +83,7 @@ export const ramanujanQuestions: Question[] = [
   },
   {
     id: 10096,
-    topic: 'ramanujan',
+    topic: 'srinivasa-ramanujan',
     difficulty: 'hard',
     question: 'The Hardy-Ramanujan asymptotic formula for $p(n)$ uses the circle method, which works by:',
     options: [
@@ -99,7 +99,7 @@ export const ramanujanQuestions: Question[] = [
   },
   {
     id: 10097,
-    topic: 'ramanujan',
+    topic: 'srinivasa-ramanujan',
     difficulty: 'hard',
     question: 'Mock theta functions (Ramanujan, 1920) were finally understood through:',
     options: [
@@ -115,7 +115,7 @@ export const ramanujanQuestions: Question[] = [
   },
   {
     id: 10098,
-    topic: 'ramanujan',
+    topic: 'srinivasa-ramanujan',
     difficulty: 'sota',
     question: 'The Rogers-Ramanujan identities state: $\\sum_{n=0}^\\infty \\frac{q^{n^2}}{(q;q)_n} = \\prod_{n=1}^\\infty \\frac{1}{(1-q^{5n-1})(1-q^{5n-4})}$. Their significance for physics is:',
     options: [
@@ -131,7 +131,7 @@ export const ramanujanQuestions: Question[] = [
   },
   {
     id: 10099,
-    topic: 'ramanujan',
+    topic: 'srinivasa-ramanujan',
     difficulty: 'sota',
     question: 'The Ramanujan conjecture for the modular discriminant $\\Delta$ states $|\\tau(p)| \\leq 2p^{11/2}$ for primes $p$. Deligne proved this via:',
     options: [
@@ -147,7 +147,7 @@ export const ramanujanQuestions: Question[] = [
   },
   {
     id: 10100,
-    topic: 'ramanujan',
+    topic: 'srinivasa-ramanujan',
     difficulty: 'sota',
     question: 'Monstrous Moonshine (Conway-Norton 1979) connects Ramanujan\'s modular forms to the Monster group by:',
     options: [

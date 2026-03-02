@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const lenzQuestions: Question[] = [
   {
     id: 21850,
-    topic: 'lenz',
+    topic: 'heinrich-lenz',
     difficulty: 'sota',
     question: 'Lenz\'s law states that an induced current flows in the direction that does what?',
     options: [
@@ -19,7 +19,7 @@ export const lenzQuestions: Question[] = [
   },
   {
     id: 21851,
-    topic: 'lenz',
+    topic: 'heinrich-lenz',
     difficulty: 'sota',
     question: 'A conducting ring falls through a non-uniform magnetic field. According to Lenz\'s law, the induced current creates a force that does what?',
     options: [
@@ -35,7 +35,7 @@ export const lenzQuestions: Question[] = [
   },
   {
     id: 21852,
-    topic: 'lenz',
+    topic: 'heinrich-lenz',
     difficulty: 'sota',
     question: 'The energy dissipated by induced currents (Lenz\'s law) in a conductor moving through a magnetic field comes from what source?',
     options: [

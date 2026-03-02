@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const godelQuestions: Question[] = [
   {
     id: 10151,
-    topic: 'godel',
+    topic: 'kurt-godel',
     difficulty: 'easy',
     question: 'Gödel\'s first incompleteness theorem states:',
     options: [
@@ -19,7 +19,7 @@ export const godelQuestions: Question[] = [
   },
   {
     id: 10152,
-    topic: 'godel',
+    topic: 'kurt-godel',
     difficulty: 'hard',
     question: 'Gödel\'s proof technique relies on:',
     options: [
@@ -35,7 +35,7 @@ export const godelQuestions: Question[] = [
   },
   {
     id: 10153,
-    topic: 'godel',
+    topic: 'kurt-godel',
     difficulty: 'sota',
     question: 'Gödel\'s second incompleteness theorem implies:',
     options: [

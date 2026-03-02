@@ -2,7 +2,7 @@ import type { Question } from '../types';
 
 export const laplaceQuestions: Question[] = [
   {
-    id: 20001, topic: 'laplace', difficulty: 'easy',
+    id: 20001, topic: 'pierre-simon-laplace', difficulty: 'easy',
     question: 'The Laplace transform $\\mathcal{L}\\{f(t)\\} = F(s)$ converts a function of time into a function of:',
     options: ['Complex frequency $s = \\sigma + j\\omega$', 'Spatial frequency $k$', 'Angular momentum $L$', 'Temperature $T$'],
     correctIndex: 0,
@@ -11,7 +11,7 @@ export const laplaceQuestions: Question[] = [
     hint: 'It generalizes the Fourier transform by allowing complex exponents instead of purely imaginary ones.',
   },
   {
-    id: 20002, topic: 'laplace', difficulty: 'hard',
+    id: 20002, topic: 'pierre-simon-laplace', difficulty: 'hard',
     question: 'Laplace\'s equation $\\nabla^2 \\phi = 0$ describes:',
     options: ['Steady-state potential fields with no sources (harmonic functions)', 'Wave propagation in elastic media', 'Heat flow with time-dependent sources', 'Quantum tunneling through barriers'],
     correctIndex: 0,
@@ -20,7 +20,7 @@ export const laplaceQuestions: Question[] = [
     hint: 'No sources, no sinks, no time dependence — the potential is determined entirely by boundary conditions.',
   },
   {
-    id: 20003, topic: 'laplace', difficulty: 'sota',
+    id: 20003, topic: 'pierre-simon-laplace', difficulty: 'sota',
     question: 'Laplace\'s demon — "an intellect that knew all forces and positions" — is fundamentally refuted by:',
     options: ['Quantum indeterminacy (Heisenberg) and chaos theory (sensitive dependence on initial conditions)', 'Gödel\'s incompleteness theorem alone', 'The halting problem in computation', 'Conservation of energy constraints'],
     correctIndex: 0,

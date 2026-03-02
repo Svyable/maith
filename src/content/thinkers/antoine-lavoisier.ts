@@ -2,7 +2,7 @@ import type { Question } from '../types';
 
 export const lavoisierQuestions: Question[] = [
   {
-    id: 96020, topic: 'lavoisier', difficulty: 'easy',
+    id: 96020, topic: 'antoine-lavoisier', difficulty: 'easy',
     question: 'Lavoisier is called the "Father of Modern Chemistry" primarily for:',
     options: ['Disproving phlogiston theory and discovering the role of oxygen in combustion', 'Inventing the periodic table', 'Discovering radioactivity', 'Synthesizing the first organic compound'],
     correctIndex: 0,
@@ -11,7 +11,7 @@ export const lavoisierQuestions: Question[] = [
     hint: 'He proved that burning requires a specific gas in air.',
   },
   {
-    id: 96021, topic: 'lavoisier', difficulty: 'hard',
+    id: 96021, topic: 'antoine-lavoisier', difficulty: 'hard',
     question: 'Lavoisier\'s law of conservation of mass states:',
     options: ['Mass is neither created nor destroyed in a chemical reaction', 'Energy equals mass times the speed of light squared', 'Entropy always increases', 'Gases expand proportionally to temperature'],
     correctIndex: 0,
@@ -20,7 +20,7 @@ export const lavoisierQuestions: Question[] = [
     hint: 'He used precision balances to track every gram of matter.',
   },
   {
-    id: 96022, topic: 'lavoisier', difficulty: 'sota',
+    id: 96022, topic: 'antoine-lavoisier', difficulty: 'sota',
     question: 'Lavoisier\'s systematic naming of chemical compounds (with Guyton de Morveau) introduced:',
     options: ['Nomenclature based on elemental composition (e.g., "sulfate" for sulfur-oxygen compounds)', 'Naming by alchemical symbols', 'Numbering compounds sequentially', 'Classification by color and taste'],
     correctIndex: 0,

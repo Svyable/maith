@@ -4,7 +4,7 @@ import type { Question } from '../types';
 export const engelbartQuestions: Question[] = [
   {
     id: 40010,
-    topic: 'engelbart',
+    topic: 'douglas-engelbart',
     difficulty: 'easy',
     question: 'Engelbart\'s 1968 "Mother of All Demos" showed?',
     options: [
@@ -20,7 +20,7 @@ export const engelbartQuestions: Question[] = [
   },
   {
     id: 40011,
-    topic: 'engelbart',
+    topic: 'douglas-engelbart',
     difficulty: 'hard',
     question: 'Engelbart\'s goal: "augmenting human intellect" means?',
     options: [
@@ -36,7 +36,7 @@ export const engelbartQuestions: Question[] = [
   },
   {
     id: 40012,
-    topic: 'engelbart',
+    topic: 'douglas-engelbart',
     difficulty: 'sota',
     question: 'Engelbart\'s NLS system pioneered what collaboration?',
     options: [

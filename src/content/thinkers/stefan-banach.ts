@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const banachTarskiQuestions: Question[] = [
   {
     id: 20640,
-    topic: 'banach-tarski',
+    topic: 'stefan-banach',
     difficulty: 'hard',
     question: 'The Banach-Tarski paradox decomposes a sphere into pieces and reassembles them into two identical spheres. What is the minimum number of pieces required?',
     options: ['5', '3', '7', '12'],
@@ -14,7 +14,7 @@ export const banachTarskiQuestions: Question[] = [
   },
   {
     id: 20641,
-    topic: 'banach-tarski',
+    topic: 'stefan-banach',
     difficulty: 'sota',
     question: 'The Banach-Tarski paradox relies critically on which axiom of set theory?',
     options: ['The Axiom of Choice', 'The Axiom of Infinity', 'The Axiom of Regularity', 'The Axiom of Pairing'],
@@ -25,7 +25,7 @@ export const banachTarskiQuestions: Question[] = [
   },
   {
     id: 20642,
-    topic: 'banach-tarski',
+    topic: 'stefan-banach',
     difficulty: 'easy',
     question: 'The Banach-Tarski paradox is often summarized as: you can cut a pea into pieces and reassemble it into what?',
     options: ['A sphere the size of the Sun', 'Two peas', 'A cube', 'A line'],

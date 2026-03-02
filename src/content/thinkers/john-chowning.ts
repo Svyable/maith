@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const chowningQuestions: Question[] = [
   {
     id: 20700,
-    topic: 'chowning',
+    topic: 'john-chowning',
     difficulty: 'hard',
     question: 'FM synthesis produces sidebands at frequencies $f_c \\pm nf_m$. The amplitudes of these sidebands are given by which special functions?',
     options: ['Bessel functions of the first kind $J_n(\\beta)$', 'Legendre polynomials', 'Hermite polynomials', 'Chebyshev polynomials'],
@@ -14,7 +14,7 @@ export const chowningQuestions: Question[] = [
   },
   {
     id: 20701,
-    topic: 'chowning',
+    topic: 'john-chowning',
     difficulty: 'sota',
     question: 'In FM synthesis, increasing the modulation index $\\beta = \\Delta f / f_m$ beyond ~5 produces what spectral characteristic?',
     options: ['A dense, noise-like spectrum approaching Gaussian white noise', 'A pure sine wave', 'Only odd harmonics', 'A single sideband'],
@@ -25,7 +25,7 @@ export const chowningQuestions: Question[] = [
   },
   {
     id: 20702,
-    topic: 'chowning',
+    topic: 'john-chowning',
     difficulty: 'easy',
     question: 'Which iconic 1983 synthesizer used Chowning\'s FM synthesis algorithm, licensed from Stanford?',
     options: ['Yamaha DX7', 'Moog Minimoog', 'Roland TB-303', 'ARP Odyssey'],

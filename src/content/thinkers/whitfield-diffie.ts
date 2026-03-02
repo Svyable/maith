@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const diffieQuestions: Question[] = [
   {
     id: 14301,
-    topic: 'diffie-hellman',
+    topic: 'whitfield-diffie',
     difficulty: 'easy',
     question: 'The Diffie-Hellman key exchange (1976) was revolutionary because it allowed two parties to:',
     options: [
@@ -19,7 +19,7 @@ export const diffieQuestions: Question[] = [
   },
   {
     id: 14302,
-    topic: 'diffie-hellman',
+    topic: 'whitfield-diffie',
     difficulty: 'hard',
     question: 'Diffie and Hellman\'s 1976 paper "New Directions in Cryptography" introduced the concept of:',
     options: [
@@ -35,7 +35,7 @@ export const diffieQuestions: Question[] = [
   },
   {
     id: 14303,
-    topic: 'diffie-hellman',
+    topic: 'whitfield-diffie',
     difficulty: 'sota',
     question: 'The Logjam attack (2015) showed that many TLS implementations using Diffie-Hellman were vulnerable because:',
     options: [

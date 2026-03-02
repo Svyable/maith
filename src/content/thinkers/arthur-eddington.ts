@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const eddingtonQuestions: Question[] = [
   {
     id: 31200,
-    topic: 'eddington',
+    topic: 'arthur-eddington',
     difficulty: 'easy',
     question: 'What proved General Relativity in 1919?',
     options: [
@@ -19,7 +19,7 @@ export const eddingtonQuestions: Question[] = [
   },
   {
     id: 31201,
-    topic: 'eddington',
+    topic: 'arthur-eddington',
     difficulty: 'hard',
     question: 'Eddington Limit $L_\\text{Edd}} = \\frac{4πGMm_pc}{σ_T}$ balances what forces?',
     options: [
@@ -35,7 +35,7 @@ export const eddingtonQuestions: Question[] = [
   },
   {
     id: 31202,
-    topic: 'eddington',
+    topic: 'arthur-eddington',
     difficulty: 'sota',
     question: 'Eddington-Finkelstein coordinates eliminate what at $r_s = \\frac{2GM}{c^2}$?',
     options: [
@@ -51,7 +51,7 @@ export const eddingtonQuestions: Question[] = [
   },
   {
     id: 31203,
-    topic: 'eddington',
+    topic: 'arthur-eddington',
     difficulty: 'hard',
     question: 'Mass-luminosity $L∝M^{3.5}$ means what for stellar lifetimes?',
     options: [
@@ -67,7 +67,7 @@ export const eddingtonQuestions: Question[] = [
   },
   {
     id: 31204,
-    topic: 'eddington',
+    topic: 'arthur-eddington',
     difficulty: 'hard',
     question: 'Eddington obsessively derived exact value of what constant?',
     options: [

@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const jacobiQuestions: Question[] = [
   {
     id: 21700,
-    topic: 'jacobi',
+    topic: 'carl-jacobi',
     difficulty: 'sota',
     question: 'The Jacobi elliptic function sn(u, k) generalizes sin(u). What parameter k controls?',
     options: [
@@ -19,7 +19,7 @@ export const jacobiQuestions: Question[] = [
   },
   {
     id: 21701,
-    topic: 'jacobi',
+    topic: 'carl-jacobi',
     difficulty: 'sota',
     question: 'Jacobi\'s theta function θ₃(z, q) = 1 + 2∑q^(n²)cos(2nz) converges for |q| < 1. What is the key identity connecting theta functions to elliptic functions?',
     options: [
@@ -35,7 +35,7 @@ export const jacobiQuestions: Question[] = [
   },
   {
     id: 21702,
-    topic: 'jacobi',
+    topic: 'carl-jacobi',
     difficulty: 'sota',
     question: 'Jacobi\'s transformation formula relates theta functions at nome q to those at q\' where qq\' satisfies what condition?',
     options: [

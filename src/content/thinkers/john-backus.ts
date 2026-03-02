@@ -4,7 +4,7 @@ import type { Question } from '../types';
 export const backusQuestions: Question[] = [
   {
     id: 67015,
-    topic: 'backus',
+    topic: 'john-backus',
     difficulty: 'easy',
     question:
       'John Backus led the creation of FORTRAN. What was FORTRAN’s big breakthrough for programmers?',
@@ -24,7 +24,7 @@ export const backusQuestions: Question[] = [
   },
   {
     id: 67016,
-    topic: 'backus',
+    topic: 'john-backus',
     difficulty: 'hard',
     question:
       'Backus also popularized a formal grammar notation in the ALGOL era. What does “BNF” (Backus–Naur Form) describe?',
@@ -44,7 +44,7 @@ export const backusQuestions: Question[] = [
   },
   {
     id: 67017,
-    topic: 'backus',
+    topic: 'john-backus',
     difficulty: 'hard',
     question:
       'In his 1977 Turing Award lecture “Can Programming Be Liberated from the von Neumann Style?”, Backus criticized “von Neumann bottlenecks.” What was he mainly arguing for?',
@@ -64,7 +64,7 @@ export const backusQuestions: Question[] = [
   },
   {
     id: 67018,
-    topic: 'backus',
+    topic: 'john-backus',
     difficulty: 'sota',
     question:
       'A central functional-programming idea aligned with Backus is referential transparency. What does it mean?',
@@ -84,7 +84,7 @@ export const backusQuestions: Question[] = [
   },
   {
     id: 67019,
-    topic: 'backus',
+    topic: 'john-backus',
     difficulty: 'sota',
     question:
       'Backus-style composition emphasizes building programs from combinators. Which identity best expresses function composition?',

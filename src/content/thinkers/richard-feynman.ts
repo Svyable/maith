@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const feynmanQuestions: Question[] = [
   {
     id: 10051,
-    topic: 'feynman',
+    topic: 'richard-feynman',
     difficulty: 'easy',
     question: 'Feynman\'s path integral formulation of quantum mechanics says the probability amplitude is:',
     options: [
@@ -19,7 +19,7 @@ export const feynmanQuestions: Question[] = [
   },
   {
     id: 10052,
-    topic: 'feynman',
+    topic: 'richard-feynman',
     difficulty: 'easy',
     question: 'Feynman diagrams are graphical representations of:',
     options: [
@@ -35,7 +35,7 @@ export const feynmanQuestions: Question[] = [
   },
   {
     id: 10053,
-    topic: 'feynman',
+    topic: 'richard-feynman',
     difficulty: 'easy',
     question: 'Feynman proposed quantum computers in 1982 because:',
     options: [
@@ -51,7 +51,7 @@ export const feynmanQuestions: Question[] = [
   },
   {
     id: 10054,
-    topic: 'feynman',
+    topic: 'richard-feynman',
     difficulty: 'easy',
     question: 'The principle of least action states that a physical system evolves by:',
     options: [
@@ -67,7 +67,7 @@ export const feynmanQuestions: Question[] = [
   },
   {
     id: 10055,
-    topic: 'feynman',
+    topic: 'richard-feynman',
     difficulty: 'hard',
     question: 'In the path integral formulation, the propagator $K(x_b, t_b; x_a, t_a)$ satisfies:',
     options: [
@@ -83,7 +83,7 @@ export const feynmanQuestions: Question[] = [
   },
   {
     id: 10056,
-    topic: 'feynman',
+    topic: 'richard-feynman',
     difficulty: 'hard',
     question: 'Physics-Informed Neural Networks (PINNs) incorporate physical laws by:',
     options: [
@@ -99,7 +99,7 @@ export const feynmanQuestions: Question[] = [
   },
   {
     id: 10057,
-    topic: 'feynman',
+    topic: 'richard-feynman',
     difficulty: 'hard',
     question: 'Renormalization in quantum field theory addresses:',
     options: [
@@ -115,7 +115,7 @@ export const feynmanQuestions: Question[] = [
   },
   {
     id: 10058,
-    topic: 'feynman',
+    topic: 'richard-feynman',
     difficulty: 'sota',
     question: 'Shor\'s quantum factoring algorithm achieves exponential speedup using:',
     options: [
@@ -131,7 +131,7 @@ export const feynmanQuestions: Question[] = [
   },
   {
     id: 10059,
-    topic: 'feynman',
+    topic: 'richard-feynman',
     difficulty: 'sota',
     question: 'The variational quantum eigensolver (VQE) finds ground state energies by:',
     options: [
@@ -147,7 +147,7 @@ export const feynmanQuestions: Question[] = [
   },
   {
     id: 10060,
-    topic: 'feynman',
+    topic: 'richard-feynman',
     difficulty: 'sota',
     question: 'Feynman\'s checkerboard model shows that the Dirac equation in 1+1 dimensions can be derived as:',
     options: [

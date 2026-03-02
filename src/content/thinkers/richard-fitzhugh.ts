@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const fitzhughQuestions: Question[] = [
   {
     id: 9519,
-    topic: 'fitzhugh',
+    topic: 'richard-fitzhugh',
     difficulty: 'sota',
     question: 'The FitzHugh-Nagumo model $\\frac{dv}{dt} = v - \\frac{v^3}{3} - w + I$, $\\frac{dw}{dt} = \\varepsilon(v + a - bw)$ is a reduction of the Hodgkin-Huxley model from how many to how many dimensions?',
     options: [
@@ -19,7 +19,7 @@ export const fitzhughQuestions: Question[] = [
   },
   {
     id: 9520,
-    topic: 'fitzhugh',
+    topic: 'richard-fitzhugh',
     difficulty: 'sota',
     question: 'In the FitzHugh-Nagumo model, the cubic nullcline $w = v - v^3/3 + I$ creates excitability because:',
     options: [
@@ -35,7 +35,7 @@ export const fitzhughQuestions: Question[] = [
   },
   {
     id: 9521,
-    topic: 'fitzhugh',
+    topic: 'richard-fitzhugh',
     difficulty: 'sota',
     question: 'The parameter $\\varepsilon \\ll 1$ in FitzHugh-Nagumo creates a separation of timescales that produces:',
     options: [

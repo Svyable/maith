@@ -4,7 +4,7 @@ import type { Question } from '../types';
 export const shreveQuestions: Question[] = [
   {
     id: 69350,
-    topic: 'shreve',
+    topic: 'steven-shreve',
     difficulty: 'easy',
     question: 'Shreve binomial model converges to?',
     options: [
@@ -20,7 +20,7 @@ export const shreveQuestions: Question[] = [
   },
   {
     id: 69351,
-    topic: 'shreve',
+    topic: 'steven-shreve',
     difficulty: 'hard',
     question: 'Shreve Vol I teaches via?',
     options: [
@@ -36,7 +36,7 @@ export const shreveQuestions: Question[] = [
   },
   {
     id: 69352,
-    topic: 'shreve',
+    topic: 'steven-shreve',
     difficulty: 'sota',
     question: 'Shreve American put exercise boundary?',
     options: [
@@ -52,7 +52,7 @@ export const shreveQuestions: Question[] = [
   },
   {
     id: 69353,
-    topic: 'shreve',
+    topic: 'steven-shreve',
     difficulty: 'hard',
     question: 'Shreve change of numeraire?',
     options: [
@@ -68,7 +68,7 @@ export const shreveQuestions: Question[] = [
   },
   {
     id: 69354,
-    topic: 'shreve',
+    topic: 'steven-shreve',
     difficulty: 'sota',
     question: 'Shreve Vol II: continuous martingale?',
     options: [

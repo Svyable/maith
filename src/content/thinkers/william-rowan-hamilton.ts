@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const hamiltonWRQuestions: Question[] = [
   {
     id: 12401,
-    topic: 'hamilton-wr',
+    topic: 'william-rowan-hamilton',
     difficulty: 'easy',
     question: 'William Rowan Hamilton mastered 13 languages by age 13. His most famous mathematical invention came to him on a walk. What was it?',
     options: [
@@ -19,7 +19,7 @@ export const hamiltonWRQuestions: Question[] = [
   },
   {
     id: 12402,
-    topic: 'hamilton-wr',
+    topic: 'william-rowan-hamilton',
     difficulty: 'hard',
     question: 'Hamilton\'s reformulation of classical mechanics uses a function H(q,p,t). How does the Hamiltonian approach differ from Newton\'s F=ma?',
     options: [
@@ -35,7 +35,7 @@ export const hamiltonWRQuestions: Question[] = [
   },
   {
     id: 12403,
-    topic: 'hamilton-wr',
+    topic: 'william-rowan-hamilton',
     difficulty: 'sota',
     question: 'Hamiltonian Monte Carlo (HMC) is a modern MCMC algorithm inspired by Hamilton\'s mechanics. Its key advantage over random-walk Metropolis is:',
     options: [

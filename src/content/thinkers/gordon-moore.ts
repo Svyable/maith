@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const mooreQuestions: Question[] = [
   {
     id: 20470,
-    topic: 'moore',
+    topic: 'gordon-moore',
     difficulty: 'hard',
     question: 'Moore\'s original 1965 prediction stated transistor density would double every how many months?',
     options: ['12 months (later revised to 24)', '6 months', '36 months', '48 months'],
@@ -14,7 +14,7 @@ export const mooreQuestions: Question[] = [
   },
   {
     id: 20471,
-    topic: 'moore',
+    topic: 'gordon-moore',
     difficulty: 'sota',
     question: 'As of 2024, leading-edge transistors use which technology node, and what physical phenomenon threatens further scaling?',
     options: ['3nm GAA-FET; quantum tunneling through gate oxide', '14nm FinFET; heat dissipation', '45nm planar; wire resistance', '7nm SOI; cosmic ray interference'],
@@ -25,7 +25,7 @@ export const mooreQuestions: Question[] = [
   },
   {
     id: 20472,
-    topic: 'moore',
+    topic: 'gordon-moore',
     difficulty: 'easy',
     question: 'Gordon Moore co-founded which semiconductor company?',
     options: ['Intel', 'AMD', 'Texas Instruments', 'Qualcomm'],

@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const scholzeQuestions: Question[] = [
   {
     id: 12601,
-    topic: 'scholze',
+    topic: 'peter-scholze',
     difficulty: 'easy',
     question: 'Peter Scholze won the Fields Medal at age 30 for inventing "perfectoid spaces." What problem do they help solve?',
     options: [
@@ -19,7 +19,7 @@ export const scholzeQuestions: Question[] = [
   },
   {
     id: 12602,
-    topic: 'scholze',
+    topic: 'peter-scholze',
     difficulty: 'hard',
     question: 'Scholze\'s "Liquid Tensor Experiment" was notable because:',
     options: [
@@ -35,7 +35,7 @@ export const scholzeQuestions: Question[] = [
   },
   {
     id: 12603,
-    topic: 'scholze',
+    topic: 'peter-scholze',
     difficulty: 'sota',
     question: 'Scholze and Clausen\'s "condensed mathematics" program aims to:',
     options: [

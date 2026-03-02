@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const hawkingQuestions: Question[] = [
   {
     id: 10181,
-    topic: 'hawking',
+    topic: 'stephen-hawking',
     difficulty: 'easy',
     question: 'Hawking radiation predicts that black holes:',
     options: [
@@ -19,7 +19,7 @@ export const hawkingQuestions: Question[] = [
   },
   {
     id: 10182,
-    topic: 'hawking',
+    topic: 'stephen-hawking',
     difficulty: 'hard',
     question: 'The Bekenstein-Hawking entropy of a black hole is proportional to:',
     options: [
@@ -35,7 +35,7 @@ export const hawkingQuestions: Question[] = [
   },
   {
     id: 10183,
-    topic: 'hawking',
+    topic: 'stephen-hawking',
     difficulty: 'sota',
     question: 'The black hole information paradox arises because:',
     options: [

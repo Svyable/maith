@@ -2,7 +2,7 @@ import type { Question } from '../types';
 
 export const duchateletQuestions: Question[] = [
   {
-    id: 20203, topic: 'duchatelet', difficulty: 'easy',
+    id: 20203, topic: 'emilie-du-chatelet', difficulty: 'easy',
     question: 'Émilie du Châtelet translated which foundational physics work into French, adding her own commentary?',
     options: ['Newton\'s Principia Mathematica', 'Galileo\'s Two New Sciences', 'Descartes\' Principles of Philosophy', 'Leibniz\'s Monadology'],
     correctIndex: 0,
@@ -11,7 +11,7 @@ export const duchateletQuestions: Question[] = [
     hint: 'This was the masterwork of the man famous for falling apples and universal gravitation.',
   },
   {
-    id: 20204, topic: 'duchatelet', difficulty: 'hard',
+    id: 20204, topic: 'emilie-du-chatelet', difficulty: 'hard',
     question: 'Du Châtelet proved that kinetic energy is proportional to $mv^2$ rather than $mv$ as Newton and Descartes believed. What experiment supported her?',
     options: ['Brass balls dropped into soft clay (\'s Gravesande)', 'Pendulum timing experiments', 'Cannon recoil measurements', 'Inclined plane rolling'],
     correctIndex: 0,
@@ -20,7 +20,7 @@ export const duchateletQuestions: Question[] = [
     hint: 'Doubling the speed quadrupled the impression depth in the soft material.',
   },
   {
-    id: 20205, topic: 'duchatelet', difficulty: 'sota',
+    id: 20205, topic: 'emilie-du-chatelet', difficulty: 'sota',
     question: 'Du Châtelet\'s insight about $\\frac{1}{2}mv^2$ anticipated which fundamental theorem connecting force, work, and kinetic energy?',
     options: ['Work-energy theorem', 'Noether\'s theorem', 'Virial theorem', 'Equipartition theorem'],
     correctIndex: 0,

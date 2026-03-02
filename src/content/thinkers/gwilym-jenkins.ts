@@ -4,7 +4,7 @@ import type { Question } from '../types';
 export const jenkinsQuestions: Question[] = [
   {
     id: 69750,
-    topic: 'jenkins',
+    topic: 'gwilym-jenkins',
     difficulty: 'easy',
     question: 'Box-Jenkins ARIMA(p,d,q)?',
     options: [
@@ -20,7 +20,7 @@ export const jenkinsQuestions: Question[] = [
   },
   {
     id: 69751,
-    topic: 'jenkins',
+    topic: 'gwilym-jenkins',
     difficulty: 'hard',
     question: 'ACF/PACF identification?',
     options: [
@@ -36,7 +36,7 @@ export const jenkinsQuestions: Question[] = [
   },
   {
     id: 69752,
-    topic: 'jenkins',
+    topic: 'gwilym-jenkins',
     difficulty: 'sota',
     question: 'Jenkins seasonal ARIMA?',
     options: [
@@ -52,7 +52,7 @@ export const jenkinsQuestions: Question[] = [
   },
   {
     id: 69753,
-    topic: 'jenkins',
+    topic: 'gwilym-jenkins',
     difficulty: 'hard',
     question: 'Overdifferencing effect?',
     options: [
@@ -68,7 +68,7 @@ export const jenkinsQuestions: Question[] = [
   },
   {
     id: 69754,
-    topic: 'jenkins',
+    topic: 'gwilym-jenkins',
     difficulty: 'sota',
     question: 'Box-Jenkins parsimony principle?',
     options: [
@@ -84,7 +84,7 @@ export const jenkinsQuestions: Question[] = [
   },
   {
     id: 69750,
-    topic: 'jenkins',
+    topic: 'gwilym-jenkins',
     difficulty: 'easy',
     question:
       'In Box–Jenkins terminology, what does an ARIMA$(p,d,q)$ model mean in backshift-operator form?',
@@ -104,7 +104,7 @@ export const jenkinsQuestions: Question[] = [
   },
   {
     id: 69751,
-    topic: 'jenkins',
+    topic: 'gwilym-jenkins',
     difficulty: 'hard',
     question:
       'In the classical ACF/PACF identification rules for nonseasonal models, which pattern best indicates an AR($p$) process?',
@@ -124,7 +124,7 @@ export const jenkinsQuestions: Question[] = [
   },
   {
     id: 69752,
-    topic: 'jenkins',
+    topic: 'gwilym-jenkins',
     difficulty: 'sota',
     question:
       'A seasonal ARIMA is written SARIMA$(p,d,q)(P,D,Q)_s$. Which multiplicative operator form is correct (with $s$ the seasonal period)?',
@@ -144,7 +144,7 @@ export const jenkinsQuestions: Question[] = [
   },
   {
     id: 69753,
-    topic: 'jenkins',
+    topic: 'gwilym-jenkins',
     difficulty: 'hard',
     question:
       'What is a common symptom of **overdifferencing** (choosing $d$ too large) in ARIMA modeling?',
@@ -164,7 +164,7 @@ export const jenkinsQuestions: Question[] = [
   },
   {
     id: 69754,
-    topic: 'jenkins',
+    topic: 'gwilym-jenkins',
     difficulty: 'sota',
     question:
       'A central Box–Jenkins/Jenkins modeling norm is **parsimony**. What does it mean in ARIMA selection?',

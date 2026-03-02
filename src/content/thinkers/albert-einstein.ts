@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const einsteinQuestions: Question[] = [
   {
     id: 10201,
-    topic: 'einstein',
+    topic: 'albert-einstein',
     difficulty: 'easy',
     question: 'Einstein\'s mass-energy equivalence $E = mc^2$ implies:',
     options: [
@@ -19,7 +19,7 @@ export const einsteinQuestions: Question[] = [
   },
   {
     id: 10202,
-    topic: 'einstein',
+    topic: 'albert-einstein',
     difficulty: 'hard',
     question: 'General relativity describes gravity as:',
     options: [
@@ -35,7 +35,7 @@ export const einsteinQuestions: Question[] = [
   },
   {
     id: 10203,
-    topic: 'einstein',
+    topic: 'albert-einstein',
     difficulty: 'sota',
     question: 'Einstein\'s 1905 paper on the photoelectric effect proposed:',
     options: [

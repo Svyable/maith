@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const stokesQuestions: Question[] = [
   {
     id: 9507,
-    topic: 'stokes',
+    topic: 'george-stokes',
     difficulty: 'sota',
     question: 'Stokes\' theorem in its modern differential forms version states $\\int_M d\\omega =$:',
     options: [
@@ -19,7 +19,7 @@ export const stokesQuestions: Question[] = [
   },
   {
     id: 9508,
-    topic: 'stokes',
+    topic: 'george-stokes',
     difficulty: 'sota',
     question: 'In Stokes\' drag law $F = 6\\pi\\mu rv$ for a sphere in viscous flow, what Reynolds number regime is assumed?',
     options: [
@@ -35,7 +35,7 @@ export const stokesQuestions: Question[] = [
   },
   {
     id: 9509,
-    topic: 'stokes',
+    topic: 'george-stokes',
     difficulty: 'sota',
     question: 'The Navier-Stokes existence and smoothness problem (Clay Millennium) asks whether solutions in 3D always:',
     options: [

@@ -2,7 +2,7 @@ import type { Question } from '../types';
 
 export const wuQuestions: Question[] = [
   {
-    id: 20109, topic: 'wu', difficulty: 'easy',
+    id: 20109, topic: 'chien-shiung-wu', difficulty: 'easy',
     question: 'What fundamental physics symmetry did Chien-Shiung Wu experimentally prove is violated?',
     options: ['Parity (P) symmetry', 'Time reversal symmetry', 'Charge symmetry', 'Lorentz symmetry'],
     correctIndex: 0,
@@ -11,7 +11,7 @@ export const wuQuestions: Question[] = [
     hint: 'This symmetry says physics should look the same in a mirror.',
   },
   {
-    id: 20110, topic: 'wu', difficulty: 'hard',
+    id: 20110, topic: 'chien-shiung-wu', difficulty: 'hard',
     question: 'In Wu\'s parity violation experiment, what radioactive isotope did she use?',
     options: ['Cobalt-60', 'Cesium-137', 'Uranium-235', 'Strontium-90'],
     correctIndex: 0,
@@ -20,7 +20,7 @@ export const wuQuestions: Question[] = [
     hint: 'This isotope was polarized at ultra-low temperatures using adiabatic demagnetization.',
   },
   {
-    id: 20111, topic: 'wu', difficulty: 'sota',
+    id: 20111, topic: 'chien-shiung-wu', difficulty: 'sota',
     question: 'Lee and Yang won the Nobel Prize for predicting parity violation, but Wu did not share it. Who independently confirmed Wu\'s result?',
     options: ['Lederman, Garwin, and Weinrich', 'Fermi and Segrè', 'Gell-Mann and Zweig', 'Pauli and Heisenberg'],
     correctIndex: 0,

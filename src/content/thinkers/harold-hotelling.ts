@@ -4,7 +4,7 @@ import type { Question } from '../types';
 export const hotellingQuestions: Question[] = [
   {
     id: 69550,
-    topic: 'hotelling',
+    topic: 'harold-hotelling',
     difficulty: 'easy',
     question: 'Hotelling T² tests?',
     options: [
@@ -20,7 +20,7 @@ export const hotellingQuestions: Question[] = [
   },
   {
     id: 69551,
-    topic: 'hotelling',
+    topic: 'harold-hotelling',
     difficulty: 'hard',
     question: 'Hotelling T² distribution?',
     options: [
@@ -36,7 +36,7 @@ export const hotellingQuestions: Question[] = [
   },
   {
     id: 69552,
-    topic: 'hotelling',
+    topic: 'harold-hotelling',
     difficulty: 'sota',
     question: 'Hotelling law of spatial competition?',
     options: [
@@ -52,7 +52,7 @@ export const hotellingQuestions: Question[] = [
   },
   {
     id: 69553,
-    topic: 'hotelling',
+    topic: 'harold-hotelling',
     difficulty: 'hard',
     question: 'Hotelling lemma (economics)?',
     options: [
@@ -68,7 +68,7 @@ export const hotellingQuestions: Question[] = [
   },
   {
     id: 69554,
-    topic: 'hotelling',
+    topic: 'harold-hotelling',
     difficulty: 'sota',
     question: 'Hotelling resource depletion?',
     options: [
@@ -84,7 +84,7 @@ export const hotellingQuestions: Question[] = [
   },
   {
     id: 69555,
-    topic: 'hotelling',
+    topic: 'harold-hotelling',
     difficulty: 'easy',
     question:
       'Hotelling’s $T^2$ statistic is the multivariate analogue of the two-sample $t$-test. For comparing mean vectors $\\mu_1,\\mu_2\\in\\mathbb{R}^p$ with pooled covariance $S_p$, which expression matches the (equal-covariance) two-sample $T^2$?',
@@ -104,7 +104,7 @@ export const hotellingQuestions: Question[] = [
   },
   {
     id: 69556,
-    topic: 'hotelling',
+    topic: 'harold-hotelling',
     difficulty: 'hard',
     question:
       'Under multivariate normality and equal covariance, the two-sample Hotelling statistic converts to an $F$ distribution. Which conversion is correct for $p$ dimensions and total sample size $n=n_1+n_2$?',
@@ -124,7 +124,7 @@ export const hotellingQuestions: Question[] = [
   },
   {
     id: 69557,
-    topic: 'hotelling',
+    topic: 'harold-hotelling',
     difficulty: 'sota',
     question:
       'Hotelling’s (1929) spatial competition model places two firms on a line segment $[0,1]$ with consumers uniformly distributed and buying from the nearest firm (classic “linear city”). In the basic version, what location outcome is emphasized?',
@@ -144,7 +144,7 @@ export const hotellingQuestions: Question[] = [
   },
   {
     id: 69558,
-    topic: 'hotelling',
+    topic: 'harold-hotelling',
     difficulty: 'hard',
     question:
       'In microeconomics, **Hotelling’s lemma** links the profit function to supply. If $\\pi(p)=\\max_{y\\in Y} p\\cdot y$ is the profit function (price-taking firm), what does the derivative give (when differentiable)?',
@@ -164,7 +164,7 @@ export const hotellingQuestions: Question[] = [
   },
   {
     id: 69559,
-    topic: 'hotelling',
+    topic: 'harold-hotelling',
     difficulty: 'sota',
     question:
       'In resource economics, the **Hotelling rule** describes optimal extraction of a nonrenewable resource. In a competitive setting with marginal extraction cost $c$ and interest rate $r$, what is the classic implication for the scarcity rent $\\lambda(t)=p(t)-c$?',

@@ -4,7 +4,7 @@ import type { Question } from '../types';
 export const pasteurQuestions: Question[] = [
   {
     id: 50010,
-    topic: 'pasteur',
+    topic: 'louis-pasteur',
     difficulty: 'easy',
     question: 'Pasteur disproved what with swan-neck flasks?',
     options: [
@@ -20,7 +20,7 @@ export const pasteurQuestions: Question[] = [
   },
   {
     id: 50011,
-    topic: 'pasteur',
+    topic: 'louis-pasteur',
     difficulty: 'hard',
     question: 'Pasteur\'s germ theory showed?',
     options: [
@@ -33,7 +33,7 @@ export const pasteurQuestions: Question[] = [
   },
   {
     id: 50012,
-    topic: 'pasteur',
+    topic: 'louis-pasteur',
     difficulty: 'sota',
     question: 'Pasteurization kills what ($62.8^\\circ C$, 30min)?',
     options: [

@@ -4,7 +4,7 @@ import type { Question } from '../types';
 export const engleQuestions: Question[] = [
   {
     id: 69650,
-    topic: 'engle',
+    topic: 'robert-engle',
     difficulty: 'easy',
     question: 'ARCH(1): σ_t² = ?',
     options: [
@@ -20,7 +20,7 @@ export const engleQuestions: Question[] = [
   },
   {
     id: 69651,
-    topic: 'engle',
+    topic: 'robert-engle',
     difficulty: 'hard',
     question: 'ARCH LM test?',
     options: [
@@ -36,7 +36,7 @@ export const engleQuestions: Question[] = [
   },
   {
     id: 69652,
-    topic: 'engle',
+    topic: 'robert-engle',
     difficulty: 'sota',
     question: 'Engle ARCH-M: risk-return tradeoff?',
     options: [
@@ -52,7 +52,7 @@ export const engleQuestions: Question[] = [
   },
   {
     id: 69653,
-    topic: 'engle',
+    topic: 'robert-engle',
     difficulty: 'hard',
     question: 'DCC Engle-Sheppard?',
     options: [
@@ -68,7 +68,7 @@ export const engleQuestions: Question[] = [
   },
   {
     id: 69654,
-    topic: 'engle',
+    topic: 'robert-engle',
     difficulty: 'sota',
     question: 'Engle cointegration test?',
     options: [
@@ -84,7 +84,7 @@ export const engleQuestions: Question[] = [
   },
   {
     id: 69655,
-    topic: 'engle',
+    topic: 'robert-engle',
     difficulty: 'easy',
     question:
       'In Engle’s ARCH(1) model for conditional variance, what is the standard recursion for $\\sigma_t^2$ if the shock is $\\varepsilon_t$?',
@@ -104,7 +104,7 @@ export const engleQuestions: Question[] = [
   },
   {
     id: 69656,
-    topic: 'engle',
+    topic: 'robert-engle',
     difficulty: 'hard',
     question:
       'Engle’s ARCH LM test checks for ARCH effects by regressing squared residuals on their lags. What is the classic test statistic and its asymptotic distribution under $H_0$ (no ARCH up to lag $k$)?',
@@ -124,7 +124,7 @@ export const engleQuestions: Question[] = [
   },
   {
     id: 69657,
-    topic: 'engle',
+    topic: 'robert-engle',
     difficulty: 'sota',
     question:
       'ARCH-in-Mean (ARCH-M) models a risk–return tradeoff by putting volatility into the mean equation. Which form best captures the idea?',
@@ -144,7 +144,7 @@ export const engleQuestions: Question[] = [
   },
   {
     id: 69658,
-    topic: 'engle',
+    topic: 'robert-engle',
     difficulty: 'hard',
     question:
       'Engle’s DCC (Dynamic Conditional Correlation) model builds time-varying correlations from standardized residuals $u_t$. Which recursion is the canonical DCC(1,1) update for the correlation-driving matrix $Q_t$?',
@@ -164,7 +164,7 @@ export const engleQuestions: Question[] = [
   },
   {
     id: 69659,
-    topic: 'engle',
+    topic: 'robert-engle',
     difficulty: 'sota',
     question:
       'The Engle–Granger two-step approach tests for cointegration by checking whether the residual $\\hat e_t$ from a “levels regression” is stationary. Which is the correct second-step idea?',

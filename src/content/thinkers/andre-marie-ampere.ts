@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const ampereQuestions: Question[] = [
   {
     id: 21840,
-    topic: 'ampere',
+    topic: 'andre-marie-ampere',
     difficulty: 'sota',
     question: 'Ampère\'s circuital law relates the magnetic field circulation to enclosed current. In integral form: ∮B⃗·dl⃗ = ?',
     options: [
@@ -19,7 +19,7 @@ export const ampereQuestions: Question[] = [
   },
   {
     id: 21841,
-    topic: 'ampere',
+    topic: 'andre-marie-ampere',
     difficulty: 'sota',
     question: 'Ampère showed that two parallel wires carrying currents I₁ and I₂ separated by distance d experience a force per unit length of what?',
     options: [
@@ -35,7 +35,7 @@ export const ampereQuestions: Question[] = [
   },
   {
     id: 21842,
-    topic: 'ampere',
+    topic: 'andre-marie-ampere',
     difficulty: 'sota',
     question: 'Maxwell\'s correction to Ampère\'s law adds what term to handle time-varying electric fields?',
     options: [

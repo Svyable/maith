@@ -4,7 +4,7 @@ import type { Question } from '../types';
 export const leeuwenhoekQuestions: Question[] = [
   {
     id: 50000,
-    topic: 'leeuwenhoek',
+    topic: 'antonie-leeuwenhoek',
     difficulty: 'easy',
     question: 'Leeuwenhoek first observed what with self-ground lenses?',
     options: [
@@ -20,7 +20,7 @@ export const leeuwenhoekQuestions: Question[] = [
   },
   {
     id: 50001,
-    topic: 'leeuwenhoek',
+    topic: 'antonie-leeuwenhoek',
     difficulty: 'hard',
     question: 'Leeuwenhoek measured what blood phenomenon?',
     options: [
@@ -36,7 +36,7 @@ export const leeuwenhoekQuestions: Question[] = [
   },
   {
     id: 50002,
-    topic: 'leeuwenhoek',
+    topic: 'antonie-leeuwenhoek',
     difficulty: 'sota',
     question: 'Leeuwenhoek\'s lens quality achieved?',
     options: [

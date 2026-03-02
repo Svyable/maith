@@ -4,7 +4,7 @@ import type { Question } from '../types';
 export const rossQuestions: Question[] = [
   {
     id: 69200,
-    topic: 'ross',
+    topic: 'stephen-ross',
     difficulty: 'easy',
     question: 'Arbitrage Pricing Theory assumes?',
     options: [
@@ -20,7 +20,7 @@ export const rossQuestions: Question[] = [
   },
   {
     id: 69201,
-    topic: 'ross',
+    topic: 'stephen-ross',
     difficulty: 'hard',
     question: 'APT factor derivation?',
     options: [
@@ -36,7 +36,7 @@ export const rossQuestions: Question[] = [
   },
   {
     id: 69202,
-    topic: 'ross',
+    topic: 'stephen-ross',
     difficulty: 'sota',
     question: 'APT exact pricing condition?',
     options: [
@@ -52,7 +52,7 @@ export const rossQuestions: Question[] = [
   },
   {
     id: 69203,
-    topic: 'ross',
+    topic: 'stephen-ross',
     difficulty: 'hard',
     question: 'Ross binomial model converges to?',
     options: [
@@ -68,7 +68,7 @@ export const rossQuestions: Question[] = [
   },
   {
     id: 69204,
-    topic: 'ross',
+    topic: 'stephen-ross',
     difficulty: 'sota',
     question: 'APT vs Fama-French: key difference?',
     options: [

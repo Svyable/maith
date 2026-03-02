@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const singerQuestions: Question[] = [
   {
     id: 31105,
-    topic: 'singer',
+    topic: 'isadore-singer',
     difficulty: 'easy',
     question: 'Isadore Singer co-created the Index Theorem, fundamentally unifying mathematics and physics. When the theorem is specifically applied to the Dirac operator on a closed spin manifold, what famous geometric topological invariant does it mathematically produce?',
     options: [
@@ -19,7 +19,7 @@ export const singerQuestions: Question[] = [
   },
   {
     id: 31106,
-    topic: 'singer',
+    topic: 'isadore-singer',
     difficulty: 'sota',
     question: 'The Atiyah-Patodi-Singer $\\eta$-invariant (eta-invariant) was a massively important extension of the Index Theorem. What physical mathematical constraint did the $\\eta$-invariant specifically account for?',
     options: [
@@ -35,7 +35,7 @@ export const singerQuestions: Question[] = [
   },
   {
     id: 31107,
-    topic: 'singer',
+    topic: 'isadore-singer',
     difficulty: 'hard',
     question: 'Singer collaborated with D.B. Ray to define "Ray-Singer torsion." This analytic torsion was introduced as the analytical counterpart to which classic topological invariant?',
     options: [
@@ -51,7 +51,7 @@ export const singerQuestions: Question[] = [
   },
   {
     id: 31108,
-    topic: 'singer',
+    topic: 'isadore-singer',
     difficulty: 'hard',
     question: 'Decades ago, Richard Kadison and Isadore Singer posed the famous "Kadison-Singer problem." What specific field of mathematics, dealing with infinite-dimensional quantum mechanics, did this problem challenge?',
     options: [
@@ -67,7 +67,7 @@ export const singerQuestions: Question[] = [
   },
   {
     id: 31109,
-    topic: 'singer',
+    topic: 'isadore-singer',
     difficulty: 'easy',
     question: 'The Ambrose-Singer theorem provides a profound connection between the holonomy of a connection and its curvature. What does "holonomy" mathematically measure in this context?',
     options: [

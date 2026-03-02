@@ -2,7 +2,7 @@ import type { Question } from '../types';
 
 export const cantorQuestions: Question[] = [
   {
-    id: 20201, topic: 'cantor', difficulty: 'easy',
+    id: 20201, topic: 'georg-cantor', difficulty: 'easy',
     question: 'Cantor proved that the real numbers are uncountable using:',
     options: ['The diagonal argument — any list of reals misses at least one', 'Induction on the natural numbers', 'The pigeonhole principle', 'Euler\'s identity'],
     correctIndex: 0,
@@ -11,7 +11,7 @@ export const cantorQuestions: Question[] = [
     hint: 'Flip each diagonal digit — the resulting number cannot appear anywhere in the list.',
   },
   {
-    id: 20202, topic: 'cantor', difficulty: 'hard',
+    id: 20202, topic: 'georg-cantor', difficulty: 'hard',
     question: 'Cantor\'s theorem states that for any set $S$, its power set $\\mathcal{P}(S)$ satisfies:',
     options: ['$|\\mathcal{P}(S)| > |S|$ — no surjection from $S$ to $\\mathcal{P}(S)$ exists', '$|\\mathcal{P}(S)| = 2|S|$', '$|\\mathcal{P}(S)| = |S|$ for infinite sets', '$|\\mathcal{P}(S)| < |S|^2$'],
     correctIndex: 0,
@@ -20,7 +20,7 @@ export const cantorQuestions: Question[] = [
     hint: 'Consider the set of elements that are NOT in their own image — Russell\'s paradox is a cousin of this argument.',
   },
   {
-    id: 20203, topic: 'cantor', difficulty: 'sota',
+    id: 20203, topic: 'georg-cantor', difficulty: 'sota',
     question: 'The Continuum Hypothesis (CH) — that there is no set with cardinality strictly between $\\aleph_0$ and $2^{\\aleph_0}$ — was shown to be:',
     options: ['Independent of ZFC: consistent (Gödel 1940) and not provable (Cohen 1963, forcing)', 'True, proved by Gödel in 1940', 'False, disproved by Cohen in 1963', 'Equivalent to the Axiom of Choice'],
     correctIndex: 0,

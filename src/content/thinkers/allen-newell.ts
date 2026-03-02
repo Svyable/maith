@@ -4,7 +4,7 @@ import type { Question } from '../types';
 export const newellQuestions: Question[] = [
   {
     id: 65100,
-    topic: 'newell',
+    topic: 'allen-newell',
     difficulty: 'easy',
     question:
       'Newell & Simon’s 1956-era breakthrough is often cited as one of the first major AI programs. Which program was it, and what kind of task did it perform?',
@@ -24,7 +24,7 @@ export const newellQuestions: Question[] = [
   },
   {
     id: 65101,
-    topic: 'newell',
+    topic: 'allen-newell',
     difficulty: 'easy',
     question:
       'Newell & Simon’s “Physical Symbol System Hypothesis” (PSSH) claims, roughly, that:',
@@ -44,7 +44,7 @@ export const newellQuestions: Question[] = [
   },
   {
     id: 65102,
-    topic: 'newell',
+    topic: 'allen-newell',
     difficulty: 'hard',
     question:
       'The General Problem Solver (GPS) is associated with **means–ends analysis**. What is the core idea of means–ends analysis in state-space terms?',
@@ -64,7 +64,7 @@ export const newellQuestions: Question[] = [
   },
   {
     id: 65103,
-    topic: 'newell',
+    topic: 'allen-newell',
     difficulty: 'hard',
     question:
       'Newell’s work on problem solving emphasized **heuristics**. Which statement best captures why heuristics matter in AI search?',
@@ -84,7 +84,7 @@ export const newellQuestions: Question[] = [
   },
   {
     id: 65104,
-    topic: 'newell',
+    topic: 'allen-newell',
     difficulty: 'sota',
     question:
       'SOAR (associated with Newell) is a cognitive architecture with a distinctive learning mechanism. What is the core “SOAR loop” and how does it learn?',

@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const emdenQuestions: Question[] = [
   {
     id: 9513,
-    topic: 'emden',
+    topic: 'robert-emden',
     difficulty: 'sota',
     question: 'The Lane-Emden equation $\\frac{1}{\\xi^2}\\frac{d}{d\\xi}\\left(\\xi^2\\frac{d\\theta}{d\\xi}\\right) + \\theta^n = 0$ has exact closed-form solutions for polytropic indices:',
     options: [
@@ -19,7 +19,7 @@ export const emdenQuestions: Question[] = [
   },
   {
     id: 9514,
-    topic: 'emden',
+    topic: 'robert-emden',
     difficulty: 'sota',
     question: 'For the Lane-Emden equation with $n=3$ (Eddington\'s standard model), the first zero $\\xi_1$ determines:',
     options: [
@@ -35,7 +35,7 @@ export const emdenQuestions: Question[] = [
   },
   {
     id: 9515,
-    topic: 'emden',
+    topic: 'robert-emden',
     difficulty: 'sota',
     question: 'The Chandrasekhar mass limit for white dwarfs uses the Lane-Emden equation with $n = 3$ because the electron degeneracy pressure in the relativistic limit follows:',
     options: [

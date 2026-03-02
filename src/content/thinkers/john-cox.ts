@@ -4,7 +4,7 @@ import type { Question } from '../types';
 export const coxQuestions: Question[] = [
   {
     id: 69500,
-    topic: 'cox',
+    topic: 'john-cox',
     difficulty: 'easy',
     question:
       'In the Cox–Ross–Rubinstein (CRR) binomial model with time step $\\Delta t$ and volatility $\\sigma$, what are the standard “up” and “down” multipliers $(u,d)$ that yield a recombining tree converging to a lognormal diffusion?',
@@ -23,7 +23,7 @@ export const coxQuestions: Question[] = [
   },
   {
     id: 69501,
-    topic: 'cox',
+    topic: 'john-cox',
     difficulty: 'hard',
     question:
       'The Cox–Ingersoll–Ross (CIR) short-rate model is a mean-reverting **square-root diffusion**. Which SDE is the CIR model, and what condition helps keep rates nonnegative?',
@@ -42,7 +42,7 @@ export const coxQuestions: Question[] = [
   },
   {
     id: 69502,
-    topic: 'cox',
+    topic: 'john-cox',
     difficulty: 'sota',
     question:
       'A Cox process (a doubly stochastic Poisson process) randomizes the intensity. Which statement is correct?',
@@ -61,7 +61,7 @@ export const coxQuestions: Question[] = [
   },
   {
     id: 69503,
-    topic: 'cox',
+    topic: 'john-cox',
     difficulty: 'hard',
     question:
       'In the CRR tree with continuous dividend yield $\\delta$ and risk-free rate $r$, what is the risk-neutral probability $p^*$ (so the discounted stock is a martingale)?',
@@ -80,7 +80,7 @@ export const coxQuestions: Question[] = [
   },
   {
     id: 69504,
-    topic: 'cox',
+    topic: 'john-cox',
     difficulty: 'sota',
     question:
       'CIR is an **affine term-structure model**. What is the standard exponential-affine form of the CIR zero-coupon bond price $P(0,T)$ in terms of current short rate $r_0$?',

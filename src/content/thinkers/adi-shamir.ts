@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const shamirQuestions: Question[] = [
   {
     id: 14401,
-    topic: 'shamir',
+    topic: 'adi-shamir',
     difficulty: 'easy',
     question: 'Adi Shamir is the "S" in RSA. Shamir\'s Secret Sharing scheme splits a secret into $n$ shares such that:',
     options: [
@@ -19,7 +19,7 @@ export const shamirQuestions: Question[] = [
   },
   {
     id: 14402,
-    topic: 'shamir',
+    topic: 'adi-shamir',
     difficulty: 'hard',
     question: 'Shamir co-invented differential cryptanalysis (1990), which attacks block ciphers by:',
     options: [
@@ -35,7 +35,7 @@ export const shamirQuestions: Question[] = [
   },
   {
     id: 14403,
-    topic: 'shamir',
+    topic: 'adi-shamir',
     difficulty: 'sota',
     question: 'Shamir\'s visual cryptography scheme encodes an image into $n$ transparencies such that:',
     options: [

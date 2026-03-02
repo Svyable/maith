@@ -4,7 +4,7 @@ import type { Question } from '../types';
 export const kellyQuestions: Question[] = [
   {
     id: 69000,
-    topic: 'kelly',
+    topic: 'john-kelly',
     difficulty: 'easy',
     question: 'Kelly Criterion maximizes?',
     options: [
@@ -20,7 +20,7 @@ export const kellyQuestions: Question[] = [
   },
   {
     id: 69001,
-    topic: 'kelly',
+    topic: 'john-kelly',
     difficulty: 'hard',
     question: 'Even money Kelly (b=1): f* = ?',
     options: [
@@ -36,7 +36,7 @@ export const kellyQuestions: Question[] = [
   },
   {
     id: 69002,
-    topic: 'kelly',
+    topic: 'john-kelly',
     difficulty: 'sota',
     question: 'Kelly portfolio weights solve?',
     options: [
@@ -52,7 +52,7 @@ export const kellyQuestions: Question[] = [
   },
   {
     id: 69003,
-    topic: 'kelly',
+    topic: 'john-kelly',
     difficulty: 'hard',
     question: 'Kelly + transaction costs: f* becomes?',
     options: [
@@ -68,7 +68,7 @@ export const kellyQuestions: Question[] = [
   },
   {
     id: 69004,
-    topic: 'kelly',
+    topic: 'john-kelly',
     difficulty: 'sota',
     question: 'Asymptotic Kelly growth rate?',
     options: [

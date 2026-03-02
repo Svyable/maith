@@ -2,7 +2,7 @@ import type { Question } from '../types';
 
 export const bohrQuestions: Question[] = [
   {
-    id: 96501, topic: 'bohr', difficulty: 'easy',
+    id: 96501, topic: 'niels-bohr', difficulty: 'easy',
     question: 'Niels Bohr\'s atomic model proposed that electrons:',
     options: ['Orbit the nucleus only at specific quantized energy levels, emitting photons when jumping between them', 'Move in continuous spirals around the nucleus', 'Are embedded in a "plum pudding" of positive charge', 'Have no defined position or orbit at any time'],
     correctIndex: 0,
@@ -11,7 +11,7 @@ export const bohrQuestions: Question[] = [
     hint: 'Only certain orbits are allowed — and light is emitted in jumps between them.',
   },
   {
-    id: 96502, topic: 'bohr', difficulty: 'hard',
+    id: 96502, topic: 'niels-bohr', difficulty: 'hard',
     question: 'Bohr\'s principle of complementarity states that:',
     options: ['Quantum objects exhibit wave or particle behavior depending on the experimental setup — both descriptions are necessary but mutually exclusive in any single measurement', 'Waves and particles are the same thing in all circumstances', 'The uncertainty principle can be violated with precise enough instruments', 'Classical physics is always a special case of quantum mechanics'],
     correctIndex: 0,
@@ -20,7 +20,7 @@ export const bohrQuestions: Question[] = [
     hint: 'You can see a wave pattern or detect a particle — never both at once.',
   },
   {
-    id: 96503, topic: 'bohr', difficulty: 'sota',
+    id: 96503, topic: 'niels-bohr', difficulty: 'sota',
     question: 'The Bohr–Einstein debates (1927–1935) centered on whether quantum mechanics is complete. Bohr defended the Copenhagen interpretation against Einstein\'s EPR argument by showing:',
     options: ['The EPR criterion of "physical reality" is inapplicable because measurement of one property fundamentally disturbs the complementary property — there is no simultaneous reality for non-commuting observables', 'Einstein\'s thought experiments contained mathematical errors', 'Hidden variables must exist but cannot be detected', 'Quantum entanglement violates special relativity'],
     correctIndex: 0,

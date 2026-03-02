@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const euclidQuestions: Question[] = [
   {
     id: 11001,
-    topic: 'euclid',
+    topic: 'euclid-of-alexandria',
     difficulty: 'easy',
     question: 'What is the fundamental claim of Euclid\'s first postulate?',
     options: [
@@ -19,7 +19,7 @@ export const euclidQuestions: Question[] = [
   },
   {
     id: 11002,
-    topic: 'euclid',
+    topic: 'euclid-of-alexandria',
     difficulty: 'easy',
     question: 'Euclid\'s proof that there are infinitely many primes uses which key idea?',
     options: [
@@ -35,7 +35,7 @@ export const euclidQuestions: Question[] = [
   },
   {
     id: 11003,
-    topic: 'euclid',
+    topic: 'euclid-of-alexandria',
     difficulty: 'easy',
     question: 'The Euclidean Algorithm computes the GCD of two numbers by:',
     options: [
@@ -51,7 +51,7 @@ export const euclidQuestions: Question[] = [
   },
   {
     id: 11004,
-    topic: 'euclid',
+    topic: 'euclid-of-alexandria',
     difficulty: 'easy',
     question: 'Which of Euclid\'s five postulates was most controversial and led to non-Euclidean geometry?',
     options: [
@@ -67,7 +67,7 @@ export const euclidQuestions: Question[] = [
   },
   {
     id: 11005,
-    topic: 'euclid',
+    topic: 'euclid-of-alexandria',
     difficulty: 'hard',
     question: 'The Extended Euclidean Algorithm finds integers $x, y$ such that $ax + by = \\gcd(a, b)$. This is used in cryptography to compute:',
     options: [
@@ -83,7 +83,7 @@ export const euclidQuestions: Question[] = [
   },
   {
     id: 11006,
-    topic: 'euclid',
+    topic: 'euclid-of-alexandria',
     difficulty: 'hard',
     question: 'A "golden ratio" $\\phi$ satisfies $\\phi^2 = \\phi + 1$. What is the continued fraction expansion of $\\phi$?',
     options: [
@@ -99,7 +99,7 @@ export const euclidQuestions: Question[] = [
   },
   {
     id: 11007,
-    topic: 'euclid',
+    topic: 'euclid-of-alexandria',
     difficulty: 'hard',
     question: 'Euclid\'s proof of the Pythagorean theorem ($a^2 + b^2 = c^2$) in Book I uses:',
     options: [
@@ -115,7 +115,7 @@ export const euclidQuestions: Question[] = [
   },
   {
     id: 11008,
-    topic: 'euclid',
+    topic: 'euclid-of-alexandria',
     difficulty: 'sota',
     question: 'In formal proof systems, Euclid\'s Elements was re-examined and found to have gaps. Which modern framework fully formalizes Euclidean geometry without intuitive leaps?',
     options: [
@@ -131,7 +131,7 @@ export const euclidQuestions: Question[] = [
   },
   {
     id: 11009,
-    topic: 'euclid',
+    topic: 'euclid-of-alexandria',
     difficulty: 'sota',
     question: 'The "Elements" structure — definitions, postulates, common notions, propositions — is best described as an example of:',
     options: [
@@ -147,7 +147,7 @@ export const euclidQuestions: Question[] = [
   },
   {
     id: 11010,
-    topic: 'euclid',
+    topic: 'euclid-of-alexandria',
     difficulty: 'sota',
     question: 'In machine learning, "Euclidean distance" fails in high dimensions due to the "curse of dimensionality." Specifically:',
     options: [

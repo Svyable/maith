@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const mandelbrotQuestions: Question[] = [
   {
     id: 20430,
-    topic: 'mandelbrot',
+    topic: 'benoit-mandelbrot',
     difficulty: 'hard',
     question: 'The Mandelbrot set is defined as the set of complex numbers $c$ for which the iteration $z_{n+1} = z_n^2 + c$ (starting from $z_0=0$) satisfies:',
     options: ['$|z_n|$ remains bounded as $n \\to \\infty$', '$|z_n| \\to \\infty$', '$z_n$ converges to a fixed point', '$z_n$ is periodic with period 2'],
@@ -14,7 +14,7 @@ export const mandelbrotQuestions: Question[] = [
   },
   {
     id: 20431,
-    topic: 'mandelbrot',
+    topic: 'benoit-mandelbrot',
     difficulty: 'hard',
     question: 'Mandelbrot argued that financial returns follow which type of distribution rather than Gaussian?',
     options: ['Lévy-stable (fat-tailed) distributions', 'Uniform distributions', 'Poisson distributions', 'Exponential distributions'],
@@ -25,7 +25,7 @@ export const mandelbrotQuestions: Question[] = [
   },
   {
     id: 20432,
-    topic: 'mandelbrot',
+    topic: 'benoit-mandelbrot',
     difficulty: 'sota',
     question: 'The Hausdorff dimension of the boundary of the Mandelbrot set has been proven to be:',
     options: ['Exactly 2', 'Approximately 1.5', 'Exactly 1', 'Unknown / unproven'],
@@ -36,7 +36,7 @@ export const mandelbrotQuestions: Question[] = [
   },
   {
     id: 20433,
-    topic: 'mandelbrot',
+    topic: 'benoit-mandelbrot',
     difficulty: 'sota',
     question: 'Mandelbrot\'s concept of "multifractal" measures generalizes fractal dimension using the Rényi spectrum $D_q$. For a monofractal, what is true about $D_q$?',
     options: ['$D_q$ is constant for all $q$', '$D_q$ increases with $q$', '$D_q$ oscillates', '$D_q$ is undefined for $q < 0$'],
@@ -47,7 +47,7 @@ export const mandelbrotQuestions: Question[] = [
   },
   {
     id: 20434,
-    topic: 'mandelbrot',
+    topic: 'benoit-mandelbrot',
     difficulty: 'easy',
     question: 'What geometric property defines a fractal?',
     options: ['Self-similarity at different scales', 'Perfect symmetry', 'Integer dimension', 'Smooth curves everywhere'],

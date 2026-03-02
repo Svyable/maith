@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const wheelerQuestions: Question[] = [
   {
     id: 21130,
-    topic: 'wheeler',
+    topic: 'john-wheeler',
     difficulty: 'sota',
     question: 'John Archibald Wheeler coined which term for a gravitationally collapsed star from which nothing can escape?',
     options: ['Black hole', 'Neutron star', 'Quasar', 'Pulsar'],
@@ -14,7 +14,7 @@ export const wheelerQuestions: Question[] = [
   },
   {
     id: 21131,
-    topic: 'wheeler',
+    topic: 'john-wheeler',
     difficulty: 'sota',
     question: 'Wheeler\'s "It from Bit" doctrine proposes that the universe is fundamentally made of what?',
     options: ['Information — every physical quantity derives from binary yes/no questions', 'Energy fields pervading spacetime', 'Vibrating strings in higher dimensions', 'Discrete atoms of spacetime'],
@@ -25,7 +25,7 @@ export const wheelerQuestions: Question[] = [
   },
   {
     id: 21132,
-    topic: 'wheeler',
+    topic: 'john-wheeler',
     difficulty: 'sota',
     question: 'Wheeler\'s "delayed choice" thought experiment demonstrates which counterintuitive quantum principle?',
     options: ['The measurement choice made after a photon enters an interferometer determines its past behavior', 'Entangled particles communicate faster than light', 'Quantum states cannot be cloned', 'The vacuum contains infinite energy'],

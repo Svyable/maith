@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const lebesgueQuestions: Question[] = [
   {
     id: 31070,
-    topic: 'lebesgue',
+    topic: 'henri-lebesgue',
     difficulty: 'easy',
     question: 'Henri Lebesgue absolutely revolutionized calculus by generalizing the integral. Conceptually, how does the Lebesgue integral physically differ from the traditional Riemann integral?',
     options: [
@@ -19,7 +19,7 @@ export const lebesgueQuestions: Question[] = [
   },
   {
     id: 31071,
-    topic: 'lebesgue',
+    topic: 'henri-lebesgue',
     difficulty: 'hard',
     question: 'The Lebesgue integral relies entirely on the mathematical foundation of "Measure Theory." In this context, what is the exact Lebesgue measure of the set of all rational numbers on the real line?',
     options: [
@@ -35,7 +35,7 @@ export const lebesgueQuestions: Question[] = [
   },
   {
     id: 31072,
-    topic: 'lebesgue',
+    topic: 'henri-lebesgue',
     difficulty: 'sota',
     question: 'Lebesgue\'s "Dominated Convergence Theorem" is a massive cornerstone of modern analysis. What highly useful mathematical manipulation does it strictly justify?',
     options: [
@@ -51,7 +51,7 @@ export const lebesgueQuestions: Question[] = [
   },
   {
     id: 31073,
-    topic: 'lebesgue',
+    topic: 'henri-lebesgue',
     difficulty: 'hard',
     question: 'Which famous, pathologically broken mathematical function is completely un-integrable using Riemann\'s classical method, but easily integrable and evaluates to zero using Lebesgue\'s method over the interval [0,1]?',
     options: [
@@ -67,7 +67,7 @@ export const lebesgueQuestions: Question[] = [
   },
   {
     id: 31074,
-    topic: 'lebesgue',
+    topic: 'henri-lebesgue',
     difficulty: 'hard',
     question: 'Lebesgue integration heavily utilizes the concept of properties holding "almost everywhere." What exactly does "almost everywhere" mean in formal mathematical measure theory?',
     options: [

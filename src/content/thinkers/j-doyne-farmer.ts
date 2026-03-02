@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const farmerQuestions: Question[] = [
   {
     id: 21150,
-    topic: 'farmer',
+    topic: 'j-doyne-farmer',
     difficulty: 'sota',
     question: 'J. Doyne Farmer\'s "Eudaemonic Enterprises" group used physics to beat which casino game in the 1970s?',
     options: ['Roulette — using a wearable computer hidden in a shoe', 'Blackjack — using card counting', 'Craps — predicting dice outcomes', 'Poker — using game theory optimal play'],
@@ -14,7 +14,7 @@ export const farmerQuestions: Question[] = [
   },
   {
     id: 21151,
-    topic: 'farmer',
+    topic: 'j-doyne-farmer',
     difficulty: 'sota',
     question: 'Farmer\'s agent-based models of financial markets challenge the efficient market hypothesis by demonstrating what?',
     options: ['Realistic market dynamics (bubbles, crashes, fat tails) emerge from heterogeneous interacting agents', 'Markets always converge to fundamental value', 'A single representative agent can explain all price dynamics', 'Technical analysis is always profitable'],
@@ -25,7 +25,7 @@ export const farmerQuestions: Question[] = [
   },
   {
     id: 21152,
-    topic: 'farmer',
+    topic: 'j-doyne-farmer',
     difficulty: 'sota',
     question: 'Farmer\'s work on technological progress uses which mathematical framework to predict how costs decrease over time?',
     options: ['Wright\'s Law (power-law learning curves)', 'Moore\'s Law (exponential transistor scaling)', 'Metcalfe\'s Law (network value scaling)', 'Kaldor\'s growth facts'],
@@ -36,7 +36,7 @@ export const farmerQuestions: Question[] = [
   },
   {
     id: 21153,
-    topic: 'farmer',
+    topic: 'j-doyne-farmer',
     difficulty: 'sota',
     question: 'Farmer co-founded which pioneering quantitative trading firm in the 1990s?',
     options: ['Prediction Company', 'Renaissance Technologies', 'D.E. Shaw', 'Two Sigma'],
@@ -47,7 +47,7 @@ export const farmerQuestions: Question[] = [
   },
   {
     id: 21154,
-    topic: 'farmer',
+    topic: 'j-doyne-farmer',
     difficulty: 'sota',
     question: 'Farmer\'s concept of "market ecology" draws an analogy between trading strategies and which biological concept?',
     options: ['Species competing for resources in an ecosystem', 'Genetic mutation and natural selection', 'Symbiotic relationships between organisms', 'Predator-prey population dynamics'],

@@ -2,7 +2,7 @@ import type { Question } from '../types';
 
 export const wienerQuestions: Question[] = [
   {
-    id: 19101, topic: 'wiener', difficulty: 'easy',
+    id: 19101, topic: 'norbert-wiener', difficulty: 'easy',
     question: 'Norbert Wiener founded the field of cybernetics, which studies:',
     options: ['Control and communication in animals and machines', 'Cyber attacks on computer systems', 'Virtual reality environments', 'Database management systems'],
     correctIndex: 0,
@@ -11,7 +11,7 @@ export const wienerQuestions: Question[] = [
     hint: 'It is about feedback loops — how systems self-regulate, whether biological or mechanical.',
   },
   {
-    id: 19102, topic: 'wiener', difficulty: 'hard',
+    id: 19102, topic: 'norbert-wiener', difficulty: 'hard',
     question: 'The Wiener filter is the optimal linear filter for:',
     options: ['Extracting a signal from additive noise by minimizing mean squared error', 'Maximizing signal amplitude', 'Removing DC offset', 'Compressing data losslessly'],
     correctIndex: 0,
@@ -20,7 +20,7 @@ export const wienerQuestions: Question[] = [
     hint: 'It uses the power spectral density of signal and noise to find the optimal frequency response.',
   },
   {
-    id: 19103, topic: 'wiener', difficulty: 'sota',
+    id: 19103, topic: 'norbert-wiener', difficulty: 'sota',
     question: 'The Wiener process (standard Brownian motion) has the property that its paths are:',
     options: ['Continuous everywhere but differentiable nowhere (almost surely)', 'Smooth and infinitely differentiable', 'Piecewise linear', 'Discontinuous with jumps'],
     correctIndex: 0,

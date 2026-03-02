@@ -2,7 +2,7 @@ import type { Question } from '../types';
 
 export const karpathyQuestions: Question[] = [
   {
-    id: 95001, topic: 'karpathy', difficulty: 'easy',
+    id: 95001, topic: 'andrej-karpathy', difficulty: 'easy',
     question: 'Andrej Karpathy\'s char-rnn demonstrated that recurrent neural networks can:',
     options: ['Generate coherent text character by character', 'Classify images into categories', 'Solve differential equations', 'Compress video files'],
     correctIndex: 0,
@@ -11,7 +11,7 @@ export const karpathyQuestions: Question[] = [
     hint: 'The model predicts the next character given all previous characters.',
   },
   {
-    id: 95002, topic: 'karpathy', difficulty: 'hard',
+    id: 95002, topic: 'andrej-karpathy', difficulty: 'hard',
     question: 'In Karpathy\'s "Software 2.0" thesis, traditional code is replaced by:',
     options: ['Learned neural network weights optimized on data', 'Quantum computing circuits', 'Genetic algorithms', 'Rule-based expert systems'],
     correctIndex: 0,
@@ -20,7 +20,7 @@ export const karpathyQuestions: Question[] = [
     hint: 'The programmer specifies the objective; the optimizer writes the program.',
   },
   {
-    id: 95003, topic: 'karpathy', difficulty: 'sota',
+    id: 95003, topic: 'andrej-karpathy', difficulty: 'sota',
     question: 'Karpathy\'s work on Tesla\'s vision system replaced radar+lidar with:',
     options: ['Pure vision using multi-camera transformer networks', 'LiDAR-only depth sensing', 'Ultrasonic sensor fusion', 'Pre-mapped HD routes'],
     correctIndex: 0,

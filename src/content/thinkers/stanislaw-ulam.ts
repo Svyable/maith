@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const ulamQuestions: Question[] = [
   {
     id: 21110,
-    topic: 'ulam',
+    topic: 'stanislaw-ulam',
     difficulty: 'sota',
     question: 'Ulam invented the Monte Carlo method while recovering from surgery and playing which game?',
     options: ['Solitaire (Canfield)', 'Chess', 'Poker', 'Bridge'],
@@ -14,7 +14,7 @@ export const ulamQuestions: Question[] = [
   },
   {
     id: 21111,
-    topic: 'ulam',
+    topic: 'stanislaw-ulam',
     difficulty: 'sota',
     question: 'Ulam\'s key contribution to thermonuclear weapon design was proposing which configuration?',
     options: ['Radiation implosion (Teller–Ulam design)', 'Gun-type fission assembly', 'Boosted fission with tritium', 'Pure fusion ignition'],
@@ -25,7 +25,7 @@ export const ulamQuestions: Question[] = [
   },
   {
     id: 21112,
-    topic: 'ulam',
+    topic: 'stanislaw-ulam',
     difficulty: 'sota',
     question: 'The "Fermi–Pasta–Ulam–Tsingou problem" (1955) unexpectedly demonstrated which phenomenon in nonlinear systems?',
     options: ['Near-recurrence — the system returned close to its initial state instead of thermalizing', 'Immediate thermalization as expected', 'Chaotic divergence from any initial condition', 'Resonant energy transfer to the highest mode'],
@@ -36,7 +36,7 @@ export const ulamQuestions: Question[] = [
   },
   {
     id: 21113,
-    topic: 'ulam',
+    topic: 'stanislaw-ulam',
     difficulty: 'sota',
     question: 'Ulam\'s "lucky number" sieve is analogous to which classical algorithm in number theory?',
     options: ['The Sieve of Eratosthenes', 'Euclid\'s algorithm', 'Fermat\'s factorization method', 'Trial division'],
@@ -47,7 +47,7 @@ export const ulamQuestions: Question[] = [
   },
   {
     id: 21114,
-    topic: 'ulam',
+    topic: 'stanislaw-ulam',
     difficulty: 'sota',
     question: 'The Ulam spiral reveals unexpected visual patterns when plotting which mathematical objects on a grid?',
     options: ['Prime numbers arranged in a spiral of consecutive integers', 'Fibonacci numbers on a square lattice', 'Perfect squares in a circular arrangement', 'Twin primes on a number line'],

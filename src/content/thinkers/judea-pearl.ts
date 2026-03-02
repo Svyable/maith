@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const pearlQuestions: Question[] = [
   {
     id: 10071,
-    topic: 'pearl',
+    topic: 'judea-pearl',
     difficulty: 'easy',
     question: 'A Bayesian Network represents:',
     options: [
@@ -19,7 +19,7 @@ export const pearlQuestions: Question[] = [
   },
   {
     id: 10072,
-    topic: 'pearl',
+    topic: 'judea-pearl',
     difficulty: 'easy',
     question: 'Pearl\'s do-calculus distinguishes $P(Y|X=x)$ from $P(Y|do(X=x))$ because:',
     options: [
@@ -35,7 +35,7 @@ export const pearlQuestions: Question[] = [
   },
   {
     id: 10073,
-    topic: 'pearl',
+    topic: 'judea-pearl',
     difficulty: 'easy',
     question: 'In a causal DAG, a "backdoor path" from $X$ to $Y$ is:',
     options: [
@@ -51,7 +51,7 @@ export const pearlQuestions: Question[] = [
   },
   {
     id: 10074,
-    topic: 'pearl',
+    topic: 'judea-pearl',
     difficulty: 'easy',
     question: 'The "ladder of causation" (Pearl) has three rungs. From lowest to highest:',
     options: [
@@ -67,7 +67,7 @@ export const pearlQuestions: Question[] = [
   },
   {
     id: 10075,
-    topic: 'pearl',
+    topic: 'judea-pearl',
     difficulty: 'hard',
     question: 'D-separation in a Bayesian network: nodes $X$ and $Y$ are d-separated by set $Z$ if:',
     options: [
@@ -83,7 +83,7 @@ export const pearlQuestions: Question[] = [
   },
   {
     id: 10076,
-    topic: 'pearl',
+    topic: 'judea-pearl',
     difficulty: 'hard',
     question: 'The front-door criterion (Pearl) allows causal identification when:',
     options: [
@@ -99,7 +99,7 @@ export const pearlQuestions: Question[] = [
   },
   {
     id: 10077,
-    topic: 'pearl',
+    topic: 'judea-pearl',
     difficulty: 'hard',
     question: 'Structural Causal Models (SCMs) represent variables as:',
     options: [
@@ -115,7 +115,7 @@ export const pearlQuestions: Question[] = [
   },
   {
     id: 10078,
-    topic: 'pearl',
+    topic: 'judea-pearl',
     difficulty: 'sota',
     question: 'The do-calculus (Pearl 1995) provides three rules for manipulating $P(y|do(x), z)$. Rule 2 (action/observation exchange) states:',
     options: [
@@ -131,7 +131,7 @@ export const pearlQuestions: Question[] = [
   },
   {
     id: 10079,
-    topic: 'pearl',
+    topic: 'judea-pearl',
     difficulty: 'sota',
     question: 'Average Treatment Effect (ATE) vs. Average Treatment Effect on the Treated (ATT) differ because:',
     options: [
@@ -147,7 +147,7 @@ export const pearlQuestions: Question[] = [
   },
   {
     id: 10080,
-    topic: 'pearl',
+    topic: 'judea-pearl',
     difficulty: 'sota',
     question: 'Pearl\'s critique of deep learning argues that neural networks are limited to Rung 1 (association) because:',
     options: [

@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const cartanQuestions: Question[] = [
   {
     id: 31120,
-    topic: 'cartan',
+    topic: 'elie-cartan',
     difficulty: 'sota',
     question: 'Élie Cartan mathematically discovered "spinors" in 1913 using pure geometry, years before physicists realized they were real. Under what specific mathematical group do spinors continuously transform?',
     options: [
@@ -19,7 +19,7 @@ export const cartanQuestions: Question[] = [
   },
   {
     id: 31121,
-    topic: 'cartan',
+    topic: 'elie-cartan',
     difficulty: 'hard',
     question: 'Cartan massively advanced differential geometry by inventing the "method of moving frames" (repère mobile). How are the foundational structure equations expressed in this powerful geometric method?',
     options: [
@@ -35,7 +35,7 @@ export const cartanQuestions: Question[] = [
   },
   {
     id: 31122,
-    topic: 'cartan',
+    topic: 'elie-cartan',
     difficulty: 'easy',
     question: 'Cartan completed the monumental task of classifying all complex simple Lie algebras, expanding on Wilhelm Killing\'s work. He classified them into four continuous families ($A_n, B_n, C_n, D_n$) and exactly how many "exceptional" algebras?',
     options: [
@@ -51,7 +51,7 @@ export const cartanQuestions: Question[] = [
   },
   {
     id: 31123,
-    topic: 'cartan',
+    topic: 'elie-cartan',
     difficulty: 'sota',
     question: 'Albert Einstein and Élie Cartan collaborated to extend General Relativity into "Einstein-Cartan theory." What critical geometric property did Cartan introduce to spacetime to couple it with the quantum spin of matter?',
     options: [
@@ -67,7 +67,7 @@ export const cartanQuestions: Question[] = [
   },
   {
     id: 31124,
-    topic: 'cartan',
+    topic: 'elie-cartan',
     difficulty: 'hard',
     question: 'In the vast structural theory of Lie algebras, a "Cartan subalgebra" ($\\mathfrak{h}$) plays a massively central role. How is this highly specific subalgebra algebraically defined?',
     options: [

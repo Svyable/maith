@@ -2,7 +2,7 @@ import type { Question } from '../types';
 
 export const knuthQuestions: Question[] = [
   {
-    id: 20801, topic: 'knuth', difficulty: 'easy',
+    id: 20801, topic: 'donald-knuth', difficulty: 'easy',
     question: 'Donald Knuth is best known for:',
     options: ['The Art of Computer Programming (TAOCP) and creating TeX typesetting', 'Inventing the internet', 'Creating the C programming language', 'Founding Google'],
     correctIndex: 0,
@@ -11,7 +11,7 @@ export const knuthQuestions: Question[] = [
     hint: 'He wrote THE book on algorithms and also built the system used to typeset scientific papers worldwide.',
   },
   {
-    id: 20802, topic: 'knuth', difficulty: 'hard',
+    id: 20802, topic: 'donald-knuth', difficulty: 'hard',
     question: 'Knuth\'s "literate programming" paradigm advocates:',
     options: ['Writing programs as human-readable documents with interspersed code, prioritizing explanation over compilation order', 'Writing the shortest possible code', 'Using only assembly language for performance', 'Avoiding all comments in code'],
     correctIndex: 0,
@@ -20,7 +20,7 @@ export const knuthQuestions: Question[] = [
     hint: 'Programs should be written for humans to read, and only incidentally for machines to execute.',
   },
   {
-    id: 20803, topic: 'knuth', difficulty: 'sota',
+    id: 20803, topic: 'donald-knuth', difficulty: 'sota',
     question: 'The Knuth-Morris-Pratt (KMP) string matching algorithm achieves O(n+m) by:',
     options: ['Precomputing a failure function that avoids re-examining characters after a mismatch', 'Using hash functions to compare substrings', 'Sorting the text before searching', 'Applying dynamic programming to all substrings'],
     correctIndex: 0,

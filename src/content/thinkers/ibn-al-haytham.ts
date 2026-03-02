@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const alhazenQuestions: Question[] = [
   {
     id: 11101,
-    topic: 'alhazen',
+    topic: 'ibn-al-haytham',
     difficulty: 'easy',
     question: 'Ibn al-Haytham (Alhazen) revolutionised optics by proposing that:',
     options: [
@@ -19,7 +19,7 @@ export const alhazenQuestions: Question[] = [
   },
   {
     id: 11102,
-    topic: 'alhazen',
+    topic: 'ibn-al-haytham',
     difficulty: 'hard',
     question: '"Alhazen\'s problem" asks: given a spherical mirror, a light source, and an observer, find the reflection point. This problem reduces to:',
     options: [
@@ -35,7 +35,7 @@ export const alhazenQuestions: Question[] = [
   },
   {
     id: 11103,
-    topic: 'alhazen',
+    topic: 'ibn-al-haytham',
     difficulty: 'sota',
     question: 'Alhazen\'s experimental methodology in optics anticipated the modern scientific method by:',
     options: [

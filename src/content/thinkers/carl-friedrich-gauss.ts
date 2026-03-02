@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const gaussQuestions: Question[] = [
   {
     id: 11501,
-    topic: 'gauss',
+    topic: 'carl-friedrich-gauss',
     difficulty: 'easy',
     question: 'Gauss computed the sum $1 + 2 + \\ldots + 100 = 5050$ by pairing terms. The general formula is:',
     options: [
@@ -19,7 +19,7 @@ export const gaussQuestions: Question[] = [
   },
   {
     id: 11502,
-    topic: 'gauss',
+    topic: 'carl-friedrich-gauss',
     difficulty: 'easy',
     question: 'The normal (Gaussian) distribution has probability density:',
     options: [
@@ -35,7 +35,7 @@ export const gaussQuestions: Question[] = [
   },
   {
     id: 11503,
-    topic: 'gauss',
+    topic: 'carl-friedrich-gauss',
     difficulty: 'easy',
     question: 'Gauss elimination reduces a system $Ax = b$ to upper triangular form by:',
     options: [
@@ -51,7 +51,7 @@ export const gaussQuestions: Question[] = [
   },
   {
     id: 11504,
-    topic: 'gauss',
+    topic: 'carl-friedrich-gauss',
     difficulty: 'easy',
     question: 'The prime number theorem, anticipated by Gauss, states that the number of primes up to $N$ is approximately:',
     options: [
@@ -67,7 +67,7 @@ export const gaussQuestions: Question[] = [
   },
   {
     id: 11505,
-    topic: 'gauss',
+    topic: 'carl-friedrich-gauss',
     difficulty: 'hard',
     question: 'Gaussian quadrature approximates $\\int_{-1}^{1} f(x)\\,dx \\approx \\sum_{i=1}^n w_i f(x_i)$. It is optimal because:',
     options: [
@@ -83,7 +83,7 @@ export const gaussQuestions: Question[] = [
   },
   {
     id: 11506,
-    topic: 'gauss',
+    topic: 'carl-friedrich-gauss',
     difficulty: 'hard',
     question: 'The Gauss-Markov theorem states that among all linear unbiased estimators, OLS (Ordinary Least Squares) has minimum variance. The key conditions are:',
     options: [
@@ -99,7 +99,7 @@ export const gaussQuestions: Question[] = [
   },
   {
     id: 11507,
-    topic: 'gauss',
+    topic: 'carl-friedrich-gauss',
     difficulty: 'hard',
     question: 'Gauss\'s Theorema Egregium (remarkable theorem) states that Gaussian curvature:',
     options: [
@@ -115,7 +115,7 @@ export const gaussQuestions: Question[] = [
   },
   {
     id: 11508,
-    topic: 'gauss',
+    topic: 'carl-friedrich-gauss',
     difficulty: 'sota',
     question: 'The Fast Fourier Transform (FFT) was independently discovered by Gauss in 1805 for interpolating orbits. Its O(N log N) complexity comes from:',
     options: [
@@ -131,7 +131,7 @@ export const gaussQuestions: Question[] = [
   },
   {
     id: 11509,
-    topic: 'gauss',
+    topic: 'carl-friedrich-gauss',
     difficulty: 'sota',
     question: 'In Bayesian inference, a Gaussian prior on weights and Gaussian likelihood give a Gaussian posterior — the "conjugate" property. The posterior mean is:',
     options: [
@@ -147,7 +147,7 @@ export const gaussQuestions: Question[] = [
   },
   {
     id: 11510,
-    topic: 'gauss',
+    topic: 'carl-friedrich-gauss',
     difficulty: 'sota',
     question: 'Gauss\'s "disquisitiones arithmeticae" introduced modular arithmetic. Quadratic residues (solutions to $x^2 \\equiv a \\pmod{p}$) are characterized by:',
     options: [

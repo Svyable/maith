@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const birkarQuestions: Question[] = [
   {
     id: 12201,
-    topic: 'birkar',
+    topic: 'caucher-birkar',
     difficulty: 'easy',
     question: 'Caucher Birkar, a Kurdish-British mathematician, won the 2018 Fields Medal for his work on:',
     options: [
@@ -19,7 +19,7 @@ export const birkarQuestions: Question[] = [
   },
   {
     id: 12202,
-    topic: 'birkar',
+    topic: 'caucher-birkar',
     difficulty: 'easy',
     question: 'Birkar\'s personal story is remarkable because:',
     options: [
@@ -35,7 +35,7 @@ export const birkarQuestions: Question[] = [
   },
   {
     id: 12203,
-    topic: 'birkar',
+    topic: 'caucher-birkar',
     difficulty: 'hard',
     question: 'The BAB conjecture (Borisov–Alexeev–Borisov), proved by Birkar, states that:',
     options: [
@@ -51,7 +51,7 @@ export const birkarQuestions: Question[] = [
   },
   {
     id: 12204,
-    topic: 'birkar',
+    topic: 'caucher-birkar',
     difficulty: 'hard',
     question: 'In the minimal model program (MMP), the key operations that simplify varieties are:',
     options: [
@@ -67,7 +67,7 @@ export const birkarQuestions: Question[] = [
   },
   {
     id: 12205,
-    topic: 'birkar',
+    topic: 'caucher-birkar',
     difficulty: 'sota',
     question: 'Birkar\'s proof of BAB uses the theory of complements and anti-canonical linear systems. The key technical innovation is:',
     options: [

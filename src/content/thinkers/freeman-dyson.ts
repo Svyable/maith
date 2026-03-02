@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const dysonQuestions: Question[] = [
   {
     id: 31180,
-    topic: 'dyson',
+    topic: 'freeman-dyson',
     difficulty: 'easy',
     question: 'Freeman Dyson is most famous in popular culture for theorizing the "Dyson Sphere." What immense localized engineering objective does this absolute macroscopic theoretical megastructure serve?',
     options: [
@@ -19,7 +19,7 @@ export const dysonQuestions: Question[] = [
   },
   {
     id: 31181,
-    topic: 'dyson',
+    topic: 'freeman-dyson',
     difficulty: 'hard',
     question: 'Dyson was physically the "Great Unifier" of Quantum Electrodynamics. What massive, deeply fractured mathematical conflict did he brilliantly resolve in his legendary 1949 paper?',
     options: [
@@ -35,7 +35,7 @@ export const dysonQuestions: Question[] = [
   },
   {
     id: 31182,
-    topic: 'dyson',
+    topic: 'freeman-dyson',
     difficulty: 'sota',
     question: 'The "Dyson Series" is absolutely foundational to modern quantum mechanics. In the equation $U(t, t_0) = \\mathcal{T} \\exp\\left(-\\frac{i}{\\hbar} \\int V(t\') dt\'\\right)$, what specific absolute mathematical problem does the time-ordering operator ($\\mathcal{T}$) correctly solve?',
     options: [
@@ -51,7 +51,7 @@ export const dysonQuestions: Question[] = [
   },
   {
     id: 31183,
-    topic: 'dyson',
+    topic: 'freeman-dyson',
     difficulty: 'hard',
     question: 'Dyson collaborated heavily with Andrew Lenard to mathematically prove the "Stability of Matter." What fundamental physical law did they absolutely prove is responsible for keeping atoms from violently imploding under intense electrical attraction?',
     options: [
@@ -67,7 +67,7 @@ export const dysonQuestions: Question[] = [
   },
   {
     id: 31184,
-    topic: 'dyson',
+    topic: 'freeman-dyson',
     difficulty: 'hard',
     question: 'During the late 1950s, Freeman Dyson was a lead theorist on the highly classified Project Orion. What terrifyingly ambitious engineering concept did this localized project attempt to physically build?',
     options: [

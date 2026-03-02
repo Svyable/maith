@@ -2,7 +2,7 @@ import type { Question } from '../types';
 
 export const darwinQuestions: Question[] = [
   {
-    id: 96028, topic: 'darwin', difficulty: 'easy',
+    id: 96028, topic: 'charles-darwin', difficulty: 'easy',
     question: 'Charles Darwin\'s theory of natural selection states that organisms with traits better suited to their environment:',
     options: ['Are more likely to survive and reproduce, passing those traits on', 'Always grow larger than their competitors', 'Consciously choose to adapt', 'Evolve within a single generation'],
     correctIndex: 0,
@@ -11,7 +11,7 @@ export const darwinQuestions: Question[] = [
     hint: 'Survival of the fittest — but "fittest" means best adapted, not strongest.',
   },
   {
-    id: 96029, topic: 'darwin', difficulty: 'hard',
+    id: 96029, topic: 'charles-darwin', difficulty: 'hard',
     question: 'Darwin\'s finches on the Galápagos Islands provided key evidence for evolution because their beak shapes:',
     options: ['Varied systematically with food sources on different islands, showing adaptive radiation', 'Were all identical despite different environments', 'Changed within individual birds\' lifetimes', 'Were inherited from mainland species unchanged'],
     correctIndex: 0,
@@ -20,7 +20,7 @@ export const darwinQuestions: Question[] = [
     hint: 'Same ancestor, different islands, different beaks.',
   },
   {
-    id: 96030, topic: 'darwin', difficulty: 'sota',
+    id: 96030, topic: 'charles-darwin', difficulty: 'sota',
     question: 'Modern phylogenomics has confirmed Darwin\'s "tree of life" hypothesis using:',
     options: ['Whole-genome DNA sequence comparisons across all domains of life', 'Fossil morphology alone', 'Protein crystal structures', 'Behavioral similarity indices'],
     correctIndex: 0,

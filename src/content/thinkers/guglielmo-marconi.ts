@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const marconiQuestions: Question[] = [
   {
     id: 11121,
-    topic: 'marconi',
+    topic: 'guglielmo-marconi',
     difficulty: 'easy',
     question: 'Guglielmo Marconi\'s key achievement in 1901 was:',
     options: [
@@ -19,7 +19,7 @@ export const marconiQuestions: Question[] = [
   },
   {
     id: 11122,
-    topic: 'marconi',
+    topic: 'guglielmo-marconi',
     difficulty: 'hard',
     question: 'Marconi\'s transatlantic transmission succeeded because radio waves were reflected by:',
     options: [
@@ -35,7 +35,7 @@ export const marconiQuestions: Question[] = [
   },
   {
     id: 11123,
-    topic: 'marconi',
+    topic: 'guglielmo-marconi',
     difficulty: 'sota',
     question: 'The Shannon–Hartley theorem sets the maximum data rate $C$ for a channel with bandwidth $B$ and signal-to-noise ratio $SNR$ as:',
     options: [

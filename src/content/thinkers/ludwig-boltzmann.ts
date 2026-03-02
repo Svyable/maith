@@ -2,7 +2,7 @@ import type { Question } from '../types';
 
 export const boltzmannQuestions: Question[] = [
   {
-    id: 97001, topic: 'boltzmann', difficulty: 'easy',
+    id: 97001, topic: 'ludwig-boltzmann', difficulty: 'easy',
     question: 'Boltzmann\'s entropy formula $S = k_B \\ln \\Omega$ connects macroscopic thermodynamics to:',
     options: ['The number of microscopic configurations (microstates) compatible with a macrostate', 'The temperature of a system', 'The total energy of all particles', 'The volume of the container'],
     correctIndex: 0,
@@ -11,7 +11,7 @@ export const boltzmannQuestions: Question[] = [
     hint: '$\\Omega$ counts the number of ways to arrange particles — more arrangements = more entropy.',
   },
   {
-    id: 97002, topic: 'boltzmann', difficulty: 'hard',
+    id: 97002, topic: 'ludwig-boltzmann', difficulty: 'hard',
     question: 'The Boltzmann transport equation $\\frac{\\partial f}{\\partial t} + \\mathbf{v} \\cdot \\nabla f + \\frac{\\mathbf{F}}{m} \\cdot \\nabla_{\\mathbf{v}} f = \\left(\\frac{\\partial f}{\\partial t}\\right)_{\\text{coll}}$ describes:',
     options: ['The time evolution of the distribution function of particles in phase space, including collisions', 'The trajectory of a single particle', 'The temperature of an ideal gas', 'Quantum tunneling through barriers'],
     correctIndex: 0,
@@ -20,7 +20,7 @@ export const boltzmannQuestions: Question[] = [
     hint: 'It tracks a population of particles, not individual ones — think of it as a probability flow equation.',
   },
   {
-    id: 97003, topic: 'boltzmann', difficulty: 'sota',
+    id: 97003, topic: 'ludwig-boltzmann', difficulty: 'sota',
     question: 'Boltzmann\'s H-theorem proved that the quantity $H = \\int f \\ln f \\, d^3v$ monotonically decreases over time. This was controversial because:',
     options: ['It derived irreversibility (arrow of time) from time-reversible microscopic laws — the Loschmidt paradox', 'It violated conservation of energy', 'It predicted temperatures below absolute zero', 'It required quantum mechanics to be valid'],
     correctIndex: 0,
@@ -29,7 +29,7 @@ export const boltzmannQuestions: Question[] = [
     hint: 'How can irreversible macroscopic behavior emerge from reversible microscopic laws? That was the paradox.',
   },
   {
-    id: 97004, topic: 'boltzmann', difficulty: 'sota',
+    id: 97004, topic: 'ludwig-boltzmann', difficulty: 'sota',
     question: 'The Boltzmann distribution $P(E) \\propto e^{-E/k_BT}$ gives the probability of a microstate with energy $E$. The partition function $Z = \\sum_i e^{-E_i/k_BT}$ encodes:',
     options: ['All thermodynamic quantities — $F = -k_BT \\ln Z$ gives free energy, from which entropy, pressure, and heat capacity follow', 'Only the average energy of the system', 'The number of particles in the system', 'The volume of phase space'],
     correctIndex: 0,

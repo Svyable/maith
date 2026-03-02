@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const schwingerQuestions: Question[] = [
   {
     id: 31175,
-    topic: 'schwinger',
+    topic: 'julian-schwinger',
     difficulty: 'easy',
     question: 'Julian Schwinger shared the Nobel Prize for formulating Quantum Electrodynamics (QED). He proved his insanely complex math was correct by perfectly calculating what specific property of the electron?',
     options: [
@@ -19,7 +19,7 @@ export const schwingerQuestions: Question[] = [
   },
   {
     id: 31176,
-    topic: 'schwinger',
+    topic: 'julian-schwinger',
     difficulty: 'hard',
     question: 'Schwinger absolutely despised the simple "Feynman diagrams" used by his peers. How did Schwinger mathematically formulate and solve his localized quantum field equations instead?',
     options: [
@@ -35,7 +35,7 @@ export const schwingerQuestions: Question[] = [
   },
   {
     id: 31177,
-    topic: 'schwinger',
+    topic: 'julian-schwinger',
     difficulty: 'sota',
     question: 'The mathematically stunning "Schwinger Effect" predicts that the vacuum of space is not truly empty. What happens mathematically if you apply an incredibly strong electric field ($E_{cr} = \\frac{m^2 c^3}{e \\hbar}$) to a pure vacuum?',
     options: [
@@ -51,7 +51,7 @@ export const schwingerQuestions: Question[] = [
   },
   {
     id: 31178,
-    topic: 'schwinger',
+    topic: 'julian-schwinger',
     difficulty: 'sota',
     question: 'In quantum field theory, the Dyson-Schwinger equations provide a complete mathematical description of the theory. What exactly are these incredibly complex equations?',
     options: [
@@ -67,7 +67,7 @@ export const schwingerQuestions: Question[] = [
   },
   {
     id: 31179,
-    topic: 'schwinger',
+    topic: 'julian-schwinger',
     difficulty: 'hard',
     question: 'Schwinger was legendary for his incredibly unique working habits and his absolute dominance as an academic mentor. What was a famously defining characteristic of his career?',
     options: [

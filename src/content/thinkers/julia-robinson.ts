@@ -2,7 +2,7 @@ import type { Question } from '../types';
 
 export const robinsonQuestions: Question[] = [
   {
-    id: 20212, topic: 'robinson', difficulty: 'easy',
+    id: 20212, topic: 'julia-robinson', difficulty: 'easy',
     question: 'Julia Robinson made foundational contributions to the solution of which of Hilbert\'s 23 problems?',
     options: ['Hilbert\'s 10th problem (Diophantine equations)', 'Hilbert\'s 1st (Continuum Hypothesis)', 'Hilbert\'s 3rd (Dehn\'s theorem)', 'Hilbert\'s 8th (Riemann Hypothesis)'],
     correctIndex: 0,
@@ -11,7 +11,7 @@ export const robinsonQuestions: Question[] = [
     hint: 'This problem asks whether there is an algorithm to determine if polynomial equations have integer solutions.',
   },
   {
-    id: 20213, topic: 'robinson', difficulty: 'hard',
+    id: 20213, topic: 'julia-robinson', difficulty: 'hard',
     question: 'The MRDP theorem (resolving Hilbert\'s 10th) was completed by Yuri Matiyasevich building on Robinson\'s work. What does MRDP stand for?',
     options: ['Matiyasevich-Robinson-Davis-Putnam', 'Mathematical Recursion Decision Procedure', 'Modular Recursive Diophantine Process', 'Multi-Resolution Decision Problem'],
     correctIndex: 0,
@@ -20,7 +20,7 @@ export const robinsonQuestions: Question[] = [
     hint: 'Named after four mathematicians whose combined work over decades solved the problem.',
   },
   {
-    id: 20214, topic: 'robinson', difficulty: 'sota',
+    id: 20214, topic: 'julia-robinson', difficulty: 'sota',
     question: 'Robinson was the first woman elected to which division of the National Academy of Sciences?',
     options: ['Mathematics section', 'Physics section', 'Engineering section', 'Computer Science section'],
     correctIndex: 0,

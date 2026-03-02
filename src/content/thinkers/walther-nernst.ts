@@ -2,7 +2,7 @@ import type { Question } from '../types';
 
 export const nernstQuestions: Question[] = [
   {
-    id: 97201, topic: 'nernst', difficulty: 'easy',
+    id: 97201, topic: 'walther-nernst', difficulty: 'easy',
     question: 'The Nernst equation $E = E^\\circ - \\frac{RT}{nF} \\ln Q$ relates the cell potential to:',
     options: ['The reaction quotient Q — predicting voltage under non-standard conditions', 'Temperature only', 'The mass of the electrodes', 'The volume of the electrolyte'],
     correctIndex: 0,
@@ -11,7 +11,7 @@ export const nernstQuestions: Question[] = [
     hint: 'When concentrations are at standard conditions ($Q = 1$), the equation reduces to $E = E^\\circ$.',
   },
   {
-    id: 97202, topic: 'nernst', difficulty: 'hard',
+    id: 97202, topic: 'walther-nernst', difficulty: 'hard',
     question: 'Nernst\'s heat theorem (third law of thermodynamics) states that as $T \\to 0$:',
     options: ['The entropy of a perfect crystal approaches zero — $\\lim_{T \\to 0} S = 0$', 'Energy becomes infinite', 'All reactions become spontaneous', 'Heat capacity diverges'],
     correctIndex: 0,
@@ -20,7 +20,7 @@ export const nernstQuestions: Question[] = [
     hint: 'At absolute zero, there is only one way to arrange the particles — perfect order.',
   },
   {
-    id: 97203, topic: 'nernst', difficulty: 'sota',
+    id: 97203, topic: 'walther-nernst', difficulty: 'sota',
     question: 'In biological systems, the Nernst equation determines the equilibrium potential for an ion across a membrane. For K⁺ with $[K^+]_{in} = 140$ mM and $[K^+]_{out} = 5$ mM at 37°C:',
     options: ['$E_K \\approx -90$ mV — explaining why neurons have a negative resting potential', '$E_K \\approx +90$ mV', '$E_K \\approx 0$ mV', '$E_K \\approx -30$ mV'],
     correctIndex: 0,

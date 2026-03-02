@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const kashiwaraQuestions: Question[] = [
   {
     id: 12101,
-    topic: 'kashiwara',
+    topic: 'masaki-kashiwara',
     difficulty: 'easy',
     question: 'Masaki Kashiwara won the Abel Prize (2025) for his foundational contributions to:',
     options: [
@@ -19,7 +19,7 @@ export const kashiwaraQuestions: Question[] = [
   },
   {
     id: 12102,
-    topic: 'kashiwara',
+    topic: 'masaki-kashiwara',
     difficulty: 'easy',
     question: 'Kashiwara\'s crystal bases revolutionized representation theory by:',
     options: [
@@ -35,7 +35,7 @@ export const kashiwaraQuestions: Question[] = [
   },
   {
     id: 12103,
-    topic: 'kashiwara',
+    topic: 'masaki-kashiwara',
     difficulty: 'hard',
     question: 'The Kazhdan–Lusztig conjecture, proved by Kashiwara (and independently Brylinski–Beilinson), connects:',
     options: [
@@ -51,7 +51,7 @@ export const kashiwaraQuestions: Question[] = [
   },
   {
     id: 12104,
-    topic: 'kashiwara',
+    topic: 'masaki-kashiwara',
     difficulty: 'hard',
     question: 'Kashiwara\'s Riemann–Hilbert correspondence establishes an equivalence between:',
     options: [
@@ -67,7 +67,7 @@ export const kashiwaraQuestions: Question[] = [
   },
   {
     id: 12105,
-    topic: 'kashiwara',
+    topic: 'masaki-kashiwara',
     difficulty: 'sota',
     question: 'Kashiwara\'s work on microlocal analysis studies D-modules via their characteristic variety in the cotangent bundle. The fundamental result is:',
     options: [

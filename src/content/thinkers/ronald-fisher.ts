@@ -2,7 +2,7 @@ import type { Question } from '../types';
 
 export const fisherQuestions: Question[] = [
   {
-    id: 21201, topic: 'fisher', difficulty: 'easy',
+    id: 21201, topic: 'ronald-fisher', difficulty: 'easy',
     question: 'Ronald Fisher\'s p-value measures:',
     options: ['The probability of observing data at least as extreme as the actual data, assuming the null hypothesis is true', 'The probability that the null hypothesis is true', 'The probability that the alternative hypothesis is true', 'The effect size of the treatment'],
     correctIndex: 0,
@@ -11,7 +11,7 @@ export const fisherQuestions: Question[] = [
     hint: 'If the null hypothesis were true, how surprising is this data? That\'s what the p-value quantifies.',
   },
   {
-    id: 21202, topic: 'fisher', difficulty: 'hard',
+    id: 21202, topic: 'ronald-fisher', difficulty: 'hard',
     question: 'Fisher\'s maximum likelihood estimation (MLE) finds parameters by:',
     options: ['Maximizing $L(\\theta) = \\prod_i f(x_i|\\theta)$ — the probability of the observed data as a function of parameters', 'Minimizing the sum of squared residuals', 'Choosing parameters that minimize the prior', 'Averaging over all possible parameter values'],
     correctIndex: 0,
@@ -20,7 +20,7 @@ export const fisherQuestions: Question[] = [
     hint: 'Flip a coin 7 heads in 10 tosses — what value of p makes this MOST likely? That\'s MLE: p̂ = 0.7.',
   },
   {
-    id: 21203, topic: 'fisher', difficulty: 'sota',
+    id: 21203, topic: 'ronald-fisher', difficulty: 'sota',
     question: 'Fisher information $I(\\theta) = E\\left[\\left(\\frac{\\partial \\log f}{\\partial \\theta}\\right)^2\\right]$ bounds estimator variance via:',
     options: ['The Cramér-Rao bound: $\\text{Var}(\\hat{\\theta}) \\geq 1/I(\\theta)$ — no unbiased estimator can beat this', 'The central limit theorem', 'The law of large numbers', 'Chebyshev\'s inequality'],
     correctIndex: 0,

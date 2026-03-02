@@ -2,7 +2,7 @@ import type { Question } from '../types';
 
 export const markowitzQuestions: Question[] = [
   {
-    id: 19501, topic: 'markowitz', difficulty: 'easy',
+    id: 19501, topic: 'harry-markowitz', difficulty: 'easy',
     question: 'Harry Markowitz\'s Modern Portfolio Theory (MPT) showed that:',
     options: ['Diversification can reduce portfolio risk without sacrificing expected return', 'All stocks have the same risk', 'Higher risk always means higher return', 'Bonds are always safer than stocks'],
     correctIndex: 0,
@@ -11,7 +11,7 @@ export const markowitzQuestions: Question[] = [
     hint: 'Don\'t put all your eggs in one basket — but MPT tells you exactly how many baskets to use.',
   },
   {
-    id: 19502, topic: 'markowitz', difficulty: 'hard',
+    id: 19502, topic: 'harry-markowitz', difficulty: 'hard',
     question: 'The efficient frontier in MPT represents:',
     options: ['The set of portfolios offering maximum expected return for each level of risk', 'The portfolio with the lowest return', 'A single optimal portfolio', 'The set of all possible portfolios'],
     correctIndex: 0,
@@ -20,7 +20,7 @@ export const markowitzQuestions: Question[] = [
     hint: 'It\'s a curve — each point is the best return you can get for a given level of volatility.',
   },
   {
-    id: 19503, topic: 'markowitz', difficulty: 'sota',
+    id: 19503, topic: 'harry-markowitz', difficulty: 'sota',
     question: 'The Black-Litterman model improves upon Markowitz optimization by:',
     options: ['Combining market equilibrium returns with investor views using Bayesian updating', 'Using historical returns directly', 'Ignoring correlations between assets', 'Maximizing Sharpe ratio only'],
     correctIndex: 0,

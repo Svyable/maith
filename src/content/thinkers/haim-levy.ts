@@ -4,7 +4,7 @@ import type { Question } from '../types';
 export const levyQuestions: Question[] = [
   {
     id: 69400,
-    topic: 'levy',
+    topic: 'haim-levy',
     difficulty: 'easy',
     question: 'Lévy stable α∈(0,2] has?',
     options: [
@@ -20,7 +20,7 @@ export const levyQuestions: Question[] = [
   },
   {
     id: 69401,
-    topic: 'levy',
+    topic: 'haim-levy',
     difficulty: 'hard',
     question: 'Lévy characteristic function?',
     options: [
@@ -36,7 +36,7 @@ export const levyQuestions: Question[] = [
   },
   {
     id: 69402,
-    topic: 'levy',
+    topic: 'haim-levy',
     difficulty: 'sota',
     question: 'Stable domain of attraction?',
     options: [
@@ -52,7 +52,7 @@ export const levyQuestions: Question[] = [
   },
   {
     id: 69403,
-    topic: 'levy',
+    topic: 'haim-levy',
     difficulty: 'hard',
     question: 'Lévy α=1.5 financial implication?',
     options: [
@@ -68,7 +68,7 @@ export const levyQuestions: Question[] = [
   },
   {
     id: 69404,
-    topic: 'levy',
+    topic: 'haim-levy',
     difficulty: 'sota',
     question: 'Lévy measure ν(dx)?',
     options: [

@@ -2,7 +2,7 @@ import type { Question } from '../types';
 
 export const nightingaleQuestions: Question[] = [
   {
-    id: 20103, topic: 'nightingale', difficulty: 'easy',
+    id: 20103, topic: 'florence-nightingale', difficulty: 'easy',
     question: 'Florence Nightingale is considered a pioneer in what area of data presentation?',
     options: ['Statistical graphics', 'Spreadsheets', 'Relational databases', 'Survey design'],
     correctIndex: 0,
@@ -11,7 +11,7 @@ export const nightingaleQuestions: Question[] = [
     hint: 'She used visual representations of numbers to persuade politicians.',
   },
   {
-    id: 20104, topic: 'nightingale', difficulty: 'hard',
+    id: 20104, topic: 'florence-nightingale', difficulty: 'hard',
     question: 'What type of chart did Nightingale create to illustrate causes of death in the Crimean War?',
     options: ['Polar area diagram (coxcomb)', 'Bar chart', 'Scatter plot', 'Pie chart'],
     correctIndex: 0,
@@ -20,7 +20,7 @@ export const nightingaleQuestions: Question[] = [
     hint: 'It\'s a circular chart where wedge areas represent magnitude, not just angles.',
   },
   {
-    id: 20105, topic: 'nightingale', difficulty: 'sota',
+    id: 20105, topic: 'florence-nightingale', difficulty: 'sota',
     question: 'Nightingale was the first woman elected a Fellow of which learned society?',
     options: ['Royal Statistical Society', 'Royal Society', 'British Medical Association', 'Royal College of Physicians'],
     correctIndex: 0,

@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const suleymanQuestions: Question[] = [
   {
     id: 12901,
-    topic: 'suleyman',
+    topic: 'mustafa-suleyman',
     difficulty: 'easy',
     question: 'Mustafa Suleyman co-founded which pioneering AI lab before leading AI at Microsoft?',
     options: [
@@ -19,7 +19,7 @@ export const suleymanQuestions: Question[] = [
   },
   {
     id: 12902,
-    topic: 'suleyman',
+    topic: 'mustafa-suleyman',
     difficulty: 'easy',
     question: 'Suleyman\'s concept of "The Coming Wave" warns about:',
     options: [
@@ -35,7 +35,7 @@ export const suleymanQuestions: Question[] = [
   },
   {
     id: 12903,
-    topic: 'suleyman',
+    topic: 'mustafa-suleyman',
     difficulty: 'hard',
     question: 'RLHF (Reinforcement Learning from Human Feedback), central to Suleyman\'s work on AI safety, works by:',
     options: [
@@ -51,7 +51,7 @@ export const suleymanQuestions: Question[] = [
   },
   {
     id: 12904,
-    topic: 'suleyman',
+    topic: 'mustafa-suleyman',
     difficulty: 'hard',
     question: 'Suleyman\'s "containment problem" differs from traditional AI safety concerns because:',
     options: [
@@ -67,7 +67,7 @@ export const suleymanQuestions: Question[] = [
   },
   {
     id: 12905,
-    topic: 'suleyman',
+    topic: 'mustafa-suleyman',
     difficulty: 'sota',
     question: 'Suleyman proposes the "Modern Turing Test" (MTT) to evaluate AI capability, which requires:',
     options: [

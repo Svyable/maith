@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const ritchieQuestions: Question[] = [
   {
     id: 21030,
-    topic: 'ritchie',
+    topic: 'dennis-ritchie',
     difficulty: 'sota',
     question: 'Dennis Ritchie\'s C language introduced which memory management paradigm that remains fundamental to systems programming?',
     options: ['Manual pointer arithmetic with malloc/free', 'Garbage collection via reference counting', 'Region-based memory management', 'Automatic stack-only allocation'],
@@ -14,7 +14,7 @@ export const ritchieQuestions: Question[] = [
   },
   {
     id: 21031,
-    topic: 'ritchie',
+    topic: 'dennis-ritchie',
     difficulty: 'sota',
     question: 'What radical design decision made Unix uniquely portable compared to earlier operating systems?',
     options: ['Writing the OS kernel in C instead of assembly', 'Using a microkernel architecture', 'Implementing virtual memory from the start', 'Supporting multithreading natively'],
@@ -25,7 +25,7 @@ export const ritchieQuestions: Question[] = [
   },
   {
     id: 21032,
-    topic: 'ritchie',
+    topic: 'dennis-ritchie',
     difficulty: 'sota',
     question: 'The Unix philosophy is best summarized by which principle?',
     options: ['"Do one thing and do it well"', '"Move fast and break things"', '"Worse is better"', '"Convention over configuration"'],
@@ -36,7 +36,7 @@ export const ritchieQuestions: Question[] = [
   },
   {
     id: 21033,
-    topic: 'ritchie',
+    topic: 'dennis-ritchie',
     difficulty: 'sota',
     question: 'C\'s "undefined behavior" for operations like signed integer overflow is a deliberate design choice for what reason?',
     options: ['To allow maximum compiler optimization across different hardware', 'To simplify the language specification', 'To prevent security vulnerabilities', 'To maintain backward compatibility with B'],
@@ -47,7 +47,7 @@ export const ritchieQuestions: Question[] = [
   },
   {
     id: 21034,
-    topic: 'ritchie',
+    topic: 'dennis-ritchie',
     difficulty: 'sota',
     question: 'Ritchie and Thompson\'s original Unix was developed at which research laboratory?',
     options: ['Bell Labs (AT&T)', 'Xerox PARC', 'MIT Lincoln Laboratory', 'IBM Watson Research Center'],

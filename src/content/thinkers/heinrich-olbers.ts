@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const olbersQuestions: Question[] = [
   {
     id: 21800,
-    topic: 'olbers',
+    topic: 'heinrich-olbers',
     difficulty: 'sota',
     question: 'Olbers\' paradox asks: if the universe is infinite, static, and uniformly filled with stars, the night sky should be what?',
     options: [
@@ -19,7 +19,7 @@ export const olbersQuestions: Question[] = [
   },
   {
     id: 21801,
-    topic: 'olbers',
+    topic: 'heinrich-olbers',
     difficulty: 'sota',
     question: 'The modern resolution of Olbers\' paradox primarily relies on which cosmological fact?',
     options: [
@@ -35,7 +35,7 @@ export const olbersQuestions: Question[] = [
   },
   {
     id: 21802,
-    topic: 'olbers',
+    topic: 'heinrich-olbers',
     difficulty: 'sota',
     question: 'If we model Olbers\' paradox mathematically with stellar density n and luminosity L, the flux from a shell at distance r with thickness dr is what?',
     options: [

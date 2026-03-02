@@ -4,7 +4,7 @@ import type { Question } from '../types';
 export const fellerQuestions: Question[] = [
   {
     id: 69450,
-    topic: 'feller',
+    topic: 'william-feller',
     difficulty: 'easy',
     question:
       'A (Feller) Markov semigroup $(P_t)_{t\\ge 0}$ is a family of operators acting on functions $f$ via\n$$P_t f(x)=\\mathbb{E}_x[f(X_t)].$$\nWhat is the **semigroup (Chapman–Kolmogorov) property** in both operator form and kernel form?',
@@ -24,7 +24,7 @@ export const fellerQuestions: Question[] = [
   },
   {
     id: 69451,
-    topic: 'feller',
+    topic: 'william-feller',
     difficulty: 'hard',
     question:
       'Let $C_0(E)$ be the space of continuous functions on a locally compact Hausdorff space $E$ that **vanish at infinity**. What does it mean for a Markov semigroup $(P_t)$ to be a **Feller semigroup**?',
@@ -44,7 +44,7 @@ export const fellerQuestions: Question[] = [
   },
   {
     id: 69452,
-    topic: 'feller',
+    topic: 'william-feller',
     difficulty: 'sota',
     question:
       'A 1D diffusion $X_t$ solving the Itô SDE\n$$dX_t=\\mu(X_t)\\,dt+\\sigma(X_t)\\,dW_t$$\nhas a Feller transition semigroup. What is the **infinitesimal generator** $\\mathcal{L}$ acting on smooth test functions $f$ (e.g., $f\\in C_c^2$), and how is it related to the semigroup?',
@@ -64,7 +64,7 @@ export const fellerQuestions: Question[] = [
   },
   {
     id: 69453,
-    topic: 'feller',
+    topic: 'william-feller',
     difficulty: 'hard',
     question:
       'A key analytic condition for a Feller semigroup is **strong continuity at $t=0$** on $C_0(E)$. Which statement correctly expresses this property, and what is its intuitive meaning?',
@@ -84,7 +84,7 @@ export const fellerQuestions: Question[] = [
   },
   {
     id: 69454,
-    topic: 'feller',
+    topic: 'william-feller',
     difficulty: 'sota',
     question:
       'The **Feller boundary classification** (often developed via scale function $s$ and speed measure $m$) determines whether a boundary point is regular/exit/entrance/natural for a 1D diffusion. In the classical setup with\n$$\\mathcal{L}f=a(x)f\'\'(x)+b(x)f\'(x),\\quad a(x)>0,$$\nwhich objects are used to perform the classification, and what is the classification deciding?',

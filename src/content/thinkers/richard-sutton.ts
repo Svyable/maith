@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const suttonQuestions: Question[] = [
   {
     id: 11801,
-    topic: 'sutton',
+    topic: 'richard-sutton',
     difficulty: 'easy',
     question: 'Temporal Difference (TD) learning, developed by Sutton, updates value estimates using:',
     options: [
@@ -19,7 +19,7 @@ export const suttonQuestions: Question[] = [
   },
   {
     id: 11802,
-    topic: 'sutton',
+    topic: 'richard-sutton',
     difficulty: 'easy',
     question: 'The Q-learning update rule (Watkins, building on Sutton\'s work) is:',
     options: [
@@ -35,7 +35,7 @@ export const suttonQuestions: Question[] = [
   },
   {
     id: 11803,
-    topic: 'sutton',
+    topic: 'richard-sutton',
     difficulty: 'easy',
     question: 'Sutton\'s "Reward Hypothesis" claims that:',
     options: [
@@ -51,7 +51,7 @@ export const suttonQuestions: Question[] = [
   },
   {
     id: 11804,
-    topic: 'sutton',
+    topic: 'richard-sutton',
     difficulty: 'easy',
     question: 'In Sutton\'s RL framework, the distinction between "model-free" and "model-based" RL is:',
     options: [
@@ -67,7 +67,7 @@ export const suttonQuestions: Question[] = [
   },
   {
     id: 11805,
-    topic: 'sutton',
+    topic: 'richard-sutton',
     difficulty: 'hard',
     question: 'TD(λ) interpolates between TD(0) and Monte Carlo using eligibility traces. The λ-return $G_t^\\lambda$ is:',
     options: [
@@ -83,7 +83,7 @@ export const suttonQuestions: Question[] = [
   },
   {
     id: 11806,
-    topic: 'sutton',
+    topic: 'richard-sutton',
     difficulty: 'hard',
     question: 'The policy gradient theorem (Sutton et al. 1999) states that $\\nabla J(\\theta) \\propto$:',
     options: [
@@ -99,7 +99,7 @@ export const suttonQuestions: Question[] = [
   },
   {
     id: 11807,
-    topic: 'sutton',
+    topic: 'richard-sutton',
     difficulty: 'hard',
     question: 'The "deadly triad" in RL (Sutton & Barto 2018) refers to the dangerous combination of:',
     options: [
@@ -115,7 +115,7 @@ export const suttonQuestions: Question[] = [
   },
   {
     id: 11808,
-    topic: 'sutton',
+    topic: 'richard-sutton',
     difficulty: 'sota',
     question: 'Sutton\'s "Bitter Lesson" (2019) argues that the history of AI shows:',
     options: [
@@ -131,7 +131,7 @@ export const suttonQuestions: Question[] = [
   },
   {
     id: 11809,
-    topic: 'sutton',
+    topic: 'richard-sutton',
     difficulty: 'sota',
     question: 'Dyna architecture (Sutton 1991) integrates model-free and model-based RL by:',
     options: [
@@ -147,7 +147,7 @@ export const suttonQuestions: Question[] = [
   },
   {
     id: 11810,
-    topic: 'sutton',
+    topic: 'richard-sutton',
     difficulty: 'sota',
     question: 'Proximal Policy Optimization (PPO), building on Sutton\'s policy gradient work, stabilizes training using:',
     options: [

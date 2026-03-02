@@ -4,7 +4,7 @@ import type { Question } from '../types';
 export const bendersQuestions: Question[] = [
   {
     id: 65200,
-    topic: 'benders',
+    topic: 'jacques-benders',
     difficulty: 'easy',
     question:
       'Benders decomposition is designed for problems that “split” naturally into variables $x$ and $y$, often with $x$ integer and $y$ continuous. Which description best matches the standard Benders split?',
@@ -24,7 +24,7 @@ export const bendersQuestions: Question[] = [
   },
   {
     id: 65201,
-    topic: 'benders',
+    topic: 'jacques-benders',
     difficulty: 'hard',
     question:
       'Consider a standard form\n$$\\min\\ c^\\top x + d^\\top y\\ \\ \\text{s.t. } A x + B y \\ge b,\\ \\ x\\in X,\\ y\\ge 0.$$\nFix $x=\\bar x$ and solve the LP subproblem in $y$. A **Benders optimality cut** is derived from which object, and what is its typical shape?',
@@ -44,7 +44,7 @@ export const bendersQuestions: Question[] = [
   },
   {
     id: 65202,
-    topic: 'benders',
+    topic: 'jacques-benders',
     difficulty: 'sota',
     question:
       'When the subproblem is infeasible for some $x=\\bar x$, Benders adds a **feasibility cut**. Which statement best captures the logic (often via Farkas’ lemma)?',
@@ -64,7 +64,7 @@ export const bendersQuestions: Question[] = [
   },
   {
     id: 65203,
-    topic: 'benders',
+    topic: 'jacques-benders',
     difficulty: 'hard',
     question:
       'A common acceleration for Benders is to strengthen cuts or reduce iterations. Which technique best matches a modern, widely used acceleration idea?',
@@ -84,7 +84,7 @@ export const bendersQuestions: Question[] = [
   },
   {
     id: 65204,
-    topic: 'benders',
+    topic: 'jacques-benders',
     difficulty: 'sota',
     question:
       'Logic-based Benders decomposition (LBBD) differs from classical Benders primarily in what way?',

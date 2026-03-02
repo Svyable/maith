@@ -2,7 +2,7 @@ import type { Question } from '../types';
 
 export const meitnerQuestions: Question[] = [
   {
-    id: 20106, topic: 'meitner', difficulty: 'easy',
+    id: 20106, topic: 'lise-meitner', difficulty: 'easy',
     question: 'Which nuclear process did Lise Meitner provide the first theoretical explanation for?',
     options: ['Nuclear fission', 'Nuclear fusion', 'Beta decay', 'Alpha decay'],
     correctIndex: 0,
@@ -11,7 +11,7 @@ export const meitnerQuestions: Question[] = [
     hint: 'This process splits a heavy nucleus into lighter fragments, releasing enormous energy.',
   },
   {
-    id: 20107, topic: 'meitner', difficulty: 'hard',
+    id: 20107, topic: 'lise-meitner', difficulty: 'hard',
     question: 'Which element is named after Lise Meitner?',
     options: ['Meitnerium (Mt)', 'Mendelevium (Md)', 'Moscovium (Mc)', 'Nihonium (Nh)'],
     correctIndex: 0,
@@ -20,7 +20,7 @@ export const meitnerQuestions: Question[] = [
     hint: 'Element 109, a superheavy transactinide element.',
   },
   {
-    id: 20108, topic: 'meitner', difficulty: 'sota',
+    id: 20108, topic: 'lise-meitner', difficulty: 'sota',
     question: 'In Meitner\'s fission explanation, she used $E=mc^2$ to calculate energy released. Approximately how much energy does fission of one U-235 nucleus release?',
     options: ['~200 MeV', '~20 MeV', '~2 GeV', '~20 keV'],
     correctIndex: 0,

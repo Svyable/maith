@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const kirchhoffQuestions: Question[] = [
   {
     id: 14501,
-    topic: 'Kirchhoffs',
+    topic: 'auguste-kirchhoff',
     difficulty: 'easy',
     question: 'Kirchhoffs\'s principle (1883) states that a cryptographic system should be secure even if:',
     options: [
@@ -19,7 +19,7 @@ export const kirchhoffQuestions: Question[] = [
   },
   {
     id: 14502,
-    topic: 'Kirchhoffs',
+    topic: 'auguste-kirchhoff',
     difficulty: 'hard',
     question: 'Steganography differs from cryptography in that:',
     options: [
@@ -35,7 +35,7 @@ export const kirchhoffQuestions: Question[] = [
   },
   {
     id: 14503,
-    topic: 'Kirchhoffs',
+    topic: 'auguste-kirchhoff',
     difficulty: 'sota',
     question: 'Modern neural steganography uses deep learning to:',
     options: [

@@ -2,7 +2,7 @@ import type { Question } from '../types';
 
 export const friedmannQuestions: Question[] = [
   {
-    id: 90701, topic: 'friedmann', difficulty: 'sota',
+    id: 90701, topic: 'alexander-friedmann', difficulty: 'sota',
     question: 'The Friedmann equation $(\\dot{a}/a)^2 = 8\\pi G\\rho/3 - k/a^2$ describes:',
     options: ['The expansion rate of a homogeneous, isotropic universe', 'Gravitational wave propagation', 'Stellar interior structure', 'Black hole evaporation'],
     correctIndex: 0,
@@ -11,7 +11,7 @@ export const friedmannQuestions: Question[] = [
     hint: 'Einstein\'s equations applied to the universe as a whole — assuming it looks the same everywhere.',
   },
   {
-    id: 90702, topic: 'friedmann', difficulty: 'sota',
+    id: 90702, topic: 'alexander-friedmann', difficulty: 'sota',
     question: 'Friedmann predicted the expanding universe in 1922, which was observationally confirmed by:',
     options: ['Hubble\'s 1929 redshift-distance relation', 'The 1965 CMB discovery', 'Einstein\'s 1905 special relativity', 'Zwicky\'s dark matter observations'],
     correctIndex: 0,
@@ -20,7 +20,7 @@ export const friedmannQuestions: Question[] = [
     hint: 'An astronomer at Mount Wilson measured galaxy velocities and distances 7 years after the theoretical prediction.',
   },
   {
-    id: 90703, topic: 'friedmann', difficulty: 'sota',
+    id: 90703, topic: 'alexander-friedmann', difficulty: 'sota',
     question: 'In the Friedmann equation, $k = +1, 0, -1$ corresponds to universes that are:',
     options: ['Closed (spherical), flat, and open (hyperbolic)', 'Expanding, static, and contracting', 'Hot, warm, and cold', 'Young, middle-aged, and old'],
     correctIndex: 0,

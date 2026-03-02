@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const rudnickQuestions: Question[] = [
   {
     id: 22060,
-    topic: 'rudnick',
+    topic: 'zeev-rudnick',
     difficulty: 'hard',
     question: 'Rudnick and Sarnak\'s conjecture on quantum unique ergodicity (QUE) concerns the behaviour of eigenfunctions of the Laplacian on negatively curved manifolds. What does QUE predict?',
     options: [
@@ -19,7 +19,7 @@ export const rudnickQuestions: Question[] = [
   },
   {
     id: 22061,
-    topic: 'rudnick',
+    topic: 'zeev-rudnick',
     difficulty: 'sota',
     question: 'Rudnick\'s work on the statistics of zeros of zeta functions over function fields $\\mathbb{F}_q[T]$ revealed agreement with which random matrix ensemble as $q \\to \\infty$?',
     options: [
@@ -35,7 +35,7 @@ export const rudnickQuestions: Question[] = [
   },
   {
     id: 22062,
-    topic: 'rudnick',
+    topic: 'zeev-rudnick',
     difficulty: 'sota',
     question: 'Rudnick studied the variance of the number of lattice points in thin annuli $\\{x : R \\leq |x| \\leq R + c/R\\}$. The variance is conjectured to grow as which power of $R$?',
     options: [

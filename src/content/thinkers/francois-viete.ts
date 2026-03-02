@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const vieteQuestions: Question[] = [
   {
     id: 11001,
-    topic: 'viete',
+    topic: 'francois-viete',
     difficulty: 'easy',
     question: 'Viète\'s formula expresses $2/\\pi$ as what type of infinite expression?',
     options: [
@@ -19,7 +19,7 @@ export const vieteQuestions: Question[] = [
   },
   {
     id: 11002,
-    topic: 'viete',
+    topic: 'francois-viete',
     difficulty: 'hard',
     question: 'Viète derived his product for $\\pi$ by inscribing regular polygons in a circle. The key trigonometric identity he exploited was:',
     options: [
@@ -35,7 +35,7 @@ export const vieteQuestions: Question[] = [
   },
   {
     id: 11003,
-    topic: 'viete',
+    topic: 'francois-viete',
     difficulty: 'sota',
     question: 'Viète\'s product converges to $2/\\pi$ at what rate?',
     options: [

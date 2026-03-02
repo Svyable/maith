@@ -2,7 +2,7 @@ import type { Question } from '../types';
 
 export const pearsonQuestions: Question[] = [
   {
-    id: 21301, topic: 'pearson', difficulty: 'easy',
+    id: 21301, topic: 'karl-pearson', difficulty: 'easy',
     question: 'The Pearson correlation coefficient $r$ measures:',
     options: ['The strength and direction of the linear relationship between two variables, ranging from -1 to +1', 'The causal effect of one variable on another', 'The average of two variables', 'The variance of a single variable'],
     correctIndex: 0,
@@ -11,7 +11,7 @@ export const pearsonQuestions: Question[] = [
     hint: 'It captures LINEAR association only — a perfect parabola can have r=0.',
   },
   {
-    id: 21302, topic: 'pearson', difficulty: 'hard',
+    id: 21302, topic: 'karl-pearson', difficulty: 'hard',
     question: 'Pearson\'s chi-squared test $\\chi^2 = \\sum \\frac{(O_i - E_i)^2}{E_i}$ is used for:',
     options: ['Testing whether observed categorical frequencies differ significantly from expected frequencies', 'Testing whether a continuous variable is normally distributed', 'Comparing means of two groups', 'Measuring correlation between continuous variables'],
     correctIndex: 0,
@@ -20,7 +20,7 @@ export const pearsonQuestions: Question[] = [
     hint: 'Sum up (observed - expected)² / expected across all categories — large values suggest the data doesn\'t fit the model.',
   },
   {
-    id: 21303, topic: 'pearson', difficulty: 'sota',
+    id: 21303, topic: 'karl-pearson', difficulty: 'sota',
     question: 'Principal Component Analysis (PCA), rooted in Pearson\'s (1901) work, finds directions of maximum variance by:',
     options: ['Computing eigenvectors of the covariance matrix — the first eigenvector captures the most variance', 'Random projection to lower dimensions', 'Clustering data into groups', 'Applying kernel functions to the data'],
     correctIndex: 0,

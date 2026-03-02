@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const jjthomsonQuestions: Question[] = [
   {
     id: 31150,
-    topic: 'jjthomson',
+    topic: 'jj-thomson',
     difficulty: 'easy',
     question: 'J.J. Thomson forever altered human history by discovering the electron. What critical mathematical measurement did he extract from his cathode ray tube experiments to definitively prove it was a completely new subatomic particle?',
     options: [
@@ -19,7 +19,7 @@ export const jjthomsonQuestions: Question[] = [
   },
   {
     id: 31151,
-    topic: 'jjthomson',
+    topic: 'jj-thomson',
     difficulty: 'hard',
     question: 'Before Rutherford discovered the massive, dense nucleus, Thomson proposed the famous "Plum Pudding" geometric model of the atom. How was the electric charge mathematically distributed in this model?',
     options: [
@@ -35,7 +35,7 @@ export const jjthomsonQuestions: Question[] = [
   },
   {
     id: 31152,
-    topic: 'jjthomson',
+    topic: 'jj-thomson',
     difficulty: 'sota',
     question: 'Thomson mathematically pioneered the field of mass spectrometry. By bending "positive rays" (ions) through combined electric and magnetic fields, he made a staggering discovery about the stable element Neon. What did he mathematically prove?',
     options: [
@@ -51,7 +51,7 @@ export const jjthomsonQuestions: Question[] = [
   },
   {
     id: 31153,
-    topic: 'jjthomson',
+    topic: 'jj-thomson',
     difficulty: 'hard',
     question: 'In classical electrodynamics, "Thomson scattering" describes the low-energy elastic scattering of electromagnetic radiation by a free charged particle. What highly unique mathematical characteristic defines the Thomson cross-section $\\sigma_T = \\frac{8\\pi}{3} r_e^2$?',
     options: [
@@ -67,7 +67,7 @@ export const jjthomsonQuestions: Question[] = [
   },
   {
     id: 31154,
-    topic: 'jjthomson',
+    topic: 'jj-thomson',
     difficulty: 'hard',
     question: 'J.J. Thomson was the director of the legendary Cavendish Laboratory at Cambridge. His unparalleled genius as a theoretical mentor is mathematically proven by what incredible historical fact?',
     options: [

@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const vanCeulenQuestions: Question[] = [
   {
     id: 11031,
-    topic: 'van-ceulen',
+    topic: 'ludolph-van-ceulen',
     difficulty: 'easy',
     question: 'Which method did Ludolph van Ceulen use to approximate $\\pi$ to 35 decimal places?',
     options: [
@@ -19,7 +19,7 @@ export const vanCeulenQuestions: Question[] = [
   },
   {
     id: 11032,
-    topic: 'van-ceulen',
+    topic: 'ludolph-van-ceulen',
     difficulty: 'hard',
     question: 'Van Ceulen\'s polygon method converges to $\\pi$ at what rate?',
     options: [
@@ -35,7 +35,7 @@ export const vanCeulenQuestions: Question[] = [
   },
   {
     id: 11033,
-    topic: 'van-ceulen',
+    topic: 'ludolph-van-ceulen',
     difficulty: 'sota',
     question: 'Van Ceulen\'s computation used the recurrence for polygon side lengths. For a regular $2n$-gon inscribed in a unit circle with side $s_n$ for the $n$-gon, the doubling formula is:',
     options: [

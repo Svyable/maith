@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const fermatQuestions: Question[] = [
   {
     id: 10111,
-    topic: 'fermat',
+    topic: 'pierre-de-fermat',
     difficulty: 'easy',
     question: 'Fermat\'s Little Theorem states that if $p$ is prime and $\\gcd(a,p)=1$:',
     options: [
@@ -19,7 +19,7 @@ export const fermatQuestions: Question[] = [
   },
   {
     id: 10112,
-    topic: 'fermat',
+    topic: 'pierre-de-fermat',
     difficulty: 'hard',
     question: 'Fermat\'s Last Theorem states that $x^n + y^n = z^n$ has no positive integer solutions for:',
     options: [
@@ -35,7 +35,7 @@ export const fermatQuestions: Question[] = [
   },
   {
     id: 10113,
-    topic: 'fermat',
+    topic: 'pierre-de-fermat',
     difficulty: 'sota',
     question: 'The Taniyama-Shimura-Weil conjecture (now theorem), key to proving Fermat\'s Last Theorem, states:',
     options: [

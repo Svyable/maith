@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const tusiQuestions: Question[] = [
   {
     id: 11071,
-    topic: 'al-tusi',
+    topic: 'nasir-al-din-al-tusi',
     difficulty: 'easy',
     question: 'Nasir al-Din al-Tusi\'s greatest contribution to trigonometry was:',
     options: [
@@ -19,7 +19,7 @@ export const tusiQuestions: Question[] = [
   },
   {
     id: 11072,
-    topic: 'al-tusi',
+    topic: 'nasir-al-din-al-tusi',
     difficulty: 'hard',
     question: 'The "Tusi couple" is a geometric device where:',
     options: [
@@ -35,7 +35,7 @@ export const tusiQuestions: Question[] = [
   },
   {
     id: 11073,
-    topic: 'al-tusi',
+    topic: 'nasir-al-din-al-tusi',
     difficulty: 'sota',
     question: 'Al-Tusi\'s spherical law of sines states that for a spherical triangle with sides $a, b, c$ (arcs) and opposite angles $A, B, C$:',
     options: [

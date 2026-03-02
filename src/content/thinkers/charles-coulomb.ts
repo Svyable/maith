@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const coulombQuestions: Question[] = [
   {
     id: 21830,
-    topic: 'coulomb',
+    topic: 'charles-coulomb',
     difficulty: 'sota',
     question: 'Coulomb\'s law gives the electrostatic force between two point charges. What is the force F?',
     options: [
@@ -19,7 +19,7 @@ export const coulombQuestions: Question[] = [
   },
   {
     id: 21831,
-    topic: 'coulomb',
+    topic: 'charles-coulomb',
     difficulty: 'sota',
     question: 'Coulomb measured electrostatic forces using what ingenious device?',
     options: [
@@ -35,7 +35,7 @@ export const coulombQuestions: Question[] = [
   },
   {
     id: 21832,
-    topic: 'coulomb',
+    topic: 'charles-coulomb',
     difficulty: 'sota',
     question: 'The electric field from a point charge q at distance r has magnitude E = ?',
     options: [

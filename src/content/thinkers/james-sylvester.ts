@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const sylvesterQuestions: Question[] = [
   {
     id: 31065,
-    topic: 'sylvester',
+    topic: 'james-sylvester',
     difficulty: 'easy',
     question: 'James Joseph Sylvester was a prolific coiner of mathematical terminology. Which of the following fundamental terms did he *not* invent?',
     options: [
@@ -19,7 +19,7 @@ export const sylvesterQuestions: Question[] = [
   },
   {
     id: 31066,
-    topic: 'sylvester',
+    topic: 'james-sylvester',
     difficulty: 'hard',
     question: 'Sylvester\'s "Law of Inertia" applies to real quadratic forms. What specific mathematical property does it prove remains constant, regardless of how the coordinate basis is changed?',
     options: [
@@ -35,7 +35,7 @@ export const sylvesterQuestions: Question[] = [
   },
   {
     id: 31067,
-    topic: 'sylvester',
+    topic: 'james-sylvester',
     difficulty: 'sota',
     question: 'The "Sylvester matrix" is a powerful algebraic construct. What highly specific calculation is it primarily used to determine between two polynomials?',
     options: [
@@ -51,7 +51,7 @@ export const sylvesterQuestions: Question[] = [
   },
   {
     id: 31068,
-    topic: 'sylvester',
+    topic: 'james-sylvester',
     difficulty: 'hard',
     question: 'Despite his absolute genius, Sylvester faced massive institutional discrimination during his early academic career. Why was he originally denied his degree and fellowships at Cambridge?',
     options: [
@@ -67,7 +67,7 @@ export const sylvesterQuestions: Question[] = [
   },
   {
     id: 31069,
-    topic: 'sylvester',
+    topic: 'james-sylvester',
     difficulty: 'hard',
     question: 'In combinatorial geometry, Sylvester posed the famous "Orchard Problem" (now the Sylvester-Gallai theorem). What does this theorem state about a finite set of points in a plane, assuming not all points lie on a single straight line?',
     options: [

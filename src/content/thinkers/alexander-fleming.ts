@@ -2,7 +2,7 @@ import type { Question } from '../types';
 
 export const flemingQuestions: Question[] = [
   {
-    id: 96040, topic: 'fleming', difficulty: 'easy',
+    id: 96040, topic: 'alexander-fleming', difficulty: 'easy',
     question: 'Alexander Fleming accidentally discovered penicillin when he noticed:',
     options: ['A mold (Penicillium) killing bacteria on a petri dish he\'d left uncovered', 'A virus destroying cancer cells', 'Sunlight sterilizing water', 'Heat killing all microorganisms'],
     correctIndex: 0,
@@ -11,7 +11,7 @@ export const flemingQuestions: Question[] = [
     hint: 'A famously "messy" lab led to one of medicine\'s greatest discoveries.',
   },
   {
-    id: 96041, topic: 'fleming', difficulty: 'hard',
+    id: 96041, topic: 'alexander-fleming', difficulty: 'hard',
     question: 'Penicillin works by:',
     options: ['Inhibiting bacterial cell wall synthesis (transpeptidase/PBP binding)', 'Destroying bacterial DNA', 'Blocking protein synthesis at ribosomes', 'Disrupting cell membranes'],
     correctIndex: 0,
@@ -20,7 +20,7 @@ export const flemingQuestions: Question[] = [
     hint: 'It targets something animal cells don\'t have — a rigid cell wall.',
   },
   {
-    id: 96042, topic: 'fleming', difficulty: 'sota',
+    id: 96042, topic: 'alexander-fleming', difficulty: 'sota',
     question: 'Antimicrobial resistance (AMR) is projected by WHO to cause annually by 2050:',
     options: ['Up to 10 million deaths, surpassing cancer', '1 million deaths', '100,000 deaths', '500,000 deaths'],
     correctIndex: 0,

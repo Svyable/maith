@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const lorenzQuestions: Question[] = [
   {
     id: 20420,
-    topic: 'lorenz',
+    topic: 'edward-lorenz',
     difficulty: 'hard',
     question: 'The Lorenz system $\\dot{x}=\\sigma(y-x),\\; \\dot{y}=x(\\rho-z)-y,\\; \\dot{z}=xy-\\beta z$ exhibits chaos for $\\sigma=10, \\beta=8/3, \\rho=28$. What geometric object does the trajectory trace?',
     options: ['A strange attractor', 'A limit cycle', 'A fixed point', 'A torus'],
@@ -14,7 +14,7 @@ export const lorenzQuestions: Question[] = [
   },
   {
     id: 20421,
-    topic: 'lorenz',
+    topic: 'edward-lorenz',
     difficulty: 'hard',
     question: 'Lorenz discovered chaos by accident when he rounded a number from 0.506127 to 0.506. This illustrates which property of chaotic systems?',
     options: ['Sensitive dependence on initial conditions', 'Periodicity', 'Linearity', 'Conservation of energy'],
@@ -25,7 +25,7 @@ export const lorenzQuestions: Question[] = [
   },
   {
     id: 20422,
-    topic: 'lorenz',
+    topic: 'edward-lorenz',
     difficulty: 'sota',
     question: 'The largest Lyapunov exponent $\\lambda_1$ of the Lorenz system at standard parameters is approximately:',
     options: ['$\\approx 0.9$', '$\\approx 0$', '$\\approx -2.7$', '$\\approx 28$'],
@@ -36,7 +36,7 @@ export const lorenzQuestions: Question[] = [
   },
   {
     id: 20423,
-    topic: 'lorenz',
+    topic: 'edward-lorenz',
     difficulty: 'sota',
     question: 'Tucker (2002) provided a computer-assisted proof that the Lorenz attractor exists as a robust strange attractor. What mathematical technique was central to his proof?',
     options: ['Rigorous interval arithmetic with validated numerics', 'Symbolic dynamics only', 'Perturbation theory', 'Monte Carlo simulation'],
@@ -47,7 +47,7 @@ export const lorenzQuestions: Question[] = [
   },
   {
     id: 20424,
-    topic: 'lorenz',
+    topic: 'edward-lorenz',
     difficulty: 'easy',
     question: 'Edward Lorenz was primarily a researcher in which field when he discovered chaos?',
     options: ['Meteorology', 'Pure mathematics', 'Quantum physics', 'Economics'],
@@ -58,7 +58,7 @@ export const lorenzQuestions: Question[] = [
   },
   {
     id: 67055,
-    topic: 'lorenz',
+    topic: 'edward-lorenz',
     difficulty: 'easy',
     question:
       'Edward Lorenz is a founder of chaos theory in weather modeling. What does “sensitive dependence on initial conditions” mean?',
@@ -77,7 +77,7 @@ export const lorenzQuestions: Question[] = [
   },
   {
     id: 67056,
-    topic: 'lorenz',
+    topic: 'edward-lorenz',
     difficulty: 'hard',
     question:
       'The Lorenz system is a 3D nonlinear ODE model:\n$$\\dot x=\\sigma(y-x),\\quad \\dot y=x(\\rho-z)-y,\\quad \\dot z=xy-\\beta z.$$\nWhich parameter is traditionally interpreted as the “Rayleigh number” control ($\\rho$) driving convection strength?',
@@ -96,7 +96,7 @@ export const lorenzQuestions: Question[] = [
   },
   {
     id: 67057,
-    topic: 'lorenz',
+    topic: 'edward-lorenz',
     difficulty: 'hard',
     question:
       'For the Lorenz system, the divergence of the vector field is constant:\n$$\\nabla\\cdot f = \\frac{\\partial \\dot x}{\\partial x}+\\frac{\\partial \\dot y}{\\partial y}+\\frac{\\partial \\dot z}{\\partial z}.$$\nWhat does its sign imply?',
@@ -115,7 +115,7 @@ export const lorenzQuestions: Question[] = [
   },
   {
     id: 67058,
-    topic: 'lorenz',
+    topic: 'edward-lorenz',
     difficulty: 'sota',
     question:
       'A common quantitative measure of chaos is a positive largest Lyapunov exponent $\\lambda_1>0$. What does $\\lambda_1>0$ mean for two nearby trajectories separated by $\\delta_0$?',
@@ -134,7 +134,7 @@ export const lorenzQuestions: Question[] = [
   },
   {
     id: 67059,
-    topic: 'lorenz',
+    topic: 'edward-lorenz',
     difficulty: 'sota',
     question:
       'The “butterfly effect” popularizes Lorenz’s insight. Which statement is the most accurate scientific interpretation?',

@@ -4,7 +4,7 @@ import type { Question } from '../types';
 export const chomskyQuestions: Question[] = [
   {
     id: 65050,
-    topic: 'chomsky',
+    topic: 'noam-chomsky',
     difficulty: 'easy',
     question:
       'In the Chomsky hierarchy, languages are classified by grammar restrictions / machine power. Fill in:\n\nType-3 $\\subset$ Type-2 $\\subset$ Type-1 $\\subset$ Type-0 = ?\n\n(Equivalently: DFA/regex $\\subset$ PDA/CFG $\\subset$ LBA/CSG $\\subset$ TM).',
@@ -24,7 +24,7 @@ export const chomskyQuestions: Question[] = [
   },
   {
     id: 65051,
-    topic: 'chomsky',
+    topic: 'noam-chomsky',
     difficulty: 'easy',
     question:
       'Which machine model characterizes Type-2 (context-free) languages in the Chomsky hierarchy?',
@@ -44,7 +44,7 @@ export const chomskyQuestions: Question[] = [
   },
   {
     id: 65052,
-    topic: 'chomsky',
+    topic: 'noam-chomsky',
     difficulty: 'hard',
     question:
       'Chomsky Normal Form (CNF) puts a CFG into a restricted shape useful for CYK parsing. Which rule forms are allowed (ignoring the special-case start rule that may produce $\\varepsilon$)?',
@@ -64,7 +64,7 @@ export const chomskyQuestions: Question[] = [
   },
   {
     id: 65053,
-    topic: 'chomsky',
+    topic: 'noam-chomsky',
     difficulty: 'hard',
     question:
       'The pumping lemma for context-free languages says there exists a pumping length $p$ such that any $s\\in L$ with $|s|\\ge p$ can be written\n$$s = uvxyz$$\nwith constraints. Which set of constraints is correct?',
@@ -84,7 +84,7 @@ export const chomskyQuestions: Question[] = [
   },
   {
     id: 65054,
-    topic: 'chomsky',
+    topic: 'noam-chomsky',
     difficulty: 'sota',
     question:
       'The Chomsky–Schützenberger theorem gives a structural characterization of context-free languages. Which statement is correct?',

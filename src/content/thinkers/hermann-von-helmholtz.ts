@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const helmholtzQuestions: Question[] = [
   {
     id: 20720,
-    topic: 'helmholtz',
+    topic: 'hermann-von-helmholtz',
     difficulty: 'hard',
     question: 'Helmholtz showed that the perceived timbre of a sound depends on its harmonic spectrum. His resonators physically performed which mathematical operation?',
     options: ['Fourier analysis — isolating individual frequency components', 'Laplace transform', 'Wavelet decomposition', 'Z-transform'],
@@ -14,7 +14,7 @@ export const helmholtzQuestions: Question[] = [
   },
   {
     id: 20721,
-    topic: 'helmholtz',
+    topic: 'hermann-von-helmholtz',
     difficulty: 'sota',
     question: 'Helmholtz\'s "On the Sensations of Tone" (1863) proposed that the basilar membrane performs frequency analysis via:',
     options: ['Resonance — different positions respond to different frequencies (place theory)', 'Temporal coding of neural firing rates', 'Amplitude detection only', 'Phase-locked oscillation'],
@@ -25,7 +25,7 @@ export const helmholtzQuestions: Question[] = [
   },
   {
     id: 20722,
-    topic: 'helmholtz',
+    topic: 'hermann-von-helmholtz',
     difficulty: 'easy',
     question: 'Helmholtz is also famous for formulating which fundamental law of physics about energy?',
     options: ['Conservation of energy (first law of thermodynamics)', 'Conservation of momentum', 'The second law of thermodynamics', 'The ideal gas law'],

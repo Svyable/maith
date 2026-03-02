@@ -2,7 +2,7 @@ import type { Question } from '../types';
 
 export const gamowQuestions: Question[] = [
   {
-    id: 90801, topic: 'gamow', difficulty: 'sota',
+    id: 90801, topic: 'george-gamow', difficulty: 'sota',
     question: 'The Gamow peak determines the energy window for stellar nuclear reactions by balancing:',
     options: ['Coulomb barrier penetration and Maxwell-Boltzmann distribution', 'Gravity and radiation pressure', 'Strong and weak nuclear forces', 'Electron capture and beta decay'],
     correctIndex: 0,
@@ -11,7 +11,7 @@ export const gamowQuestions: Question[] = [
     hint: 'Classical physics says the protons don\'t have enough energy — but quantum mechanics says they can tunnel through.',
   },
   {
-    id: 90802, topic: 'gamow', difficulty: 'sota',
+    id: 90802, topic: 'george-gamow', difficulty: 'sota',
     question: 'Big Bang nucleosynthesis (BBN), which Gamow helped develop, predicts the primordial abundance of:',
     options: ['~75% hydrogen, ~25% helium by mass', '~50% hydrogen, ~50% helium', '~90% helium, ~10% hydrogen', 'Equal parts H, He, Li, Be'],
     correctIndex: 0,
@@ -20,7 +20,7 @@ export const gamowQuestions: Question[] = [
     hint: 'The universe was a nuclear reactor for about 3 minutes — mostly making the two lightest elements.',
   },
   {
-    id: 90803, topic: 'gamow', difficulty: 'sota',
+    id: 90803, topic: 'george-gamow', difficulty: 'sota',
     question: 'Gamow and collaborators (Alpher-Bethe-Gamow "αβγ" paper) predicted:',
     options: ['A cosmic microwave background radiation from the early universe', 'Dark matter halos around galaxies', 'Gravitational wave detection', 'The accelerating expansion of the universe'],
     correctIndex: 0,

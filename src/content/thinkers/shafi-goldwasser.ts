@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const goldwasserQuestions: Question[] = [
   {
     id: 12001,
-    topic: 'goldwasser',
+    topic: 'shafi-goldwasser',
     difficulty: 'easy',
     question: 'Shafi Goldwasser co-invented zero-knowledge proofs. What is the key property?',
     options: [
@@ -19,7 +19,7 @@ export const goldwasserQuestions: Question[] = [
   },
   {
     id: 12002,
-    topic: 'goldwasser',
+    topic: 'shafi-goldwasser',
     difficulty: 'easy',
     question: 'Goldwasser and Micali defined the gold standard for encryption security called:',
     options: [
@@ -35,7 +35,7 @@ export const goldwasserQuestions: Question[] = [
   },
   {
     id: 12003,
-    topic: 'goldwasser',
+    topic: 'shafi-goldwasser',
     difficulty: 'hard',
     question: 'Goldwasser\'s work on interactive proofs led to the IP = PSPACE theorem, which states:',
     options: [
@@ -51,7 +51,7 @@ export const goldwasserQuestions: Question[] = [
   },
   {
     id: 12004,
-    topic: 'goldwasser',
+    topic: 'shafi-goldwasser',
     difficulty: 'hard',
     question: 'The Goldwasser–Micali cryptosystem was the first to be provably semantically secure. Its security relies on:',
     options: [
@@ -67,7 +67,7 @@ export const goldwasserQuestions: Question[] = [
   },
   {
     id: 12005,
-    topic: 'goldwasser',
+    topic: 'shafi-goldwasser',
     difficulty: 'sota',
     question: 'Modern succinct zero-knowledge proofs (zk-SNARKs), inspired by Goldwasser\'s foundational work, achieve:',
     options: [

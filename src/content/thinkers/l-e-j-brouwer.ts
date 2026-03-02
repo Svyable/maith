@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const brouwerQuestions: Question[] = [
   {
     id: 20650,
-    topic: 'brouwer',
+    topic: 'l-e-j-brouwer',
     difficulty: 'hard',
     question: 'Brouwer\'s Fixed-Point Theorem states that any continuous function $f: D^n \\to D^n$ (where $D^n$ is the closed unit disk) must have:',
     options: ['At least one point $x$ such that $f(x) = x$', 'Exactly $n$ fixed points', 'No fixed points if $n > 2$', 'A fixed point only if $f$ is differentiable'],
@@ -14,7 +14,7 @@ export const brouwerQuestions: Question[] = [
   },
   {
     id: 20651,
-    topic: 'brouwer',
+    topic: 'l-e-j-brouwer',
     difficulty: 'sota',
     question: 'Brouwer founded Intuitionism, which rejects the law of excluded middle. In intuitionistic logic, proving $\\neg\\neg A$ does NOT imply:',
     options: ['$A$ (double negation elimination fails)', '$\\neg A$', '$A \\lor \\neg A$', '$\\bot$'],
@@ -25,7 +25,7 @@ export const brouwerQuestions: Question[] = [
   },
   {
     id: 20652,
-    topic: 'brouwer',
+    topic: 'l-e-j-brouwer',
     difficulty: 'easy',
     question: 'Brouwer\'s Fixed-Point Theorem can be visualized by stirring a cup of coffee. What does the theorem guarantee?',
     options: ['At least one point in the coffee returns to its original position', 'The coffee eventually stops moving', 'All points return to their original positions', 'The stirring creates a vortex'],

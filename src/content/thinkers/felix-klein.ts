@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const kleinQuestions: Question[] = [
   {
     id: 21720,
-    topic: 'klein',
+    topic: 'felix-klein',
     difficulty: 'sota',
     question: 'Klein\'s Erlangen program (1872) proposed classifying geometries by what mathematical structure?',
     options: [
@@ -19,7 +19,7 @@ export const kleinQuestions: Question[] = [
   },
   {
     id: 21721,
-    topic: 'klein',
+    topic: 'felix-klein',
     difficulty: 'sota',
     question: 'The Klein bottle is a non-orientable closed surface. What is its Euler characteristic χ?',
     options: [
@@ -35,7 +35,7 @@ export const kleinQuestions: Question[] = [
   },
   {
     id: 21722,
-    topic: 'klein',
+    topic: 'felix-klein',
     difficulty: 'sota',
     question: 'Klein\'s j-invariant j(τ) classifies elliptic curves up to isomorphism. What is j(i)?',
     options: [

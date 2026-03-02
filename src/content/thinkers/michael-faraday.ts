@@ -2,7 +2,7 @@ import type { Question } from '../types';
 
 export const faradayQuestions: Question[] = [
   {
-    id: 96301, topic: 'faraday', difficulty: 'easy',
+    id: 96301, topic: 'michael-faraday', difficulty: 'easy',
     question: 'Michael Faraday\'s discovery of electromagnetic induction showed that:',
     options: ['A changing magnetic field produces an electric current — the basis of all electric generators', 'Electric current always produces heat', 'Magnets only attract iron and steel', 'Light is a particle, not a wave'],
     correctIndex: 0,
@@ -11,7 +11,7 @@ export const faradayQuestions: Question[] = [
     hint: 'Move a magnet near a wire and current flows.',
   },
   {
-    id: 96302, topic: 'faraday', difficulty: 'hard',
+    id: 96302, topic: 'michael-faraday', difficulty: 'hard',
     question: 'Faraday\'s laws of electrolysis established that the mass of substance deposited at an electrode is:',
     options: ['Directly proportional to the total electric charge passed and the molar mass, and inversely proportional to the valence', 'Independent of the current and depends only on voltage', 'Proportional to the temperature of the solution', 'Determined solely by the concentration of the electrolyte'],
     correctIndex: 0,
@@ -20,7 +20,7 @@ export const faradayQuestions: Question[] = [
     hint: 'More charge = more material deposited, but heavier atoms need proportionally more.',
   },
   {
-    id: 96303, topic: 'faraday', difficulty: 'sota',
+    id: 96303, topic: 'michael-faraday', difficulty: 'sota',
     question: 'Faraday introduced the concept of "lines of force" and the electromagnetic field. This conceptual revolution was important because:',
     options: ['It replaced action-at-a-distance with local field theory, enabling Maxwell to formulate his equations and predict electromagnetic waves', 'It proved that gravity is an electromagnetic phenomenon', 'It showed that electric and magnetic fields are identical', 'It eliminated the need for mathematical equations in physics'],
     correctIndex: 0,

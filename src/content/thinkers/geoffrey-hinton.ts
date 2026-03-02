@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const hintonQuestions: Question[] = [
   {
     id: 10001,
-    topic: 'hinton',
+    topic: 'geoffrey-hinton',
     difficulty: 'easy',
     question: 'What is backpropagation?',
     options: [
@@ -19,7 +19,7 @@ export const hintonQuestions: Question[] = [
   },
   {
     id: 10002,
-    topic: 'hinton',
+    topic: 'geoffrey-hinton',
     difficulty: 'easy',
     question: 'What does a Restricted Boltzmann Machine (RBM) model?',
     options: [
@@ -35,7 +35,7 @@ export const hintonQuestions: Question[] = [
   },
   {
     id: 10003,
-    topic: 'hinton',
+    topic: 'geoffrey-hinton',
     difficulty: 'easy',
     question: 'What problem do Capsule Networks (CapsNets) aim to solve that CNNs struggle with?',
     options: [
@@ -51,7 +51,7 @@ export const hintonQuestions: Question[] = [
   },
   {
     id: 10004,
-    topic: 'hinton',
+    topic: 'geoffrey-hinton',
     difficulty: 'easy',
     question: 'What does "dropout" do during neural network training?',
     options: [
@@ -67,7 +67,7 @@ export const hintonQuestions: Question[] = [
   },
   {
     id: 10005,
-    topic: 'hinton',
+    topic: 'geoffrey-hinton',
     difficulty: 'hard',
     question: 'In backpropagation, the gradient of the loss $L$ w.r.t. weight $w_{ij}^{(l)}$ is:',
     options: [
@@ -83,7 +83,7 @@ export const hintonQuestions: Question[] = [
   },
   {
     id: 10006,
-    topic: 'hinton',
+    topic: 'geoffrey-hinton',
     difficulty: 'hard',
     question: 'Contrastive Divergence (CD-k) in training RBMs approximates:',
     options: [
@@ -99,7 +99,7 @@ export const hintonQuestions: Question[] = [
   },
   {
     id: 10007,
-    topic: 'hinton',
+    topic: 'geoffrey-hinton',
     difficulty: 'hard',
     question: 'In CapsNets, "dynamic routing by agreement" determines:',
     options: [
@@ -115,7 +115,7 @@ export const hintonQuestions: Question[] = [
   },
   {
     id: 10008,
-    topic: 'hinton',
+    topic: 'geoffrey-hinton',
     difficulty: 'sota',
     question: 'A Deep Belief Network (DBN) is trained greedily by treating each pair of layers as an RBM. What property makes this greedy training principled?',
     options: [
@@ -131,7 +131,7 @@ export const hintonQuestions: Question[] = [
   },
   {
     id: 10009,
-    topic: 'hinton',
+    topic: 'geoffrey-hinton',
     difficulty: 'sota',
     question: 'The "vanishing gradient" problem in deep networks occurs because:',
     options: [
@@ -147,7 +147,7 @@ export const hintonQuestions: Question[] = [
   },
   {
     id: 10010,
-    topic: 'hinton',
+    topic: 'geoffrey-hinton',
     difficulty: 'sota',
     question: 'Hinton\'s "Mortal Computation" critique of backpropagation argues that:',
     options: [

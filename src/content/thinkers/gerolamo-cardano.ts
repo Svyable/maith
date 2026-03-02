@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const cardanoQuestions: Question[] = [
   {
     id: 31035,
-    topic: 'cardano',
+    topic: 'gerolamo-cardano',
     difficulty: 'easy',
     question: 'Gerolamo Cardano\'s magnum opus, *Ars Magna* (1545), is celebrated as a massive turning point in mathematical history because it contained:',
     options: [
@@ -19,7 +19,7 @@ export const cardanoQuestions: Question[] = [
   },
   {
     id: 31036,
-    topic: 'cardano',
+    topic: 'gerolamo-cardano',
     difficulty: 'hard',
     question: 'Cardano’s publication of the cubic formula sparked one of the most bitter feuds in mathematical history because he:',
     options: [
@@ -35,7 +35,7 @@ export const cardanoQuestions: Question[] = [
   },
   {
     id: 31037,
-    topic: 'cardano',
+    topic: 'gerolamo-cardano',
     difficulty: 'sota',
     question: 'Cardano encountered the "Casus Irreducibilis" when solving certain cubic equations. What unprecedented mathematical leap did this force him to make?',
     options: [
@@ -51,7 +51,7 @@ export const cardanoQuestions: Question[] = [
   },
   {
     id: 31038,
-    topic: 'cardano',
+    topic: 'gerolamo-cardano',
     difficulty: 'hard',
     question: 'Decades before Pascal and Fermat formalized the field, Cardano wrote *Liber de Ludo Aleae* (Book on Games of Chance). What was his primary motivation?',
     options: [
@@ -67,7 +67,7 @@ export const cardanoQuestions: Question[] = [
   },
   {
     id: 31039,
-    topic: 'cardano',
+    topic: 'gerolamo-cardano',
     difficulty: 'hard',
     question: 'Beyond mathematics, Cardano made significant contributions to cryptography by inventing the "Cardan Grille." How did this cipher operate?',
     options: [

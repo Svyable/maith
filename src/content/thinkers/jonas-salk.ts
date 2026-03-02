@@ -4,7 +4,7 @@ import type { Question } from '../types';
 export const salkQuestions: Question[] = [
   {
     id: 50060,
-    topic: 'salk',
+    topic: 'jonas-salk',
     difficulty: 'easy',
     question: 'Salk polio vaccine preparation method?',
     options: [
@@ -20,7 +20,7 @@ export const salkQuestions: Question[] = [
   },
   {
     id: 50061,
-    topic: 'salk',
+    topic: 'jonas-salk',
     difficulty: 'hard',
     question: 'Salk 1954 Francis Field Trial design?',
     options: [
@@ -36,7 +36,7 @@ export const salkQuestions: Question[] = [
   },
   {
     id: 50062,
-    topic: 'salk',
+    topic: 'jonas-salk',
     difficulty: 'sota',
     question: 'Poliovirus receptor targeted by Salk IPV?',
     options: [

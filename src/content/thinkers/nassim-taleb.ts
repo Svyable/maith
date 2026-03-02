@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const talebQuestions: Question[] = [
   {
     id: 21060,
-    topic: 'taleb',
+    topic: 'nassim-taleb',
     difficulty: 'sota',
     question: 'Taleb\'s "Black Swan" theory critiques which family of probability distributions as dangerously misapplied to financial markets?',
     options: ['Gaussian (thin-tailed) distributions', 'Power-law (fat-tailed) distributions', 'Poisson distributions', 'Exponential distributions'],
@@ -14,7 +14,7 @@ export const talebQuestions: Question[] = [
   },
   {
     id: 21061,
-    topic: 'taleb',
+    topic: 'nassim-taleb',
     difficulty: 'sota',
     question: 'In Taleb\'s framework, what is "antifragility"?',
     options: ['A property of systems that gain from disorder and volatility', 'The ability to withstand shocks without breaking', 'The tendency to return to equilibrium after perturbation', 'Immunity to Black Swan events'],
@@ -25,7 +25,7 @@ export const talebQuestions: Question[] = [
   },
   {
     id: 21062,
-    topic: 'taleb',
+    topic: 'nassim-taleb',
     difficulty: 'sota',
     question: 'Taleb\'s "barbell strategy" in portfolio construction involves combining which two extremes?',
     options: ['Ultra-safe assets and highly speculative bets, with nothing in between', 'Large-cap and small-cap equities equally weighted', 'Long and short positions on the same asset', 'Government bonds and corporate bonds in equal measure'],
@@ -36,7 +36,7 @@ export const talebQuestions: Question[] = [
   },
   {
     id: 21063,
-    topic: 'taleb',
+    topic: 'nassim-taleb',
     difficulty: 'sota',
     question: 'Taleb\'s concept of "skin in the game" formalizes which principle about risk and decision-making?',
     options: ['Decision-makers must bear the consequences of their decisions', 'Markets are efficient because all information is priced in', 'Diversification eliminates all systematic risk', 'Experts always outperform random selection'],
@@ -47,7 +47,7 @@ export const talebQuestions: Question[] = [
   },
   {
     id: 21064,
-    topic: 'taleb',
+    topic: 'nassim-taleb',
     difficulty: 'sota',
     question: 'Which mathematical concept does Taleb use to distinguish between "Mediocristan" and "Extremistan"?',
     options: ['The concentration of the probability distribution\'s tails (kurtosis)', 'The mean-variance trade-off', 'The central limit theorem convergence rate', 'The law of large numbers'],

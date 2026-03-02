@@ -2,7 +2,7 @@ import type { Question } from '../types';
 
 export const zwickyQuestions: Question[] = [
   {
-    id: 91001, topic: 'zwicky', difficulty: 'sota',
+    id: 91001, topic: 'fritz-zwicky', difficulty: 'sota',
     question: 'Zwicky\'s 1933 observation of the Coma Cluster led him to propose "dark matter" because:',
     options: ['Galaxy velocities implied 400x more mass than visible matter', 'Galaxies were changing color', 'The cluster was shrinking', 'X-rays were detected from the cluster'],
     correctIndex: 0,
@@ -11,7 +11,7 @@ export const zwickyQuestions: Question[] = [
     hint: 'He applied the virial theorem: if galaxies move too fast, there must be unseen mass holding the cluster together.',
   },
   {
-    id: 91002, topic: 'zwicky', difficulty: 'sota',
+    id: 91002, topic: 'fritz-zwicky', difficulty: 'sota',
     question: 'Zwicky and Baade coined the term "supernova" and predicted that supernovae produce:',
     options: ['Neutron stars as compact remnants', 'White dwarfs', 'Black holes exclusively', 'New planetary systems'],
     correctIndex: 0,
@@ -20,7 +20,7 @@ export const zwickyQuestions: Question[] = [
     hint: 'They predicted an entirely new type of stellar object would be left behind after the explosion.',
   },
   {
-    id: 91003, topic: 'zwicky', difficulty: 'sota',
+    id: 91003, topic: 'fritz-zwicky', difficulty: 'sota',
     question: 'Zwicky\'s "morphological analysis" method contributed to science by:',
     options: ['Systematically exploring all possible solutions in a problem space', 'Classifying galaxy shapes by visual inspection only', 'Using neural networks for pattern recognition', 'Measuring stellar distances via parallax'],
     correctIndex: 0,

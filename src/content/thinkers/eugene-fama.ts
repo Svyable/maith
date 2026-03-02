@@ -4,7 +4,7 @@ import type { Question } from '../types';
 export const famaQuestions: Question[] = [
   {
     id: 69100,
-    topic: 'fama',
+    topic: 'eugene-fama',
     difficulty: 'easy',
     question: 'Fama EMH: weak form means?',
     options: [
@@ -20,7 +20,7 @@ export const famaQuestions: Question[] = [
   },
   {
     id: 69101,
-    topic: 'fama',
+    topic: 'eugene-fama',
     difficulty: 'hard',
     question: 'Fama-French 3-factor model?',
     options: [
@@ -36,7 +36,7 @@ export const famaQuestions: Question[] = [
   },
   {
     id: 69102,
-    topic: 'fama',
+    topic: 'eugene-fama',
     difficulty: 'sota',
     question: 'Fama-MacBeth regression procedure?',
     options: [
@@ -52,7 +52,7 @@ export const famaQuestions: Question[] = [
   },
   {
     id: 69103,
-    topic: 'fama',
+    topic: 'eugene-fama',
     difficulty: 'hard',
     question: 'Fama\'s value effect: HML captures?',
     options: [
@@ -68,7 +68,7 @@ export const famaQuestions: Question[] = [
   },
   {
     id: 69104,
-    topic: 'fama',
+    topic: 'eugene-fama',
     difficulty: 'sota',
     question: 'Fama joint hypothesis problem?',
     options: [

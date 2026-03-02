@@ -2,7 +2,7 @@ import type { Question } from '../types';
 
 export const fermiQuestions: Question[] = [
   {
-    id: 20701, topic: 'fermi', difficulty: 'easy',
+    id: 20701, topic: 'enrico-fermi', difficulty: 'easy',
     question: 'A "Fermi estimation" is a technique for:',
     options: ['Making rough order-of-magnitude calculations with limited information', 'Computing exact solutions to nuclear physics problems', 'Optimizing neural network hyperparameters', 'Measuring radioactive decay rates'],
     correctIndex: 0,
@@ -11,7 +11,7 @@ export const fermiQuestions: Question[] = [
     hint: 'Break a hard question into easier sub-questions, estimate each, and multiply — you\'ll be surprisingly close.',
   },
   {
-    id: 20702, topic: 'fermi', difficulty: 'hard',
+    id: 20702, topic: 'enrico-fermi', difficulty: 'hard',
     question: 'Fermi\'s golden rule gives the transition rate between quantum states as:',
     options: ['$\\Gamma = \\frac{2\\pi}{\\hbar}|\\langle f|V|i\\rangle|^2 \\rho(E_f)$ — proportional to matrix element squared times density of states', 'The ratio of initial to final state energies', 'The square root of the perturbation strength', 'The inverse of the system\'s total energy'],
     correctIndex: 0,
@@ -20,7 +20,7 @@ export const fermiQuestions: Question[] = [
     hint: 'Two ingredients: how strongly do the states interact (coupling), and how many final states are available (density)?',
   },
   {
-    id: 20703, topic: 'fermi', difficulty: 'sota',
+    id: 20703, topic: 'enrico-fermi', difficulty: 'sota',
     question: 'The Fermi paradox asks: if intelligent life is probable, where is everyone? The most cited resolution is:',
     options: ['The Great Filter hypothesis — some step in the evolution of technological civilizations is extraordinarily unlikely', 'The universe is too young for interstellar travel', 'Radio signals decay too quickly to detect', 'Intelligent species always destroy themselves immediately'],
     correctIndex: 0,

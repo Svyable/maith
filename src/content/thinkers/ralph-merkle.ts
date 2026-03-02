@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const merkleQuestions: Question[] = [
   {
     id: 14601,
-    topic: 'merkle',
+    topic: 'ralph-merkle',
     difficulty: 'easy',
     question: 'Ralph Merkle independently invented public-key cryptography and is best known for the Merkle tree, which:',
     options: [
@@ -19,7 +19,7 @@ export const merkleQuestions: Question[] = [
   },
   {
     id: 14602,
-    topic: 'merkle',
+    topic: 'ralph-merkle',
     difficulty: 'hard',
     question: 'Merkle\'s Puzzles (1974) was the first public-key key exchange proposal. It works by:',
     options: [
@@ -35,7 +35,7 @@ export const merkleQuestions: Question[] = [
   },
   {
     id: 14603,
-    topic: 'merkle',
+    topic: 'ralph-merkle',
     difficulty: 'sota',
     question: 'Merkle trees are the foundation of blockchain "light clients" because:',
     options: [

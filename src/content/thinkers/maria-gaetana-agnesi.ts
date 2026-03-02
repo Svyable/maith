@@ -2,7 +2,7 @@ import type { Question } from '../types';
 
 export const agnesiQuestions: Question[] = [
   {
-    id: 20206, topic: 'agnesi', difficulty: 'easy',
+    id: 20206, topic: 'maria-gaetana-agnesi', difficulty: 'easy',
     question: 'Maria Gaetana Agnesi is best known for writing the first comprehensive textbook on which subject?',
     options: ['Calculus (Instituzioni analitiche)', 'Algebra', 'Geometry', 'Number theory'],
     correctIndex: 0,
@@ -11,7 +11,7 @@ export const agnesiQuestions: Question[] = [
     hint: 'This branch of mathematics deals with derivatives and integrals.',
   },
   {
-    id: 20207, topic: 'agnesi', difficulty: 'hard',
+    id: 20207, topic: 'maria-gaetana-agnesi', difficulty: 'hard',
     question: 'The "Witch of Agnesi" is the curve defined by which equation?',
     options: ['$y = \\frac{8a^3}{x^2 + 4a^2}$', '$y = \\frac{1}{x^2+1}$', '$y = e^{-x^2}$', '$y = \\frac{\\sin x}{x}$'],
     correctIndex: 0,
@@ -20,7 +20,7 @@ export const agnesiQuestions: Question[] = [
     hint: 'The name comes from a famous mistranslation from Italian to English.',
   },
   {
-    id: 20208, topic: 'agnesi', difficulty: 'sota',
+    id: 20208, topic: 'maria-gaetana-agnesi', difficulty: 'sota',
     question: 'The Witch of Agnesi curve is mathematically equivalent to which probability distribution\'s density function?',
     options: ['Cauchy (Lorentzian) distribution', 'Gaussian distribution', 'Poisson distribution', 'Exponential distribution'],
     correctIndex: 0,

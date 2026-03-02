@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const saruhashiQuestions: Question[] = [
   {
     id: 20508,
-    topic: 'saruhashi',
+    topic: 'katsuko-saruhashi',
     difficulty: 'hard',
     question: 'Katsuko Saruhashi developed a method for measuring CO₂ in seawater. Her technique measured which chemical equilibrium in the ocean?',
     options: ['The carbonate buffer system ($\\text{CO}_2 \\leftrightarrow \\text{HCO}_3^- \\leftrightarrow \\text{CO}_3^{2-}$)', 'Dissolved oxygen concentration', 'Salinity via chloride titration', 'Nitrogen fixation rates'],
@@ -14,7 +14,7 @@ export const saruhashiQuestions: Question[] = [
   },
   {
     id: 20509,
-    topic: 'saruhashi',
+    topic: 'katsuko-saruhashi',
     difficulty: 'sota',
     question: 'Saruhashi\'s tracking of radioactive fallout (particularly $^{90}\\text{Sr}$) in Pacific seawater helped demonstrate which oceanographic phenomenon?',
     options: ['Global ocean circulation connects all basins within decades', 'The ocean floor is geologically static', 'Radioactive elements sink to the ocean floor immediately', 'Pacific currents are isolated from Atlantic circulation'],
@@ -25,7 +25,7 @@ export const saruhashiQuestions: Question[] = [
   },
   {
     id: 20510,
-    topic: 'saruhashi',
+    topic: 'katsuko-saruhashi',
     difficulty: 'easy',
     question: 'Saruhashi\'s research on radioactive fallout helped lead to which major international treaty?',
     options: ['The 1963 Partial Nuclear Test Ban Treaty', 'The Paris Climate Agreement', 'The Montreal Protocol', 'The Antarctic Treaty'],

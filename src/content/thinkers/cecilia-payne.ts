@@ -2,7 +2,7 @@ import type { Question } from '../types';
 
 export const payneQuestions: Question[] = [
   {
-    id: 20218, topic: 'payne', difficulty: 'easy',
+    id: 20218, topic: 'cecilia-payne', difficulty: 'easy',
     question: 'Cecilia Payne-Gaposchkin discovered that stars are primarily composed of which two elements?',
     options: ['Hydrogen and helium', 'Iron and nickel', 'Carbon and oxygen', 'Nitrogen and silicon'],
     correctIndex: 0,
@@ -11,7 +11,7 @@ export const payneQuestions: Question[] = [
     hint: 'These are the two lightest elements in the periodic table.',
   },
   {
-    id: 20219, topic: 'payne', difficulty: 'hard',
+    id: 20219, topic: 'cecilia-payne', difficulty: 'hard',
     question: 'Payne used which quantum mechanical theory to determine stellar composition from absorption spectra?',
     options: ['Saha ionization equation', 'Schrödinger equation', 'Boltzmann distribution alone', 'Planck radiation law'],
     correctIndex: 0,
@@ -20,7 +20,7 @@ export const payneQuestions: Question[] = [
     hint: 'This equation, developed by an Indian physicist, connects ionization equilibrium to thermodynamic conditions.',
   },
   {
-    id: 20220, topic: 'payne', difficulty: 'sota',
+    id: 20220, topic: 'cecilia-payne', difficulty: 'sota',
     question: 'Who initially persuaded Payne to retract her hydrogen-helium conclusion, only to later publish the same result himself?',
     options: ['Henry Norris Russell', 'Arthur Eddington', 'Edwin Hubble', 'Subrahmanyan Chandrasekhar'],
     correctIndex: 0,

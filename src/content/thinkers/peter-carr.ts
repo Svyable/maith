@@ -4,7 +4,7 @@ import type { Question } from '../types';
 export const carrQuestions: Question[] = [
   {
     id: 69280,
-    topic: 'carr',
+    topic: 'peter-carr',
     difficulty: 'easy',
     question: 'Carr-Madan formula prices?',
     options: [
@@ -20,7 +20,7 @@ export const carrQuestions: Question[] = [
   },
   {
     id: 69281,
-    topic: 'carr',
+    topic: 'peter-carr',
     difficulty: 'hard',
     question: 'Carr-Madan characteristic integrand?',
     options: [
@@ -36,7 +36,7 @@ export const carrQuestions: Question[] = [
   },
   {
     id: 69282,
-    topic: 'carr',
+    topic: 'peter-carr',
     difficulty: 'sota',
     question: 'Carr static replication of?',
     options: [
@@ -52,7 +52,7 @@ export const carrQuestions: Question[] = [
   },
   {
     id: 69283,
-    topic: 'carr',
+    topic: 'peter-carr',
     difficulty: 'hard',
     question: 'Recovery theorem assumes?',
     options: [
@@ -68,7 +68,7 @@ export const carrQuestions: Question[] = [
   },
   {
     id: 69284,
-    topic: 'carr',
+    topic: 'peter-carr',
     difficulty: 'sota',
     question: 'Carr-Madan grid spacing Δk?',
     options: [

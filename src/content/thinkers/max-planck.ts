@@ -2,7 +2,7 @@ import type { Question } from '../types';
 
 export const planckQuestions: Question[] = [
   {
-    id: 96401, topic: 'planck', difficulty: 'easy',
+    id: 96401, topic: 'max-planck', difficulty: 'easy',
     question: 'Max Planck\'s quantum hypothesis proposed that energy is:',
     options: ['Emitted and absorbed in discrete packets (quanta) of energy E = hν', 'Continuously distributed like a classical wave', 'Only found in atomic nuclei', 'Always conserved in chemical reactions but not in nuclear ones'],
     correctIndex: 0,
@@ -11,7 +11,7 @@ export const planckQuestions: Question[] = [
     hint: 'Energy comes in packets, not continuous streams.',
   },
   {
-    id: 96402, topic: 'planck', difficulty: 'hard',
+    id: 96402, topic: 'max-planck', difficulty: 'hard',
     question: 'Planck\'s radiation law gives the spectral radiance of a blackbody as $B(\\nu,T) = \\frac{2h\\nu^3}{c^2} \\frac{1}{e^{h\\nu/k_BT}-1}$. This resolved the "ultraviolet catastrophe" because:',
     options: ['The exponential denominator suppresses high-frequency modes, giving finite total energy — unlike the classical Rayleigh-Jeans law which diverges', 'It predicts that blackbodies only emit visible light', 'It shows that temperature is independent of radiation frequency', 'It eliminates the need for statistical mechanics'],
     correctIndex: 0,
@@ -20,7 +20,7 @@ export const planckQuestions: Question[] = [
     hint: 'At high frequencies, the exponential term dominates and kills the divergence.',
   },
   {
-    id: 96403, topic: 'planck', difficulty: 'sota',
+    id: 96403, topic: 'max-planck', difficulty: 'sota',
     question: 'The Planck scale defines fundamental limits of physics. The Planck length $\\ell_P = \\sqrt{\\hbar G/c^3} \\approx 1.6 \\times 10^{-35}$ m is significant because:',
     options: ['Below this scale, quantum gravitational effects dominate and our current theories of spacetime break down', 'It is the smallest length that can be measured with any telescope', 'It is the radius of the smallest known atom', 'It defines the wavelength of the most energetic gamma rays observed'],
     correctIndex: 0,

@@ -4,7 +4,7 @@ import type { Question } from '../types';
 export const dieselQuestions: Question[] = [
   {
     id: 67060,
-    topic: 'diesel',
+    topic: 'rudolf-diesel',
     difficulty: 'easy',
     question:
       'In an ideal Diesel cycle, what distinguishes the heat-addition process from the ideal Otto cycle?',
@@ -24,7 +24,7 @@ export const dieselQuestions: Question[] = [
   },
   {
     id: 67061,
-    topic: 'diesel',
+    topic: 'rudolf-diesel',
     difficulty: 'hard',
     question:
       'For an ideal Diesel cycle with compression ratio $r=\\frac{V_1}{V_2}$ and cutoff ratio $\\rho=\\frac{V_3}{V_2}$ (during constant-pressure heat addition), what is the thermal efficiency $\\eta_D$ (with $\\gamma=C_p/C_v$)?',
@@ -44,7 +44,7 @@ export const dieselQuestions: Question[] = [
   },
   {
     id: 67062,
-    topic: 'diesel',
+    topic: 'rudolf-diesel',
     difficulty: 'hard',
     question:
       'Why do diesel engines typically operate at higher compression ratios than spark-ignition (Otto) engines?',
@@ -64,7 +64,7 @@ export const dieselQuestions: Question[] = [
   },
   {
     id: 67063,
-    topic: 'diesel',
+    topic: 'rudolf-diesel',
     difficulty: 'sota',
     question:
       'In real diesel combustion, “ignition delay” creates a premixed burn spike. Which factor most directly tends to increase ignition delay (all else equal)?',
@@ -84,7 +84,7 @@ export const dieselQuestions: Question[] = [
   },
   {
     id: 67064,
-    topic: 'diesel',
+    topic: 'rudolf-diesel',
     difficulty: 'sota',
     question:
       'Diesel NO$_x$ and soot often trade off. Which statement best captures the classic NO$_x$–soot trade-off?',

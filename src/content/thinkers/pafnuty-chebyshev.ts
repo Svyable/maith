@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const chebyshevQuestions: Question[] = [
   {
     id: 31110,
-    topic: 'chebyshev',
+    topic: 'pafnuty-chebyshev',
     difficulty: 'easy',
     question: 'Chebyshev\'s Inequality is a fundamental theorem in probability. What highly universal guarantee does the formula $P(|X - \\mu| \\geq k\\sigma) \\leq \\frac{1}{k^2}$ provide?',
     options: [
@@ -19,7 +19,7 @@ export const chebyshevQuestions: Question[] = [
   },
   {
     id: 31111,
-    topic: 'chebyshev',
+    topic: 'pafnuty-chebyshev',
     difficulty: 'hard',
     question: 'Chebyshev polynomials of the first kind, $T_n(x)$, are defined by the relation $T_n(\\cos \\theta) = \\cos(n\\theta)$. Under which highly specific weight function $w(x)$ do these polynomials form an orthogonal basis on the interval $[-1, 1]$?',
     options: [
@@ -35,7 +35,7 @@ export const chebyshevQuestions: Question[] = [
   },
   {
     id: 31112,
-    topic: 'chebyshev',
+    topic: 'pafnuty-chebyshev',
     difficulty: 'easy',
     question: 'Before the Prime Number Theorem was fully proven, Chebyshev successfully proved "Bertrand\'s Postulate" regarding prime distribution. What does this postulate strictly guarantee?',
     options: [
@@ -51,7 +51,7 @@ export const chebyshevQuestions: Question[] = [
   },
   {
     id: 31113,
-    topic: 'chebyshev',
+    topic: 'pafnuty-chebyshev',
     difficulty: 'sota',
     question: 'Chebyshev\'s Equioscillation Theorem defines the absolute mathematically "best" polynomial approximation for a continuous function. What must the maximum error bound do to satisfy this theorem?',
     options: [
@@ -67,7 +67,7 @@ export const chebyshevQuestions: Question[] = [
   },
   {
     id: 31114,
-    topic: 'chebyshev',
+    topic: 'pafnuty-chebyshev',
     difficulty: 'hard',
     question: 'Beyond pure probability and number theory, Chebyshev was obsessed with mechanical kinematics. He specifically invented the "Chebyshev linkage" to solve what profound industrial engineering problem?',
     options: [

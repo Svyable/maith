@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const carnotQuestions: Question[] = [
   {
     id: 31135,
-    topic: 'carnot',
+    topic: 'sadi-carnot',
     difficulty: 'easy',
     question: 'Sadi Carnot mathematically established the absolute maximum efficiency of any heat engine in the universe. What incredibly profound constraint does the formula $\\eta = 1 - \\frac{T_C}{T_H}$ reveal?',
     options: [
@@ -19,7 +19,7 @@ export const carnotQuestions: Question[] = [
   },
   {
     id: 31136,
-    topic: 'carnot',
+    topic: 'sadi-carnot',
     difficulty: 'hard',
     question: 'The idealized "Carnot Cycle" is theoretically the most efficient thermodynamic cycle possible. Which four perfectly reversible mathematical processes comprise this geometric cycle on a Pressure-Volume ($P-V$) diagram?',
     options: [
@@ -35,7 +35,7 @@ export const carnotQuestions: Question[] = [
   },
   {
     id: 31137,
-    topic: 'carnot',
+    topic: 'sadi-carnot',
     difficulty: 'sota',
     question: 'Carnot’s theorem contains a massive, counterintuitive universal truth regarding the "working fluid" (e.g., steam, air, or plasma) used inside an idealized reversible engine. What does the theorem state about this fluid?',
     options: [
@@ -51,7 +51,7 @@ export const carnotQuestions: Question[] = [
   },
   {
     id: 31138,
-    topic: 'carnot',
+    topic: 'sadi-carnot',
     difficulty: 'hard',
     question: 'Despite laying the absolute foundation for the Second Law of Thermodynamics, Carnot\'s original 1824 treatise contained a major conceptual flaw regarding the nature of heat. What was his incorrect assumption?',
     options: [
@@ -67,7 +67,7 @@ export const carnotQuestions: Question[] = [
   },
   {
     id: 31139,
-    topic: 'carnot',
+    topic: 'sadi-carnot',
     difficulty: 'sota',
     question: 'In modern thermodynamic calculus, Clausius formalized Carnot\'s insights into the concept of entropy. How does Carnot\'s perfectly reversible cycle mathematically define the cyclic integral of heat transfer over temperature?',
     options: [

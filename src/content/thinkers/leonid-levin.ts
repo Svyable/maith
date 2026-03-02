@@ -4,7 +4,7 @@ import type { Question } from '../types';
 export const levinQuestions: Question[] = [
   {
     id: 67040,
-    topic: 'levin',
+    topic: 'leonid-levin',
     difficulty: 'easy',
     question:
       'Leonid Levin independently developed NP-completeness around the same time as Cook. What is the Cook–Levin theorem’s core claim (Levin’s parallel result)?',
@@ -24,7 +24,7 @@ export const levinQuestions: Question[] = [
   },
   {
     id: 67041,
-    topic: 'levin',
+    topic: 'leonid-levin',
     difficulty: 'hard',
     question:
       'Levin is also associated with “Levin search” (universal search). What is the main idea?',
@@ -44,7 +44,7 @@ export const levinQuestions: Question[] = [
   },
   {
     id: 67042,
-    topic: 'levin',
+    topic: 'leonid-levin',
     difficulty: 'hard',
     question:
       'Levin helped formalize average-case complexity. What is the key difference between worst-case NP-hardness and average-case hardness?',
@@ -64,7 +64,7 @@ export const levinQuestions: Question[] = [
   },
   {
     id: 67043,
-    topic: 'levin',
+    topic: 'leonid-levin',
     difficulty: 'sota',
     question:
       'Levin is one of the names behind “Karp reductions” vs “Levin reductions” in complexity theory discussions. In broad strokes, why do reductions matter?',
@@ -84,7 +84,7 @@ export const levinQuestions: Question[] = [
   },
   {
     id: 67044,
-    topic: 'levin',
+    topic: 'leonid-levin',
     difficulty: 'sota',
     question:
       'Levin also contributed to algorithmic information theory. Which expression is the rough idea of (prefix-free) Kolmogorov complexity $K(x)$?',

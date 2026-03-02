@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const kovalevskayaQuestions: Question[] = [
   {
     id: 12401,
-    topic: 'kovalevskaya',
+    topic: 'sofia-kovalevskaya',
     difficulty: 'easy',
     question: 'Sofia Kovalevskaya was the first woman in modern Europe to:',
     options: [
@@ -19,7 +19,7 @@ export const kovalevskayaQuestions: Question[] = [
   },
   {
     id: 12402,
-    topic: 'kovalevskaya',
+    topic: 'sofia-kovalevskaya',
     difficulty: 'easy',
     question: 'Kovalevskaya won the Prix Bordin (1888) for solving the rotation of a rigid body in which special case?',
     options: [
@@ -35,7 +35,7 @@ export const kovalevskayaQuestions: Question[] = [
   },
   {
     id: 12403,
-    topic: 'kovalevskaya',
+    topic: 'sofia-kovalevskaya',
     difficulty: 'hard',
     question: 'The Cauchy–Kovalevskaya theorem guarantees that for analytic PDEs with analytic initial data:',
     options: [
@@ -51,7 +51,7 @@ export const kovalevskayaQuestions: Question[] = [
   },
   {
     id: 12404,
-    topic: 'kovalevskaya',
+    topic: 'sofia-kovalevskaya',
     difficulty: 'hard',
     question: 'Kovalevskaya\'s method for finding the third integrable case of rigid body rotation used:',
     options: [
@@ -67,7 +67,7 @@ export const kovalevskayaQuestions: Question[] = [
   },
   {
     id: 12405,
-    topic: 'kovalevskaya',
+    topic: 'sofia-kovalevskaya',
     difficulty: 'sota',
     question: 'The Kovalevskaya top has been shown to be algebraically completely integrable, meaning:',
     options: [

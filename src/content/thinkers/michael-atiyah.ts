@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const atiyahQuestions: Question[] = [
   {
     id: 31100,
-    topic: 'atiyah',
+    topic: 'michael-atiyah',
     difficulty: 'sota',
     question: 'The Atiyah-Singer Index Theorem is one of the deepest results of the 20th century. Mathematically, it proves that the analytical index of an elliptic differential operator $D$ on a compact manifold strictly equals:',
     options: [
@@ -19,7 +19,7 @@ export const atiyahQuestions: Question[] = [
   },
   {
     id: 31101,
-    topic: 'atiyah',
+    topic: 'michael-atiyah',
     difficulty: 'hard',
     question: 'Alongside Friedrich Hirzebruch, Atiyah developed "Topological K-theory," a generalized cohomology theory. Instead of using standard topological simplices, what algebraic structures are used to construct the groups $K(X)$ in this theory?',
     options: [
@@ -35,7 +35,7 @@ export const atiyahQuestions: Question[] = [
   },
   {
     id: 31102,
-    topic: 'atiyah',
+    topic: 'michael-atiyah',
     difficulty: 'hard',
     question: 'Atiyah collaborated with Drinfeld, Hitchin, and Manin to create the "ADHM construction." What massively complex problem in theoretical physics did this linear algebraic method completely solve?',
     options: [
@@ -51,7 +51,7 @@ export const atiyahQuestions: Question[] = [
   },
   {
     id: 31103,
-    topic: 'atiyah',
+    topic: 'michael-atiyah',
     difficulty: 'easy',
     question: 'Late in his career, Atiyah formalized the axioms for Topological Quantum Field Theory (TQFT). In this framework, a TQFT is defined as a mathematical "functor" that maps what to what?',
     options: [
@@ -67,7 +67,7 @@ export const atiyahQuestions: Question[] = [
   },
   {
     id: 31104,
-    topic: 'atiyah',
+    topic: 'michael-atiyah',
     difficulty: 'sota',
     question: 'The Atiyah-Bott fixed-point theorem heavily generalizes the classical Lefschetz fixed-point theorem. What complex mathematical objects does the Atiyah-Bott theorem evaluate to determine fixed points?',
     options: [

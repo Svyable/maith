@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const elkiesQuestions: Question[] = [
   {
     id: 22020,
-    topic: 'elkies',
+    topic: 'noam-elkies',
     difficulty: 'hard',
     question: 'Noam Elkies disproved Euler\'s conjecture for fourth powers by finding a counterexample to $a^4 + b^4 + c^4 = d^4$. What was remarkable about his approach?',
     options: [
@@ -19,7 +19,7 @@ export const elkiesQuestions: Question[] = [
   },
   {
     id: 22021,
-    topic: 'elkies',
+    topic: 'noam-elkies',
     difficulty: 'sota',
     question: 'Elkies holds the record for the largest known rank of an elliptic curve over $\\mathbb{Q}$. What is the current record rank he achieved?',
     options: [
@@ -35,7 +35,7 @@ export const elkiesQuestions: Question[] = [
   },
   {
     id: 22022,
-    topic: 'elkies',
+    topic: 'noam-elkies',
     difficulty: 'sota',
     question: 'Elkies became the youngest tenured professor at Harvard at age 26. His work on lattices includes proving optimality of which sphere packing?',
     options: [

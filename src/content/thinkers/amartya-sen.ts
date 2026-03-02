@@ -2,7 +2,7 @@ import type { Question } from '../types';
 
 export const senQuestions: Question[] = [
   {
-    id: 19301, topic: 'sen', difficulty: 'easy',
+    id: 19301, topic: 'amartya-sen', difficulty: 'easy',
     question: 'Amartya Sen\'s "capability approach" measures development by:',
     options: ['People\'s freedoms to achieve lives they value — not just income', 'GDP per capita', 'Industrial output', 'Military spending'],
     correctIndex: 0,
@@ -11,7 +11,7 @@ export const senQuestions: Question[] = [
     hint: 'Development as freedom — what matters is what you CAN do, not just what you own.',
   },
   {
-    id: 19302, topic: 'sen', difficulty: 'hard',
+    id: 19302, topic: 'amartya-sen', difficulty: 'hard',
     question: 'Sen\'s impossibility theorem (Liberal Paradox) shows that:',
     options: ['No social choice function can simultaneously satisfy Pareto efficiency and minimal liberalism', 'Democracy always produces optimal outcomes', 'Free markets maximize welfare', 'Dictatorships are efficient'],
     correctIndex: 0,
@@ -20,7 +20,7 @@ export const senQuestions: Question[] = [
     hint: 'Even giving everyone veto power over just ONE personal choice creates conflicts with Pareto optimality.',
   },
   {
-    id: 19303, topic: 'sen', difficulty: 'sota',
+    id: 19303, topic: 'amartya-sen', difficulty: 'sota',
     question: 'Sen\'s analysis of famines demonstrated that:',
     options: ['Famines are caused by failures of entitlement and distribution, not just food shortages', 'Famines only occur when food supply drops', 'Government intervention always prevents famines', 'Population growth is the primary cause'],
     correctIndex: 0,

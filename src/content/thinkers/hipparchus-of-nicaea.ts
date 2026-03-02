@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const hipparchusQuestions: Question[] = [
   {
     id: 11061,
-    topic: 'hipparchus',
+    topic: 'hipparchus-of-nicaea',
     difficulty: 'easy',
     question: 'Hipparchus is considered the father of trigonometry primarily because he:',
     options: [
@@ -19,7 +19,7 @@ export const hipparchusQuestions: Question[] = [
   },
   {
     id: 11062,
-    topic: 'hipparchus',
+    topic: 'hipparchus-of-nicaea',
     difficulty: 'hard',
     question: 'Hipparchus discovered the precession of the equinoxes by:',
     options: [
@@ -35,7 +35,7 @@ export const hipparchusQuestions: Question[] = [
   },
   {
     id: 11063,
-    topic: 'hipparchus',
+    topic: 'hipparchus-of-nicaea',
     difficulty: 'sota',
     question: 'Hipparchus\'s magnitude system for stellar brightness was:',
     options: [

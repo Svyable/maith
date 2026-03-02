@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const goodfellowQuestions: Question[] = [
   {
     id: 11901,
-    topic: 'goodfellow',
+    topic: 'ian-goodfellow',
     difficulty: 'easy',
     question: 'Generative Adversarial Networks (GANs), invented by Goodfellow, consist of:',
     options: [
@@ -19,7 +19,7 @@ export const goodfellowQuestions: Question[] = [
   },
   {
     id: 11902,
-    topic: 'goodfellow',
+    topic: 'ian-goodfellow',
     difficulty: 'easy',
     question: 'The GAN training objective is a minimax game: $\\min_G \\max_D V(D,G)$ where $V = $',
     options: [
@@ -35,7 +35,7 @@ export const goodfellowQuestions: Question[] = [
   },
   {
     id: 11903,
-    topic: 'goodfellow',
+    topic: 'ian-goodfellow',
     difficulty: 'easy',
     question: 'The "Deep Learning" textbook by Goodfellow, Bengio, and Courville is widely used because it covers:',
     options: [
@@ -51,7 +51,7 @@ export const goodfellowQuestions: Question[] = [
   },
   {
     id: 11904,
-    topic: 'goodfellow',
+    topic: 'ian-goodfellow',
     difficulty: 'easy',
     question: 'Adversarial examples, extensively studied by Goodfellow, are inputs that:',
     options: [
@@ -67,7 +67,7 @@ export const goodfellowQuestions: Question[] = [
   },
   {
     id: 11905,
-    topic: 'goodfellow',
+    topic: 'ian-goodfellow',
     difficulty: 'hard',
     question: 'The Fast Gradient Sign Method (FGSM) for generating adversarial examples computes:',
     options: [
@@ -83,7 +83,7 @@ export const goodfellowQuestions: Question[] = [
   },
   {
     id: 11906,
-    topic: 'goodfellow',
+    topic: 'ian-goodfellow',
     difficulty: 'hard',
     question: 'Mode collapse in GAN training occurs when the generator:',
     options: [
@@ -99,7 +99,7 @@ export const goodfellowQuestions: Question[] = [
   },
   {
     id: 11907,
-    topic: 'goodfellow',
+    topic: 'ian-goodfellow',
     difficulty: 'hard',
     question: 'Conditional GANs (cGANs) extend standard GANs by:',
     options: [
@@ -115,7 +115,7 @@ export const goodfellowQuestions: Question[] = [
   },
   {
     id: 11908,
-    topic: 'goodfellow',
+    topic: 'ian-goodfellow',
     difficulty: 'sota',
     question: 'The Wasserstein GAN (WGAN) replaces the JS divergence with the Earth Mover\'s Distance. The WGAN objective is:',
     options: [
@@ -131,7 +131,7 @@ export const goodfellowQuestions: Question[] = [
   },
   {
     id: 11909,
-    topic: 'goodfellow',
+    topic: 'ian-goodfellow',
     difficulty: 'sota',
     question: 'Adversarial training for robustness (Madry et al., building on Goodfellow) solves the min-max problem:',
     options: [
@@ -147,7 +147,7 @@ export const goodfellowQuestions: Question[] = [
   },
   {
     id: 11910,
-    topic: 'goodfellow',
+    topic: 'ian-goodfellow',
     difficulty: 'sota',
     question: 'Goodfellow\'s work on "Maxout Networks" introduced activations of the form $h_i(x) = \\max_{j \\in [k]} z_{ij}$. Their key theoretical property is:',
     options: [

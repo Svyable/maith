@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const boseQuestions: Question[] = [
   {
     id: 20526,
-    topic: 'bose',
+    topic: 'satyendra-bose',
     difficulty: 'hard',
     question: 'Bose-Einstein statistics describe particles whose wave function is symmetric under exchange. What is the key consequence for occupation numbers?',
     options: ['Any number of bosons can occupy the same quantum state', 'At most one boson per state', 'Bosons must occupy adjacent energy levels', 'Bosons cannot exist at zero temperature'],
@@ -14,7 +14,7 @@ export const boseQuestions: Question[] = [
   },
   {
     id: 20527,
-    topic: 'bose',
+    topic: 'satyendra-bose',
     difficulty: 'hard',
     question: 'Bose derived Planck\'s radiation law without using classical electrodynamics. His key insight was to treat photons as:',
     options: ['Indistinguishable particles counted by states, not individual identities', 'Classical waves with quantized energy', 'Distinguishable particles following Maxwell-Boltzmann statistics', 'Fermions with spin-1'],
@@ -25,7 +25,7 @@ export const boseQuestions: Question[] = [
   },
   {
     id: 20528,
-    topic: 'bose',
+    topic: 'satyendra-bose',
     difficulty: 'sota',
     question: 'Below the critical temperature $T_c$, a Bose gas undergoes Bose-Einstein condensation. For a 3D ideal Bose gas, $T_c$ scales with particle density $n$ as:',
     options: ['$T_c \\propto n^{2/3}$', '$T_c \\propto n$', '$T_c \\propto n^{1/2}$', '$T_c \\propto \\ln n$'],
@@ -36,7 +36,7 @@ export const boseQuestions: Question[] = [
   },
   {
     id: 20529,
-    topic: 'bose',
+    topic: 'satyendra-bose',
     difficulty: 'sota',
     question: 'The Higgs boson, discovered in 2012, is named after Bose\'s particle classification. What spin does the Higgs boson carry?',
     options: ['Spin-0 (scalar boson)', 'Spin-1', 'Spin-2', 'Spin-1/2'],
@@ -47,7 +47,7 @@ export const boseQuestions: Question[] = [
   },
   {
     id: 20530,
-    topic: 'bose',
+    topic: 'satyendra-bose',
     difficulty: 'easy',
     question: 'When journals rejected Bose\'s groundbreaking paper, who did he send it to for help?',
     options: ['Albert Einstein, who translated and published it', 'Niels Bohr', 'Max Planck', 'Werner Heisenberg'],

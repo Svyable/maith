@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const booleQuestions: Question[] = [
   {
     id: 20400,
-    topic: 'boole',
+    topic: 'george-boole',
     difficulty: 'hard',
     question: 'In Boolean algebra, which identity states that $\\overline{A \\cap B} = \\overline{A} \\cup \\overline{B}$?',
     options: ["De Morgan's Law", "Absorption Law", "Distributive Law", "Idempotent Law"],
@@ -14,7 +14,7 @@ export const booleQuestions: Question[] = [
   },
   {
     id: 20401,
-    topic: 'boole',
+    topic: 'george-boole',
     difficulty: 'hard',
     question: 'Boole\'s original algebra operated on classes of objects. What structure does a Boolean algebra form in modern abstract algebra?',
     options: ['Complemented distributive lattice', 'Non-commutative ring', 'Free group', 'Euclidean domain'],
@@ -25,7 +25,7 @@ export const booleQuestions: Question[] = [
   },
   {
     id: 20402,
-    topic: 'boole',
+    topic: 'george-boole',
     difficulty: 'sota',
     question: 'Stone\'s Representation Theorem (1936) establishes a duality between Boolean algebras and which class of topological spaces?',
     options: ['Compact totally disconnected Hausdorff spaces', 'Connected manifolds', 'Locally compact abelian groups', 'Metric spaces with the Baire property'],
@@ -36,7 +36,7 @@ export const booleQuestions: Question[] = [
   },
   {
     id: 20403,
-    topic: 'boole',
+    topic: 'george-boole',
     difficulty: 'sota',
     question: 'Shannon\'s 1937 master\'s thesis showed Boolean algebra maps to relay circuits. What is the minimum number of two-input NAND gates needed to implement an arbitrary Boolean function of $n$ variables (Lupanov bound)?',
     options: ['$O(2^n / n)$', '$O(n!)$', '$O(n \\log n)$', '$O(2^{2^n})$'],
@@ -47,7 +47,7 @@ export const booleQuestions: Question[] = [
   },
   {
     id: 20404,
-    topic: 'boole',
+    topic: 'george-boole',
     difficulty: 'easy',
     question: 'What does the Boolean expression $A \\oplus B$ (XOR) evaluate to when both $A$ and $B$ are true?',
     options: ['False', 'True', 'Undefined', 'Null'],

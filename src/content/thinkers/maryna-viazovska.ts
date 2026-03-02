@@ -2,7 +2,7 @@ import type { Question } from '../types';
 
 export const viazovskaQuestions: Question[] = [
   {
-    id: 21240, topic: 'viazovska', difficulty: 'sota',
+    id: 21240, topic: 'maryna-viazovska', difficulty: 'sota',
     question: 'Viazovska proved the optimal sphere packing in 8 dimensions uses which lattice?',
     options: ['The $E_8$ lattice', 'The Leech lattice', 'The $D_8$ lattice', 'The Barnes-Wall lattice'],
     correctIndex: 0,
@@ -11,7 +11,7 @@ export const viazovskaQuestions: Question[] = [
     hint: 'This exceptional Lie group lattice has 240 nearest neighbors per sphere.',
   },
   {
-    id: 21241, topic: 'viazovska', difficulty: 'sota',
+    id: 21241, topic: 'maryna-viazovska', difficulty: 'sota',
     question: 'Shortly after her $E_8$ result, Viazovska and collaborators solved sphere packing in which other dimension?',
     options: ['24 dimensions (Leech lattice)', '16 dimensions', '32 dimensions', '12 dimensions'],
     correctIndex: 0,
@@ -20,7 +20,7 @@ export const viazovskaQuestions: Question[] = [
     hint: 'This lattice was discovered by John Leech and has remarkable connections to sporadic groups.',
   },
   {
-    id: 21242, topic: 'viazovska', difficulty: 'sota',
+    id: 21242, topic: 'maryna-viazovska', difficulty: 'sota',
     question: 'Viazovska\'s proof technique relies on finding a special function from which mathematical theory?',
     options: ['Modular forms (quasimodular Eisenstein series)', 'Algebraic K-theory', 'Morse theory', 'Category theory'],
     correctIndex: 0,

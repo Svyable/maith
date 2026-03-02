@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const russellQuestions: Question[] = [
   {
     id: 20630,
-    topic: 'russell',
+    topic: 'bertrand-russell',
     difficulty: 'hard',
     question: 'Russell\'s Paradox considers the set $R = \\{x : x \\notin x\\}$. What is the paradox?',
     options: ['$R \\in R \\iff R \\notin R$ — a contradiction', '$R$ is empty', '$R$ contains all sets', '$R$ is identical to the universal set'],
@@ -14,7 +14,7 @@ export const russellQuestions: Question[] = [
   },
   {
     id: 20631,
-    topic: 'russell',
+    topic: 'bertrand-russell',
     difficulty: 'hard',
     question: 'Russell and Whitehead\'s "Principia Mathematica" attempted to derive all mathematics from logic. This program is called:',
     options: ['Logicism', 'Formalism', 'Intuitionism', 'Constructivism'],
@@ -25,7 +25,7 @@ export const russellQuestions: Question[] = [
   },
   {
     id: 20632,
-    topic: 'russell',
+    topic: 'bertrand-russell',
     difficulty: 'sota',
     question: 'Russell\'s theory of types was designed to avoid his paradox. In modern type theory, what role do "universes" (à la Martin-Löf) play?',
     options: ['They create a hierarchy of types to prevent self-referential paradoxes', 'They model parallel universes', 'They define physical constants', 'They replace set theory entirely'],
@@ -36,7 +36,7 @@ export const russellQuestions: Question[] = [
   },
   {
     id: 20633,
-    topic: 'russell',
+    topic: 'bertrand-russell',
     difficulty: 'sota',
     question: 'Zermelo-Fraenkel set theory avoids Russell\'s Paradox primarily through which axiom?',
     options: ['The Axiom Schema of Separation (subsets only, not arbitrary set formation)', 'The Axiom of Choice', 'The Axiom of Infinity', 'The Axiom of Extensionality'],
@@ -47,7 +47,7 @@ export const russellQuestions: Question[] = [
   },
   {
     id: 20634,
-    topic: 'russell',
+    topic: 'bertrand-russell',
     difficulty: 'easy',
     question: 'Russell\'s Paradox devastated whose life\'s work on set theory, forcing a last-minute appendix admitting the foundation was broken?',
     options: ['Gottlob Frege', 'Georg Cantor', 'David Hilbert', 'Ernst Zermelo'],

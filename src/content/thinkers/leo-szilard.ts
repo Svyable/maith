@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const szilardQuestions: Question[] = [
   {
     id: 21120,
-    topic: 'szilard',
+    topic: 'leo-szilard',
     difficulty: 'sota',
     question: 'Szilard conceived the idea of a nuclear chain reaction while crossing a street in which city in 1933?',
     options: ['London', 'Berlin', 'Budapest', 'New York'],
@@ -14,7 +14,7 @@ export const szilardQuestions: Question[] = [
   },
   {
     id: 21121,
-    topic: 'szilard',
+    topic: 'leo-szilard',
     difficulty: 'sota',
     question: 'Szilard\'s famous 1939 letter to President Roosevelt, signed by Einstein, warned about the potential for which development?',
     options: ['Germany developing an atomic bomb using uranium fission', 'Japan acquiring nuclear materials', 'The Soviet Union\'s nuclear program', 'The dangers of civilian nuclear power'],
@@ -25,7 +25,7 @@ export const szilardQuestions: Question[] = [
   },
   {
     id: 21122,
-    topic: 'szilard',
+    topic: 'leo-szilard',
     difficulty: 'sota',
     question: 'Szilard\'s thought experiment about "Maxwell\'s demon" contributed to establishing which fundamental connection?',
     options: ['The link between information and thermodynamic entropy', 'The uncertainty principle in quantum mechanics', 'The equivalence of mass and energy', 'The wave-particle duality of light'],

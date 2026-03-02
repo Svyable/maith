@@ -4,7 +4,7 @@ import type { Question } from '../types';
 export const shiryaevQuestions: Question[] = [
   {
     id: 67010,
-    topic: 'shiryaev',
+    topic: 'albert-shiryaev',
     difficulty: 'easy',
     question:
       'Shiryaev Bayesian quickest detection minimizes:',
@@ -24,7 +24,7 @@ export const shiryaevQuestions: Question[] = [
   },
   {
     id: 67011,
-    topic: 'shiryaev',
+    topic: 'albert-shiryaev',
     difficulty: 'hard',
     question:
       'Shiryaev recursion for posterior probability $\\pi_t$ involves:',
@@ -44,7 +44,7 @@ export const shiryaevQuestions: Question[] = [
   },
   {
     id: 67012,
-    topic: 'shiryaev',
+    topic: 'albert-shiryaev',
     difficulty: 'sota',
     question:
       'Shiryaev–Roberts statistic evolves as:',
@@ -64,7 +64,7 @@ export const shiryaevQuestions: Question[] = [
   },
   {
     id: 67013,
-    topic: 'shiryaev',
+    topic: 'albert-shiryaev',
     difficulty: 'hard',
     question:
       'Optimal stopping rule in Shiryaev detection:',
@@ -84,7 +84,7 @@ export const shiryaevQuestions: Question[] = [
   },
   {
     id: 67014,
-    topic: 'shiryaev',
+    topic: 'albert-shiryaev',
     difficulty: 'sota',
     question:
       'In continuous time Brownian change detection:',

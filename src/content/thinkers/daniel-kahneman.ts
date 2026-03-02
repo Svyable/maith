@@ -2,7 +2,7 @@ import type { Question } from '../types';
 
 export const kahnemanQuestions: Question[] = [
   {
-    id: 96080, topic: 'kahneman', difficulty: 'easy',
+    id: 96080, topic: 'daniel-kahneman', difficulty: 'easy',
     question: 'Kahneman\'s "System 1" and "System 2" describe:',
     options: ['Fast intuitive thinking vs. slow deliberate reasoning', 'Left brain vs. right brain', 'Conscious vs. unconscious memory', 'Short-term vs. long-term memory'],
     correctIndex: 0,
@@ -11,7 +11,7 @@ export const kahnemanQuestions: Question[] = [
     hint: 'Think of the difference between catching a ball (automatic) and solving 17 × 24 (effortful).',
   },
   {
-    id: 96081, topic: 'kahneman', difficulty: 'hard',
+    id: 96081, topic: 'daniel-kahneman', difficulty: 'hard',
     question: 'Kahneman and Tversky\'s Prospect Theory shows that people:',
     options: ['Feel losses roughly twice as strongly as equivalent gains (loss aversion)', 'Are perfectly rational utility maximizers', 'Always prefer certain outcomes over gambles', 'Value money linearly regardless of context'],
     correctIndex: 0,
@@ -20,7 +20,7 @@ export const kahnemanQuestions: Question[] = [
     hint: 'Losing $100 hurts more than gaining $100 feels good.',
   },
   {
-    id: 96082, topic: 'kahneman', difficulty: 'sota',
+    id: 96082, topic: 'daniel-kahneman', difficulty: 'sota',
     question: 'Kahneman\'s "noise" research (with Sibony and Sunstein) reveals that:',
     options: ['Unwanted variability in human judgment is often larger than bias, yet largely invisible', 'All judgment errors come from cognitive biases', 'AI eliminates all decision-making noise', 'Noise only affects novice decision-makers'],
     correctIndex: 0,

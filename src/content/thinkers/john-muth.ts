@@ -4,7 +4,7 @@ import type { Question } from '../types';
 export const muthQuestions: Question[] = [
   {
     id: 67005,
-    topic: 'muth',
+    topic: 'john-muth',
     difficulty: 'easy',
     question:
       'Muth (1961) rational expectations hypothesis states:',
@@ -24,7 +24,7 @@ export const muthQuestions: Question[] = [
   },
   {
     id: 67006,
-    topic: 'muth',
+    topic: 'john-muth',
     difficulty: 'hard',
     question:
       'Under rational expectations, forecast errors satisfy:',
@@ -44,7 +44,7 @@ export const muthQuestions: Question[] = [
   },
   {
     id: 67007,
-    topic: 'muth',
+    topic: 'john-muth',
     difficulty: 'sota',
     question:
       'Rational expectations in linear model $x_t = A E_t[x_{t+1}] + \\varepsilon_t$ implies solution via:',
@@ -64,7 +64,7 @@ export const muthQuestions: Question[] = [
   },
   {
     id: 67008,
-    topic: 'muth',
+    topic: 'john-muth',
     difficulty: 'hard',
     question:
       'Lucas critique builds on Muth by arguing:',
@@ -84,7 +84,7 @@ export const muthQuestions: Question[] = [
   },
   {
     id: 67009,
-    topic: 'muth',
+    topic: 'john-muth',
     difficulty: 'sota',
     question:
       'Under rational expectations equilibrium in asset pricing:',

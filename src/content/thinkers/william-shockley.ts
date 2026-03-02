@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const shockleyQuestions: Question[] = [
   {
     id: 11131,
-    topic: 'shockley',
+    topic: 'william-shockley',
     difficulty: 'easy',
     question: 'The transistor, invented at Bell Labs in 1947, replaced vacuum tubes because:',
     options: [
@@ -19,7 +19,7 @@ export const shockleyQuestions: Question[] = [
   },
   {
     id: 11132,
-    topic: 'shockley',
+    topic: 'william-shockley',
     difficulty: 'hard',
     question: 'In a semiconductor, the band gap $E_g$ determines:',
     options: [
@@ -35,7 +35,7 @@ export const shockleyQuestions: Question[] = [
   },
   {
     id: 11133,
-    topic: 'shockley',
+    topic: 'william-shockley',
     difficulty: 'sota',
     question: 'The Shockley diode equation $I = I_0\\left(e^{qV/(nk_BT)} - 1\\right)$ describes current through a p-n junction. The ideality factor $n$ deviates from 1 because:',
     options: [

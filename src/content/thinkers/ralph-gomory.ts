@@ -4,7 +4,7 @@ import type { Question } from '../types';
 export const gomoryQuestions: Question[] = [
   {
     id: 65250,
-    topic: 'gomory',
+    topic: 'ralph-gomory',
     difficulty: 'easy',
     question:
       'A Gomory **fractional cut** is generated after solving the LP relaxation and finding a basic solution with some basic integer variable fractional. From what object is the cut derived?',
@@ -24,7 +24,7 @@ export const gomoryQuestions: Question[] = [
   },
   {
     id: 65251,
-    topic: 'gomory',
+    topic: 'ralph-gomory',
     difficulty: 'hard',
     question:
       'Suppose the LP tableau has a row for an integer basic variable:\n$$x_B = b - \\sum_{j\\in N} a_j x_j,$$\nwhere $b\\notin\\mathbb{Z}$. Let fractional part be $\\{t\\}=t-\\lfloor t\\rfloor$. What is the standard **Gomory fractional cut** form (up to equivalent rearrangements)?',
@@ -44,7 +44,7 @@ export const gomoryQuestions: Question[] = [
   },
   {
     id: 65252,
-    topic: 'gomory',
+    topic: 'ralph-gomory',
     difficulty: 'sota',
     question:
       'Gomory **mixed-integer (GMI)** cuts generalize fractional cuts when some variables are continuous. If a tableau row is\n$$x_B = b - \\sum_{j} a_j x_j,$$\nwith $x_B$ required integer but some $x_j$ continuous, what is the key difference in the cut construction?',
@@ -64,7 +64,7 @@ export const gomoryQuestions: Question[] = [
   },
   {
     id: 65253,
-    topic: 'gomory',
+    topic: 'ralph-gomory',
     difficulty: 'hard',
     question:
       'The **Chvátal–Gomory (CG) cut** mechanism can be stated directly on the original system $Ax\\ge b$ (with $x$ integer). Which statement best describes how a CG cut is formed?',
@@ -84,7 +84,7 @@ export const gomoryQuestions: Question[] = [
   },
   {
     id: 65254,
-    topic: 'gomory',
+    topic: 'ralph-gomory',
     difficulty: 'sota',
     question:
       'What is the **Gomory–Chvátal closure** of a polyhedron $P=\\{x:Ax\\ge b\\}$ in the integer setting?',

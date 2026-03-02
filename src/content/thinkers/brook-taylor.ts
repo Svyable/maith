@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const brookTaylorQuestions: Question[] = [
   {
     id: 31045,
-    topic: 'taylor',
+    topic: 'brook-taylor',
     difficulty: 'easy',
     question: 'Brook Taylor is immortalized by the "Taylor Series." What incredibly powerful mathematical capability does this series provide?',
     options: [
@@ -19,7 +19,7 @@ export const brookTaylorQuestions: Question[] = [
   },
   {
     id: 31046,
-    topic: 'taylor',
+    topic: 'brook-taylor',
     difficulty: 'hard',
     question: 'Before focusing purely on abstract calculus, Taylor published *Methodus Incrementorum Directa et Inversa*. What entirely new branch of mathematics did this work formally establish?',
     options: [
@@ -35,7 +35,7 @@ export const brookTaylorQuestions: Question[] = [
   },
   {
     id: 31047,
-    topic: 'taylor',
+    topic: 'brook-taylor',
     difficulty: 'sota',
     question: 'Taylor successfully applied his mathematical methods to physical mechanics, becoming the very first person to theoretically calculate what?',
     options: [
@@ -51,7 +51,7 @@ export const brookTaylorQuestions: Question[] = [
   },
   {
     id: 31048,
-    topic: 'taylor',
+    topic: 'brook-taylor',
     difficulty: 'hard',
     question: 'Beyond mathematics and physics, Taylor was a highly accomplished artist. How did he apply his mathematical genius to the visual arts?',
     options: [
@@ -67,7 +67,7 @@ export const brookTaylorQuestions: Question[] = [
   },
   {
     id: 31049,
-    topic: 'taylor',
+    topic: 'brook-taylor',
     difficulty: 'hard',
     question: 'Despite its modern fame, Taylor\'s theorem was largely ignored by his contemporaries. Who finally recognized its immense importance and named it after him over 50 years later?',
     options: [

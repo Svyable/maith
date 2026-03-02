@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const serreQuestions: Question[] = [
   {
     id: 31095,
-    topic: 'serre',
+    topic: 'jeanpierre-serre',
     difficulty: 'sota',
     question: 'In his revolutionary 1955 paper "Faisceaux Algébriques Cohérents" (FAC), Jean-Pierre Serre applied sheaf theory to algebraic geometry. What did Serre\'s Theorem A and Theorem B rigorously prove regarding an affine variety $X$ and a coherent sheaf $\\mathcal{F}$?',
     options: [
@@ -19,7 +19,7 @@ export const serreQuestions: Question[] = [
   },
   {
     id: 31096,
-    topic: 'serre',
+    topic: 'jeanpierre-serre',
     difficulty: 'hard',
     question: 'The "Serre spectral sequence" is an incredibly powerful tool in algebraic topology. What specific geometric relationship does this sequence allow mathematicians to algebraically relate and compute?',
     options: [
@@ -35,7 +35,7 @@ export const serreQuestions: Question[] = [
   },
   {
     id: 31097,
-    topic: 'serre',
+    topic: 'jeanpierre-serre',
     difficulty: 'easy',
     question: 'Jean-Pierre Serre remains the youngest person in history to win the Fields Medal, achieving it at age 27. What was the primary focus of the work that earned him this unparalleled honor?',
     options: [
@@ -51,7 +51,7 @@ export const serreQuestions: Question[] = [
   },
   {
     id: 31098,
-    topic: 'serre',
+    topic: 'jeanpierre-serre',
     difficulty: 'sota',
     question: 'The "Serre conjecture" (later proven and renamed the Quillen-Suslin theorem) made a massive claim about projective modules. It conjectured that every finitely generated projective module over a polynomial ring $k[x_1, \\dots, x_n]$ is:',
     options: [
@@ -67,7 +67,7 @@ export const serreQuestions: Question[] = [
   },
   {
     id: 31099,
-    topic: 'serre',
+    topic: 'jeanpierre-serre',
     difficulty: 'hard',
     question: 'Serre\'s Modularity Conjecture served as a vital, foundational piece of the puzzle in modern number theory. What two vast, seemingly unrelated mathematical realms did this conjecture propose were fundamentally identical?',
     options: [

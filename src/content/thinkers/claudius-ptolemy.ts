@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const ptolemyQuestions: Question[] = [
   {
     id: 11051,
-    topic: 'ptolemy',
+    topic: 'claudius-ptolemy',
     difficulty: 'easy',
     question: 'Ptolemy\'s Almagest tabulated which function to approximate chords and $\\pi$?',
     options: [
@@ -19,7 +19,7 @@ export const ptolemyQuestions: Question[] = [
   },
   {
     id: 11052,
-    topic: 'ptolemy',
+    topic: 'claudius-ptolemy',
     difficulty: 'hard',
     question: 'Ptolemy\'s theorem states that for a cyclic quadrilateral with sides $a, b, c, d$ and diagonals $p, q$:',
     options: [
@@ -35,7 +35,7 @@ export const ptolemyQuestions: Question[] = [
   },
   {
     id: 11053,
-    topic: 'ptolemy',
+    topic: 'claudius-ptolemy',
     difficulty: 'sota',
     question: 'Ptolemy\'s theorem can be used to derive:',
     options: [

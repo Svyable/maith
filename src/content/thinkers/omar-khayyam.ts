@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const khayyamQuestions: Question[] = [
   {
     id: 9610,
-    topic: 'khayyam',
+    topic: 'omar-khayyam',
     difficulty: 'sota',
     question: 'Omar Khayyam solved cubic equations geometrically by finding intersections of:',
     options: [
@@ -19,7 +19,7 @@ export const khayyamQuestions: Question[] = [
   },
   {
     id: 9611,
-    topic: 'khayyam',
+    topic: 'omar-khayyam',
     difficulty: 'sota',
     question: 'Khayyam\'s classification of cubic equations enumerated how many distinct types (excluding those reducible to lower degree)?',
     options: [
@@ -35,7 +35,7 @@ export const khayyamQuestions: Question[] = [
   },
   {
     id: 9612,
-    topic: 'khayyam',
+    topic: 'omar-khayyam',
     difficulty: 'sota',
     question: 'Khayyam\'s reform of the Persian calendar achieved an accuracy of one day error in approximately:',
     options: [

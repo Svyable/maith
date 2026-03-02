@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const gebruQuestions: Question[] = [
   {
     id: 13101,
-    topic: 'gebru',
+    topic: 'timnit-gebru',
     difficulty: 'easy',
     question: 'Timnit Gebru\'s "Gender Shades" research revealed:',
     options: [
@@ -19,7 +19,7 @@ export const gebruQuestions: Question[] = [
   },
   {
     id: 13102,
-    topic: 'gebru',
+    topic: 'timnit-gebru',
     difficulty: 'easy',
     question: 'Gebru advocates for "Datasheets for Datasets," which are:',
     options: [
@@ -35,7 +35,7 @@ export const gebruQuestions: Question[] = [
   },
   {
     id: 13103,
-    topic: 'gebru',
+    topic: 'timnit-gebru',
     difficulty: 'hard',
     question: 'The intersectional approach to AI fairness, championed by Gebru, reveals that:',
     options: [
@@ -51,7 +51,7 @@ export const gebruQuestions: Question[] = [
   },
   {
     id: 13104,
-    topic: 'gebru',
+    topic: 'timnit-gebru',
     difficulty: 'hard',
     question: 'Gebru\'s work on the "Stochastic Parrots" paper argued that large language models:',
     options: [
@@ -67,7 +67,7 @@ export const gebruQuestions: Question[] = [
   },
   {
     id: 13105,
-    topic: 'gebru',
+    topic: 'timnit-gebru',
     difficulty: 'sota',
     question: 'Gebru\'s DAIR (Distributed AI Research Institute) advocates for:',
     options: [

@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const biotSavartQuestions: Question[] = [
   {
     id: 21860,
-    topic: 'biot-savart',
+    topic: 'jean-baptiste-biot',
     difficulty: 'sota',
     question: 'The Biot-Savart law gives the magnetic field dB⃗ due to a current element Idl⃗. What is the expression?',
     options: [
@@ -19,7 +19,7 @@ export const biotSavartQuestions: Question[] = [
   },
   {
     id: 21861,
-    topic: 'biot-savart',
+    topic: 'jean-baptiste-biot',
     difficulty: 'sota',
     question: 'Using the Biot-Savart law, the magnetic field at the center of a circular loop of radius R carrying current I is what?',
     options: [
@@ -35,7 +35,7 @@ export const biotSavartQuestions: Question[] = [
   },
   {
     id: 21862,
-    topic: 'biot-savart',
+    topic: 'jean-baptiste-biot',
     difficulty: 'sota',
     question: 'The Biot-Savart law for a long straight wire carrying current I gives a magnetic field at distance d of what?',
     options: [

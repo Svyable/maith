@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const vonNeumannQuestions: Question[] = [
   {
     id: 10061,
-    topic: 'vonneumann',
+    topic: 'john-von-neumann',
     difficulty: 'easy',
     question: 'In game theory, a zero-sum game is one where:',
     options: [
@@ -19,7 +19,7 @@ export const vonNeumannQuestions: Question[] = [
   },
   {
     id: 10062,
-    topic: 'vonneumann',
+    topic: 'john-von-neumann',
     difficulty: 'easy',
     question: 'The von Neumann minimax theorem states: for a finite zero-sum game:',
     options: [
@@ -35,7 +35,7 @@ export const vonNeumannQuestions: Question[] = [
   },
   {
     id: 10063,
-    topic: 'vonneumann',
+    topic: 'john-von-neumann',
     difficulty: 'easy',
     question: 'The Von Neumann architecture of modern computers consists of:',
     options: [
@@ -51,7 +51,7 @@ export const vonNeumannQuestions: Question[] = [
   },
   {
     id: 10064,
-    topic: 'vonneumann',
+    topic: 'john-von-neumann',
     difficulty: 'easy',
     question: 'The Prisoner\'s Dilemma is a non-zero-sum game where rational players:',
     options: [
@@ -67,7 +67,7 @@ export const vonNeumannQuestions: Question[] = [
   },
   {
     id: 10065,
-    topic: 'vonneumann',
+    topic: 'john-von-neumann',
     difficulty: 'hard',
     question: 'In the minimax algorithm for game trees, alpha-beta pruning improves efficiency by:',
     options: [
@@ -83,7 +83,7 @@ export const vonNeumannQuestions: Question[] = [
   },
   {
     id: 10066,
-    topic: 'vonneumann',
+    topic: 'john-von-neumann',
     difficulty: 'hard',
     question: 'Von Neumann\'s ergodic theorem states: for a measure-preserving transformation $T$ and $f \\in L^2$:',
     options: [
@@ -99,7 +99,7 @@ export const vonNeumannQuestions: Question[] = [
   },
   {
     id: 10067,
-    topic: 'vonneumann',
+    topic: 'john-von-neumann',
     difficulty: 'hard',
     question: 'Von Neumann algebras (W*-algebras) are characterized as:',
     options: [
@@ -115,7 +115,7 @@ export const vonNeumannQuestions: Question[] = [
   },
   {
     id: 10068,
-    topic: 'vonneumann',
+    topic: 'john-von-neumann',
     difficulty: 'sota',
     question: 'The Nash equilibrium concept generalizes von Neumann\'s minimax to non-zero-sum games. A strategy profile $(s_1^*, ..., s_n^*)$ is a Nash equilibrium if:',
     options: [
@@ -131,7 +131,7 @@ export const vonNeumannQuestions: Question[] = [
   },
   {
     id: 10069,
-    topic: 'vonneumann',
+    topic: 'john-von-neumann',
     difficulty: 'sota',
     question: 'Von Neumann\'s self-reproducing automata demonstrated that:',
     options: [
@@ -147,7 +147,7 @@ export const vonNeumannQuestions: Question[] = [
   },
   {
     id: 10070,
-    topic: 'vonneumann',
+    topic: 'john-von-neumann',
     difficulty: 'sota',
     question: 'The quantum no-cloning theorem (Wootters & Zurek 1982), building on von Neumann measurement theory, states:',
     options: [

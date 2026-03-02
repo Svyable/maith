@@ -2,7 +2,7 @@ import type { Question } from '../types';
 
 export const vaughanQuestions: Question[] = [
   {
-    id: 20209, topic: 'vaughan', difficulty: 'easy',
+    id: 20209, topic: 'dorothy-vaughan', difficulty: 'easy',
     question: 'Dorothy Vaughan was the first Black female supervisor at which organization?',
     options: ['NACA (later NASA)', 'MIT Lincoln Lab', 'Bell Labs', 'Los Alamos'],
     correctIndex: 0,
@@ -11,7 +11,7 @@ export const vaughanQuestions: Question[] = [
     hint: 'This aeronautics organization became NASA in 1958.',
   },
   {
-    id: 20210, topic: 'vaughan', difficulty: 'hard',
+    id: 20210, topic: 'dorothy-vaughan', difficulty: 'hard',
     question: 'Vaughan taught herself and her team which programming language to remain relevant as electronic computers replaced human computers?',
     options: ['FORTRAN', 'COBOL', 'LISP', 'Assembly'],
     correctIndex: 0,
@@ -20,7 +20,7 @@ export const vaughanQuestions: Question[] = [
     hint: 'This language, whose name means "Formula Translation," was the first high-level programming language.',
   },
   {
-    id: 20211, topic: 'vaughan', difficulty: 'sota',
+    id: 20211, topic: 'dorothy-vaughan', difficulty: 'sota',
     question: 'The "human computers" Vaughan supervised performed calculations for which critical aeronautics applications?',
     options: ['Wind tunnel test data reduction and aircraft stability analysis', 'Rocket fuel chemistry', 'Radio signal propagation', 'Nuclear warhead yields'],
     correctIndex: 0,

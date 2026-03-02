@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const johnbellQuestions: Question[] = [
   {
     id: 31185,
-    topic: 'bell',
+    topic: 'john-bell',
     difficulty: 'easy',
     question: 'John Stewart Bell absolutely shattered Albert Einstein\'s dream of a deeply deterministic universe. What did Bell\'s Theorem physically and mathematically prove?',
     options: [
@@ -19,7 +19,7 @@ export const johnbellQuestions: Question[] = [
   },
   {
     id: 31186,
-    topic: 'bell',
+    topic: 'john-bell',
     difficulty: 'hard',
     question: 'Bell\'s Inequality establishes a strict statistical maximum bound for correlation. In the standard CHSH inequality, $S = E(a,b) - E(a,b\') + E(a\',b) + E(a\',b\')$, what is the maximum absolute mathematical value $S$ can achieve in classical physics, and what is its absolute peak in quantum mechanics?',
     options: [
@@ -35,7 +35,7 @@ export const johnbellQuestions: Question[] = [
   },
   {
     id: 31187,
-    topic: 'bell',
+    topic: 'john-bell',
     difficulty: 'sota',
     question: 'The deeply complex ABJ (Adler-Bell-Jackiw) anomaly is a monumental discovery in quantum field theory. What exactly does this mathematical "anomaly" represent?',
     options: [
@@ -51,7 +51,7 @@ export const johnbellQuestions: Question[] = [
   },
   {
     id: 31188,
-    topic: 'bell',
+    topic: 'john-bell',
     difficulty: 'sota',
     question: 'In quantum information theory, a "Bell State" describes two completely entangled qubits. Which of the following continuous algebraic expressions represents one of the four perfectly maximally entangled Bell states?',
     options: [
@@ -67,7 +67,7 @@ export const johnbellQuestions: Question[] = [
   },
   {
     id: 31189,
-    topic: 'bell',
+    topic: 'john-bell',
     difficulty: 'hard',
     question: 'Despite proving his theorem, Bell openly acknowledged one single, incredibly extreme philosophical loophole that could mathematically allow the universe to remain entirely deterministic. What is this loophole called?',
     options: [

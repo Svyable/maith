@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const berzeliusQuestions: Question[] = [
   {
     id: 31210,
-    topic: 'berzelius',
+    topic: 'jons-berzelius',
     difficulty: 'easy',
     question: 'Jöns Jacob Berzelius is absolutely the father of modern chemical language. What massive, incredibly highly practical continuous systemic change did he physically introduce to the field of chemistry?',
     options: [
@@ -19,7 +19,7 @@ export const berzeliusQuestions: Question[] = [
   },
   {
     id: 31211,
-    topic: 'berzelius',
+    topic: 'jons-berzelius',
     difficulty: 'hard',
     question: 'Berzelius championed the "Dualistic Theory" of chemical affinity. What deeply fundamental absolute physical force did he mathematically theorize was exclusively responsible for holding every single chemical compound tightly together?',
     options: [
@@ -35,7 +35,7 @@ export const berzeliusQuestions: Question[] = [
   },
   {
     id: 31212,
-    topic: 'berzelius',
+    topic: 'jons-berzelius',
     difficulty: 'sota',
     question: 'Berzelius obsessively determined the absolute localized atomic weights of over 45 individual elements with utterly staggering mathematical precision. Which highly reactive localized element did he strictly choose as the foundational absolute baseline standard ($=100$) for all his continuous mathematical mass calculations?',
     options: [
@@ -51,7 +51,7 @@ export const berzeliusQuestions: Question[] = [
   },
   {
     id: 31213,
-    topic: 'berzelius',
+    topic: 'jons-berzelius',
     difficulty: 'hard',
     question: 'Berzelius had an uncanny, unparalleled genius for classifying highly bizarre localized continuous chemical anomalies. Which massive, absolutely ubiquitous modern chemical concept did he *not* personally coin and mathematically define?',
     options: [
@@ -67,7 +67,7 @@ export const berzeliusQuestions: Question[] = [
   },
   {
     id: 31214,
-    topic: 'berzelius',
+    topic: 'jons-berzelius',
     difficulty: 'hard',
     question: 'Beyond his theoretical genius, Berzelius was an absolute monster in the localized physical laboratory. He personally discovered and mathematically isolated several massive new elements. Which of the following is absolutely one of his personal elemental discoveries?',
     options: [

@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const zhangQuestions: Question[] = [
   {
     id: 11901,
-    topic: 'yitang-zhang',
+    topic: 'zhang-yitang',
     difficulty: 'easy',
     question: 'Yitang Zhang stunned the mathematical world in 2013 by proving:',
     options: [
@@ -19,7 +19,7 @@ export const zhangQuestions: Question[] = [
   },
   {
     id: 11902,
-    topic: 'yitang-zhang',
+    topic: 'zhang-yitang',
     difficulty: 'easy',
     question: 'What makes Zhang\'s story particularly remarkable in the history of mathematics?',
     options: [
@@ -35,7 +35,7 @@ export const zhangQuestions: Question[] = [
   },
   {
     id: 11903,
-    topic: 'yitang-zhang',
+    topic: 'zhang-yitang',
     difficulty: 'hard',
     question: 'Zhang\'s proof of bounded prime gaps crucially relied on a modified version of:',
     options: [
@@ -51,7 +51,7 @@ export const zhangQuestions: Question[] = [
   },
   {
     id: 11904,
-    topic: 'yitang-zhang',
+    topic: 'zhang-yitang',
     difficulty: 'hard',
     question: 'After Zhang\'s breakthrough, James Maynard independently improved the bound to 600 using:',
     options: [
@@ -67,7 +67,7 @@ export const zhangQuestions: Question[] = [
   },
   {
     id: 11905,
-    topic: 'yitang-zhang',
+    topic: 'zhang-yitang',
     difficulty: 'sota',
     question: 'Zhang\'s handling of "Type III sums" in his proof introduced a novel technique by:',
     options: [

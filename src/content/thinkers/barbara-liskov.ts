@@ -4,7 +4,7 @@ import type { Question } from '../types';
 export const liskovQuestions: Question[] = [
   {
     id: 67025,
-    topic: 'liskov',
+    topic: 'barbara-liskov',
     difficulty: 'easy',
     question:
       'Barbara Liskov is associated with the Liskov Substitution Principle (LSP). What does LSP state (informally)?',
@@ -24,7 +24,7 @@ export const liskovQuestions: Question[] = [
   },
   {
     id: 67026,
-    topic: 'liskov',
+    topic: 'barbara-liskov',
     difficulty: 'hard',
     question:
       'In Design by Contract terms, LSP implies what relationship between preconditions and postconditions when overriding a method?',
@@ -44,7 +44,7 @@ export const liskovQuestions: Question[] = [
   },
   {
     id: 67027,
-    topic: 'liskov',
+    topic: 'barbara-liskov',
     difficulty: 'hard',
     question:
       'Which example is a classic violation of LSP in object-oriented design?',
@@ -64,7 +64,7 @@ export const liskovQuestions: Question[] = [
   },
   {
     id: 67028,
-    topic: 'liskov',
+    topic: 'barbara-liskov',
     difficulty: 'sota',
     question:
       'Liskov also contributed to distributed systems (e.g., CLU and later work on replication). In fault-tolerant replication, what property does “linearizability” aim to guarantee?',
@@ -84,7 +84,7 @@ export const liskovQuestions: Question[] = [
   },
   {
     id: 67029,
-    topic: 'liskov',
+    topic: 'barbara-liskov',
     difficulty: 'sota',
     question:
       'A practical way to avoid LSP violations is to program to abstractions. Which approach most directly supports substitutability?',

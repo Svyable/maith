@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const galoisQuestions: Question[] = [
   {
     id: 12301,
-    topic: 'galois',
+    topic: 'evariste-galois',
     difficulty: 'easy',
     question: 'Évariste Galois died at 20 in a duel but left behind a revolutionary mathematical framework. What did Galois theory ultimately prove?',
     options: [
@@ -19,7 +19,7 @@ export const galoisQuestions: Question[] = [
   },
   {
     id: 12302,
-    topic: 'galois',
+    topic: 'evariste-galois',
     difficulty: 'hard',
     question: 'A Galois group of a polynomial captures symmetries among its roots. For the polynomial x⁴ - 2 over ℚ, the Galois group is:',
     options: [
@@ -35,7 +35,7 @@ export const galoisQuestions: Question[] = [
   },
   {
     id: 12303,
-    topic: 'galois',
+    topic: 'evariste-galois',
     difficulty: 'sota',
     question: 'The Inverse Galois Problem asks whether every finite group appears as a Galois group over ℚ. As of 2025, the status is:',
     options: [

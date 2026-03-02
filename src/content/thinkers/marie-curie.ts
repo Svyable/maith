@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const curieQuestions: Question[] = [
   {
     id: 10191,
-    topic: 'curie',
+    topic: 'marie-curie',
     difficulty: 'easy',
     question: 'Marie Curie\'s discovery of radioactivity in polonium and radium demonstrated:',
     options: [
@@ -19,7 +19,7 @@ export const curieQuestions: Question[] = [
   },
   {
     id: 10192,
-    topic: 'curie',
+    topic: 'marie-curie',
     difficulty: 'hard',
     question: 'Curie\'s measurement technique for radioactivity used:',
     options: [
@@ -35,7 +35,7 @@ export const curieQuestions: Question[] = [
   },
   {
     id: 10193,
-    topic: 'curie',
+    topic: 'marie-curie',
     difficulty: 'sota',
     question: 'Marie Curie remains the only person to have:',
     options: [

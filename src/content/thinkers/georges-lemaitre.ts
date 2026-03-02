@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const lemaitreQuestions: Question[] = [
   {
     id: 31195,
-    topic: 'lemaitre',
+    topic: 'georges-lemaitre',
     difficulty: 'easy',
     question: 'Georges Lemaître completely revolutionized cosmology by proposing the "hypothesis of the primeval atom." What massive modern scientific theory is this deeply foundational concept the absolute origin of?',
     options: [
@@ -19,7 +19,7 @@ export const lemaitreQuestions: Question[] = [
   },
   {
     id: 31196,
-    topic: 'lemaitre',
+    topic: 'georges-lemaitre',
     difficulty: 'hard',
     question: 'Two years before Edwin Hubble published his famous astronomical observational data, Lemaître had already strictly mathematically derived Hubble\'s Law ($v = H_0 d$). How did Lemaître algebraically accomplish this?',
     options: [
@@ -35,7 +35,7 @@ export const lemaitreQuestions: Question[] = [
   },
   {
     id: 31197,
-    topic: 'lemaitre',
+    topic: 'georges-lemaitre',
     difficulty: 'sota',
     question: 'The FLRW (Friedmann–Lemaître–Robertson–Walker) metric is the exact mathematical solution of Einstein\'s field equations used to describe the entire universe. What two absolute, incredibly massive geometric assumptions does this specific metric mathematically rely on?',
     options: [
@@ -51,7 +51,7 @@ export const lemaitreQuestions: Question[] = [
   },
   {
     id: 31198,
-    topic: 'lemaitre',
+    topic: 'georges-lemaitre',
     difficulty: 'hard',
     question: 'Einstein infamously introduced the Cosmological Constant ($\\Lambda$) into his equations to force the universe to mathematically stand still, later calling it his "biggest blunder." What was Lemaître\'s absolutely highly prescient mathematical stance on $\\Lambda$?',
     options: [
@@ -67,7 +67,7 @@ export const lemaitreQuestions: Question[] = [
   },
   {
     id: 31199,
-    topic: 'lemaitre',
+    topic: 'georges-lemaitre',
     difficulty: 'hard',
     question: 'Lemaître possessed a highly unique dual identity that caused massive friction in his life. He was a world-class theoretical physicist, and also what?',
     options: [

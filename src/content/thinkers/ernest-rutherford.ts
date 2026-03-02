@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const rutherfordQuestions: Question[] = [
   {
     id: 31145,
-    topic: 'rutherford',
+    topic: 'ernest-rutherford',
     difficulty: 'easy',
     question: 'Ernest Rutherford completely shattered the previous "plum pudding" model of the atom through his legendary Gold Foil experiment. What did he mathematically deduce from the scattering of alpha particles?',
     options: [
@@ -19,7 +19,7 @@ export const rutherfordQuestions: Question[] = [
   },
   {
     id: 31146,
-    topic: 'rutherford',
+    topic: 'ernest-rutherford',
     difficulty: 'sota',
     question: 'The Rutherford scattering formula $\\frac{d\\sigma}{d\\Omega} \\propto \\frac{1}{\\sin^4(\\theta/2)}$ mathematically predicts the highly specific geometric distribution of the bounced alpha particles. What fundamental physical force did Rutherford rely on to derive this exact cross-section?',
     options: [
@@ -35,7 +35,7 @@ export const rutherfordQuestions: Question[] = [
   },
   {
     id: 31147,
-    topic: 'rutherford',
+    topic: 'ernest-rutherford',
     difficulty: 'hard',
     question: 'In 1919, Rutherford achieved the ultimate dream of ancient alchemists by performing the very first intentional artificial transmutation of an element. What precise mathematical nuclear reaction did he successfully trigger?',
     options: [
@@ -51,7 +51,7 @@ export const rutherfordQuestions: Question[] = [
   },
   {
     id: 31148,
-    topic: 'rutherford',
+    topic: 'ernest-rutherford',
     difficulty: 'hard',
     question: 'Early in his career, Rutherford completely mathematically defined the concept of radioactive "half-life." What profoundly strange natural mechanism does the exponential decay equation $N(t) = N_0 e^{-\\lambda t}$ reveal?',
     options: [
@@ -67,7 +67,7 @@ export const rutherfordQuestions: Question[] = [
   },
   {
     id: 31149,
-    topic: 'rutherford',
+    topic: 'ernest-rutherford',
     difficulty: 'hard',
     question: 'Despite being recognized globally as the absolute "father of nuclear physics," Rutherford\'s 1908 Nobel Prize contains a famous, deeply ironic historical twist. In what highly specific category was he awarded the prize?',
     options: [

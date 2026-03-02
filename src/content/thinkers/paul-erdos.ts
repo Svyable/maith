@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const erdosQuestions: Question[] = [
   {
     id: 11501,
-    topic: 'erdos',
+    topic: 'paul-erdos',
     difficulty: 'easy',
     question: 'Paul Erdős was famous for the concept of the "Erdős number." What does it measure?',
     options: [
@@ -19,7 +19,7 @@ export const erdosQuestions: Question[] = [
   },
   {
     id: 11502,
-    topic: 'erdos',
+    topic: 'paul-erdos',
     difficulty: 'easy',
     question: 'Erdős and Rényi founded the field of random graph theory. Their model $G(n,p)$ generates a graph by:',
     options: [
@@ -35,7 +35,7 @@ export const erdosQuestions: Question[] = [
   },
   {
     id: 11503,
-    topic: 'erdos',
+    topic: 'paul-erdos',
     difficulty: 'easy',
     question: 'The Erdős–Kac theorem is remarkable because it shows that:',
     options: [
@@ -51,7 +51,7 @@ export const erdosQuestions: Question[] = [
   },
   {
     id: 11504,
-    topic: 'erdos',
+    topic: 'paul-erdos',
     difficulty: 'hard',
     question: 'Erdős\'s probabilistic method proved the existence of graphs with high girth and high chromatic number by showing:',
     options: [
@@ -67,7 +67,7 @@ export const erdosQuestions: Question[] = [
   },
   {
     id: 11505,
-    topic: 'erdos',
+    topic: 'paul-erdos',
     difficulty: 'hard',
     question: 'The Erdős–Gallai theorem characterizes which degree sequences are graphical (realizable as a simple graph). The condition is:',
     options: [
@@ -83,7 +83,7 @@ export const erdosQuestions: Question[] = [
   },
   {
     id: 11506,
-    topic: 'erdos',
+    topic: 'paul-erdos',
     difficulty: 'hard',
     question: 'Erdős\'s conjecture on arithmetic progressions (now proved by Green–Tao for primes) states that if $\\sum 1/a_n$ diverges, then the set $\\{a_n\\}$:',
     options: [
@@ -99,7 +99,7 @@ export const erdosQuestions: Question[] = [
   },
   {
     id: 11507,
-    topic: 'erdos',
+    topic: 'paul-erdos',
     difficulty: 'sota',
     question: 'The Erdős–Rényi random graph model exhibits a sharp phase transition at $p = 1/n$. Below this threshold:',
     options: [
@@ -115,7 +115,7 @@ export const erdosQuestions: Question[] = [
   },
   {
     id: 11508,
-    topic: 'erdos',
+    topic: 'paul-erdos',
     difficulty: 'sota',
     question: 'The Erdős–Stone theorem gives the fundamental asymptotic for the extremal number $\\text{ex}(n, H)$ — the maximum edges in an $H$-free graph on $n$ vertices:',
     options: [

@@ -2,7 +2,7 @@ import type { Question } from '../types';
 
 export const heisenbergQuestions: Question[] = [
   {
-    id: 20601, topic: 'heisenberg', difficulty: 'easy',
+    id: 20601, topic: 'werner-heisenberg', difficulty: 'easy',
     question: 'Heisenberg\'s uncertainty principle states that:',
     options: ['Position and momentum cannot both be precisely known: $\\Delta x \\cdot \\Delta p \\geq \\hbar/2$', 'Energy is always conserved', 'Electrons orbit the nucleus in fixed paths', 'Measurements are always inaccurate due to instruments'],
     correctIndex: 0,
@@ -11,7 +11,7 @@ export const heisenbergQuestions: Question[] = [
     hint: 'The more precisely you know WHERE a particle is, the less you know about its MOMENTUM — and vice versa.',
   },
   {
-    id: 20602, topic: 'heisenberg', difficulty: 'hard',
+    id: 20602, topic: 'werner-heisenberg', difficulty: 'hard',
     question: 'Heisenberg\'s matrix mechanics formulates quantum mechanics using:',
     options: ['Infinite-dimensional matrices of observable quantities, with non-commuting operators $[\\hat{x}, \\hat{p}] = i\\hbar$', 'Wave equations in 3D space', 'Path integrals over all possible trajectories', 'Classical phase space with Poisson brackets'],
     correctIndex: 0,
@@ -20,7 +20,7 @@ export const heisenbergQuestions: Question[] = [
     hint: 'In classical physics, x·p = p·x. In quantum mechanics, they don\'t commute — the difference is iℏ.',
   },
   {
-    id: 20603, topic: 'heisenberg', difficulty: 'sota',
+    id: 20603, topic: 'werner-heisenberg', difficulty: 'sota',
     question: 'The energy-time uncertainty relation $\\Delta E \\cdot \\Delta t \\geq \\hbar/2$ implies:',
     options: ['Virtual particles can borrow energy $\\Delta E$ for time $\\Delta t \\sim \\hbar/\\Delta E$, enabling quantum vacuum fluctuations', 'Energy conservation is violated in quantum mechanics', 'Time is an operator in quantum mechanics', 'Measurements of energy are always imprecise'],
     correctIndex: 0,

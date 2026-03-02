@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const avellanedaQuestions: Question[] = [
   {
     id: 20910,
-    topic: 'avellaneda',
+    topic: 'marco-avellaneda',
     difficulty: 'easy',
     question: 'Marco Avellaneda\'s research primarily bridged which two fields?',
     options: ['Pure mathematics and quantitative finance', 'Biology and chemistry', 'Computer science and linguistics', 'Philosophy and physics'],
@@ -14,7 +14,7 @@ export const avellanedaQuestions: Question[] = [
   },
   {
     id: 20911,
-    topic: 'avellaneda',
+    topic: 'marco-avellaneda',
     difficulty: 'hard',
     question: 'In the Avellaneda-Stoikov model, when inventory $q > 0$ (net long) and time to expiry shrinks ($T - t \\to 0$), the reservation price adjustment $q \\cdot \\gamma \\sigma^2 (T-t)$:',
     options: ['Decreases toward zero, but spread widens via the $\\gamma\\sigma^2(T-t)$ term — creating urgency to flatten', 'Increases without bound', 'Stays constant', 'Reverses sign'],
@@ -25,7 +25,7 @@ export const avellanedaQuestions: Question[] = [
   },
   {
     id: 20912,
-    topic: 'avellaneda',
+    topic: 'marco-avellaneda',
     difficulty: 'sota',
     question: 'Avellaneda\'s work on Uncertain Volatility Models (UVM) bounds option prices by solving:',
     options: ['A nonlinear Black-Scholes PDE where $\\sigma$ is chosen adversarially from $[\\sigma_{\\min}, \\sigma_{\\max}]$ at each point', 'A standard Black-Scholes with average volatility', 'A Monte Carlo simulation with random volatility', 'A binomial tree with fixed up/down ratios'],

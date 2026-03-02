@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const bellBurnellQuestions: Question[] = [
   {
     id: 21090,
-    topic: 'bell-burnell',
+    topic: 'jocelyn-bell-burnell',
     difficulty: 'sota',
     question: 'Jocelyn Bell Burnell\'s 1967 discovery of pulsars initially appeared on her chart recorder as which kind of signal?',
     options: ['A repeating signal with precise 1.337-second periodicity ("scruff")', 'A continuous broadband radio hiss', 'A single powerful transient burst', 'A slowly varying sinusoidal wave'],
@@ -14,7 +14,7 @@ export const bellBurnellQuestions: Question[] = [
   },
   {
     id: 21091,
-    topic: 'bell-burnell',
+    topic: 'jocelyn-bell-burnell',
     difficulty: 'sota',
     question: 'Pulsars are now understood to be which type of astrophysical object?',
     options: ['Rapidly rotating neutron stars with strong magnetic fields', 'White dwarfs undergoing nuclear flashes', 'Stellar-mass black holes with accretion disks', 'Main-sequence stars with periodic sunspot cycles'],
@@ -25,7 +25,7 @@ export const bellBurnellQuestions: Question[] = [
   },
   {
     id: 21092,
-    topic: 'bell-burnell',
+    topic: 'jocelyn-bell-burnell',
     difficulty: 'sota',
     question: 'The 1974 Nobel Prize for the discovery of pulsars was controversially awarded to whom, excluding Bell Burnell?',
     options: ['Antony Hewish and Martin Ryle', 'Antony Hewish and Fred Hoyle', 'Martin Ryle and Roger Penrose', 'Fred Hoyle and Jocelyn Bell Burnell'],

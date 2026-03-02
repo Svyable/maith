@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const schmidhuberQuestions: Question[] = [
   {
     id: 12601,
-    topic: 'schmidhuber',
+    topic: 'juergen-schmidhuber',
     difficulty: 'easy',
     question: 'Jürgen Schmidhuber\'s most impactful invention is:',
     options: [
@@ -19,7 +19,7 @@ export const schmidhuberQuestions: Question[] = [
   },
   {
     id: 12602,
-    topic: 'schmidhuber',
+    topic: 'juergen-schmidhuber',
     difficulty: 'easy',
     question: 'The LSTM cell state update equation $c_t = f_t \\odot c_{t-1} + i_t \\odot \\tilde{c}_t$ means:',
     options: [
@@ -35,7 +35,7 @@ export const schmidhuberQuestions: Question[] = [
   },
   {
     id: 12603,
-    topic: 'schmidhuber',
+    topic: 'juergen-schmidhuber',
     difficulty: 'hard',
     question: 'Schmidhuber\'s work on "Formal Theory of Creativity" proposes that:',
     options: [
@@ -51,7 +51,7 @@ export const schmidhuberQuestions: Question[] = [
   },
   {
     id: 12604,
-    topic: 'schmidhuber',
+    topic: 'juergen-schmidhuber',
     difficulty: 'hard',
     question: 'Schmidhuber argues LSTMs solve the vanishing gradient problem because:',
     options: [
@@ -67,7 +67,7 @@ export const schmidhuberQuestions: Question[] = [
   },
   {
     id: 12605,
-    topic: 'schmidhuber',
+    topic: 'juergen-schmidhuber',
     difficulty: 'sota',
     question: 'Schmidhuber\'s concept of "self-referential" neural networks involves:',
     options: [

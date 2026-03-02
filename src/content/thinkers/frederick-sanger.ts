@@ -4,7 +4,7 @@ import type { Question } from '../types';
 export const sangerQuestions: Question[] = [
   {
     id: 50040,
-    topic: 'sanger',
+    topic: 'frederick-sanger',
     difficulty: 'easy',
     question: 'Sanger sequencing uses what termination mechanism?',
     options: [
@@ -20,7 +20,7 @@ export const sangerQuestions: Question[] = [
   },
   {
     id: 50041,
-    topic: 'sanger',
+    topic: 'frederick-sanger',
     difficulty: 'hard',
     question: 'Sanger read length limit determined by?',
     options: [
@@ -36,7 +36,7 @@ export const sangerQuestions: Question[] = [
   },
   {
     id: 50042,
-    topic: 'sanger',
+    topic: 'frederick-sanger',
     difficulty: 'sota',
     question: 'Optimal ddNTP:dNTP ratio for uniform coverage?',
     options: [

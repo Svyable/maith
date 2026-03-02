@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const leibnizQuestions: Question[] = [
   {
     id: 10101,
-    topic: 'leibniz',
+    topic: 'gottfried-wilhelm-leibniz',
     difficulty: 'easy',
     question: 'Leibniz\'s notation for derivatives uses:',
     options: [
@@ -19,7 +19,7 @@ export const leibnizQuestions: Question[] = [
   },
   {
     id: 10102,
-    topic: 'leibniz',
+    topic: 'gottfried-wilhelm-leibniz',
     difficulty: 'hard',
     question: 'The Leibniz rule for differentiating under the integral sign states:',
     options: [
@@ -35,7 +35,7 @@ export const leibnizQuestions: Question[] = [
   },
   {
     id: 10103,
-    topic: 'leibniz',
+    topic: 'gottfried-wilhelm-leibniz',
     difficulty: 'sota',
     question: 'Leibniz\'s vision of a "calculus ratiocinator" anticipated:',
     options: [

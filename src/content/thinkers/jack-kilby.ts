@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const kilbyQuestions: Question[] = [
   {
     id: 11141,
-    topic: 'kilby',
+    topic: 'jack-kilby',
     difficulty: 'easy',
     question: 'Jack Kilby\'s integrated circuit (1958) was revolutionary because:',
     options: [
@@ -19,7 +19,7 @@ export const kilbyQuestions: Question[] = [
   },
   {
     id: 11142,
-    topic: 'kilby',
+    topic: 'jack-kilby',
     difficulty: 'hard',
     question: 'Moore\'s Law, observed since the IC\'s invention, states that:',
     options: [
@@ -35,7 +35,7 @@ export const kilbyQuestions: Question[] = [
   },
   {
     id: 11143,
-    topic: 'kilby',
+    topic: 'jack-kilby',
     difficulty: 'sota',
     question: 'Modern IC fabrication at nodes below 7nm uses EUV (Extreme Ultraviolet) lithography because:',
     options: [

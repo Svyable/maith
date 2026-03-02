@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const galileoQuestions: Question[] = [
   {
     id: 31130,
-    topic: 'galileo',
+    topic: 'galileo-galilei',
     difficulty: 'easy',
     question: 'Galileo Galilei completely overturned Aristotelian physics by mathematically proving what fundamental property of falling bodies in a vacuum?',
     options: [
@@ -19,7 +19,7 @@ export const galileoQuestions: Question[] = [
   },
   {
     id: 31131,
-    topic: 'galileo',
+    topic: 'galileo-galilei',
     difficulty: 'hard',
     question: 'The principle of "Galilean Invariance" (or Galilean Relativity) establishes an absolutely critical foundation for all modern physics. What does this principle mathematically assert?',
     options: [
@@ -35,7 +35,7 @@ export const galileoQuestions: Question[] = [
   },
   {
     id: 31132,
-    topic: 'galileo',
+    topic: 'galileo-galilei',
     difficulty: 'sota',
     question: 'When analyzing the period of a swinging pendulum, $T \\approx 2\\pi\\sqrt{\\frac{L}{g}}$, Galileo discovered "isochronism." What surprising physical property of the pendulum does this mathematical approximation reveal?',
     options: [
@@ -51,7 +51,7 @@ export const galileoQuestions: Question[] = [
   },
   {
     id: 31133,
-    topic: 'galileo',
+    topic: 'galileo-galilei',
     difficulty: 'hard',
     question: 'Through his advanced telescopic observations, Galileo discovered the "Medicean Stars." What were these celestial objects, and what massive geometric paradigm did they shatter?',
     options: [
@@ -67,7 +67,7 @@ export const galileoQuestions: Question[] = [
   },
   {
     id: 31134,
-    topic: 'galileo',
+    topic: 'galileo-galilei',
     difficulty: 'hard',
     question: 'Galileo famously declared in *The Assayer* that the universe "cannot be read until we have learnt the language and become familiar with the characters in which it is written." What did he define as the language of the universe?',
     options: [

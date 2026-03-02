@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const thorneQuestions: Question[] = [
   {
     id: 31190,
-    topic: 'thorne',
+    topic: 'kip-thorne',
     difficulty: 'easy',
     question: 'Kip Thorne was awarded the Nobel Prize for mathematically spearheading the LIGO project. What incredibly elusive astronomical phenomenon did LIGO physically detect?',
     options: [
@@ -19,7 +19,7 @@ export const thorneQuestions: Question[] = [
   },
   {
     id: 31191,
-    topic: 'thorne',
+    topic: 'kip-thorne',
     difficulty: 'hard',
     question: 'Thorne completely revolutionized astrophysics by mathematically modeling a "Thorne-Żytkow Object." What completely bizarre, highly specific celestial body does this geometric math describe?',
     options: [
@@ -35,7 +35,7 @@ export const thorneQuestions: Question[] = [
   },
   {
     id: 31192,
-    topic: 'thorne',
+    topic: 'kip-thorne',
     difficulty: 'sota',
     question: 'Thorne published a legendary paper mathematically proving that highly traversable wormholes could theoretically exist. However, according to the strict continuous math of General Relativity, what exact highly specific material is required to prevent the wormhole throat from violently collapsing?',
     options: [
@@ -51,7 +51,7 @@ export const thorneQuestions: Question[] = [
   },
   {
     id: 31193,
-    topic: 'thorne',
+    topic: 'kip-thorne',
     difficulty: 'hard',
     question: 'Thorne proposed the deeply elegant "Hoop Conjecture" regarding the absolute formation of black holes. What does this simple geometric conjecture strictly mathematical dictate?',
     options: [
@@ -67,7 +67,7 @@ export const thorneQuestions: Question[] = [
   },
   {
     id: 31194,
-    topic: 'thorne',
+    topic: 'kip-thorne',
     difficulty: 'easy',
     question: 'Kip Thorne acted as the executive producer and lead physicist for Christopher Nolan\'s film *Interstellar*. What massive cinematic and mathematical achievement did he directly facilitate for the movie?',
     options: [

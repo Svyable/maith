@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const turingQuestions: Question[] = [
   {
     id: 10011,
-    topic: 'turing',
+    topic: 'alan-turing',
     difficulty: 'easy',
     question: 'What does a Turing Machine consist of?',
     options: [
@@ -19,7 +19,7 @@ export const turingQuestions: Question[] = [
   },
   {
     id: 10012,
-    topic: 'turing',
+    topic: 'alan-turing',
     difficulty: 'easy',
     question: 'The Turing Test (1950) evaluates machine intelligence by:',
     options: [
@@ -35,7 +35,7 @@ export const turingQuestions: Question[] = [
   },
   {
     id: 10013,
-    topic: 'turing',
+    topic: 'alan-turing',
     difficulty: 'easy',
     question: 'The Halting Problem states that:',
     options: [
@@ -51,7 +51,7 @@ export const turingQuestions: Question[] = [
   },
   {
     id: 10014,
-    topic: 'turing',
+    topic: 'alan-turing',
     difficulty: 'easy',
     question: 'Church-Turing Thesis states:',
     options: [
@@ -67,7 +67,7 @@ export const turingQuestions: Question[] = [
   },
   {
     id: 10015,
-    topic: 'turing',
+    topic: 'alan-turing',
     difficulty: 'hard',
     question: 'Turing\'s proof of the Halting Problem uses:',
     options: [
@@ -83,7 +83,7 @@ export const turingQuestions: Question[] = [
   },
   {
     id: 10016,
-    topic: 'turing',
+    topic: 'alan-turing',
     difficulty: 'hard',
     question: 'An oracle Turing Machine $M^A$ can solve problems in class $X^A$. What does a Turing reduction from $B$ to $A$ (written $B \\leq_T A$) imply?',
     options: [
@@ -99,7 +99,7 @@ export const turingQuestions: Question[] = [
   },
   {
     id: 10017,
-    topic: 'turing',
+    topic: 'alan-turing',
     difficulty: 'hard',
     question: 'Rice\'s theorem states: for any non-trivial property $P$ of programs (functions they compute):',
     options: [
@@ -115,7 +115,7 @@ export const turingQuestions: Question[] = [
   },
   {
     id: 10018,
-    topic: 'turing',
+    topic: 'alan-turing',
     difficulty: 'sota',
     question: 'In the context of Turing\'s morphogenesis paper (1952), reaction-diffusion systems produce patterns because:',
     options: [
@@ -131,7 +131,7 @@ export const turingQuestions: Question[] = [
   },
   {
     id: 10019,
-    topic: 'turing',
+    topic: 'alan-turing',
     difficulty: 'sota',
     question: 'The complexity class BQP (Bounded-error Quantum Polynomial time) relates to Turing machines as:',
     options: [
@@ -147,7 +147,7 @@ export const turingQuestions: Question[] = [
   },
   {
     id: 10020,
-    topic: 'turing',
+    topic: 'alan-turing',
     difficulty: 'sota',
     question: 'A Universal Turing Machine (UTM) $U$ can simulate any Turing Machine $M$ on input $x$ by:',
     options: [

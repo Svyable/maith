@@ -4,7 +4,7 @@ import type { Question } from '../types';
 export const wolfeQuestions: Question[] = [
   {
     id: 65350,
-    topic: 'wolfe',
+    topic: 'george-wolfe',
     difficulty: 'easy',
     question: 'Dantzig-Wolfe decomposes block-angular?',
     options: [
@@ -20,7 +20,7 @@ export const wolfeQuestions: Question[] = [
   },
   {
     id: 65351,
-    topic: 'wolfe',
+    topic: 'george-wolfe',
     difficulty: 'hard',
     question: 'DW master problem solves?',
     options: [
@@ -36,7 +36,7 @@ export const wolfeQuestions: Question[] = [
   },
   {
     id: 65352,
-    topic: 'wolfe',
+    topic: 'george-wolfe',
     difficulty: 'sota',
     question:'Subproblem pricing solved by?',
     options: [

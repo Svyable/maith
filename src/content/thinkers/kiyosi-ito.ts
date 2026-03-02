@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const itoQuestions: Question[] = [
   {
     id: 20780,
-    topic: 'ito',
+    topic: 'kiyosi-ito',
     difficulty: 'hard',
     question: 'Itô\'s Lemma gives the differential of $f(X_t)$ where $X_t$ follows an Itô process. The key difference from the classical chain rule is the presence of:',
     options: ['A $\\frac{1}{2}f\'\'(X_t)(dX_t)^2$ second-order correction term', 'A third derivative term', 'No difference from classical calculus', 'An integral term'],
@@ -14,7 +14,7 @@ export const itoQuestions: Question[] = [
   },
   {
     id: 20781,
-    topic: 'ito',
+    topic: 'kiyosi-ito',
     difficulty: 'hard',
     question: 'In the Itô integral $\\int_0^T f(t)\\,dW_t$, the integrand is evaluated at which point of each partition interval?',
     options: ['The left endpoint (non-anticipating/adapted)', 'The right endpoint', 'The midpoint (Stratonovich convention)', 'A random point'],
@@ -25,7 +25,7 @@ export const itoQuestions: Question[] = [
   },
   {
     id: 20782,
-    topic: 'ito',
+    topic: 'kiyosi-ito',
     difficulty: 'sota',
     question: 'The Itô isometry states that $E\\left[\\left(\\int_0^T f\\,dW\\right)^2\\right] = \\int_0^T E[f^2]\\,dt$. This is analogous to which property in deterministic analysis?',
     options: ['Parseval\'s theorem (energy conservation in Fourier space)', 'The fundamental theorem of calculus', 'The mean value theorem', 'L\'Hôpital\'s rule'],
@@ -36,7 +36,7 @@ export const itoQuestions: Question[] = [
   },
   {
     id: 20783,
-    topic: 'ito',
+    topic: 'kiyosi-ito',
     difficulty: 'sota',
     question: 'Geometric Brownian Motion $dS = \\mu S\\,dt + \\sigma S\\,dW$ models stock prices. Applying Itô\'s Lemma to $\\ln S$ yields $d(\\ln S) =$:',
     options: ['$(\\mu - \\sigma^2/2)dt + \\sigma\\,dW$', '$\\mu\\,dt + \\sigma\\,dW$', '$(\\mu + \\sigma^2/2)dt + \\sigma\\,dW$', '$\\mu S\\,dt$'],
@@ -47,7 +47,7 @@ export const itoQuestions: Question[] = [
   },
   {
     id: 20784,
-    topic: 'ito',
+    topic: 'kiyosi-ito',
     difficulty: 'easy',
     question: 'Itô\'s stochastic calculus extends ordinary calculus to handle processes driven by:',
     options: ['Brownian motion (random noise)', 'Electromagnetic fields', 'Gravitational waves', 'Quantum entanglement'],

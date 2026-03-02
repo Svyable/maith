@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const hookeQuestions: Question[] = [
   {
     id: 11151,
-    topic: 'hooke',
+    topic: 'robert-hooke',
     difficulty: 'easy',
     question: 'Hooke\'s Law states that:',
     options: [
@@ -19,7 +19,7 @@ export const hookeQuestions: Question[] = [
   },
   {
     id: 11152,
-    topic: 'hooke',
+    topic: 'robert-hooke',
     difficulty: 'hard',
     question: 'Young\'s modulus $E = \\sigma/\\epsilon$ (stress/strain) characterises a material\'s stiffness. Diamond has $E \\approx 1200$ GPa while rubber has $E \\approx 0.01$ GPa. This means:',
     options: [
@@ -35,7 +35,7 @@ export const hookeQuestions: Question[] = [
   },
   {
     id: 11153,
-    topic: 'hooke',
+    topic: 'robert-hooke',
     difficulty: 'sota',
     question: 'In materials science, the generalised Hooke\'s Law relates the stress tensor $\\sigma_{ij}$ to strain tensor $\\epsilon_{kl}$ via:',
     options: [

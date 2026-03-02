@@ -4,7 +4,7 @@ import type { Question } from '../types';
 export const mullisQuestions: Question[] = [
   {
     id: 50050,
-    topic: 'mullis',
+    topic: 'kary-mullis',
     difficulty: 'easy',
     question: 'PCR cycle: denaturation → annealing → what polymerase condition?',
     options: [
@@ -20,7 +20,7 @@ export const mullisQuestions: Question[] = [
   },
   {
     id: 50051,
-    topic: 'mullis',
+    topic: 'kary-mullis',
     difficulty: 'hard',
     question: 'qPCR efficiency calculated as?',
     options: [
@@ -36,7 +36,7 @@ export const mullisQuestions: Question[] = [
   },
   {
     id: 50052,
-    topic: 'mullis',
+    topic: 'kary-mullis',
     difficulty: 'sota',
     question: 'Taq polymerase survives how many denaturation cycles?',
     options: [

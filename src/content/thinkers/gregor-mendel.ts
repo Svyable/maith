@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const mendelQuestions: Question[] = [
   {
     id: 20770,
-    topic: 'mendel',
+    topic: 'gregor-mendel',
     difficulty: 'hard',
     question: 'Mendel\'s Law of Segregation states that for a heterozygous organism (Aa), gametes carry allele A or a with equal probability. The expected phenotypic ratio in the F2 generation of a monohybrid cross is:',
     options: ['3:1 (dominant:recessive)', '1:1', '1:2:1', '9:3:3:1'],
@@ -14,7 +14,7 @@ export const mendelQuestions: Question[] = [
   },
   {
     id: 20771,
-    topic: 'mendel',
+    topic: 'gregor-mendel',
     difficulty: 'sota',
     question: 'Modern statistical analysis suggests Mendel\'s data fits expected ratios "too well" — a chi-squared test shows $p$-values that are suspiciously high. This controversy is known as:',
     options: ['The Mendel-Fisher controversy (possible confirmation bias or data selection)', 'The Hardy-Weinberg paradox', 'The Lysenko affair', 'The neutral theory debate'],
@@ -25,7 +25,7 @@ export const mendelQuestions: Question[] = [
   },
   {
     id: 20772,
-    topic: 'mendel',
+    topic: 'gregor-mendel',
     difficulty: 'easy',
     question: 'Mendel conducted his groundbreaking genetics experiments using which organism?',
     options: ['Pea plants (Pisum sativum)', 'Fruit flies', 'Mice', 'Bacteria'],

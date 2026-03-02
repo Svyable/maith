@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const kozyrkovQuestions: Question[] = [
   {
     id: 12801,
-    topic: 'kozyrkov',
+    topic: 'cassie-kozyrkov',
     difficulty: 'easy',
     question: 'Cassie Kozyrkov founded and led which discipline at Google?',
     options: [
@@ -19,7 +19,7 @@ export const kozyrkovQuestions: Question[] = [
   },
   {
     id: 12802,
-    topic: 'kozyrkov',
+    topic: 'cassie-kozyrkov',
     difficulty: 'easy',
     question: 'Kozyrkov\'s key insight about ML project failures is:',
     options: [
@@ -35,7 +35,7 @@ export const kozyrkovQuestions: Question[] = [
   },
   {
     id: 12803,
-    topic: 'kozyrkov',
+    topic: 'cassie-kozyrkov',
     difficulty: 'hard',
     question: 'Kozyrkov warns that A/B tests commonly fail because:',
     options: [
@@ -51,7 +51,7 @@ export const kozyrkovQuestions: Question[] = [
   },
   {
     id: 12804,
-    topic: 'kozyrkov',
+    topic: 'cassie-kozyrkov',
     difficulty: 'hard',
     question: 'The distinction between correlation and causation is central to Kozyrkov\'s teaching. In ML, this means:',
     options: [
@@ -67,7 +67,7 @@ export const kozyrkovQuestions: Question[] = [
   },
   {
     id: 12805,
-    topic: 'kozyrkov',
+    topic: 'cassie-kozyrkov',
     difficulty: 'sota',
     question: 'Kozyrkov\'s "Decision Intelligence" framework structures every data decision as:',
     options: [

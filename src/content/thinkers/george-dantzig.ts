@@ -4,7 +4,7 @@ import type { Question } from '../types';
 export const dantzigQuestions: Question[] = [
   {
     id: 65150,
-    topic: 'dantzig',
+    topic: 'george-dantzig',
     difficulty: 'easy',
     question: 'Dantzig invented what optimization algorithm?',
     options: [
@@ -20,7 +20,7 @@ export const dantzigQuestions: Question[] = [
   },
   {
     id: 65151,
-    topic: 'dantzig',
+    topic: 'george-dantzig',
     difficulty: 'hard',
     question: 'Simplex worst-case complexity?',
     options: [
@@ -36,7 +36,7 @@ export const dantzigQuestions: Question[] = [
   },
   {
     id: 65152,
-    topic: 'dantzig',
+    topic: 'george-dantzig',
     difficulty: 'sota',
     question: 'Dantzig\'s legendary feat was...?',
     options: [
@@ -52,7 +52,7 @@ export const dantzigQuestions: Question[] = [
   },
   {
     id: 65153,
-    topic: 'dantzig',
+    topic: 'george-dantzig',
     difficulty: 'hard',
     question: 'Simplex tableau pivot operation?',
     options: [
@@ -68,7 +68,7 @@ export const dantzigQuestions: Question[] = [
   },
   {
     id: 65154,
-    topic: 'dantzig',
+    topic: 'george-dantzig',
     difficulty: 'sota',
     question: 'Dantzig-Wolfe decomposition splits?',
     options: [
@@ -84,7 +84,7 @@ export const dantzigQuestions: Question[] = [
   },
   {
     id: 65155,
-    topic: 'dantzig',
+    topic: 'george-dantzig',
     difficulty: 'hard',
     question: 'Simplex degeneracy resolution?',
     options: [
@@ -100,7 +100,7 @@ export const dantzigQuestions: Question[] = [
   },
   {
     id: 65156,
-    topic: 'dantzig',
+    topic: 'george-dantzig',
     difficulty: 'sota',
     question: 'Dantzig selector (statistics)?',
     options: [
@@ -116,7 +116,7 @@ export const dantzigQuestions: Question[] = [
   },
   {
     id: 65157,
-    topic: 'dantzig',
+    topic: 'george-dantzig',
     difficulty: 'hard',
     question: 'Revised simplex vs full tableau?',
     options: [
@@ -132,7 +132,7 @@ export const dantzigQuestions: Question[] = [
   },
   {
     id: 65158,
-    topic: 'dantzig',
+    topic: 'george-dantzig',
     difficulty: 'sota',
     question: 'Farkas lemma (Dantzig duality)?',
     options: [
@@ -148,7 +148,7 @@ export const dantzigQuestions: Question[] = [
   },
   {
     id: 65159,
-    topic: 'dantzig',
+    topic: 'george-dantzig',
     difficulty: 'hard',
     question: 'Simplex Phase I artificial variables?',
     options: [

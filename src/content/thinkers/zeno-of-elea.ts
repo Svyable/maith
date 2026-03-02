@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const zenoQuestions: Question[] = [
   {
     id: 20600,
-    topic: 'zeno',
+    topic: 'zeno-of-elea',
     difficulty: 'hard',
     question: 'Zeno\'s "Achilles and the Tortoise" paradox is resolved by recognizing that the infinite sum $\\sum_{n=0}^{\\infty} ar^n$ with $|r|<1$ converges to:',
     options: ['$\\frac{a}{1-r}$', '$\\infty$', '$0$', '$\\frac{a}{r}$'],
@@ -14,7 +14,7 @@ export const zenoQuestions: Question[] = [
   },
   {
     id: 20601,
-    topic: 'zeno',
+    topic: 'zeno-of-elea',
     difficulty: 'hard',
     question: 'Zeno\'s "Dichotomy Paradox" states you must traverse half the distance, then half the remainder, ad infinitum. This implicitly raises which foundational question?',
     options: ['Whether the real number line is actually complete (no gaps)', 'Whether space is discrete', 'Whether time is circular', 'Whether velocity is constant'],
@@ -25,7 +25,7 @@ export const zenoQuestions: Question[] = [
   },
   {
     id: 20602,
-    topic: 'zeno',
+    topic: 'zeno-of-elea',
     difficulty: 'sota',
     question: 'In quantum mechanics, the "Quantum Zeno Effect" describes what happens when a system is measured continuously:',
     options: ['The system is frozen in its initial state (evolution is inhibited)', 'The system evolves faster', 'The system decays immediately', 'Superposition is enhanced'],
@@ -36,7 +36,7 @@ export const zenoQuestions: Question[] = [
   },
   {
     id: 20603,
-    topic: 'zeno',
+    topic: 'zeno-of-elea',
     difficulty: 'sota',
     question: 'Abraham Robinson\'s non-standard analysis (1966) resolves Zeno\'s paradoxes using which mathematical objects?',
     options: ['Infinitesimals as rigorous elements of a hyperreal number field', 'Imaginary numbers', 'p-adic numbers', 'Surreal numbers'],
@@ -47,7 +47,7 @@ export const zenoQuestions: Question[] = [
   },
   {
     id: 20604,
-    topic: 'zeno',
+    topic: 'zeno-of-elea',
     difficulty: 'easy',
     question: 'In Zeno\'s "Arrow Paradox," why does he argue a flying arrow is actually motionless?',
     options: ['At any single instant, the arrow occupies a fixed position and has no motion', 'The arrow is too fast to see', 'Air resistance stops it', 'Gravity pulls it down instantly'],

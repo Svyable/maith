@@ -4,7 +4,7 @@ import type { Question } from '../types';
 export const napierQuestions: Question[] = [
   {
     id: 67045,
-    topic: 'napier',
+    topic: 'john-napier',
     difficulty: 'easy',
     question:
       'John Napier is best known for introducing logarithms to turn hard operations into easy ones. Which identity captures the core idea?',
@@ -23,7 +23,7 @@ export const napierQuestions: Question[] = [
   },
   {
     id: 67046,
-    topic: 'napier',
+    topic: 'john-napier',
     difficulty: 'hard',
     question:
       'If $\\log_{10}(x)=3.7$, what is $x$ in exponential form, and what does the integer part “3” mean?',
@@ -42,7 +42,7 @@ export const napierQuestions: Question[] = [
   },
   {
     id: 67047,
-    topic: 'napier',
+    topic: 'john-napier',
     difficulty: 'hard',
     question:
       'Napier’s work connected closely to spherical trigonometry (astronomy/navigation). Which relationship is a classic spherical-trig analogue (for a spherical triangle with side $c$ opposite angle $C$)?',
@@ -61,7 +61,7 @@ export const napierQuestions: Question[] = [
   },
   {
     id: 67048,
-    topic: 'napier',
+    topic: 'john-napier',
     difficulty: 'sota',
     question:
       'Napier’s “bones” were a mechanical aid for multiplication. What computation principle do they exploit?',
@@ -80,7 +80,7 @@ export const napierQuestions: Question[] = [
   },
   {
     id: 67049,
-    topic: 'napier',
+    topic: 'john-napier',
     difficulty: 'sota',
     question:
       'Logarithms make exponentials linear. If $y=Ae^{kt}$, which transformation turns this into a straight line in $t$ (assuming $A>0$)?',

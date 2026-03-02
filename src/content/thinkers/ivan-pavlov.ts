@@ -2,7 +2,7 @@ import type { Question } from '../types';
 
 export const pavlovQuestions: Question[] = [
   {
-    id: 96090, topic: 'pavlov', difficulty: 'easy',
+    id: 96090, topic: 'ivan-pavlov', difficulty: 'easy',
     question: 'Pavlov\'s classical conditioning experiments showed that dogs could learn to:',
     options: ['Salivate at the sound of a bell after repeated pairing with food', 'Solve simple math problems', 'Recognize their own reflection', 'Navigate complex mazes'],
     correctIndex: 0,
@@ -11,7 +11,7 @@ export const pavlovQuestions: Question[] = [
     hint: 'The bell started as meaningless but became a signal for food.',
   },
   {
-    id: 96091, topic: 'pavlov', difficulty: 'hard',
+    id: 96091, topic: 'ivan-pavlov', difficulty: 'hard',
     question: 'In Pavlovian conditioning, "extinction" occurs when:',
     options: ['The conditioned stimulus is repeatedly presented without the unconditioned stimulus', 'The animal dies', 'The response becomes permanent', 'A new stimulus replaces the original'],
     correctIndex: 0,
@@ -20,7 +20,7 @@ export const pavlovQuestions: Question[] = [
     hint: 'The learned response fades when the prediction is no longer accurate.',
   },
   {
-    id: 96092, topic: 'pavlov', difficulty: 'sota',
+    id: 96092, topic: 'ivan-pavlov', difficulty: 'sota',
     question: 'Modern neuroscience has shown that Pavlovian prediction errors are encoded by:',
     options: ['Dopamine neurons in the VTA, firing for unexpected rewards and pausing for unexpected omissions', 'Only the hippocampus', 'Motor cortex exclusively', 'Serotonin pathways in the brainstem'],
     correctIndex: 0,

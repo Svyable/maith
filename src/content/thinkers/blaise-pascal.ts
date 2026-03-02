@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const pascalQuestions: Question[] = [
   {
     id: 12201,
-    topic: 'pascal',
+    topic: 'blaise-pascal',
     difficulty: 'easy',
     question: 'Blaise Pascal built a mechanical calculator at age 19. What was it called and what could it do?',
     options: [
@@ -19,7 +19,7 @@ export const pascalQuestions: Question[] = [
   },
   {
     id: 12202,
-    topic: 'pascal',
+    topic: 'blaise-pascal',
     difficulty: 'hard',
     question: 'Pascal\'s triangle has a remarkable property: the entries in row n give the coefficients of (a+b)^n. What deeper pattern connects it to probability?',
     options: [
@@ -35,7 +35,7 @@ export const pascalQuestions: Question[] = [
   },
   {
     id: 12203,
-    topic: 'pascal',
+    topic: 'blaise-pascal',
     difficulty: 'sota',
     question: 'Pascal\'s "wager" applied expected value reasoning to theology. In modern decision theory, this argument structure is most closely related to:',
     options: [

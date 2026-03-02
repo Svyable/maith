@@ -4,7 +4,7 @@ import type { Question } from '../types';
 export const dermanQuestions: Question[] = [
   {
     id: 69250,
-    topic: 'derman',
+    topic: 'emanuel-derman',
     difficulty: 'easy',
     question: 'Derman-Kani local volatility σ(K,T) extracts?',
     options: [
@@ -20,7 +20,7 @@ export const dermanQuestions: Question[] = [
   },
   {
     id: 69251,
-    topic: 'derman',
+    topic: 'emanuel-derman',
     difficulty: 'hard',
     question: 'Local vol Dupire forward PDE?',
     options: [
@@ -36,7 +36,7 @@ export const dermanQuestions: Question[] = [
   },
   {
     id: 69252,
-    topic: 'derman',
+    topic: 'emanuel-derman',
     difficulty: 'sota',
     question: 'Derman "rule of two": local vol vs implied?',
     options: [
@@ -52,7 +52,7 @@ export const dermanQuestions: Question[] = [
   },
   {
     id: 69253,
-    topic: 'derman',
+    topic: 'emanuel-derman',
     difficulty: 'hard',
     question: 'Implied binomial tree construction?',
     options: [
@@ -68,7 +68,7 @@ export const dermanQuestions: Question[] = [
   },
   {
     id: 69254,
-    topic: 'derman',
+    topic: 'emanuel-derman',
     difficulty: 'sota',
     question: 'Local vol forward skew dynamics?',
     options: [

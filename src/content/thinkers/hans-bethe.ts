@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const betheQuestions: Question[] = [
   {
     id: 21140,
-    topic: 'bethe',
+    topic: 'hans-bethe',
     difficulty: 'sota',
     question: 'Hans Bethe won the Nobel Prize for identifying which nuclear process as the energy source of stars?',
     options: ['The CNO cycle and proton–proton chain', 'Nuclear fission of heavy elements', 'Gravitational contraction (Kelvin–Helmholtz mechanism)', 'Matter-antimatter annihilation'],
@@ -14,7 +14,7 @@ export const betheQuestions: Question[] = [
   },
   {
     id: 21141,
-    topic: 'bethe',
+    topic: 'hans-bethe',
     difficulty: 'sota',
     question: 'The Bethe–Bloch formula describes which fundamental physical process?',
     options: ['Energy loss of charged particles passing through matter', 'Nuclear binding energy per nucleon', 'Cross-sections for neutrino scattering', 'Spectral line broadening in stellar atmospheres'],
@@ -25,7 +25,7 @@ export const betheQuestions: Question[] = [
   },
   {
     id: 21142,
-    topic: 'bethe',
+    topic: 'hans-bethe',
     difficulty: 'sota',
     question: 'Bethe\'s exact solution to the one-dimensional Heisenberg spin chain introduced which foundational technique in mathematical physics?',
     options: ['The Bethe ansatz', 'Perturbation theory', 'The renormalization group', 'Path integral quantization'],

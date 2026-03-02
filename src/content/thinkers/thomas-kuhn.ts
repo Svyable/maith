@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const kuhnQuestions: Question[] = [
   {
     id: 13330,
-    topic: 'kuhn',
+    topic: 'thomas-kuhn',
     difficulty: 'easy',
     question:
       'Kuhn’s “normal science” describes the typical day-to-day work of scientists under an accepted paradigm. What is normal science mainly doing?',
@@ -22,7 +22,7 @@ export const kuhnQuestions: Question[] = [
   },
   {
     id: 13331,
-    topic: 'kuhn',
+    topic: 'thomas-kuhn',
     difficulty: 'easy',
     question:
       'In Kuhn’s picture, what role do “anomalies” play?',
@@ -41,7 +41,7 @@ export const kuhnQuestions: Question[] = [
   },
   {
     id: 13332,
-    topic: 'kuhn',
+    topic: 'thomas-kuhn',
     difficulty: 'hard',
     question:
       'Kuhn argued that during a scientific revolution, standards and even meanings can change (“incommensurability”). What is the best interpretation?',
@@ -60,7 +60,7 @@ export const kuhnQuestions: Question[] = [
   },
   {
     id: 13333,
-    topic: 'kuhn',
+    topic: 'thomas-kuhn',
     difficulty: 'hard',
     question:
       'Which sequence best matches Kuhn’s broad cycle of scientific development?',
@@ -79,7 +79,7 @@ export const kuhnQuestions: Question[] = [
   },
   {
     id: 13334,
-    topic: 'kuhn',
+    topic: 'thomas-kuhn',
     difficulty: 'sota',
     question:
       'Suppose a research community measures progress by a benchmark score $S$. A Kuhnian “paradigm shift” might look like changing the objective itself. Which scenario best fits?',

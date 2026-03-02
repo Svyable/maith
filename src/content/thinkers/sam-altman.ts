@@ -2,7 +2,7 @@ import type { Question } from '../types';
 
 export const altmanQuestions: Question[] = [
   {
-    id: 95004, topic: 'altman', difficulty: 'easy',
+    id: 95004, topic: 'sam-altman', difficulty: 'easy',
     question: 'OpenAI\'s mission, championed by Sam Altman, is to ensure that AGI:',
     options: ['Benefits all of humanity', 'Maximizes corporate profit', 'Replaces all human workers', 'Remains classified technology'],
     correctIndex: 0,
@@ -11,7 +11,7 @@ export const altmanQuestions: Question[] = [
     hint: 'The organization\'s name itself suggests openness and accessibility.',
   },
   {
-    id: 95005, topic: 'altman', difficulty: 'hard',
+    id: 95005, topic: 'sam-altman', difficulty: 'hard',
     question: 'The scaling hypothesis that Altman\'s OpenAI bet on states that:',
     options: ['Increasing model size, data, and compute yields emergent capabilities', 'Smaller models always outperform larger ones', 'Architecture matters more than scale', 'Training data quality is irrelevant'],
     correctIndex: 0,
@@ -20,7 +20,7 @@ export const altmanQuestions: Question[] = [
     hint: 'More compute → more capability, following a power law.',
   },
   {
-    id: 95006, topic: 'altman', difficulty: 'sota',
+    id: 95006, topic: 'sam-altman', difficulty: 'sota',
     question: 'OpenAI\'s "o1" reasoning model introduced a paradigm called:',
     options: ['Chain-of-thought reasoning at inference time (test-time compute)', 'Pre-training on synthetic data only', 'Reinforcement learning from human feedback only', 'Mixture of experts routing'],
     correctIndex: 0,

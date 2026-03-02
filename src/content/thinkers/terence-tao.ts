@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const taoQuestions: Question[] = [
   {
     id: 11401,
-    topic: 'tao',
+    topic: 'terence-tao',
     difficulty: 'easy',
     question: 'Terence Tao, along with Ben Green, proved the Green–Tao theorem. What does it state?',
     options: [
@@ -19,7 +19,7 @@ export const taoQuestions: Question[] = [
   },
   {
     id: 11402,
-    topic: 'tao',
+    topic: 'terence-tao',
     difficulty: 'easy',
     question: 'Terence Tao won the Fields Medal in 2006 primarily for his contributions to:',
     options: [
@@ -35,7 +35,7 @@ export const taoQuestions: Question[] = [
   },
   {
     id: 11403,
-    topic: 'tao',
+    topic: 'terence-tao',
     difficulty: 'easy',
     question: 'Tao\'s work with Emmanuel Candès on compressed sensing showed that:',
     options: [
@@ -51,7 +51,7 @@ export const taoQuestions: Question[] = [
   },
   {
     id: 11404,
-    topic: 'tao',
+    topic: 'terence-tao',
     difficulty: 'hard',
     question: 'Tao\'s proof of the Green–Tao theorem crucially relies on which framework from additive combinatorics?',
     options: [
@@ -67,7 +67,7 @@ export const taoQuestions: Question[] = [
   },
   {
     id: 11405,
-    topic: 'tao',
+    topic: 'terence-tao',
     difficulty: 'hard',
     question: 'Tao made a breakthrough on the Erdős discrepancy problem by proving that:',
     options: [
@@ -83,7 +83,7 @@ export const taoQuestions: Question[] = [
   },
   {
     id: 11406,
-    topic: 'tao',
+    topic: 'terence-tao',
     difficulty: 'hard',
     question: 'In the Kakeya conjecture, Tao and collaborators have made progress showing that Kakeya sets in $\\mathbb{R}^n$ must have:',
     options: [
@@ -99,7 +99,7 @@ export const taoQuestions: Question[] = [
   },
   {
     id: 11407,
-    topic: 'tao',
+    topic: 'terence-tao',
     difficulty: 'sota',
     question: 'Tao\'s work on the Navier–Stokes regularity problem constructed:',
     options: [
@@ -115,7 +115,7 @@ export const taoQuestions: Question[] = [
   },
   {
     id: 11408,
-    topic: 'tao',
+    topic: 'terence-tao',
     difficulty: 'sota',
     question: 'Tao\'s "polynomial method" breakthrough (with Dvir) for the finite field Kakeya problem showed:',
     options: [

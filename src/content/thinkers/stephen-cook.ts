@@ -4,7 +4,7 @@ import type { Question } from '../types';
 export const cookQuestions: Question[] = [
   {
     id: 67030,
-    topic: 'cook',
+    topic: 'stephen-cook',
     difficulty: 'easy',
     question:
       'Stephen Cook is famous for introducing NP-completeness. What was the central claim of the Cook–Levin theorem?',
@@ -24,7 +24,7 @@ export const cookQuestions: Question[] = [
   },
   {
     id: 67031,
-    topic: 'cook',
+    topic: 'stephen-cook',
     difficulty: 'hard',
     question:
       'What does it mean for a language $L$ to be NP-complete?',
@@ -44,7 +44,7 @@ export const cookQuestions: Question[] = [
   },
   {
     id: 67032,
-    topic: 'cook',
+    topic: 'stephen-cook',
     difficulty: 'hard',
     question:
       'In Cook–Levin, an NP computation is encoded as a SAT instance. What is the high-level object being encoded?',
@@ -64,7 +64,7 @@ export const cookQuestions: Question[] = [
   },
   {
     id: 67033,
-    topic: 'cook',
+    topic: 'stephen-cook',
     difficulty: 'sota',
     question:
       'SAT is NP-complete, but many practical instances are solved quickly. Which explanation best matches modern understanding?',
@@ -84,7 +84,7 @@ export const cookQuestions: Question[] = [
   },
   {
     id: 67034,
-    topic: 'cook',
+    topic: 'stephen-cook',
     difficulty: 'sota',
     question:
       'Cook’s framing emphasizes reductions. If $A\\le_p B$ and $B\\in P$, what follows?',

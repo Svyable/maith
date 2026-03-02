@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const hasegawaQuestions: Question[] = [
   {
     id: 9516,
-    topic: 'hasegawa',
+    topic: 'akira-hasegawa',
     difficulty: 'sota',
     question: 'The Hasegawa-Mima equation $\\frac{\\partial}{\\partial t}(\\nabla^2\\phi - \\phi) + [\\phi, \\nabla^2\\phi] = 0$ describes:',
     options: [
@@ -19,7 +19,7 @@ export const hasegawaQuestions: Question[] = [
   },
   {
     id: 9517,
-    topic: 'hasegawa',
+    topic: 'akira-hasegawa',
     difficulty: 'sota',
     question: 'Hasegawa\'s optical soliton theory showed that in optical fibers, the nonlinear Schrödinger equation supports solitons when:',
     options: [
@@ -35,7 +35,7 @@ export const hasegawaQuestions: Question[] = [
   },
   {
     id: 9518,
-    topic: 'hasegawa',
+    topic: 'akira-hasegawa',
     difficulty: 'sota',
     question: 'In the Hasegawa-Wakatani model extending Hasegawa-Mima, the additional coupling term represents:',
     options: [

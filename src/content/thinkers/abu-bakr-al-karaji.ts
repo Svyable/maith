@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const alKarajiQuestions: Question[] = [
   {
     id: 9613,
-    topic: 'al-karaji',
+    topic: 'abu-bakr-al-karaji',
     difficulty: 'sota',
     question: 'Al-Karaji\'s proof of the binomial theorem used a method equivalent to:',
     options: [
@@ -19,7 +19,7 @@ export const alKarajiQuestions: Question[] = [
   },
   {
     id: 9614,
-    topic: 'al-karaji',
+    topic: 'abu-bakr-al-karaji',
     difficulty: 'sota',
     question: 'Al-Karaji\'s algebraic program aimed to "arithmetize" algebra by:',
     options: [
@@ -35,7 +35,7 @@ export const alKarajiQuestions: Question[] = [
   },
   {
     id: 9615,
-    topic: 'al-karaji',
+    topic: 'abu-bakr-al-karaji',
     difficulty: 'sota',
     question: 'Al-Karaji proved that $\\sum_{k=1}^{n} k^3 =$:',
     options: [

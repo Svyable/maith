@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const nyquistQuestions: Question[] = [
   {
     id: 13300,
-    topic: 'nyquist',
+    topic: 'harry-nyquist',
     difficulty: 'easy',
     question:
       'State the Nyquist–Shannon sampling theorem in its most common engineering form. If a continuous-time signal $x(t)$ is strictly band-limited to $|f|<B$ Hz, what sampling frequency $f_s$ guarantees perfect reconstruction (in the ideal mathematical setting)?',
@@ -22,7 +22,7 @@ export const nyquistQuestions: Question[] = [
   },
   {
     id: 13301,
-    topic: 'nyquist',
+    topic: 'harry-nyquist',
     difficulty: 'easy',
     question:
       'A sinusoid at frequency $f_0$ is sampled at rate $f_s$. Under ideal sampling, what “alias” frequency $f_a$ (in $[0,f_s/2]$) can it appear as when $f_0>f_s/2$?',
@@ -41,7 +41,7 @@ export const nyquistQuestions: Question[] = [
   },
   {
     id: 13302,
-    topic: 'nyquist',
+    topic: 'harry-nyquist',
     difficulty: 'hard',
     question:
       'In unity-feedback control, the Nyquist criterion uses the open-loop transfer $L(s)=G(s)H(s)$. Closed-loop stability depends on the Nyquist plot of $L(j\\omega)$ encircling which critical point in the complex plane?',
@@ -60,7 +60,7 @@ export const nyquistQuestions: Question[] = [
   },
   {
     id: 13303,
-    topic: 'nyquist',
+    topic: 'harry-nyquist',
     difficulty: 'hard',
     question:
       'Define the Nyquist frequency and relate it to sampling period $T$. If $f_s=\\tfrac{1}{T}$, what is $f_N$ and why does it matter?',
@@ -79,7 +79,7 @@ export const nyquistQuestions: Question[] = [
   },
   {
     id: 13304,
-    topic: 'nyquist',
+    topic: 'harry-nyquist',
     difficulty: 'sota',
     question:
       'Compressed sensing sometimes “beats Nyquist” in measurement count. Which pair of conditions is most essential in the classical theory for recovering $x\\in\\mathbb{R}^n$ from $m\\ll n$ measurements $y=Ax$?',

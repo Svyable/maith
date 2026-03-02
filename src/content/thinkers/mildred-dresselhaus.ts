@@ -2,7 +2,7 @@ import type { Question } from '../types';
 
 export const dresselhausQuestions: Question[] = [
   {
-    id: 20124, topic: 'dresselhaus', difficulty: 'easy',
+    id: 20124, topic: 'mildred-dresselhaus', difficulty: 'easy',
     question: 'Mildred Dresselhaus is known as the "Queen of" which material?',
     options: ['Carbon', 'Silicon', 'Graphene', 'Steel'],
     correctIndex: 0,
@@ -11,7 +11,7 @@ export const dresselhausQuestions: Question[] = [
     hint: 'This element forms diamonds, graphite, fullerenes, and nanotubes.',
   },
   {
-    id: 20125, topic: 'dresselhaus', difficulty: 'hard',
+    id: 20125, topic: 'mildred-dresselhaus', difficulty: 'hard',
     question: 'Dresselhaus\'s predictions about carbon nanotubes focused on what key property?',
     options: ['Chirality-dependent electronic behavior', 'Room temperature superconductivity', 'Magnetic ordering', 'Optical transparency'],
     correctIndex: 0,
@@ -20,7 +20,7 @@ export const dresselhausQuestions: Question[] = [
     hint: 'The angle at which the graphene sheet is rolled determines the electronic band structure.',
   },
   {
-    id: 20126, topic: 'dresselhaus', difficulty: 'sota',
+    id: 20126, topic: 'mildred-dresselhaus', difficulty: 'sota',
     question: 'Dresselhaus made major contributions to thermoelectrics. What dimensionless figure of merit measures thermoelectric efficiency?',
     options: ['ZT', 'Q-factor', 'Reynolds number', 'Carnot efficiency'],
     correctIndex: 0,

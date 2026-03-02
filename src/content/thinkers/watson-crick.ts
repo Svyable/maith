@@ -4,7 +4,7 @@ import type { Question } from '../types';
 export const watsoncrickQuestions: Question[] = [
   {
     id: 50030,
-    topic: 'watsoncrick',
+    topic: 'watson-crick',
     difficulty: 'easy',
     question: 'Watson-Crick model: DNA = ?',
     options: [
@@ -20,7 +20,7 @@ export const watsoncrickQuestions: Question[] = [
   },
   {
     id: 50031,
-    topic: 'watsoncrick',
+    topic: 'watson-crick',
     difficulty: 'hard',
     question: 'DNA major/minor grooves from?',
     options: [
@@ -36,7 +36,7 @@ export const watsoncrickQuestions: Question[] = [
   },
   {
     id: 50032,
-    topic: 'watsoncrick',
+    topic: 'watson-crick',
     difficulty: 'sota',
     question: 'B-DNA helical parameters?',
     options: [

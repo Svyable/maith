@@ -2,7 +2,7 @@ import type { Question } from '../types';
 
 export const rayleighQuestions: Question[] = [
   {
-    id: 97301, topic: 'rayleigh', difficulty: 'easy',
+    id: 97301, topic: 'lord-rayleigh', difficulty: 'easy',
     question: 'Rayleigh scattering explains why the sky is blue. The scattering intensity scales as:',
     options: ['$I \\propto 1/\\lambda^4$ — shorter wavelengths scatter much more than longer ones', '$I \\propto \\lambda$ — longer wavelengths scatter more', '$I \\propto 1/\\lambda$ — linear inverse relationship', '$I$ is independent of wavelength'],
     correctIndex: 0,
@@ -11,7 +11,7 @@ export const rayleighQuestions: Question[] = [
     hint: 'The fourth power makes the difference dramatic — blue scatters 5-10× more than red.',
   },
   {
-    id: 97302, topic: 'rayleigh', difficulty: 'hard',
+    id: 97302, topic: 'lord-rayleigh', difficulty: 'hard',
     question: 'The Rayleigh-Jeans law $B(\\nu, T) = \\frac{2\\nu^2 k_BT}{c^2}$ correctly describes blackbody radiation at:',
     options: ['Low frequencies only — at high frequencies it diverges to infinity (the "ultraviolet catastrophe")', 'All frequencies', 'High frequencies only', 'Only at absolute zero'],
     correctIndex: 0,
@@ -20,7 +20,7 @@ export const rayleighQuestions: Question[] = [
     hint: 'Classical physics assigns $k_BT$ energy to every mode — but there are infinitely many high-frequency modes.',
   },
   {
-    id: 97303, topic: 'rayleigh', difficulty: 'sota',
+    id: 97303, topic: 'lord-rayleigh', difficulty: 'sota',
     question: 'The Rayleigh criterion for angular resolution states that two sources are just resolved when separated by $\\theta = 1.22 \\lambda/D$. This limits:',
     options: ['The resolving power of telescopes and microscopes — larger apertures see finer detail', 'The brightness of an image', 'The color accuracy of a lens', 'The magnification of an eyepiece'],
     correctIndex: 0,

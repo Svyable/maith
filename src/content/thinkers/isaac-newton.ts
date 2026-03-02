@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const newtonQuestions: Question[] = [
   {
     id: 11201,
-    topic: 'newton',
+    topic: 'isaac-newton',
     difficulty: 'easy',
     question: 'Newton\'s second law relates force, mass, and acceleration as:',
     options: [
@@ -19,7 +19,7 @@ export const newtonQuestions: Question[] = [
   },
   {
     id: 11202,
-    topic: 'newton',
+    topic: 'isaac-newton',
     difficulty: 'easy',
     question: 'Newton\'s method for finding roots of $f(x)=0$ iterates using the formula:',
     options: [
@@ -35,7 +35,7 @@ export const newtonQuestions: Question[] = [
   },
   {
     id: 11203,
-    topic: 'newton',
+    topic: 'isaac-newton',
     difficulty: 'easy',
     question: 'The binomial theorem, developed by Newton, states that for any $n$:',
     options: [
@@ -51,7 +51,7 @@ export const newtonQuestions: Question[] = [
   },
   {
     id: 11204,
-    topic: 'newton',
+    topic: 'isaac-newton',
     difficulty: 'easy',
     question: 'Newton\'s law of universal gravitation states that the force between two masses is:',
     options: [
@@ -67,7 +67,7 @@ export const newtonQuestions: Question[] = [
   },
   {
     id: 11205,
-    topic: 'newton',
+    topic: 'isaac-newton',
     difficulty: 'hard',
     question: 'Newton\'s method has quadratic convergence near a simple root, meaning:',
     options: [
@@ -83,7 +83,7 @@ export const newtonQuestions: Question[] = [
   },
   {
     id: 11206,
-    topic: 'newton',
+    topic: 'isaac-newton',
     difficulty: 'hard',
     question: 'Newton\'s forward difference formula for polynomial interpolation through points $(x_0, f_0), \\ldots, (x_n, f_n)$ is:',
     options: [
@@ -99,7 +99,7 @@ export const newtonQuestions: Question[] = [
   },
   {
     id: 11207,
-    topic: 'newton',
+    topic: 'isaac-newton',
     difficulty: 'hard',
     question: 'The Newton-Raphson method fails or converges slowly near a root where $f\'(x^*) = 0$. For a root of multiplicity $m$, convergence becomes:',
     options: [
@@ -115,7 +115,7 @@ export const newtonQuestions: Question[] = [
   },
   {
     id: 11208,
-    topic: 'newton',
+    topic: 'isaac-newton',
     difficulty: 'sota',
     question: 'The Newton-Euler equations for rigid body dynamics extend F=ma to rotational motion. The rotational analog is:',
     options: [
@@ -131,7 +131,7 @@ export const newtonQuestions: Question[] = [
   },
   {
     id: 11209,
-    topic: 'newton',
+    topic: 'isaac-newton',
     difficulty: 'sota',
     question: 'In optimization, the pure Newton step minimizing $f(x)$ updates as $x \\leftarrow x - H^{-1}\\nabla f$. This fails when:',
     options: [
@@ -147,7 +147,7 @@ export const newtonQuestions: Question[] = [
   },
   {
     id: 11210,
-    topic: 'newton',
+    topic: 'isaac-newton',
     difficulty: 'sota',
     question: 'Newton discovered that light is composed of colors by prism experiments. The mathematical analog in signal processing is:',
     options: [

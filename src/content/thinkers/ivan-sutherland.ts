@@ -4,7 +4,7 @@ import type { Question } from '../types';
 export const sutherlandQuestions: Question[] = [
   {
     id: 40020,
-    topic: 'sutherland',
+    topic: 'ivan-sutherland',
     difficulty: 'easy',
     question: 'Sketchpad (1963) introduced what?',
     options: [
@@ -20,7 +20,7 @@ export const sutherlandQuestions: Question[] = [
   },
   {
     id: 40021,
-    topic: 'sutherland',
+    topic: 'ivan-sutherland',
     difficulty: 'hard',
     question: 'Sketchpad constraint propagation works how?',
     options: [
@@ -36,7 +36,7 @@ export const sutherlandQuestions: Question[] = [
   },
   {
     id: 40022,
-    topic: 'sutherland',
+    topic: 'ivan-sutherland',
     difficulty: 'sota',
     question: 'Sutherland\'s "master-slave" manipulation = ?',
     options: [

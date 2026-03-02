@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const gibbsQuestions: Question[] = [
   {
     id: 31140,
-    topic: 'gibbs',
+    topic: 'willard-gibbs',
     difficulty: 'easy',
     question: 'Josiah Willard Gibbs mathematically defined "Gibbs Free Energy" ($\\Delta G = \\Delta H - T\\Delta S$). What deeply profound physical question does this simple equation perfectly answer?',
     options: [
@@ -19,7 +19,7 @@ export const gibbsQuestions: Question[] = [
   },
   {
     id: 31141,
-    topic: 'gibbs',
+    topic: 'willard-gibbs',
     difficulty: 'hard',
     question: 'Gibbs introduced the "Phase Rule," $F = C - P + 2$, to thermodynamics. What does the variable $F$ (Degrees of Freedom) mathematically represent in a complex chemical mixture?',
     options: [
@@ -35,7 +35,7 @@ export const gibbsQuestions: Question[] = [
   },
   {
     id: 31142,
-    topic: 'gibbs',
+    topic: 'willard-gibbs',
     difficulty: 'sota',
     question: 'Gibbs essentially invented Statistical Mechanics. He mathematically formalized the "Grand Canonical Ensemble" to perfectly describe what highly specific thermodynamic scenario?',
     options: [
@@ -51,7 +51,7 @@ export const gibbsQuestions: Question[] = [
   },
   {
     id: 31143,
-    topic: 'gibbs',
+    topic: 'willard-gibbs',
     difficulty: 'sota',
     question: 'The "Gibbs Paradox" highlighted a severe logical flaw in classical thermodynamics involving the entropy of mixing two identical ideal gases. How is this paradox mathematically resolved in modern physics?',
     options: [
@@ -67,7 +67,7 @@ export const gibbsQuestions: Question[] = [
   },
   {
     id: 31144,
-    topic: 'gibbs',
+    topic: 'willard-gibbs',
     difficulty: 'hard',
     question: 'Completely independently of his thermodynamic breakthroughs, Gibbs was deeply frustrated by the complex mathematics of quaternions. What foundational mathematical framework did he invent to replace them?',
     options: [

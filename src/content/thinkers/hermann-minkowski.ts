@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const minkowskiQuestions: Question[] = [
   {
     id: 31160,
-    topic: 'minkowski',
+    topic: 'hermann-minkowski',
     difficulty: 'easy',
     question: 'Hermann Minkowski fundamentally changed how humanity visualizes the universe. What massive geometric unification did he construct to mathematically explain Einstein\'s Special Relativity?',
     options: [
@@ -19,7 +19,7 @@ export const minkowskiQuestions: Question[] = [
   },
   {
     id: 31161,
-    topic: 'minkowski',
+    topic: 'hermann-minkowski',
     difficulty: 'hard',
     question: 'The "Minkowski Metric" defines how geometric distance is calculated in 4D spacetime. Which of the following equations accurately represents the absolute invariant spacetime interval $ds^2$?',
     options: [
@@ -35,7 +35,7 @@ export const minkowskiQuestions: Question[] = [
   },
   {
     id: 31162,
-    topic: 'minkowski',
+    topic: 'hermann-minkowski',
     difficulty: 'sota',
     question: 'In Minkowski spacetime diagrams, the path of a pulse of light emitting from the origin creates a "Light Cone" ($ds^2 = 0$). What profound causal boundary does this null cone mathematically enforce?',
     options: [
@@ -51,7 +51,7 @@ export const minkowskiQuestions: Question[] = [
   },
   {
     id: 31163,
-    topic: 'minkowski',
+    topic: 'hermann-minkowski',
     difficulty: 'sota',
     question: 'Long before defining relativity, Minkowski founded an entirely new branch of number theory called the "Geometry of Numbers." What does Minkowski\'s foundational theorem geometrically guarantee regarding lattice points?',
     options: [
@@ -67,7 +67,7 @@ export const minkowskiQuestions: Question[] = [
   },
   {
     id: 31164,
-    topic: 'minkowski',
+    topic: 'hermann-minkowski',
     difficulty: 'hard',
     question: 'Minkowski was actually Albert Einstein\'s mathematics professor at the Zurich Polytechnic. What was Minkowski\'s deeply ironic initial reaction to Einstein\'s highly successful publication of Special Relativity?',
     options: [

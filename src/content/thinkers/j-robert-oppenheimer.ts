@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const oppenheimerQuestions: Question[] = [
   {
     id: 21100,
-    topic: 'oppenheimer',
+    topic: 'j-robert-oppenheimer',
     difficulty: 'sota',
     question: 'Oppenheimer\'s early theoretical work on gravitational collapse predicted which astrophysical phenomenon decades before observational confirmation?',
     options: ['Black holes (Oppenheimer–Snyder collapse)', 'Neutron stars only', 'Gravitational lensing', 'Dark matter halos'],
@@ -14,7 +14,7 @@ export const oppenheimerQuestions: Question[] = [
   },
   {
     id: 21101,
-    topic: 'oppenheimer',
+    topic: 'j-robert-oppenheimer',
     difficulty: 'sota',
     question: 'The Born–Oppenheimer approximation simplifies molecular quantum mechanics by separating which two types of motion?',
     options: ['Nuclear and electronic motion', 'Translational and rotational motion', 'Vibrational and electronic motion', 'Spin and orbital motion'],
@@ -25,7 +25,7 @@ export const oppenheimerQuestions: Question[] = [
   },
   {
     id: 21102,
-    topic: 'oppenheimer',
+    topic: 'j-robert-oppenheimer',
     difficulty: 'sota',
     question: 'What was the codename of the first nuclear weapons test, directed by Oppenheimer in July 1945?',
     options: ['Trinity', 'Manhattan', 'Fat Man', 'Crossroads'],
@@ -36,7 +36,7 @@ export const oppenheimerQuestions: Question[] = [
   },
   {
     id: 21103,
-    topic: 'oppenheimer',
+    topic: 'j-robert-oppenheimer',
     difficulty: 'sota',
     question: 'Oppenheimer\'s security clearance was revoked in 1954 primarily due to his opposition to developing which weapon?',
     options: ['The hydrogen bomb (thermonuclear weapon)', 'Tactical nuclear weapons', 'Biological weapons', 'Chemical weapons'],
@@ -47,7 +47,7 @@ export const oppenheimerQuestions: Question[] = [
   },
   {
     id: 21104,
-    topic: 'oppenheimer',
+    topic: 'j-robert-oppenheimer',
     difficulty: 'sota',
     question: 'The Oppenheimer–Phillips process describes which nuclear reaction mechanism?',
     options: ['Deuteron stripping — where only the neutron is captured by the target nucleus', 'Complete fusion of two heavy nuclei', 'Beta decay of unstable isotopes', 'Neutron capture followed by gamma emission'],

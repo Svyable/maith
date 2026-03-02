@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const simonsQuestions: Question[] = [
   {
     id: 10081,
-    topic: 'simons',
+    topic: 'jim-simons',
     difficulty: 'easy',
     question: 'A Hidden Markov Model (HMM) assumes:',
     options: [
@@ -19,7 +19,7 @@ export const simonsQuestions: Question[] = [
   },
   {
     id: 10082,
-    topic: 'simons',
+    topic: 'jim-simons',
     difficulty: 'easy',
     question: 'Stochastic calculus (Itô calculus) differs from ordinary calculus because:',
     options: [
@@ -35,7 +35,7 @@ export const simonsQuestions: Question[] = [
   },
   {
     id: 10083,
-    topic: 'simons',
+    topic: 'jim-simons',
     difficulty: 'easy',
     question: 'Arbitrage in finance means:',
     options: [
@@ -51,7 +51,7 @@ export const simonsQuestions: Question[] = [
   },
   {
     id: 10084,
-    topic: 'simons',
+    topic: 'jim-simons',
     difficulty: 'easy',
     question: 'A time series is said to be stationary if:',
     options: [
@@ -67,7 +67,7 @@ export const simonsQuestions: Question[] = [
   },
   {
     id: 10085,
-    topic: 'simons',
+    topic: 'jim-simons',
     difficulty: 'hard',
     question: 'The Viterbi algorithm for HMM decoding computes:',
     options: [
@@ -83,7 +83,7 @@ export const simonsQuestions: Question[] = [
   },
   {
     id: 10086,
-    topic: 'simons',
+    topic: 'jim-simons',
     difficulty: 'hard',
     question: 'The Sharpe ratio measures risk-adjusted return as $S = (R_p - R_f) / \\sigma_p$. A high Sharpe ratio indicates:',
     options: [
@@ -99,7 +99,7 @@ export const simonsQuestions: Question[] = [
   },
   {
     id: 10087,
-    topic: 'simons',
+    topic: 'jim-simons',
     difficulty: 'hard',
     question: 'Pairs trading exploits mean reversion by:',
     options: [
@@ -115,7 +115,7 @@ export const simonsQuestions: Question[] = [
   },
   {
     id: 10088,
-    topic: 'simons',
+    topic: 'jim-simons',
     difficulty: 'sota',
     question: 'Geometric Brownian Motion (GBM) $dS = \\mu S\\,dt + \\sigma S\\,dW$ has the solution:',
     options: [
@@ -131,7 +131,7 @@ export const simonsQuestions: Question[] = [
   },
   {
     id: 10089,
-    topic: 'simons',
+    topic: 'jim-simons',
     difficulty: 'sota',
     question: 'The Kalman filter for a linear-Gaussian state space model provides:',
     options: [
@@ -147,7 +147,7 @@ export const simonsQuestions: Question[] = [
   },
   {
     id: 10090,
-    topic: 'simons',
+    topic: 'jim-simons',
     difficulty: 'sota',
     question: 'The Chern-Simons theory (named partly for Simons\' mathematical work on characteristic classes) computes topological invariants. The Chern-Simons 3-form $\\text{CS}(A) = \\text{tr}(A \\wedge dA + \\frac{2}{3} A \\wedge A \\wedge A)$ is significant because:',
     options: [

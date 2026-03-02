@@ -4,7 +4,7 @@ import type { Question } from '../types';
 export const scholesQuestions: Question[] = [
   {
     id: 69050,
-    topic: 'scholes',
+    topic: 'myron-scholes',
     difficulty: 'easy',
     question: 'Black-Scholes call price C(S,K,t,σ,r)?',
     options: [
@@ -20,7 +20,7 @@ export const scholesQuestions: Question[] = [
   },
   {
     id: 69051,
-    topic: 'scholes',
+    topic: 'myron-scholes',
     difficulty: 'hard',
     question: 'Black-Scholes PDE derivation?',
     options: [
@@ -36,7 +36,7 @@ export const scholesQuestions: Question[] = [
   },
   {
     id: 69052,
-    topic: 'scholes',
+    topic: 'myron-scholes',
     difficulty: 'sota',
     question: 'Vega ∂C/∂σ measures?',
     options: [
@@ -52,7 +52,7 @@ export const scholesQuestions: Question[] = [
   },
   {
     id: 69053,
-    topic: 'scholes',
+    topic: 'myron-scholes',
     difficulty: 'hard',
     question: 'Scholes 1973 continuous hedging?',
     options: [
@@ -68,7 +68,7 @@ export const scholesQuestions: Question[] = [
   },
   {
     id: 69054,
-    topic: 'scholes',
+    topic: 'myron-scholes',
     difficulty: 'sota',
     question: 'Implied volatility smile from?',
     options: [

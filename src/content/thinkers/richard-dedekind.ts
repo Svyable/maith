@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const dedekindQuestions: Question[] = [
   {
     id: 31080,
-    topic: 'dedekind',
+    topic: 'richard-dedekind',
     difficulty: 'easy',
     question: 'Richard Dedekind solved a major crisis in mathematical foundations by rigorously defining the real numbers using "Dedekind cuts." What exactly is a Dedekind cut?',
     options: [
@@ -19,7 +19,7 @@ export const dedekindQuestions: Question[] = [
   },
   {
     id: 31081,
-    topic: 'dedekind',
+    topic: 'richard-dedekind',
     difficulty: 'hard',
     question: 'Dedekind was the very first mathematician to provide a rigorous, non-circular definition for what fundamental concept, simply by observing a mapping to a proper subset?',
     options: [
@@ -35,7 +35,7 @@ export const dedekindQuestions: Question[] = [
   },
   {
     id: 31082,
-    topic: 'dedekind',
+    topic: 'richard-dedekind',
     difficulty: 'sota',
     question: 'In ring theory, Dedekind introduced the concept of "ideals" to restore unique factorization. Why did standard unique prime factorization suddenly fail, prompting this invention?',
     options: [
@@ -51,7 +51,7 @@ export const dedekindQuestions: Question[] = [
   },
   {
     id: 31083,
-    topic: 'dedekind',
+    topic: 'richard-dedekind',
     difficulty: 'hard',
     question: 'Dedekind\'s work was deeply intertwined with and foundational to the highly controversial set theory developed by which of his close friends and correspondents?',
     options: [
@@ -67,7 +67,7 @@ export const dedekindQuestions: Question[] = [
   },
   {
     id: 31084,
-    topic: 'dedekind',
+    topic: 'richard-dedekind',
     difficulty: 'hard',
     question: 'The concept of a "Dedekind domain" is heavily utilized in algebraic number theory. Which of the following is a defining, required characteristic of a Dedekind domain?',
     options: [

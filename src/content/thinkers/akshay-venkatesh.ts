@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const venkateshQuestions: Question[] = [
   {
     id: 12701,
-    topic: 'venkatesh',
+    topic: 'akshay-venkatesh',
     difficulty: 'easy',
     question: 'Akshay Venkatesh started university at age 13 and won the Fields Medal (2018). His work primarily connects:',
     options: [
@@ -19,7 +19,7 @@ export const venkateshQuestions: Question[] = [
   },
   {
     id: 12702,
-    topic: 'venkatesh',
+    topic: 'akshay-venkatesh',
     difficulty: 'hard',
     question: 'Venkatesh used "mixing of flows on homogeneous spaces" to prove results about integer solutions to quadratic forms. The key idea is:',
     options: [
@@ -35,7 +35,7 @@ export const venkateshQuestions: Question[] = [
   },
   {
     id: 12703,
-    topic: 'venkatesh',
+    topic: 'akshay-venkatesh',
     difficulty: 'sota',
     question: 'Venkatesh\'s recent work with collaborators proposes "derived" structures in the Langlands program. This means:',
     options: [

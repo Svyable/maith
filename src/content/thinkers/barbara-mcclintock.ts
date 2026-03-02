@@ -2,7 +2,7 @@ import type { Question } from '../types';
 
 export const mcclintockQuestions: Question[] = [
   {
-    id: 20118, topic: 'mcclintock', difficulty: 'easy',
+    id: 20118, topic: 'barbara-mcclintock', difficulty: 'easy',
     question: 'Barbara McClintock discovered which genetic phenomenon in maize?',
     options: ['Transposable elements (jumping genes)', 'Genetic linkage', 'Polyploidy', 'Gene silencing'],
     correctIndex: 0,
@@ -11,7 +11,7 @@ export const mcclintockQuestions: Question[] = [
     hint: 'These genetic elements can change their position within the genome.',
   },
   {
-    id: 20119, topic: 'mcclintock', difficulty: 'hard',
+    id: 20119, topic: 'barbara-mcclintock', difficulty: 'hard',
     question: 'What did McClintock name the two-element control system she discovered in maize transposition?',
     options: ['Ac/Ds (Activator/Dissociation)', 'Promoter/Enhancer', 'Operon/Operator', 'Intron/Exon'],
     correctIndex: 0,
@@ -20,7 +20,7 @@ export const mcclintockQuestions: Question[] = [
     hint: 'One element provides the enzyme; the other is the mobile element that depends on it.',
   },
   {
-    id: 20120, topic: 'mcclintock', difficulty: 'sota',
+    id: 20120, topic: 'barbara-mcclintock', difficulty: 'sota',
     question: 'What fraction of the human genome is estimated to derive from transposable elements?',
     options: ['~45%', '~10%', '~2%', '~80%'],
     correctIndex: 0,

@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const linnainmaaQuestions: Question[] = [
   {
     id: 12701,
-    topic: 'linnainmaa',
+    topic: 'seppo-linnainmaa',
     difficulty: 'easy',
     question: 'Seppo Linnainmaa\'s key contribution to AI is:',
     options: [
@@ -19,7 +19,7 @@ export const linnainmaaQuestions: Question[] = [
   },
   {
     id: 12702,
-    topic: 'linnainmaa',
+    topic: 'seppo-linnainmaa',
     difficulty: 'easy',
     question: 'The chain rule in reverse mode, as Linnainmaa formalized, computes $\\frac{\\partial L}{\\partial w}$ by:',
     options: [
@@ -35,7 +35,7 @@ export const linnainmaaQuestions: Question[] = [
   },
   {
     id: 12703,
-    topic: 'linnainmaa',
+    topic: 'seppo-linnainmaa',
     difficulty: 'hard',
     question: 'The historical controversy around backpropagation\'s invention involves:',
     options: [
@@ -51,7 +51,7 @@ export const linnainmaaQuestions: Question[] = [
   },
   {
     id: 12704,
-    topic: 'linnainmaa',
+    topic: 'seppo-linnainmaa',
     difficulty: 'hard',
     question: 'Reverse-mode AD is more efficient than forward-mode AD for neural networks because:',
     options: [
@@ -67,7 +67,7 @@ export const linnainmaaQuestions: Question[] = [
   },
   {
     id: 12705,
-    topic: 'linnainmaa',
+    topic: 'seppo-linnainmaa',
     difficulty: 'sota',
     question: 'Modern automatic differentiation frameworks extend Linnainmaa\'s original algorithm with:',
     options: [

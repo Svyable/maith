@@ -4,7 +4,7 @@ import type { Question } from '../types';
 export const grangerQuestions: Question[] = [
   {
     id: 69600,
-    topic: 'granger',
+    topic: 'clive-granger',
     difficulty: 'easy',
     question: 'Granger causality tests?',
     options: [
@@ -20,7 +20,7 @@ export const grangerQuestions: Question[] = [
   },
   {
     id: 69601,
-    topic: 'granger',
+    topic: 'clive-granger',
     difficulty: 'hard',
     question: 'Granger test VAR(p) specification?',
     options: [
@@ -36,7 +36,7 @@ export const grangerQuestions: Question[] = [
   },
   {
     id: 69602,
-    topic: 'granger',
+    topic: 'clive-granger',
     difficulty: 'sota',
     question: 'Granger non-causality condition?',
     options: [
@@ -52,7 +52,7 @@ export const grangerQuestions: Question[] = [
   },
   {
     id: 69603,
-    topic: 'granger',
+    topic: 'clive-granger',
     difficulty: 'hard',
     question: 'Instantaneous Granger causality?',
     options: [
@@ -68,7 +68,7 @@ export const grangerQuestions: Question[] = [
   },
   {
     id: 69604,
-    topic: 'granger',
+    topic: 'clive-granger',
     difficulty: 'sota',
     question: 'Granger vs Toda-Yamamoto?',
     options: [
@@ -84,7 +84,7 @@ export const grangerQuestions: Question[] = [
   },
   {
     id: 69605,
-    topic: 'granger',
+    topic: 'clive-granger',
     difficulty: 'easy',
     question:
       'In time-series econometrics, what does it mean to say “$X$ Granger-causes $Y$”?',
@@ -104,7 +104,7 @@ export const grangerQuestions: Question[] = [
   },
   {
     id: 69606,
-    topic: 'granger',
+    topic: 'clive-granger',
     difficulty: 'hard',
     question:
       'In a VAR($p$) framework, the standard Granger causality test for “$X$ does not Granger-cause $Y$” is implemented how?',
@@ -124,7 +124,7 @@ export const grangerQuestions: Question[] = [
   },
   {
     id: 69607,
-    topic: 'granger',
+    topic: 'clive-granger',
     difficulty: 'sota',
     question:
       'Formally, let $\\mathcal{I}_t$ be the information set including past $X$ and $Y$, and $\\mathcal{I}_t^{(Y)}$ only past $Y$. Which condition expresses Granger non-causality of $X$ for $Y$?',
@@ -144,7 +144,7 @@ export const grangerQuestions: Question[] = [
   },
   {
     id: 69608,
-    topic: 'granger',
+    topic: 'clive-granger',
     difficulty: 'hard',
     question:
       'In a multivariate VAR with residual covariance matrix $\\Omega$, what is often meant by “instantaneous Granger causality”?',
@@ -164,7 +164,7 @@ export const grangerQuestions: Question[] = [
   },
   {
     id: 69609,
-    topic: 'granger',
+    topic: 'clive-granger',
     difficulty: 'sota',
     question:
       'The Toda–Yamamoto procedure modifies standard Granger testing when variables may be integrated or cointegrated. What is its key idea?',

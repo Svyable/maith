@@ -2,7 +2,7 @@ import type { Question } from '../types';
 
 export const diophantusQuestions: Question[] = [
   {
-    id: 21220, topic: 'diophantus', difficulty: 'sota',
+    id: 21220, topic: 'diophantus-of-alexandria', difficulty: 'sota',
     question: 'Diophantine equations require solutions in which number domain?',
     options: ['Integers (or rational numbers)', 'Real numbers', 'Complex numbers', 'p-adic numbers'],
     correctIndex: 0,
@@ -11,7 +11,7 @@ export const diophantusQuestions: Question[] = [
     hint: 'The key constraint is discreteness — no irrational or transcendental solutions allowed.',
   },
   {
-    id: 21221, topic: 'diophantus', difficulty: 'sota',
+    id: 21221, topic: 'diophantus-of-alexandria', difficulty: 'sota',
     question: 'Fermat wrote his famous "Last Theorem" marginal note in his copy of which Diophantus work?',
     options: ['Arithmetica', 'Elements', 'Conics', 'Almagest'],
     correctIndex: 0,
@@ -20,7 +20,7 @@ export const diophantusQuestions: Question[] = [
     hint: 'This 13-volume work from ~250 CE is the foundational text of number theory.',
   },
   {
-    id: 21222, topic: 'diophantus', difficulty: 'sota',
+    id: 21222, topic: 'diophantus-of-alexandria', difficulty: 'sota',
     question: 'Diophantus introduced syncopated algebra. What does "syncopated" mean in this context?',
     options: ['Using abbreviations and symbols for unknowns and operations', 'Using fully symbolic notation like modern algebra', 'Writing equations in purely verbal/rhetorical form', 'Using geometric constructions instead of equations'],
     correctIndex: 0,

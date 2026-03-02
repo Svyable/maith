@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const samuelsonQuestions: Question[] = [
   {
     id: 21070,
-    topic: 'samuelson',
+    topic: 'paul-samuelson',
     difficulty: 'sota',
     question: 'Samuelson\'s "Foundations of Economic Analysis" borrowed its mathematical framework primarily from which branch of physics?',
     options: ['Classical thermodynamics and Lagrangian mechanics', 'Quantum mechanics', 'Fluid dynamics', 'Electromagnetism'],
@@ -14,7 +14,7 @@ export const samuelsonQuestions: Question[] = [
   },
   {
     id: 21071,
-    topic: 'samuelson',
+    topic: 'paul-samuelson',
     difficulty: 'sota',
     question: 'Samuelson\'s "revealed preference" theory resolves which philosophical problem in economics?',
     options: ['Deriving utility functions from observable choices without assuming introspection', 'Proving that markets are always efficient', 'Showing that rational agents always maximize profit', 'Eliminating the need for supply and demand curves'],
@@ -25,7 +25,7 @@ export const samuelsonQuestions: Question[] = [
   },
   {
     id: 21072,
-    topic: 'samuelson',
+    topic: 'paul-samuelson',
     difficulty: 'sota',
     question: 'Samuelson\'s "efficient market hypothesis" contribution showed that properly anticipated prices must exhibit which statistical property?',
     options: ['They fluctuate randomly (martingale property)', 'They trend upward over time', 'They revert to the mean', 'They follow periodic cycles'],
@@ -36,7 +36,7 @@ export const samuelsonQuestions: Question[] = [
   },
   {
     id: 21073,
-    topic: 'samuelson',
+    topic: 'paul-samuelson',
     difficulty: 'sota',
     question: 'Samuelson\'s multiplier-accelerator model explains which macroeconomic phenomenon?',
     options: ['Business cycles arising from the interaction of consumption and investment', 'Hyperinflation in developing economies', 'The Phillips curve trade-off', 'Currency crises in fixed exchange rate regimes'],
@@ -47,7 +47,7 @@ export const samuelsonQuestions: Question[] = [
   },
   {
     id: 21074,
-    topic: 'samuelson',
+    topic: 'paul-samuelson',
     difficulty: 'sota',
     question: 'Samuelson famously quipped about which economic indicator: "It has predicted nine of the last five recessions"?',
     options: ['The stock market', 'The yield curve', 'Consumer confidence surveys', 'Leading economic indicators'],

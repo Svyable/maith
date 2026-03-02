@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const quineQuestions: Question[] = [
   {
     id: 20660,
-    topic: 'quine',
+    topic: 'w-v-o-quine',
     difficulty: 'hard',
     question: 'A "quine" in computer science is a program that produces its own source code as output. Which property must the program satisfy?',
     options: ['It takes no input and outputs exactly its own source code', 'It reads its own file from disk', 'It uses reflection APIs', 'It requires a compiler flag'],
@@ -14,7 +14,7 @@ export const quineQuestions: Question[] = [
   },
   {
     id: 20661,
-    topic: 'quine',
+    topic: 'w-v-o-quine',
     difficulty: 'sota',
     question: 'Quine\'s philosophical thesis of "ontological relativity" argues that:',
     options: ['The meaning of terms is underdetermined by all possible evidence (indeterminacy of translation)', 'All ontologies are equally valid', 'Mathematics has no ontological commitments', 'Scientific theories are purely syntactic'],
@@ -25,7 +25,7 @@ export const quineQuestions: Question[] = [
   },
   {
     id: 20662,
-    topic: 'quine',
+    topic: 'w-v-o-quine',
     difficulty: 'easy',
     question: 'Quine\'s famous sentence "Yields falsehood when preceded by its quotation" is an example of:',
     options: ['A self-referential paradox related to the Liar Paradox', 'A valid logical proof', 'A tautology', 'A mathematical equation'],

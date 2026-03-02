@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const kardarQuestions: Question[] = [
   {
     id: 9522,
-    topic: 'kardar',
+    topic: 'mehran-kardar',
     difficulty: 'sota',
     question: 'The KPZ equation $\\frac{\\partial h}{\\partial t} = \\nu\\nabla^2 h + \\frac{\\lambda}{2}(\\nabla h)^2 + \\eta$ describes interface growth. The nonlinear term $(\\nabla h)^2$ arises from:',
     options: [
@@ -19,7 +19,7 @@ export const kardarQuestions: Question[] = [
   },
   {
     id: 9523,
-    topic: 'kardar',
+    topic: 'mehran-kardar',
     difficulty: 'sota',
     question: 'The KPZ universality class in 1+1 dimensions predicts the roughness exponent $\\alpha$ and growth exponent $\\beta$ to be:',
     options: [
@@ -35,7 +35,7 @@ export const kardarQuestions: Question[] = [
   },
   {
     id: 9524,
-    topic: 'kardar',
+    topic: 'mehran-kardar',
     difficulty: 'sota',
     question: 'The Cole-Hopf transformation $h = \\frac{2\\nu}{\\lambda}\\ln Z$ maps the KPZ equation to:',
     options: [

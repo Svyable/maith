@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const churchQuestions: Question[] = [
   {
     id: 21750,
-    topic: 'church',
+    topic: 'alonzo-church',
     difficulty: 'sota',
     question: 'Church\'s lambda calculus represents natural number n as what?',
     options: [
@@ -19,7 +19,7 @@ export const churchQuestions: Question[] = [
   },
   {
     id: 21751,
-    topic: 'church',
+    topic: 'alonzo-church',
     difficulty: 'sota',
     question: 'The Church-Turing thesis asserts what fundamental equivalence?',
     options: [
@@ -35,7 +35,7 @@ export const churchQuestions: Question[] = [
   },
   {
     id: 21752,
-    topic: 'church',
+    topic: 'alonzo-church',
     difficulty: 'sota',
     question: 'Church proved the Entscheidungsproblem is undecidable. What exactly did he show?',
     options: [

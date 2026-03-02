@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const madhavaQuestions: Question[] = [
   {
     id: 20511,
-    topic: 'madhava',
+    topic: 'madhava-of-sangamagrama',
     difficulty: 'hard',
     question: 'Madhava discovered the infinite series $\\frac{\\pi}{4} = 1 - \\frac{1}{3} + \\frac{1}{5} - \\frac{1}{7} + \\cdots$ around 1400 CE. In the West, this is known as:',
     options: ['The Leibniz formula (rediscovered ~1676)', 'The Basel series', 'The harmonic series', 'The geometric series'],
@@ -14,7 +14,7 @@ export const madhavaQuestions: Question[] = [
   },
   {
     id: 20512,
-    topic: 'madhava',
+    topic: 'madhava-of-sangamagrama',
     difficulty: 'hard',
     question: 'Madhava discovered the power series expansion $\\sin x = x - \\frac{x^3}{3!} + \\frac{x^5}{5!} - \\cdots$. In the West, this is attributed to:',
     options: ['Brook Taylor (1715)', 'Isaac Newton (1687)', 'Leonhard Euler (1748)', 'Joseph Fourier (1822)'],
@@ -25,7 +25,7 @@ export const madhavaQuestions: Question[] = [
   },
   {
     id: 20513,
-    topic: 'madhava',
+    topic: 'madhava-of-sangamagrama',
     difficulty: 'hard',
     question: 'To what precision did Madhava compute $\\pi$ using his series and correction terms?',
     options: ['11 decimal places', '3 decimal places', '6 decimal places', '20 decimal places'],
@@ -36,7 +36,7 @@ export const madhavaQuestions: Question[] = [
   },
   {
     id: 20514,
-    topic: 'madhava',
+    topic: 'madhava-of-sangamagrama',
     difficulty: 'sota',
     question: 'Madhava used a correction term $\\frac{(-1)^n n!}{(2n+1)!} \\cdot f(n)$ to accelerate the convergence of his π series. This technique is analogous to which modern method?',
     options: ['Euler-Maclaurin summation / Richardson extrapolation', 'Monte Carlo integration', 'Fourier transform', 'Runge-Kutta integration'],
@@ -47,7 +47,7 @@ export const madhavaQuestions: Question[] = [
   },
   {
     id: 20515,
-    topic: 'madhava',
+    topic: 'madhava-of-sangamagrama',
     difficulty: 'sota',
     question: 'The Kerala School\'s work remained unknown to European mathematicians for centuries. What is the primary reason?',
     options: ['Results were recorded in Sanskrit verse on palm leaves with limited circulation', 'The work was deliberately hidden', 'It was written in a cipher', 'European mathematicians rejected it'],
@@ -58,7 +58,7 @@ export const madhavaQuestions: Question[] = [
   },
   {
     id: 20516,
-    topic: 'madhava',
+    topic: 'madhava-of-sangamagrama',
     difficulty: 'hard',
     question: 'Madhava also discovered the series $\\arctan x = x - \\frac{x^3}{3} + \\frac{x^5}{5} - \\cdots$. This converges for which values of $x$?',
     options: ['$|x| \\leq 1$', 'All real $x$', '$x > 0$ only', '$|x| < \\pi$'],
@@ -69,7 +69,7 @@ export const madhavaQuestions: Question[] = [
   },
   {
     id: 20517,
-    topic: 'madhava',
+    topic: 'madhava-of-sangamagrama',
     difficulty: 'sota',
     question: 'The Kerala School developed a notion of integration as the limit of Riemann-like sums. Their method for computing $\\int_0^a x^n dx$ yielded which result?',
     options: ['$\\frac{a^{n+1}}{n+1}$', '$n \\cdot a^{n-1}$', '$a^n \\ln a$', '$\\frac{a^n}{n}$'],
@@ -80,7 +80,7 @@ export const madhavaQuestions: Question[] = [
   },
   {
     id: 20518,
-    topic: 'madhava',
+    topic: 'madhava-of-sangamagrama',
     difficulty: 'easy',
     question: 'Madhava was the founder of which famous mathematical tradition in India?',
     options: ['The Kerala School of Astronomy and Mathematics', 'The Nalanda School', 'The Vedic Mathematics tradition', 'The Taxila Academy'],
@@ -91,7 +91,7 @@ export const madhavaQuestions: Question[] = [
   },
   {
     id: 20519,
-    topic: 'madhava',
+    topic: 'madhava-of-sangamagrama',
     difficulty: 'hard',
     question: 'Madhava computed the cosine series $\\cos x = 1 - \\frac{x^2}{2!} + \\frac{x^4}{4!} - \\cdots$. What mathematical concept does this series require that was not formalized until much later?',
     options: ['The factorial function and the concept of convergence', 'Complex numbers', 'Matrix algebra', 'Set theory'],
@@ -102,7 +102,7 @@ export const madhavaQuestions: Question[] = [
   },
   {
     id: 20520,
-    topic: 'madhava',
+    topic: 'madhava-of-sangamagrama',
     difficulty: 'sota',
     question: 'Historians debate whether Kerala School results could have reached Europe via Jesuit missionaries. If true, this would affect the priority of which mathematical development?',
     options: ['The independent invention of calculus by Newton and Leibniz', 'The discovery of non-Euclidean geometry', 'The formulation of set theory', 'The invention of logarithms'],

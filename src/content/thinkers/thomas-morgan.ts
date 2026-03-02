@@ -4,7 +4,7 @@ import type { Question } from '../types';
 export const huntmorganQuestions: Question[] = [
   {
     id: 50080,
-    topic: 'huntmorgan',
+    topic: 'thomas-morgan',
     difficulty: 'easy',
     question: 'Morgan discovered?',
     options: [
@@ -20,7 +20,7 @@ export const huntmorganQuestions: Question[] = [
   },
   {
     id: 50081,
-    topic: 'huntmorgan',
+    topic: 'thomas-morgan',
     difficulty: 'hard',
     question: 'Morgan\'s crossing over produces?',
     options: [
@@ -36,7 +36,7 @@ export const huntmorganQuestions: Question[] = [
   },
   {
     id: 50082,
-    topic: 'huntmorgan',
+    topic: 'thomas-morgan',
     difficulty: 'sota',
     question: 'Morgan\'s recombination frequency measures?',
     options: [

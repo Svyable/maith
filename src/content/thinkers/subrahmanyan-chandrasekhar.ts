@@ -2,7 +2,7 @@ import type { Question } from '../types';
 
 export const chandrasekharQuestions: Question[] = [
   {
-    id: 90901, topic: 'chandrasekhar', difficulty: 'sota',
+    id: 90901, topic: 'subrahmanyan-chandrasekhar', difficulty: 'sota',
     question: 'The Chandrasekhar limit ($\\approx 1.4 M_\\odot$) is derived from the balance between:',
     options: ['Electron degeneracy pressure and gravitational collapse', 'Radiation pressure and gravity', 'Nuclear fusion energy and neutrino cooling', 'Magnetic pressure and thermal pressure'],
     correctIndex: 0,
@@ -11,7 +11,7 @@ export const chandrasekharQuestions: Question[] = [
     hint: 'Quantum mechanics (Pauli exclusion) fights gravity — but relativity tips the balance at high mass.',
   },
   {
-    id: 90902, topic: 'chandrasekhar', difficulty: 'sota',
+    id: 90902, topic: 'subrahmanyan-chandrasekhar', difficulty: 'sota',
     question: 'Chandrasekhar\'s work on radiative transfer introduced the concept of:',
     options: ['Discrete ordinates method for solving the transfer equation', 'Blackbody radiation formula', 'Stellar nucleosynthesis pathways', 'Gravitational lensing geometry'],
     correctIndex: 0,
@@ -20,7 +20,7 @@ export const chandrasekharQuestions: Question[] = [
     hint: 'He discretized angles to turn an impossible integral equation into something computable.',
   },
   {
-    id: 90903, topic: 'chandrasekhar', difficulty: 'sota',
+    id: 90903, topic: 'subrahmanyan-chandrasekhar', difficulty: 'sota',
     question: 'Chandrasekhar\'s study of rotating fluid masses (Chandrasekhar-Friedman-Schutz instability) is relevant to:',
     options: ['Gravitational wave emission from rapidly rotating neutron stars', 'Solar flare prediction', 'Planetary ring formation', 'Comet trajectory calculation'],
     correctIndex: 0,

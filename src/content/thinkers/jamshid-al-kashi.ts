@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const alkashiQuestions: Question[] = [
   {
     id: 11041,
-    topic: 'al-kashi',
+    topic: 'jamshid-al-kashi',
     difficulty: 'easy',
     question: 'Al-Kashi\'s $\\pi$ computation (1424) was based on what geometric method?',
     options: [
@@ -19,7 +19,7 @@ export const alkashiQuestions: Question[] = [
   },
   {
     id: 11042,
-    topic: 'al-kashi',
+    topic: 'jamshid-al-kashi',
     difficulty: 'hard',
     question: 'Al-Kashi also developed an iterative algorithm for computing $n$th roots. His method anticipated:',
     options: [
@@ -35,7 +35,7 @@ export const alkashiQuestions: Question[] = [
   },
   {
     id: 11043,
-    topic: 'al-kashi',
+    topic: 'jamshid-al-kashi',
     difficulty: 'sota',
     question: 'Al-Kashi\'s precision in computing $\\pi$ and trigonometric values relied on his systematic use of:',
     options: [

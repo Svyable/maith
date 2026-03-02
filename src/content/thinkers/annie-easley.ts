@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const easleyQuestions: Question[] = [
   {
     id: 20505,
-    topic: 'easley',
+    topic: 'annie-easley',
     difficulty: 'hard',
     question: 'Annie Easley developed code for the Centaur upper-stage rocket. Centaur was the first rocket to use which type of propellant combination?',
     options: ['Liquid hydrogen and liquid oxygen (LH2/LOX)', 'Solid fuel boosters', 'Kerosene and liquid oxygen', 'Hypergolic propellants'],
@@ -14,7 +14,7 @@ export const easleyQuestions: Question[] = [
   },
   {
     id: 20506,
-    topic: 'easley',
+    topic: 'annie-easley',
     difficulty: 'hard',
     question: 'Easley also worked on energy conversion research at NASA. Her code contributed to analyzing which alternative energy technology?',
     options: ['Battery and fuel cell technology for electric vehicles', 'Nuclear fission reactors', 'Tidal energy generators', 'Geothermal power plants'],
@@ -25,7 +25,7 @@ export const easleyQuestions: Question[] = [
   },
   {
     id: 20507,
-    topic: 'easley',
+    topic: 'annie-easley',
     difficulty: 'easy',
     question: 'Annie Easley started her career at NASA\'s predecessor agency as a "human computer." What was that agency called?',
     options: ['NACA (National Advisory Committee for Aeronautics)', 'DARPA', 'NSF', 'JPL'],

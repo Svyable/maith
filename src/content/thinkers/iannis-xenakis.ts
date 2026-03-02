@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const xenakisQuestions: Question[] = [
   {
     id: 20710,
-    topic: 'xenakis',
+    topic: 'iannis-xenakis',
     difficulty: 'hard',
     question: 'Xenakis composed "Pithoprakta" (1956) by modeling each instrument\'s pitch and timing using which physical distribution?',
     options: ['Maxwell-Boltzmann velocity distribution (kinetic gas theory)', 'Poisson distribution', 'Uniform distribution', 'Zipf\'s law'],
@@ -14,7 +14,7 @@ export const xenakisQuestions: Question[] = [
   },
   {
     id: 20711,
-    topic: 'xenakis',
+    topic: 'iannis-xenakis',
     difficulty: 'sota',
     question: 'Xenakis used Markov chains and game theory in his composition "Duel" (1959). Players (conductors) choose strategies — what determines the winner?',
     options: ['A payoff matrix evaluated by the audience\'s aesthetic response', 'Note accuracy', 'Speed of performance', 'Volume levels'],
@@ -25,7 +25,7 @@ export const xenakisQuestions: Question[] = [
   },
   {
     id: 20712,
-    topic: 'xenakis',
+    topic: 'iannis-xenakis',
     difficulty: 'easy',
     question: 'Before becoming a composer, Xenakis worked as an architect alongside which famous modernist?',
     options: ['Le Corbusier', 'Frank Lloyd Wright', 'Mies van der Rohe', 'Zaha Hadid'],

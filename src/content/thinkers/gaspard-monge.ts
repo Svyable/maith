@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const mongeQuestions: Question[] = [
   {
     id: 31055,
-    topic: 'monge',
+    topic: 'gaspard-monge',
     difficulty: 'easy',
     question: 'Gaspard Monge is widely considered the undisputed mathematical father of what specific branch of geometry, essential to modern engineering and architecture?',
     options: [
@@ -19,7 +19,7 @@ export const mongeQuestions: Question[] = [
   },
   {
     id: 31056,
-    topic: 'monge',
+    topic: 'gaspard-monge',
     difficulty: 'hard',
     question: 'Monge\'s work on the famous "Monge-Kantorovich transportation problem" originated from his attempt to solve what highly practical 18th-century military issue?',
     options: [
@@ -35,7 +35,7 @@ export const mongeQuestions: Question[] = [
   },
   {
     id: 31057,
-    topic: 'monge',
+    topic: 'gaspard-monge',
     difficulty: 'sota',
     question: 'In differential geometry, what exactly is a "Monge patch"?',
     options: [
@@ -51,7 +51,7 @@ export const mongeQuestions: Question[] = [
   },
   {
     id: 31058,
-    topic: 'monge',
+    topic: 'gaspard-monge',
     difficulty: 'hard',
     question: 'During the French Revolution, Monge served as Minister of the Marine, but he was also deeply instrumental in establishing which massive, globally adopted scientific standard?',
     options: [
@@ -67,7 +67,7 @@ export const mongeQuestions: Question[] = [
   },
   {
     id: 31059,
-    topic: 'monge',
+    topic: 'gaspard-monge',
     difficulty: 'hard',
     question: 'Monge\'s revolutionary methods in geometry were considered so highly valuable by the French military that they:',
     options: [
