@@ -599,7 +599,7 @@ export const allThinkerQuestions: Question[] = [
   ...johnWallisQuestions,
   ...jamesGregoryQuestions,
   ...ludolphVanCeulenQuestions,
-  ...alkashiPiQuestions,
+  ...jamshidAlKashiQuestions,
   ...claudiusPtolemyQuestions,
   ...hipparchusOfNicaeaQuestions,
   ...nasirAlDinAlTusiQuestions,
@@ -788,7 +788,7 @@ export const allThinkerQuestions: Question[] = [
   ...andreMarieAmpereQuestions,
   ...heinrichLenzQuestions,
   ...jeanBaptisteBiotQuestions,
-  ...paul-ehrenfest,
+  ...paulEhrenfestQuestions,
   // Population, Mechanics, Numerical, Astro, Plasma, Neuro, StatPhys, Chemistry, Drag, Weather
   ...alfredLotkaQuestions,
   ...pierreVerhulstQuestions,
