@@ -1,10 +1,10 @@
-import { cfaEthicsQuestions, cfaEquityQuestions, cfaPortfolioQuestions } from './questions';
+import { cfaLevel1Questions, cfaLevel2Questions, cfaLevel3Questions } from './questions';
 import type { Question } from '../types';
 
 export const cfaQuestions: Question[] = [
-  ...cfaEthicsQuestions,
-  ...cfaEquityQuestions,
-  ...cfaPortfolioQuestions,
+  ...cfaLevel1Questions,
+  ...cfaLevel2Questions,
+  ...cfaLevel3Questions,
 ];
 
-export { cfaEthicsQuestions, cfaEquityQuestions, cfaPortfolioQuestions };
+export { cfaLevel1Questions, cfaLevel2Questions, cfaLevel3Questions };

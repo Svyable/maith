@@ -1,4 +1,4 @@
-// ── Bonafides Registry — Professional Certification Hub ───────────────
+// ── Bonafides Registry — Math & Finance Certification Hub ─────────────
 //
 // HOW TO ADD A NEW CREDENTIAL:
 // 1. Add a BonafideMeta entry below
@@ -15,86 +15,174 @@ export interface BonafideMeta {
   topics: string[];
   /** Tailwind color token */
   color: string;
-  /** Sub-sections for organization (e.g., ['Prelim', 'Advanced']) */
+  /** Sub-sections for organization */
   sections?: string[];
   /** false = "Coming Soon" — non-interactive */
   available: boolean;
 }
 
 export const BONAFIDES: BonafideMeta[] = [
-  // ── Finance & Accounting ────────────────────────────────
+  // ═══════════════════════════════════════════════════════════════
+  // CFA PROGRAM — split by exam level
+  // ═══════════════════════════════════════════════════════════════
   {
-    slug: 'cfa',
-    label: 'CFA Program',
+    slug: 'cfa-level-1',
+    label: 'CFA Level I',
     emoji: '🏛️',
-    description: 'Chartered Financial Analyst — Ethics, Equity Valuation, Portfolio Management (Levels I–III)',
-    topics: ['cfa-ethics', 'cfa-equity', 'cfa-portfolio'],
+    description: 'Ethics, Quantitative Methods, Economics, Financial Reporting — the foundation',
+    topics: ['cfa-level-1'],
     color: 'primary',
-    sections: ['Level I', 'Level II', 'Level III'],
+    sections: ['Ethics & Standards', 'Quantitative Methods', 'Economics', 'FRA'],
     available: true,
   },
   {
-    slug: 'cpa',
-    label: 'CPA Exam',
-    emoji: '📋',
-    description: 'Certified Public Accountant — Auditing, Financial Accounting, Regulation & Tax',
-    topics: ['cpa-auditing', 'cpa-accounting', 'cpa-tax'],
-    color: 'accent',
-    sections: ['AUD', 'FAR', 'REG'],
+    slug: 'cfa-level-2',
+    label: 'CFA Level II',
+    emoji: '🏛️',
+    description: 'Equity Valuation, Fixed Income, Derivatives, Financial Reporting Analysis',
+    topics: ['cfa-level-2'],
+    color: 'primary',
+    sections: ['Equity Valuation', 'Fixed Income', 'Derivatives', 'Alt Investments'],
     available: true,
   },
-  // ── Actuarial ───────────────────────────────────────────
   {
-    slug: 'actuarial',
-    label: 'Actuarial Exams',
+    slug: 'cfa-level-3',
+    label: 'CFA Level III',
+    emoji: '🏛️',
+    description: 'Portfolio Management, Wealth Planning, Asset Allocation, Risk Management',
+    topics: ['cfa-level-3'],
+    color: 'primary',
+    sections: ['Portfolio Construction', 'Wealth Planning', 'Risk Mgmt', 'Trading'],
+    available: true,
+  },
+
+  // ═══════════════════════════════════════════════════════════════
+  // ACTUARIAL — SOA Exams (split by individual exam)
+  // ═══════════════════════════════════════════════════════════════
+  {
+    slug: 'actuarial-exam-p',
+    label: 'Exam P — Probability',
     emoji: '📐',
-    description: 'SOA/CAS prelims to fellowship — Probability, Financial Mathematics, Loss Models',
-    topics: ['actuarial-probability', 'actuarial-finmath', 'actuarial-loss'],
-    color: 'success',
-    sections: ['Prelim (P, FM)', 'Advanced (FAM, SRM, ALTAM, ASTAM, PA)', 'CAS (MAS-I, MAS-II)'],
-    available: true,
-  },
-  // ── Business ────────────────────────────────────────────
-  {
-    slug: 'mba',
-    label: 'MBA Core',
-    emoji: '🎓',
-    description: 'Strategy, Marketing Analytics, Operations Management',
-    topics: ['mba-strategy', 'mba-marketing', 'mba-operations'],
-    color: 'destructive',
-    available: true,
-  },
-  // ── Law ─────────────────────────────────────────────────
-  {
-    slug: 'law',
-    label: 'Law & Ethics',
-    emoji: '⚖️',
-    description: 'Contract Law, Intellectual Property, Regulatory Compliance',
-    topics: ['contract-law', 'ip-law', 'regulatory-compliance'],
-    color: 'primary',
-    available: true,
-  },
-  // ── Medical ─────────────────────────────────────────────
-  {
-    slug: 'medical',
-    label: 'Medical Sciences',
-    emoji: '🏥',
-    description: 'Anatomy & Physiology, Pathology, Biostatistics',
-    topics: ['anatomy-physiology', 'pathology', 'biostatistics'],
-    color: 'success',
-    available: true,
-  },
-  // ── Data Science ────────────────────────────────────────
-  {
-    slug: 'data-science',
-    label: 'Data Science',
-    emoji: '📡',
-    description: 'Data Wrangling, MLOps, Visualization',
-    topics: ['data-wrangling', 'mlops', 'data-visualization'],
+    description: 'SOA/CAS Exam 1: Probability distributions, survival models, multivariate probability',
+    topics: ['actuarial-exam-p'],
     color: 'accent',
     available: true,
   },
-  // ── FINRA / Securities (Coming Soon) ────────────────────
+  {
+    slug: 'actuarial-exam-fm',
+    label: 'Exam FM — Financial Math',
+    emoji: '📐',
+    description: 'SOA/CAS Exam 2: Interest theory, annuities, bonds, immunization, derivatives intro',
+    topics: ['actuarial-exam-fm'],
+    color: 'accent',
+    available: true,
+  },
+  {
+    slug: 'actuarial-exam-fam',
+    label: 'Exam FAM — Fundamentals',
+    emoji: '📐',
+    description: 'SOA Exam FAM: Life contingencies, loss models, credibility, aggregate losses',
+    topics: ['actuarial-exam-fam'],
+    color: 'accent',
+    available: true,
+  },
+  {
+    slug: 'actuarial-exam-srm',
+    label: 'Exam SRM — Statistics',
+    emoji: '📐',
+    description: 'SOA Exam SRM: Linear models, GLMs, time series, decision trees, cluster analysis',
+    topics: ['actuarial-exam-srm'],
+    color: 'accent',
+    sections: ['Regression', 'GLMs', 'Time Series', 'Machine Learning'],
+    available: false,
+  },
+  {
+    slug: 'actuarial-exam-altam',
+    label: 'Exam ALTAM — Advanced Long-Term',
+    emoji: '📐',
+    description: 'SOA Exam ALTAM: Multi-state models, pension math, advanced reserving',
+    topics: ['actuarial-exam-altam'],
+    color: 'accent',
+    available: false,
+  },
+  {
+    slug: 'actuarial-exam-astam',
+    label: 'Exam ASTAM — Advanced Short-Term',
+    emoji: '📐',
+    description: 'SOA Exam ASTAM: Ratemaking, credibility, reinsurance, ruin theory',
+    topics: ['actuarial-exam-astam'],
+    color: 'accent',
+    available: false,
+  },
+  {
+    slug: 'actuarial-exam-pa',
+    label: 'Exam PA — Predictive Analytics',
+    emoji: '📐',
+    description: 'SOA Exam PA: R programming, predictive modeling, business problem framing',
+    topics: ['actuarial-exam-pa'],
+    color: 'accent',
+    available: false,
+  },
+
+  // ═══════════════════════════════════════════════════════════════
+  // ACTUARIAL — CAS Exams
+  // ═══════════════════════════════════════════════════════════════
+  {
+    slug: 'actuarial-mas-i',
+    label: 'CAS MAS-I — Modern Stats I',
+    emoji: '📐',
+    description: 'CAS MAS-I: Probability models, regression, time series for P&C actuaries',
+    topics: ['actuarial-mas-i'],
+    color: 'success',
+    available: false,
+  },
+  {
+    slug: 'actuarial-mas-ii',
+    label: 'CAS MAS-II — Modern Stats II',
+    emoji: '📐',
+    description: 'CAS MAS-II: Credibility, GLMs, Bayesian estimation, advanced loss modeling',
+    topics: ['actuarial-mas-ii'],
+    color: 'success',
+    available: false,
+  },
+
+  // ═══════════════════════════════════════════════════════════════
+  // QUANT FINANCE CERTIFICATIONS
+  // ═══════════════════════════════════════════════════════════════
+  {
+    slug: 'frm',
+    label: 'FRM — Financial Risk Manager',
+    emoji: '⚡',
+    description: 'GARP FRM: Market risk, credit risk, operational risk, Basel frameworks',
+    topics: ['frm-part-1', 'frm-part-2'],
+    color: 'destructive',
+    sections: ['Part I: Tools', 'Part II: Practice'],
+    available: false,
+  },
+  {
+    slug: 'cqf',
+    label: 'CQF — Certificate in Quant Finance',
+    emoji: '🧮',
+    description: 'Wilmott CQF: Stochastic calculus, derivatives pricing, numerical methods, ML in finance',
+    topics: ['cqf-core', 'cqf-advanced'],
+    color: 'accent',
+    sections: ['Core Modules', 'Advanced Electives'],
+    available: false,
+  },
+  {
+    slug: 'caia',
+    label: 'CAIA — Alt Investments',
+    emoji: '💎',
+    description: 'CAIA Charter: Hedge funds, PE, real assets, structured products, risk management',
+    topics: ['caia-level-1', 'caia-level-2'],
+    color: 'primary',
+    sections: ['Level I: Fundamentals', 'Level II: Advanced'],
+    available: false,
+  },
+
+  // ═══════════════════════════════════════════════════════════════
+  // FINRA / SECURITIES
+  // ═══════════════════════════════════════════════════════════════
   {
     slug: 'sie',
     label: 'SIE Exam',
@@ -149,7 +237,6 @@ export const BONAFIDES: BonafideMeta[] = [
     description: 'FINRA General Securities Principal — supervision, compliance, net capital',
     topics: ['s24-supervision', 's24-compliance', 's24-capital'],
     color: 'accent',
-    sections: ['Supervision', 'Compliance', 'Net Capital'],
     available: false,
   },
   {
