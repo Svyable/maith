@@ -114,7 +114,7 @@ import { jennerQuestions } from "./edward-jenner";
 
 // Quant thinkers
 import { fischerBlackQuestions } from "./fischer-black";
-import { edThorpQuestions } from "./edward-thorp";
+import { edThorpQuestions } from "./ed-thorp";
 
 // Human Sciences thinkers
 import { kahnemanQuestions } from "./daniel-kahneman";
@@ -135,7 +135,7 @@ import { tusiQuestions } from "./nasir-al-din-al-tusi";
 
 // Cryptography Pioneers
 import { satoshiQuestions } from "./satoshi-nakamoto";
-import { diffieQuestions } from "./whitfield-diffie";
+import { diffieQuestions } from "./diffie-hellman";
 import { shamirQuestions } from "./adi-shamir";
 import { kirchhoffQuestions } from "./auguste-kirchhoff";
 import { merkleQuestions } from "./ralph-merkle";
