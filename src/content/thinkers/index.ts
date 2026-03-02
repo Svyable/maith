@@ -400,7 +400,6 @@ import { gibbsQuestions } from "./gibbs";
 import { rutherfordQuestions } from "./rutherford";
 import { jjthomsonQuestions } from "./jjthomson";
 import { lorentzQuestions } from "./lorentz";
-import { lorenzQuestions } from "./lorenz";
 import { minkowskiQuestions } from "./minkowski";
 import { pauliQuestions } from "./pauli";
 import { bornQuestions } from "./born";
@@ -423,7 +422,7 @@ import { bendersQuestions } from "./benders";
 import { leeuwenhoekQuestions } from "./leeuwenhoek";
 import { pasteurQuestions } from "./pasteur";
 import { kochQuestions } from "./koch";
-import { watsonCrickQuestions } from "./watsoncrick";
+import { watsoncrickQuestions } from "./watsoncrick";
 import { sangerQuestions } from "./sanger";
 import { mullisQuestions } from "./mullis";
 import { salkQuestions } from "./salk";
@@ -846,7 +845,6 @@ export const allThinkerQuestions: Question[] = [
   ...rutherfordQuestions,
   ...jjthomsonQuestions,
   ...lorentzQuestions,
-  ...lorenzQuestions,
   ...minkowskiQuestions,
   ...pauliQuestions,
   ...bornQuestions,
@@ -869,7 +867,7 @@ export const allThinkerQuestions: Question[] = [
   ...leeuwenhoekQuestions,
   ...pasteurQuestions,
   ...kochQuestions,
-  ...watsonCrickQuestions,
+  ...watsoncrickQuestions,
   ...sangerQuestions,
   ...mullisQuestions,
   ...salkQuestions,
