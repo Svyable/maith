@@ -135,7 +135,7 @@ import { tusiQuestions } from "./nasir-al-din-al-tusi";
 
 // Cryptography Pioneers
 import { satoshiQuestions } from "./satoshi-nakamoto";
-import { diffieQuestions } from "./diffie-hellman";
+import { diffieQuestions } from "./whitfield-diffie";
 import { shamirQuestions } from "./adi-shamir";
 import { kirchhoffQuestions } from "./auguste-kirchhoff";
 import { merkleQuestions } from "./ralph-merkle";
@@ -248,7 +248,7 @@ import { chowningQuestions } from "./john-chowning";
 import { xenakisQuestions } from "./iannis-xenakis";
 import { helmholtzQuestions } from "./hermann-von-helmholtz";
 import { keplerQuestions } from "./johannes-kepler";
-import { thompsonDarcyQuestions } from "./william-thompson";
+import { thompsonDarcyQuestions } from "./thompson-darcy";
 import { conwayQuestions } from "./john-conway";
 import { fibonacciQuestions } from "./leonardo-fibonacci";
 import { mendelQuestions } from "./gregor-mendel";
@@ -293,7 +293,7 @@ import { betheQuestions } from "./hans-bethe";
 
 // Santa Fe Institute / Complexity Masters
 import { farmerQuestions } from "./j-doyne-farmer";
-import { brianArthurQuestions } from "./w-brian-arthur";
+import { brianArthurQuestions } from "./brian-arthur";
 import { hollandQuestions } from "./john-holland";
 import { gellMannQuestions } from "./murray-gell-mann";
 import { geoffreyWestQuestions } from "./geoffrey-west";
@@ -371,7 +371,7 @@ import { viazovskaQuestions } from "./maryna-viazovska";
 // Prediction Markets & Market Microstructure
 import { hansonQuestions } from "./robin-hanson";
 import { avellanedaQuestions } from "./marco-avellaneda";
-import { glostenMilgromQuestions } from "./lawrence-glosten";
+import { glostenMilgromQuestions } from "./glosten-milgrom";
 
 
 // The Code & Logic Pioneers (CS, AI & Systems)
@@ -788,7 +788,7 @@ export const allThinkerQuestions: Question[] = [
   ...ampereQuestions,
   ...lenzQuestions,
   ...biotSavartQuestions,
-  ...ehrenfestQuestions,
+  ...paul-ehrenfest,
   // Population, Mechanics, Numerical, Astro, Plasma, Neuro, StatPhys, Chemistry, Drag, Weather
   ...lotkaQuestions,
   ...verhulstQuestions,

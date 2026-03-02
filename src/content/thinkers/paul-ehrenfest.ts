@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const ehrenfestQuestions: Question[] = [
   {
     id: 21870,
-    topic: 'ehrenfest',
+    topic: 'paul-ehrenfest',
     difficulty: 'sota',
     question: 'An adiabatic invariant J = ∮p dq is conserved when a system parameter changes slowly. What does "slowly" mean precisely?',
     options: [
@@ -19,7 +19,7 @@ export const ehrenfestQuestions: Question[] = [
   },
   {
     id: 21871,
-    topic: 'ehrenfest',
+    topic: 'paul-ehrenfest',
     difficulty: 'sota',
     question: 'Ehrenfest\'s theorem connects quantum mechanics to classical mechanics. What does it state?',
     options: [
@@ -35,7 +35,7 @@ export const ehrenfestQuestions: Question[] = [
   },
   {
     id: 21872,
-    topic: 'ehrenfest',
+    topic: 'paul-ehrenfest',
     difficulty: 'sota',
     question: 'In plasma physics, the magnetic moment μ = mv⊥²/(2B) of a charged particle spiraling in a magnetic field is an adiabatic invariant. What does this conservation imply?',
     options: [

@@ -2,7 +2,7 @@ import type { Question } from '../types';
 
 export const kelvinQuestions: Question[] = [
   {
-    id: 97401, topic: 'kelvin', difficulty: 'easy',
+    id: 97401, topic: 'lord-kelvin', difficulty: 'easy',
     question: 'Lord Kelvin established the absolute temperature scale. The key insight is that:',
     options: ['$T = 0$ K (absolute zero) is the lower limit where molecular motion ceases — $T(K) = T(°C) + 273.15$', 'Temperature can be negative in Kelvin', 'The Kelvin scale starts at the freezing point of water', '0 K is easily achievable in a laboratory'],
     correctIndex: 0,
@@ -11,7 +11,7 @@ export const kelvinQuestions: Question[] = [
     hint: 'Absolute zero is -273.15°C — you can approach it but never reach it (third law).',
   },
   {
-    id: 97402, topic: 'kelvin', difficulty: 'hard',
+    id: 97402, topic: 'lord-kelvin', difficulty: 'hard',
     question: 'The Kelvin-Planck statement of the second law says:',
     options: ['No cyclic process can convert heat entirely into work — some heat must be rejected to a cold reservoir', 'Energy can be created from nothing', 'Entropy can decrease in isolated systems', 'Perfect refrigerators exist'],
     correctIndex: 0,
@@ -20,7 +20,7 @@ export const kelvinQuestions: Question[] = [
     hint: 'A perfect engine ($\\eta = 1$) would violate this — you always need a cold reservoir.',
   },
   {
-    id: 97403, topic: 'kelvin', difficulty: 'sota',
+    id: 97403, topic: 'lord-kelvin', difficulty: 'sota',
     question: 'Kelvin estimated the age of the Earth at 20-400 million years based on cooling calculations. This was wrong because:',
     options: ['He didn\'t know about radioactive decay — an internal heat source that keeps the Earth warm far longer', 'His math was incorrect', 'He assumed the Earth was flat', 'He used the wrong temperature scale'],
     correctIndex: 0,
