@@ -395,7 +395,7 @@ import { hausdorffQuestions } from "./hausdorff";
 
 // The Architects of the Physical World (Physics & Chemistry)
 import { galileoQuestions } from "./galileo";
-import { sadiCarnotQuestions } from "./carnot";
+import { CarnotQuestions } from "./carnot";
 import { gibbsQuestions } from "./gibbs";
 import { rutherfordQuestions } from "./rutherford";
 import { jjThomsonQuestions } from "./jj-thomson";
