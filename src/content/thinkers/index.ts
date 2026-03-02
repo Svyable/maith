@@ -115,7 +115,7 @@ import { tusiQuestions } from "./al-tusi";
 import { satoshiQuestions } from "./satoshi";
 import { diffieQuestions } from "./diffie-hellman";
 import { shamirQuestions } from "./shamir";
-import { kerckhoffsQuestions } from "./kerckhoffs";
+import { KirchhoffsQuestions } from "./Kirchhoffs";
 import { merkleQuestions } from "./merkle";
 import { rivestQuestions } from "./rivest";
 // Applied Sciences: Optics, Comms, Semiconductors, Materials
@@ -405,7 +405,7 @@ import { pauliQuestions } from "./pauli";
 import { bornQuestions } from "./born";
 import { schwingerQuestions } from "./schwinger";
 import { dysonQuestions } from "./dyson";
-import { johnBellQuestions } from "./bell";
+import { johnbellQuestions } from "./bell";
 import { thorneQuestions } from "./thorne";
 import { lemaitreQuestions } from "./lemaitre";
 import { eddingtonQuestions } from "./eddington";
@@ -427,7 +427,7 @@ import { watsonCrickQuestions } from "./watson-crick";
 import { sangerQuestions } from "./sanger";
 import { mullisQuestions } from "./mullis";
 import { salkQuestions } from "./salk";
-import { claudeBernardQuestions } from "./bernard";
+import { claudeBernardQuestions } from "./claude-bernard";
 import { huntmorganQuestions } from "./huntmorgan";
 import { heavisideQuestions } from "./heaviside";
 import { nyquistQuestions } from "./nyquist";
@@ -564,7 +564,7 @@ export const allThinkerQuestions: Question[] = [
   ...satoshiQuestions,
   ...diffieQuestions,
   ...shamirQuestions,
-  ...kerckhoffsQuestions,
+  ...KirchhoffsQuestions,
   ...merkleQuestions,
   ...rivestQuestions,
   // Applied Sciences
@@ -854,7 +854,7 @@ export const allThinkerQuestions: Question[] = [
   ...bornQuestions,
   ...schwingerQuestions,
   ...dysonQuestions,
-  ...johnBellQuestions,
+  ...johnbellQuestions,
   ...thorneQuestions,
   ...lemaitreQuestions,
   ...eddingtonQuestions,

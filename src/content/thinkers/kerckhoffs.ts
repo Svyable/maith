@@ -1,11 +1,11 @@
 import type { Question } from '../types';
 
-export const kerckhoffsQuestions: Question[] = [
+export const KirchhoffsQuestions: Question[] = [
   {
     id: 14501,
-    topic: 'kerckhoffs',
+    topic: 'Kirchhoffs',
     difficulty: 'easy',
-    question: 'Kerckhoffs\'s principle (1883) states that a cryptographic system should be secure even if:',
+    question: 'Kirchhoffs\'s principle (1883) states that a cryptographic system should be secure even if:',
     options: [
       'Everything about the system is public knowledge, except the key',
       'The attacker knows nothing about the algorithm',
@@ -13,13 +13,13 @@ export const kerckhoffsQuestions: Question[] = [
       'The system uses a classified, proprietary algorithm',
     ],
     correctIndex: 0,
-    explanation: 'Kerckhoffs argued that security must reside in the key alone, not in the secrecy of the algorithm. This principle underlies all modern cryptography: AES, RSA, and SHA are fully public algorithms.',
-    realWorld: 'Open-source cryptography (OpenSSL, Signal Protocol) embodies Kerckhoffs\'s principle. "Security through obscurity" — hiding the algorithm — is considered a fundamental anti-pattern.',
+    explanation: 'Kirchhoffs argued that security must reside in the key alone, not in the secrecy of the algorithm. This principle underlies all modern cryptography: AES, RSA, and SHA are fully public algorithms.',
+    realWorld: 'Open-source cryptography (OpenSSL, Signal Protocol) embodies Kirchhoffs\'s principle. "Security through obscurity" — hiding the algorithm — is considered a fundamental anti-pattern.',
     hint: 'The opposite approach — "security through obscurity" — has failed repeatedly throughout history.',
   },
   {
     id: 14502,
-    topic: 'kerckhoffs',
+    topic: 'Kirchhoffs',
     difficulty: 'hard',
     question: 'Steganography differs from cryptography in that:',
     options: [
@@ -35,7 +35,7 @@ export const kerckhoffsQuestions: Question[] = [
   },
   {
     id: 14503,
-    topic: 'kerckhoffs',
+    topic: 'Kirchhoffs',
     difficulty: 'sota',
     question: 'Modern neural steganography uses deep learning to:',
     options: [
