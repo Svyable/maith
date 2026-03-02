@@ -350,7 +350,7 @@ import { newellQuestions } from "./newell";
 import { dantzigQuestions } from "./dantzig";
 
 // The Quants & Probabilists (Economics, Finance & Stats)
-import { kellyQuestions } from "./kelly";
+import { kellyQuestions } from "./john-kelly";
 import { scholesQuestions } from "./scholes";
 import { famaQuestions } from "./fama";
 import { sharpeQuestions } from "./sharpe";
