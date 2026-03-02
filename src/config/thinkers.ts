@@ -21,7 +21,7 @@ export interface ThinkerMeta {
 export const THINKERS: ThinkerMeta[] = [
   // ── Ancient thinkers (pre-1900 birth) ─────────────────────
   {
-    slug: 'pythagoras',
+    slug: 'pythagoras-of-samos',
     name: 'Pythagoras of Samos',
     archetype: 'The Harmonist',
     emoji: '🔺',
@@ -35,7 +35,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'His followers were forbidden from eating beans — possibly because they believed souls resided in them.',
   },
   {
-    slug: 'euclid',
+    slug: 'euclid-of-alexandria',
     name: 'Euclid of Alexandria',
     archetype: 'The Axiomatist',
     emoji: '📐',
@@ -49,7 +49,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'His "Elements" was the second most printed book in history after the Bible for over 2000 years.',
   },
   {
-    slug: 'archimedes',
+    slug: 'archimedes-of-syracuse',
     name: 'Archimedes of Syracuse',
     archetype: 'The Mechanic',
     emoji: '⚖️',
@@ -77,7 +77,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'The word "algorithm" is a Latinization of his name: Al-Khwarizmi → Algoritmi.',
   },
   {
-    slug: 'newton',
+    slug: 'isaac-newton',
     name: 'Isaac Newton',
     archetype: 'The Physicist',
     emoji: '🍎',
@@ -91,7 +91,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'He was Warden of the Royal Mint and personally hunted down counterfeiters.',
   },
   {
-    slug: 'leibniz',
+    slug: 'gottfried-wilhelm-leibniz',
     name: 'Gottfried Wilhelm Leibniz',
     archetype: 'The Polymath',
     emoji: '∂',
@@ -105,7 +105,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'He invented binary arithmetic in 1679 — the foundation of every digital computer — inspired by the Chinese I Ching.',
   },
   {
-    slug: 'euler',
+    slug: 'leonhard-euler',
     name: 'Leonhard Euler',
     archetype: 'The Prolific',
     emoji: '🔢',
@@ -119,7 +119,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'He went blind in both eyes but continued producing 400+ pages of mathematics per year by dictating.',
   },
   {
-    slug: 'gauss',
+    slug: 'carl-friedrich-gauss',
     name: 'Carl Friedrich Gauss',
     archetype: 'The Prince',
     emoji: '👑',
@@ -133,7 +133,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'At age 10, he instantly summed 1+2+...+100 = 5050 by pairing numbers, stunning his teacher.',
   },
   {
-    slug: 'lovelace',
+    slug: 'ada-lovelace',
     name: 'Ada Lovelace',
     archetype: 'The Visionary',
     emoji: '💻',
@@ -147,7 +147,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'She was Lord Byron\'s daughter but never met him — her mother steered her toward math to prevent "poetic madness."',
   },
   {
-    slug: 'riemann',
+    slug: 'bernhard-riemann',
     name: 'Bernhard Riemann',
     archetype: 'The Navigator',
     emoji: '🌐',
@@ -161,7 +161,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'He died at 39, but his single 8-page paper on prime numbers spawned 150+ years of research.',
   },
   {
-    slug: 'poincare',
+    slug: 'henri-poincare',
     name: 'Henri Poincaré',
     archetype: 'The Geometer',
     emoji: '🌀',
@@ -175,7 +175,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'He discovered chaos theory while trying to win a prize for solving the three-body problem — and found it unsolvable.',
   },
   {
-    slug: 'curie',
+    slug: 'marie-curie',
     name: 'Marie Curie',
     archetype: 'The Pioneer',
     emoji: '☢️',
@@ -189,7 +189,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'Her lab notebooks are still so radioactive they\'re kept in lead-lined boxes; visitors must sign a liability waiver.',
   },
   {
-    slug: 'ramanujan',
+    slug: 'srinivasa-ramanujan',
     name: 'Srinivasa Ramanujan',
     archetype: 'The Oracle',
     emoji: '∞',
@@ -203,7 +203,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'Hardy rated mathematicians on a scale of 100. He gave himself 25, Hilbert 80, and Ramanujan 100.',
   },
   {
-    slug: 'fermat',
+    slug: 'pierre-de-fermat',
     name: 'Pierre de Fermat',
     archetype: 'The Marginist',
     emoji: '📝',
@@ -217,7 +217,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'He was a full-time lawyer and judge who did mathematics as a hobby — arguably the greatest amateur mathematician ever.',
   },
   {
-    slug: 'noether',
+    slug: 'emmy-noether',
     name: 'Emmy Noether',
     archetype: 'The Symmetrist',
     emoji: '🔄',
@@ -232,7 +232,7 @@ export const THINKERS: ThinkerMeta[] = [
   },
   // ── Modern thinkers (1900-1980 birth) ─────────────────────
   {
-    slug: 'einstein',
+    slug: 'albert-einstein',
     name: 'Albert Einstein',
     archetype: 'The Relativist',
     emoji: '⚡',
@@ -246,7 +246,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'He won the Nobel Prize for the photoelectric effect, not relativity — because the committee wasn\'t sure relativity was correct.',
   },
   {
-    slug: 'godel',
+    slug: 'kurt-godel',
     name: 'Kurt Gödel',
     archetype: 'The Limiter',
     emoji: '🚫',
@@ -260,7 +260,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'He found a logical loophole in the US Constitution that could legally allow a dictatorship — Einstein had to stop him from telling the judge at his citizenship hearing.',
   },
   {
-    slug: 'dirac',
+    slug: 'paul-dirac',
     name: 'Paul Dirac',
     archetype: 'The Elegant',
     emoji: '🎭',
@@ -274,7 +274,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'He was so famously laconic that Cambridge colleagues defined a "dirac" as one word per hour.',
   },
   {
-    slug: 'turing',
+    slug: 'alan-turing',
     name: 'Alan Turing',
     archetype: 'The Logician',
     emoji: '⚙️',
@@ -288,7 +288,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'He chained his coffee mug to a radiator to prevent it from being stolen at Bletchley Park.',
   },
   {
-    slug: 'shannon',
+    slug: 'claude-shannon',
     name: 'Claude Shannon',
     archetype: 'The Messenger',
     emoji: '📡',
@@ -302,7 +302,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'He built a flame-throwing trumpet and rode a unicycle through the halls of Bell Labs while juggling.',
   },
   {
-    slug: 'feynman',
+    slug: 'richard-feynman',
     name: 'Richard Feynman',
     archetype: 'The Explainer',
     emoji: '⚛️',
@@ -316,7 +316,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'He cracked safes at Los Alamos during the Manhattan Project — for fun — and left notes inside saying "guess who?"',
   },
   {
-    slug: 'kolmogorov',
+    slug: 'andrey-kolmogorov',
     name: 'Andrey Kolmogorov',
     archetype: 'The Foundationalist',
     emoji: '🎲',
@@ -344,7 +344,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'He could memorize entire books and recite them years later. He once entertained guests by reciting the first chapter of A Tale of Two Cities from memory.',
   },
   {
-    slug: 'hawking',
+    slug: 'stephen-hawking',
     name: 'Stephen Hawking',
     archetype: 'The Cosmologist',
     emoji: '🕳️',
@@ -358,7 +358,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'Given 2 years to live at 21, he lived to 76 and became the most famous scientist since Einstein.',
   },
   {
-    slug: 'pearl',
+    slug: 'judea-pearl',
     name: 'Judea Pearl',
     archetype: 'The Causalist',
     emoji: '🔀',
@@ -372,7 +372,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'His son Daniel Pearl was the journalist murdered in 2002; Judea founded a foundation for cross-cultural dialogue in his memory.',
   },
   {
-    slug: 'simons',
+    slug: 'jim-simons',
     name: 'Jim Simons',
     archetype: 'The Quant',
     emoji: '📈',
@@ -386,7 +386,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'His Medallion Fund averaged 66% annual returns before fees for 30 years — the best track record in investing history.',
   },
   {
-    slug: 'hinton',
+    slug: 'geoffrey-hinton',
     name: 'Geoffrey Hinton',
     archetype: 'The Godfather',
     emoji: '🧠',
@@ -400,7 +400,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'He can\'t sit down due to a back injury, so he\'s worked standing or lying down for decades.',
   },
   {
-    slug: 'bengio',
+    slug: 'yoshua-bengio',
     name: 'Yoshua Bengio',
     archetype: 'The Representor',
     emoji: '🎓',
@@ -414,7 +414,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'He kept working on neural networks during the "AI winter" when most researchers abandoned them.',
   },
   {
-    slug: 'lecun',
+    slug: 'yann-lecun',
     name: 'Yann LeCun',
     archetype: 'The Vision Master',
     emoji: '👁️',
@@ -428,7 +428,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'His LeNet-5 was reading checks at banks in the 1990s — deep learning was useful decades before it was trendy.',
   },
   {
-    slug: 'sutton',
+    slug: 'richard-sutton',
     name: 'Richard Sutton',
     archetype: 'The Reinforcer',
     emoji: '🎮',
@@ -442,7 +442,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'His "Bitter Lesson" essay argues that leveraging computation always beats clever human-designed features — a controversial but prescient view.',
   },
   {
-    slug: 'vapnik',
+    slug: 'vladimir-vapnik',
     name: 'Vladimir Vapnik',
     archetype: 'The Statistician',
     emoji: '📊',
@@ -457,7 +457,7 @@ export const THINKERS: ThinkerMeta[] = [
   },
   // ── Contemporary thinkers (active today, post-1980 birth or recent) ──
   {
-    slug: 'goodfellow',
+    slug: 'ian-goodfellow',
     name: 'Ian Goodfellow',
     archetype: 'The Adversary',
     emoji: '⚔️',
@@ -471,7 +471,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'He invented GANs after an argument at a bar — went home, coded it up, and it worked on the first try.',
   },
   {
-    slug: 'hassabis',
+    slug: 'demis-hassabis',
     name: 'Demis Hassabis',
     archetype: 'The Gamer',
     emoji: '🎯',
@@ -485,7 +485,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'He was a chess prodigy (2nd highest-rated under-14 in the world) and designed the hit game Theme Park at age 17.',
   },
   {
-    slug: 'vaswani',
+    slug: 'ashish-vaswani',
     name: 'Ashish Vaswani',
     archetype: 'The Attender',
     emoji: '🔮',
@@ -499,7 +499,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'The original "Attention Is All You Need" paper had 8 authors — all left Google to start their own AI companies.',
   },
   {
-    slug: 'karpathy',
+    slug: 'andrej-karpathy',
     name: 'Andrej Karpathy',
     archetype: 'The Educator',
     emoji: '🎥',
@@ -513,7 +513,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'His YouTube series "Neural Networks: Zero to Hero" has millions of views — he quit OpenAI and Tesla to become a full-time AI educator.',
   },
   {
-    slug: 'altman',
+    slug: 'sam-altman',
     name: 'Sam Altman',
     archetype: 'The Scaler',
     emoji: '🚀',
@@ -527,7 +527,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'He was fired and rehired as OpenAI CEO within 5 days in November 2023 — the fastest executive comeback in tech history.',
   },
   {
-    slug: 'amodei',
+    slug: 'dario-amodei',
     name: 'Dario Amodei',
     archetype: 'The Alignist',
     emoji: '🛡️',
@@ -541,7 +541,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'Before AI, he was a computational biophysicist — his safety-first approach comes from understanding complex systems that can fail catastrophically.',
   },
   {
-    slug: 'ng',
+    slug: 'andrew-ng',
     name: 'Andrew Ng',
     archetype: 'The Democratizer',
     emoji: '🎓',
@@ -555,7 +555,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'His free Coursera ML course has over 5 million enrollments — more students than most universities teach in a century.',
   },
   {
-    slug: 'li-fei-fei',
+    slug: 'fei-fei-li',
     name: 'Fei-Fei Li',
     archetype: 'The Curator',
     emoji: '🖼️',
@@ -584,7 +584,7 @@ export const THINKERS: ThinkerMeta[] = [
   },
   // ── Additional Modern & Contemporary MasterMinds ──
   {
-    slug: 'hilbert',
+    slug: 'david-hilbert',
     name: 'David Hilbert',
     archetype: 'The Axiomatizer',
     emoji: '📋',
@@ -598,7 +598,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'When told a student had dropped math to become a poet, he replied: "Good — he didn\'t have enough imagination for mathematics."',
   },
   {
-    slug: 'schmidhuber',
+    slug: 'juergen-schmidhuber',
     name: 'Jürgen Schmidhuber',
     archetype: 'The Grandfather',
     emoji: '🔁',
@@ -612,7 +612,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'He claims to have invented nearly everything in deep learning before everyone else — and he has the papers to back up most of it.',
   },
   {
-    slug: 'linnainmaa',
+    slug: 'seppo-linnainmaa',
     name: 'Seppo Linnainmaa',
     archetype: 'The Differentiator',
     emoji: '⛓️',
@@ -654,7 +654,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'He led Google China, then became China\'s most influential AI voice. His book "AI Superpowers" sold millions and shaped global AI policy debates.',
   },
   {
-    slug: 'kozyrkov',
+    slug: 'cassie-kozyrkov',
     name: 'Cassie Kozyrkov',
     archetype: 'The Decision Scientist',
     emoji: '🎯',
@@ -668,7 +668,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'She created Google\'s Decision Intelligence discipline and taught ML to 20,000+ Googlers — making data-driven decisions a company-wide skill.',
   },
   {
-    slug: 'suleyman',
+    slug: 'mustafa-suleyman',
     name: 'Mustafa Suleyman',
     archetype: 'The Containment Thinker',
     emoji: '🌊',
@@ -682,7 +682,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'Before AI, he was a human rights activist and negotiator at age 19. He co-founded DeepMind at 25 with no formal CS degree.',
   },
   {
-    slug: 'gebru',
+    slug: 'timnit-gebru',
     name: 'Timnit Gebru',
     archetype: 'The Auditor',
     emoji: '⚖️',
@@ -697,7 +697,7 @@ export const THINKERS: ThinkerMeta[] = [
   },
   // ── Global MasterMinds — diverse contemporary & modern additions ──
   {
-    slug: 'tao',
+    slug: 'terence-tao',
     name: 'Terence Tao',
     archetype: 'The Universalist',
     emoji: '🌏',
@@ -711,7 +711,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'He scored 760 on the SAT math section at age 8 and won the Fields Medal at 31 — often called the "Mozart of math."',
   },
   {
-    slug: 'erdos',
+    slug: 'paul-erdos',
     name: 'Paul Erdős',
     archetype: 'The Wanderer',
     emoji: '🧳',
@@ -725,7 +725,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'He published over 1,500 papers with 500+ co-authors, lived out of a single suitcase, and said "A mathematician is a machine for turning coffee into theorems."',
   },
   {
-    slug: 'raman',
+    slug: 'chandrasekhara-v-raman',
     name: 'C.V. Raman',
     archetype: 'The Spectroscopist',
     emoji: '🔬',
@@ -739,7 +739,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'He made his Nobel Prize-winning discovery with equipment costing less than $200 — proving that great science doesn\'t require expensive labs.',
   },
   {
-    slug: 'mirzakhani',
+    slug: 'maryam-mirzakhani',
     name: 'Maryam Mirzakhani',
     archetype: 'The Explorer',
     emoji: '🌸',
@@ -753,7 +753,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'She worked by drawing on huge sheets of paper on the floor — her daughter called it "painting." She is the only woman to win the Fields Medal.',
   },
   {
-    slug: 'chern',
+    slug: 'shiing-shen-chern',
     name: 'Shiing-Shen Chern',
     archetype: 'The Geometer',
     emoji: '🔷',
@@ -767,7 +767,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'He founded mathematics institutes in both the US (MSRI in Berkeley) and China (Nankai), shaping modern math on two continents.',
   },
   {
-    slug: 'yitang-zhang',
+    slug: 'zhang-yitang',
     name: 'Yitang Zhang',
     archetype: 'The Perseverer',
     emoji: '🔢',
@@ -781,7 +781,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'He worked at Subway restaurants and as a motel accountant before his breakthrough paper at age 58 — one of the greatest "late bloomer" stories in science.',
   },
   {
-    slug: 'goldwasser',
+    slug: 'shafi-goldwasser',
     name: 'Shafi Goldwasser',
     archetype: 'The Cryptographer',
     emoji: '🔐',
@@ -795,7 +795,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'Born in New York to Israeli parents, she won two Gödel Prizes and the Turing Award — the highest honor in computer science.',
   },
   {
-    slug: 'kashiwara',
+    slug: 'masaki-kashiwara',
     name: 'Masaki Kashiwara',
     archetype: 'The Analyst',
     emoji: '📖',
@@ -809,7 +809,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'He won the Abel Prize (2025) — Japan\'s first Abel laureate — for work spanning 50 years across analysis, algebra, and geometry.',
   },
   {
-    slug: 'birkar',
+    slug: 'caucher-birkar',
     name: 'Caucher Birkar',
     archetype: 'The Classifier',
     emoji: '🏔️',
@@ -823,7 +823,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'His Fields Medal was stolen from its case within minutes of the ceremony in Rio de Janeiro — he was given a replacement.',
   },
   {
-    slug: 'grothendieck',
+    slug: 'alexander-grothendieck',
     name: 'Alexander Grothendieck',
     archetype: 'The Architect',
     emoji: '🏗️',
@@ -837,7 +837,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'Born stateless to anarchist parents fleeing Nazi Germany, he became perhaps the greatest mathematician of the 20th century, then abandoned mathematics at 42 to live as a recluse.',
   },
   {
-    slug: 'kovalevskaya',
+    slug: 'sofia-kovalevskaya',
     name: 'Sofia Kovalevskaya',
     archetype: 'The Trailblazer',
     emoji: '🌊',
@@ -866,7 +866,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'He pushed NASA to turn Voyager 1 around to photograph Earth from 6 billion km away — the iconic "Pale Blue Dot" image.',
   },
   {
-    slug: 'wegener',
+    slug: 'alfred-wegener',
     name: 'Alfred Wegener',
     archetype: 'The Drifter',
     emoji: '🗺️',
@@ -923,7 +923,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'He battled schizophrenia for decades, then made a remarkable recovery and won the Nobel Prize in 1994 — the story behind "A Beautiful Mind."',
   },
   {
-    slug: 'keynes',
+    slug: 'john-maynard-keynes',
     name: 'John Maynard Keynes',
     archetype: 'The Macro Thinker',
     emoji: '📉',
@@ -981,7 +981,7 @@ export const THINKERS: ThinkerMeta[] = [
   },
   // ── Biology thinkers ──────────────────────────────────────
   {
-    slug: 'darwin',
+    slug: 'charles-darwin',
     name: 'Charles Darwin',
     archetype: 'The Naturalist',
     emoji: '🐢',
@@ -1024,7 +1024,7 @@ export const THINKERS: ThinkerMeta[] = [
   },
   // ── Chemistry thinkers ──────────────────────────────────────
   {
-    slug: 'mendeleev',
+    slug: 'dmitri-mendeleev',
     name: 'Dmitri Mendeleev',
     archetype: 'The Organizer',
     emoji: '📊',
@@ -1038,7 +1038,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'He reportedly arranged elements on cards like a game of solitaire — and the periodic table came to him in a dream.',
   },
   {
-    slug: 'lavoisier',
+    slug: 'antoine-lavoisier',
     name: 'Antoine Lavoisier',
     archetype: 'The Father of Chemistry',
     emoji: '⚗️',
@@ -1052,7 +1052,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'He was guillotined during the French Revolution. The judge reportedly said: "The Republic has no need of scientists." His head was said to blink after decapitation as an experiment.',
   },
   {
-    slug: 'pauling',
+    slug: 'linus-pauling',
     name: 'Linus Pauling',
     archetype: 'The Bonding Master',
     emoji: '🔗',
@@ -1067,7 +1067,7 @@ export const THINKERS: ThinkerMeta[] = [
   },
   // ── Medical thinkers ──────────────────────────────────────
   {
-    slug: 'fleming',
+    slug: 'alexander-fleming',
     name: 'Alexander Fleming',
     archetype: 'The Accidental Genius',
     emoji: '🧫',
@@ -1081,7 +1081,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'In his Nobel speech (1945), he warned that misuse of antibiotics would breed resistant bacteria — a prophecy now called the AMR crisis.',
   },
   {
-    slug: 'jenner',
+    slug: 'edward-jenner',
     name: 'Edward Jenner',
     archetype: 'The Vaccinator',
     emoji: '💉',
@@ -1125,7 +1125,7 @@ export const THINKERS: ThinkerMeta[] = [
   },
   // ── Human Sciences thinkers ──────────────────────────────────
   {
-    slug: 'kahneman',
+    slug: 'daniel-kahneman',
     name: 'Daniel Kahneman',
     archetype: 'The Bias Hunter',
     emoji: '🧠',
@@ -1139,7 +1139,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'A psychologist who won the Nobel Prize in Economics (2002) — he never took an economics course. His work with Tversky reshaped finance, medicine, and public policy.',
   },
   {
-    slug: 'pavlov',
+    slug: 'ivan-pavlov',
     name: 'Ivan Pavlov',
     archetype: 'The Conditioner',
     emoji: '🔔',
@@ -1154,7 +1154,7 @@ export const THINKERS: ThinkerMeta[] = [
   },
   // ── Data Science thinkers ──────────────────────────────────
   {
-    slug: 'tukey',
+    slug: 'john-tukey',
     name: 'John Tukey',
     archetype: 'The Explorer',
     emoji: '📦',
@@ -1169,7 +1169,7 @@ export const THINKERS: ThinkerMeta[] = [
   },
   // ── Prodigies — remarkable minds from a young age ──────────
   {
-    slug: 'pascal',
+    slug: 'blaise-pascal',
     name: 'Blaise Pascal',
     archetype: 'The Inventor',
     emoji: '🔧',
@@ -1183,7 +1183,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'He proved 32 propositions of Euclid by age 12, having taught himself geometry with charcoal drawings on tiles.',
   },
   {
-    slug: 'galois',
+    slug: 'evariste-galois',
     name: 'Évariste Galois',
     archetype: 'The Revolutionary',
     emoji: '⚔️',
@@ -1211,7 +1211,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'By age 5 he could read Latin, Greek, and Hebrew. By 13 he spoke 13 languages including Persian, Arabic, and Sanskrit.',
   },
   {
-    slug: 'abel',
+    slug: 'niels-henrik-abel',
     name: 'Niels Henrik Abel',
     archetype: 'The Impossibilist',
     emoji: '🏔️',
@@ -1225,7 +1225,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'He lived in extreme poverty and died of tuberculosis at 26. Two days after his death, a letter arrived offering him a prestigious professorship.',
   },
   {
-    slug: 'scholze',
+    slug: 'peter-scholze',
     name: 'Peter Scholze',
     archetype: 'The Perfectoid',
     emoji: '💎',
@@ -1239,7 +1239,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'He learned research-level mathematics as a teenager by reading Wiles\' proof of Fermat\'s Last Theorem — and understood it.',
   },
   {
-    slug: 'venkatesh',
+    slug: 'akshay-venkatesh',
     name: 'Akshay Venkatesh',
     archetype: 'The Connector',
     emoji: '🔗',
@@ -1267,7 +1267,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'She could tell the day of the week for any date in history instantly. She also wrote one of India\'s first books advocating for LGBTQ rights (1977).',
   },
   {
-    slug: 'demaine',
+    slug: 'erik-demaine',
     name: 'Erik Demaine',
     archetype: 'The Folder',
     emoji: '📄',
@@ -1281,7 +1281,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'He was homeschooled while traveling across North America and started his PhD at 14. His origami art is in the permanent collection of MoMA.',
   },
   {
-    slug: 'landau',
+    slug: 'lev-landau',
     name: 'Lev Landau',
     archetype: 'The Phase Classifier',
     emoji: '🧊',
@@ -1295,7 +1295,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'Landau ranked physicists on a logarithmic scale from 1 to 5. Einstein was 0.5. Landau put himself at 2.5 (later upgraded to 2). He survived a near-fatal car crash in 1962.',
   },
   {
-    slug: 'fefferman',
+    slug: 'charles-fefferman',
     name: 'Charles Fefferman',
     archetype: 'The Analyst',
     emoji: '📊',
@@ -1309,7 +1309,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'Fefferman earned his PhD from Princeton at age 20 and was a full professor at the University of Chicago at 22 — the youngest in American history.',
   },
   {
-    slug: 'elkies',
+    slug: 'noam-elkies',
     name: 'Noam Elkies',
     archetype: 'The Counterexample Hunter',
     emoji: '♟️',
@@ -1365,7 +1365,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'Huh wanted to be a poet and only became interested in math at 24 after attending a lecture by Hironaka. He received the Fields Medal in 2022.',
   },
   {
-    slug: 'rudnick',
+    slug: 'zeev-rudnick',
     name: 'Zeév Rudnick',
     archetype: 'The Quantum Arithmetician',
     emoji: '🎲',
@@ -1380,7 +1380,7 @@ export const THINKERS: ThinkerMeta[] = [
   },
   // ── π Pioneers & Trigonometry Founders ─────────────────────
   {
-    slug: 'viete',
+    slug: 'francois-viete',
     name: 'François Viète',
     archetype: 'The Radical Nester',
     emoji: '🔢',
@@ -1394,7 +1394,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'Viète was a lawyer by profession who did mathematics as a hobby. He also cracked the Spanish cipher for King Henri IV during the French Wars of Religion.',
   },
   {
-    slug: 'wallis',
+    slug: 'john-wallis',
     name: 'John Wallis',
     archetype: 'The Interpolator',
     emoji: '∞',
@@ -1408,7 +1408,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'Wallis invented the symbol ∞ for infinity in 1655. He could mentally calculate the square root of a 53-digit number and dictate the 27-digit answer the next morning.',
   },
   {
-    slug: 'gregory',
+    slug: 'james-gregory',
     name: 'James Gregory',
     archetype: 'The Series Pioneer',
     emoji: '📏',
@@ -1422,7 +1422,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'Gregory designed the first practical reflecting telescope and independently discovered the series for arctan, tan, sec, and more — all before Taylor was born.',
   },
   {
-    slug: 'van-ceulen',
+    slug: 'ludolph-van-ceulen',
     name: 'Ludolph van Ceulen',
     archetype: 'The Calculator',
     emoji: '🔵',
@@ -1436,7 +1436,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'In Germany, π was called the "Ludolphine number" (Ludolphsche Zahl) in his honour for over a century. His 35-digit value was carved on his gravestone in Leiden.',
   },
   {
-    slug: 'al-kashi',
+    slug: 'jamshid-al-kashi',
     name: 'Ghiyath al-Din al-Kashi',
     archetype: 'The Precision Master',
     emoji: '🌙',
@@ -1450,7 +1450,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'Al-Kashi worked at the Ulugh Beg Observatory in Samarkand and computed sin(1°) to 18 decimal places — a feat not matched in Europe for another 200 years.',
   },
   {
-    slug: 'ptolemy',
+    slug: 'claudius-ptolemy',
     name: 'Claudius Ptolemy',
     archetype: 'The Star Mapper',
     emoji: '🌟',
@@ -1464,7 +1464,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'The Almagest catalogued 1,022 stars and was the definitive astronomy textbook until Copernicus. The word "Almagest" comes from Arabic "al-majisti" (the greatest).',
   },
   {
-    slug: 'hipparchus',
+    slug: 'hipparchus-of-nicaea',
     name: 'Hipparchus of Nicaea',
     archetype: 'The Observer',
     emoji: '🔭',
@@ -1478,7 +1478,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'He catalogued ~850 stars and classified them by brightness — the magnitude system astronomers still use today. Most of his works are lost; we know them through Ptolemy.',
   },
   {
-    slug: 'al-tusi',
+    slug: 'nasir-al-din-al-tusi',
     name: 'Nasir al-Din al-Tusi',
     archetype: 'The Systematiser',
     emoji: '📐',
@@ -1493,7 +1493,7 @@ export const THINKERS: ThinkerMeta[] = [
   },
   // ── Cryptography Pioneers ─────────────────────────────────
   {
-    slug: 'satoshi',
+    slug: 'satoshi-nakamoto',
     name: 'Satoshi Nakamoto',
     archetype: 'The Phantom',
     emoji: '₿',
@@ -1521,7 +1521,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'Their 1976 paper "New Directions in Cryptography" is considered the most important paper in the history of cryptography. Diffie grew his iconic long hair as a grad student and never cut it.',
   },
   {
-    slug: 'shamir',
+    slug: 'adi-shamir',
     name: 'Adi Shamir',
     archetype: 'The Secret Splitter',
     emoji: '🔓',
@@ -1549,7 +1549,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'A Dutch-born linguist who spoke 10+ languages, he wrote "La Cryptographie Militaire" in 1883 — and the six principles he stated still govern all modern cryptography 140 years later.',
   },
   {
-    slug: 'merkle',
+    slug: 'ralph-merkle',
     name: 'Ralph Merkle',
     archetype: 'The Tree Builder',
     emoji: '🌳',
@@ -1563,7 +1563,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'Merkle independently invented public-key cryptography as an undergrad project — his professor gave it a C grade because he didn\'t understand it. Merkle is also a prominent cryonics advocate.',
   },
   {
-    slug: 'rivest',
+    slug: 'ron-rivest',
     name: 'Ron Rivest',
     archetype: 'The Cipher Smith',
     emoji: '🔐',
@@ -1592,7 +1592,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'He pretended to be insane for years to avoid execution by the Fatimid Caliph al-Hakim. During his house arrest, he wrote the Book of Optics — one of the most influential science books ever.',
   },
   {
-    slug: 'maxwell',
+    slug: 'james-clerk-maxwell',
     name: 'James Clerk Maxwell',
     archetype: 'The Unifier',
     emoji: '⚡',
@@ -1606,7 +1606,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'Einstein kept a photo of Maxwell on his wall alongside Newton and Faraday. He said Maxwell\'s work was "the most profound and the most fruitful that physics has experienced since the time of Newton."',
   },
   {
-    slug: 'marconi',
+    slug: 'guglielmo-marconi',
     name: 'Guglielmo Marconi',
     archetype: 'The Broadcaster',
     emoji: '📡',
@@ -1620,7 +1620,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'Marconi won the 1909 Nobel Prize in Physics. The Titanic\'s Marconi wireless operators sent the distress call that saved 710 lives — tragically, a nearby ship had turned off its radio for the night.',
   },
   {
-    slug: 'shockley',
+    slug: 'william-shockley',
     name: 'William Shockley',
     archetype: 'The Semiconductor Pioneer',
     emoji: '🔌',
@@ -1634,7 +1634,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'Shockley moved to Mountain View, California, founding Shockley Semiconductor. Eight of his employees left to start Fairchild Semiconductor — the "Traitorous Eight" who spawned Intel, AMD, and Silicon Valley itself.',
   },
   {
-    slug: 'kilby',
+    slug: 'jack-kilby',
     name: 'Jack Kilby',
     archetype: 'The Integrator',
     emoji: '🔲',
@@ -1648,7 +1648,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'Kilby invented the IC during his first summer at Texas Instruments — he was the new hire with no vacation days, so he worked alone while everyone else was off. He won the 2000 Nobel Prize for this "summer project."',
   },
   {
-    slug: 'hooke',
+    slug: 'robert-hooke',
     name: 'Robert Hooke',
     archetype: 'The Polymath',
     emoji: '🔬',
@@ -1663,7 +1663,7 @@ export const THINKERS: ThinkerMeta[] = [
   },
   // ── New Thinkers: Hubble, Green, Faraday, Planck, Bohr ──
   {
-    slug: 'hubble',
+    slug: 'edwin-hubble',
     name: 'Edwin Hubble',
     archetype: 'The Cosmographer',
     emoji: '🔭',
@@ -1691,7 +1691,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'Green was a self-taught miller who published his groundbreaking essay at his own expense. Only 51 copies were sold, but it revolutionized mathematical physics when rediscovered by Lord Kelvin.',
   },
   {
-    slug: 'faraday',
+    slug: 'michael-faraday',
     name: 'Michael Faraday',
     archetype: 'The Experimentalist',
     emoji: '🧲',
@@ -1705,7 +1705,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'Faraday had almost no formal education and never learned calculus. Yet Maxwell said Faraday\'s ideas were "the nucleus of everything electrical since."',
   },
   {
-    slug: 'planck',
+    slug: 'max-planck',
     name: 'Max Planck',
     archetype: 'The Quantizer',
     emoji: '📦',
@@ -1719,7 +1719,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'Planck was deeply conservative and introduced quanta as a mathematical "trick" — he spent years trying to undo his own discovery before accepting its reality.',
   },
   {
-    slug: 'bohr',
+    slug: 'niels-bohr',
     name: 'Niels Bohr',
     archetype: 'The Interpreter',
     emoji: '⚛️',
@@ -1734,7 +1734,7 @@ export const THINKERS: ThinkerMeta[] = [
   },
   // ── New Thinkers: Engineering, Economics, Quant, CS ──
   {
-    slug: 'kalman',
+    slug: 'rudolf-kalman',
     name: 'Rudolf Kálmán',
     archetype: 'The Estimator',
     emoji: '📡',
@@ -1748,7 +1748,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'NASA initially rejected his filter. A young engineer at Ames Research Center, Stanley Schmidt, saw its potential and implemented it for Apollo navigation — saving the Moon landing program.',
   },
   {
-    slug: 'wiener',
+    slug: 'norbert-wiener',
     name: 'Norbert Wiener',
     archetype: 'The Cyberneticist',
     emoji: '🔄',
@@ -1762,7 +1762,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'He entered college at 11 and received his PhD from Harvard at 18. He was so absent-minded that he once forgot he had moved house and went to his old address after work.',
   },
   {
-    slug: 'thaler',
+    slug: 'richard-thaler',
     name: 'Richard Thaler',
     archetype: 'The Nudger',
     emoji: '👆',
@@ -1776,7 +1776,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'He appeared as himself in the movie "The Big Short" (2015), explaining synthetic CDOs at a blackjack table with Selena Gomez. He won the 2017 Nobel Prize.',
   },
   {
-    slug: 'sen',
+    slug: 'amartya-sen',
     name: 'Amartya Sen',
     archetype: 'The Freedom Economist',
     emoji: '🕊️',
@@ -1790,7 +1790,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'As a child in Bengal, he witnessed the 1943 famine that killed 3 million people. This experience drove his life\'s work on poverty, inequality, and human capability.',
   },
   {
-    slug: 'merton-robert',
+    slug: 'robert-merton',
     name: 'Robert C. Merton',
     archetype: 'The Continuous-Timer',
     emoji: '📈',
@@ -1804,7 +1804,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'After winning the Nobel Prize in 1997, his hedge fund LTCM spectacularly collapsed in 1998, nearly destabilizing the global financial system — a cautionary tale about theory vs. practice.',
   },
   {
-    slug: 'markowitz',
+    slug: 'harry-markowitz',
     name: 'Harry Markowitz',
     archetype: 'The Diversifier',
     emoji: '📊',
@@ -1818,7 +1818,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'His PhD thesis on portfolio theory was so unconventional that Milton Friedman initially argued it wasn\'t economics. Markowitz won the Nobel Prize for it in 1990.',
   },
   {
-    slug: 'lamport',
+    slug: 'leslie-lamport',
     name: 'Leslie Lamport',
     archetype: 'The Clock Maker',
     emoji: '⏰',
@@ -1832,7 +1832,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'He submitted the Paxos paper written as an archaeological discovery of a Greek parliamentary protocol. The reviewers didn\'t get the joke and rejected it. He waited 8 years to resubmit it seriously.',
   },
   {
-    slug: 'martin-lof',
+    slug: 'per-martin-lof',
     name: 'Per Martin-Löf',
     archetype: 'The Type Theorist',
     emoji: '🔷',
@@ -1847,7 +1847,7 @@ export const THINKERS: ThinkerMeta[] = [
   },
   // ── New thinkers: Math, Physics, CS, Statistics ─────────────
   {
-    slug: 'laplace',
+    slug: 'pierre-simon-laplace',
     name: 'Pierre-Simon Laplace',
     archetype: 'The French Newton',
     emoji: '🌌',
@@ -1861,7 +1861,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'When Napoleon asked why God was absent from his celestial mechanics, Laplace replied: "I had no need of that hypothesis."',
   },
   {
-    slug: 'bayes',
+    slug: 'thomas-bayes',
     name: 'Thomas Bayes',
     archetype: 'The Reverend',
     emoji: '⛪',
@@ -1875,7 +1875,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'Bayes never published his theorem — it was found in his papers after death and published by his friend Richard Price in 1763.',
   },
   {
-    slug: 'cantor',
+    slug: 'georg-cantor',
     name: 'Georg Cantor',
     archetype: 'The Infinitist',
     emoji: '∞',
@@ -1889,7 +1889,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'Kronecker called him a "scientific charlatan" and blocked his career. Cantor suffered mental breakdowns but his ideas ultimately prevailed.',
   },
   {
-    slug: 'cauchy',
+    slug: 'augustin-louis-cauchy',
     name: 'Augustin-Louis Cauchy',
     archetype: 'The Rigorist',
     emoji: '∮',
@@ -1903,7 +1903,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'Cauchy published over 800 papers — second only to Euler in mathematical output. He was so prolific the Comptes Rendus imposed page limits because of him.',
   },
   {
-    slug: 'fourier',
+    slug: 'joseph-fourier',
     name: 'Joseph Fourier',
     archetype: 'The Harmonist',
     emoji: '🌊',
@@ -1917,7 +1917,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'Fourier accompanied Napoleon to Egypt and later became governor of Isère. He was obsessed with heat and kept his rooms extremely warm.',
   },
   {
-    slug: 'schrodinger',
+    slug: 'erwin-schrodinger',
     name: 'Erwin Schrödinger',
     archetype: 'The Wave Maker',
     emoji: '🐱',
@@ -1931,7 +1931,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'Schrödinger also wrote "What is Life?" (1944), which inspired Watson and Crick\'s discovery of DNA structure.',
   },
   {
-    slug: 'heisenberg',
+    slug: 'werner-heisenberg',
     name: 'Werner Heisenberg',
     archetype: 'The Uncertain',
     emoji: '🎲',
@@ -1945,7 +1945,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'Heisenberg was reportedly pulled over for speeding. When the officer asked "Do you know how fast you were going?" he replied "No, but I know exactly where I am."',
   },
   {
-    slug: 'fermi',
+    slug: 'enrico-fermi',
     name: 'Enrico Fermi',
     archetype: 'The Estimator',
     emoji: '⚛️',
@@ -1959,7 +1959,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'At the Trinity nuclear test, Fermi dropped pieces of paper and estimated the bomb yield from how far they were blown — his estimate of 10 kilotons was remarkably close to the actual 20 kilotons.',
   },
   {
-    slug: 'knuth',
+    slug: 'donald-knuth',
     name: 'Donald Knuth',
     archetype: 'The Literate',
     emoji: '📖',
@@ -1973,7 +1973,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'Knuth pays $2.56 (one "hexadecimal dollar") to anyone who finds an error in his books. The checks are so prized that most recipients never cash them.',
   },
   {
-    slug: 'dijkstra',
+    slug: 'edsger-dijkstra',
     name: 'Edsger Dijkstra',
     archetype: 'The Structuralist',
     emoji: '🗺️',
@@ -1987,7 +1987,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'Dijkstra wrote all his manuscripts by hand and had them typed — he refused to use a computer for writing, despite being one of the greatest computer scientists.',
   },
   {
-    slug: 'mccarthy',
+    slug: 'john-mccarthy',
     name: 'John McCarthy',
     archetype: 'The Lisper',
     emoji: '🤖',
@@ -2001,7 +2001,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'McCarthy proposed the concept of cloud computing (utility computing) in 1961 — over 40 years before Amazon Web Services launched.',
   },
   {
-    slug: 'hopper',
+    slug: 'grace-hopper',
     name: 'Grace Hopper',
     archetype: 'The Compiler',
     emoji: '🐛',
@@ -2015,7 +2015,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'At age 79, Hopper was the oldest active-duty officer in the US Navy. She appeared on David Letterman demonstrating nanoseconds using 30cm pieces of wire.',
   },
   {
-    slug: 'fisher',
+    slug: 'ronald-fisher',
     name: 'Ronald Fisher',
     archetype: 'The Experimenter',
     emoji: '📊',
@@ -2029,7 +2029,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'Fisher designed the randomized controlled trial — the gold standard of medical research — while working at an agricultural research station studying fertilizer effects on crops.',
   },
   {
-    slug: 'pearson',
+    slug: 'karl-pearson',
     name: 'Karl Pearson',
     archetype: 'The Correlator',
     emoji: '📈',
@@ -2044,7 +2044,7 @@ export const THINKERS: ThinkerMeta[] = [
   },
   // ── Additional Female Thinkers ──────────────────────────────
   {
-    slug: 'hypatia',
+    slug: 'hypatia-of-alexandria',
     name: 'Hypatia of Alexandria',
     archetype: 'The Philosopher',
     emoji: '🏛️',
@@ -2058,7 +2058,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'She was murdered by a Christian mob in 415 AD, making her one of the earliest known victims of religious persecution against intellectuals.',
   },
   {
-    slug: 'nightingale',
+    slug: 'florence-nightingale',
     name: 'Florence Nightingale',
     archetype: 'The Statistician',
     emoji: '📊',
@@ -2072,7 +2072,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'She was the first person to make the pie chart and polar area diagram famous as tools for policy change — essentially inventing infographics.',
   },
   {
-    slug: 'meitner',
+    slug: 'lise-meitner',
     name: 'Lise Meitner',
     archetype: 'The Fission Pioneer',
     emoji: '⚛️',
@@ -2086,7 +2086,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'Otto Hahn received the Nobel Prize for fission alone, making Meitner\'s exclusion one of the most cited examples of Nobel Prize injustice.',
   },
   {
-    slug: 'wu',
+    slug: 'chien-shiung-wu',
     name: 'Chien-Shiung Wu',
     archetype: 'The Experimentalist',
     emoji: '🔬',
@@ -2114,7 +2114,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'At age 97, President Obama awarded her the Presidential Medal of Freedom. Her story was told in the film "Hidden Figures."',
   },
   {
-    slug: 'hodgkin',
+    slug: 'dorothy-hodgkin',
     name: 'Dorothy Hodgkin',
     archetype: 'The Crystallographer',
     emoji: '💎',
@@ -2128,7 +2128,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'She solved the insulin structure over 35 years (1934–1969), continuing to work even as rheumatoid arthritis severely deformed her hands.',
   },
   {
-    slug: 'mcclintock',
+    slug: 'barbara-mcclintock',
     name: 'Barbara McClintock',
     archetype: 'The Gene Jumper',
     emoji: '🌽',
@@ -2142,7 +2142,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'She won the Nobel Prize at age 81 — alone, unshared — one of the very few women to receive a solo Nobel in science.',
   },
   {
-    slug: 'uhlenbeck',
+    slug: 'karen-uhlenbeck',
     name: 'Karen Uhlenbeck',
     archetype: 'The Gauge Theorist',
     emoji: '🔮',
@@ -2156,7 +2156,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'She originally wanted to be a forest ranger but switched to math after realizing she could "think about mathematics while hiking."',
   },
   {
-    slug: 'dresselhaus',
+    slug: 'mildred-dresselhaus',
     name: 'Mildred Dresselhaus',
     archetype: 'The Carbon Queen',
     emoji: '🔧',
@@ -2170,7 +2170,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'She was the first female full professor at MIT\'s School of Engineering and became a mentor to generations of scientists.',
   },
   {
-    slug: 'cartwright',
+    slug: 'mary-cartwright',
     name: 'Mary Cartwright',
     archetype: 'The Chaos Pioneer',
     emoji: '🌀',
@@ -2185,7 +2185,7 @@ export const THINKERS: ThinkerMeta[] = [
   },
   // ── Additional Female Thinkers (Batch 2) ─────────────────────
   {
-    slug: 'pandrosion',
+    slug: 'pandrosion-of-alexandria',
     name: 'Pandrosion of Alexandria',
     archetype: 'The Pre-Hypatian',
     emoji: '📜',
@@ -2213,7 +2213,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'She completed her Principia translation while pregnant, racing to finish before childbirth — she died days after delivery at age 42.',
   },
   {
-    slug: 'agnesi',
+    slug: 'maria-gaetana-agnesi',
     name: 'Maria Gaetana Agnesi',
     archetype: 'The Textbook Author',
     emoji: '📕',
@@ -2227,7 +2227,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'The "Witch" name comes from mistranslating Italian "versiera" (turning curve) as "avversiera" (she-devil/witch) — history\'s most famous math mistranslation.',
   },
   {
-    slug: 'germain',
+    slug: 'sophie-germain',
     name: 'Sophie Germain',
     archetype: 'The Elasticist',
     emoji: '🔔',
@@ -2241,7 +2241,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'When Gauss learned "Monsieur LeBlanc" was actually a woman, he wrote that her work showed "the noblest courage, extraordinary talent, and superior genius."',
   },
   {
-    slug: 'vaughan',
+    slug: 'dorothy-vaughan',
     name: 'Dorothy Vaughan',
     archetype: 'The Programmer',
     emoji: '💾',
@@ -2255,7 +2255,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'She taught herself FORTRAN from IBM manuals when no training was offered to her segregated unit — then taught her entire team.',
   },
   {
-    slug: 'robinson',
+    slug: 'julia-robinson',
     name: 'Julia Robinson',
     archetype: 'The Decidability Breaker',
     emoji: '♾️',
@@ -2269,7 +2269,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'When Matiyasevich completed the proof building on her work, she wrote to him: "I am glad my conjecture turned out to be true. I wish I had proved it."',
   },
   {
-    slug: 'payne',
+    slug: 'cecilia-payne',
     name: 'Cecilia Payne-Gaposchkin',
     archetype: 'The Stellar Alchemist',
     emoji: '⭐',
@@ -2283,7 +2283,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'Henry Norris Russell convinced her to retract her conclusion, then published the same result himself four years later — receiving the credit for decades.',
   },
   {
-    slug: 'goeppert-mayer',
+    slug: 'maria-goeppert-mayer',
     name: 'Maria Goeppert Mayer',
     archetype: 'The Shell Builder',
     emoji: '🔮',
@@ -2297,7 +2297,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'She was unpaid for most of her career despite doing Nobel-worthy research — universities wouldn\'t hire her because of anti-nepotism rules (her husband was a professor).',
   },
   {
-    slug: 'leavitt',
+    slug: 'henrietta-leavitt',
     name: 'Henrietta Swan Leavitt',
     archetype: 'The Distance Measurer',
     emoji: '🔭',
@@ -2311,7 +2311,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'She was paid 30 cents per hour as a "computer" at Harvard, cataloging thousands of stars on photographic plates — yet her discovery reshaped cosmology.',
   },
   {
-    slug: 'daubechies',
+    slug: 'ingrid-daubechies',
     name: 'Ingrid Daubechies',
     archetype: 'The Wavelet Maker',
     emoji: '〰️',
@@ -2326,7 +2326,7 @@ export const THINKERS: ThinkerMeta[] = [
   },
   // ── Foundational Architects ─────────────────────────────────
   {
-    slug: 'boole',
+    slug: 'george-boole',
     name: 'George Boole',
     archetype: 'The Logic Gatekeeper',
     emoji: '💡',
@@ -2340,7 +2340,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'His work was totally ignored for 70 years until Claude Shannon realized boolean algebra could map perfectly to electrical telephone routing switches.',
   },
   {
-    slug: 'markov',
+    slug: 'andrey-markov',
     name: 'Andrey Markov',
     archetype: 'The Chain Maker',
     emoji: '🔗',
@@ -2355,7 +2355,7 @@ export const THINKERS: ThinkerMeta[] = [
   },
   // ── Chaos, Complexity & Markets ────────────────────────────
   {
-    slug: 'lorenz',
+    slug: 'edward-lorenz',
     name: 'Edward Lorenz',
     archetype: 'The Butterfly',
     emoji: '🦋',
@@ -2369,7 +2369,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'He discovered chaos theory purely by accident when he rounded off a decimal (from .506127 to .506) in a computer weather prediction model.',
   },
   {
-    slug: 'mandelbrot',
+    slug: 'benoit-mandelbrot',
     name: 'Benoît Mandelbrot',
     archetype: 'The Fractal Geometer',
     emoji: '🌀',
@@ -2384,7 +2384,7 @@ export const THINKERS: ThinkerMeta[] = [
   },
   // ── The Missing Link to Neural Nets ────────────────────────
   {
-    slug: 'hopfield',
+    slug: 'john-hopfield',
     name: 'John Hopfield',
     archetype: 'The Energy Minimizer',
     emoji: '⚡',
@@ -2398,7 +2398,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'He won the 2024 Nobel Prize in Physics for showing that neural networks minimize "energy" just like physical spin glasses do.',
   },
   {
-    slug: 'rosenblatt',
+    slug: 'frank-rosenblatt',
     name: 'Frank Rosenblatt',
     archetype: 'The Perceptron Maker',
     emoji: '👁️',
@@ -2427,7 +2427,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'She literally coined the term "software engineering" to get her department the same respect as the hardware guys. A famous photo shows her standing next to a stack of printed code as tall as she is.',
   },
   {
-    slug: 'moore',
+    slug: 'gordon-moore',
     name: 'Gordon Moore',
     archetype: 'The Prophet of Scale',
     emoji: '📈',
@@ -2441,7 +2441,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'Moore\'s Law wasn\'t an immutable law of physics; it was an economic self-fulfilling prophecy that forced the entire semiconductor industry to keep up.',
   },
   {
-    slug: 'wolfram',
+    slug: 'stephen-wolfram',
     name: 'Stephen Wolfram',
     archetype: 'The Computationalist',
     emoji: '🔲',
@@ -2456,7 +2456,7 @@ export const THINKERS: ThinkerMeta[] = [
   },
   // ── Global Pioneers & Non-Western Titans ────────────────────
   {
-    slug: 'perlman',
+    slug: 'radia-perlman',
     name: 'Radia Perlman',
     archetype: 'The Tree Builder',
     emoji: '🌳',
@@ -2470,7 +2470,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'She invented STP over a single weekend in 1985 and wrote a poem about it. Her algorithm is still fundamental to network routing today.',
   },
   {
-    slug: 'easley',
+    slug: 'annie-easley',
     name: 'Annie Easley',
     archetype: 'The Centaur Coder',
     emoji: '🚀',
@@ -2484,7 +2484,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'She started as a "human computer" at NACA in 1955 when she was one of only four African American employees. She evolved into a master programmer who developed code for the Centaur rocket.',
   },
   {
-    slug: 'saruhashi',
+    slug: 'katsuko-saruhashi',
     name: 'Katsuko Saruhashi',
     archetype: 'The Carbon Tracer',
     emoji: '🌊',
@@ -2498,7 +2498,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'Her meticulous tracking of radioactive fallout forced the US and USSR to sign the 1963 Nuclear Test Ban Treaty.',
   },
   {
-    slug: 'madhava',
+    slug: 'madhava-of-sangamagrama',
     name: 'Madhava of Sangamagrama',
     archetype: 'The Infinite Series Pioneer',
     emoji: '♾️',
@@ -2526,7 +2526,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'He was the first to establish rules for computing with negative numbers, brilliantly referring to them as "debts" and positive numbers as "fortunes."',
   },
   {
-    slug: 'bose',
+    slug: 'satyendra-bose',
     name: 'Satyendra Nath Bose',
     archetype: 'The State Maker',
     emoji: '✨',
@@ -2554,7 +2554,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'In 1206, he designed a programmable musical robot band that floated on a boat, using water flow and rotating pegs to create different drum beats.',
   },
   {
-    slug: 'seki',
+    slug: 'seki-takakazu',
     name: 'Seki Kōwa',
     archetype: 'The Independent Master',
     emoji: '🏯',
@@ -2569,7 +2569,7 @@ export const THINKERS: ThinkerMeta[] = [
   },
   // ── Paradox Masters & Foundational Logicians ────────────────
   {
-    slug: 'zeno',
+    slug: 'zeno-of-elea',
     name: 'Zeno of Elea',
     archetype: 'The Illusionist',
     emoji: '🐢',
@@ -2583,7 +2583,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'In "Achilles and the Tortoise," the fast runner can never catch the slow tortoise — it required infinite series to finally resolve.',
   },
   {
-    slug: 'eubulides',
+    slug: 'eubulides-of-miletus',
     name: 'Eubulides of Miletus',
     archetype: 'The Liar',
     emoji: '🤥',
@@ -2597,7 +2597,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'His "Sorites Paradox" (if you remove one grain from a heap, is it still a heap?) directly inspired modern fuzzy logic.',
   },
   {
-    slug: 'torricelli',
+    slug: 'evangelista-torricelli',
     name: 'Evangelista Torricelli',
     archetype: 'The Horn Maker',
     emoji: '📯',
@@ -2611,7 +2611,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'He also invented the barometer, creating the first artificial vacuum — proving that "nature abhors a vacuum" was wrong.',
   },
   {
-    slug: 'russell',
+    slug: 'bertrand-russell',
     name: 'Bertrand Russell',
     archetype: 'The Set Breaker',
     emoji: '💥',
@@ -2639,7 +2639,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'The paradox is mathematically rigorous — the "pieces" are non-measurable sets so complex they cannot exist in physical reality.',
   },
   {
-    slug: 'brouwer',
+    slug: 'l-e-j-brouwer',
     name: 'L. E. J. Brouwer',
     archetype: 'The Intuitionist',
     emoji: '☕',
@@ -2653,7 +2653,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'He later became the founder of "Intuitionism" and rejected his own Fixed-Point Theorem proof because it wasn\'t constructive.',
   },
   {
-    slug: 'quine',
+    slug: 'w-v-o-quine',
     name: 'Willard Van Orman Quine',
     archetype: 'The Quiner',
     emoji: '🔄',
@@ -2668,7 +2668,7 @@ export const THINKERS: ThinkerMeta[] = [
   },
   // ── 🎵 The Synthesists (Math & Music) ───────────────────────
   {
-    slug: 'chowning',
+    slug: 'john-chowning',
     name: 'John Chowning',
     archetype: 'The Synthesizer',
     emoji: '🎹',
@@ -2682,7 +2682,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'He discovered FM synthesis by messing around with extreme vibrato algorithms on a mainframe computer at Stanford.',
   },
   {
-    slug: 'xenakis',
+    slug: 'iannis-xenakis',
     name: 'Iannis Xenakis',
     archetype: 'The Stochastic Composer',
     emoji: '🎼',
@@ -2696,7 +2696,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'He used Maxwell-Boltzmann kinetic theory (the math of gas particles) to compose his orchestral piece Pithoprakta.',
   },
   {
-    slug: 'helmholtz',
+    slug: 'hermann-von-helmholtz',
     name: 'Hermann von Helmholtz',
     archetype: 'The Resonator',
     emoji: '🔊',
@@ -2710,7 +2710,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'His resonators physically performed Fourier analysis before computers existed — isolating pure sine waves from complex sounds.',
   },
   {
-    slug: 'kepler',
+    slug: 'johannes-kepler',
     name: 'Johannes Kepler',
     archetype: 'The Celestial Harmonist',
     emoji: '🪐',
@@ -2739,7 +2739,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'In "On Growth and Form" (1917), he showed how skulls of different species map to each other via simple geometric shear transformations.',
   },
   {
-    slug: 'conway',
+    slug: 'john-conway',
     name: 'John Horton Conway',
     archetype: 'The Game Master',
     emoji: '🎲',
@@ -2753,7 +2753,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'He grew to hate how much the public obsessed over the Game of Life, feeling it overshadowed his "serious" work like Monstrous Moonshine.',
   },
   {
-    slug: 'fibonacci',
+    slug: 'leonardo-fibonacci',
     name: 'Leonardo of Pisa (Fibonacci)',
     archetype: 'The Nature Counter',
     emoji: '🌻',
@@ -2767,7 +2767,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'His famous sequence was a theoretical exercise about rabbit breeding. Centuries later, biologists found it in spirals of leaves, pinecones, and sunflower seeds.',
   },
   {
-    slug: 'mendel',
+    slug: 'gregor-mendel',
     name: 'Gregor Mendel',
     archetype: 'The Trait Tracker',
     emoji: '🟢',
@@ -2782,7 +2782,7 @@ export const THINKERS: ThinkerMeta[] = [
   },
   // ── 📈 The Market Physicists ──────────────────────────────
   {
-    slug: 'ito',
+    slug: 'kiyosi-ito',
     name: 'Kiyosi Itô',
     archetype: 'The Stochastic Navigator',
     emoji: '📐',
@@ -2796,7 +2796,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'Without his stochastic calculus, Wall Street\'s entire quantitative revolution would not exist — every options price depends on Itô\'s Lemma.',
   },
   {
-    slug: 'bachelier',
+    slug: 'louis-bachelier',
     name: 'Louis Bachelier',
     archetype: 'The Market Physicist',
     emoji: '📊',
@@ -2810,7 +2810,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'His professors thought evaluating the stock market was beneath "pure" mathematics — his thesis was graded merely "honorable" instead of "très honorable."',
   },
   {
-    slug: 'shapley',
+    slug: 'lloyd-shapley',
     name: 'Lloyd Shapley',
     archetype: 'The Matchmaker',
     emoji: '💍',
@@ -2825,7 +2825,7 @@ export const THINKERS: ThinkerMeta[] = [
   },
   // ── 🏛️ The Market Architects ──────────────────────────────
   {
-    slug: 'arrow',
+    slug: 'kenneth-arrow',
     name: 'Kenneth Arrow',
     archetype: 'The Impossibilist',
     emoji: '🗳️',
@@ -2839,7 +2839,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'Arrow became the youngest-ever Nobel laureate in Economics at age 51 in 1972.',
   },
   {
-    slug: 'solow',
+    slug: 'robert-solow',
     name: 'Robert Solow',
     archetype: 'The Growth Theorist',
     emoji: '📈',
@@ -2853,7 +2853,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'He famously quipped: "You can see the computer age everywhere but in the productivity statistics."',
   },
   {
-    slug: 'ostrom',
+    slug: 'elinor-ostrom',
     name: 'Elinor Ostrom',
     archetype: 'The Commons Guardian',
     emoji: '🌿',
@@ -2867,7 +2867,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'She was told she couldn\'t study trigonometry in high school because she was a girl. Decades later, she won the Nobel Prize.',
   },
   {
-    slug: 'kantorovich',
+    slug: 'leonid-kantorovich',
     name: 'Leonid Kantorovich',
     archetype: 'The Optimizer',
     emoji: '🪵',
@@ -2882,7 +2882,7 @@ export const THINKERS: ThinkerMeta[] = [
   },
   // ── 🎲 The Strategic Minds & Data Detectives ───────────────
   {
-    slug: 'blackwell',
+    slug: 'david-blackwell',
     name: 'David Blackwell',
     archetype: 'The Dynamic Programmer',
     emoji: '🎯',
@@ -2896,7 +2896,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'The Institute for Advanced Study initially refused to invite him because Princeton\'s president objected to his race.',
   },
   {
-    slug: 'duflo',
+    slug: 'esther-duflo',
     name: 'Esther Duflo',
     archetype: 'The Randomizer',
     emoji: '🎲',
@@ -2910,7 +2910,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'She is the youngest person ever to win the Nobel Prize in Economics, at age 46.',
   },
   {
-    slug: 'debreu',
+    slug: 'gerard-debreu',
     name: 'Gérard Debreu',
     archetype: 'The Topologist',
     emoji: '📜',
@@ -2938,7 +2938,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'In the 1950s, she translated economic theories into Fortran code on early mainframes when most economists used only pencil and paper.',
   },
   {
-    slug: 'goldin',
+    slug: 'claudia-goldin',
     name: 'Claudia Goldin',
     archetype: 'The Labor Detective',
     emoji: '🔍',
@@ -2952,7 +2952,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'She proved mathematically that the modern wage gap doesn\'t happen at hiring — it happens precisely with the birth of a woman\'s first child.',
   },
   {
-    slug: 'schelling',
+    slug: 'thomas-schelling',
     name: 'Thomas Schelling',
     archetype: 'The Strategist',
     emoji: '♟️',
@@ -2967,7 +2967,7 @@ export const THINKERS: ThinkerMeta[] = [
   },
   // ── Pure Math Final Bosses ────────────────────────────────
   {
-    slug: 'perelman',
+    slug: 'grigori-perelman',
     name: 'Grigori Perelman',
     archetype: 'The Ascetic',
     emoji: '🏔️',
@@ -2981,7 +2981,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'He declined both the Fields Medal and the $1,000,000 Clay Millennium Prize, saying "the prize is irrelevant" since his proof was correct.',
   },
   {
-    slug: 'wiles',
+    slug: 'andrew-wiles',
     name: 'Andrew Wiles',
     archetype: 'The Finisher',
     emoji: '🗡️',
@@ -2995,7 +2995,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'When a flaw was found in his 1993 proof, he spent another agonizing year in isolation to fix it before it was finally flawless.',
   },
   {
-    slug: 'penrose',
+    slug: 'roger-penrose',
     name: 'Roger Penrose',
     archetype: 'The Tiler',
     emoji: '🔷',
@@ -3010,7 +3010,7 @@ export const THINKERS: ThinkerMeta[] = [
   },
   // ── Digital Architects ─────────────────────────────────────
   {
-    slug: 'ritchie',
+    slug: 'dennis-ritchie',
     name: 'Dennis Ritchie',
     archetype: 'The Syntactician',
     emoji: '⌨️',
@@ -3024,7 +3024,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'He died the same week as Steve Jobs in 2011, receiving almost no media attention — yet Jobs\'s entire OS was built on Ritchie\'s C.',
   },
   {
-    slug: 'berners-lee',
+    slug: 'tim-berners-lee',
     name: 'Tim Berners-Lee',
     archetype: 'The Weaver',
     emoji: '🕸️',
@@ -3053,7 +3053,7 @@ export const THINKERS: ThinkerMeta[] = [
   },
   // ── Risk, Physics, and Markets ─────────────────────────────
   {
-    slug: 'taleb',
+    slug: 'nassim-taleb',
     name: 'Nassim Nicholas Taleb',
     archetype: 'The Swan Hunter',
     emoji: '🦢',
@@ -3067,7 +3067,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'He made a fortune during both the 1987 Black Monday crash and the 2008 financial crisis by betting on extreme tail events.',
   },
   {
-    slug: 'samuelson',
+    slug: 'paul-samuelson',
     name: 'Paul Samuelson',
     archetype: 'The Economic Physicist',
     emoji: '⚡',
@@ -3081,7 +3081,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'He famously quipped that the stock market "has predicted nine of the last five recessions."',
   },
   {
-    slug: 'witten',
+    slug: 'edward-witten',
     name: 'Edward Witten',
     archetype: 'The String Weaver',
     emoji: '🎻',
@@ -3095,7 +3095,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'He majored in history at Brandeis and worked on a presidential campaign before switching to physics.',
   },
   {
-    slug: 'bell-burnell',
+    slug: 'jocelyn-bell-burnell',
     name: 'Jocelyn Bell Burnell',
     archetype: 'The Pulse Catcher',
     emoji: '💫',
@@ -3110,7 +3110,7 @@ export const THINKERS: ThinkerMeta[] = [
   },
   // ── The Nuclear Age (The Power Unlockers) ──────────────────
   {
-    slug: 'oppenheimer',
+    slug: 'j-robert-oppenheimer',
     name: 'J. Robert Oppenheimer',
     archetype: 'The Director',
     emoji: '☢️',
@@ -3124,7 +3124,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'He learned Sanskrit just to read the Bhagavad Gita in its original form, famously quoting it upon seeing the Trinity test.',
   },
   {
-    slug: 'ulam',
+    slug: 'stanislaw-ulam',
     name: 'Stanisław Ulam',
     archetype: 'The Monte Carlo Roller',
     emoji: '🎲',
@@ -3138,7 +3138,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'While playing solitaire after brain surgery, he realized random sampling could solve impossibly complex probability problems.',
   },
   {
-    slug: 'szilard',
+    slug: 'leo-szilard',
     name: 'Leo Szilard',
     archetype: 'The Chain Reactor',
     emoji: '⚛️',
@@ -3152,7 +3152,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'He patented the chain reaction in 1934 and kept it secret, then spent his later life fighting for nuclear arms control.',
   },
   {
-    slug: 'wheeler',
+    slug: 'john-wheeler',
     name: 'John Archibald Wheeler',
     archetype: 'The Spacetime Sculptor',
     emoji: '🕳️',
@@ -3166,7 +3166,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'He was Richard Feynman\'s thesis advisor and coined the phrase "It from bit," arguing information is more basic than matter.',
   },
   {
-    slug: 'bethe',
+    slug: 'hans-bethe',
     name: 'Hans Bethe',
     archetype: 'The Sun Maker',
     emoji: '☀️',
@@ -3181,7 +3181,7 @@ export const THINKERS: ThinkerMeta[] = [
   },
   // ── The Santa Fe Institute (The Complexity Masters) ────────
   {
-    slug: 'farmer',
+    slug: 'j-doyne-farmer',
     name: 'J. Doyne Farmer',
     archetype: 'The Chaos Capitalist',
     emoji: '🎰',
@@ -3209,7 +3209,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'His math explains why VHS beat Betamax, why QWERTY persists, and how digital monopolies naturally form.',
   },
   {
-    slug: 'holland',
+    slug: 'john-holland',
     name: 'John Henry Holland',
     archetype: 'The Genetic Algorithmicist',
     emoji: '🧬',
@@ -3223,7 +3223,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'In his models, blocks of code mutate, cross over, and "survive" based on a fitness function to solve problems humans can\'t.',
   },
   {
-    slug: 'gell-mann',
+    slug: 'murray-gell-mann',
     name: 'Murray Gell-Mann',
     archetype: 'The Eightfold Way',
     emoji: '🔬',
@@ -3365,7 +3365,7 @@ export const THINKERS: ThinkerMeta[] = [
   },
   // ── Thermodynamics & Physics Thinkers ────────────────────────
   {
-    slug: 'boltzmann',
+    slug: 'ludwig-boltzmann',
     name: 'Ludwig Boltzmann',
     archetype: 'The Entropy Master',
     emoji: '🌡️',
@@ -3393,7 +3393,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'His father Johann was so jealous of Daniel\'s success that he plagiarized Hydrodynamica and backdated his own book to claim priority.',
   },
   {
-    slug: 'nernst',
+    slug: 'walther-nernst',
     name: 'Walther Nernst',
     archetype: 'The Battery Brain',
     emoji: '🔋',
@@ -3407,7 +3407,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'He kept pet carp in his garden pond and used them to test his thermodynamic theories about biological systems.',
   },
   {
-    slug: 'rayleigh',
+    slug: 'lord-rayleigh',
     name: 'Lord Rayleigh',
     archetype: 'The Scattering Sage',
     emoji: '🔦',
@@ -3421,7 +3421,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'He discovered argon in 1894 by noticing that nitrogen from air was slightly denser than chemically pure nitrogen — a difference of just 0.5%.',
   },
   {
-    slug: 'kelvin',
+    slug: 'lord-kelvin',
     name: 'Lord Kelvin',
     archetype: 'The Absolute Scale Setter',
     emoji: '❄️',
@@ -3436,7 +3436,7 @@ export const THINKERS: ThinkerMeta[] = [
   },
   // ── Earth & Space Astrophysics Thinkers ──────────────────────
   {
-    slug: 'arrhenius',
+    slug: 'svante-arrhenius',
     name: 'Svante Arrhenius',
     archetype: 'The Climate Prophet',
     emoji: '🌡️',
@@ -3450,7 +3450,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'He calculated that doubling CO₂ would raise temperature 5-6°C — using only hand calculations and infrared absorption data from Samuel Langley.',
   },
   {
-    slug: 'friedmann',
+    slug: 'alexander-friedmann',
     name: 'Alexander Friedmann',
     archetype: 'The Universe Expander',
     emoji: '🌌',
@@ -3464,7 +3464,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'Einstein initially published a note calling Friedmann\'s expanding universe solution "suspicious" — then retracted it, admitting the math was correct.',
   },
   {
-    slug: 'gamow',
+    slug: 'george-gamow',
     name: 'George Gamow',
     archetype: 'The Nucleosynthesis Chef',
     emoji: '☢️',
@@ -3478,7 +3478,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'He added Hans Bethe\'s name to the αβγ paper purely for the Greek alphabet pun (Alpher, Bethe, Gamow) — Bethe had zero involvement.',
   },
   {
-    slug: 'chandrasekhar',
+    slug: 'subrahmanyan-chandrasekhar',
     name: 'Subrahmanyan Chandrasekhar',
     archetype: 'The Star Limit Setter',
     emoji: '⭐',
@@ -3492,7 +3492,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'He derived the white dwarf mass limit at age 19, on a steamship from India to Cambridge. Eddington publicly mocked him for it — but Chandrasekhar was right.',
   },
   {
-    slug: 'zwicky',
+    slug: 'fritz-zwicky',
     name: 'Fritz Zwicky',
     archetype: 'The Supernova Spotter',
     emoji: '💫',
@@ -3507,7 +3507,7 @@ export const THINKERS: ThinkerMeta[] = [
   },
   // ── Pure Math Titans ────────────────────────────────────────
   {
-    slug: 'jacobi',
+    slug: 'carl-jacobi',
     name: 'Carl Gustav Jacob Jacobi',
     archetype: 'The Theta Master',
     emoji: '🎵',
@@ -3521,7 +3521,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'Jacobi once said "Man muss immer umkehren" (one must always invert) — his philosophy of solving problems by reversing them led to elliptic function theory.',
   },
   {
-    slug: 'liouville',
+    slug: 'joseph-liouville',
     name: 'Joseph Liouville',
     archetype: 'The Transcendental Judge',
     emoji: '⚖️',
@@ -3535,7 +3535,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'Liouville constructed the first explicit transcendental number: L = Σ10^(−n!) = 0.110001000000000000000001... — a number designed to be "too well approximated" to be algebraic.',
   },
   {
-    slug: 'klein',
+    slug: 'felix-klein',
     name: 'Felix Klein',
     archetype: 'The Symmetry Bottler',
     emoji: '🍶',
@@ -3549,7 +3549,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'The "Klein bottle" is actually a mistranslation — "Fläche" (surface) was misread as "Flasche" (bottle) in English, but the name stuck because the shape does look like a bottle.',
   },
   {
-    slug: 'eisenstein',
+    slug: 'gotthold-eisenstein',
     name: 'Gotthold Eisenstein',
     archetype: 'The Reciprocity Pioneer',
     emoji: '🔢',
@@ -3563,7 +3563,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'Gauss said of Eisenstein: "There have been only three epoch-making mathematicians: Archimedes, Newton, and Eisenstein." He died at 29 from tuberculosis.',
   },
   {
-    slug: 'borel',
+    slug: 'emile-borel',
     name: 'Émile Borel',
     archetype: 'The Probability Modernizer',
     emoji: '🎲',
@@ -3577,7 +3577,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'Borel proved almost every number is "normal" (digits uniformly distributed) — yet we still can\'t prove π or e are normal over 100 years later.',
   },
   {
-    slug: 'church',
+    slug: 'alonzo-church',
     name: 'Alonzo Church',
     archetype: 'The Lambda Calculator',
     emoji: 'λ',
@@ -3592,7 +3592,7 @@ export const THINKERS: ThinkerMeta[] = [
   },
   // ── Electromagnetism, Optics & Physics Pioneers ─────────────
   {
-    slug: 'olbers',
+    slug: 'heinrich-olbers',
     name: 'Heinrich Wilhelm Olbers',
     archetype: 'The Dark Sky Paradox Solver',
     emoji: '🌃',
@@ -3606,7 +3606,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'Olbers was a physician by profession who did astronomy as a hobby. His "paradox" was actually first posed by Kepler in 1610, but Olbers popularized it in 1823.',
   },
   {
-    slug: 'huygens',
+    slug: 'christiaan-huygens',
     name: 'Christiaan Huygens',
     archetype: 'The Wave Prophet',
     emoji: '🌊',
@@ -3634,7 +3634,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'Young was called "Phenomenon Young" at Cambridge. He spoke 13 languages, helped decode the Rosetta Stone, and established the wave theory of light — all before age 30.',
   },
   {
-    slug: 'coulomb',
+    slug: 'charles-coulomb',
     name: 'Charles-Augustin de Coulomb',
     archetype: 'The Force Measurer',
     emoji: '⚡',
@@ -3648,7 +3648,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'Coulomb was a military engineer who built fortifications in Martinique before turning to physics. His torsion balance was so sensitive it could measure forces of less than a millionth of a newton.',
   },
   {
-    slug: 'ampere',
+    slug: 'andre-marie-ampere',
     name: 'André-Marie Ampère',
     archetype: 'The Current King',
     emoji: '🔌',
@@ -3662,7 +3662,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'Ampère taught himself advanced mathematics by age 12. Maxwell called him "the Newton of electricity." The unit of electric current (ampere) is named in his honor.',
   },
   {
-    slug: 'lenz',
+    slug: 'heinrich-lenz',
     name: 'Heinrich Lenz',
     archetype: 'The Induction Reverser',
     emoji: '🔄',
@@ -3690,7 +3690,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'Jean-Baptiste Biot was also a balloonist who made a pioneering high-altitude ascent with Gay-Lussac in 1804 to study Earth\'s magnetism and atmospheric composition.',
   },
   {
-    slug: 'ehrenfest',
+    slug: 'paul-ehrenfest',
     name: 'Paul Ehrenfest',
     archetype: 'The Phase Space Guardian',
     emoji: '🔮',
@@ -3705,7 +3705,7 @@ export const THINKERS: ThinkerMeta[] = [
   },
   // ── Population, Mechanics, Numerical, Astro, Plasma, Neuro, StatPhys, Chem, Drag, Weather ──
   {
-    slug: 'lotka',
+    slug: 'alfred-lotka',
     name: 'Alfred Lotka',
     archetype: 'The Population Oscillator',
     emoji: '🐺',
@@ -3719,7 +3719,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'Lotka independently derived the predator-prey equations at the same time as Volterra — neither knew of the other\'s work.',
   },
   {
-    slug: 'verhulst',
+    slug: 'pierre-verhulst',
     name: 'Pierre Verhulst',
     archetype: 'The Carrying Capacity Creator',
     emoji: '📈',
@@ -3733,7 +3733,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'Verhulst died at 45, the same age at which his logistic curve inflects — a poetic coincidence.',
   },
   {
-    slug: 'stokes',
+    slug: 'george-stokes',
     name: 'George Gabriel Stokes',
     archetype: 'The Fluid Formalist',
     emoji: '🌊',
@@ -3747,7 +3747,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'Stokes held the Lucasian Chair at Cambridge (Newton\'s old post) for 54 years — the longest tenure ever.',
   },
   {
-    slug: 'runge',
+    slug: 'carl-runge',
     name: 'Carl Runge',
     archetype: 'The ODE Numerical Wizard',
     emoji: '🔢',
@@ -3761,7 +3761,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'Runge was also an accomplished athlete — he could reportedly jump over a chair from a standing position well into his 60s.',
   },
   {
-    slug: 'emden',
+    slug: 'robert-emden',
     name: 'Robert Emden',
     archetype: 'The Star Interior Mapper',
     emoji: '⭐',
@@ -3775,7 +3775,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'Emden\'s "Gaskugeln" (Gas Spheres, 1907) remained the standard astrophysics reference for decades before Chandrasekhar expanded on it.',
   },
   {
-    slug: 'hasegawa',
+    slug: 'akira-hasegawa',
     name: 'Akira Hasegawa',
     archetype: 'The Plasma Wave Pioneer',
     emoji: '☢️',
@@ -3789,7 +3789,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'Hasegawa predicted optical solitons in fibers in 1973 — they weren\'t experimentally confirmed until 1980 by Mollenauer.',
   },
   {
-    slug: 'fitzhugh',
+    slug: 'richard-fitzhugh',
     name: 'Richard FitzHugh',
     archetype: 'The Simplified Neuron Modeler',
     emoji: '🧠',
@@ -3803,7 +3803,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'FitzHugh worked at the NIH and was inspired to simplify the Hodgkin-Huxley model so he could study it with phase plane analysis rather than a computer.',
   },
   {
-    slug: 'kardar',
+    slug: 'mehran-kardar',
     name: 'Mehran Kardar',
     archetype: 'The Growth Exponent Predictor',
     emoji: '📊',
@@ -3817,7 +3817,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'Kardar\'s MIT Statistical Mechanics course (8.333/8.334) is legendary — his textbook is considered one of the clearest in the field.',
   },
   {
-    slug: 'prigogine',
+    slug: 'ilya-prigogine',
     name: 'Ilya Prigogine',
     archetype: 'The Chemical Clockmaker',
     emoji: '⏰',
@@ -3831,7 +3831,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'Prigogine received the 1977 Nobel Prize in Chemistry; he was also a philosopher who argued that irreversibility is fundamental, not an approximation.',
   },
   {
-    slug: 'bateman',
+    slug: 'harry-bateman',
     name: 'Harry Bateman',
     archetype: 'The Drag Terminal Calculator',
     emoji: '🪂',
@@ -3845,7 +3845,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'Bateman compiled the massive "Bateman Manuscript Project" tables of integral transforms — still referenced by physicists and engineers today.',
   },
   {
-    slug: 'richardson',
+    slug: 'lewis-fry-richardson',
     name: 'Lewis Fry Richardson',
     archetype: 'The Weather Integrator',
     emoji: '🌦️',
@@ -3860,7 +3860,7 @@ export const THINKERS: ThinkerMeta[] = [
   },
   // ── Non-Western & Global Mathematicians batch 2 ──
   {
-    slug: 'bhaskara',
+    slug: 'bhaskara-ii',
     name: 'Bhāskara II',
     archetype: 'The Instantaneous Velocity Creator',
     emoji: '🕉️',
@@ -3902,7 +3902,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'Zhu was a wandering teacher with no official position — he taught mathematics across China for 20+ years before writing his masterpiece.',
   },
   {
-    slug: 'khayyam',
+    slug: 'omar-khayyam',
     name: 'Omar Khayyam',
     archetype: 'The Cubic Intersection Solver',
     emoji: '🌙',
@@ -3916,7 +3916,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'Khayyam is better known in the West as a poet (Rubáiyát), but in the Islamic world he was primarily celebrated as a mathematician and astronomer.',
   },
   {
-    slug: 'al-karaji',
+    slug: 'abu-bakr-al-karaji',
     name: 'Al-Karaji',
     archetype: 'The Induction Prover',
     emoji: '📜',
@@ -3930,7 +3930,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'Al-Karaji was also a hydraulic engineer who wrote extensively on water extraction and underground canal systems (qanāts).',
   },
   {
-    slug: 'takebe',
+    slug: 'takebe-katahiro',
     name: 'Takebe Katahiro',
     archetype: 'The Infinite Product Creator',
     emoji: '🎌',
@@ -3973,7 +3973,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'Plato named an entire dialogue after him; he died of wounds and dysentery after the Battle of Corinth.',
   },
   {
-    slug: 'diophantus',
+    slug: 'diophantus-of-alexandria',
     name: 'Diophantus of Alexandria',
     archetype: 'The Father of Algebra',
     emoji: '📜',
@@ -4001,7 +4001,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'He traveled across rural China teaching factory workers to use optimization methods — democratizing mathematics at an unprecedented scale.',
   },
   {
-    slug: 'viazovska',
+    slug: 'maryna-viazovska',
     name: 'Maryna Viazovska',
     archetype: 'The Sphere Packing Queen',
     emoji: '⬡',
@@ -4015,7 +4015,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'She is the second woman to win the Fields Medal (2022) and solved in one paper what had been open for decades.',
   },
   {
-    slug: 'hanson',
+    slug: 'robin-hanson',
     name: 'Robin Hanson',
     archetype: 'The Oracle Engineer',
     emoji: '🎯',
@@ -4029,7 +4029,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'He proposed "futarchy" — a government system where elected officials set goals but prediction markets decide policies. Ethereum experimented with the idea.',
   },
   {
-    slug: 'avellaneda',
+    slug: 'marco-avellaneda',
     name: 'Marco Avellaneda',
     archetype: 'The Market Physicist',
     emoji: '📊',
