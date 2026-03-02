@@ -1,7 +1,7 @@
 // box.ts
 import type { Question } from '../types';
 
-export const boxQuestions: Question[] = [
+export const georgeBoxQuestions: Question[] = [
   {
     id: 69700,
     topic: 'george-box',

@@ -1,7 +1,7 @@
 // farkas.ts
 import type { Question } from '../types';
 
-export const farkasQuestions: Question[] = [
+export const juliusFarkasQuestions: Question[] = [
   {
     id: 65300,
     topic: 'julius-farkas',

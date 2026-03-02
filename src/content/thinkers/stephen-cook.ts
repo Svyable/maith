@@ -1,7 +1,7 @@
 // cook.ts
 import type { Question } from '../types';
 
-export const cookQuestions: Question[] = [
+export const stephenCookQuestions: Question[] = [
   {
     id: 67030,
     topic: 'stephen-cook',

@@ -1,7 +1,7 @@
 // dantzig.ts
 import type { Question } from '../types';
 
-export const dantzigQuestions: Question[] = [
+export const georgeDantzigQuestions: Question[] = [
   {
     id: 65150,
     topic: 'george-dantzig',

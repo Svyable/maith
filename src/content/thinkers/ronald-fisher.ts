@@ -1,6 +1,6 @@
 import type { Question } from '../types';
 
-export const fisherQuestions: Question[] = [
+export const ronaldFisherQuestions: Question[] = [
   {
     id: 21201, topic: 'ronald-fisher', difficulty: 'easy',
     question: 'Ronald Fisher\'s p-value measures:',

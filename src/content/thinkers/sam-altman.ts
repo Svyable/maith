@@ -1,6 +1,6 @@
 import type { Question } from '../types';
 
-export const altmanQuestions: Question[] = [
+export const samAltmanQuestions: Question[] = [
   {
     id: 95004, topic: 'sam-altman', difficulty: 'easy',
     question: 'OpenAI\'s mission, championed by Sam Altman, is to ensure that AGI:',

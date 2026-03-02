@@ -1,6 +1,6 @@
 import type { Question } from '../types';
 
-export const faradayQuestions: Question[] = [
+export const michaelFaradayQuestions: Question[] = [
   {
     id: 96301, topic: 'michael-faraday', difficulty: 'easy',
     question: 'Michael Faraday\'s discovery of electromagnetic induction showed that:',

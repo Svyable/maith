@@ -1,6 +1,6 @@
 import type { Question } from '../types';
 
-export const amodeiQuestions: Question[] = [
+export const darioAmodeiQuestions: Question[] = [
   {
     id: 95007, topic: 'dario-amodei', difficulty: 'easy',
     question: 'Anthropic, co-founded by Dario Amodei, focuses primarily on:',

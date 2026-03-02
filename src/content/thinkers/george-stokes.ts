@@ -1,6 +1,6 @@
 import type { Question } from '../types';
 
-export const stokesQuestions: Question[] = [
+export const georgeStokesQuestions: Question[] = [
   {
     id: 9507,
     topic: 'george-stokes',

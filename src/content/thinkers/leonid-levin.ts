@@ -1,7 +1,7 @@
 // levin.ts
 import type { Question } from '../types';
 
-export const levinQuestions: Question[] = [
+export const leonidLevinQuestions: Question[] = [
   {
     id: 67040,
     topic: 'leonid-levin',

@@ -1,6 +1,6 @@
 import type { Question } from '../types';
 
-export const robinsonQuestions: Question[] = [
+export const juliaRobinsonQuestions: Question[] = [
   {
     id: 20212, topic: 'julia-robinson', difficulty: 'easy',
     question: 'Julia Robinson made foundational contributions to the solution of which of Hilbert\'s 23 problems?',

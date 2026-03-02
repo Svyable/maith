@@ -1,6 +1,6 @@
 import type { Question } from '../types';
 
-export const bohrQuestions: Question[] = [
+export const nielsBohrQuestions: Question[] = [
   {
     id: 96501, topic: 'niels-bohr', difficulty: 'easy',
     question: 'Niels Bohr\'s atomic model proposed that electrons:',

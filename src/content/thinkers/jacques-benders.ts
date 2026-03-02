@@ -1,7 +1,7 @@
 // benders.ts
 import type { Question } from '../types';
 
-export const bendersQuestions: Question[] = [
+export const jacquesBendersQuestions: Question[] = [
   {
     id: 65200,
     topic: 'jacques-benders',

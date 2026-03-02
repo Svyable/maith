@@ -1,6 +1,6 @@
 import type { Question } from '../types';
 
-export const uhlenbeckQuestions: Question[] = [
+export const karenUhlenbeckQuestions: Question[] = [
   {
     id: 20121, topic: 'karen-uhlenbeck', difficulty: 'easy',
     question: 'Karen Uhlenbeck was the first woman to win which prestigious mathematics prize?',

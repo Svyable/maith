@@ -1,6 +1,6 @@
 import type { Question } from '../types';
 
-export const pythagorasQuestions: Question[] = [
+export const pythagorasOfSamosQuestions: Question[] = [
   {
     id: 11401,
     topic: 'pythagoras-of-samos',

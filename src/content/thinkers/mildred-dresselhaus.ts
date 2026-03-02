@@ -1,6 +1,6 @@
 import type { Question } from '../types';
 
-export const dresselhausQuestions: Question[] = [
+export const mildredDresselhausQuestions: Question[] = [
   {
     id: 20124, topic: 'mildred-dresselhaus', difficulty: 'easy',
     question: 'Mildred Dresselhaus is known as the "Queen of" which material?',

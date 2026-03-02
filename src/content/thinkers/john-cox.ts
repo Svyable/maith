@@ -1,7 +1,7 @@
 // cox.ts
 import type { Question } from '../types';
 
-export const coxQuestions: Question[] = [
+export const johnCoxQuestions: Question[] = [
   {
     id: 69500,
     topic: 'john-cox',

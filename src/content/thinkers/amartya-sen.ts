@@ -1,6 +1,6 @@
 import type { Question } from '../types';
 
-export const senQuestions: Question[] = [
+export const amartyaSenQuestions: Question[] = [
   {
     id: 19301, topic: 'amartya-sen', difficulty: 'easy',
     question: 'Amartya Sen\'s "capability approach" measures development by:',

@@ -1,7 +1,7 @@
 // shreve.ts
 import type { Question } from '../types';
 
-export const shreveQuestions: Question[] = [
+export const stevenShreveQuestions: Question[] = [
   {
     id: 69350,
     topic: 'steven-shreve',

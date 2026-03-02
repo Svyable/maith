@@ -1,7 +1,7 @@
 // scholes.ts
 import type { Question } from '../types';
 
-export const scholesQuestions: Question[] = [
+export const myronScholesQuestions: Question[] = [
   {
     id: 69050,
     topic: 'myron-scholes',

@@ -1,6 +1,6 @@
 import type { Question } from '../types';
 
-export const wienerQuestions: Question[] = [
+export const norbertWienerQuestions: Question[] = [
   {
     id: 19101, topic: 'norbert-wiener', difficulty: 'easy',
     question: 'Norbert Wiener founded the field of cybernetics, which studies:',

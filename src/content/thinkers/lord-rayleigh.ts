@@ -1,6 +1,6 @@
 import type { Question } from '../types';
 
-export const rayleighQuestions: Question[] = [
+export const lordRayleighQuestions: Question[] = [
   {
     id: 97301, topic: 'lord-rayleigh', difficulty: 'easy',
     question: 'Rayleigh scattering explains why the sky is blue. The scattering intensity scales as:',

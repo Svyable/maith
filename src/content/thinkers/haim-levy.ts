@@ -1,7 +1,7 @@
 // levy.ts
 import type { Question } from '../types';
 
-export const levyQuestions: Question[] = [
+export const haimLevyQuestions: Question[] = [
   {
     id: 69400,
     topic: 'haim-levy',

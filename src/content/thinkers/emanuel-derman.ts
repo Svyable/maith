@@ -1,7 +1,7 @@
 // derman.ts
 import type { Question } from '../types';
 
-export const dermanQuestions: Question[] = [
+export const emanuelDermanQuestions: Question[] = [
   {
     id: 69250,
     topic: 'emanuel-derman',

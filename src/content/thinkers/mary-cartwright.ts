@@ -1,6 +1,6 @@
 import type { Question } from '../types';
 
-export const cartwrightQuestions: Question[] = [
+export const maryCartwrightQuestions: Question[] = [
   {
     id: 20127, topic: 'mary-cartwright', difficulty: 'easy',
     question: 'Mary Cartwright was a pioneer in what area of mathematics, decades before it was formally named?',

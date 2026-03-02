@@ -1,6 +1,6 @@
 import type { Question } from '../types';
 
-export const leavittQuestions: Question[] = [
+export const henriettaLeavittQuestions: Question[] = [
   {
     id: 20224, topic: 'henrietta-leavitt', difficulty: 'easy',
     question: 'Henrietta Leavitt discovered a relationship between the period and luminosity of which type of variable star?',

@@ -1,936 +1,936 @@
 import type { Question } from "../types";
 
 // Modern / foundational
-import { hintonQuestions } from "./geoffrey-hinton";
-import { turingQuestions } from "./alan-turing";
-import { shannonQuestions } from "./claude-shannon";
-import { poincareQuestions } from "./henri-poincare";
-import { riemannQuestions } from "./bernhard-riemann";
-import { feynmanQuestions } from "./richard-feynman";
-import { vonNeumannQuestions } from "./john-von-neumann";
-import { pearlQuestions } from "./judea-pearl";
-import { simonsQuestions } from "./jim-simons";
-import { ramanujanQuestions } from "./srinivasa-ramanujan";
+import { geoffreyHintonQuestions } from "./geoffrey-hinton";
+import { alanTuringQuestions } from "./alan-turing";
+import { claudeShannonQuestions } from "./claude-shannon";
+import { henriPoincareQuestions } from "./henri-poincare";
+import { bernhardRiemannQuestions } from "./bernhard-riemann";
+import { richardFeynmanQuestions } from "./richard-feynman";
+import { johnVonNeumannQuestions } from "./john-von-neumann";
+import { judeaPearlQuestions } from "./judea-pearl";
+import { jimSimonsQuestions } from "./jim-simons";
+import { srinivasaRamanujanQuestions } from "./srinivasa-ramanujan";
 
 // Ancient thinkers
-import { euclidQuestions } from "./euclid-of-alexandria";
-import { archimedесQuestions } from "./archimedes-of-syracuse";
-import { newtonQuestions } from "./isaac-newton";
-import { eulerQuestions } from "./leonhard-euler";
-import { pythagorasQuestions } from "./pythagoras-of-samos";
-import { gaussQuestions } from "./carl-friedrich-gauss";
+import { euclidOfAlexandriaQuestions } from "./euclid-of-alexandria";
+import { archimedesOfSyracuseQuestions } from "./archimedes-of-syracuse";
+import { isaacNewtonQuestions } from "./isaac-newton";
+import { leonhardEulerQuestions } from "./leonhard-euler";
+import { pythagorasOfSamosQuestions } from "./pythagoras-of-samos";
+import { carlFriedrichGaussQuestions } from "./carl-friedrich-gauss";
 
 // New ancient thinkers
-import { leibnizQuestions } from "./gottfried-wilhelm-leibniz";
-import { fermatQuestions } from "./pierre-de-fermat";
-import { alkhwarizmiQuestions } from "./muhammad-al-khwarizmi";
-import { lovelaceQuestions } from "./ada-lovelace";
-import { noetherQuestions } from "./emmy-noether";
-import { curieQuestions } from "./marie-curie";
+import { gottfriedWilhelmLeibnizQuestions } from "./gottfried-wilhelm-leibniz";
+import { pierreDeFermatQuestions } from "./pierre-de-fermat";
+import { muhammadAlKhwarizmiQuestions } from "./muhammad-al-khwarizmi";
+import { adaLovelaceQuestions } from "./ada-lovelace";
+import { emmyNoetherQuestions } from "./emmy-noether";
+import { marieCurieQuestions } from "./marie-curie";
 
 // Modern thinkers
-import { bengioQuestions } from "./yoshua-bengio";
-import { lecunQuestions } from "./yann-lecun";
-import { suttonQuestions } from "./richard-sutton";
-import { goodfellowQuestions } from "./ian-goodfellow";
-import { vapnikQuestions } from "./vladimir-vapnik";
-import { einsteinQuestions } from "./albert-einstein";
-import { godelQuestions } from "./kurt-godel";
-import { diracQuestions } from "./paul-dirac";
-import { kolmogorovQuestions } from "./andrey-kolmogorov";
-import { hawkingQuestions } from "./stephen-hawking";
+import { yoshuaBengioQuestions } from "./yoshua-bengio";
+import { yannLecunQuestions } from "./yann-lecun";
+import { richardSuttonQuestions } from "./richard-sutton";
+import { ianGoodfellowQuestions } from "./ian-goodfellow";
+import { vladimirVapnikQuestions } from "./vladimir-vapnik";
+import { albertEinsteinQuestions } from "./albert-einstein";
+import { kurtGodelQuestions } from "./kurt-godel";
+import { paulDiracQuestions } from "./paul-dirac";
+import { andreyKolmogorovQuestions } from "./andrey-kolmogorov";
+import { stephenHawkingQuestions } from "./stephen-hawking";
 
 // Contemporary thinkers
-import { hassabisQuestions } from "./demis-hassabis";
-import { vaswaniQuestions } from "./ashish-vaswani";
-import { karpathyQuestions } from "./andrej-karpathy";
-import { altmanQuestions } from "./sam-altman";
-import { amodeiQuestions } from "./dario-amodei";
-import { ngQuestions } from "./andrew-ng";
-import { lifeiQuestions } from "./fei-fei-li";
-import { ilyaQuestions } from "./ilya-sutskever";
+import { demisHassabisQuestions } from "./demis-hassabis";
+import { ashishVaswaniQuestions } from "./ashish-vaswani";
+import { andrejKarpathyQuestions } from "./andrej-karpathy";
+import { samAltmanQuestions } from "./sam-altman";
+import { darioAmodeiQuestions } from "./dario-amodei";
+import { andrewNgQuestions } from "./andrew-ng";
+import { feiFeiLiQuestions } from "./fei-fei-li";
+import { ilyaSutskeverQuestions } from "./ilya-sutskever";
 
 // Global MasterMinds
-import { taoQuestions } from "./terence-tao";
-import { erdosQuestions } from "./paul-erdos";
-import { ramanQuestions } from "./chandrasekhara-v-raman";
-import { mirzakhaniQuestions } from "./maryam-mirzakhani";
-import { chernQuestions } from "./shiing-shen-chern";
-import { zhangQuestions } from "./zhang-yitang";
-import { goldwasserQuestions } from "./shafi-goldwasser";
-import { kashiwaraQuestions } from "./masaki-kashiwara";
-import { birkarQuestions } from "./caucher-birkar";
-import { grothendieckQuestions } from "./alexander-grothendieck";
-import { kovalevskayaQuestions } from "./sofia-kovalevskaya";
+import { terenceTaoQuestions } from "./terence-tao";
+import { paulErdosQuestions } from "./paul-erdos";
+import { chandrasekharaVRamanQuestions } from "./chandrasekhara-v-raman";
+import { maryamMirzakhaniQuestions } from "./maryam-mirzakhani";
+import { shiingShenChernQuestions } from "./shiing-shen-chern";
+import { zhangYitangQuestions } from "./zhang-yitang";
+import { shafiGoldwasserQuestions } from "./shafi-goldwasser";
+import { masakiKashiwaraQuestions } from "./masaki-kashiwara";
+import { caucherBirkarQuestions } from "./caucher-birkar";
+import { alexanderGrothendieckQuestions } from "./alexander-grothendieck";
+import { sofiaKovalevskayaQuestions } from "./sofia-kovalevskaya";
 
 // New additions
 import { jeffDeanQuestions } from "./jeff-dean";
 import { kaiFuLeeQuestions } from "./kai-fu-lee";
-import { schmidhuberQuestions } from "./juergen-schmidhuber";
-import { linnainmaaQuestions } from "./seppo-linnainmaa";
-import { kozyrkovQuestions } from "./cassie-kozyrkov";
-import { suleymanQuestions } from "./mustafa-suleyman";
-import { hilbertQuestions } from "./david-hilbert";
-import { gebruQuestions } from "./timnit-gebru";
+import { juergenSchmidhuberQuestions } from "./juergen-schmidhuber";
+import { seppoLinnainmaaQuestions } from "./seppo-linnainmaa";
+import { cassieKozyrkovQuestions } from "./cassie-kozyrkov";
+import { mustafaSuleymanQuestions } from "./mustafa-suleyman";
+import { davidHilbertQuestions } from "./david-hilbert";
+import { timnitGebruQuestions } from "./timnit-gebru";
 
 // Prodigies
-import { pascalQuestions } from "./blaise-pascal";
-import { galoisQuestions } from "./evariste-galois";
-import { hamiltonWRQuestions } from "./william-rowan-hamilton";
-import { abelQuestions } from "./niels-henrik-abel";
-import { scholzeQuestions } from "./peter-scholze";
-import { venkateshQuestions } from "./akshay-venkatesh";
-import { deviQuestions } from "./shakuntala-devi";
-import { demaineQuestions } from "./erik-demaine";
+import { blaisePascalQuestions } from "./blaise-pascal";
+import { evaristeGaloisQuestions } from "./evariste-galois";
+import { williamRowanHamiltonQuestions } from "./william-rowan-hamilton";
+import { nielsHenrikAbelQuestions } from "./niels-henrik-abel";
+import { peterScholzeQuestions } from "./peter-scholze";
+import { akshayVenkateshQuestions } from "./akshay-venkatesh";
+import { shakuntalaDeviQuestions } from "./shakuntala-devi";
+import { erikDemaineQuestions } from "./erik-demaine";
 
 // Earth & Space thinkers
 import { carlSaganQuestions } from "./carl-sagan";
-import { wegenerQuestions } from "./alfred-wegener";
+import { alfredWegenerQuestions } from "./alfred-wegener";
 import { veraRubinQuestions } from "./vera-rubin";
 
 // Economics thinkers
 import { adamSmithQuestions } from "./adam-smith";
 import { johnNashQuestions } from "./john-nash";
-import { keynesQuestions } from "./john-maynard-keynes";
+import { johnMaynardKeynesQuestions } from "./john-maynard-keynes";
 
 // Engineering thinkers
 import { nikolaTeslaQuestions } from "./nikola-tesla";
-import { vonBraunQuestions } from "./wernher-von-braun";
+import { wernherVonBraunQuestions } from "./wernher-von-braun";
 import { hedyLamarrQuestions } from "./hedy-lamarr";
 
 // Biology thinkers
-import { darwinQuestions } from "./charles-darwin";
+import { charlesDarwinQuestions } from "./charles-darwin";
 import { rosalindFranklinQuestions } from "./rosalind-franklin";
-import { doudnaQuestions } from "./jennifer-doudna";
+import { jenniferDoudnaQuestions } from "./jennifer-doudna";
 
 // Chemistry thinkers
-import { mendeleevQuestions } from "./dmitri-mendeleev";
-import { lavoisierQuestions } from "./antoine-lavoisier";
-import { paulingQuestions } from "./linus-pauling";
+import { dmitriMendeleevQuestions } from "./dmitri-mendeleev";
+import { antoineLavoisierQuestions } from "./antoine-lavoisier";
+import { linusPaulingQuestions } from "./linus-pauling";
 
 // Medical thinkers
-import { flemingQuestions } from "./alexander-fleming";
-import { jennerQuestions } from "./edward-jenner";
+import { alexanderFlemingQuestions } from "./alexander-fleming";
+import { edwardJennerQuestions } from "./edward-jenner";
 
 // Quant thinkers
 import { fischerBlackQuestions } from "./fischer-black";
 import { edThorpQuestions } from "./ed-thorp";
 
 // Human Sciences thinkers
-import { kahnemanQuestions } from "./daniel-kahneman";
-import { pavlovQuestions } from "./ivan-pavlov";
+import { danielKahnemanQuestions } from "./daniel-kahneman";
+import { ivanPavlovQuestions } from "./ivan-pavlov";
 
 // Data Science thinkers
-import { tukeyQuestions } from "./john-tukey";
+import { johnTukeyQuestions } from "./john-tukey";
 
 // π Pioneers & Trigonometry
-import { vieteQuestions } from "./francois-viete";
-import { wallisQuestions } from "./john-wallis";
-import { gregoryQuestions } from "./james-gregory";
-import { vanCeulenQuestions } from "./ludolph-van-ceulen";
-import { alkashiQuestions as alkashiPiQuestions } from "./jamshid-al-kashi";
-import { ptolemyQuestions } from "./claudius-ptolemy";
-import { hipparchusQuestions } from "./hipparchus-of-nicaea";
-import { tusiQuestions } from "./nasir-al-din-al-tusi";
+import { francoisVieteQuestions } from "./francois-viete";
+import { johnWallisQuestions } from "./john-wallis";
+import { jamesGregoryQuestions } from "./james-gregory";
+import { ludolphVanCeulenQuestions } from "./ludolph-van-ceulen";
+import { jamshidAlKashiQuestions } from "./jamshid-al-kashi";
+import { claudiusPtolemyQuestions } from "./claudius-ptolemy";
+import { hipparchusOfNicaeaQuestions } from "./hipparchus-of-nicaea";
+import { nasirAlDinAlTusiQuestions } from "./nasir-al-din-al-tusi";
 
 // Cryptography Pioneers
-import { satoshiQuestions } from "./satoshi-nakamoto";
-import { diffieQuestions } from "./whitfield-diffie";
-import { shamirQuestions } from "./adi-shamir";
-import { kirchhoffQuestions } from "./auguste-kirchhoff";
-import { merkleQuestions } from "./ralph-merkle";
-import { rivestQuestions } from "./ron-rivest";
+import { satoshiNakamotoQuestions } from "./satoshi-nakamoto";
+import { whitfieldDiffieQuestions } from "./whitfield-diffie";
+import { adiShamirQuestions } from "./adi-shamir";
+import { augusteKirchhoffQuestions } from "./auguste-kirchhoff";
+import { ralphMerkleQuestions } from "./ralph-merkle";
+import { ronRivestQuestions } from "./ron-rivest";
 
 // Applied Sciences: Optics, Comms, Semiconductors, Materials
-import { alhazenQuestions } from "./ibn-al-haytham";
-import { maxwellQuestions } from "./james-clerk-maxwell";
-import { marconiQuestions } from "./guglielmo-marconi";
-import { shockleyQuestions } from "./william-shockley";
-import { kilbyQuestions } from "./jack-kilby";
-import { hookeQuestions } from "./robert-hooke";
-import { hubbleQuestions } from "./edwin-hubble";
+import { ibnAlHaythamQuestions } from "./ibn-al-haytham";
+import { jamesClerkMaxwellQuestions } from "./james-clerk-maxwell";
+import { guglielmoMarconiQuestions } from "./guglielmo-marconi";
+import { williamShockleyQuestions } from "./william-shockley";
+import { jackKilbyQuestions } from "./jack-kilby";
+import { robertHookeQuestions } from "./robert-hooke";
+import { edwinHubbleQuestions } from "./edwin-hubble";
 import { georgeGreenQuestions } from "./george-green";
-import { faradayQuestions } from "./michael-faraday";
-import { planckQuestions } from "./max-planck";
-import { bohrQuestions } from "./niels-bohr";
+import { michaelFaradayQuestions } from "./michael-faraday";
+import { maxPlanckQuestions } from "./max-planck";
+import { nielsBohrQuestions } from "./niels-bohr";
 
 // New thinkers: Engineering, Economics, Quant, CS
-import { kalmanQuestions } from "./rudolf-kalman";
-import { wienerQuestions } from "./norbert-wiener";
-import { thalerQuestions } from "./richard-thaler";
-import { senQuestions } from "./amartya-sen";
-import { mertonRobertQuestions } from "./robert-merton";
-import { markowitzQuestions } from "./harry-markowitz";
-import { lamportQuestions } from "./leslie-lamport";
-import { martinLofQuestions } from "./per-martin-lof";
+import { rudolfKalmanQuestions } from "./rudolf-kalman";
+import { norbertWienerQuestions } from "./norbert-wiener";
+import { richardThalerQuestions } from "./richard-thaler";
+import { amartyaSenQuestions } from "./amartya-sen";
+import { robertMertonQuestions } from "./robert-merton";
+import { harryMarkowitzQuestions } from "./harry-markowitz";
+import { leslieLamportQuestions } from "./leslie-lamport";
+import { perMartinLofQuestions } from "./per-martin-lof";
 
 // New thinkers: Math, Physics, CS, Statistics
-import { laplaceQuestions } from "./pierre-simon-laplace";
-import { bayesQuestions } from "./thomas-bayes";
-import { cantorQuestions } from "./georg-cantor";
-import { cauchyQuestions } from "./augustin-louis-cauchy";
-import { fourierQuestions } from "./joseph-fourier";
-import { schrodingerQuestions } from "./erwin-schrodinger";
-import { heisenbergQuestions } from "./werner-heisenberg";
-import { fermiQuestions } from "./enrico-fermi";
-import { knuthQuestions } from "./donald-knuth";
-import { dijkstraQuestions } from "./edsger-dijkstra";
-import { mccarthyQuestions } from "./john-mccarthy";
-import { hopperQuestions } from "./grace-hopper";
-import { fisherQuestions } from "./ronald-fisher";
-import { pearsonQuestions } from "./karl-pearson";
+import { pierreSimonLaplaceQuestions } from "./pierre-simon-laplace";
+import { thomasBayesQuestions } from "./thomas-bayes";
+import { georgCantorQuestions } from "./georg-cantor";
+import { augustinLouisCauchyQuestions } from "./augustin-louis-cauchy";
+import { josephFourierQuestions } from "./joseph-fourier";
+import { erwinSchrodingerQuestions } from "./erwin-schrodinger";
+import { wernerHeisenbergQuestions } from "./werner-heisenberg";
+import { enricoFermiQuestions } from "./enrico-fermi";
+import { donaldKnuthQuestions } from "./donald-knuth";
+import { edsgerDijkstraQuestions } from "./edsger-dijkstra";
+import { johnMccarthyQuestions } from "./john-mccarthy";
+import { graceHopperQuestions } from "./grace-hopper";
+import { ronaldFisherQuestions } from "./ronald-fisher";
+import { karlPearsonQuestions } from "./karl-pearson";
 
 // Female thinkers additions
-import { hypatiaQuestions } from "./hypatia-of-alexandria";
-import { nightingaleQuestions } from "./florence-nightingale";
-import { meitnerQuestions } from "./lise-meitner";
-import { wuQuestions } from "./chien-shiung-wu";
+import { hypatiaOfAlexandriaQuestions } from "./hypatia-of-alexandria";
+import { florenceNightingaleQuestions } from "./florence-nightingale";
+import { liseMeitnerQuestions } from "./lise-meitner";
+import { chienShiungWuQuestions } from "./chien-shiung-wu";
 import { katherineJohnsonQuestions } from "./katherine-johnson";
-import { hodgkinQuestions } from "./dorothy-hodgkin";
-import { mcclintockQuestions } from "./barbara-mcclintock";
-import { uhlenbeckQuestions } from "./karen-uhlenbeck";
-import { dresselhausQuestions } from "./mildred-dresselhaus";
-import { cartwrightQuestions } from "./mary-cartwright";
+import { dorothyHodgkinQuestions } from "./dorothy-hodgkin";
+import { barbaraMcclintockQuestions } from "./barbara-mcclintock";
+import { karenUhlenbeckQuestions } from "./karen-uhlenbeck";
+import { mildredDresselhausQuestions } from "./mildred-dresselhaus";
+import { maryCartwrightQuestions } from "./mary-cartwright";
 
 // Female thinkers batch 2
-import { pandrosionQuestions } from "./pandrosion-of-alexandria";
-import { duchateletQuestions } from "./emilie-du-chatelet";
-import { agnesiQuestions } from "./maria-gaetana-agnesi";
-import { vaughanQuestions } from "./dorothy-vaughan";
-import { robinsonQuestions } from "./julia-robinson";
-import { germainQuestions } from "./sophie-germain";
-import { payneQuestions } from "./cecilia-payne";
-import { goeppertMayerQuestions } from "./maria-goeppert-mayer";
-import { leavittQuestions } from "./henrietta-leavitt";
-import { daubechiesQuestions } from "./ingrid-daubechies";
+import { pandrosionOfAlexandriaQuestions } from "./pandrosion-of-alexandria";
+import { emilieDuChateletQuestions } from "./emilie-du-chatelet";
+import { mariaGaetanaAgnesiQuestions } from "./maria-gaetana-agnesi";
+import { dorothyVaughanQuestions } from "./dorothy-vaughan";
+import { juliaRobinsonQuestions } from "./julia-robinson";
+import { sophieGermainQuestions } from "./sophie-germain";
+import { ceciliaPayneQuestions } from "./cecilia-payne";
+import { mariaGoeppertMayerQuestions } from "./maria-goeppert-mayer";
+import { henriettaLeavittQuestions } from "./henrietta-leavitt";
+import { ingridDaubechiesQuestions } from "./ingrid-daubechies";
 
 // Prodigies batch 2
-import { landauQuestions } from "./lev-landau";
-import { feffermanQuestions } from "./charles-fefferman";
-import { elkiesQuestions } from "./noam-elkies";
+import { levLandauQuestions } from "./lev-landau";
+import { charlesFeffermanQuestions } from "./charles-fefferman";
+import { noamElkiesQuestions } from "./noam-elkies";
 import { ruthLawrenceQuestions } from "./ruth-lawrence";
 import { alissaCransQuestions } from "./alissa-crans";
 import { juneHuhQuestions } from "./june-huh";
-import { rudnickQuestions } from "./zeev-rudnick";
+import { zeevRudnickQuestions } from "./zeev-rudnick";
 
 // Foundational Architects, Chaos/Complexity, Neural Net pioneers, Scale
-import { booleQuestions } from "./george-boole";
-import { markovQuestions } from "./andrey-markov";
-import { lorenzQuestions } from "./edward-lorenz";
-import { mandelbrotQuestions } from "./benoit-mandelbrot";
-import { hopfieldQuestions } from "./john-hopfield";
-import { rosenblattQuestions } from "./frank-rosenblatt";
+import { georgeBooleQuestions } from "./george-boole";
+import { andreyMarkovQuestions } from "./andrey-markov";
+import { edwardLorenzQuestions } from "./edward-lorenz";
+import { benoitMandelbrotQuestions } from "./benoit-mandelbrot";
+import { johnHopfieldQuestions } from "./john-hopfield";
+import { frankRosenblattQuestions } from "./frank-rosenblatt";
 import { margaretHamiltonQuestions } from "./margaret-hamilton";
-import { mooreQuestions } from "./gordon-moore";
-import { wolframQuestions } from "./stephen-wolfram";
+import { gordonMooreQuestions } from "./gordon-moore";
+import { stephenWolframQuestions } from "./stephen-wolfram";
 
 // Global Pioneers & Non-Western Titans
-import { perlmanQuestions } from "./radia-perlman";
-import { easleyQuestions } from "./annie-easley";
-import { saruhashiQuestions } from "./katsuko-saruhashi";
-import { madhavaQuestions } from "./madhava-of-sangamagrama";
+import { radiaPerlmanQuestions } from "./radia-perlman";
+import { annieEasleyQuestions } from "./annie-easley";
+import { katsukoSaruhashiQuestions } from "./katsuko-saruhashi";
+import { madhavaOfSangamagramaQuestions } from "./madhava-of-sangamagrama";
 import { brahmaguptaQuestions } from "./brahmagupta";
-import { boseQuestions } from "./satyendra-bose";
+import { satyendraBoseQuestions } from "./satyendra-bose";
 import { alJazariQuestions } from "./al-jazari";
-import { sekiQuestions } from "./seki-takakazu";
+import { sekiTakakazuQuestions } from "./seki-takakazu";
 
 // Paradox Masters & Foundational Logicians
-import { zenoQuestions } from "./zeno-of-elea";
-import { eubulidesQuestions } from "./eubulides-of-miletus";
-import { torricelliQuestions } from "./evangelista-torricelli";
-import { russellQuestions } from "./bertrand-russell";
-import { banachTarskiQuestions } from "./stefan-banach";
-import { brouwerQuestions } from "./l-e-j-brouwer";
-import { quineQuestions } from "./w-v-o-quine";
+import { zenoOfEleaQuestions } from "./zeno-of-elea";
+import { eubulidesOfMiletusQuestions } from "./eubulides-of-miletus";
+import { evangelistaTorricelliQuestions } from "./evangelista-torricelli";
+import { bertrandRussellQuestions } from "./bertrand-russell";
+import { stefanBanachQuestions } from "./stefan-banach";
+import { lEJBrouwerQuestions } from "./l-e-j-brouwer";
+import { wVOQuineQuestions } from "./w-v-o-quine";
 
 // Synthesists, Morphologists, Market Physicists
-import { chowningQuestions } from "./john-chowning";
-import { xenakisQuestions } from "./iannis-xenakis";
-import { helmholtzQuestions } from "./hermann-von-helmholtz";
-import { keplerQuestions } from "./johannes-kepler";
+import { johnChowningQuestions } from "./john-chowning";
+import { iannisXenakisQuestions } from "./iannis-xenakis";
+import { hermannVonHelmholtzQuestions } from "./hermann-von-helmholtz";
+import { johannesKeplerQuestions } from "./johannes-kepler";
 import { thompsonDarcyQuestions } from "./thompson-darcy";
-import { conwayQuestions } from "./john-conway";
-import { fibonacciQuestions } from "./leonardo-fibonacci";
-import { mendelQuestions } from "./gregor-mendel";
-import { itoQuestions } from "./kiyosi-ito";
-import { bachelierQuestions } from "./louis-bachelier";
-import { shapleyQuestions } from "./lloyd-shapley";
+import { johnConwayQuestions } from "./john-conway";
+import { leonardoFibonacciQuestions } from "./leonardo-fibonacci";
+import { gregorMendelQuestions } from "./gregor-mendel";
+import { kiyosiItoQuestions } from "./kiyosi-ito";
+import { louisBachelierQuestions } from "./louis-bachelier";
+import { lloydShapleyQuestions } from "./lloyd-shapley";
 
 // Market Architects & Strategic Minds
-import { arrowQuestions } from "./kenneth-arrow";
-import { solowQuestions } from "./robert-solow";
-import { ostromQuestions } from "./elinor-ostrom";
-import { kantorovichQuestions } from "./leonid-kantorovich";
-import { blackwellQuestions } from "./david-blackwell";
-import { dufloQuestions } from "./esther-duflo";
-import { debreuQuestions } from "./gerard-debreu";
-import { adelmanQuestions } from "./leonard-adleman";
-import { goldinQuestions } from "./claudia-goldin";
-import { schellingQuestions } from "./thomas-schelling";
+import { kennethArrowQuestions } from "./kenneth-arrow";
+import { robertSolowQuestions } from "./robert-solow";
+import { elinorOstromQuestions } from "./elinor-ostrom";
+import { leonidKantorovichQuestions } from "./leonid-kantorovich";
+import { davidBlackwellQuestions } from "./david-blackwell";
+import { estherDufloQuestions } from "./esther-duflo";
+import { gerardDebreuQuestions } from "./gerard-debreu";
+import { leonardAdlemanQuestions } from "./leonard-adleman";
+import { claudiaGoldinQuestions } from "./claudia-goldin";
+import { thomasSchellingQuestions } from "./thomas-schelling";
 
 // Pure Math Final Bosses
-import { perelmanQuestions } from "./grigori-perelman";
-import { wilesQuestions } from "./andrew-wiles";
-import { penroseQuestions } from "./roger-penrose";
+import { grigoriPerelmanQuestions } from "./grigori-perelman";
+import { andrewWilesQuestions } from "./andrew-wiles";
+import { rogerPenroseQuestions } from "./roger-penrose";
 
 // Digital Architects
-import { ritchieQuestions } from "./dennis-ritchie";
-import { bernersLeeQuestions } from "./tim-berners-lee";
+import { dennisRitchieQuestions } from "./dennis-ritchie";
+import { timBernersLeeQuestions } from "./tim-berners-lee";
 import { joanClarkeQuestions } from "./joan-clarke";
 
 // Risk, Physics, and Markets
-import { talebQuestions } from "./nassim-taleb";
-import { samuelsonQuestions } from "./paul-samuelson";
-import { wittenQuestions } from "./edward-witten";
-import { bellBurnellQuestions } from "./jocelyn-bell-burnell";
+import { nassimTalebQuestions } from "./nassim-taleb";
+import { paulSamuelsonQuestions } from "./paul-samuelson";
+import { edwardWittenQuestions } from "./edward-witten";
+import { jocelynBellBurnellQuestions } from "./jocelyn-bell-burnell";
 
 // Nuclear Age
-import { oppenheimerQuestions } from "./j-robert-oppenheimer";
-import { ulamQuestions } from "./stanislaw-ulam";
-import { szilardQuestions } from "./leo-szilard";
-import { wheelerQuestions } from "./john-wheeler";
-import { betheQuestions } from "./hans-bethe";
+import { jRobertOppenheimerQuestions } from "./j-robert-oppenheimer";
+import { stanislawUlamQuestions } from "./stanislaw-ulam";
+import { leoSzilardQuestions } from "./leo-szilard";
+import { johnWheelerQuestions } from "./john-wheeler";
+import { hansBetheQuestions } from "./hans-bethe";
 
 // Santa Fe Institute / Complexity Masters
-import { farmerQuestions } from "./j-doyne-farmer";
+import { jDoyneFarmerQuestions } from "./j-doyne-farmer";
 import { brianArthurQuestions } from "./brian-arthur";
-import { hollandQuestions } from "./john-holland";
-import { gellMannQuestions } from "./murray-gell-mann";
+import { johnHollandQuestions } from "./john-holland";
+import { murrayGellMannQuestions } from "./murray-gell-mann";
 import { geoffreyWestQuestions } from "./geoffrey-west";
 import { melanieMitchellQuestions } from "./melanie-mitchell";
 
 // New Modern AI & Math thinkers
-import { khotQuestions } from "./subhash-khot";
-import { candesQuestions } from "./emmanuel-candes";
-import { aroraQuestions } from "./sanjeev-arora";
-import { villaniQuestions } from "./cedric-villani";
-import { michaelJordanMLQuestions } from "./michael-jordan";
+import { subhashKhotQuestions } from "./subhash-khot";
+import { emmanuelCandesQuestions } from "./emmanuel-candes";
+import { sanjeevAroraQuestions } from "./sanjeev-arora";
+import { cedricVillaniQuestions } from "./cedric-villani";
+import { michaelJordanQuestions } from "./michael-jordan";
 import { alexandrWangQuestions } from "./alexandr-wang";
 import { benGreenQuestions } from "./ben-green";
 
 // Thermodynamics & Physics thinkers
-import { boltzmannQuestions } from "./ludwig-boltzmann";
+import { ludwigBoltzmannQuestions } from "./ludwig-boltzmann";
 import { danielBernoulliQuestions } from "./daniel-bernoulli";
-import { nernstQuestions } from "./walther-nernst";
-import { rayleighQuestions } from "./lord-rayleigh";
-import { kelvinQuestions } from "./lord-kelvin";
+import { waltherNernstQuestions } from "./walther-nernst";
+import { lordRayleighQuestions } from "./lord-rayleigh";
+import { lordKelvinQuestions } from "./lord-kelvin";
 
 // Earth & Space thinkers batch 2
-import { arrheniusQuestions } from "./svante-arrhenius";
-import { friedmannQuestions } from "./alexander-friedmann";
-import { gamowQuestions } from "./george-gamow";
-import { chandrasekharQuestions } from "./subrahmanyan-chandrasekhar";
-import { zwickyQuestions } from "./fritz-zwicky";
+import { svanteArrheniusQuestions } from "./svante-arrhenius";
+import { alexanderFriedmannQuestions } from "./alexander-friedmann";
+import { georgeGamowQuestions } from "./george-gamow";
+import { subrahmanyanChandrasekharQuestions } from "./subrahmanyan-chandrasekhar";
+import { fritzZwickyQuestions } from "./fritz-zwicky";
 
 // Pure Math Titans batch
-import { jacobiQuestions } from "./carl-jacobi";
-import { liouvilleQuestions } from "./joseph-liouville";
-import { kleinQuestions } from "./felix-klein";
-import { eisensteinQuestions } from "./gotthold-eisenstein";
-import { borelQuestions } from "./emile-borel";
-import { churchQuestions } from "./alonzo-church";
+import { carlJacobiQuestions } from "./carl-jacobi";
+import { josephLiouvilleQuestions } from "./joseph-liouville";
+import { felixKleinQuestions } from "./felix-klein";
+import { gottholdEisensteinQuestions } from "./gotthold-eisenstein";
+import { emileBorelQuestions } from "./emile-borel";
+import { alonzoChurchQuestions } from "./alonzo-church";
 
 // Electromagnetism & Optics Pioneers
-import { olbersQuestions } from "./heinrich-olbers";
-import { huygensQuestions } from "./christiaan-huygens";
+import { heinrichOlbersQuestions } from "./heinrich-olbers";
+import { christiaanHuygensQuestions } from "./christiaan-huygens";
 import { thomasYoungQuestions } from "./thomas-young";
-import { coulombQuestions } from "./charles-coulomb";
-import { ampereQuestions } from "./andre-marie-ampere";
-import { lenzQuestions } from "./heinrich-lenz";
-import { biotSavartQuestions } from "./jean-baptiste-biot";
-import { ehrenfestQuestions } from "./paul-ehrenfest";
+import { charlesCoulombQuestions } from "./charles-coulomb";
+import { andreMarieAmpereQuestions } from "./andre-marie-ampere";
+import { heinrichLenzQuestions } from "./heinrich-lenz";
+import { jeanBaptisteBiotQuestions } from "./jean-baptiste-biot";
+import { paulEhrenfestQuestions } from "./paul-ehrenfest";
 
 // Population, Mechanics, Numerical, Astro, Plasma, Neuro, StatPhys, Chemistry, Drag, Weather
-import { lotkaQuestions } from "./alfred-lotka";
-import { verhulstQuestions } from "./pierre-verhulst";
-import { stokesQuestions } from "./george-stokes";
-import { rungeQuestions } from "./carl-runge";
-import { emdenQuestions } from "./robert-emden";
-import { hasegawaQuestions } from "./akira-hasegawa";
-import { fitzhughQuestions } from "./richard-fitzhugh";
-import { kardarQuestions } from "./mehran-kardar";
-import { prigogineQuestions } from "./ilya-prigogine";
-import { batemanQuestions } from "./harry-bateman";
-import { richardsonQuestions } from "./lewis-fry-richardson";
+import { alfredLotkaQuestions } from "./alfred-lotka";
+import { pierreVerhulstQuestions } from "./pierre-verhulst";
+import { georgeStokesQuestions } from "./george-stokes";
+import { carlRungeQuestions } from "./carl-runge";
+import { robertEmdenQuestions } from "./robert-emden";
+import { akiraHasegawaQuestions } from "./akira-hasegawa";
+import { richardFitzhughQuestions } from "./richard-fitzhugh";
+import { mehranKardarQuestions } from "./mehran-kardar";
+import { ilyaPrigogineQuestions } from "./ilya-prigogine";
+import { harryBatemanQuestions } from "./harry-bateman";
+import { lewisFryRichardsonQuestions } from "./lewis-fry-richardson";
 
 // Non-Western & Global Mathematicians batch 2
-import { bhaskaraQuestions } from "./bhaskara-ii";
+import { bhaskaraIiQuestions } from "./bhaskara-ii";
 import { qinJiushaoQuestions } from "./qin-jiushao";
 import { zhuShijieQuestions } from "./zhu-shijie";
-import { khayyamQuestions } from "./omar-khayyam";
-import { alKarajiQuestions } from "./abu-bakr-al-karaji";
-import { takebeQuestions } from "./takebe-katahiro";
+import { omarKhayyamQuestions } from "./omar-khayyam";
+import { abuBakrAlKarajiQuestions } from "./abu-bakr-al-karaji";
+import { takebeKatahiroQuestions } from "./takebe-katahiro";
 
 // Ancient & Global thinkers batch 3
 import { yajnavalkyaQuestions } from "./yajnavalkya";
 import { theaetetusQuestions } from "./theaetetus";
-import { diophantusQuestions } from "./diophantus-of-alexandria";
+import { diophantusOfAlexandriaQuestions } from "./diophantus-of-alexandria";
 import { huaLuogengQuestions } from "./hua-luogeng";
-import { viazovskaQuestions } from "./maryna-viazovska";
+import { marynaViazovskaQuestions } from "./maryna-viazovska";
 
 // Prediction Markets & Market Microstructure
-import { hansonQuestions } from "./robin-hanson";
-import { avellanedaQuestions } from "./marco-avellaneda";
+import { robinHansonQuestions } from "./robin-hanson";
+import { marcoAvellanedaQuestions } from "./marco-avellaneda";
 import { glostenMilgromQuestions } from "./glosten-milgrom";
 
 
 // The Code & Logic Pioneers (CS, AI & Systems)
-import { babbageQuestions } from "./charles-babbage";
-import { minskyQuestions } from "./marvin-minsky";
-import { coddQuestions } from "./edgar-codd";
+import { charlesBabbageQuestions } from "./charles-babbage";
+import { marvinMinskyQuestions } from "./marvin-minsky";
+import { edgarCoddQuestions } from "./edgar-codd";
 import { kenThompsonQuestions } from "./ken-thompson";
-import { torvaldsQuestions } from "./linus-torvalds";
+import { linusTorvaldsQuestions } from "./linus-torvalds";
 import { cerfKahnQuestions } from "./cerf-kahn";
-import { backusQuestions } from "./john-backus";
-import { hoareQuestions } from "./tony-hoare";
-import { liskovQuestions } from "./barbara-liskov";
-import { cookQuestions } from "./stephen-cook";
-import { karpQuestions } from "./richard-karp";
-import { levinQuestions } from "./leonid-levin";
+import { johnBackusQuestions } from "./john-backus";
+import { tonyHoareQuestions } from "./tony-hoare";
+import { barbaraLiskovQuestions } from "./barbara-liskov";
+import { stephenCookQuestions } from "./stephen-cook";
+import { richardKarpQuestions } from "./richard-karp";
+import { leonidLevinQuestions } from "./leonid-levin";
 import { francesAllenQuestions } from "./frances-allen";
-import { engelbartQuestions } from "./douglas-engelbart";
-import { sutherlandQuestions } from "./ivan-sutherland";
+import { douglasEngelbartQuestions } from "./douglas-engelbart";
+import { ivanSutherlandQuestions } from "./ivan-sutherland";
 import { alanKayQuestions } from "./alan-kay";
 import { emilPostQuestions } from "./emil-post";
-import { chomskyQuestions } from "./noam-chomsky";
-import { newellQuestions } from "./allen-newell";
-import { dantzigQuestions } from "./george-dantzig";
+import { noamChomskyQuestions } from "./noam-chomsky";
+import { allenNewellQuestions } from "./allen-newell";
+import { georgeDantzigQuestions } from "./george-dantzig";
 
 // The Quants & Probabilists (Economics, Finance & Stats)
-import { kellyQuestions } from "./john-kelly";
-import { scholesQuestions } from "./myron-scholes";
-import { famaQuestions } from "./eugene-fama";
-import { sharpeQuestions } from "./william-sharpe";
-import { rossQuestions } from "./stephen-ross";
-import { dermanQuestions } from "./emanuel-derman";
-import { carrQuestions } from "./peter-carr";
-import { wilmottQuestions } from "./paul-wilmott";
-import { shreveQuestions } from "./steven-shreve";
-import { levyQuestions } from "./haim-levy";
-import { fellerQuestions } from "./william-feller";
-import { coxQuestions } from "./john-cox";
-import { hotellingQuestions } from "./harold-hotelling";
-import { grangerQuestions } from "./clive-granger";
-import { engleQuestions } from "./robert-engle";
-import { boxQuestions } from "./george-box";
-import { jenkinsQuestions } from "./gwilym-jenkins";
-import { ramseyQuestions } from "./frank-ramsey";
-import { muthQuestions } from "./john-muth";
-import { shiryaevQuestions } from "./albert-shiryaev";
+import { johnKellyQuestions } from "./john-kelly";
+import { myronScholesQuestions } from "./myron-scholes";
+import { eugeneFamaQuestions } from "./eugene-fama";
+import { williamSharpeQuestions } from "./william-sharpe";
+import { stephenRossQuestions } from "./stephen-ross";
+import { emanuelDermanQuestions } from "./emanuel-derman";
+import { peterCarrQuestions } from "./peter-carr";
+import { paulWilmottQuestions } from "./paul-wilmott";
+import { stevenShreveQuestions } from "./steven-shreve";
+import { haimLevyQuestions } from "./haim-levy";
+import { williamFellerQuestions } from "./william-feller";
+import { johnCoxQuestions } from "./john-cox";
+import { haroldHotellingQuestions } from "./harold-hotelling";
+import { cliveGrangerQuestions } from "./clive-granger";
+import { robertEngleQuestions } from "./robert-engle";
+import { georgeBoxQuestions } from "./george-box";
+import { gwilymJenkinsQuestions } from "./gwilym-jenkins";
+import { frankRamseyQuestions } from "./frank-ramsey";
+import { johnMuthQuestions } from "./john-muth";
+import { albertShiryaevQuestions } from "./albert-shiryaev";
 
 // The Masters of Form & Infinity (Pure & Applied Math)
-import { descartesQuestions } from "./rene-descartes";
-import { cardanoQuestions } from "./gerolamo-cardano";
-import { napierQuestions } from "./john-napier";
+import { reneDescartesQuestions } from "./rene-descartes";
+import { gerolamoCardanoQuestions } from "./gerolamo-cardano";
+import { johnNapierQuestions } from "./john-napier";
 import { brookTaylorQuestions } from "./brook-taylor";
-import { maclaurinQuestions } from "./colin-maclaurin";
-import { mongeQuestions } from "./gaspard-monge";
-import { cayleyQuestions } from "./arthur-cayley";
-import { sylvesterQuestions } from "./james-sylvester";
-import { lebesgueQuestions } from "./henri-lebesgue";
-import { weierstrassQuestions } from "./karl-weierstrass";
-import { dedekindQuestions } from "./richard-dedekind";
-import { weylQuestions } from "./hermann-weyl";
-import { arnoldQuestions } from "./vladimir-arnold";
-import { serreQuestions } from "./jeanpierre-serre";
-import { atiyahQuestions } from "./michael-atiyah";
-import { singerQuestions } from "./isadore-singer";
-import { chebyshevQuestions } from "./pafnuty-chebyshev";
-import { lyapunovQuestions } from "./aleksandr-lyapunov";
-import { cartanQuestions } from "./elie-cartan";
-import { hausdorffQuestions } from "./felix-hausdorff";
+import { colinMaclaurinQuestions } from "./colin-maclaurin";
+import { gaspardMongeQuestions } from "./gaspard-monge";
+import { arthurCayleyQuestions } from "./arthur-cayley";
+import { jamesSylvesterQuestions } from "./james-sylvester";
+import { henriLebesgueQuestions } from "./henri-lebesgue";
+import { karlWeierstrassQuestions } from "./karl-weierstrass";
+import { richardDedekindQuestions } from "./richard-dedekind";
+import { hermannWeylQuestions } from "./hermann-weyl";
+import { vladimirArnoldQuestions } from "./vladimir-arnold";
+import { jeanpierreSerreQuestions } from "./jeanpierre-serre";
+import { michaelAtiyahQuestions } from "./michael-atiyah";
+import { isadoreSingerQuestions } from "./isadore-singer";
+import { pafnutyChebyshevQuestions } from "./pafnuty-chebyshev";
+import { aleksandrLyapunovQuestions } from "./aleksandr-lyapunov";
+import { elieCartanQuestions } from "./elie-cartan";
+import { felixHausdorffQuestions } from "./felix-hausdorff";
 
 // The Architects of the Physical World (Physics & Chemistry)
-import { galileoQuestions } from "./galileo-galilei";
-import { carnotQuestions } from "./sadi-carnot";
-import { gibbsQuestions } from "./willard-gibbs";
-import { rutherfordQuestions } from "./ernest-rutherford";
-import { jjthomsonQuestions } from "./jj-thomson";
-import { lorentzQuestions } from "./hendrik-lorentz";
-import { minkowskiQuestions } from "./hermann-minkowski";
-import { pauliQuestions } from "./wolfgang-pauli";
-import { bornQuestions } from "./max-born";
-import { schwingerQuestions } from "./julian-schwinger";
-import { dysonQuestions } from "./freeman-dyson";
-import { johnbellQuestions } from "./john-bell";
-import { thorneQuestions } from "./kip-thorne";
-import { lemaitreQuestions } from "./georges-lemaitre";
-import { eddingtonQuestions } from "./arthur-eddington";
-import { avogadroQuestions } from "./amedeo-avogadro";
-import { berzeliusQuestions } from "./jons-berzelius";
-import { davyQuestions } from "./humphry-davy";
-import { michelsonQuestions } from "./albert-michelson";
-import { wolfeQuestions } from "./george-wolfe";
-import { farkasQuestions } from "./julius-farkas";
-import { gomoryQuestions } from "./ralph-gomory";
-import { bendersQuestions } from "./jacques-benders";
+import { galileoGalileiQuestions } from "./galileo-galilei";
+import { sadiCarnotQuestions } from "./sadi-carnot";
+import { willardGibbsQuestions } from "./willard-gibbs";
+import { ernestRutherfordQuestions } from "./ernest-rutherford";
+import { jjThomsonQuestions } from "./jj-thomson";
+import { hendrikLorentzQuestions } from "./hendrik-lorentz";
+import { hermannMinkowskiQuestions } from "./hermann-minkowski";
+import { wolfgangPauliQuestions } from "./wolfgang-pauli";
+import { maxBornQuestions } from "./max-born";
+import { julianSchwingerQuestions } from "./julian-schwinger";
+import { freemanDysonQuestions } from "./freeman-dyson";
+import { johnBellQuestions } from "./john-bell";
+import { kipThorneQuestions } from "./kip-thorne";
+import { georgesLemaitreQuestions } from "./georges-lemaitre";
+import { arthurEddingtonQuestions } from "./arthur-eddington";
+import { amedeoAvogadroQuestions } from "./amedeo-avogadro";
+import { jonsBerzeliusQuestions } from "./jons-berzelius";
+import { humphryDavyQuestions } from "./humphry-davy";
+import { albertMichelsonQuestions } from "./albert-michelson";
+import { georgeWolfeQuestions } from "./george-wolfe";
+import { juliusFarkasQuestions } from "./julius-farkas";
+import { ralphGomoryQuestions } from "./ralph-gomory";
+import { jacquesBendersQuestions } from "./jacques-benders";
 
 // The System Thinkers (Biology, Engineering & Philosophy)
-import { leeuwenhoekQuestions } from "./antonie-leeuwenhoek";
-import { pasteurQuestions } from "./louis-pasteur";
-import { kochQuestions } from "./robert-koch";
-import { watsoncrickQuestions } from "./watson-crick";
-import { sangerQuestions } from "./frederick-sanger";
-import { mullisQuestions } from "./kary-mullis";
-import { salkQuestions } from "./jonas-salk";
+import { antonieLeeuwenhoekQuestions } from "./antonie-leeuwenhoek";
+import { louisPasteurQuestions } from "./louis-pasteur";
+import { robertKochQuestions } from "./robert-koch";
+import { watsonCrickQuestions } from "./watson-crick";
+import { frederickSangerQuestions } from "./frederick-sanger";
+import { karyMullisQuestions } from "./kary-mullis";
+import { jonasSalkQuestions } from "./jonas-salk";
 import { claudeBernardQuestions } from "./claude-bernard";
-import { huntmorganQuestions } from "./thomas-morgan";
-import { heavisideQuestions } from "./oliver-heaviside";
-import { nyquistQuestions } from "./harry-nyquist";
-import { dieselQuestions } from "./rudolf-diesel";
-import { ottoQuestions } from "./nikolaus-otto";
+import { thomasMorganQuestions } from "./thomas-morgan";
+import { oliverHeavisideQuestions } from "./oliver-heaviside";
+import { harryNyquistQuestions } from "./harry-nyquist";
+import { rudolfDieselQuestions } from "./rudolf-diesel";
+import { nikolausOttoQuestions } from "./nikolaus-otto";
 import { zieglerNattaQuestions } from "./ziegler-natta";
-import { searleQuestions } from "./john-searle";
-import { popperQuestions } from "./karl-popper";
-import { kuhnQuestions } from "./thomas-kuhn";
-import { fullerQuestions } from "./buckminster-fuller";
+import { johnSearleQuestions } from "./john-searle";
+import { karlPopperQuestions } from "./karl-popper";
+import { thomasKuhnQuestions } from "./thomas-kuhn";
+import { buckminsterFullerQuestions } from "./buckminster-fuller";
 import { herbertSimonQuestions } from "./herbert-simon";
-import { coaseQuestions } from "./ronald-coase";
+import { ronaldCoaseQuestions } from "./ronald-coase";
 
 export const allThinkerQuestions: Question[] = [
   // Original 10
-  ...hintonQuestions,
-  ...turingQuestions,
-  ...shannonQuestions,
-  ...poincareQuestions,
-  ...riemannQuestions,
-  ...feynmanQuestions,
-  ...vonNeumannQuestions,
-  ...pearlQuestions,
-  ...simonsQuestions,
-  ...ramanujanQuestions,
+  ...geoffreyHintonQuestions,
+  ...alanTuringQuestions,
+  ...claudeShannonQuestions,
+  ...henriPoincareQuestions,
+  ...bernhardRiemannQuestions,
+  ...richardFeynmanQuestions,
+  ...johnVonNeumannQuestions,
+  ...judeaPearlQuestions,
+  ...jimSimonsQuestions,
+  ...srinivasaRamanujanQuestions,
   // Ancient thinkers
-  ...euclidQuestions,
-  ...archimedесQuestions,
-  ...newtonQuestions,
-  ...eulerQuestions,
-  ...pythagorasQuestions,
-  ...gaussQuestions,
+  ...euclidOfAlexandriaQuestions,
+  ...archimedesOfSyracuseQuestions,
+  ...isaacNewtonQuestions,
+  ...leonhardEulerQuestions,
+  ...pythagorasOfSamosQuestions,
+  ...carlFriedrichGaussQuestions,
   // New ancient
-  ...leibnizQuestions,
-  ...fermatQuestions,
-  ...alkhwarizmiQuestions,
-  ...lovelaceQuestions,
-  ...noetherQuestions,
-  ...curieQuestions,
+  ...gottfriedWilhelmLeibnizQuestions,
+  ...pierreDeFermatQuestions,
+  ...muhammadAlKhwarizmiQuestions,
+  ...adaLovelaceQuestions,
+  ...emmyNoetherQuestions,
+  ...marieCurieQuestions,
   // Modern
-  ...bengioQuestions,
-  ...lecunQuestions,
-  ...suttonQuestions,
-  ...goodfellowQuestions,
-  ...vapnikQuestions,
-  ...einsteinQuestions,
-  ...godelQuestions,
-  ...diracQuestions,
-  ...kolmogorovQuestions,
-  ...hawkingQuestions,
+  ...yoshuaBengioQuestions,
+  ...yannLecunQuestions,
+  ...richardSuttonQuestions,
+  ...ianGoodfellowQuestions,
+  ...vladimirVapnikQuestions,
+  ...albertEinsteinQuestions,
+  ...kurtGodelQuestions,
+  ...paulDiracQuestions,
+  ...andreyKolmogorovQuestions,
+  ...stephenHawkingQuestions,
   // Contemporary
-  ...hassabisQuestions,
-  ...vaswaniQuestions,
-  ...karpathyQuestions,
-  ...altmanQuestions,
-  ...amodeiQuestions,
-  ...ngQuestions,
-  ...lifeiQuestions,
-  ...ilyaQuestions,
+  ...demisHassabisQuestions,
+  ...ashishVaswaniQuestions,
+  ...andrejKarpathyQuestions,
+  ...samAltmanQuestions,
+  ...darioAmodeiQuestions,
+  ...andrewNgQuestions,
+  ...feiFeiLiQuestions,
+  ...ilyaSutskeverQuestions,
   // Global MasterMinds
-  ...taoQuestions,
-  ...erdosQuestions,
-  ...ramanQuestions,
-  ...mirzakhaniQuestions,
-  ...chernQuestions,
-  ...zhangQuestions,
-  ...goldwasserQuestions,
-  ...kashiwaraQuestions,
-  ...birkarQuestions,
-  ...grothendieckQuestions,
-  ...kovalevskayaQuestions,
+  ...terenceTaoQuestions,
+  ...paulErdosQuestions,
+  ...chandrasekharaVRamanQuestions,
+  ...maryamMirzakhaniQuestions,
+  ...shiingShenChernQuestions,
+  ...zhangYitangQuestions,
+  ...shafiGoldwasserQuestions,
+  ...masakiKashiwaraQuestions,
+  ...caucherBirkarQuestions,
+  ...alexanderGrothendieckQuestions,
+  ...sofiaKovalevskayaQuestions,
   // New additions
   ...jeffDeanQuestions,
   ...kaiFuLeeQuestions,
-  ...schmidhuberQuestions,
-  ...linnainmaaQuestions,
-  ...kozyrkovQuestions,
-  ...suleymanQuestions,
-  ...hilbertQuestions,
-  ...gebruQuestions,
+  ...juergenSchmidhuberQuestions,
+  ...seppoLinnainmaaQuestions,
+  ...cassieKozyrkovQuestions,
+  ...mustafaSuleymanQuestions,
+  ...davidHilbertQuestions,
+  ...timnitGebruQuestions,
   // Prodigies
-  ...pascalQuestions,
-  ...galoisQuestions,
-  ...hamiltonWRQuestions,
-  ...abelQuestions,
-  ...scholzeQuestions,
-  ...venkateshQuestions,
-  ...deviQuestions,
-  ...demaineQuestions,
+  ...blaisePascalQuestions,
+  ...evaristeGaloisQuestions,
+  ...williamRowanHamiltonQuestions,
+  ...nielsHenrikAbelQuestions,
+  ...peterScholzeQuestions,
+  ...akshayVenkateshQuestions,
+  ...shakuntalaDeviQuestions,
+  ...erikDemaineQuestions,
   // Earth & Space
   ...carlSaganQuestions,
-  ...wegenerQuestions,
+  ...alfredWegenerQuestions,
   ...veraRubinQuestions,
   // Economics
   ...adamSmithQuestions,
   ...johnNashQuestions,
-  ...keynesQuestions,
+  ...johnMaynardKeynesQuestions,
   // Engineering
   ...nikolaTeslaQuestions,
-  ...vonBraunQuestions,
+  ...wernherVonBraunQuestions,
   ...hedyLamarrQuestions,
   // Biology
-  ...darwinQuestions,
+  ...charlesDarwinQuestions,
   ...rosalindFranklinQuestions,
-  ...doudnaQuestions,
+  ...jenniferDoudnaQuestions,
   // Chemistry
-  ...mendeleevQuestions,
-  ...lavoisierQuestions,
-  ...paulingQuestions,
+  ...dmitriMendeleevQuestions,
+  ...antoineLavoisierQuestions,
+  ...linusPaulingQuestions,
   // Medical
-  ...flemingQuestions,
-  ...jennerQuestions,
+  ...alexanderFlemingQuestions,
+  ...edwardJennerQuestions,
   // Quant
   ...fischerBlackQuestions,
   ...edThorpQuestions,
   // Human Sciences
-  ...kahnemanQuestions,
-  ...pavlovQuestions,
+  ...danielKahnemanQuestions,
+  ...ivanPavlovQuestions,
   // Data Science
-  ...tukeyQuestions,
+  ...johnTukeyQuestions,
   // π Pioneers & Trigonometry
-  ...vieteQuestions,
-  ...wallisQuestions,
-  ...gregoryQuestions,
-  ...vanCeulenQuestions,
+  ...francoisVieteQuestions,
+  ...johnWallisQuestions,
+  ...jamesGregoryQuestions,
+  ...ludolphVanCeulenQuestions,
   ...alkashiPiQuestions,
-  ...ptolemyQuestions,
-  ...hipparchusQuestions,
-  ...tusiQuestions,
+  ...claudiusPtolemyQuestions,
+  ...hipparchusOfNicaeaQuestions,
+  ...nasirAlDinAlTusiQuestions,
   // Cryptography Pioneers
-  ...satoshiQuestions,
-  ...diffieQuestions,
-  ...shamirQuestions,
-  ...kirchhoffQuestions,
-  ...merkleQuestions,
-  ...rivestQuestions,
+  ...satoshiNakamotoQuestions,
+  ...whitfieldDiffieQuestions,
+  ...adiShamirQuestions,
+  ...augusteKirchhoffQuestions,
+  ...ralphMerkleQuestions,
+  ...ronRivestQuestions,
   // Applied Sciences
-  ...alhazenQuestions,
-  ...maxwellQuestions,
-  ...marconiQuestions,
-  ...shockleyQuestions,
-  ...kilbyQuestions,
-  ...hookeQuestions,
+  ...ibnAlHaythamQuestions,
+  ...jamesClerkMaxwellQuestions,
+  ...guglielmoMarconiQuestions,
+  ...williamShockleyQuestions,
+  ...jackKilbyQuestions,
+  ...robertHookeQuestions,
   // New thinkers
-  ...hubbleQuestions,
+  ...edwinHubbleQuestions,
   ...georgeGreenQuestions,
-  ...faradayQuestions,
-  ...planckQuestions,
-  ...bohrQuestions,
+  ...michaelFaradayQuestions,
+  ...maxPlanckQuestions,
+  ...nielsBohrQuestions,
   // New thinkers
-  ...kalmanQuestions,
-  ...wienerQuestions,
-  ...thalerQuestions,
-  ...senQuestions,
-  ...mertonRobertQuestions,
-  ...markowitzQuestions,
-  ...lamportQuestions,
-  ...martinLofQuestions,
+  ...rudolfKalmanQuestions,
+  ...norbertWienerQuestions,
+  ...richardThalerQuestions,
+  ...amartyaSenQuestions,
+  ...robertMertonQuestions,
+  ...harryMarkowitzQuestions,
+  ...leslieLamportQuestions,
+  ...perMartinLofQuestions,
   // New thinkers: Math, Physics, CS, Statistics
-  ...laplaceQuestions,
-  ...bayesQuestions,
-  ...cantorQuestions,
-  ...cauchyQuestions,
-  ...fourierQuestions,
-  ...schrodingerQuestions,
-  ...heisenbergQuestions,
-  ...fermiQuestions,
-  ...knuthQuestions,
-  ...dijkstraQuestions,
-  ...mccarthyQuestions,
-  ...hopperQuestions,
-  ...fisherQuestions,
-  ...pearsonQuestions,
+  ...pierreSimonLaplaceQuestions,
+  ...thomasBayesQuestions,
+  ...georgCantorQuestions,
+  ...augustinLouisCauchyQuestions,
+  ...josephFourierQuestions,
+  ...erwinSchrodingerQuestions,
+  ...wernerHeisenbergQuestions,
+  ...enricoFermiQuestions,
+  ...donaldKnuthQuestions,
+  ...edsgerDijkstraQuestions,
+  ...johnMccarthyQuestions,
+  ...graceHopperQuestions,
+  ...ronaldFisherQuestions,
+  ...karlPearsonQuestions,
   // Female thinkers
-  ...hypatiaQuestions,
-  ...nightingaleQuestions,
-  ...meitnerQuestions,
-  ...wuQuestions,
+  ...hypatiaOfAlexandriaQuestions,
+  ...florenceNightingaleQuestions,
+  ...liseMeitnerQuestions,
+  ...chienShiungWuQuestions,
   ...katherineJohnsonQuestions,
-  ...hodgkinQuestions,
-  ...mcclintockQuestions,
-  ...uhlenbeckQuestions,
-  ...dresselhausQuestions,
-  ...cartwrightQuestions,
+  ...dorothyHodgkinQuestions,
+  ...barbaraMcclintockQuestions,
+  ...karenUhlenbeckQuestions,
+  ...mildredDresselhausQuestions,
+  ...maryCartwrightQuestions,
   // Female thinkers batch 2
-  ...pandrosionQuestions,
-  ...duchateletQuestions,
-  ...agnesiQuestions,
-  ...vaughanQuestions,
-  ...robinsonQuestions,
-  ...germainQuestions,
-  ...payneQuestions,
-  ...goeppertMayerQuestions,
-  ...leavittQuestions,
-  ...daubechiesQuestions,
+  ...pandrosionOfAlexandriaQuestions,
+  ...emilieDuChateletQuestions,
+  ...mariaGaetanaAgnesiQuestions,
+  ...dorothyVaughanQuestions,
+  ...juliaRobinsonQuestions,
+  ...sophieGermainQuestions,
+  ...ceciliaPayneQuestions,
+  ...mariaGoeppertMayerQuestions,
+  ...henriettaLeavittQuestions,
+  ...ingridDaubechiesQuestions,
   // Prodigies batch 2
-  ...landauQuestions,
-  ...feffermanQuestions,
-  ...elkiesQuestions,
+  ...levLandauQuestions,
+  ...charlesFeffermanQuestions,
+  ...noamElkiesQuestions,
   ...ruthLawrenceQuestions,
   ...alissaCransQuestions,
   ...juneHuhQuestions,
-  ...rudnickQuestions,
+  ...zeevRudnickQuestions,
   // Foundational Architects, Chaos, Neural Nets, Scale
-  ...booleQuestions,
-  ...markovQuestions,
-  ...lorenzQuestions,
-  ...mandelbrotQuestions,
-  ...hopfieldQuestions,
-  ...rosenblattQuestions,
+  ...georgeBooleQuestions,
+  ...andreyMarkovQuestions,
+  ...edwardLorenzQuestions,
+  ...benoitMandelbrotQuestions,
+  ...johnHopfieldQuestions,
+  ...frankRosenblattQuestions,
   ...margaretHamiltonQuestions,
-  ...mooreQuestions,
-  ...wolframQuestions,
+  ...gordonMooreQuestions,
+  ...stephenWolframQuestions,
   // Global Pioneers & Non-Western Titans
-  ...perlmanQuestions,
-  ...easleyQuestions,
-  ...saruhashiQuestions,
-  ...madhavaQuestions,
+  ...radiaPerlmanQuestions,
+  ...annieEasleyQuestions,
+  ...katsukoSaruhashiQuestions,
+  ...madhavaOfSangamagramaQuestions,
   ...brahmaguptaQuestions,
-  ...boseQuestions,
+  ...satyendraBoseQuestions,
   ...alJazariQuestions,
-  ...sekiQuestions,
+  ...sekiTakakazuQuestions,
   // Paradox Masters & Foundational Logicians
-  ...zenoQuestions,
-  ...eubulidesQuestions,
-  ...torricelliQuestions,
-  ...russellQuestions,
-  ...banachTarskiQuestions,
-  ...brouwerQuestions,
-  ...quineQuestions,
+  ...zenoOfEleaQuestions,
+  ...eubulidesOfMiletusQuestions,
+  ...evangelistaTorricelliQuestions,
+  ...bertrandRussellQuestions,
+  ...stefanBanachQuestions,
+  ...lEJBrouwerQuestions,
+  ...wVOQuineQuestions,
   // Synthesists, Morphologists, Market Physicists
-  ...chowningQuestions,
-  ...xenakisQuestions,
-  ...helmholtzQuestions,
-  ...keplerQuestions,
+  ...johnChowningQuestions,
+  ...iannisXenakisQuestions,
+  ...hermannVonHelmholtzQuestions,
+  ...johannesKeplerQuestions,
   ...thompsonDarcyQuestions,
-  ...conwayQuestions,
-  ...fibonacciQuestions,
-  ...mendelQuestions,
-  ...itoQuestions,
-  ...bachelierQuestions,
-  ...shapleyQuestions,
+  ...johnConwayQuestions,
+  ...leonardoFibonacciQuestions,
+  ...gregorMendelQuestions,
+  ...kiyosiItoQuestions,
+  ...louisBachelierQuestions,
+  ...lloydShapleyQuestions,
   // Market Architects & Strategic Minds
-  ...arrowQuestions,
-  ...solowQuestions,
-  ...ostromQuestions,
-  ...kantorovichQuestions,
-  ...blackwellQuestions,
-  ...dufloQuestions,
-  ...debreuQuestions,
-  ...adelmanQuestions,
-  ...goldinQuestions,
-  ...schellingQuestions,
+  ...kennethArrowQuestions,
+  ...robertSolowQuestions,
+  ...elinorOstromQuestions,
+  ...leonidKantorovichQuestions,
+  ...davidBlackwellQuestions,
+  ...estherDufloQuestions,
+  ...gerardDebreuQuestions,
+  ...leonardAdlemanQuestions,
+  ...claudiaGoldinQuestions,
+  ...thomasSchellingQuestions,
   // Pure Math Final Bosses
-  ...perelmanQuestions,
-  ...wilesQuestions,
-  ...penroseQuestions,
+  ...grigoriPerelmanQuestions,
+  ...andrewWilesQuestions,
+  ...rogerPenroseQuestions,
   // Digital Architects
-  ...ritchieQuestions,
-  ...bernersLeeQuestions,
+  ...dennisRitchieQuestions,
+  ...timBernersLeeQuestions,
   ...joanClarkeQuestions,
   // Risk, Physics, and Markets
-  ...talebQuestions,
-  ...samuelsonQuestions,
-  ...wittenQuestions,
-  ...bellBurnellQuestions,
+  ...nassimTalebQuestions,
+  ...paulSamuelsonQuestions,
+  ...edwardWittenQuestions,
+  ...jocelynBellBurnellQuestions,
   // Nuclear Age
-  ...oppenheimerQuestions,
-  ...ulamQuestions,
-  ...szilardQuestions,
-  ...wheelerQuestions,
-  ...betheQuestions,
+  ...jRobertOppenheimerQuestions,
+  ...stanislawUlamQuestions,
+  ...leoSzilardQuestions,
+  ...johnWheelerQuestions,
+  ...hansBetheQuestions,
   // Santa Fe Institute / Complexity Masters
-  ...farmerQuestions,
+  ...jDoyneFarmerQuestions,
   ...brianArthurQuestions,
-  ...hollandQuestions,
-  ...gellMannQuestions,
+  ...johnHollandQuestions,
+  ...murrayGellMannQuestions,
   ...geoffreyWestQuestions,
   ...melanieMitchellQuestions,
   // New Modern AI & Math thinkers
-  ...khotQuestions,
-  ...candesQuestions,
-  ...aroraQuestions,
-  ...villaniQuestions,
-  ...michaelJordanMLQuestions,
+  ...subhashKhotQuestions,
+  ...emmanuelCandesQuestions,
+  ...sanjeevAroraQuestions,
+  ...cedricVillaniQuestions,
+  ...michaelJordanQuestions,
   ...alexandrWangQuestions,
   ...benGreenQuestions,
   // Thermodynamics & Physics thinkers
-  ...boltzmannQuestions,
+  ...ludwigBoltzmannQuestions,
   ...danielBernoulliQuestions,
-  ...nernstQuestions,
-  ...rayleighQuestions,
-  ...kelvinQuestions,
+  ...waltherNernstQuestions,
+  ...lordRayleighQuestions,
+  ...lordKelvinQuestions,
   // Earth & Space thinkers batch 2
-  ...arrheniusQuestions,
-  ...friedmannQuestions,
-  ...gamowQuestions,
-  ...chandrasekharQuestions,
-  ...zwickyQuestions,
+  ...svanteArrheniusQuestions,
+  ...alexanderFriedmannQuestions,
+  ...georgeGamowQuestions,
+  ...subrahmanyanChandrasekharQuestions,
+  ...fritzZwickyQuestions,
   // Pure Math Titans batch
-  ...jacobiQuestions,
-  ...liouvilleQuestions,
-  ...kleinQuestions,
-  ...eisensteinQuestions,
-  ...borelQuestions,
-  ...churchQuestions,
+  ...carlJacobiQuestions,
+  ...josephLiouvilleQuestions,
+  ...felixKleinQuestions,
+  ...gottholdEisensteinQuestions,
+  ...emileBorelQuestions,
+  ...alonzoChurchQuestions,
   // Electromagnetism & Optics Pioneers
-  ...olbersQuestions,
-  ...huygensQuestions,
+  ...heinrichOlbersQuestions,
+  ...christiaanHuygensQuestions,
   ...thomasYoungQuestions,
-  ...coulombQuestions,
-  ...ampereQuestions,
-  ...lenzQuestions,
-  ...biotSavartQuestions,
+  ...charlesCoulombQuestions,
+  ...andreMarieAmpereQuestions,
+  ...heinrichLenzQuestions,
+  ...jeanBaptisteBiotQuestions,
   ...paul-ehrenfest,
   // Population, Mechanics, Numerical, Astro, Plasma, Neuro, StatPhys, Chemistry, Drag, Weather
-  ...lotkaQuestions,
-  ...verhulstQuestions,
-  ...stokesQuestions,
-  ...rungeQuestions,
-  ...emdenQuestions,
-  ...hasegawaQuestions,
-  ...fitzhughQuestions,
-  ...kardarQuestions,
-  ...prigogineQuestions,
-  ...batemanQuestions,
-  ...richardsonQuestions,
+  ...alfredLotkaQuestions,
+  ...pierreVerhulstQuestions,
+  ...georgeStokesQuestions,
+  ...carlRungeQuestions,
+  ...robertEmdenQuestions,
+  ...akiraHasegawaQuestions,
+  ...richardFitzhughQuestions,
+  ...mehranKardarQuestions,
+  ...ilyaPrigogineQuestions,
+  ...harryBatemanQuestions,
+  ...lewisFryRichardsonQuestions,
   // Non-Western & Global Mathematicians batch 2
-  ...bhaskaraQuestions,
+  ...bhaskaraIiQuestions,
   ...qinJiushaoQuestions,
   ...zhuShijieQuestions,
-  ...khayyamQuestions,
-  ...alKarajiQuestions,
-  ...takebeQuestions,
+  ...omarKhayyamQuestions,
+  ...abuBakrAlKarajiQuestions,
+  ...takebeKatahiroQuestions,
   // Ancient & Global thinkers batch 3
   ...yajnavalkyaQuestions,
   ...theaetetusQuestions,
-  ...diophantusQuestions,
+  ...diophantusOfAlexandriaQuestions,
   ...huaLuogengQuestions,
-  ...viazovskaQuestions,
+  ...marynaViazovskaQuestions,
   // Prediction Markets & Market Microstructure
-  ...hansonQuestions,
-  ...avellanedaQuestions,
+  ...robinHansonQuestions,
+  ...marcoAvellanedaQuestions,
   ...glostenMilgromQuestions,
 
   // The Code & Logic Pioneers (CS, AI & Systems)
-  ...babbageQuestions,
-  ...minskyQuestions,
-  ...coddQuestions,
+  ...charlesBabbageQuestions,
+  ...marvinMinskyQuestions,
+  ...edgarCoddQuestions,
   ...kenThompsonQuestions,
-  ...torvaldsQuestions,
+  ...linusTorvaldsQuestions,
   ...cerfKahnQuestions,
-  ...backusQuestions,
-  ...hoareQuestions,
-  ...liskovQuestions,
-  ...cookQuestions,
-  ...karpQuestions,
-  ...levinQuestions,
+  ...johnBackusQuestions,
+  ...tonyHoareQuestions,
+  ...barbaraLiskovQuestions,
+  ...stephenCookQuestions,
+  ...richardKarpQuestions,
+  ...leonidLevinQuestions,
   ...francesAllenQuestions,
-  ...engelbartQuestions,
-  ...sutherlandQuestions,
+  ...douglasEngelbartQuestions,
+  ...ivanSutherlandQuestions,
   ...alanKayQuestions,
   ...emilPostQuestions,
-  ...chomskyQuestions,
-  ...newellQuestions,
-  ...dantzigQuestions,
+  ...noamChomskyQuestions,
+  ...allenNewellQuestions,
+  ...georgeDantzigQuestions,
 
   // The Quants & Probabilists (Economics, Finance & Stats)
-  ...kellyQuestions,
-  ...scholesQuestions,
-  ...famaQuestions,
-  ...sharpeQuestions,
-  ...rossQuestions,
-  ...dermanQuestions,
-  ...carrQuestions,
-  ...wilmottQuestions,
-  ...shreveQuestions,
-  ...levyQuestions,
-  ...fellerQuestions,
-  ...coxQuestions,
-  ...hotellingQuestions,
-  ...grangerQuestions,
-  ...engleQuestions,
-  ...boxQuestions,
-  ...jenkinsQuestions,
-  ...ramseyQuestions,
-  ...muthQuestions,
-  ...shiryaevQuestions,
+  ...johnKellyQuestions,
+  ...myronScholesQuestions,
+  ...eugeneFamaQuestions,
+  ...williamSharpeQuestions,
+  ...stephenRossQuestions,
+  ...emanuelDermanQuestions,
+  ...peterCarrQuestions,
+  ...paulWilmottQuestions,
+  ...stevenShreveQuestions,
+  ...haimLevyQuestions,
+  ...williamFellerQuestions,
+  ...johnCoxQuestions,
+  ...haroldHotellingQuestions,
+  ...cliveGrangerQuestions,
+  ...robertEngleQuestions,
+  ...georgeBoxQuestions,
+  ...gwilymJenkinsQuestions,
+  ...frankRamseyQuestions,
+  ...johnMuthQuestions,
+  ...albertShiryaevQuestions,
 
   // The Masters of Form & Infinity (Pure & Applied Math)
-  ...descartesQuestions,
-  ...cardanoQuestions,
-  ...napierQuestions,
+  ...reneDescartesQuestions,
+  ...gerolamoCardanoQuestions,
+  ...johnNapierQuestions,
   ...brookTaylorQuestions,
-  ...maclaurinQuestions,
-  ...mongeQuestions,
-  ...cayleyQuestions,
-  ...sylvesterQuestions,
-  ...lebesgueQuestions,
-  ...weierstrassQuestions,
-  ...dedekindQuestions,
-  ...weylQuestions,
-  ...arnoldQuestions,
-  ...serreQuestions,
-  ...atiyahQuestions,
-  ...singerQuestions,
-  ...chebyshevQuestions,
-  ...lyapunovQuestions,
-  ...cartanQuestions,
-  ...hausdorffQuestions,
+  ...colinMaclaurinQuestions,
+  ...gaspardMongeQuestions,
+  ...arthurCayleyQuestions,
+  ...jamesSylvesterQuestions,
+  ...henriLebesgueQuestions,
+  ...karlWeierstrassQuestions,
+  ...richardDedekindQuestions,
+  ...hermannWeylQuestions,
+  ...vladimirArnoldQuestions,
+  ...jeanpierreSerreQuestions,
+  ...michaelAtiyahQuestions,
+  ...isadoreSingerQuestions,
+  ...pafnutyChebyshevQuestions,
+  ...aleksandrLyapunovQuestions,
+  ...elieCartanQuestions,
+  ...felixHausdorffQuestions,
 
   // The Architects of the Physical World (Physics & Chemistry)
-  ...galileoQuestions,
-  ...carnotQuestions,
-  ...gibbsQuestions,
-  ...rutherfordQuestions,
-  ...jjthomsonQuestions,
-  ...lorentzQuestions,
-  ...minkowskiQuestions,
-  ...pauliQuestions,
-  ...bornQuestions,
-  ...schwingerQuestions,
-  ...dysonQuestions,
-  ...johnbellQuestions,
-  ...thorneQuestions,
-  ...lemaitreQuestions,
-  ...eddingtonQuestions,
-  ...avogadroQuestions,
-  ...berzeliusQuestions,
-  ...davyQuestions,
-  ...michelsonQuestions,
-  ...wolfeQuestions,
-  ...farkasQuestions,
-  ...gomoryQuestions,
-  ...bendersQuestions,
+  ...galileoGalileiQuestions,
+  ...sadiCarnotQuestions,
+  ...willardGibbsQuestions,
+  ...ernestRutherfordQuestions,
+  ...jjThomsonQuestions,
+  ...hendrikLorentzQuestions,
+  ...hermannMinkowskiQuestions,
+  ...wolfgangPauliQuestions,
+  ...maxBornQuestions,
+  ...julianSchwingerQuestions,
+  ...freemanDysonQuestions,
+  ...johnBellQuestions,
+  ...kipThorneQuestions,
+  ...georgesLemaitreQuestions,
+  ...arthurEddingtonQuestions,
+  ...amedeoAvogadroQuestions,
+  ...jonsBerzeliusQuestions,
+  ...humphryDavyQuestions,
+  ...albertMichelsonQuestions,
+  ...georgeWolfeQuestions,
+  ...juliusFarkasQuestions,
+  ...ralphGomoryQuestions,
+  ...jacquesBendersQuestions,
 
   // The System Thinkers (Biology, Engineering & Philosophy)
-  ...leeuwenhoekQuestions,
-  ...pasteurQuestions,
-  ...kochQuestions,
-  ...watsoncrickQuestions,
-  ...sangerQuestions,
-  ...mullisQuestions,
-  ...salkQuestions,
+  ...antonieLeeuwenhoekQuestions,
+  ...louisPasteurQuestions,
+  ...robertKochQuestions,
+  ...watsonCrickQuestions,
+  ...frederickSangerQuestions,
+  ...karyMullisQuestions,
+  ...jonasSalkQuestions,
   ...claudeBernardQuestions,
-  ...huntmorganQuestions,
-  ...heavisideQuestions,
-  ...nyquistQuestions,
-  ...dieselQuestions,
-  ...ottoQuestions,
+  ...thomasMorganQuestions,
+  ...oliverHeavisideQuestions,
+  ...harryNyquistQuestions,
+  ...rudolfDieselQuestions,
+  ...nikolausOttoQuestions,
   ...zieglerNattaQuestions,
-  ...searleQuestions,
-  ...popperQuestions,
-  ...kuhnQuestions,
-  ...fullerQuestions,
+  ...johnSearleQuestions,
+  ...karlPopperQuestions,
+  ...thomasKuhnQuestions,
+  ...buckminsterFullerQuestions,
   ...herbertSimonQuestions,
-  ...coaseQuestions,
+  ...ronaldCoaseQuestions,
 ];
 export function getThinkerQuestions(slug: string): Question[] {
   return allThinkerQuestions.filter((q) => q.topic === slug);

@@ -1,6 +1,6 @@
 import type { Question } from '../types';
 
-export const agnesiQuestions: Question[] = [
+export const mariaGaetanaAgnesiQuestions: Question[] = [
   {
     id: 20206, topic: 'maria-gaetana-agnesi', difficulty: 'easy',
     question: 'Maria Gaetana Agnesi is best known for writing the first comprehensive textbook on which subject?',

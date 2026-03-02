@@ -1,6 +1,6 @@
 import type { Question } from '../types';
 
-export const wegenerQuestions: Question[] = [
+export const alfredWegenerQuestions: Question[] = [
   {
     id: 96004, topic: 'alfred-wegener', difficulty: 'easy',
     question: 'Alfred Wegener proposed that all continents were once joined in a supercontinent called:',

@@ -1,6 +1,6 @@
 import type { Question } from '../types';
 
-export const gamowQuestions: Question[] = [
+export const georgeGamowQuestions: Question[] = [
   {
     id: 90801, topic: 'george-gamow', difficulty: 'sota',
     question: 'The Gamow peak determines the energy window for stellar nuclear reactions by balancing:',

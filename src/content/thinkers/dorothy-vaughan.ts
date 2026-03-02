@@ -1,6 +1,6 @@
 import type { Question } from '../types';
 
-export const vaughanQuestions: Question[] = [
+export const dorothyVaughanQuestions: Question[] = [
   {
     id: 20209, topic: 'dorothy-vaughan', difficulty: 'easy',
     question: 'Dorothy Vaughan was the first Black female supervisor at which organization?',

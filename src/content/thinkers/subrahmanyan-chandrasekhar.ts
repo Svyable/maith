@@ -1,6 +1,6 @@
 import type { Question } from '../types';
 
-export const chandrasekharQuestions: Question[] = [
+export const subrahmanyanChandrasekharQuestions: Question[] = [
   {
     id: 90901, topic: 'subrahmanyan-chandrasekhar', difficulty: 'sota',
     question: 'The Chandrasekhar limit ($\\approx 1.4 M_\\odot$) is derived from the balance between:',

@@ -1,6 +1,6 @@
 import type { Question } from '../types';
 
-export const hodgkinQuestions: Question[] = [
+export const dorothyHodgkinQuestions: Question[] = [
   {
     id: 20115, topic: 'dorothy-hodgkin', difficulty: 'easy',
     question: 'Dorothy Hodgkin won the Nobel Prize in Chemistry for her work using which technique?',

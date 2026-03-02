@@ -1,7 +1,7 @@
 // koch.ts
 import type { Question } from '../types';
 
-export const kochQuestions: Question[] = [
+export const robertKochQuestions: Question[] = [
   {
     id: 50020,
     topic: 'robert-koch',

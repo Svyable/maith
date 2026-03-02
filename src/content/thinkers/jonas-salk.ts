@@ -1,7 +1,7 @@
 // salk.ts
 import type { Question } from '../types';
 
-export const salkQuestions: Question[] = [
+export const jonasSalkQuestions: Question[] = [
   {
     id: 50060,
     topic: 'jonas-salk',

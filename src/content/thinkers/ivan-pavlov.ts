@@ -1,6 +1,6 @@
 import type { Question } from '../types';
 
-export const pavlovQuestions: Question[] = [
+export const ivanPavlovQuestions: Question[] = [
   {
     id: 96090, topic: 'ivan-pavlov', difficulty: 'easy',
     question: 'Pavlov\'s classical conditioning experiments showed that dogs could learn to:',

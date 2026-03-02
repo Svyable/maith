@@ -1,6 +1,6 @@
 import type { Question } from '../types';
 
-export const mcclintockQuestions: Question[] = [
+export const barbaraMcclintockQuestions: Question[] = [
   {
     id: 20118, topic: 'barbara-mcclintock', difficulty: 'easy',
     question: 'Barbara McClintock discovered which genetic phenomenon in maize?',

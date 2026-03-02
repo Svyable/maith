@@ -1,6 +1,6 @@
 import type { Question } from '../types';
 
-export const markowitzQuestions: Question[] = [
+export const harryMarkowitzQuestions: Question[] = [
   {
     id: 19501, topic: 'harry-markowitz', difficulty: 'easy',
     question: 'Harry Markowitz\'s Modern Portfolio Theory (MPT) showed that:',

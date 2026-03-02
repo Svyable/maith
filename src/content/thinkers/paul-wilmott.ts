@@ -1,7 +1,7 @@
 // wilmott.ts
 import type { Question } from '../types';
 
-export const wilmottQuestions: Question[] = [
+export const paulWilmottQuestions: Question[] = [
   {
     id: 69310,
     topic: 'paul-wilmott',

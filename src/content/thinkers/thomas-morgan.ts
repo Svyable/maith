@@ -1,7 +1,7 @@
 // huntmorgan.ts
 import type { Question } from '../types';
 
-export const huntmorganQuestions: Question[] = [
+export const thomasMorganQuestions: Question[] = [
   {
     id: 50080,
     topic: 'thomas-morgan',

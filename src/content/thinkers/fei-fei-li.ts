@@ -1,6 +1,6 @@
 import type { Question } from '../types';
 
-export const lifeiQuestions: Question[] = [
+export const feiFeiLiQuestions: Question[] = [
   {
     id: 95013, topic: 'fei-fei-li', difficulty: 'easy',
     question: 'Fei-Fei Li\'s ImageNet dataset contains approximately how many labeled images?',

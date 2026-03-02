@@ -1,6 +1,6 @@
 import type { Question } from '../types';
 
-export const vonBraunQuestions: Question[] = [
+export const wernherVonBraunQuestions: Question[] = [
   {
     id: 96022, topic: 'wernher-von-braun', difficulty: 'easy',
     question: 'Wernher von Braun designed the Saturn V rocket, which was used for:',

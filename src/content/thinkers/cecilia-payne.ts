@@ -1,6 +1,6 @@
 import type { Question } from '../types';
 
-export const payneQuestions: Question[] = [
+export const ceciliaPayneQuestions: Question[] = [
   {
     id: 20218, topic: 'cecilia-payne', difficulty: 'easy',
     question: 'Cecilia Payne-Gaposchkin discovered that stars are primarily composed of which two elements?',

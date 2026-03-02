@@ -1,6 +1,6 @@
 import type { Question } from '../types';
 
-export const fibonacciQuestions: Question[] = [
+export const leonardoFibonacciQuestions: Question[] = [
   {
     id: 20760,
     topic: 'leonardo-fibonacci',

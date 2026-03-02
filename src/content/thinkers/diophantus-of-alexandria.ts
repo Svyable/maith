@@ -1,6 +1,6 @@
 import type { Question } from '../types';
 
-export const diophantusQuestions: Question[] = [
+export const diophantusOfAlexandriaQuestions: Question[] = [
   {
     id: 21220, topic: 'diophantus-of-alexandria', difficulty: 'sota',
     question: 'Diophantine equations require solutions in which number domain?',

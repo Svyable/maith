@@ -1,6 +1,6 @@
 import type { Question } from '../types';
 
-export const keynesQuestions: Question[] = [
+export const johnMaynardKeynesQuestions: Question[] = [
   {
     id: 96016, topic: 'john-maynard-keynes', difficulty: 'easy',
     question: 'Keynes argued that during a recession, the most effective response is:',

@@ -1,6 +1,6 @@
 import type { Question } from '../types';
 
-export const fermiQuestions: Question[] = [
+export const enricoFermiQuestions: Question[] = [
   {
     id: 20701, topic: 'enrico-fermi', difficulty: 'easy',
     question: 'A "Fermi estimation" is a technique for:',

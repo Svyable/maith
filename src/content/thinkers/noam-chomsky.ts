@@ -1,7 +1,7 @@
 // chomsky.ts
 import type { Question } from '../types';
 
-export const chomskyQuestions: Question[] = [
+export const noamChomskyQuestions: Question[] = [
   {
     id: 65050,
     topic: 'noam-chomsky',

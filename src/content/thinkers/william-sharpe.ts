@@ -1,7 +1,7 @@
 // sharpe.ts
 import type { Question } from '../types';
 
-export const sharpeQuestions: Question[] = [
+export const williamSharpeQuestions: Question[] = [
   {
     id: 69150,
     topic: 'william-sharpe',

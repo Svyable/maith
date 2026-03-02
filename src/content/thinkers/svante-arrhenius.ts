@@ -1,6 +1,6 @@
 import type { Question } from '../types';
 
-export const arrheniusQuestions: Question[] = [
+export const svanteArrheniusQuestions: Question[] = [
   {
     id: 90601, topic: 'svante-arrhenius', difficulty: 'sota',
     question: 'The Arrhenius equation $k = A e^{-E_a/RT}$ predicts that reaction rate:',

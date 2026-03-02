@@ -1,7 +1,7 @@
 // lorentz.ts
 import type { Question } from '../types';
 
-export const lorentzQuestions: Question[] = [
+export const hendrikLorentzQuestions: Question[] = [
   {
     id: 67050,
     topic: 'hendrik-lorentz',

@@ -1,6 +1,6 @@
 import type { Question } from '../types';
 
-export const perlmanQuestions: Question[] = [
+export const radiaPerlmanQuestions: Question[] = [
   {
     id: 20500,
     topic: 'radia-perlman',

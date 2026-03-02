@@ -1,6 +1,6 @@
 import type { Question } from '../types';
 
-export const duchateletQuestions: Question[] = [
+export const emilieDuChateletQuestions: Question[] = [
   {
     id: 20203, topic: 'emilie-du-chatelet', difficulty: 'easy',
     question: 'Émilie du Châtelet translated which foundational physics work into French, adding her own commentary?',

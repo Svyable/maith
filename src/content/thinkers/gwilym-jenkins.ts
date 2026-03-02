@@ -1,7 +1,7 @@
 // jenkins.ts
 import type { Question } from '../types';
 
-export const jenkinsQuestions: Question[] = [
+export const gwilymJenkinsQuestions: Question[] = [
   {
     id: 69750,
     topic: 'gwilym-jenkins',

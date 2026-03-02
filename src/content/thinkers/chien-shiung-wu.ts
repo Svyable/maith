@@ -1,6 +1,6 @@
 import type { Question } from '../types';
 
-export const wuQuestions: Question[] = [
+export const chienShiungWuQuestions: Question[] = [
   {
     id: 20109, topic: 'chien-shiung-wu', difficulty: 'easy',
     question: 'What fundamental physics symmetry did Chien-Shiung Wu experimentally prove is violated?',

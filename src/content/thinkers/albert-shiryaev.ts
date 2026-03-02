@@ -1,7 +1,7 @@
 // shiryaev.ts
 import type { Question } from '../types';
 
-export const shiryaevQuestions: Question[] = [
+export const albertShiryaevQuestions: Question[] = [
   {
     id: 67010,
     topic: 'albert-shiryaev',

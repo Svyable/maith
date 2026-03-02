@@ -1,6 +1,6 @@
 import type { Question } from '../types';
 
-export const khotQuestions: Question[] = [
+export const subhashKhotQuestions: Question[] = [
   {
     id: 21200,
     topic: 'subhash-khot',

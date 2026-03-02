@@ -3,7 +3,7 @@ import type { Question } from '../types';
 // ---------------------------------------------------------
 // 1. Charles Babbage
 // ---------------------------------------------------------
-export const babbageQuestions: Question[] = [
+export const charlesBabbageQuestions: Question[] = [
   {
     id: 31000,
     topic: 'charles-babbage',

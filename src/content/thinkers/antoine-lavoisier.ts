@@ -1,6 +1,6 @@
 import type { Question } from '../types';
 
-export const lavoisierQuestions: Question[] = [
+export const antoineLavoisierQuestions: Question[] = [
   {
     id: 96020, topic: 'antoine-lavoisier', difficulty: 'easy',
     question: 'Lavoisier is called the "Father of Modern Chemistry" primarily for:',

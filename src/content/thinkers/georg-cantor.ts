@@ -1,6 +1,6 @@
 import type { Question } from '../types';
 
-export const cantorQuestions: Question[] = [
+export const georgCantorQuestions: Question[] = [
   {
     id: 20201, topic: 'georg-cantor', difficulty: 'easy',
     question: 'Cantor proved that the real numbers are uncountable using:',

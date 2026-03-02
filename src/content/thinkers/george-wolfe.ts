@@ -1,7 +1,7 @@
 // wolfe.ts
 import type { Question } from '../types';
 
-export const wolfeQuestions: Question[] = [
+export const georgeWolfeQuestions: Question[] = [
   {
     id: 65350,
     topic: 'george-wolfe',

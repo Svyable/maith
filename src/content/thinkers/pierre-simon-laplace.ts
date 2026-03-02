@@ -1,6 +1,6 @@
 import type { Question } from '../types';
 
-export const laplaceQuestions: Question[] = [
+export const pierreSimonLaplaceQuestions: Question[] = [
   {
     id: 20001, topic: 'pierre-simon-laplace', difficulty: 'easy',
     question: 'The Laplace transform $\\mathcal{L}\\{f(t)\\} = F(s)$ converts a function of time into a function of:',

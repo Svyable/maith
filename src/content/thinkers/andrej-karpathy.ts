@@ -1,6 +1,6 @@
 import type { Question } from '../types';
 
-export const karpathyQuestions: Question[] = [
+export const andrejKarpathyQuestions: Question[] = [
   {
     id: 95001, topic: 'andrej-karpathy', difficulty: 'easy',
     question: 'Andrej Karpathy\'s char-rnn demonstrated that recurrent neural networks can:',

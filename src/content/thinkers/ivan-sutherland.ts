@@ -1,7 +1,7 @@
 // sutherland.ts
 import type { Question } from '../types';
 
-export const sutherlandQuestions: Question[] = [
+export const ivanSutherlandQuestions: Question[] = [
   {
     id: 40020,
     topic: 'ivan-sutherland',

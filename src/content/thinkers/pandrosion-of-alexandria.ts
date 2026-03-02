@@ -1,6 +1,6 @@
 import type { Question } from '../types';
 
-export const pandrosionQuestions: Question[] = [
+export const pandrosionOfAlexandriaQuestions: Question[] = [
   {
     id: 20200, topic: 'pandrosion-of-alexandria', difficulty: 'easy',
     question: 'Pandrosion, a female mathematician in Alexandria (~320 AD), was mentioned in critiques by which later mathematician?',

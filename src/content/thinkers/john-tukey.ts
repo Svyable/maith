@@ -1,6 +1,6 @@
 import type { Question } from '../types';
 
-export const tukeyQuestions: Question[] = [
+export const johnTukeyQuestions: Question[] = [
   {
     id: 96100, topic: 'john-tukey', difficulty: 'easy',
     question: 'John Tukey coined the term "bit" (binary digit) and invented:',

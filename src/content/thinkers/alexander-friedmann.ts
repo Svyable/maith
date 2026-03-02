@@ -1,6 +1,6 @@
 import type { Question } from '../types';
 
-export const friedmannQuestions: Question[] = [
+export const alexanderFriedmannQuestions: Question[] = [
   {
     id: 90701, topic: 'alexander-friedmann', difficulty: 'sota',
     question: 'The Friedmann equation $(\\dot{a}/a)^2 = 8\\pi G\\rho/3 - k/a^2$ describes:',

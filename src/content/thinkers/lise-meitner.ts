@@ -1,6 +1,6 @@
 import type { Question } from '../types';
 
-export const meitnerQuestions: Question[] = [
+export const liseMeitnerQuestions: Question[] = [
   {
     id: 20106, topic: 'lise-meitner', difficulty: 'easy',
     question: 'Which nuclear process did Lise Meitner provide the first theoretical explanation for?',

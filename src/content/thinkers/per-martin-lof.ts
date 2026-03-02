@@ -1,6 +1,6 @@
 import type { Question } from '../types';
 
-export const martinLofQuestions: Question[] = [
+export const perMartinLofQuestions: Question[] = [
   {
     id: 19701, topic: 'per-martin-lof', difficulty: 'easy',
     question: 'Per Martin-Löf\'s type theory is foundational for:',

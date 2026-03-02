@@ -1,6 +1,6 @@
 import type { Question } from '../types';
 
-export const kelvinQuestions: Question[] = [
+export const lordKelvinQuestions: Question[] = [
   {
     id: 97401, topic: 'lord-kelvin', difficulty: 'easy',
     question: 'Lord Kelvin established the absolute temperature scale. The key insight is that:',

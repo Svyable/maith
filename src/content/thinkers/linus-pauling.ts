@@ -1,6 +1,6 @@
 import type { Question } from '../types';
 
-export const paulingQuestions: Question[] = [
+export const linusPaulingQuestions: Question[] = [
   {
     id: 96030, topic: 'linus-pauling', difficulty: 'easy',
     question: 'Linus Pauling\'s concept of electronegativity describes:',

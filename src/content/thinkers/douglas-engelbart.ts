@@ -1,7 +1,7 @@
 // engelbart.ts
 import type { Question } from '../types';
 
-export const engelbartQuestions: Question[] = [
+export const douglasEngelbartQuestions: Question[] = [
   {
     id: 40010,
     topic: 'douglas-engelbart',

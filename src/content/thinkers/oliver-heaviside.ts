@@ -1,7 +1,7 @@
 // heaviside.ts
 import type { Question } from '../types';
 
-export const heavisideQuestions: Question[] = [
+export const oliverHeavisideQuestions: Question[] = [
   {
     id: 50090,
     topic: 'oliver-heaviside',

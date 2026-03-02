@@ -1,7 +1,7 @@
 // hoare.ts
 import type { Question } from '../types';
 
-export const hoareQuestions: Question[] = [
+export const tonyHoareQuestions: Question[] = [
   {
     id: 67020,
     topic: 'tony-hoare',

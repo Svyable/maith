@@ -1,7 +1,7 @@
 // karp.ts
 import type { Question } from '../types';
 
-export const karpQuestions: Question[] = [
+export const richardKarpQuestions: Question[] = [
   {
     id: 67035,
     topic: 'richard-karp',

@@ -1,6 +1,6 @@
 import type { Question } from '../types';
 
-export const planckQuestions: Question[] = [
+export const maxPlanckQuestions: Question[] = [
   {
     id: 96401, topic: 'max-planck', difficulty: 'easy',
     question: 'Max Planck\'s quantum hypothesis proposed that energy is:',

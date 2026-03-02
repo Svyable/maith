@@ -1,6 +1,6 @@
 import type { Question } from '../types';
 
-export const bayesQuestions: Question[] = [
+export const thomasBayesQuestions: Question[] = [
   {
     id: 20101, topic: 'thomas-bayes', difficulty: 'easy',
     question: 'Bayes\' theorem states that $P(A|B) = $:',

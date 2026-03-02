@@ -1,7 +1,7 @@
 // kelly.ts
 import type { Question } from '../types';
 
-export const kellyQuestions: Question[] = [
+export const johnKellyQuestions: Question[] = [
   {
     id: 69000,
     topic: 'john-kelly',

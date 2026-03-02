@@ -1,7 +1,7 @@
 // hotelling.ts
 import type { Question } from '../types';
 
-export const hotellingQuestions: Question[] = [
+export const haroldHotellingQuestions: Question[] = [
   {
     id: 69550,
     topic: 'harold-hotelling',

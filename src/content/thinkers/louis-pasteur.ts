@@ -1,7 +1,7 @@
 // pasteur.ts
 import type { Question } from '../types';
 
-export const pasteurQuestions: Question[] = [
+export const louisPasteurQuestions: Question[] = [
   {
     id: 50010,
     topic: 'louis-pasteur',

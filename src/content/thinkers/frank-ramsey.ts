@@ -1,7 +1,7 @@
 // ramsey.ts
 import type { Question } from '../types';
 
-export const ramseyQuestions: Question[] = [
+export const frankRamseyQuestions: Question[] = [
   {
     id: 67000,
     topic: 'frank-ramsey',

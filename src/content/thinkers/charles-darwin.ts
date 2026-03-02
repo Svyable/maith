@@ -1,6 +1,6 @@
 import type { Question } from '../types';
 
-export const darwinQuestions: Question[] = [
+export const charlesDarwinQuestions: Question[] = [
   {
     id: 96028, topic: 'charles-darwin', difficulty: 'easy',
     question: 'Charles Darwin\'s theory of natural selection states that organisms with traits better suited to their environment:',

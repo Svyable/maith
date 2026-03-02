@@ -1,6 +1,6 @@
 import type { Question } from '../types';
 
-export const heisenbergQuestions: Question[] = [
+export const wernerHeisenbergQuestions: Question[] = [
   {
     id: 20601, topic: 'werner-heisenberg', difficulty: 'easy',
     question: 'Heisenberg\'s uncertainty principle states that:',

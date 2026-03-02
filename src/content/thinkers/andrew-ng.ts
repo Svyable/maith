@@ -1,6 +1,6 @@
 import type { Question } from '../types';
 
-export const ngQuestions: Question[] = [
+export const andrewNgQuestions: Question[] = [
   {
     id: 95010, topic: 'andrew-ng', difficulty: 'easy',
     question: 'Andrew Ng\'s Coursera machine learning course popularized which learning algorithm?',

@@ -1,7 +1,7 @@
 // feller.ts
 import type { Question } from '../types';
 
-export const fellerQuestions: Question[] = [
+export const williamFellerQuestions: Question[] = [
   {
     id: 69450,
     topic: 'william-feller',

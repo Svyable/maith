@@ -1,7 +1,7 @@
 // leeuwenhoek.ts
 import type { Question } from '../types';
 
-export const leeuwenhoekQuestions: Question[] = [
+export const antonieLeeuwenhoekQuestions: Question[] = [
   {
     id: 50000,
     topic: 'antonie-leeuwenhoek',

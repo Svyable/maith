@@ -1,6 +1,6 @@
 import type { Question } from '../types';
 
-export const pearsonQuestions: Question[] = [
+export const karlPearsonQuestions: Question[] = [
   {
     id: 21301, topic: 'karl-pearson', difficulty: 'easy',
     question: 'The Pearson correlation coefficient $r$ measures:',

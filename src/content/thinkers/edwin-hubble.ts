@@ -1,6 +1,6 @@
 import type { Question } from '../types';
 
-export const hubbleQuestions: Question[] = [
+export const edwinHubbleQuestions: Question[] = [
   {
     id: 96101, topic: 'edwin-hubble', difficulty: 'easy',
     question: 'Edwin Hubble\'s most revolutionary discovery was that:',

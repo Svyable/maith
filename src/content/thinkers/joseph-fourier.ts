@@ -1,6 +1,6 @@
 import type { Question } from '../types';
 
-export const fourierQuestions: Question[] = [
+export const josephFourierQuestions: Question[] = [
   {
     id: 20401, topic: 'joseph-fourier', difficulty: 'easy',
     question: 'Fourier\'s key insight was that any periodic function can be represented as:',

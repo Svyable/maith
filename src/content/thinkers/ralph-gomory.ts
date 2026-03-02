@@ -1,7 +1,7 @@
 // gomory.ts
 import type { Question } from '../types';
 
-export const gomoryQuestions: Question[] = [
+export const ralphGomoryQuestions: Question[] = [
   {
     id: 65250,
     topic: 'ralph-gomory',

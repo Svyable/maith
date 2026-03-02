@@ -1,6 +1,6 @@
 import type { Question } from '../types';
 
-export const mendeleevQuestions: Question[] = [
+export const dmitriMendeleevQuestions: Question[] = [
   {
     id: 96010, topic: 'dmitri-mendeleev', difficulty: 'easy',
     question: 'Mendeleev arranged elements in his periodic table by:',

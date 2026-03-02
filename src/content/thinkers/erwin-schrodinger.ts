@@ -1,6 +1,6 @@
 import type { Question } from '../types';
 
-export const schrodingerQuestions: Question[] = [
+export const erwinSchrodingerQuestions: Question[] = [
   {
     id: 20501, topic: 'erwin-schrodinger', difficulty: 'easy',
     question: 'The Schrödinger equation $i\\hbar \\frac{\\partial}{\\partial t}|\\psi\\rangle = \\hat{H}|\\psi\\rangle$ describes:',

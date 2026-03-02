@@ -1,7 +1,7 @@
 // mullis.ts
 import type { Question } from '../types';
 
-export const mullisQuestions: Question[] = [
+export const karyMullisQuestions: Question[] = [
   {
     id: 50050,
     topic: 'kary-mullis',

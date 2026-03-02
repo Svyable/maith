@@ -1,6 +1,6 @@
 import type { Question } from '../types';
 
-export const hypatiaQuestions: Question[] = [
+export const hypatiaOfAlexandriaQuestions: Question[] = [
   {
     id: 20100, topic: 'hypatia-of-alexandria', difficulty: 'easy',
     question: 'What city was Hypatia primarily associated with as a center of learning?',

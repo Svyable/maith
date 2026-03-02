@@ -1,6 +1,6 @@
 import type { Question } from '../types';
 
-export const zwickyQuestions: Question[] = [
+export const fritzZwickyQuestions: Question[] = [
   {
     id: 91001, topic: 'fritz-zwicky', difficulty: 'sota',
     question: 'Zwicky\'s 1933 observation of the Coma Cluster led him to propose "dark matter" because:',

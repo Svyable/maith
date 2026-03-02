@@ -1,7 +1,7 @@
 // liskov.ts
 import type { Question } from '../types';
 
-export const liskovQuestions: Question[] = [
+export const barbaraLiskovQuestions: Question[] = [
   {
     id: 67025,
     topic: 'barbara-liskov',

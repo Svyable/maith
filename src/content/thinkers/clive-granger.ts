@@ -1,7 +1,7 @@
 // granger.ts
 import type { Question } from '../types';
 
-export const grangerQuestions: Question[] = [
+export const cliveGrangerQuestions: Question[] = [
   {
     id: 69600,
     topic: 'clive-granger',

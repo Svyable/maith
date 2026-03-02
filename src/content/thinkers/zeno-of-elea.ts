@@ -1,6 +1,6 @@
 import type { Question } from '../types';
 
-export const zenoQuestions: Question[] = [
+export const zenoOfEleaQuestions: Question[] = [
   {
     id: 20600,
     topic: 'zeno-of-elea',

@@ -1,6 +1,6 @@
 import type { Question } from '../types';
 
-export const boltzmannQuestions: Question[] = [
+export const ludwigBoltzmannQuestions: Question[] = [
   {
     id: 97001, topic: 'ludwig-boltzmann', difficulty: 'easy',
     question: 'Boltzmann\'s entropy formula $S = k_B \\ln \\Omega$ connects macroscopic thermodynamics to:',

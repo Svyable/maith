@@ -1,7 +1,7 @@
 // newell.ts
 import type { Question } from '../types';
 
-export const newellQuestions: Question[] = [
+export const allenNewellQuestions: Question[] = [
   {
     id: 65100,
     topic: 'allen-newell',

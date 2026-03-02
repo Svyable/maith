@@ -1,6 +1,6 @@
 import type { Question } from '../types';
 
-export const brouwerQuestions: Question[] = [
+export const lEJBrouwerQuestions: Question[] = [
   {
     id: 20650,
     topic: 'l-e-j-brouwer',

@@ -1,7 +1,7 @@
 // ross.ts
 import type { Question } from '../types';
 
-export const rossQuestions: Question[] = [
+export const stephenRossQuestions: Question[] = [
   {
     id: 69200,
     topic: 'stephen-ross',

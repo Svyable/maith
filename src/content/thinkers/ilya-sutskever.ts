@@ -1,6 +1,6 @@
 import type { Question } from '../types';
 
-export const ilyaQuestions: Question[] = [
+export const ilyaSutskeverQuestions: Question[] = [
   {
     id: 95016, topic: 'ilya-sutskever', difficulty: 'easy',
     question: 'Ilya Sutskever co-authored the AlexNet paper that won ImageNet 2012 by using:',

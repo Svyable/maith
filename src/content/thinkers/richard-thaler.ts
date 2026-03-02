@@ -1,6 +1,6 @@
 import type { Question } from '../types';
 
-export const thalerQuestions: Question[] = [
+export const richardThalerQuestions: Question[] = [
   {
     id: 19201, topic: 'richard-thaler', difficulty: 'easy',
     question: 'Richard Thaler\'s "nudge" concept involves:',

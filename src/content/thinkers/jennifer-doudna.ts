@@ -1,6 +1,6 @@
 import type { Question } from '../types';
 
-export const doudnaQuestions: Question[] = [
+export const jenniferDoudnaQuestions: Question[] = [
   {
     id: 96034, topic: 'jennifer-doudna', difficulty: 'easy',
     question: 'CRISPR-Cas9, co-developed by Jennifer Doudna, allows scientists to:',

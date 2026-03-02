@@ -1,7 +1,7 @@
 // backus.ts
 import type { Question } from '../types';
 
-export const backusQuestions: Question[] = [
+export const johnBackusQuestions: Question[] = [
   {
     id: 67015,
     topic: 'john-backus',

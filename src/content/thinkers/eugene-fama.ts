@@ -1,7 +1,7 @@
 // fama.ts
 import type { Question } from '../types';
 
-export const famaQuestions: Question[] = [
+export const eugeneFamaQuestions: Question[] = [
   {
     id: 69100,
     topic: 'eugene-fama',

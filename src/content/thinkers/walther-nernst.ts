@@ -1,6 +1,6 @@
 import type { Question } from '../types';
 
-export const nernstQuestions: Question[] = [
+export const waltherNernstQuestions: Question[] = [
   {
     id: 97201, topic: 'walther-nernst', difficulty: 'easy',
     question: 'The Nernst equation $E = E^\\circ - \\frac{RT}{nF} \\ln Q$ relates the cell potential to:',

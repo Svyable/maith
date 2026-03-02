@@ -1,7 +1,7 @@
 // muth.ts
 import type { Question } from '../types';
 
-export const muthQuestions: Question[] = [
+export const johnMuthQuestions: Question[] = [
   {
     id: 67005,
     topic: 'john-muth',

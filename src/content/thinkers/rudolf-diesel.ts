@@ -1,7 +1,7 @@
 // diesel.ts
 import type { Question } from '../types';
 
-export const dieselQuestions: Question[] = [
+export const rudolfDieselQuestions: Question[] = [
   {
     id: 67060,
     topic: 'rudolf-diesel',

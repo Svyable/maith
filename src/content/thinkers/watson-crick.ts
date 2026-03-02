@@ -1,7 +1,7 @@
 // watsoncrick.ts
 import type { Question } from '../types';
 
-export const watsoncrickQuestions: Question[] = [
+export const watsonCrickQuestions: Question[] = [
   {
     id: 50030,
     topic: 'watson-crick',

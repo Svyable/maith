@@ -1,6 +1,6 @@
 import type { Question } from '../types';
 
-export const daubechiesQuestions: Question[] = [
+export const ingridDaubechiesQuestions: Question[] = [
   {
     id: 20227, topic: 'ingrid-daubechies', difficulty: 'easy',
     question: 'Ingrid Daubechies is best known for her pioneering work on which mathematical tool?',

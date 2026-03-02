@@ -1,6 +1,6 @@
 import type { Question } from '../types';
 
-export const cauchyQuestions: Question[] = [
+export const augustinLouisCauchyQuestions: Question[] = [
   {
     id: 20301, topic: 'augustin-louis-cauchy', difficulty: 'easy',
     question: 'A Cauchy sequence is one where:',

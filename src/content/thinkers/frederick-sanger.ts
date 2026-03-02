@@ -1,7 +1,7 @@
 // sanger.ts
 import type { Question } from '../types';
 
-export const sangerQuestions: Question[] = [
+export const frederickSangerQuestions: Question[] = [
   {
     id: 50040,
     topic: 'frederick-sanger',

@@ -1,6 +1,6 @@
 import type { Question } from '../types';
 
-export const mertonRobertQuestions: Question[] = [
+export const robertMertonQuestions: Question[] = [
   {
     id: 19401, topic: 'robert-merton', difficulty: 'easy',
     question: 'Robert C. Merton shared the 1997 Nobel Prize for:',

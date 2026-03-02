@@ -1,7 +1,7 @@
 // napier.ts
 import type { Question } from '../types';
 
-export const napierQuestions: Question[] = [
+export const johnNapierQuestions: Question[] = [
   {
     id: 67045,
     topic: 'john-napier',
