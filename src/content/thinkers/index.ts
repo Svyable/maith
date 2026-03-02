@@ -115,7 +115,7 @@ import { tusiQuestions } from "./al-tusi";
 import { satoshiQuestions } from "./satoshi";
 import { diffieQuestions } from "./diffie-hellman";
 import { shamirQuestions } from "./shamir";
-import { KirchhoffsQuestions } from "./Kirchhoffs";
+import { kirchhoffQuestions } from "./kirchhoff";
 import { merkleQuestions } from "./merkle";
 import { rivestQuestions } from "./rivest";
 // Applied Sciences: Optics, Comms, Semiconductors, Materials
@@ -395,11 +395,12 @@ import { hausdorffQuestions } from "./hausdorff";
 
 // The Architects of the Physical World (Physics & Chemistry)
 import { galileoQuestions } from "./galileo";
-import { CarnotQuestions } from "./carnot";
+import { carnotQuestions } from "./carnot";
 import { gibbsQuestions } from "./gibbs";
 import { rutherfordQuestions } from "./rutherford";
-import { jjThomsonQuestions } from "./jj-thomson";
+import { jjthomsonQuestions } from "./jjthomson";
 import { lorentzQuestions } from "./lorentz";
+import { lorenzQuestions } from "./lorenz";
 import { minkowskiQuestions } from "./minkowski";
 import { pauliQuestions } from "./pauli";
 import { bornQuestions } from "./born";
@@ -413,7 +414,6 @@ import { avogadroQuestions } from "./avogadro";
 import { berzeliusQuestions } from "./berzelius";
 import { davyQuestions } from "./davy";
 import { michelsonQuestions } from "./michelson";
-import { kirchhoffQuestions } from "./kirchhoff";
 import { wolfeQuestions } from "./wolfe";
 import { farkasQuestions } from "./farkas";
 import { gomoryQuestions } from "./gomory";
@@ -423,7 +423,7 @@ import { bendersQuestions } from "./benders";
 import { leeuwenhoekQuestions } from "./leeuwenhoek";
 import { pasteurQuestions } from "./pasteur";
 import { kochQuestions } from "./koch";
-import { watsonCrickQuestions } from "./watson-crick";
+import { watsonCrickQuestions } from "./watsoncrick";
 import { sangerQuestions } from "./sanger";
 import { mullisQuestions } from "./mullis";
 import { salkQuestions } from "./salk";
@@ -440,9 +440,6 @@ import { kuhnQuestions } from "./kuhn";
 import { fullerQuestions } from "./fuller";
 import { herbertSimonQuestions } from "./herbert-simon";
 import { coaseQuestions } from "./coase";
-import { farkasQuestions } from "./farkas";
-import { gomoryQuestions } from "./gomory";
-import { bendersQuestions } from "./benders";
 
 export const allThinkerQuestions: Question[] = [
   // Original 10
@@ -564,7 +561,7 @@ export const allThinkerQuestions: Question[] = [
   ...satoshiQuestions,
   ...diffieQuestions,
   ...shamirQuestions,
-  ...KirchhoffsQuestions,
+  ...kirchhoffQuestions,
   ...merkleQuestions,
   ...rivestQuestions,
   // Applied Sciences
@@ -844,11 +841,12 @@ export const allThinkerQuestions: Question[] = [
 
   // The Architects of the Physical World (Physics & Chemistry)
   ...galileoQuestions,
-  ...sadiCarnotQuestions,
+  ...carnotQuestions,
   ...gibbsQuestions,
   ...rutherfordQuestions,
-  ...jjThomsonQuestions,
+  ...jjthomsonQuestions,
   ...lorentzQuestions,
+  ...lorenzQuestions,
   ...minkowskiQuestions,
   ...pauliQuestions,
   ...bornQuestions,
@@ -862,7 +860,6 @@ export const allThinkerQuestions: Question[] = [
   ...berzeliusQuestions,
   ...davyQuestions,
   ...michelsonQuestions,
-  ...kirchhoffQuestions,
   ...wolfeQuestions,
   ...farkasQuestions,
   ...gomoryQuestions,

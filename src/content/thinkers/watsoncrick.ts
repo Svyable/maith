@@ -1,10 +1,10 @@
-// watson-crick.ts
+// watsoncrick.ts
 import type { Question } from '../types';
 
-export const watsonCrickQuestions: Question[] = [
+export const watsoncrickQuestions: Question[] = [
   {
     id: 50030,
-    topic: 'watson-crick',
+    topic: 'watsoncrick',
     difficulty: 'easy',
     question: 'Watson-Crick model: DNA = ?',
     options: [
@@ -20,7 +20,7 @@ export const watsonCrickQuestions: Question[] = [
   },
   {
     id: 50031,
-    topic: 'watson-crick',
+    topic: 'watsoncrick',
     difficulty: 'hard',
     question: 'DNA major/minor grooves from?',
     options: [
@@ -36,7 +36,7 @@ export const watsonCrickQuestions: Question[] = [
   },
   {
     id: 50032,
-    topic: 'watson-crick',
+    topic: 'watsoncrick',
     difficulty: 'sota',
     question: 'B-DNA helical parameters?',
     options: [
