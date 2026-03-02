@@ -58,7 +58,7 @@ export const bendersQuestions: Question[] = [
     options: [
       'Core-point method: aggregate cuts from multiple x^k',
       'Simple cut pooling',
-      * 'Frank-Wolfe subproblem solving',
+      'Frank-Wolfe subproblem solving',
       'Column-and-cut generation'
     ],
     correctIndex: 0,

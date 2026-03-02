@@ -877,7 +877,7 @@ export const allThinkerQuestions: Question[] = [
   ...mullisQuestions,
   ...salkQuestions,
   ...claudeBernardQuestions,
-  ...morganQuestions,
+  ...huntmorganQuestions,
   ...heavisideQuestions,
   ...nyquistQuestions,
   ...dieselQuestions,

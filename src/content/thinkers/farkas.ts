@@ -74,7 +74,7 @@ export const farkasQuestions: Question[] = [
     options: [
       'Farkas to nonlinear inequalities f_i(x)≤0',
       'Polyhedral combinatorics',
-      * 'Minimax theorem',
+      'Minimax theorem',
       'Separation theorem'
     ],
     correctIndex: 0,
