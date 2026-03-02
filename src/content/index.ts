@@ -74,20 +74,8 @@ import { sota2024Questions } from './sota-2024';
 import { sota2025Questions } from './sota-2025';
 // ── 2026 SOTA ──────────────────────────────────────────────
 import { sota2026Questions } from './sota-2026';
-// ── CFA Program ──────────────────────────────────────────────
-import { cfaQuestions } from './cfa';
-// ── CPA Exam ──────────────────────────────────────────────
-import { cpaQuestions } from './cpa';
-// ── Actuarial Exams ──────────────────────────────────────────────
-import { actuarialQuestions } from './actuarial';
-// ── MBA Core ──────────────────────────────────────────────
-import { mbaQuestions } from './mba';
-// ── Law & Ethics ──────────────────────────────────────────────
-import { lawQuestions } from './law';
-// ── Medical Sciences ──────────────────────────────────────────────
-import { medicalQuestions } from './medical';
-// ── Data Science ──────────────────────────────────────────────
-import { dataScienceQuestions } from './data-science';
+// ── Bonafides (CFA, CPA, Actuarial, MBA, Law, Medical, Data Science)
+// are now served exclusively via src/content/bonafides/ and the /bonafides route.
 // ── New advanced topics ──────────────────────────────────────
 import { combinatoricsQuestions } from './combinatorics';
 import { categoryTheoryQuestions } from './category-theory';
@@ -184,20 +172,7 @@ export const allQuestions: Question[] = [
   ...sota2025Questions,
   // ── 2026 SOTA ──────────────────────────────────────────────
   ...sota2026Questions,
-  // ── CFA Program ──────────────────────────────────────────────
-  ...cfaQuestions,
-  // ── CPA Exam ──────────────────────────────────────────────
-  ...cpaQuestions,
-  // ── Actuarial Exams ──────────────────────────────────────────────
-  ...actuarialQuestions,
-  // ── MBA Core ──────────────────────────────────────────────
-  ...mbaQuestions,
-  // ── Law & Ethics ──────────────────────────────────────────────
-  ...lawQuestions,
-  // ── Medical Sciences ──────────────────────────────────────────────
-  ...medicalQuestions,
-  // ── Data Science ──────────────────────────────────────────────
-  ...dataScienceQuestions,
+  // ── Bonafides removed from general pool — served at /bonafides ──
   // ── Vault ──────────────────────────────────────────────
   ...vaultQuestions,
 ];

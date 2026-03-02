@@ -123,3 +123,32 @@ export function checkThinkerAnswer(
 ): CheckResult | null {
   return localFallbackCheck(questionId, selectedIndex, allThinkerQuestions);
 }
+
+// ── Bonafide-mode helpers (uses bonafide pool) ──────────────────────
+
+import { allBonafideQuestions } from '@/content/bonafides';
+
+export function fetchBonafideQuestions(
+  topics: string[],
+  difficulties: QuestionDifficulty[],
+  cap: number = DEFAULT_QUIZ_CAP,
+): PublicQuestion[] {
+  let pool = topics.length === 0
+    ? allBonafideQuestions
+    : allBonafideQuestions.filter((q) => topics.includes(q.topic));
+
+  if (difficulties.length > 0 && difficulties.length < 3) {
+    pool = pool.filter((q) => difficulties.includes(q.difficulty));
+  }
+
+  return fisherYatesShuffle(pool)
+    .slice(0, cap)
+    .map(stripAnswers);
+}
+
+export function checkBonafideAnswer(
+  questionId: number,
+  selectedIndex: number,
+): CheckResult | null {
+  return localFallbackCheck(questionId, selectedIndex, allBonafideQuestions);
+}
