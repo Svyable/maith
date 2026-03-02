@@ -1197,7 +1197,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'He wrote his most important mathematical ideas in a letter the night before his fatal duel, scribbling "I have no time" in the margins.',
   },
   {
-    slug: 'hamilton-wr',
+    slug: 'william-rowan-hamilton',
     name: 'William Rowan Hamilton',
     archetype: 'The Linguist-Mathematician',
     emoji: '🌉',
@@ -1507,7 +1507,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'Satoshi\'s identity remains unknown. They hold ~1.1 million BTC (worth tens of billions) that have never been moved. Their last known communication was in 2011.',
   },
   {
-    slug: 'diffie-hellman',
+    slug: 'whitfield-diffie',
     name: 'Whitfield Diffie & Martin Hellman',
     archetype: 'The Key Exchangers',
     emoji: '🔑',
@@ -1535,7 +1535,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'Shamir is the only person who both co-invented one of the most important encryption algorithms (RSA) AND co-invented one of the most powerful attacks against block ciphers (differential cryptanalysis).',
   },
   {
-    slug: 'Kirchhoffs',
+    slug: 'auguste-kirchhoff',
     name: 'Auguste Kirchhoffs',
     archetype: 'The Principled',
     emoji: '📜',
@@ -1578,7 +1578,7 @@ export const THINKERS: ThinkerMeta[] = [
   },
   // ── Applied Sciences: Optics, Comms, Semiconductors, Materials ──
   {
-    slug: 'alhazen',
+    slug: 'ibn-al-haytham',
     name: 'Ibn al-Haytham (Alhazen)',
     archetype: 'The Experimenter',
     emoji: '👁️',
@@ -2199,7 +2199,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'We only know of Pandrosion because Pappus criticized her methods — his attack ironically preserved her name for 1,700 years.',
   },
   {
-    slug: 'duchatelet',
+    slug: 'emilie-du-chatelet',
     name: 'Émilie du Châtelet',
     archetype: 'The Energist',
     emoji: '⚡',
@@ -2625,7 +2625,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'He discovered his paradox just as Frege was sending his life\'s work to the printer, forcing a heartbreaking appendix admitting the foundation was broken.',
   },
   {
-    slug: 'banach-tarski',
+    slug: 'stefan-banach',
     name: 'Stefan Banach & Alfred Tarski',
     archetype: 'The Duplicators',
     emoji: '🔮',
@@ -3322,7 +3322,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'He is famous for wearing giant spider brooches and lavallière ties. He later became a member of the French National Assembly.',
   },
   {
-    slug: 'michael-jordan-ml',
+    slug: 'michael-jordan',
     name: 'Michael I. Jordan',
     archetype: 'The Variational Master',
     emoji: '🏀',
@@ -3676,7 +3676,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'Lenz also independently discovered Joule heating (P = I²R) around the same time as Joule, and it\'s sometimes called the Joule-Lenz law in Russian and German textbooks.',
   },
   {
-    slug: 'biot-savart',
+    slug: 'jean-baptiste-biot',
     name: 'Biot & Savart',
     archetype: 'The Field Mappers',
     emoji: '🧭',
@@ -4932,7 +4932,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'Avogadro’s number $6.022\\times10^{23}$ links atomic scale to lab scale.'
   },
   {
-    slug: 'jöns-berzelius',
+    slug: 'jons-berzelius',
     name: 'Jöns Jacob Berzelius',
     archetype: 'The Chemical Notation Founder',
     emoji: '🧪',
@@ -5018,7 +5018,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'Benders decomposition iteratively adds cuts from subproblem duals to refine the master problem.'
   },
   {
-    slug: 'antonie-van-leeuwenhoek',
+    slug: 'antonie-leeuwenhoek',
     name: 'Antonie van Leeuwenhoek',
     archetype: 'The Microbe First-Seer',
     emoji: '🔬',
@@ -5130,7 +5130,7 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'Bernard’s “milieu intérieur” later inspired the modern concept of homeostasis.'
   },
   {
-    slug: 'thomas-hunt-morgan',
+    slug: 'thomas-morgan',
     name: 'Thomas Hunt Morgan',
     archetype: 'The Chromosome Mapper',
     emoji: '🪰',
