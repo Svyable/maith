@@ -4484,20 +4484,6 @@ export const THINKERS: ThinkerMeta[] = [
     funFact: 'Cardano published the cubic solution in Ars Magna (1545), igniting centuries of work on solvability by radicals.'
   },
   {
-    slug: 'john-napier',
-    name: 'John Napier',
-    archetype: 'The Logarithm Inventor',
-    emoji: '📚',
-    era: '1550–1617',
-    domain: 'Computation & Applied Math',
-    fields: ['math'],
-    description: 'Logarithms, Napier’s bones, spherical trigonometry tools',
-    color: 'success',
-    tagline: 'He turned multiplication into addition—powering science for centuries.',
-    era_group: 'ancient',
-    funFact: 'Log tables were the backbone of navigation, astronomy, and engineering long before calculators existed.'
-  },
-  {
     slug: 'brook-taylor',
     name: 'Brook Taylor',
     archetype: 'The Series Expander',
