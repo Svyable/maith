@@ -6,7 +6,8 @@ import { riemannQuestions } from "./riemann";
 import { feynmanQuestions } from "./feynman";
 import { vonNeumannQuestions } from "./vonneumann";
 import { pearlQuestions } from "./pearl";
-import { simonsQuestions, ramanujanQuestions } from "./simons-ramanujan";
+import { simonsQuestions} from "./simons";
+import { ramanujanQuestions } from "./ramanujan";
 // Ancient thinkers
 import { euclidQuestions } from "./euclid";
 import { archimedесQuestions } from "./archimedes";
