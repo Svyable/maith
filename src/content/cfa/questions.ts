@@ -1,10 +1,10 @@
 import type { Question } from '../types';
 
-// ── CFA Level 1: Ethics & Quantitative Methods ──
-export const cfaEthicsQuestions: Question[] = [
+// ── CFA Level I: Ethics & Professional Standards ──
+export const cfaLevel1Questions: Question[] = [
   {
     id: 80100,
-    topic: 'cfa-ethics',
+    topic: 'cfa-level-1',
     difficulty: 'easy',
     question: 'Under the CFA Institute Code of Ethics, members must place the interests of:',
     options: [
@@ -20,7 +20,7 @@ export const cfaEthicsQuestions: Question[] = [
   },
   {
     id: 80101,
-    topic: 'cfa-ethics',
+    topic: 'cfa-level-1',
     difficulty: 'hard',
     question: 'Under Standard III(B) Fair Dealing, a portfolio manager who receives material nonpublic information should:',
     options: [
@@ -36,7 +36,7 @@ export const cfaEthicsQuestions: Question[] = [
   },
   {
     id: 80102,
-    topic: 'cfa-ethics',
+    topic: 'cfa-level-1',
     difficulty: 'sota',
     question: 'The CFA Institute\'s Global Investment Performance Standards (GIPS) require composite construction based on:',
     options: [
@@ -50,13 +50,45 @@ export const cfaEthicsQuestions: Question[] = [
     realWorld: 'GIPS compliance is a global standard for asset managers claiming performance track records.',
     hint: 'Composites prevent selection bias in performance reporting.',
   },
+  {
+    id: 80103,
+    topic: 'cfa-level-1',
+    difficulty: 'easy',
+    question: 'The time value of money concept states that $\\$1$ today is worth:',
+    options: [
+      'More than $\\$1$ in the future due to earning potential',
+      'Exactly $\\$1$ in the future regardless of rates',
+      'Less than $\\$1$ in the future due to deflation',
+      'The same as $\\$1$ in the future if inflation is zero',
+    ],
+    correctIndex: 0,
+    explanation: 'Money today can be invested to earn interest, making it worth more than the same nominal amount received later.',
+    realWorld: 'TVM underpins all of corporate finance: NPV, IRR, bond pricing, and annuity valuation.',
+    hint: 'A dollar today can be invested and grow.',
+  },
+  {
+    id: 80104,
+    topic: 'cfa-level-1',
+    difficulty: 'hard',
+    question: 'The coefficient of variation (CV) is preferred over standard deviation for comparing risk because:',
+    options: [
+      'CV normalizes risk per unit of expected return, enabling cross-asset comparison',
+      'CV is always lower than standard deviation',
+      'CV ignores negative returns',
+      'CV only works for normally distributed returns',
+    ],
+    correctIndex: 0,
+    explanation: 'CV = σ/μ measures relative risk. Two assets with different expected returns can be compared on a risk-per-return basis.',
+    realWorld: 'Analysts compare CV across asset classes with different return profiles (equities vs. bonds).',
+    hint: 'It\'s about risk relative to return, not absolute risk.',
+  },
 ];
 
-// ── CFA Level 2: Equity Valuation ──
-export const cfaEquityQuestions: Question[] = [
+// ── CFA Level II: Equity Valuation & Financial Reporting ──
+export const cfaLevel2Questions: Question[] = [
   {
     id: 80200,
-    topic: 'cfa-equity',
+    topic: 'cfa-level-2',
     difficulty: 'easy',
     question: 'The Gordon Growth Model values a stock as D₁/(r - g), where g represents:',
     options: [
@@ -72,7 +104,7 @@ export const cfaEquityQuestions: Question[] = [
   },
   {
     id: 80201,
-    topic: 'cfa-equity',
+    topic: 'cfa-level-2',
     difficulty: 'hard',
     question: 'Residual Income (RI) valuation differs from DDM because RI:',
     options: [
@@ -88,7 +120,7 @@ export const cfaEquityQuestions: Question[] = [
   },
   {
     id: 80202,
-    topic: 'cfa-equity',
+    topic: 'cfa-level-2',
     difficulty: 'sota',
     question: 'In a multi-stage DDM with an H-model, the "H" factor represents:',
     options: [
@@ -102,13 +134,45 @@ export const cfaEquityQuestions: Question[] = [
     realWorld: 'Analysts use the H-model for tech companies expected to see growth decelerate gradually.',
     hint: 'H is the half-life of the growth transition period.',
   },
+  {
+    id: 80203,
+    topic: 'cfa-level-2',
+    difficulty: 'easy',
+    question: 'Enterprise Value (EV) is calculated as:',
+    options: [
+      'Market cap + total debt - cash and cash equivalents',
+      'Market cap only',
+      'Total assets minus total liabilities',
+      'Net income times the P/E ratio',
+    ],
+    correctIndex: 0,
+    explanation: 'EV represents the total value of the firm to all capital providers (equity + debt holders), net of cash.',
+    realWorld: 'EV/EBITDA is the most widely used valuation multiple in M&A and leveraged buyouts.',
+    hint: 'Think about what an acquirer would pay to own the entire firm.',
+  },
+  {
+    id: 80204,
+    topic: 'cfa-level-2',
+    difficulty: 'hard',
+    question: 'Under IFRS, goodwill impairment testing requires:',
+    options: [
+      'Annual testing at the cash-generating unit (CGU) level with no amortization',
+      'Straight-line amortization over 20 years',
+      'Testing only when a triggering event occurs',
+      'Immediate write-off at acquisition',
+    ],
+    correctIndex: 0,
+    explanation: 'IFRS requires annual impairment testing of goodwill allocated to CGUs. Unlike US GAAP (which added an optional qualitative step), IFRS has no amortization alternative.',
+    realWorld: 'Large write-downs (e.g., HP\'s $8.8B Autonomy impairment) can materially impact reported earnings.',
+    hint: 'IFRS does not amortize goodwill — it only impairs.',
+  },
 ];
 
-// ── CFA Level 3: Portfolio Management ──
-export const cfaPortfolioQuestions: Question[] = [
+// ── CFA Level III: Portfolio Management & Wealth Planning ──
+export const cfaLevel3Questions: Question[] = [
   {
     id: 80300,
-    topic: 'cfa-portfolio',
+    topic: 'cfa-level-3',
     difficulty: 'easy',
     question: 'An Investment Policy Statement (IPS) should specify all of the following EXCEPT:',
     options: [
@@ -124,7 +188,7 @@ export const cfaPortfolioQuestions: Question[] = [
   },
   {
     id: 80301,
-    topic: 'cfa-portfolio',
+    topic: 'cfa-level-3',
     difficulty: 'hard',
     question: 'In a core-satellite portfolio strategy, the "core" typically consists of:',
     options: [
@@ -140,7 +204,7 @@ export const cfaPortfolioQuestions: Question[] = [
   },
   {
     id: 80302,
-    topic: 'cfa-portfolio',
+    topic: 'cfa-level-3',
     difficulty: 'sota',
     question: 'Liability-Driven Investing (LDI) for pension funds primarily uses:',
     options: [
@@ -153,5 +217,37 @@ export const cfaPortfolioQuestions: Question[] = [
     explanation: 'LDI matches asset duration/convexity to liability duration, immunizing funded status against interest rate changes.',
     realWorld: 'UK and Dutch pension funds widely adopted LDI; the 2022 UK gilt crisis exposed leverage risks in LDI structures.',
     hint: 'The goal is hedging liability interest rate sensitivity, not maximizing returns.',
+  },
+  {
+    id: 80303,
+    topic: 'cfa-level-3',
+    difficulty: 'hard',
+    question: 'The Black-Litterman model improves on mean-variance optimization by:',
+    options: [
+      'Starting from market-implied equilibrium returns and blending in investor views',
+      'Eliminating the need for a covariance matrix',
+      'Using only historical returns without adjustment',
+      'Ignoring market capitalization weights entirely',
+    ],
+    correctIndex: 0,
+    explanation: 'Black-Litterman combines CAPM equilibrium (reverse-optimized from market cap weights) with subjective views, producing more stable and intuitive portfolio allocations.',
+    realWorld: 'Goldman Sachs developed Black-Litterman; it\'s now standard in institutional asset allocation.',
+    hint: 'It anchors to market equilibrium, then tilts toward your views.',
+  },
+  {
+    id: 80304,
+    topic: 'cfa-level-3',
+    difficulty: 'sota',
+    question: 'Risk parity portfolio construction allocates capital so that each asset class contributes:',
+    options: [
+      'Equal marginal risk (volatility contribution) to the portfolio',
+      'Equal dollar amounts regardless of risk',
+      'Maximum expected return per unit of capital',
+      'Inverse beta-weighted positions',
+    ],
+    correctIndex: 0,
+    explanation: 'Risk parity equalizes risk contributions: $w_i \\cdot \\frac{\\partial \\sigma_p}{\\partial w_i}$ is the same for all assets. Low-vol assets get higher weight.',
+    realWorld: 'Bridgewater\'s All Weather fund popularized risk parity; it typically levers up bonds to match equity risk.',
+    hint: 'It\'s about equal risk, not equal dollars.',
   },
 ];

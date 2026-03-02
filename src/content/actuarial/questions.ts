@@ -1,10 +1,10 @@
 import type { Question } from '../types';
 
-// ── Exam P: Probability ──
-export const actuarialProbQuestions: Question[] = [
+// ── SOA Exam P: Probability ──
+export const examPQuestions: Question[] = [
   {
     id: 82100,
-    topic: 'actuarial-probability',
+    topic: 'actuarial-exam-p',
     difficulty: 'easy',
     question: 'In actuarial science, the survival function S(x) represents:',
     options: [
@@ -20,7 +20,7 @@ export const actuarialProbQuestions: Question[] = [
   },
   {
     id: 82101,
-    topic: 'actuarial-probability',
+    topic: 'actuarial-exam-p',
     difficulty: 'hard',
     question: 'The force of mortality μ(x) relates to the survival function by:',
     options: [
@@ -36,7 +36,7 @@ export const actuarialProbQuestions: Question[] = [
   },
   {
     id: 82102,
-    topic: 'actuarial-probability',
+    topic: 'actuarial-exam-p',
     difficulty: 'sota',
     question: 'Lee-Carter mortality forecasting models log death rates as:',
     options: [
@@ -50,20 +50,52 @@ export const actuarialProbQuestions: Question[] = [
     realWorld: 'Pension funds and Social Security use Lee-Carter variants to project longevity risk decades ahead.',
     hint: 'It\'s a factor model for mortality with age and time components.',
   },
+  {
+    id: 82103,
+    topic: 'actuarial-exam-p',
+    difficulty: 'easy',
+    question: 'If X and Y are independent continuous random variables, then $E[XY]$ equals:',
+    options: [
+      '$E[X] \\cdot E[Y]$',
+      '$E[X] + E[Y]$',
+      '$E[X+Y]$',
+      '$\\text{Var}(X) \\cdot \\text{Var}(Y)$',
+    ],
+    correctIndex: 0,
+    explanation: 'Independence implies $E[XY] = E[X] \\cdot E[Y]$. This is a fundamental property used throughout probability.',
+    realWorld: 'Actuaries rely on independence assumptions to model aggregate claims from unrelated policyholders.',
+    hint: 'Independence lets you factor the expectation.',
+  },
+  {
+    id: 82104,
+    topic: 'actuarial-exam-p',
+    difficulty: 'hard',
+    question: 'The moment-generating function (MGF) of a Poisson(λ) random variable is:',
+    options: [
+      '$M(t) = e^{\\lambda(e^t - 1)}$',
+      '$M(t) = \\lambda e^t$',
+      '$M(t) = (1-t/\\lambda)^{-1}$',
+      '$M(t) = e^{\\lambda t}$',
+    ],
+    correctIndex: 0,
+    explanation: 'The Poisson MGF $e^{\\lambda(e^t-1)}$ uniquely characterizes the distribution and makes deriving moments straightforward: $E[X] = M\'(0) = \\lambda$.',
+    realWorld: 'Claim frequency in insurance is often modeled as Poisson; the MGF is used to derive compound distribution properties.',
+    hint: 'Substitute into the MGF definition and use the Poisson PMF.',
+  },
 ];
 
-// ── Exam FM: Financial Mathematics ──
-export const actuarialFinMathQuestions: Question[] = [
+// ── SOA Exam FM: Financial Mathematics ──
+export const examFMQuestions: Question[] = [
   {
     id: 82200,
-    topic: 'actuarial-finmath',
+    topic: 'actuarial-exam-fm',
     difficulty: 'easy',
     question: 'The present value of an annuity-immediate paying 1 per period for n periods at rate i is:',
     options: [
-      'a_n = (1 - (1+i)^(-n)) / i',
-      'a_n = (1+i)^n',
-      'a_n = n × i',
-      'a_n = 1/i only',
+      '$a_{\\overline{n}|} = (1 - (1+i)^{-n}) / i$',
+      '$a_{\\overline{n}|} = (1+i)^n$',
+      '$a_{\\overline{n}|} = n \\times i$',
+      '$a_{\\overline{n}|} = 1/i$ only',
     ],
     correctIndex: 0,
     explanation: 'This is the fundamental annuity formula, discounting n equal payments back to time 0.',
@@ -72,7 +104,7 @@ export const actuarialFinMathQuestions: Question[] = [
   },
   {
     id: 82201,
-    topic: 'actuarial-finmath',
+    topic: 'actuarial-exam-fm',
     difficulty: 'hard',
     question: 'Redington immunization requires matching the first and second derivatives of asset and liability PV with respect to yield, meaning:',
     options: [
@@ -88,7 +120,7 @@ export const actuarialFinMathQuestions: Question[] = [
   },
   {
     id: 82202,
-    topic: 'actuarial-finmath',
+    topic: 'actuarial-exam-fm',
     difficulty: 'sota',
     question: 'Key Rate Duration (KRD) analysis improves on modified duration by:',
     options: [
@@ -102,15 +134,47 @@ export const actuarialFinMathQuestions: Question[] = [
     realWorld: 'Actuaries use KRDs to stress-test insurance portfolios against realistic non-parallel curve shifts.',
     hint: 'Real yield curves don\'t move in parallel — KRDs capture that.',
   },
+  {
+    id: 82203,
+    topic: 'actuarial-exam-fm',
+    difficulty: 'easy',
+    question: 'The force of interest $\\delta$ relates to the annual effective rate $i$ by:',
+    options: [
+      '$\\delta = \\ln(1 + i)$',
+      '$\\delta = i / (1+i)$',
+      '$\\delta = (1+i)^2 - 1$',
+      '$\\delta = i^2$',
+    ],
+    correctIndex: 0,
+    explanation: 'The force of interest is the continuously compounded equivalent: $e^\\delta = 1 + i$, so $\\delta = \\ln(1+i)$.',
+    realWorld: 'Continuous compounding with $\\delta$ simplifies many actuarial and financial calculations.',
+    hint: 'Think of the relationship between discrete and continuous compounding.',
+  },
+  {
+    id: 82204,
+    topic: 'actuarial-exam-fm',
+    difficulty: 'hard',
+    question: 'A callable bond\'s yield-to-worst (YTW) is the:',
+    options: [
+      'Minimum yield across all possible call dates and maturity',
+      'Maximum yield assuming the bond is never called',
+      'Average yield weighted by call probability',
+      'Yield assuming immediate default',
+    ],
+    correctIndex: 0,
+    explanation: 'YTW assumes the issuer will call at the date most disadvantageous to the holder, giving the lowest possible yield.',
+    realWorld: 'Bond traders always quote YTW for callable bonds since issuers refinance when rates drop.',
+    hint: 'The issuer calls when it benefits them — which hurts you.',
+  },
 ];
 
-// ── Loss Models ──
-export const actuarialLossQuestions: Question[] = [
+// ── SOA Exam FAM: Fundamentals of Actuarial Mathematics ──
+export const examFAMQuestions: Question[] = [
   {
     id: 82300,
-    topic: 'actuarial-loss',
+    topic: 'actuarial-exam-fam',
     difficulty: 'easy',
-    question: 'In the collective risk model, aggregate claims S = X₁ + X₂ + ... + X_N where N is:',
+    question: 'In the collective risk model, aggregate claims $S = X_1 + X_2 + \\ldots + X_N$ where N is:',
     options: [
       'A random variable representing the number of claims (frequency)',
       'Always fixed and known in advance',
@@ -124,7 +188,7 @@ export const actuarialLossQuestions: Question[] = [
   },
   {
     id: 82301,
-    topic: 'actuarial-loss',
+    topic: 'actuarial-exam-fam',
     difficulty: 'hard',
     question: 'The Panjer recursion efficiently computes the aggregate loss distribution when frequency follows:',
     options: [
@@ -134,13 +198,13 @@ export const actuarialLossQuestions: Question[] = [
       'Deterministic sequences only',
     ],
     correctIndex: 0,
-    explanation: 'Panjer recursion exploits the recursive property P(n)=(a+b/n)P(n-1) shared by Poisson, NB, and Binomial.',
+    explanation: 'Panjer recursion exploits the recursive property $P(n) = (a + b/n) P(n-1)$ shared by Poisson, NB, and Binomial.',
     realWorld: 'Actuarial software uses Panjer recursion for efficient aggregate loss computation in pricing and reserving.',
     hint: 'The (a,b,0) class has a specific probability recursion property.',
   },
   {
     id: 82302,
-    topic: 'actuarial-loss',
+    topic: 'actuarial-exam-fam',
     difficulty: 'sota',
     question: 'Extreme Value Theory (EVT) models tail risk using the Generalized Pareto Distribution because:',
     options: [
@@ -153,5 +217,37 @@ export const actuarialLossQuestions: Question[] = [
     explanation: 'EVT provides a theoretical basis for extrapolating beyond observed data: tail exceedances follow GPD regardless of the parent distribution.',
     realWorld: 'Reinsurers and catastrophe modelers use EVT-GPD for pricing extreme events (hurricanes, earthquakes).',
     hint: 'It\'s about what happens in the tail, regardless of the body of the distribution.',
+  },
+  {
+    id: 82303,
+    topic: 'actuarial-exam-fam',
+    difficulty: 'easy',
+    question: 'The net premium for a whole life insurance policy $A_x$ is calculated using:',
+    options: [
+      'The expected present value of the death benefit weighted by mortality probabilities',
+      'The face amount divided by the policy term',
+      'The policyholder\'s annual income',
+      'A flat percentage of the sum insured',
+    ],
+    correctIndex: 0,
+    explanation: '$A_x = \\sum_{k=0}^{\\infty} v^{k+1} \\cdot {}_k p_x \\cdot q_{x+k}$, discounting the death benefit by survival and mortality probabilities.',
+    realWorld: 'Life insurance pricing relies on commutation functions derived from this formula.',
+    hint: 'It\'s an actuarial present value — probability-weighted discounting.',
+  },
+  {
+    id: 82304,
+    topic: 'actuarial-exam-fam',
+    difficulty: 'hard',
+    question: 'The benefit reserve at time $t$ for a whole life policy, ${}_tV_x$, can be expressed prospectively as:',
+    options: [
+      '$A_{x+t} - P_x \\cdot \\ddot{a}_{x+t}$, the future benefits minus future premiums',
+      'The total premiums collected to date',
+      'The death benefit times the discount factor',
+      'Zero for all time periods',
+    ],
+    correctIndex: 0,
+    explanation: 'The prospective reserve equals EPV of future benefits minus EPV of future net premiums, representing the insurer\'s liability.',
+    realWorld: 'Regulators require reserves to ensure insurers can meet future obligations; this drives statutory reporting.',
+    hint: 'Prospective = looking forward at what you owe minus what you\'ll collect.',
   },
 ];

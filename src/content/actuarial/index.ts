@@ -1,10 +1,10 @@
-import { actuarialProbQuestions, actuarialFinMathQuestions, actuarialLossQuestions } from './questions';
+import { examPQuestions, examFMQuestions, examFAMQuestions } from './questions';
 import type { Question } from '../types';
 
 export const actuarialQuestions: Question[] = [
-  ...actuarialProbQuestions,
-  ...actuarialFinMathQuestions,
-  ...actuarialLossQuestions,
+  ...examPQuestions,
+  ...examFMQuestions,
+  ...examFAMQuestions,
 ];
 
-export { actuarialProbQuestions, actuarialFinMathQuestions, actuarialLossQuestions };
+export { examPQuestions, examFMQuestions, examFAMQuestions };
