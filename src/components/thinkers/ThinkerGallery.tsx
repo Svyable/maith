@@ -9,6 +9,17 @@ import { getThinkerQuestions } from '@/content/thinkers';
 import { t } from '@/i18n';
 import type { Difficulty } from '@/config/constants';
 
+/** Parse a birth year from era strings like "≈570–495 BC", "1643–1727", "4th century BC" */
+function parseBirthYear(era: string): number {
+  const bc = era.toLowerCase().includes('bc');
+  const centuryMatch = era.match(/(\d+)\w*\s*century/i);
+  if (centuryMatch) return bc ? -(parseInt(centuryMatch[1]) * 100) : (parseInt(centuryMatch[1]) - 1) * 100;
+  const yearMatch = era.match(/(\d{3,4})/);
+  if (!yearMatch) return 9999;
+  const year = parseInt(yearMatch[1]);
+  return bc ? -year : year;
+}
+
 interface ThinkerGalleryProps {
   selectedDifficulties: Difficulty[];
   onToggleDifficulty: (d: Difficulty) => void;
