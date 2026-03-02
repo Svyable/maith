@@ -1,5 +1,5 @@
 // ── Bonafides Content Aggregator ──────────────────────────────────────
-// Re-exports all professional certification questions.
+// Re-exports all professional certification questions (math & finance focus).
 // Thinker and standard quiz pools do NOT include these.
 //
 // To add a new credential:
@@ -9,32 +9,17 @@
 
 import type { Question } from '../types';
 
-// ── CFA Program ──────────────────────────────────────────────
+// ── CFA Program (Levels I–III) ───────────────────────────────
 import { cfaQuestions } from '../cfa';
-// ── CPA Exam ──────────────────────────────────────────────
-import { cpaQuestions } from '../cpa';
-// ── Actuarial Exams ──────────────────────────────────────────
+// ── Actuarial Exams (P, FM, FAM) ─────────────────────────────
 import { actuarialQuestions } from '../actuarial';
-// ── MBA Core ──────────────────────────────────────────────
-import { mbaQuestions } from '../mba';
-// ── Law & Ethics ──────────────────────────────────────────
-import { lawQuestions } from '../law';
-// ── Medical Sciences ──────────────────────────────────────────
-import { medicalQuestions } from '../medical';
-// ── Data Science ──────────────────────────────────────────
-import { dataScienceQuestions } from '../data-science';
 
 export const allBonafideQuestions: Question[] = [
   ...cfaQuestions,
-  ...cpaQuestions,
   ...actuarialQuestions,
-  ...mbaQuestions,
-  ...lawQuestions,
-  ...medicalQuestions,
-  ...dataScienceQuestions,
 ];
 
-/** Get bonafide questions filtered by credential slug's topics */
+/** Get bonafide questions filtered by topic slugs */
 export function getBonafideQuestions(topics: string[]): Question[] {
   if (topics.length === 0) return allBonafideQuestions;
   return allBonafideQuestions.filter((q) => topics.includes(q.topic));
