@@ -487,6 +487,13 @@ import { buckminsterFullerQuestions } from "./buckminster-fuller";
 import { herbertSimonQuestions } from "./herbert-simon";
 import { ronaldCoaseQuestions } from "./ronald-coase";
 
+// Iconic Thinkers: Philosophy, Renaissance, Enlightenment
+import { aristotleQuestions } from "./aristotle";
+import { platoQuestions } from "./plato";
+import { leonardoDaVinciQuestions } from "./leonardo-da-vinci";
+import { nicolausCopernicusQuestions } from "./nicolaus-copernicus";
+import { josephLouisLagrangeQuestions } from "./joseph-louis-lagrange";
+
 export const allThinkerQuestions: Question[] = [
   // Original 10
   ...geoffreyHintonQuestions,
@@ -931,6 +938,13 @@ export const allThinkerQuestions: Question[] = [
   ...buckminsterFullerQuestions,
   ...herbertSimonQuestions,
   ...ronaldCoaseQuestions,
+
+  // Iconic Thinkers
+  ...aristotleQuestions,
+  ...platoQuestions,
+  ...leonardoDaVinciQuestions,
+  ...nicolausCopernicusQuestions,
+  ...josephLouisLagrangeQuestions,
 ];
 export function getThinkerQuestions(slug: string): Question[] {
   return allThinkerQuestions.filter((q) => q.topic === slug);
