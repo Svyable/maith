@@ -2,7 +2,7 @@ import type { Question } from '../types';
 
 export const paulErdosQuestions: Question[] = [
   {
-    id: 11501,
+    id: 411501,
     topic: 'paul-erdos',
     difficulty: 'easy',
     question: 'Paul Erdős was famous for the concept of the "Erdős number." What does it measure?',
@@ -18,7 +18,7 @@ export const paulErdosQuestions: Question[] = [
     hint: 'It\'s like "six degrees of separation" but for mathematical collaboration.',
   },
   {
-    id: 11502,
+    id: 411502,
     topic: 'paul-erdos',
     difficulty: 'easy',
     question: 'Erdős and Rényi founded the field of random graph theory. Their model $G(n,p)$ generates a graph by:',
@@ -34,7 +34,7 @@ export const paulErdosQuestions: Question[] = [
     hint: 'Each pair of vertices flips a biased coin to decide if they\'re connected.',
   },
   {
-    id: 11503,
+    id: 411503,
     topic: 'paul-erdos',
     difficulty: 'easy',
     question: 'The Erdős–Kac theorem is remarkable because it shows that:',
@@ -50,7 +50,7 @@ export const paulErdosQuestions: Question[] = [
     hint: 'How many prime factors does a "typical" large number have? The answer follows a bell curve.',
   },
   {
-    id: 11504,
+    id: 411504,
     topic: 'paul-erdos',
     difficulty: 'hard',
     question: 'Erdős\'s probabilistic method proved the existence of graphs with high girth and high chromatic number by showing:',
@@ -66,7 +66,7 @@ export const paulErdosQuestions: Question[] = [
     hint: 'If the probability of having both properties is positive, at least one such graph must exist.',
   },
   {
-    id: 11505,
+    id: 411505,
     topic: 'paul-erdos',
     difficulty: 'hard',
     question: 'The Erdős–Gallai theorem characterizes which degree sequences are graphical (realizable as a simple graph). The condition is:',
@@ -82,7 +82,7 @@ export const paulErdosQuestions: Question[] = [
     hint: 'Not every list of numbers can be the degree sequence of a graph — there are inequality constraints.',
   },
   {
-    id: 11506,
+    id: 411506,
     topic: 'paul-erdos',
     difficulty: 'hard',
     question: 'Erdős\'s conjecture on arithmetic progressions (now proved by Green–Tao for primes) states that if $\\sum 1/a_n$ diverges, then the set $\\{a_n\\}$:',
@@ -98,7 +98,7 @@ export const paulErdosQuestions: Question[] = [
     hint: 'Sets with divergent reciprocal sums are "large" in a specific sense — too large to avoid patterns.',
   },
   {
-    id: 11507,
+    id: 411507,
     topic: 'paul-erdos',
     difficulty: 'sota',
     question: 'The Erdős–Rényi random graph model exhibits a sharp phase transition at $p = 1/n$. Below this threshold:',
@@ -114,7 +114,7 @@ export const paulErdosQuestions: Question[] = [
     hint: 'It\'s like water freezing — a sudden structural change at a critical point.',
   },
   {
-    id: 11508,
+    id: 411508,
     topic: 'paul-erdos',
     difficulty: 'sota',
     question: 'The Erdős–Stone theorem gives the fundamental asymptotic for the extremal number $\\text{ex}(n, H)$ — the maximum edges in an $H$-free graph on $n$ vertices:',

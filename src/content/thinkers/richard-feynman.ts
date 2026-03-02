@@ -2,7 +2,7 @@ import type { Question } from '../types';
 
 export const richardFeynmanQuestions: Question[] = [
   {
-    id: 10051,
+    id: 410051,
     topic: 'richard-feynman',
     difficulty: 'easy',
     question: 'Feynman\'s path integral formulation of quantum mechanics says the probability amplitude is:',
@@ -18,7 +18,7 @@ export const richardFeynmanQuestions: Question[] = [
     hint: 'Every possible path contributes — the most probable path is just where they constructively interfere.',
   },
   {
-    id: 10052,
+    id: 410052,
     topic: 'richard-feynman',
     difficulty: 'easy',
     question: 'Feynman diagrams are graphical representations of:',
@@ -146,7 +146,7 @@ export const richardFeynmanQuestions: Question[] = [
     hint: 'The variational principle: any guess for the wave function gives an energy above the true ground state.',
   },
   {
-    id: 10060,
+    id: 410060,
     topic: 'richard-feynman',
     difficulty: 'sota',
     question: 'Feynman\'s checkerboard model shows that the Dirac equation in 1+1 dimensions can be derived as:',

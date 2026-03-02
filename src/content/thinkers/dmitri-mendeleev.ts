@@ -2,7 +2,7 @@ import type { Question } from '../types';
 
 export const dmitriMendeleevQuestions: Question[] = [
   {
-    id: 96010, topic: 'dmitri-mendeleev', difficulty: 'easy',
+    id: 496010, topic: 'dmitri-mendeleev', difficulty: 'easy',
     question: 'Mendeleev arranged elements in his periodic table by:',
     options: ['Increasing atomic weight and recurring chemical properties', 'Alphabetical order', 'Date of discovery', 'Color and phase'],
     correctIndex: 0,
@@ -11,7 +11,7 @@ export const dmitriMendeleevQuestions: Question[] = [
     hint: 'He noticed that elements with similar properties appeared at regular intervals.',
   },
   {
-    id: 96011, topic: 'dmitri-mendeleev', difficulty: 'hard',
+    id: 496011, topic: 'dmitri-mendeleev', difficulty: 'hard',
     question: 'Mendeleev\'s periodic table was revolutionary because he:',
     options: ['Left gaps and predicted undiscovered elements with specific properties', 'Listed all known elements without gaps', 'Organized by atomic number', 'Used quantum mechanics to explain periodicity'],
     correctIndex: 0,
@@ -20,7 +20,7 @@ export const dmitriMendeleevQuestions: Question[] = [
     hint: 'He predicted properties of elements that hadn\'t been found yet.',
   },
   {
-    id: 96012, topic: 'dmitri-mendeleev', difficulty: 'sota',
+    id: 496012, topic: 'dmitri-mendeleev', difficulty: 'sota',
     question: 'Modern periodic tables differ from Mendeleev\'s original by ordering elements by:',
     options: ['Atomic number (proton count) rather than atomic weight', 'Electron configuration only', 'Electronegativity', 'Ionization energy'],
     correctIndex: 0,

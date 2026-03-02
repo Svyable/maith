@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const sota2026Questions: Question[] = [
   // 1. AgentSkiller: Scaling Generalist Agents
   {
-    id: 91001,
+    id: 491001,
     topic: 'sota-2026',
     difficulty: 'sota',
     question: 'In AgentSkiller (arXiv:2602.09372), why does a DAG-based architecture with explicit state transitions enable reliable, privacy-safe data synthesis for agent training?',
@@ -20,7 +20,7 @@ export const sota2026Questions: Question[] = [
   },
   // 2. ALMA: Meta-Learning Agentic Memory
   {
-    id: 91002,
+    id: 491002,
     topic: 'sota-2026',
     difficulty: 'sota',
     question: 'In ALMA (arXiv:2602.07755), how does expressing memory as searchable executable code allow it to outperform fixed human-designed memory modules across diverse domains?',
@@ -37,7 +37,7 @@ export const sota2026Questions: Question[] = [
   },
   // 3. LLaDA2.1: Token Editing for Diffusion LMs
   {
-    id: 91003,
+    id: 491003,
     topic: 'sota-2026',
     difficulty: 'sota',
     question: 'In LLaDA2.1 (arXiv:2602.08676), why does lowering the Mask-to-Token (M2T) threshold in Speedy Mode require Token-to-Token (T2T) editing to maintain generation quality?',
@@ -54,7 +54,7 @@ export const sota2026Questions: Question[] = [
   },
   // 4. InftyThink+: Infinite-Horizon Reasoning
   {
-    id: 91004,
+    id: 491004,
     topic: 'sota-2026',
     difficulty: 'sota',
     question: 'What "lost-in-the-middle" problem does InftyThink+ (arXiv:2602.06960) solve, and how does RL-based summarisation help?',
@@ -71,7 +71,7 @@ export const sota2026Questions: Question[] = [
   },
   // 5. EnvScaler: Scaling Tool Environments
   {
-    id: 91005,
+    id: 491005,
     topic: 'sota-2026',
     difficulty: 'sota',
     question: 'How does EnvScaler address data scarcity for long-horizon agent training through procedural environment generation?',
@@ -88,7 +88,7 @@ export const sota2026Questions: Question[] = [
   },
   // 6. Block Diffusion Scaling (LLaDA2.0)
   {
-    id: 91006,
+    id: 491006,
     topic: 'sota-2026',
     difficulty: 'sota',
     question: 'Why is parallel block diffusion faster than autoregressive generation for text, and what is the key tradeoff?',
@@ -105,7 +105,7 @@ export const sota2026Questions: Question[] = [
   },
   // 7. Statelessness Bottleneck in Foundation Models
   {
-    id: 91007,
+    id: 491007,
     topic: 'sota-2026',
     difficulty: 'sota',
     question: 'Why does "statelessness" bottleneck foundation models in continual learning, and how does meta-learned memory (ALMA-style) address this?',
@@ -122,7 +122,7 @@ export const sota2026Questions: Question[] = [
   },
   // 8. RL for Diffusion LLMs (RLHF for dLLMs)
   {
-    id: 91008,
+    id: 491008,
     topic: 'sota-2026',
     difficulty: 'sota',
     question: 'What diffusion-specific challenges does RL (PPO) address when aligning diffusion language models like LLaDA2.1, compared to standard autoregressive RLHF?',
@@ -139,7 +139,7 @@ export const sota2026Questions: Question[] = [
   },
   // 9. Cross-Domain Agent Fusion (Person-Centric Entity Graphs)
   {
-    id: 91009,
+    id: 491009,
     topic: 'sota-2026',
     difficulty: 'sota',
     question: 'In AgentSkiller\'s cross-domain fusion, how do Person-Centric Entity Graphs with $P(\\text{link}) = \\sigma(W \\cdot [e_u; e_v])$ ensure semantic consistency when linking services?',
@@ -156,7 +156,7 @@ export const sota2026Questions: Question[] = [
   },
   // 10. Iterative Reasoning Optimisation (Quadratic Cost)
   {
-    id: 91010,
+    id: 491010,
     topic: 'sota-2026',
     difficulty: 'sota',
     question: 'Why does long chain-of-thought reasoning have quadratic cost in standard transformers, and how does iterative reasoning with summarisation fix this?',

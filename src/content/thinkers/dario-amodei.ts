@@ -2,7 +2,7 @@ import type { Question } from '../types';
 
 export const darioAmodeiQuestions: Question[] = [
   {
-    id: 95007, topic: 'dario-amodei', difficulty: 'easy',
+    id: 495007, topic: 'dario-amodei', difficulty: 'easy',
     question: 'Anthropic, co-founded by Dario Amodei, focuses primarily on:',
     options: ['AI safety and alignment research', 'Social media algorithms', 'Hardware chip design', 'Video game development'],
     correctIndex: 0,
@@ -11,7 +11,7 @@ export const darioAmodeiQuestions: Question[] = [
     hint: 'The company name comes from "anthropic principle" — keeping humans central.',
   },
   {
-    id: 95008, topic: 'dario-amodei', difficulty: 'hard',
+    id: 495008, topic: 'dario-amodei', difficulty: 'hard',
     question: 'Constitutional AI (CAI), developed at Anthropic, trains models by:',
     options: ['Having the AI critique and revise its own outputs using a set of principles', 'Only using human feedback for every response', 'Removing all safety constraints', 'Training exclusively on academic papers'],
     correctIndex: 0,
@@ -20,7 +20,7 @@ export const darioAmodeiQuestions: Question[] = [
     hint: 'The AI acts as its own judge using written rules.',
   },
   {
-    id: 95009, topic: 'dario-amodei', difficulty: 'sota',
+    id: 495009, topic: 'dario-amodei', difficulty: 'sota',
     question: 'Anthropic\'s research on "scaling monosemanticity" demonstrated that:',
     options: ['Individual features in neural networks can be isolated and interpreted using sparse autoencoders', 'Larger models are always less interpretable', 'Neural networks use distributed representations that can never be decomposed', 'Attention heads correspond one-to-one with human concepts'],
     correctIndex: 0,

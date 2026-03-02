@@ -146,7 +146,7 @@ export const bernhardRiemannQuestions: Question[] = [
     hint: 'It smooths the metric like heat smooths temperature — bumps flatten out over time.',
   },
   {
-    id: 10050,
+    id: 410050,
     topic: 'bernhard-riemann',
     difficulty: 'sota',
     question: 'In information geometry, the statistical manifold of a parametric family $\\{p(x;\\theta)\\}$ has the Fisher-Rao metric. The geodesic distance between two distributions $p$ and $q$ relates to:',

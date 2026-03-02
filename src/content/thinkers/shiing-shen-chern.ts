@@ -2,7 +2,7 @@ import type { Question } from '../types';
 
 export const shiingShenChernQuestions: Question[] = [
   {
-    id: 11801,
+    id: 411801,
     topic: 'shiing-shen-chern',
     difficulty: 'easy',
     question: 'Shiing-Shen Chern is most famous for developing Chern classes. What do they classify?',
@@ -18,7 +18,7 @@ export const shiingShenChernQuestions: Question[] = [
     hint: 'They answer: "How twisted is this vector bundle?" — 0 means trivial, nonzero means topologically nontrivial.',
   },
   {
-    id: 11802,
+    id: 411802,
     topic: 'shiing-shen-chern',
     difficulty: 'easy',
     question: 'The Chern–Gauss–Bonnet theorem generalizes the classical Gauss–Bonnet theorem by relating:',
@@ -34,7 +34,7 @@ export const shiingShenChernQuestions: Question[] = [
     hint: 'In 2D, it\'s ∫K dA = 2πχ. Chern proved the higher-dimensional version.',
   },
   {
-    id: 11803,
+    id: 411803,
     topic: 'shiing-shen-chern',
     difficulty: 'hard',
     question: 'Chern–Simons theory, co-developed with James Simons, defines a secondary characteristic class that:',
@@ -50,7 +50,7 @@ export const shiingShenChernQuestions: Question[] = [
     hint: 'Jim Simons (the billionaire hedge fund manager) was Chern\'s PhD student who co-authored this foundational work.',
   },
   {
-    id: 11804,
+    id: 411804,
     topic: 'shiing-shen-chern',
     difficulty: 'hard',
     question: 'In the classification of fiber bundles, Chern\'s work showed that complex vector bundles over a space $X$ are classified by:',
@@ -66,7 +66,7 @@ export const shiingShenChernQuestions: Question[] = [
     hint: 'BU(n) is the Grassmannian in the limit — it classifies all possible n-plane sub-bundles.',
   },
   {
-    id: 11805,
+    id: 411805,
     topic: 'shiing-shen-chern',
     difficulty: 'sota',
     question: 'The Chern number in condensed matter physics quantizes the Hall conductance because:',

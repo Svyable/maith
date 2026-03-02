@@ -2,7 +2,7 @@ import type { Question } from '../types';
 
 export const yoshuaBengioQuestions: Question[] = [
   {
-    id: 11601,
+    id: 411601,
     topic: 'yoshua-bengio',
     difficulty: 'easy',
     question: 'Bengio, LeCun, and Hinton won the 2018 Turing Award for their contributions to:',
@@ -18,7 +18,7 @@ export const yoshuaBengioQuestions: Question[] = [
     hint: 'It\'s often called the "Nobel Prize of Computing" — what field connects all three winners?',
   },
   {
-    id: 11602,
+    id: 411602,
     topic: 'yoshua-bengio',
     difficulty: 'easy',
     question: 'Bengio\'s work on word embeddings and neural language models (early 2000s) showed that words could be represented as:',
@@ -34,7 +34,7 @@ export const yoshuaBengioQuestions: Question[] = [
     hint: 'The embedding layer maps discrete tokens to points in a continuous vector space — nearby points have similar meanings.',
   },
   {
-    id: 11603,
+    id: 411603,
     topic: 'yoshua-bengio',
     difficulty: 'easy',
     question: 'The "attention mechanism" in transformers computes weighted sums over values. Bengio\'s group at Mila contributed foundational work on attention via:',
@@ -50,7 +50,7 @@ export const yoshuaBengioQuestions: Question[] = [
     hint: 'The 2014 translation model learned to focus on relevant source words while generating each target word — that\'s attention.',
   },
   {
-    id: 11604,
+    id: 411604,
     topic: 'yoshua-bengio',
     difficulty: 'easy',
     question: 'Bengio\'s research on "consciousness priors" and "system 2 deep learning" argues that AI needs:',
@@ -66,7 +66,7 @@ export const yoshuaBengioQuestions: Question[] = [
     hint: 'Kahneman\'s "Thinking Fast and Slow" — System 1 is automatic, System 2 is deliberate.',
   },
   {
-    id: 11605,
+    id: 411605,
     topic: 'yoshua-bengio',
     difficulty: 'hard',
     question: 'Bengio et al. (2013) proved that deep networks can represent certain functions exponentially more efficiently than shallow networks. This "depth advantage" relies on:',

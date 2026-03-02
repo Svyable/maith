@@ -11,7 +11,7 @@ export const nikolaTeslaQuestions: Question[] = [
     hint: 'The current that alternates direction 50-60 times per second.',
   },
   {
-    id: 96020, topic: 'nikola-tesla', difficulty: 'hard',
+    id: 496020, topic: 'nikola-tesla', difficulty: 'hard',
     question: 'Tesla\'s AC induction motor works without brushes or commutators because it uses:',
     options: ['A rotating magnetic field from polyphase currents to induce rotor motion', 'Permanent magnets spinning at constant speed', 'Direct mechanical coupling to the power source', 'Piezoelectric vibrations in the stator'],
     correctIndex: 0,
@@ -20,7 +20,7 @@ export const nikolaTeslaQuestions: Question[] = [
     hint: 'The magnetic field itself rotates, dragging the rotor along.',
   },
   {
-    id: 96021, topic: 'nikola-tesla', difficulty: 'sota',
+    id: 496021, topic: 'nikola-tesla', difficulty: 'sota',
     question: 'Tesla\'s Wardenclyffe Tower aimed to achieve global wireless power transmission by exploiting:',
     options: ['Earth\'s natural resonant frequency and the ionosphere as a waveguide', 'Microwave beaming to satellites', 'Laser power transmission through fiber optics', 'Nuclear-powered broadcast antennas'],
     correctIndex: 0,

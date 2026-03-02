@@ -20,7 +20,7 @@ export const georgCantorQuestions: Question[] = [
     hint: 'Consider the set of elements that are NOT in their own image — Russell\'s paradox is a cousin of this argument.',
   },
   {
-    id: 20203, topic: 'georg-cantor', difficulty: 'sota',
+    id: 420203, topic: 'georg-cantor', difficulty: 'sota',
     question: 'The Continuum Hypothesis (CH) — that there is no set with cardinality strictly between $\\aleph_0$ and $2^{\\aleph_0}$ — was shown to be:',
     options: ['Independent of ZFC: consistent (Gödel 1940) and not provable (Cohen 1963, forcing)', 'True, proved by Gödel in 1940', 'False, disproved by Cohen in 1963', 'Equivalent to the Axiom of Choice'],
     correctIndex: 0,

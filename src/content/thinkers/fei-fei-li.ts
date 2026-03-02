@@ -2,7 +2,7 @@ import type { Question } from '../types';
 
 export const feiFeiLiQuestions: Question[] = [
   {
-    id: 95013, topic: 'fei-fei-li', difficulty: 'easy',
+    id: 495013, topic: 'fei-fei-li', difficulty: 'easy',
     question: 'Fei-Fei Li\'s ImageNet dataset contains approximately how many labeled images?',
     options: ['14 million images across 20,000+ categories', '1,000 images across 10 categories', '100,000 images across 100 categories', '1 million images across 5 categories'],
     correctIndex: 0,
@@ -11,7 +11,7 @@ export const feiFeiLiQuestions: Question[] = [
     hint: 'It took years of crowdsourced labeling via Amazon Mechanical Turk.',
   },
   {
-    id: 95014, topic: 'fei-fei-li', difficulty: 'hard',
+    id: 495014, topic: 'fei-fei-li', difficulty: 'hard',
     question: 'The ImageNet challenge revealed a key insight when AlexNet won in 2012:',
     options: ['Deep CNNs with GPU training could dramatically outperform hand-crafted features', 'SVMs were still superior for image classification', 'Data augmentation was unnecessary', 'Smaller datasets produced better generalization'],
     correctIndex: 0,
@@ -20,7 +20,7 @@ export const feiFeiLiQuestions: Question[] = [
     hint: 'The error rate dropped by nearly 11 percentage points in a single year.',
   },
   {
-    id: 95015, topic: 'fei-fei-li', difficulty: 'sota',
+    id: 495015, topic: 'fei-fei-li', difficulty: 'sota',
     question: 'Li\'s World Labs is building "Large World Models" that aim to:',
     options: ['Generate and understand 3D spatial worlds from visual data', 'Replace all text-based language models', 'Simulate quantum physics experiments', 'Automate financial trading strategies'],
     correctIndex: 0,

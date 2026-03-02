@@ -2,7 +2,7 @@ import type { Question } from '../types';
 
 export const sofiaKovalevskayaQuestions: Question[] = [
   {
-    id: 12401,
+    id: 412401,
     topic: 'sofia-kovalevskaya',
     difficulty: 'easy',
     question: 'Sofia Kovalevskaya was the first woman in modern Europe to:',
@@ -18,7 +18,7 @@ export const sofiaKovalevskayaQuestions: Question[] = [
     hint: 'She had to find a university that would even allow her to study — most wouldn\'t admit women.',
   },
   {
-    id: 12402,
+    id: 412402,
     topic: 'sofia-kovalevskaya',
     difficulty: 'easy',
     question: 'Kovalevskaya won the Prix Bordin (1888) for solving the rotation of a rigid body in which special case?',
@@ -34,7 +34,7 @@ export const sofiaKovalevskayaQuestions: Question[] = [
     hint: 'Only three integrable cases of rigid body rotation are known — she found the last one.',
   },
   {
-    id: 12403,
+    id: 412403,
     topic: 'sofia-kovalevskaya',
     difficulty: 'hard',
     question: 'The Cauchy–Kovalevskaya theorem guarantees that for analytic PDEs with analytic initial data:',
@@ -50,7 +50,7 @@ export const sofiaKovalevskayaQuestions: Question[] = [
     hint: 'Analytic input → analytic output, at least locally. She proved this as part of her doctoral work.',
   },
   {
-    id: 12404,
+    id: 412404,
     topic: 'sofia-kovalevskaya',
     difficulty: 'hard',
     question: 'Kovalevskaya\'s method for finding the third integrable case of rigid body rotation used:',
@@ -66,7 +66,7 @@ export const sofiaKovalevskayaQuestions: Question[] = [
     hint: 'She looked at the singularity structure of solutions in the complex plane — integrability requires "nice" singularities.',
   },
   {
-    id: 12405,
+    id: 412405,
     topic: 'sofia-kovalevskaya',
     difficulty: 'sota',
     question: 'The Kovalevskaya top has been shown to be algebraically completely integrable, meaning:',

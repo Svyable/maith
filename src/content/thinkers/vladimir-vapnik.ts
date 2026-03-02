@@ -2,7 +2,7 @@ import type { Question } from '../types';
 
 export const vladimirVapnikQuestions: Question[] = [
   {
-    id: 12001,
+    id: 4412001,
     topic: 'vladimir-vapnik',
     difficulty: 'easy',
     question: 'Support Vector Machines (SVMs), developed by Vapnik, find the decision boundary that:',
@@ -18,7 +18,7 @@ export const vladimirVapnikQuestions: Question[] = [
     hint: 'Draw the widest possible "road" between two classes — the hyperplane is the centerline of the road.',
   },
   {
-    id: 12002,
+    id: 4412002,
     topic: 'vladimir-vapnik',
     difficulty: 'easy',
     question: 'The "kernel trick" used in SVMs computes inner products in high-dimensional feature spaces:',
@@ -34,7 +34,7 @@ export const vladimirVapnikQuestions: Question[] = [
     hint: 'No need to compute the high-dimensional feature vector — just evaluate K(x,x\') = φ(x)·φ(x\') directly.',
   },
   {
-    id: 12003,
+    id: 4412003,
     topic: 'vladimir-vapnik',
     difficulty: 'easy',
     question: 'VC dimension (Vapnik-Chervonenkis dimension) measures model capacity by:',
@@ -50,7 +50,7 @@ export const vladimirVapnikQuestions: Question[] = [
     hint: 'A line in 2D can shatter 3 points (any labeling is achievable) but not 4 — so VC dim = 3.',
   },
   {
-    id: 12004,
+    id: 412004,
     topic: 'vladimir-vapnik',
     difficulty: 'easy',
     question: 'The soft-margin SVM introduces slack variables $\\xi_i$ to handle:',
@@ -66,7 +66,7 @@ export const vladimirVapnikQuestions: Question[] = [
     hint: 'ξᵢ = 0: point correctly classified. ξᵢ ∈ (0,1): inside margin. ξᵢ > 1: misclassified.',
   },
   {
-    id: 12005,
+    id: 412005,
     topic: 'vladimir-vapnik',
     difficulty: 'hard',
     question: 'The SVM dual optimization problem is: $\\max_\\alpha \\sum_i \\alpha_i - \\frac{1}{2}\\sum_{i,j} \\alpha_i \\alpha_j y_i y_j K(x_i, x_j)$ subject to $\\sum_i \\alpha_i y_i = 0$ and $0 \\leq \\alpha_i \\leq C$. The prediction function is:',

@@ -13,7 +13,7 @@ export const glostenMilgromQuestions: Question[] = [
     hint: 'Think about what happens when one side knows more than the other.',
   },
   {
-    id: 21101,
+    id: 421101,
     topic: 'glosten-milgrom',
     difficulty: 'hard',
     question: 'In Glosten-Milgrom, the ask price equals:',
@@ -24,7 +24,7 @@ export const glostenMilgromQuestions: Question[] = [
     hint: 'What does a buy order reveal about the buyer\'s information?',
   },
   {
-    id: 21102,
+    id: 421102,
     topic: 'glosten-milgrom',
     difficulty: 'easy',
     question: 'What happens to the Glosten-Milgrom spread as the proportion of informed traders (μ) increases?',
@@ -35,7 +35,7 @@ export const glostenMilgromQuestions: Question[] = [
     hint: 'More informed traders = more danger for the market maker.',
   },
   {
-    id: 21103,
+    id: 421103,
     topic: 'glosten-milgrom',
     difficulty: 'hard',
     question: 'The Glosten-Milgrom model assumes sequential trade. What key mechanism drives price discovery?',
@@ -46,7 +46,7 @@ export const glostenMilgromQuestions: Question[] = [
     hint: 'Each trade is a signal — what statistical framework processes sequential signals?',
   },
   {
-    id: 21104,
+    id: 421104,
     topic: 'glosten-milgrom',
     difficulty: 'sota',
     question: 'In market microstructure, what is the key distinction between the Glosten-Milgrom and Kyle (1985) models?',

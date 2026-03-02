@@ -2,7 +2,7 @@ import type { Question } from '../types';
 
 export const subhashKhotQuestions: Question[] = [
   {
-    id: 21200,
+    id: 421200,
     topic: 'subhash-khot',
     difficulty: 'sota',
     question: 'What does Khot\'s Unique Games Conjecture (UGC) assert about the hardness of approximating MAX-CUT?',
@@ -18,7 +18,7 @@ export const subhashKhotQuestions: Question[] = [
     hint: 'Think about what SDP-based algorithms achieve and whether that ceiling is fundamental.'
   },
   {
-    id: 21201,
+    id: 4421201,
     topic: 'subhash-khot',
     difficulty: 'sota',
     question: 'In the Unique Games problem, what structural property distinguishes it from general Label Cover?',
@@ -34,7 +34,7 @@ export const subhashKhotQuestions: Question[] = [
     hint: 'The word "unique" refers to how each label maps to exactly one satisfying partner.'
   },
   {
-    id: 21202,
+    id: 4421202,
     topic: 'subhash-khot',
     difficulty: 'sota',
     question: 'Which major consequence does the Unique Games Conjecture have for the Vertex Cover problem?',

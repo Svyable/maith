@@ -2,7 +2,7 @@ import type { Question } from '../types';
 
 export const predictionMarketsEasyQuestions: Question[] = [
   {
-    id: 186001, topic: 'prediction-markets', difficulty: 'easy',
+    id: 4186001, topic: 'prediction-markets', difficulty: 'easy',
     question: 'A binary prediction market contract pays $1 if an event occurs and $0 otherwise. If the contract trades at $0.65, this implies:',
     options: ['A ~65% market-implied probability of the event occurring', 'The event has already happened', 'The maximum loss is $0.65', 'The event will occur 65 times out of 100 trials'],
     correctIndex: 0,
@@ -11,7 +11,7 @@ export const predictionMarketsEasyQuestions: Question[] = [
     hint: 'Think of the price as a probability — $0.65 = 65 cents = 65%.',
   },
   {
-    id: 186002, topic: 'prediction-markets', difficulty: 'easy',
+    id: 4186002, topic: 'prediction-markets', difficulty: 'easy',
     question: 'In a prediction market, if YES trades at 40¢ and NO trades at 60¢, what is the implied probability of the event?',
     options: ['40%', '60%', '100%', '50%'],
     correctIndex: 0,
@@ -20,7 +20,7 @@ export const predictionMarketsEasyQuestions: Question[] = [
     hint: 'YES price + NO price = $1.00. The YES price IS the probability.',
   },
   {
-    id: 186003, topic: 'prediction-markets', difficulty: 'easy',
+    id: 4186003, topic: 'prediction-markets', difficulty: 'easy',
     question: 'The bid-ask spread on a prediction market contract represents:',
     options: ['The cost of immediacy — the price gap between the best buy and sell offers', 'The probability of the event', 'The total volume traded', 'The time until settlement'],
     correctIndex: 0,
@@ -29,7 +29,7 @@ export const predictionMarketsEasyQuestions: Question[] = [
     hint: 'Bid = best price someone will buy at. Ask = best price someone will sell at.',
   },
   {
-    id: 186004, topic: 'prediction-markets', difficulty: 'easy',
+    id: 4186004, topic: 'prediction-markets', difficulty: 'easy',
     question: 'A prediction market with multiple mutually exclusive bins (e.g., temperature ranges) requires that all bin prices:',
     options: ['Sum to $1.00 (or 100¢)', 'Each equal 50¢', 'Be independently priced', 'Sum to the number of bins'],
     correctIndex: 0,
@@ -38,7 +38,7 @@ export const predictionMarketsEasyQuestions: Question[] = [
     hint: 'Exactly one bin will settle at $1 and the rest at $0 — so the expected payout of buying all = $1.',
   },
   {
-    id: 186005, topic: 'prediction-markets', difficulty: 'easy',
+    id: 4186005, topic: 'prediction-markets', difficulty: 'easy',
     question: 'The Logarithmic Market Scoring Rule (LMSR) is used in prediction markets to:',
     options: ['Provide continuous liquidity by having an automated market maker set prices based on outstanding shares', 'Score participant predictions after the event', 'Calculate commissions', 'Determine which market to open'],
     correctIndex: 0,
@@ -50,7 +50,7 @@ export const predictionMarketsEasyQuestions: Question[] = [
 
 export const predictionMarketsHardQuestions: Question[] = [
   {
-    id: 186006, topic: 'prediction-markets', difficulty: 'hard',
+    id: 4186006, topic: 'prediction-markets', difficulty: 'hard',
     question: 'In the Avellaneda-Stoikov model, the reservation price is $r = s - q \\cdot \\gamma \\sigma^2 (T - t)$. When you are net long ($q > 0$), the reservation price:',
     options: ['Falls below the midprice, making you quote lower asks to reduce inventory', 'Rises above the midprice', 'Equals the midprice regardless of inventory', 'Depends only on volatility'],
     correctIndex: 0,
@@ -59,7 +59,7 @@ export const predictionMarketsHardQuestions: Question[] = [
     hint: 'Long inventory = downside risk. Shade your price down to attract sellers (or sell more aggressively).',
   },
   {
-    id: 186007, topic: 'prediction-markets', difficulty: 'hard',
+    id: 4186007, topic: 'prediction-markets', difficulty: 'hard',
     question: 'The optimal half-spread in Avellaneda-Stoikov has two components: $\\delta = \\gamma\\sigma^2(T-t) + \\frac{2}{\\gamma}\\ln(1 + \\gamma/\\kappa)$. The second term $(2/\\gamma)\\ln(1+\\gamma/\\kappa)$ represents:',
     options: ['The pure profit margin from liquidity provision that survives even as risk aversion approaches zero', 'Inventory risk compensation', 'Transaction costs', 'Regulatory fees'],
     correctIndex: 0,
@@ -68,7 +68,7 @@ export const predictionMarketsHardQuestions: Question[] = [
     hint: 'Even a risk-neutral market maker ($\\gamma \\to 0$) still quotes a positive spread to profit from the bid-ask bounce.',
   },
   {
-    id: 186008, topic: 'prediction-markets', difficulty: 'hard',
+    id: 4186008, topic: 'prediction-markets', difficulty: 'hard',
     question: 'When two forecast models diverge significantly ($\\sigma$ spikes) in a weather prediction market, a market maker should:',
     options: ['Widen spreads to compensate for increased uncertainty and potential adverse selection', 'Tighten spreads to attract volume', 'Remove all quotes from the book', 'Only trade on the more accurate model'],
     correctIndex: 0,
@@ -77,7 +77,7 @@ export const predictionMarketsHardQuestions: Question[] = [
     hint: 'Higher uncertainty → higher risk of being picked off by informed traders → wider spreads.',
   },
   {
-    id: 186009, topic: 'prediction-markets', difficulty: 'hard',
+    id: 4186009, topic: 'prediction-markets', difficulty: 'hard',
     question: 'The Volume-Synchronized Probability of Informed Trading (VPIN) metric estimates information asymmetry by:',
     options: ['Measuring the imbalance between buy and sell volume in fixed-volume buckets', 'Counting the number of trades per minute', 'Comparing prices to a theoretical model', 'Tracking the number of unique traders'],
     correctIndex: 0,

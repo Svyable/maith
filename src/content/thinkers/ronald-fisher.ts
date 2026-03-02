@@ -2,7 +2,7 @@ import type { Question } from '../types';
 
 export const ronaldFisherQuestions: Question[] = [
   {
-    id: 21201, topic: 'ronald-fisher', difficulty: 'easy',
+    id: 421201, topic: 'ronald-fisher', difficulty: 'easy',
     question: 'Ronald Fisher\'s p-value measures:',
     options: ['The probability of observing data at least as extreme as the actual data, assuming the null hypothesis is true', 'The probability that the null hypothesis is true', 'The probability that the alternative hypothesis is true', 'The effect size of the treatment'],
     correctIndex: 0,
@@ -11,7 +11,7 @@ export const ronaldFisherQuestions: Question[] = [
     hint: 'If the null hypothesis were true, how surprising is this data? That\'s what the p-value quantifies.',
   },
   {
-    id: 21202, topic: 'ronald-fisher', difficulty: 'hard',
+    id: 421202, topic: 'ronald-fisher', difficulty: 'hard',
     question: 'Fisher\'s maximum likelihood estimation (MLE) finds parameters by:',
     options: ['Maximizing $L(\\theta) = \\prod_i f(x_i|\\theta)$ — the probability of the observed data as a function of parameters', 'Minimizing the sum of squared residuals', 'Choosing parameters that minimize the prior', 'Averaging over all possible parameter values'],
     correctIndex: 0,

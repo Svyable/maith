@@ -2,7 +2,7 @@ import type { Question } from '../types';
 
 export const shafiGoldwasserQuestions: Question[] = [
   {
-    id: 12001,
+    id: 412001,
     topic: 'shafi-goldwasser',
     difficulty: 'easy',
     question: 'Shafi Goldwasser co-invented zero-knowledge proofs. What is the key property?',
@@ -18,7 +18,7 @@ export const shafiGoldwasserQuestions: Question[] = [
     hint: 'Imagine proving you know a password without ever typing it — that\'s the spirit of zero-knowledge.',
   },
   {
-    id: 12002,
+    id: 412002,
     topic: 'shafi-goldwasser',
     difficulty: 'easy',
     question: 'Goldwasser and Micali defined the gold standard for encryption security called:',
@@ -34,7 +34,7 @@ export const shafiGoldwasserQuestions: Question[] = [
     hint: 'It\'s stronger than just "can\'t decrypt" — it means you can\'t learn ANYTHING about the message.',
   },
   {
-    id: 12003,
+    id: 412003,
     topic: 'shafi-goldwasser',
     difficulty: 'hard',
     question: 'Goldwasser\'s work on interactive proofs led to the IP = PSPACE theorem, which states:',

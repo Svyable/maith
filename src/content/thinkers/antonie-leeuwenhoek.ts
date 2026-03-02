@@ -19,7 +19,7 @@ export const antonieLeeuwenhoekQuestions: Question[] = [
     hint: 'Pond water teeming with invisible life.',
   },
   {
-    id: 50001,
+    id: 450001,
     topic: 'antonie-leeuwenhoek',
     difficulty: 'hard',
     question: 'Leeuwenhoek measured what blood phenomenon?',
@@ -35,7 +35,7 @@ export const antonieLeeuwenhoekQuestions: Question[] = [
     hint: 'Watched blood flow in living tissue.',
   },
   {
-    id: 50002,
+    id: 450002,
     topic: 'antonie-leeuwenhoek',
     difficulty: 'sota',
     question: 'Leeuwenhoek\'s lens quality achieved?',

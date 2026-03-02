@@ -2,7 +2,7 @@ import type { Question } from '../types';
 
 export const caucherBirkarQuestions: Question[] = [
   {
-    id: 12201,
+    id: 412201,
     topic: 'caucher-birkar',
     difficulty: 'easy',
     question: 'Caucher Birkar, a Kurdish-British mathematician, won the 2018 Fields Medal for his work on:',
@@ -18,7 +18,7 @@ export const caucherBirkarQuestions: Question[] = [
     hint: 'The minimal model program is like a "simplification algorithm" for geometric shapes defined by polynomial equations.',
   },
   {
-    id: 12202,
+    id: 412202,
     topic: 'caucher-birkar',
     difficulty: 'easy',
     question: 'Birkar\'s personal story is remarkable because:',
@@ -34,7 +34,7 @@ export const caucherBirkarQuestions: Question[] = [
     hint: 'His journey from conflict zone to the highest honor in mathematics is one of the most inspiring in modern science.',
   },
   {
-    id: 12203,
+    id: 412203,
     topic: 'caucher-birkar',
     difficulty: 'hard',
     question: 'The BAB conjecture (Borisov–Alexeev–Borisov), proved by Birkar, states that:',

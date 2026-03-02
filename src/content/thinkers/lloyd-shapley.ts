@@ -13,7 +13,7 @@ export const lloydShapleyQuestions: Question[] = [
     hint: 'Each of $n$ proposers might need to try all $n$ options in the worst case.',
   },
   {
-    id: 20801,
+    id: 420801,
     topic: 'lloyd-shapley',
     difficulty: 'sota',
     question: 'The Shapley value $\\phi_i(v) = \\sum_{S \\subseteq N \\setminus \\{i\\}} \\frac{|S|!(n-|S|-1)!}{n!}[v(S \\cup \\{i\\}) - v(S)]$ satisfies which uniqueness property?',
@@ -24,7 +24,7 @@ export const lloydShapleyQuestions: Question[] = [
     hint: 'Four axioms uniquely determine this allocation — that\'s what makes it special.',
   },
   {
-    id: 20802,
+    id: 420802,
     topic: 'lloyd-shapley',
     difficulty: 'easy',
     question: 'Shapley won the Nobel Prize in Economics for his work on stable matching. What is the classic framing of the stable matching problem?',

@@ -2,7 +2,7 @@ import type { Question } from '../types';
 
 export const josephFourierQuestions: Question[] = [
   {
-    id: 20401, topic: 'joseph-fourier', difficulty: 'easy',
+    id: 420401, topic: 'joseph-fourier', difficulty: 'easy',
     question: 'Fourier\'s key insight was that any periodic function can be represented as:',
     options: ['A sum of sines and cosines (a Fourier series)', 'A polynomial of degree n', 'A product of exponentials', 'A single sinusoid with varying amplitude'],
     correctIndex: 0,
@@ -11,7 +11,7 @@ export const josephFourierQuestions: Question[] = [
     hint: 'Any shape that repeats can be built from pure tones — add enough sine waves together.',
   },
   {
-    id: 20402, topic: 'joseph-fourier', difficulty: 'hard',
+    id: 420402, topic: 'joseph-fourier', difficulty: 'hard',
     question: 'The Discrete Fourier Transform (DFT) of a signal $x[n]$ of length $N$ is:',
     options: ['$X[k] = \\sum_{n=0}^{N-1} x[n]\\, e^{-2\\pi i kn/N}$', '$X[k] = \\int_{-\\infty}^\\infty x(t) e^{-2\\pi i kt}\\,dt$', '$X[k] = x[k] * h[k]$ (convolution)', '$X[k] = \\sum_{n=0}^{N-1} x[n]\\cos(2\\pi kn)$'],
     correctIndex: 0,
@@ -20,7 +20,7 @@ export const josephFourierQuestions: Question[] = [
     hint: 'Project the signal onto N complex exponential basis functions — each gives one frequency bin.',
   },
   {
-    id: 20403, topic: 'joseph-fourier', difficulty: 'sota',
+    id: 420403, topic: 'joseph-fourier', difficulty: 'sota',
     question: 'The uncertainty principle in Fourier analysis states that a function and its Fourier transform cannot both be:',
     options: ['Sharply localized — $\\Delta t \\cdot \\Delta \\omega \\geq 1/2$ (time-frequency uncertainty)', 'Real-valued simultaneously', 'Continuous and differentiable', 'Periodic with the same period'],
     correctIndex: 0,

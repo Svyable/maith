@@ -2,7 +2,7 @@ import type { Question } from '../types';
 
 export const mustafaSuleymanQuestions: Question[] = [
   {
-    id: 12901,
+    id: 412901,
     topic: 'mustafa-suleyman',
     difficulty: 'easy',
     question: 'Mustafa Suleyman co-founded which pioneering AI lab before leading AI at Microsoft?',
@@ -18,7 +18,7 @@ export const mustafaSuleymanQuestions: Question[] = [
     hint: 'The London-based lab famous for beating humans at Go.',
   },
   {
-    id: 12902,
+    id: 412902,
     topic: 'mustafa-suleyman',
     difficulty: 'easy',
     question: 'Suleyman\'s concept of "The Coming Wave" warns about:',
@@ -34,7 +34,7 @@ export const mustafaSuleymanQuestions: Question[] = [
     hint: 'Two technologies converging: artificial intelligence and the ability to engineer life itself.',
   },
   {
-    id: 12903,
+    id: 412903,
     topic: 'mustafa-suleyman',
     difficulty: 'hard',
     question: 'RLHF (Reinforcement Learning from Human Feedback), central to Suleyman\'s work on AI safety, works by:',

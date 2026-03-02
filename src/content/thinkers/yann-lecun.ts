@@ -2,7 +2,7 @@ import type { Question } from '../types';
 
 export const yannLecunQuestions: Question[] = [
   {
-    id: 11701,
+    id: 411701,
     topic: 'yann-lecun',
     difficulty: 'easy',
     question: 'LeCun\'s Convolutional Neural Networks (CNNs) use convolution rather than full connections because:',
@@ -18,7 +18,7 @@ export const yannLecunQuestions: Question[] = [
     hint: 'If you\'re detecting an edge, the same detector works at every position in the image — that\'s the key insight.',
   },
   {
-    id: 11702,
+    id: 411702,
     topic: 'yann-lecun',
     difficulty: 'easy',
     question: 'LeNet-5, LeCun\'s seminal 1998 CNN, was trained to recognize handwritten digits using:',
@@ -34,7 +34,7 @@ export const yannLecunQuestions: Question[] = [
     hint: 'Every layer, from pixel to class probability, is differentiable — backpropagation flows through the whole stack.',
   },
   {
-    id: 11703,
+    id: 411703,
     topic: 'yann-lecun',
     difficulty: 'easy',
     question: 'LeCun argues that "Energy-Based Models" (EBMs) are more general than probabilistic models because:',
@@ -50,7 +50,7 @@ export const yannLecunQuestions: Question[] = [
     hint: 'A probability model needs to normalize (sum/integrate to 1) — an energy model just needs to be low for good data.',
   },
   {
-    id: 11704,
+    id: 411704,
     topic: 'yann-lecun',
     difficulty: 'easy',
     question: 'LeCun proposed "JEPA" (Joint Embedding Predictive Architecture) as an alternative to generative models for self-supervised learning. JEPA learns by:',
@@ -66,7 +66,7 @@ export const yannLecunQuestions: Question[] = [
     hint: 'Instead of predicting "what does the hidden patch look like in pixels?", predict "what abstract features would the hidden patch have?"',
   },
   {
-    id: 11705,
+    id: 411705,
     topic: 'yann-lecun',
     difficulty: 'hard',
     question: 'The receptive field of a neuron in layer $l$ of a CNN with stride $s$ and kernel size $k$ grows as:',

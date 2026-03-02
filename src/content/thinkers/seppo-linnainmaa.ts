@@ -2,7 +2,7 @@ import type { Question } from '../types';
 
 export const seppoLinnainmaaQuestions: Question[] = [
   {
-    id: 12701,
+    id: 412701,
     topic: 'seppo-linnainmaa',
     difficulty: 'easy',
     question: 'Seppo Linnainmaa\'s key contribution to AI is:',
@@ -18,7 +18,7 @@ export const seppoLinnainmaaQuestions: Question[] = [
     hint: 'He discovered the efficient way to compute gradients — working backwards from output to input.',
   },
   {
-    id: 12702,
+    id: 412702,
     topic: 'seppo-linnainmaa',
     difficulty: 'easy',
     question: 'The chain rule in reverse mode, as Linnainmaa formalized, computes $\\frac{\\partial L}{\\partial w}$ by:',
@@ -34,7 +34,7 @@ export const seppoLinnainmaaQuestions: Question[] = [
     hint: 'One backward pass gives you all gradients — that\'s the magic of reverse mode.',
   },
   {
-    id: 12703,
+    id: 412703,
     topic: 'seppo-linnainmaa',
     difficulty: 'hard',
     question: 'The historical controversy around backpropagation\'s invention involves:',

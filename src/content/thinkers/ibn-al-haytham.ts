@@ -2,7 +2,7 @@ import type { Question } from '../types';
 
 export const ibnAlHaythamQuestions: Question[] = [
   {
-    id: 11101,
+    id: 411101,
     topic: 'ibn-al-haytham',
     difficulty: 'easy',
     question: 'Ibn al-Haytham (Alhazen) revolutionised optics by proposing that:',
@@ -18,7 +18,7 @@ export const ibnAlHaythamQuestions: Question[] = [
     hint: 'Do your eyes send out beams, or do they receive light? He settled this debate 1000 years ago.',
   },
   {
-    id: 11102,
+    id: 411102,
     topic: 'ibn-al-haytham',
     difficulty: 'hard',
     question: '"Alhazen\'s problem" asks: given a spherical mirror, a light source, and an observer, find the reflection point. This problem reduces to:',
@@ -34,7 +34,7 @@ export const ibnAlHaythamQuestions: Question[] = [
     hint: 'Equal angles of incidence and reflection on a curved surface create a surprisingly hard equation.',
   },
   {
-    id: 11103,
+    id: 411103,
     topic: 'ibn-al-haytham',
     difficulty: 'sota',
     question: 'Alhazen\'s experimental methodology in optics anticipated the modern scientific method by:',

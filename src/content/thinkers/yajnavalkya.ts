@@ -2,7 +2,7 @@ import type { Question } from '../types';
 
 export const yajnavalkyaQuestions: Question[] = [
   {
-    id: 21200, topic: 'yajnavalkya', difficulty: 'sota',
+    id: 4421200, topic: 'yajnavalkya', difficulty: 'sota',
     question: 'Yajnavalkya\'s astronomical text describes the length of the lunar synodic month. What is the modern accepted value he approximated?',
     options: ['≈29.53 days', '≈27.32 days', '≈30.00 days', '≈28.00 days'],
     correctIndex: 0,
@@ -11,7 +11,7 @@ export const yajnavalkyaQuestions: Question[] = [
     hint: 'The synodic month measures new moon to new moon — slightly longer than the sidereal month.',
   },
   {
-    id: 21201, topic: 'yajnavalkya', difficulty: 'sota',
+    id: 44421201, topic: 'yajnavalkya', difficulty: 'sota',
     question: 'Yajnavalkya is credited with early heliocentric ideas in which ancient Indian text?',
     options: ['Shatapatha Brahmana', 'Rigveda', 'Arthashastra', 'Surya Siddhanta'],
     correctIndex: 0,
@@ -20,7 +20,7 @@ export const yajnavalkyaQuestions: Question[] = [
     hint: 'This Brahmana text is one of the largest ritual texts of Vedic literature.',
   },
   {
-    id: 21202, topic: 'yajnavalkya', difficulty: 'sota',
+    id: 44421202, topic: 'yajnavalkya', difficulty: 'sota',
     question: 'Yajnavalkya\'s astronomical calculations included an estimate of Earth\'s circumference. How does this compare to the modern value?',
     options: ['Within ~10% of the true value', 'Within ~1% of the true value', 'Off by a factor of 2', 'Off by a factor of 10'],
     correctIndex: 0,

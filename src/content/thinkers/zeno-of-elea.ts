@@ -13,7 +13,7 @@ export const zenoOfEleaQuestions: Question[] = [
     hint: 'An infinite number of terms can still sum to a finite number.',
   },
   {
-    id: 20601,
+    id: 420601,
     topic: 'zeno-of-elea',
     difficulty: 'hard',
     question: 'Zeno\'s "Dichotomy Paradox" states you must traverse half the distance, then half the remainder, ad infinitum. This implicitly raises which foundational question?',
@@ -24,7 +24,7 @@ export const zenoOfEleaQuestions: Question[] = [
     hint: 'The resolution requires a rigorous definition of limits and the structure of the number line.',
   },
   {
-    id: 20602,
+    id: 420602,
     topic: 'zeno-of-elea',
     difficulty: 'sota',
     question: 'In quantum mechanics, the "Quantum Zeno Effect" describes what happens when a system is measured continuously:',
@@ -35,7 +35,7 @@ export const zenoOfEleaQuestions: Question[] = [
     hint: 'Named after Zeno because continuous observation prevents change.',
   },
   {
-    id: 20603,
+    id: 420603,
     topic: 'zeno-of-elea',
     difficulty: 'sota',
     question: 'Abraham Robinson\'s non-standard analysis (1966) resolves Zeno\'s paradoxes using which mathematical objects?',

@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const economicsQuestions: Question[] = [
   // ── Microeconomics ──────────────────────────────────────────
   {
-    id: 90001, topic: 'microeconomics', difficulty: 'easy',
+    id: 490001, topic: 'microeconomics', difficulty: 'easy',
     question: 'The law of demand states that, ceteris paribus, as price increases:',
     options: ['Quantity demanded decreases', 'Quantity demanded increases', 'Supply increases', 'Demand curve shifts right'],
     correctIndex: 0,
@@ -12,7 +12,7 @@ export const economicsQuestions: Question[] = [
     hint: 'Think about what happens to your shopping behavior when prices go up.',
   },
   {
-    id: 90002, topic: 'microeconomics', difficulty: 'hard',
+    id: 490002, topic: 'microeconomics', difficulty: 'hard',
     question: 'In a Nash equilibrium:',
     options: ['No player can improve their payoff by unilaterally changing strategy', 'All players achieve maximum payoff', 'One player dominates all others', 'Players must cooperate'],
     correctIndex: 0,
@@ -21,7 +21,7 @@ export const economicsQuestions: Question[] = [
     hint: 'Named after John Nash — think about what happens when everyone plays their best response.',
   },
   {
-    id: 90003, topic: 'microeconomics', difficulty: 'sota',
+    id: 490003, topic: 'microeconomics', difficulty: 'sota',
     question: 'The Arrow-Debreu theorem proves the existence of general equilibrium under conditions including:',
     options: ['Complete markets, convex preferences, and no externalities', 'Perfect information only', 'Zero transaction costs only', 'Government price controls'],
     correctIndex: 0,
@@ -31,7 +31,7 @@ export const economicsQuestions: Question[] = [
   },
   // ── Macroeconomics ──────────────────────────────────────────
   {
-    id: 90004, topic: 'macroeconomics', difficulty: 'easy',
+    id: 490004, topic: 'macroeconomics', difficulty: 'easy',
     question: 'GDP (Gross Domestic Product) measures:',
     options: ['Total market value of all final goods and services produced in a country in a given period', 'Total government spending', 'Total exports minus imports', 'Total stock market value'],
     correctIndex: 0,
@@ -40,7 +40,7 @@ export const economicsQuestions: Question[] = [
     hint: 'It captures the entire production output of a nation\'s economy.',
   },
   {
-    id: 90005, topic: 'macroeconomics', difficulty: 'hard',
+    id: 490005, topic: 'macroeconomics', difficulty: 'hard',
     question: 'The Phillips curve describes the short-run tradeoff between:',
     options: ['Inflation and unemployment', 'GDP and interest rates', 'Money supply and velocity', 'Taxes and government spending'],
     correctIndex: 0,
@@ -49,7 +49,7 @@ export const economicsQuestions: Question[] = [
     hint: 'Think about what happens to wages and prices when the job market is very tight.',
   },
   {
-    id: 90006, topic: 'macroeconomics', difficulty: 'sota',
+    id: 490006, topic: 'macroeconomics', difficulty: 'sota',
     question: 'In DSGE models, the Euler equation for consumption relates:',
     options: ['Current marginal utility to expected future marginal utility discounted by the interest rate', 'GDP to money supply', 'Investment to depreciation', 'Exports to exchange rates'],
     correctIndex: 0,
@@ -59,7 +59,7 @@ export const economicsQuestions: Question[] = [
   },
   // ── Econometrics ──────────────────────────────────────────
   {
-    id: 90007, topic: 'econometrics', difficulty: 'easy',
+    id: 490007, topic: 'econometrics', difficulty: 'easy',
     question: 'Ordinary Least Squares (OLS) regression minimizes:',
     options: ['The sum of squared residuals', 'The sum of absolute residuals', 'The maximum residual', 'The number of outliers'],
     correctIndex: 0,
@@ -68,7 +68,7 @@ export const economicsQuestions: Question[] = [
     hint: 'Squaring the residuals penalizes large errors more than small ones.',
   },
   {
-    id: 90008, topic: 'econometrics', difficulty: 'hard',
+    id: 490008, topic: 'econometrics', difficulty: 'hard',
     question: 'Instrumental variables (IV) estimation addresses:',
     options: ['Endogeneity caused by omitted variable bias or simultaneous causality', 'Heteroscedasticity', 'Multicollinearity', 'Serial correlation'],
     correctIndex: 0,
@@ -77,7 +77,7 @@ export const economicsQuestions: Question[] = [
     hint: 'The instrument must affect Y only through X — the exclusion restriction.',
   },
   {
-    id: 90009, topic: 'econometrics', difficulty: 'sota',
+    id: 490009, topic: 'econometrics', difficulty: 'sota',
     question: 'The difference-in-differences (DiD) estimator requires the assumption of:',
     options: ['Parallel trends in outcomes between treatment and control groups absent treatment', 'Random assignment to treatment', 'Homogeneous treatment effects', 'No spillover between groups'],
     correctIndex: 0,

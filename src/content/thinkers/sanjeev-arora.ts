@@ -2,7 +2,7 @@ import type { Question } from '../types';
 
 export const sanjeevAroraQuestions: Question[] = [
   {
-    id: 21220,
+    id: 421220,
     topic: 'sanjeev-arora',
     difficulty: 'sota',
     question: 'The PCP Theorem states that NP = PCP(r(n), q(n)). What are the parameters r and q?',
@@ -18,7 +18,7 @@ export const sanjeevAroraQuestions: Question[] = [
     hint: 'The verifier uses very few random bits and reads a constant number of proof bits.'
   },
   {
-    id: 21221,
+    id: 421221,
     topic: 'sanjeev-arora',
     difficulty: 'sota',
     question: 'What major consequence does the PCP Theorem have for approximating MAX-3SAT?',
@@ -34,7 +34,7 @@ export const sanjeevAroraQuestions: Question[] = [
     hint: 'Random assignment satisfies 7/8 of 3SAT clauses. Can any polynomial algorithm do better?'
   },
   {
-    id: 21222,
+    id: 421222,
     topic: 'sanjeev-arora',
     difficulty: 'sota',
     question: 'Arora\'s PTAS for Euclidean TSP achieves what type of approximation guarantee?',

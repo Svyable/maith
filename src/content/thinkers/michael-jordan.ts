@@ -2,7 +2,7 @@ import type { Question } from '../types';
 
 export const michaelJordanQuestions: Question[] = [
   {
-    id: 21240,
+    id: 421240,
     topic: 'michael-jordan',
     difficulty: 'sota',
     question: 'In variational inference, the Evidence Lower Bound (ELBO) decomposes into which two terms?',
@@ -18,7 +18,7 @@ export const michaelJordanQuestions: Question[] = [
     hint: 'It is a lower bound on the log-evidence that trades off reconstruction and regularization.'
   },
   {
-    id: 21241,
+    id: 421241,
     topic: 'michael-jordan',
     difficulty: 'sota',
     question: 'Jordan\'s work on graphical models introduced the distinction between which two fundamental graph structures?',
@@ -34,7 +34,7 @@ export const michaelJordanQuestions: Question[] = [
     hint: 'One type uses conditional probabilities with arrows; the other uses potential functions on cliques.'
   },
   {
-    id: 21242,
+    id: 421242,
     topic: 'michael-jordan',
     difficulty: 'sota',
     question: 'Jordan\'s mean-field variational inference approximates the true posterior by assuming what?',

@@ -2,7 +2,7 @@ import type { Question } from '../types';
 
 export const linusPaulingQuestions: Question[] = [
   {
-    id: 96030, topic: 'linus-pauling', difficulty: 'easy',
+    id: 496030, topic: 'linus-pauling', difficulty: 'easy',
     question: 'Linus Pauling\'s concept of electronegativity describes:',
     options: ['An atom\'s tendency to attract shared electrons in a bond', 'The total number of electrons in an atom', 'The energy released during nuclear fission', 'The speed of electron orbit'],
     correctIndex: 0,

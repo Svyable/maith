@@ -2,7 +2,7 @@ import type { Question } from '../types';
 
 export const evaristeGaloisQuestions: Question[] = [
   {
-    id: 12301,
+    id: 412301,
     topic: 'evariste-galois',
     difficulty: 'easy',
     question: 'Évariste Galois died at 20 in a duel but left behind a revolutionary mathematical framework. What did Galois theory ultimately prove?',
@@ -18,7 +18,7 @@ export const evaristeGaloisQuestions: Question[] = [
     hint: 'The key insight was connecting polynomial roots to group symmetries.',
   },
   {
-    id: 12302,
+    id: 412302,
     topic: 'evariste-galois',
     difficulty: 'hard',
     question: 'A Galois group of a polynomial captures symmetries among its roots. For the polynomial x⁴ - 2 over ℚ, the Galois group is:',
@@ -34,7 +34,7 @@ export const evaristeGaloisQuestions: Question[] = [
     hint: 'Count the degree of the splitting field extension — that gives you the group order.',
   },
   {
-    id: 12303,
+    id: 412303,
     topic: 'evariste-galois',
     difficulty: 'sota',
     question: 'The Inverse Galois Problem asks whether every finite group appears as a Galois group over ℚ. As of 2025, the status is:',

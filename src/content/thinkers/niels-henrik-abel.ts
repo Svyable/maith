@@ -2,7 +2,7 @@ import type { Question } from '../types';
 
 export const nielsHenrikAbelQuestions: Question[] = [
   {
-    id: 12501,
+    id: 412501,
     topic: 'niels-henrik-abel',
     difficulty: 'easy',
     question: 'Niels Henrik Abel proved at age 19 that something mathematicians had sought for centuries was impossible. What was it?',
@@ -18,7 +18,7 @@ export const nielsHenrikAbelQuestions: Question[] = [
     hint: 'We have formulas for degree 2 (quadratic), 3 (cubic), and 4 (quartic). He showed 5 was the wall.',
   },
   {
-    id: 12502,
+    id: 412502,
     topic: 'niels-henrik-abel',
     difficulty: 'hard',
     question: 'Abel also made foundational contributions to analysis. An "abelian group" is named after him because:',
@@ -34,7 +34,7 @@ export const nielsHenrikAbelQuestions: Question[] = [
     hint: 'The key property is commutativity: the order of operations doesn\'t matter.',
   },
   {
-    id: 12503,
+    id: 412503,
     topic: 'niels-henrik-abel',
     difficulty: 'sota',
     question: 'Abel\'s work on elliptic functions and abelian integrals laid groundwork for modern algebraic geometry. The modern "Abel-Jacobi map" connects:',

@@ -2,7 +2,7 @@ import type { Question } from '../types';
 
 export const andrewNgQuestions: Question[] = [
   {
-    id: 95010, topic: 'andrew-ng', difficulty: 'easy',
+    id: 495010, topic: 'andrew-ng', difficulty: 'easy',
     question: 'Andrew Ng\'s Coursera machine learning course popularized which learning algorithm?',
     options: ['Linear regression with gradient descent', 'Transformer self-attention', 'Generative adversarial networks', 'Diffusion models'],
     correctIndex: 0,
@@ -11,7 +11,7 @@ export const andrewNgQuestions: Question[] = [
     hint: 'The simplest supervised learning algorithm — fit a line to data.',
   },
   {
-    id: 95011, topic: 'andrew-ng', difficulty: 'hard',
+    id: 495011, topic: 'andrew-ng', difficulty: 'hard',
     question: 'Google Brain, co-founded by Ng, demonstrated unsupervised learning at scale by training a network that spontaneously learned to detect:',
     options: ['Cat faces from unlabeled YouTube videos', 'Speech patterns from radio broadcasts', 'Mathematical proofs from textbooks', 'Musical genres from audio streams'],
     correctIndex: 0,
@@ -20,7 +20,7 @@ export const andrewNgQuestions: Question[] = [
     hint: 'The internet\'s favorite animal appeared in the neurons.',
   },
   {
-    id: 95012, topic: 'andrew-ng', difficulty: 'sota',
+    id: 495012, topic: 'andrew-ng', difficulty: 'sota',
     question: 'Ng\'s "data-centric AI" movement argues that improving model performance is best achieved by:',
     options: ['Systematically improving data quality rather than model architecture', 'Using larger models with more parameters', 'Designing novel loss functions', 'Increasing training compute exponentially'],
     correctIndex: 0,

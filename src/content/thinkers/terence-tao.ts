@@ -2,7 +2,7 @@ import type { Question } from '../types';
 
 export const terenceTaoQuestions: Question[] = [
   {
-    id: 11401,
+    id: 411401,
     topic: 'terence-tao',
     difficulty: 'easy',
     question: 'Terence Tao, along with Ben Green, proved the Green–Tao theorem. What does it state?',
@@ -18,7 +18,7 @@ export const terenceTaoQuestions: Question[] = [
     hint: 'Think about primes like 3, 7, 11 (common difference 4) — can you always find longer chains?',
   },
   {
-    id: 11402,
+    id: 411402,
     topic: 'terence-tao',
     difficulty: 'easy',
     question: 'Terence Tao won the Fields Medal in 2006 primarily for his contributions to:',
@@ -34,7 +34,7 @@ export const terenceTaoQuestions: Question[] = [
     hint: 'Tao is known as one of the most versatile mathematicians alive — his medal recognized work across multiple fields.',
   },
   {
-    id: 11403,
+    id: 411403,
     topic: 'terence-tao',
     difficulty: 'easy',
     question: 'Tao\'s work with Emmanuel Candès on compressed sensing showed that:',
@@ -50,7 +50,7 @@ export const terenceTaoQuestions: Question[] = [
     hint: 'If most coefficients are zero, you don\'t need to measure everything.',
   },
   {
-    id: 11404,
+    id: 411404,
     topic: 'terence-tao',
     difficulty: 'hard',
     question: 'Tao\'s proof of the Green–Tao theorem crucially relies on which framework from additive combinatorics?',
@@ -66,7 +66,7 @@ export const terenceTaoQuestions: Question[] = [
     hint: 'Szemerédi\'s theorem works for dense sets — the challenge was making it work for the sparse primes.',
   },
   {
-    id: 11405,
+    id: 411405,
     topic: 'terence-tao',
     difficulty: 'hard',
     question: 'Tao made a breakthrough on the Erdős discrepancy problem by proving that:',
@@ -82,7 +82,7 @@ export const terenceTaoQuestions: Question[] = [
     hint: 'Erdős conjectured you can\'t keep partial sums bounded no matter how cleverly you choose ±1.',
   },
   {
-    id: 11406,
+    id: 411406,
     topic: 'terence-tao',
     difficulty: 'hard',
     question: 'In the Kakeya conjecture, Tao and collaborators have made progress showing that Kakeya sets in $\\mathbb{R}^n$ must have:',
@@ -98,7 +98,7 @@ export const terenceTaoQuestions: Question[] = [
     hint: 'A set containing needles in every direction can be measure zero but should still be dimensionally "full."',
   },
   {
-    id: 11407,
+    id: 411407,
     topic: 'terence-tao',
     difficulty: 'sota',
     question: 'Tao\'s work on the Navier–Stokes regularity problem constructed:',
@@ -114,7 +114,7 @@ export const terenceTaoQuestions: Question[] = [
     hint: 'He didn\'t solve the Millennium Problem — but showed why certain approaches can\'t work.',
   },
   {
-    id: 11408,
+    id: 411408,
     topic: 'terence-tao',
     difficulty: 'sota',
     question: 'Tao\'s "polynomial method" breakthrough (with Dvir) for the finite field Kakeya problem showed:',

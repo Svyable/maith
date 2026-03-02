@@ -2,7 +2,7 @@ import type { Question } from '../types';
 
 export const williamRowanHamiltonQuestions: Question[] = [
   {
-    id: 12401,
+    id: 4412401,
     topic: 'william-rowan-hamilton',
     difficulty: 'easy',
     question: 'William Rowan Hamilton mastered 13 languages by age 13. His most famous mathematical invention came to him on a walk. What was it?',
@@ -18,7 +18,7 @@ export const williamRowanHamiltonQuestions: Question[] = [
     hint: 'He literally carved the formula into a bridge in Dublin because he was so excited.',
   },
   {
-    id: 12402,
+    id: 4412402,
     topic: 'william-rowan-hamilton',
     difficulty: 'hard',
     question: 'Hamilton\'s reformulation of classical mechanics uses a function H(q,p,t). How does the Hamiltonian approach differ from Newton\'s F=ma?',
@@ -34,7 +34,7 @@ export const williamRowanHamiltonQuestions: Question[] = [
     hint: 'Newton uses forces and acceleration (2nd order). Hamilton uses energy and phase space (1st order).',
   },
   {
-    id: 12403,
+    id: 4412403,
     topic: 'william-rowan-hamilton',
     difficulty: 'sota',
     question: 'Hamiltonian Monte Carlo (HMC) is a modern MCMC algorithm inspired by Hamilton\'s mechanics. Its key advantage over random-walk Metropolis is:',

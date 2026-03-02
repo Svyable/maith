@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const sota2025Questions: Question[] = [
   // 1. CALM — Continuous Autoregressive Language Models
   {
-    id: 90001,
+    id: 4490001,
     topic: 'sota-2025',
     difficulty: 'sota',
     question: 'In CALM (Continuous Autoregressive Language Models, 2025), why does predicting a continuous vector $z_t$ that represents multiple future tokens potentially improve the performance–compute tradeoff compared to standard next-token cross-entropy?',
@@ -20,7 +20,7 @@ export const sota2025Questions: Question[] = [
   },
   // 2. DeepSeek-R1: RL for Reasoning LLMs
   {
-    id: 90002,
+    id: 4490002,
     topic: 'sota-2025',
     difficulty: 'sota',
     question: 'In RL-finetuning a reasoning LLM (DeepSeek-R1 style), what is the role of the baseline term $b$ in the policy gradient $\\nabla_\\theta J = \\mathbb{E}[(R - b)\\,\\nabla_\\theta \\log \\pi_\\theta(a_{1:T} | s)]$, and what happens if you omit it?',
@@ -37,7 +37,7 @@ export const sota2025Questions: Question[] = [
   },
   // 3. Absolute Zero Reasoner
   {
-    id: 90003,
+    id: 4490003,
     topic: 'sota-2025',
     difficulty: 'sota',
     question: 'In "Absolute Zero Reasoner" (zero-data reinforced reasoning), why can self-generated trajectories be both a blessing and a curse for RL-style reasoning training?',
@@ -54,7 +54,7 @@ export const sota2025Questions: Question[] = [
   },
   // 4. Qwen3 / MoE
   {
-    id: 90004,
+    id: 4490004,
     topic: 'sota-2025',
     difficulty: 'sota',
     question: 'In a sparse Mixture-of-Experts (MoE) layer as used in Qwen3, what is the main computational advantage over a dense layer with the same total parameter count?',
@@ -71,7 +71,7 @@ export const sota2025Questions: Question[] = [
   },
   // 5. Mutarjim: Bilingual Alignment
   {
-    id: 90005,
+    id: 4490005,
     topic: 'sota-2025',
     difficulty: 'sota',
     question: 'In Mutarjim (bidirectional Arabic–English translation), why does minimising $\\|z_{ar} - z_{en}\\|_2^2$ between sentence embeddings help improve translation quality in both directions?',
@@ -88,7 +88,7 @@ export const sota2025Questions: Question[] = [
   },
   // 6. CALM — Cross-Lingual Self-Aligning
   {
-    id: 90006,
+    id: 4490006,
     topic: 'sota-2025',
     difficulty: 'sota',
     question: 'In the Cross-Lingual CALM (NAACL 2025), what does minimising a symmetric KL divergence $D_{KL}(p_\\ell \\| p_{\\ell\'}) + D_{KL}(p_{\\ell\'} \\| p_\\ell)$ between outputs in two languages encourage the model to do?',
@@ -105,7 +105,7 @@ export const sota2025Questions: Question[] = [
   },
   // 7. Speculative Decoding
   {
-    id: 90007,
+    id: 4490007,
     topic: 'sota-2025',
     difficulty: 'sota',
     question: 'In speculative decoding, why must the proposed token block be accepted or rejected based on the ratio $p/q$ (target/draft probability) instead of just the fast model\'s confidence?',
@@ -122,7 +122,7 @@ export const sota2025Questions: Question[] = [
   },
   // 8. Transformers Learn Low Sensitivity Functions
   {
-    id: 90008,
+    id: 4490008,
     topic: 'sota-2025',
     difficulty: 'sota',
     question: 'How does a low Lipschitz constant $L$ (where $\\|f(x) - f(x\')\\| \\leq L\\|x - x\'\\|$) relate to robustness of a learned representation to input perturbations?',
@@ -139,7 +139,7 @@ export const sota2025Questions: Question[] = [
   },
   // 9. Data Shapley in One Training Run
   {
-    id: 90009,
+    id: 4490009,
     topic: 'sota-2025',
     difficulty: 'sota',
     question: 'Why is exact Shapley value computation intractable for large datasets, and what kind of approximation allows a "one training run" method to work?',
@@ -156,7 +156,7 @@ export const sota2025Questions: Question[] = [
   },
   // 10. Learning Dynamics of LLM Fine-Tuning
   {
-    id: 90010,
+    id: 490010,
     topic: 'sota-2025',
     difficulty: 'sota',
     question: 'What does a large representation drift $\\Delta_t^{(l)} = \\mathbb{E}_x[\\|h_{t+1}^{(l)}(x) - h_t^{(l)}(x)\\|_2]$ early in fine-tuning followed by a plateau suggest about what the model is doing internally?',
@@ -173,7 +173,7 @@ export const sota2025Questions: Question[] = [
   },
   // 11. SAM 2: Video-level Segmentation
   {
-    id: 90011,
+    id: 490011,
     topic: 'sota-2025',
     difficulty: 'sota',
     question: 'Why is a temporal consistency term $\\mathcal{L}_{temp} = \\|m_{t+1} - \\tau(m_t)\\|_1$ between successive masks critical for high-quality video object segmentation in SAM 2?',

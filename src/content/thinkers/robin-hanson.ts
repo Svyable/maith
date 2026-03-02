@@ -2,7 +2,7 @@ import type { Question } from '../types';
 
 export const robinHansonQuestions: Question[] = [
   {
-    id: 20900,
+    id: 420900,
     topic: 'robin-hanson',
     difficulty: 'easy',
     question: 'Robin Hanson\'s key insight behind prediction markets is that:',
@@ -13,7 +13,7 @@ export const robinHansonQuestions: Question[] = [
     hint: 'Put your money where your mouth is — that is the core mechanism.',
   },
   {
-    id: 20901,
+    id: 4420901,
     topic: 'robin-hanson',
     difficulty: 'hard',
     question: 'Hanson\'s LMSR cost function $C(\\mathbf{q}) = b \\cdot \\ln(\\sum_i e^{q_i/b})$ has the property that the price of outcome $j$ is:',
@@ -24,7 +24,7 @@ export const robinHansonQuestions: Question[] = [
     hint: 'Take the partial derivative of the cost function with respect to $q_j$.',
   },
   {
-    id: 20902,
+    id: 4420902,
     topic: 'robin-hanson',
     difficulty: 'sota',
     question: 'Hanson proposed "futarchy" — a governance model where elected officials define welfare metrics and prediction markets decide policies. The key mechanism is:',

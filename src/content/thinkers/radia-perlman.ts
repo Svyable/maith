@@ -13,7 +13,7 @@ export const radiaPerlmanQuestions: Question[] = [
     hint: 'The protocol eliminates loops by keeping only a tree subset of the network graph.',
   },
   {
-    id: 20501,
+    id: 420501,
     topic: 'radia-perlman',
     difficulty: 'hard',
     question: 'RSTP (802.1w) improved STP convergence from ~50 seconds to approximately:',
@@ -24,7 +24,7 @@ export const radiaPerlmanQuestions: Question[] = [
     hint: 'The "Rapid" in RSTP means convergence is orders of magnitude faster.',
   },
   {
-    id: 20502,
+    id: 420502,
     topic: 'radia-perlman',
     difficulty: 'sota',
     question: 'Perlman later invented TRILL (Transparent Interconnection of Lots of Links). How does TRILL improve on STP?',
@@ -35,7 +35,7 @@ export const radiaPerlmanQuestions: Question[] = [
     hint: 'Instead of blocking redundant paths, TRILL uses all of them with a proper routing protocol.',
   },
   {
-    id: 20503,
+    id: 420503,
     topic: 'radia-perlman',
     difficulty: 'sota',
     question: 'In STP, the Bridge Protocol Data Unit (BPDU) election uses a tuple $(priority, MAC)$. What is the default bridge priority value in IEEE 802.1D?',
@@ -46,7 +46,7 @@ export const radiaPerlmanQuestions: Question[] = [
     hint: 'It\'s a 16-bit value, and the default is exactly half the maximum.',
   },
   {
-    id: 20504,
+    id: 420504,
     topic: 'radia-perlman',
     difficulty: 'easy',
     question: 'Radia Perlman is often called the "Mother of the Internet" for inventing which protocol?',

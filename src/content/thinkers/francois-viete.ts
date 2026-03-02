@@ -2,7 +2,7 @@ import type { Question } from '../types';
 
 export const francoisVieteQuestions: Question[] = [
   {
-    id: 11001,
+    id: 411001,
     topic: 'francois-viete',
     difficulty: 'easy',
     question: 'Viète\'s formula expresses $2/\\pi$ as what type of infinite expression?',
@@ -18,7 +18,7 @@ export const francoisVieteQuestions: Question[] = [
     hint: 'Each factor involves a square root nested inside the previous one — it\'s radicals all the way down.',
   },
   {
-    id: 11002,
+    id: 411002,
     topic: 'francois-viete',
     difficulty: 'hard',
     question: 'Viète derived his product for $\\pi$ by inscribing regular polygons in a circle. The key trigonometric identity he exploited was:',
@@ -34,7 +34,7 @@ export const francoisVieteQuestions: Question[] = [
     hint: 'Each polygon doubling halves the angle — the cosine half-angle formula builds the nesting.',
   },
   {
-    id: 11003,
+    id: 411003,
     topic: 'francois-viete',
     difficulty: 'sota',
     question: 'Viète\'s product converges to $2/\\pi$ at what rate?',

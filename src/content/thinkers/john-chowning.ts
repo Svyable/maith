@@ -13,7 +13,7 @@ export const johnChowningQuestions: Question[] = [
     hint: 'These functions also appear in cylindrical wave equations and drum vibration modes.',
   },
   {
-    id: 20701,
+    id: 420701,
     topic: 'john-chowning',
     difficulty: 'sota',
     question: 'In FM synthesis, increasing the modulation index $\\beta = \\Delta f / f_m$ beyond ~5 produces what spectral characteristic?',
@@ -24,7 +24,7 @@ export const johnChowningQuestions: Question[] = [
     hint: 'More sidebands = more spectral density. Push $\\beta$ high enough and it sounds like noise.',
   },
   {
-    id: 20702,
+    id: 420702,
     topic: 'john-chowning',
     difficulty: 'easy',
     question: 'Which iconic 1983 synthesizer used Chowning\'s FM synthesis algorithm, licensed from Stanford?',

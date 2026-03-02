@@ -2,7 +2,7 @@ import type { Question } from '../types';
 
 export const quantumComputingQuestions: Question[] = [
   {
-    id: 40001, topic: 'quantum-computing', difficulty: 'easy',
+    id: 440001, topic: 'quantum-computing', difficulty: 'easy',
     question: 'A qubit differs from a classical bit because it can:',
     options: [
       'Exist in a superposition of 0 and 1 simultaneously, represented as $|\\psi\\rangle = \\alpha|0\\rangle + \\beta|1\\rangle$',
@@ -16,7 +16,7 @@ export const quantumComputingQuestions: Question[] = [
     hint: 'Classical bits are 0 OR 1. Qubits can be both — until measured.',
   },
   {
-    id: 40004, topic: 'quantum-computing', difficulty: 'easy',
+    id: 440004, topic: 'quantum-computing', difficulty: 'easy',
     question: 'Measuring a qubit in superposition $\\alpha|0\\rangle + \\beta|1\\rangle$ gives:',
     options: [
       '|0⟩ with probability $|\\alpha|^2$ and |1⟩ with probability $|\\beta|^2$ — the superposition collapses irreversibly',
@@ -30,7 +30,7 @@ export const quantumComputingQuestions: Question[] = [
     hint: 'Measurement is probabilistic and destructive — you can\'t peek without changing the state.',
   },
   {
-    id: 40002, topic: 'quantum-computing', difficulty: 'hard',
+    id: 440002, topic: 'quantum-computing', difficulty: 'hard',
     question: 'Quantum entanglement enables quantum advantage because:',
     options: [
       'Measuring one entangled qubit instantly determines the other\'s state, creating correlations impossible with classical bits (violating Bell inequalities)',
@@ -44,7 +44,7 @@ export const quantumComputingQuestions: Question[] = [
     hint: 'Einstein called it "spooky action at a distance" — but it\'s real and experimentally verified.',
   },
   {
-    id: 40005, topic: 'quantum-computing', difficulty: 'hard',
+    id: 440005, topic: 'quantum-computing', difficulty: 'hard',
     question: 'Shor\'s algorithm achieves exponential speedup over classical factoring by:',
     options: [
       'Using quantum Fourier transform to find the period of modular exponentiation in polynomial time — converting factoring to period-finding',
@@ -58,7 +58,7 @@ export const quantumComputingQuestions: Question[] = [
     hint: 'Turn the hard problem (factoring) into an easier problem (period-finding) that quantum computers excel at.',
   },
   {
-    id: 40003, topic: 'quantum-computing', difficulty: 'sota',
+    id: 440003, topic: 'quantum-computing', difficulty: 'sota',
     question: 'Quantum error correction faces the threshold theorem challenge because:',
     options: [
       'Physical qubits have error rates ~0.1-1%, but fault-tolerant computation requires logical qubits built from thousands of physical qubits using surface codes with error rates below a threshold',
@@ -72,7 +72,7 @@ export const quantumComputingQuestions: Question[] = [
     hint: 'You need many noisy physical qubits to simulate one perfect logical qubit — and the error rate must be low enough.',
   },
   {
-    id: 40006, topic: 'quantum-computing', difficulty: 'sota',
+    id: 440006, topic: 'quantum-computing', difficulty: 'sota',
     question: 'Quantum advantage for optimization via QAOA (Quantum Approximate Optimization Algorithm) works by:',
     options: [
       'Alternating between problem-specific and mixer unitaries at p layers, creating interference patterns that amplify optimal solutions — a variational hybrid quantum-classical algorithm',

@@ -2,7 +2,7 @@ import type { Question } from '../types';
 
 export const rosalindFranklinQuestions: Question[] = [
   {
-    id: 96031, topic: 'rosalind-franklin', difficulty: 'easy',
+    id: 496031, topic: 'rosalind-franklin', difficulty: 'easy',
     question: 'Rosalind Franklin\'s "Photo 51" revealed that DNA has what structure?',
     options: ['A double helix with regular repeating units', 'A single straight chain', 'A triple helix', 'A branching tree structure'],
     correctIndex: 0,
@@ -11,7 +11,7 @@ export const rosalindFranklinQuestions: Question[] = [
     hint: 'The X-pattern in X-ray diffraction is the signature of a helix.',
   },
   {
-    id: 96032, topic: 'rosalind-franklin', difficulty: 'hard',
+    id: 496032, topic: 'rosalind-franklin', difficulty: 'hard',
     question: 'X-ray crystallography, Franklin\'s technique, determines molecular structure by analyzing:',
     options: ['Diffraction patterns produced when X-rays scatter off a crystal lattice', 'The color of light absorbed by molecules', 'Magnetic resonance of atomic nuclei', 'Electron emission from heated samples'],
     correctIndex: 0,

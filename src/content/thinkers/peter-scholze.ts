@@ -2,7 +2,7 @@ import type { Question } from '../types';
 
 export const peterScholzeQuestions: Question[] = [
   {
-    id: 12601,
+    id: 412601,
     topic: 'peter-scholze',
     difficulty: 'easy',
     question: 'Peter Scholze won the Fields Medal at age 30 for inventing "perfectoid spaces." What problem do they help solve?',
@@ -18,7 +18,7 @@ export const peterScholzeQuestions: Question[] = [
     hint: 'The magic word is "tilting" — making two different number worlds look the same.',
   },
   {
-    id: 12602,
+    id: 412602,
     topic: 'peter-scholze',
     difficulty: 'hard',
     question: 'Scholze\'s "Liquid Tensor Experiment" was notable because:',
@@ -34,7 +34,7 @@ export const peterScholzeQuestions: Question[] = [
     hint: 'He challenged the proof assistant community — and they delivered.',
   },
   {
-    id: 12603,
+    id: 412603,
     topic: 'peter-scholze',
     difficulty: 'sota',
     question: 'Scholze and Clausen\'s "condensed mathematics" program aims to:',

@@ -13,7 +13,7 @@ export const grigoriPerelmanQuestions: Question[] = [
     hint: 'Think of a PDE that smoothly deforms the metric of a manifold toward uniform curvature.',
   },
   {
-    id: 21001,
+    id: 421001,
     topic: 'grigori-perelman',
     difficulty: 'sota',
     question: 'The Poincaré Conjecture states that every simply connected, closed 3-manifold is homeomorphic to which object?',
@@ -24,7 +24,7 @@ export const grigoriPerelmanQuestions: Question[] = [
     hint: 'Simply connected means every loop can be continuously shrunk to a point.',
   },
   {
-    id: 21002,
+    id: 421002,
     topic: 'grigori-perelman',
     difficulty: 'sota',
     question: 'Perelman introduced which key monotonic quantity to control Ricci flow singularities?',
@@ -35,7 +35,7 @@ export const grigoriPerelmanQuestions: Question[] = [
     hint: 'It is a logarithmic Sobolev-type functional that is monotonically non-decreasing under the flow.',
   },
   {
-    id: 21003,
+    id: 421003,
     topic: 'grigori-perelman',
     difficulty: 'sota',
     question: 'Perelman\'s work proves which broader conjecture that classifies all compact 3-manifolds?',
@@ -46,7 +46,7 @@ export const grigoriPerelmanQuestions: Question[] = [
     hint: 'This conjecture generalizes Poincaré and involves eight model geometries.',
   },
   {
-    id: 21004,
+    id: 421004,
     topic: 'grigori-perelman',
     difficulty: 'sota',
     question: 'What is the total prize money Perelman declined for his proof of the Poincaré Conjecture?',

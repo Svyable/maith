@@ -2,7 +2,7 @@ import type { Question } from '../types';
 
 export const shakuntalaDeviQuestions: Question[] = [
   {
-    id: 12801,
+    id: 412801,
     topic: 'shakuntala-devi',
     difficulty: 'easy',
     question: 'Shakuntala Devi was called the "Human Computer." In 1980, she entered the Guinness Book of Records for:',
@@ -18,7 +18,7 @@ export const shakuntalaDeviQuestions: Question[] = [
     hint: 'Two 13-digit numbers. 28 seconds. No pen, no paper, no calculator.',
   },
   {
-    id: 12802,
+    id: 412802,
     topic: 'shakuntala-devi',
     difficulty: 'hard',
     question: 'Mental calculators like Devi use techniques that parallel certain computational algorithms. Her likely method for rapid multiplication most closely resembles:',
@@ -34,7 +34,7 @@ export const shakuntalaDeviQuestions: Question[] = [
     hint: 'Divide a big problem into smaller ones — both human and computer strategies.',
   },
   {
-    id: 12803,
+    id: 412803,
     topic: 'shakuntala-devi',
     difficulty: 'sota',
     question: 'Devi also wrote one of the first books on homosexuality by an Indian author (1977). In computational neuroscience, her extraordinary abilities suggest:',

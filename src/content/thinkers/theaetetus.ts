@@ -2,7 +2,7 @@ import type { Question } from '../types';
 
 export const theaetetusQuestions: Question[] = [
   {
-    id: 21210, topic: 'theaetetus', difficulty: 'sota',
+    id: 421210, topic: 'theaetetus', difficulty: 'sota',
     question: 'Theaetetus proved that $\\sqrt{n}$ is irrational for all non-square integers up to which value?',
     options: ['17', '10', '5', '100'],
     correctIndex: 0,
@@ -11,7 +11,7 @@ export const theaetetusQuestions: Question[] = [
     hint: 'His teacher Theodorus proved cases up to $\\sqrt{17}$ but could not generalize — Theaetetus found the universal method.',
   },
   {
-    id: 21211, topic: 'theaetetus', difficulty: 'sota',
+    id: 421211, topic: 'theaetetus', difficulty: 'sota',
     question: 'Theaetetus is credited with the classification of which geometric solids that appear in Euclid\'s Book XIII?',
     options: ['The five Platonic solids (regular polyhedra)', 'The 13 Archimedean solids', 'The Kepler-Poinsot polyhedra', 'The Johnson solids'],
     correctIndex: 0,
@@ -20,7 +20,7 @@ export const theaetetusQuestions: Question[] = [
     hint: 'These five solids have identical regular polygon faces and equal vertex angles.',
   },
   {
-    id: 21212, topic: 'theaetetus', difficulty: 'sota',
+    id: 421212, topic: 'theaetetus', difficulty: 'sota',
     question: 'Theaetetus\'s proof technique for irrationality pioneered which fundamental method of mathematical proof?',
     options: ['Proof by infinite descent (a form of strong induction)', 'Proof by contradiction using limits', 'Proof by exhaustion (proto-integration)', 'Proof by construction'],
     correctIndex: 0,

@@ -2,7 +2,7 @@ import type { Question } from '../types';
 
 export const huaLuogengQuestions: Question[] = [
   {
-    id: 21230, topic: 'hua-luogeng', difficulty: 'sota',
+    id: 421230, topic: 'hua-luogeng', difficulty: 'sota',
     question: 'Hua Luogeng made major contributions to which area involving representing numbers as sums of primes and powers?',
     options: ['Additive number theory (Waring\'s problem and Goldbach-type conjectures)', 'Algebraic K-theory', 'Spectral graph theory', 'Ergodic theory'],
     correctIndex: 0,
@@ -11,7 +11,7 @@ export const huaLuogengQuestions: Question[] = [
     hint: 'Waring asked: can every integer be written as a sum of a fixed number of $k$-th powers?',
   },
   {
-    id: 21231, topic: 'hua-luogeng', difficulty: 'sota',
+    id: 421231, topic: 'hua-luogeng', difficulty: 'sota',
     question: 'Hua\'s inequality is a fundamental result in which branch of mathematics?',
     options: ['Several complex variables and harmonic analysis', 'Algebraic topology', 'Combinatorial optimization', 'Differential geometry'],
     correctIndex: 0,
@@ -20,7 +20,7 @@ export const huaLuogengQuestions: Question[] = [
     hint: 'His inequality extends results from one complex variable to multiple complex dimensions.',
   },
   {
-    id: 21232, topic: 'hua-luogeng', difficulty: 'sota',
+    id: 421232, topic: 'hua-luogeng', difficulty: 'sota',
     question: 'Despite becoming China\'s leading mathematician, Hua Luogeng was largely self-taught because:',
     options: ['He had no university degree — family poverty forced him to leave school at 15', 'He was expelled for political reasons', 'He trained as an engineer first', 'He studied abroad exclusively'],
     correctIndex: 0,

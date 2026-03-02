@@ -18,7 +18,7 @@ export const francesAllenQuestions: Question[] = [
     hint: 'Rearranges your code to run faster without changing what it does.',
   },
   {
-    id: 40001,
+    id: 4440001,
     topic: 'frances-allen',
     difficulty: 'hard',
     question: 'Allen\'s interprocedural analysis does what?',
@@ -34,7 +34,7 @@ export const francesAllenQuestions: Question[] = [
     hint: 'Follows variables between function calls.',
   },
   {
-    id: 40002,
+    id: 4440002,
     topic: 'frances-allen',
     difficulty: 'sota',
     question: 'Allen\'s flow analysis uses what graph?',

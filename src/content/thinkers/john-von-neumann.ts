@@ -2,7 +2,7 @@ import type { Question } from '../types';
 
 export const johnVonNeumannQuestions: Question[] = [
   {
-    id: 10061,
+    id: 410061,
     topic: 'john-von-neumann',
     difficulty: 'easy',
     question: 'In game theory, a zero-sum game is one where:',
@@ -18,7 +18,7 @@ export const johnVonNeumannQuestions: Question[] = [
     hint: 'The payoff table rows sum to zero — every dollar I win, you lose.',
   },
   {
-    id: 10062,
+    id: 410062,
     topic: 'john-von-neumann',
     difficulty: 'easy',
     question: 'The von Neumann minimax theorem states: for a finite zero-sum game:',

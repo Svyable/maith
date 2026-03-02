@@ -2,7 +2,7 @@ import type { Question } from '../types';
 
 export const jRobertOppenheimerQuestions: Question[] = [
   {
-    id: 21100,
+    id: 421100,
     topic: 'j-robert-oppenheimer',
     difficulty: 'sota',
     question: 'Oppenheimer\'s early theoretical work on gravitational collapse predicted which astrophysical phenomenon decades before observational confirmation?',
@@ -13,7 +13,7 @@ export const jRobertOppenheimerQuestions: Question[] = [
     hint: 'His paper with Snyder described matter collapsing past a critical radius from which light cannot escape.',
   },
   {
-    id: 21101,
+    id: 44421101,
     topic: 'j-robert-oppenheimer',
     difficulty: 'sota',
     question: 'The Born–Oppenheimer approximation simplifies molecular quantum mechanics by separating which two types of motion?',
@@ -24,7 +24,7 @@ export const jRobertOppenheimerQuestions: Question[] = [
     hint: 'Heavy particles move slowly; light particles adjust instantaneously.',
   },
   {
-    id: 21102,
+    id: 44421102,
     topic: 'j-robert-oppenheimer',
     difficulty: 'sota',
     question: 'What was the codename of the first nuclear weapons test, directed by Oppenheimer in July 1945?',
@@ -35,7 +35,7 @@ export const jRobertOppenheimerQuestions: Question[] = [
     hint: 'Oppenheimer named it after a metaphysical poem about three-in-one.',
   },
   {
-    id: 21103,
+    id: 44421103,
     topic: 'j-robert-oppenheimer',
     difficulty: 'sota',
     question: 'Oppenheimer\'s security clearance was revoked in 1954 primarily due to his opposition to developing which weapon?',
@@ -46,7 +46,7 @@ export const jRobertOppenheimerQuestions: Question[] = [
     hint: 'This weapon uses fusion rather than fission and is orders of magnitude more powerful.',
   },
   {
-    id: 21104,
+    id: 4421104,
     topic: 'j-robert-oppenheimer',
     difficulty: 'sota',
     question: 'The Oppenheimer–Phillips process describes which nuclear reaction mechanism?',

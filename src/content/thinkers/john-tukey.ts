@@ -11,7 +11,7 @@ export const johnTukeyQuestions: Question[] = [
     hint: 'He believed in looking at data before testing hypotheses.',
   },
   {
-    id: 96101, topic: 'john-tukey', difficulty: 'hard',
+    id: 496101, topic: 'john-tukey', difficulty: 'hard',
     question: 'Tukey co-invented the Fast Fourier Transform (FFT) algorithm, which reduced DFT computation from $O(n^2)$ to:',
     options: ['$O(n \\log n)$', '$O(n)$', '$O(\\log n)$', '$O(n^3)$'],
     correctIndex: 0,
@@ -20,7 +20,7 @@ export const johnTukeyQuestions: Question[] = [
     hint: 'It uses a divide-and-conquer strategy on the transform.',
   },
   {
-    id: 96102, topic: 'john-tukey', difficulty: 'sota',
+    id: 496102, topic: 'john-tukey', difficulty: 'sota',
     question: 'Tukey\'s philosophical distinction between "exploratory" and "confirmatory" data analysis influenced:',
     options: ['Modern data science workflows that separate hypothesis generation from hypothesis testing', 'Only traditional statistics', 'Database management only', 'Computer hardware design'],
     correctIndex: 0,
