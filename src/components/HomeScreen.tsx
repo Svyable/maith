@@ -205,6 +205,23 @@ export function HomeScreen({
           <span className="text-accent font-bold text-lg">→</span>
         </motion.button>
 
+        {/* Alphabet — Greek Letters (external) */}
+        <motion.a
+          href="https://greektome.lovable.app"
+          target="_blank"
+          rel="noopener noreferrer"
+          whileHover={{ scale: 1.03 }}
+          whileTap={{ scale: 0.97 }}
+          className="w-full py-4 rounded-2xl border-2 border-primary/60 bg-primary/10 hover:bg-primary/20 hover:border-primary transition-all flex items-center gap-4 px-5 glow-primary"
+        >
+          <span className="text-3xl">🔤</span>
+          <div className="text-left flex-1">
+            <p className="font-bold text-lg text-foreground">{t("home.alphabet")}</p>
+            <p className="text-xs text-muted-foreground">{t("home.alphabetSub")}</p>
+          </div>
+          <span className="text-primary font-bold text-lg">→</span>
+        </motion.a>
+
         {/* Vault — Classified Secrets */}
         <motion.button
           whileHover={{ scale: 1.03 }}
