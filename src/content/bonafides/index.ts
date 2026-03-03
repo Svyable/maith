@@ -1,22 +1,18 @@
-// ── Bonafides Content Aggregator ──────────────────────────────────────
-// Re-exports all professional certification questions (math & finance focus).
-// Thinker and standard quiz pools do NOT include these.
-//
-// To add a new credential:
-// 1. Create src/content/<slug>/questions.ts + index.ts
-// 2. Import and spread below
-// 3. Add entry to src/config/bonafides.ts
-
 import type { Question } from '../types';
-
-// ── CFA Program (Levels I–III) ───────────────────────────────
 import { cfaQuestions } from '../cfa';
-// ── Actuarial Exams (P, FM, FAM) ─────────────────────────────
 import { actuarialQuestions } from '../actuarial';
+import { frmQuestions } from '../frm';
+import { cqfQuestions } from '../cqf';
+import { caiaQuestions } from '../caia';
+import { allFinraQuestions } from '../finra';
 
 export const allBonafideQuestions: Question[] = [
   ...cfaQuestions,
   ...actuarialQuestions,
+  ...frmQuestions,
+  ...cqfQuestions,
+  ...caiaQuestions,
+  ...allFinraQuestions,
 ];
 
 /** Get bonafide questions filtered by topic slugs */

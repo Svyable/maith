@@ -15,6 +15,7 @@ const NAV_ITEMS = [
   { path: "/", labelKey: "nav.quiz", emoji: "🧠" },
   { path: "/thinkers", labelKey: "nav.masterMinds", emoji: "🎓" },
   { path: "/formulas", labelKey: "nav.formulas", emoji: "📜" },
+  { path: "/bonafides", labelKey: "nav.bonafides", emoji: "🪪" },
   { path: "/vault", labelKey: "nav.vault", emoji: "🔐" },
   { path: "/glossary", labelKey: "nav.glossary", emoji: "📖" },
   { path: "/leaderboard", labelKey: "nav.leaderboard", emoji: "🏆" },
