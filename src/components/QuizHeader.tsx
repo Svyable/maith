@@ -13,7 +13,7 @@ interface QuizHeaderProps {
 
 const NAV_ITEMS = [
   { path: "/", labelKey: "nav.quiz", emoji: "🧠" },
-  { path: "/thinkers", labelKey: "nav.masterMinds", emoji: "🎓" },
+  { path: "/thinkers", labelKey: "nav.masterMinds", emoji: "🗿" },
   { path: "/formulas", labelKey: "nav.formulas", emoji: "📜" },
   { path: "/bonafides", labelKey: "nav.bonafides", emoji: "🪪" },
   { path: "/vault", labelKey: "nav.vault", emoji: "🔐" },

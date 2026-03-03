@@ -4,7 +4,7 @@ import { t } from "@/i18n";
 
 const FOOTER_LINKS = [
   { key: "footer.quiz", path: "/", emoji: "🧠" },
-  { key: "footer.masterMinds", path: "/thinkers", emoji: "🎓" },
+  { key: "footer.masterMinds", path: "/thinkers", emoji: "🗿" },
   { key: "footer.formulas", path: "/formulas", emoji: "📜" },
   { key: "footer.bonafides", path: "/bonafides", emoji: "🪪" },
   { key: "footer.vault", path: "/vault", emoji: "🔐" },

@@ -152,7 +152,7 @@ export function HomeScreen({
           onClick={() => navigate("/thinkers")}
           className="w-full py-4 rounded-2xl border-2 border-accent/60 bg-accent/10 hover:bg-accent/20 hover:border-accent transition-all flex items-center gap-4 px-5 glow-accent"
         >
-          <span className="text-3xl">🎓</span>
+          <span className="text-3xl">🗿</span>
           <div className="text-left flex-1">
             <p className="font-bold text-lg text-foreground">{t("home.masterMinds")}</p>
             <p className="text-xs text-muted-foreground">{t("home.masterMindsSub", { count: THINKERS.length })}</p>
@@ -226,7 +226,7 @@ export function HomeScreen({
         stats={[
           { value: allQuestions.length, label: t("stats.questions"), emoji: "❓" },
           { value: allGlossaryTerms.length, label: t("stats.terms"), emoji: "📖" },
-          { value: THINKERS.length, label: t("stats.thinkers"), emoji: "🎓" },
+          { value: THINKERS.length, label: t("stats.thinkers"), emoji: "🗿" },
           { value: TOPICS.length, label: t("stats.topics"), emoji: "🧩" },
           { value: VAULT_ENTRIES.length, label: t("stats.secrets"), emoji: "🔐" },
           { value: vaultQuestions.length, label: t("stats.equations"), emoji: "📐" },
