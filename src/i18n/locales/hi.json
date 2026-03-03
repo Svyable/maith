@@ -230,8 +230,18 @@
   "glossary.tabLatex": "𝕃 LaTeX",
   "glossary.tabCode": "⌨ कोड",
 
+  "nav.bonafides": "बोनाफ़ाइड्स",
+  "nav.alphabet": "वर्णमाला",
+
   "footer.quiz": "क्विज़",
   "footer.masterMinds": "महान मस्तिष्क",
+  "footer.formulas": "सूत्र",
+  "footer.bonafides": "बोनाफ़ाइड्स",
+  "footer.vault": "तिजोरी",
   "footer.glossary": "शब्दावली",
-  "footer.leaderboard": "लीडरबोर्ड"
+  "footer.leaderboard": "लीडरबोर्ड",
+  "footer.alphabet": "वर्णमाला",
+
+  "home.alphabet": "वर्णमाला",
+  "home.alphabetSub": "ग्रीक अक्षर, प्रतीक और संकेतन — महारत हासिल"
 }

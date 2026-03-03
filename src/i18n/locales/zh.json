@@ -230,8 +230,18 @@
   "glossary.tabLatex": "𝕃 LaTeX",
   "glossary.tabCode": "⌨ 代码",
 
+  "nav.bonafides": "资质认证",
+  "nav.alphabet": "字母表",
+
   "footer.quiz": "测验",
   "footer.masterMinds": "大师思想家",
+  "footer.formulas": "公式",
+  "footer.bonafides": "资质认证",
+  "footer.vault": "密室",
   "footer.glossary": "术语表",
-  "footer.leaderboard": "排行榜"
+  "footer.leaderboard": "排行榜",
+  "footer.alphabet": "字母表",
+
+  "home.alphabet": "字母表",
+  "home.alphabetSub": "希腊字母、符号与符号体系 — 已掌握"
 }
