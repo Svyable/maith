@@ -21,6 +21,8 @@ const NAV_ITEMS = [
   { path: "/leaderboard", labelKey: "nav.leaderboard", emoji: "🏆" },
 ];
 
+const EXTERNAL_NAV = { url: "https://greektome.lovable.app", labelKey: "nav.alphabet", emoji: "🔤" };
+
 export function QuizHeader({ streak, showStreak }: QuizHeaderProps) {
   const { user } = useAuth();
   const navigate = useNavigate();
@@ -60,25 +62,45 @@ export function QuizHeader({ streak, showStreak }: QuizHeaderProps) {
                 </button>
               );
             })}
+            <a
+              href={EXTERNAL_NAV.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-3 py-1.5 rounded-lg text-xs font-medium transition-colors text-muted-foreground hover:text-foreground hover:bg-secondary/60"
+            >
+              {EXTERNAL_NAV.emoji} {t(EXTERNAL_NAV.labelKey)}
+            </a>
           </nav>
         )}
 
         {/* Mobile: icon-only nav */}
-        {isMobile &&
-          NAV_ITEMS.map((item) => (
-            <button
-              key={item.path}
-              onClick={() => navigate(item.path)}
-              title={t(item.labelKey)}
-              className={`w-9 h-9 rounded-lg flex items-center justify-center text-sm transition-colors ${
-                location.pathname === item.path
-                  ? "bg-primary/15 text-primary"
-                  : "bg-secondary text-foreground hover:bg-secondary/80"
-              }`}
+        {isMobile && (
+          <>
+            {NAV_ITEMS.map((item) => (
+              <button
+                key={item.path}
+                onClick={() => navigate(item.path)}
+                title={t(item.labelKey)}
+                className={`w-9 h-9 rounded-lg flex items-center justify-center text-sm transition-colors ${
+                  location.pathname === item.path
+                    ? "bg-primary/15 text-primary"
+                    : "bg-secondary text-foreground hover:bg-secondary/80"
+                }`}
+              >
+                {item.emoji}
+              </button>
+            ))}
+            <a
+              href={EXTERNAL_NAV.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              title={t(EXTERNAL_NAV.labelKey)}
+              className="w-9 h-9 rounded-lg flex items-center justify-center text-sm transition-colors bg-secondary text-foreground hover:bg-secondary/80"
             >
-              {item.emoji}
-            </button>
-          ))}
+              {EXTERNAL_NAV.emoji}
+            </a>
+          </>
+        )}
 
         <LanguageFlags />
 

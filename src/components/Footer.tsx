@@ -12,6 +12,8 @@ const FOOTER_LINKS = [
   { key: "footer.leaderboard", path: "/leaderboard", emoji: "🏆" },
 ];
 
+const EXTERNAL_FOOTER = { key: "footer.alphabet", url: "https://greektome.lovable.app", emoji: "🔤" };
+
 export function Footer() {
   const navigate = useNavigate();
 
@@ -47,6 +49,17 @@ export function Footer() {
                 {t(link.key)}
               </motion.button>
             ))}
+            <motion.a
+              href={EXTERNAL_FOOTER.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="px-3 py-2 rounded-lg text-sm text-muted-foreground hover:text-foreground hover:bg-secondary/50 transition-colors flex items-center gap-1.5"
+            >
+              <span className="text-xs">{EXTERNAL_FOOTER.emoji}</span>
+              {t(EXTERNAL_FOOTER.key)}
+            </motion.a>
           </div>
         </div>
 
