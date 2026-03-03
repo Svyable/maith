@@ -230,8 +230,13 @@
   "glossary.tabLatex": "𝕃 LaTeX",
   "glossary.tabCode": "⌨ Code",
 
+  "nav.bonafides": "Bonafides",
+
   "footer.quiz": "Test",
   "footer.masterMinds": "Master Minds",
+  "footer.formulas": "Formulas",
+  "footer.bonafides": "Bonafides",
+  "footer.vault": "Vault",
   "footer.glossary": "Glossary",
   "footer.leaderboard": "Leaderboard"
 }
