@@ -7,15 +7,30 @@ interface LatexRendererProps {
   className?: string;
 }
 
+// Splits plain text into segments of markdown links and plain text
+function parseMarkdownLinks(raw: string): { type: 'text' | 'link'; text: string; href?: string }[] {
+  const result: { type: 'text' | 'link'; text: string; href?: string }[] = [];
+  const linkRe = /\[([^\]]+)\]\((https?:\/\/[^)]+)\)/g;
+  let last = 0;
+  let m: RegExpExecArray | null;
+  while ((m = linkRe.exec(raw)) !== null) {
+    if (m.index > last) result.push({ type: 'text', text: raw.slice(last, m.index) });
+    result.push({ type: 'link', text: m[1], href: m[2] });
+    last = m.index + m[0].length;
+  }
+  if (last < raw.length) result.push({ type: 'text', text: raw.slice(last) });
+  return result;
+}
+
 export function LatexRenderer({ text, className = '' }: LatexRendererProps) {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (!containerRef.current) return;
-
-    // Replace $...$ with rendered KaTeX
-    const parts = text.split(/(\$[^$]+\$)/g);
     containerRef.current.innerHTML = '';
+
+    // First split on LaTeX $...$
+    const parts = text.split(/(\$[^$]+\$)/g);
 
     parts.forEach((part) => {
       if (part.startsWith('$') && part.endsWith('$')) {
@@ -28,9 +43,23 @@ export function LatexRenderer({ text, className = '' }: LatexRendererProps) {
         }
         containerRef.current?.appendChild(span);
       } else {
-        const span = document.createElement('span');
-        span.textContent = part;
-        containerRef.current?.appendChild(span);
+        // Parse markdown links within plain text segments
+        const segments = parseMarkdownLinks(part);
+        segments.forEach((seg) => {
+          if (seg.type === 'link') {
+            const a = document.createElement('a');
+            a.href = seg.href!;
+            a.target = '_blank';
+            a.rel = 'noopener noreferrer';
+            a.textContent = seg.text;
+            a.className = 'text-primary underline decoration-dotted underline-offset-2 hover:decoration-solid';
+            containerRef.current?.appendChild(a);
+          } else {
+            const span = document.createElement('span');
+            span.textContent = seg.text;
+            containerRef.current?.appendChild(span);
+          }
+        });
       }
     });
   }, [text]);
