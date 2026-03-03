@@ -197,7 +197,7 @@ export function HomeScreen({
           onClick={() => navigate("/bonafides")}
           className="w-full py-4 rounded-2xl border-2 border-accent/60 bg-accent/10 hover:bg-accent/20 hover:border-accent transition-all flex items-center gap-4 px-5 glow-accent"
         >
-          <span className="text-3xl">🏆</span>
+          <span className="text-3xl">🪪</span>
           <div className="text-left flex-1">
             <p className="font-bold text-lg text-foreground">Bonafides</p>
             <p className="text-xs text-muted-foreground">Professional certifications &amp; credentialing exams</p>
