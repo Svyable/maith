@@ -96,7 +96,7 @@ export function ThinkerGallery({
     >
       {/* Header */}
       <div className="text-center space-y-2">
-        <div className="text-5xl">🎓</div>
+        <div className="text-5xl">🗿</div>
         <h2 className="text-3xl font-display font-bold text-foreground">
           Master<span className="text-gradient-primary">Minds</span>
         </h2>
