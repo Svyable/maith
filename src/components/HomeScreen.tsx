@@ -199,8 +199,8 @@ export function HomeScreen({
         >
           <span className="text-3xl">🪪</span>
           <div className="text-left flex-1">
-            <p className="font-bold text-lg text-foreground">Bonafides</p>
-            <p className="text-xs text-muted-foreground">Professional certifications &amp; credentialing exams</p>
+            <p className="font-bold text-lg text-foreground">{t('home.bonafides')}</p>
+            <p className="text-xs text-muted-foreground">{t('home.bonafidesSub')}</p>
           </div>
           <span className="text-accent font-bold text-lg">→</span>
         </motion.button>
