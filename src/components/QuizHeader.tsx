@@ -21,6 +21,8 @@ const NAV_ITEMS = [
   { path: "/leaderboard", labelKey: "nav.leaderboard", emoji: "🏆" },
 ];
 
+const EXTERNAL_NAV = { url: "https://greektome.lovable.app", labelKey: "nav.alphabet", emoji: "🔤" };
+
 export function QuizHeader({ streak, showStreak }: QuizHeaderProps) {
   const { user } = useAuth();
   const navigate = useNavigate();

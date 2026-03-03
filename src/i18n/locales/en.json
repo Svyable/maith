@@ -231,6 +231,7 @@
   "glossary.tabCode": "⌨ Code",
 
   "nav.bonafides": "Bonafides",
+  "nav.alphabet": "Alphabet",
 
   "footer.quiz": "Test",
   "footer.masterMinds": "Master Minds",
@@ -238,5 +239,9 @@
   "footer.bonafides": "Bonafides",
   "footer.vault": "Vault",
   "footer.glossary": "Glossary",
-  "footer.leaderboard": "Leaderboard"
+  "footer.leaderboard": "Leaderboard",
+  "footer.alphabet": "Alphabet",
+
+  "home.alphabet": "Alphabet",
+  "home.alphabetSub": "Greek letters, symbols & notation — mastered"
 }

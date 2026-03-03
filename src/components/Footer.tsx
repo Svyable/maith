@@ -12,6 +12,8 @@ const FOOTER_LINKS = [
   { key: "footer.leaderboard", path: "/leaderboard", emoji: "🏆" },
 ];
 
+const EXTERNAL_FOOTER = { key: "footer.alphabet", url: "https://greektome.lovable.app", emoji: "🔤" };
+
 export function Footer() {
   const navigate = useNavigate();
 
