@@ -230,8 +230,18 @@
   "glossary.tabLatex": "𝕃 LaTeX",
   "glossary.tabCode": "⌨ Código",
 
+  "nav.bonafides": "Bonafides",
+  "nav.alphabet": "Alfabeto",
+
   "footer.quiz": "Quiz",
   "footer.masterMinds": "Mentes Maestras",
+  "footer.formulas": "Fórmulas",
+  "footer.bonafides": "Bonafides",
+  "footer.vault": "Bóveda",
   "footer.glossary": "Glosario",
-  "footer.leaderboard": "Clasificación"
+  "footer.leaderboard": "Clasificación",
+  "footer.alphabet": "Alfabeto",
+
+  "home.alphabet": "Alfabeto",
+  "home.alphabetSub": "Letras griegas, símbolos y notación — dominados"
 }

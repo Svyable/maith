@@ -230,8 +230,18 @@
   "glossary.tabLatex": "𝕃 LaTeX",
   "glossary.tabCode": "⌨ Code",
 
+  "nav.bonafides": "Bonafides",
+  "nav.alphabet": "Alphabet",
+
   "footer.quiz": "Quiz",
   "footer.masterMinds": "Esprits Maîtres",
+  "footer.formulas": "Formules",
+  "footer.bonafides": "Bonafides",
+  "footer.vault": "Coffre-fort",
   "footer.glossary": "Glossaire",
-  "footer.leaderboard": "Classement"
+  "footer.leaderboard": "Classement",
+  "footer.alphabet": "Alphabet",
+
+  "home.alphabet": "Alphabet",
+  "home.alphabetSub": "Lettres grecques, symboles et notation — maîtrisés"
 }

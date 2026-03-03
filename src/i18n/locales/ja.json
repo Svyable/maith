@@ -230,8 +230,18 @@
   "glossary.tabLatex": "𝕃 LaTeX",
   "glossary.tabCode": "⌨ コード",
 
+  "nav.bonafides": "ボナファイド",
+  "nav.alphabet": "アルファベット",
+
   "footer.quiz": "クイズ",
   "footer.masterMinds": "マスターマインド",
+  "footer.formulas": "数式",
+  "footer.bonafides": "ボナファイド",
+  "footer.vault": "金庫",
   "footer.glossary": "用語集",
-  "footer.leaderboard": "ランキング"
+  "footer.leaderboard": "ランキング",
+  "footer.alphabet": "アルファベット",
+
+  "home.alphabet": "アルファベット",
+  "home.alphabetSub": "ギリシャ文字、記号、表記法 — マスター済み"
 }
