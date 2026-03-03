@@ -9,14 +9,14 @@ export const computerScienceQuestions: Question[] = [
     question: "The time complexity of binary search on a sorted array of $n$ elements is:",
     options: ["$O(\\log n)$", "$O(n)$", "$O(n \\log n)$", "$O(1)$"],
     correctIndex: 0,
-    explanation: `Binary search halves the search space at each step, giving $O(\\log n)$ comparisons.
-
-**Symbol Guide:**
-- $n$ = array size (total elements) [nu ν](https://greektome.lovable.app/letter/nu)
-- $O()$ = Big-O notation [omicron Ο](https://greektome.lovable.app/letter/omicron)
-- $\\log$ = logarithm (base-2) [lambda λ](https://greektome.lovable.app/letter/lambda)`,
+    explanation: "Binary search halves the search space at each step, giving $O(\\log n)$ comparisons.",
     realWorld: "Used in database indexing, spell checkers, and searching sorted datasets.",
     hint: "Each comparison eliminates half the remaining elements.",
+    symbolLinks: {
+      n: "nu",
+      O: "omicron",
+      "\\log": "lambda",
+    },
   },
   {
     id: 60002,
@@ -31,17 +31,20 @@ export const computerScienceQuestions: Question[] = [
       "$\\Theta(n \\log n)$",
     ],
     correctIndex: 0,
-    explanation: `This is Case 2 of the Master Theorem.
-
-**Symbol Guide:**
-- $T(n)$ = time complexity function
-- $a$ = number of subproblems [alpha α](https://greektome.lovable.app/letter/alpha)
-- $b$ = size reduction factor
-- $f(n)$ = non-recursive work
-- $\\Theta()$ = tight bound [theta Θ](https://greektome.lovable.app/letter/theta)`,
+    explanation:
+      "This is Case 2 of the Master Theorem: when $f(n)$ grows at the same rate as $n^{\\log_b a}$, an extra $\\log n$ factor appears.",
     realWorld:
       "The Master Theorem characterizes the complexity of divide-and-conquer algorithms like merge sort ($T(n) = 2T(n/2) + O(n)$).",
     hint: "Case 2: the work at each level is equal, so we multiply by the number of levels.",
+    symbolLinks: {
+      T: "tau",
+      a: "alpha",
+      b: "beta",
+      f: "phi",
+      "\\Theta": "theta",
+      "\\log": "lambda",
+      n: "nu",
+    },
   },
   {
     id: 60003,
@@ -50,15 +53,16 @@ export const computerScienceQuestions: Question[] = [
     question: "The fastest known algorithm for matrix multiplication has complexity approximately:",
     options: ["$O(n^{2.371})$ (Alman-Williams)", "$O(n^3)$", "$O(n^2)$", "$O(n^{2.5})$"],
     correctIndex: 0,
-    explanation: `The current best bound for matrix multiplication is $O(n^{2.3716})$ by Alman and Williams (2024).
-
-**Symbol Guide:**
-- $n$ = matrix dimension [nu ν](https://greektome.lovable.app/letter/nu)
-- $O()$ = upper bound [omicron Ο](https://greektome.lovable.app/letter/omicron)
-- $\\omega$ = matrix multiplication exponent [omega ω](https://greektome.lovable.app/letter/omega)`,
+    explanation:
+      "The current best bound for matrix multiplication is $O(n^{2.3716})$ by Alman and Williams (2024), improving on the Coppersmith-Winograd line of research.",
     realWorld:
       "Faster matrix multiplication directly speeds up graph algorithms, scientific simulation, and machine learning training.",
     hint: "The exponent $\\omega$ has been slowly decreasing from Strassen's 2.807 since 1969.",
+    symbolLinks: {
+      n: "nu",
+      O: "omicron",
+      "\\omega": "omega",
+    },
   },
   // ── Machine Learning ──────────────────────────────────────
   {
@@ -90,15 +94,14 @@ export const computerScienceQuestions: Question[] = [
       "$\\text{Bias}^2 - \\text{Variance}$",
     ],
     correctIndex: 0,
-    explanation: `The expected squared error decomposes into squared bias, variance, and irreducible noise.
-
-**Symbol Guide:**
-- $\\text{Bias}^2$ = systematic prediction error
-- $\\text{Variance}$ = sensitivity to training data
-- $\\epsilon$ = irreducible noise [epsilon ε](https://greektome.lovable.app/letter/epsilon)`,
+    explanation:
+      "The expected squared error decomposes into squared bias (systematic error), variance (sensitivity to training set), and irreducible noise.",
     realWorld:
       "This tradeoff guides model selection — simple models have high bias, complex models have high variance.",
     hint: "Think of throwing darts: bias is how far the center is from the target, variance is how spread out the darts are.",
+    symbolLinks: {
+      "\\epsilon": "epsilon",
+    },
   },
   {
     id: 60006,
@@ -112,14 +115,17 @@ export const computerScienceQuestions: Question[] = [
       "$\\text{ReLU}(QK^T)V$",
     ],
     correctIndex: 0,
-    explanation: `Scaled dot-product attention divides by $\\sqrt{d_k}$ to prevent softmax saturation.
-
-**Symbol Guide:**
-- $Q,K,V$ = Query, Key, Value matrices
-- $d_k$ = key dimension
-- $^T$ = matrix transpose`,
+    explanation:
+      "Scaled dot-product attention divides by $\\sqrt{d_k}$ to prevent softmax saturation, then applies the softmax to get attention weights over values $V$.",
     realWorld: "This mechanism powers GPT, BERT, and all modern large language models.",
     hint: "The scaling factor $\\sqrt{d_k}$ prevents the dot products from growing too large.",
+    symbolLinks: {
+      Q: "capital-q",
+      K: "capital-kappa",
+      V: "capital-nu",
+      d: "delta",
+      "^T": "transpose",
+    },
   },
   // ── Cryptography ──────────────────────────────────────────
   {
@@ -134,13 +140,15 @@ export const computerScienceQuestions: Question[] = [
       "Finding hash collisions",
     ],
     correctIndex: 0,
-    explanation: `RSA security assumes that factoring $n = pq$ is computationally infeasible.
-
-**Symbol Guide:**
-- $n = p \\times q$ = semiprime [nu ν](https://greektome.lovable.app/letter/nu)
-- $p,q$ = large primes [pi π](https://greektome.lovable.app/letter/pi)`,
+    explanation:
+      "RSA security assumes that factoring the product of two large primes $n = pq$ is computationally infeasible.",
     realWorld: "RSA secures HTTPS connections, digital signatures, and secure email worldwide.",
     hint: "Multiplying two primes is easy; reversing it is believed to be hard.",
+    symbolLinks: {
+      n: "nu",
+      p: "pi",
+      q: "capital-psi",
+    },
   },
   {
     id: 60008,
@@ -155,7 +163,7 @@ export const computerScienceQuestions: Question[] = [
     ],
     correctIndex: 0,
     explanation:
-      "Zero-knowledge proofs enable authentication and verification without revealing the underlying secret.",
+      "Zero-knowledge proofs enable authentication and verification without revealing the underlying secret — the verifier learns nothing except that the statement is true.",
     realWorld: "Used in blockchain privacy (Zcash), anonymous credentials, and secure voting systems.",
     hint: "The verifier becomes convinced but gains zero additional knowledge.",
   },
@@ -171,12 +179,14 @@ export const computerScienceQuestions: Question[] = [
       "Supersingular isogenies",
     ],
     correctIndex: 0,
-    explanation: `NIST standardized ML-KEM (formerly Kyber) in 2024.
-
-**Symbol Guide:**
-- MLWE = Module Learning With Errors
-- $A\\mathbf{s}+\\mathbf{e}$ = noisy lattice problem [sigma σ](https://greektome.lovable.app/letter/sigma)`,
+    explanation:
+      "NIST standardized ML-KEM (formerly Kyber) in 2024, which relies on the hardness of the Module-LWE problem — believed to be secure against quantum computers.",
     realWorld: "Google Chrome and Signal already use ML-KEM for quantum-resistant key exchange.",
-    hint: 'Lattice-based cryptography adds structured "noise" to linear algebra problems.',
+    hint: "Lattice-based cryptography adds structured 'noise' to linear algebra problems.",
+    symbolLinks: {
+      A: "capital-alpha",
+      s: "sigma",
+      e: "epsilon",
+    },
   },
 ];

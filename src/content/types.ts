@@ -1,12 +1,13 @@
 // Canonical question type — used everywhere
 export interface Question {
   id: number;
-  topic: string;          // slug like 'linear-algebra'
-  difficulty: 'easy' | 'hard' | 'sota';
-  question: string;       // supports LaTeX ($...$)
+  topic: string;
+  difficulty: string;
+  question: string;
   options: string[];
   correctIndex: number;
   explanation: string;
   realWorld: string;
-  hint: string;           // contextual clue shown before answering
+  hint: string;
+  symbolLinks?: Record<string, string>; // "n": "nu", "O": "omicron"
 }
