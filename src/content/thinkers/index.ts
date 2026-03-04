@@ -1,5 +1,15 @@
 import type { Question } from "../types";
 
+// Notation Pioneers
+import { williamJonesQuestions } from "./william-jones";
+import { williamOughtredQuestions } from "./william-oughtred";
+import { michaelStifelQuestions } from "./michael-stifel";
+
+// Programming Language Creators
+import { bjarneStroustrupQuestions } from "./bjarne-stroustrup";
+import { guidoVanRossumQuestions } from "./guido-van-rossum";
+import { leonardoDeMouraQuestions } from "./leonardo-de-moura";
+
 // Modern / foundational
 import { geoffreyHintonQuestions } from "./geoffrey-hinton";
 import { alanTuringQuestions } from "./alan-turing";
