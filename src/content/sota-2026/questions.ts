@@ -1,13 +1,16 @@
 import type { Question } from "../types";
 
+const arxiv = (id: string) => `[arXiv:${id}](https://arxiv.org/abs/${id})`;
+
 export const sota2026Questions: Question[] = [
-  // 1. AgentSkiller: Scaling Generalist Agents
+  // 1) AgentSkiller: Scaling Generalist Agents
   {
     id: 20260001,
     topic: "sota-2026",
     difficulty: "sota",
-    question:
-      "In AgentSkiller (arXiv:2602.09372), why does a DAG-based architecture with explicit state transitions enable reliable, privacy-safe data synthesis for agent training?",
+    question: `In AgentSkiller (${arxiv(
+      "2602.09372",
+    )}), why does a DAG-based architecture with explicit state transitions enable reliable, privacy-safe data synthesis for agent training?`,
     options: [
       "Deterministic state transitions $s_{t+1} = T(a_t, s_t)$ make trajectories verifiable and reproducible without real user data, and the DAG structure prevents cyclic reward hacking",
       "DAGs compress the action space, reducing GPU memory",
@@ -16,18 +19,25 @@ export const sota2026Questions: Question[] = [
     ],
     correctIndex: 0,
     explanation:
-      "The DAG-based environment uses deterministic transitions $P(\\text{success}) = \\prod_{t=1}^T \\mathbb{I}[s_{t+1} = T(a_t, s_t)]$, meaning every trajectory can be validated by replaying actions against the transition function. This eliminates the need for real user data (privacy-safe) and prevents the agent from exploiting cyclic paths to inflate rewards.",
-    realWorld:
-      "Based on [arXiv:2602.09372](https://arxiv.org/abs/2602.09372), AgentSkiller allows enterprise leaders like Salesforce to train automation agents without ever touching sensitive customer logs.",
-    hint: 'Think about what "verifiable" means: if you know the transition function, you can check any trajectory without running it in the real world.',
+      "The DAG-based environment uses deterministic transitions (e.g., $s_{t+1} = T(a_t, s_t)$), meaning every trajectory can be validated by replaying actions against the transition function. This eliminates the need for real user data (privacy-safe) and reduces opportunities for cyclic “reward loops” that agents could exploit in loopy environments.",
+    realWorld: `AgentSkiller (${arxiv(
+      "2602.09372",
+    )}) lets teams train tool-using agents on synthetic-but-verifiable interaction traces without ingesting sensitive customer logs.`,
+    hint: `Think about what "verifiable" means: if you know the transition function, you can check any trajectory offline.`,
   },
-  // 2. ALMA: Meta-Learning Agentic Memory
+
+  // 2) ALMA: Meta-Learning Agentic Memory
   {
     id: 20260002,
     topic: "sota-2026",
     difficulty: "sota",
-    question:
-      "In ALMA (arXiv:2602.07755), how does expressing memory as searchable executable code allow it to outperform fixed human-designed memory modules across diverse domains?",
+    // Add GreekToMe links (standalone $\\pi$) + mapping
+    symbolLinks: {
+      "\\pi": "pi",
+    },
+    question: `In ALMA (${arxiv(
+      "2602.07755",
+    )}), how does expressing memory as searchable executable code allow it to outperform fixed human-designed memory modules across diverse domains?`,
     options: [
       "The meta-agent explores a combinatorial space of memory schemas, retrieval logic, and update rules that no single hand-designed module can cover, adapting the memory architecture per task",
       "Executable code runs faster than neural memory modules",
@@ -36,18 +46,21 @@ export const sota2026Questions: Question[] = [
     ],
     correctIndex: 0,
     explanation:
-      "ALMA's meta-RL objective $J(\\pi_m) = \\mathbb{E}_{\\tau \\sim \\pi_m}[R(\\tau)]$ optimises over the space of executable memory designs. This allows the search to discover read/write patterns and retrieval heuristics tailored to each specific domain.",
-    realWorld:
-      "As detailed in [arXiv:2602.07755](https://arxiv.org/abs/2602.07755), ALMA-style adaptive memory allows personal AI to learn that a doctor needs patient histories while a dev needs code patterns—automatically.",
-    hint: "Fixed designs are one point in design space; code search explores the entire space.",
+      "ALMA optimizes over a *space of memory designs* (schemas + retrieval/update logic) rather than committing to one fixed module. In the paper’s framing, the meta-policy $\\pi$ chooses how memory should read/write, and learning searches for designs that match the task’s structure instead of relying on a one-size-fits-all human blueprint.",
+    realWorld: `As detailed in ALMA (${arxiv(
+      "2602.07755",
+    )}), an assistant can learn that a clinician needs longitudinal patient histories while a developer needs code patterns—by *changing the memory program itself* per domain.`,
+    hint: "Fixed designs are one point in a huge design space; code search explores the whole space.",
   },
-  // 3. LLaDA2.1: Token Editing for Diffusion LMs
+
+  // 3) LLaDA2.1: Token Editing for Diffusion LMs
   {
     id: 20260003,
     topic: "sota-2026",
     difficulty: "sota",
-    question:
-      "In LLaDA2.1 (arXiv:2602.08676), why does lowering the Mask-to-Token (M2T) threshold in Speedy Mode require Token-to-Token (T2T) editing to maintain generation quality?",
+    question: `In LLaDA2.1 (${arxiv(
+      "2602.08676",
+    )}), why does lowering the Mask-to-Token (M2T) threshold in Speedy Mode require Token-to-Token (T2T) editing to maintain generation quality?`,
     options: [
       "Lower thresholds accept noisier M2T predictions for speed, and T2T editing corrects residual errors by refining token-level details — a quality/speed tradeoff managed by a two-stage pipeline",
       "Lower thresholds reduce the vocabulary size, requiring T2T to map back to full vocabulary",
@@ -56,18 +69,21 @@ export const sota2026Questions: Question[] = [
     ],
     correctIndex: 0,
     explanation:
-      'In Speedy Mode, the M2T acceptance threshold is lowered to increase generation speed. The T2T editing stage then acts as a "cleanup" pass, refining the noisy tokens to maintain SOTA quality at 800+ TPS.',
-    realWorld:
-      "According to [arXiv:2602.08676](https://arxiv.org/abs/2602.08676), LLaDA2.1 makes diffusion-based code generation fast enough for real-time pair programming, rivaling autoregressive speed.",
-    hint: "Faster = noisier initial predictions. What cleans them up?",
+      "In Speedy Mode, the M2T acceptance threshold is lowered to increase throughput, which means the first-pass tokens are noisier. The T2T stage then acts as a targeted “cleanup” pass that edits token-level mistakes to recover quality while keeping the overall pipeline fast.",
+    realWorld: `According to LLaDA2.1 (${arxiv(
+      "2602.08676",
+    )}), diffusion-style generation can be fast enough for real-time authoring if you pair a coarse fast pass with a corrective edit pass.`,
+    hint: "Faster = noisier initial predictions. What stage cleans them up?",
   },
-  // 4. InftyThink+: Infinite-Horizon Reasoning
+
+  // 4) InftyThink+: Infinite-Horizon Reasoning
   {
     id: 20260004,
     topic: "sota-2026",
     difficulty: "sota",
-    question:
-      'What "lost-in-the-middle" problem does InftyThink+ (arXiv:2602.06960) solve, and how does RL-based summarisation help?',
+    question: `What "lost-in-the-middle" problem does InftyThink+ (${arxiv(
+      "2602.06960",
+    )}) solve, and how does RL-based summarisation help?`,
     options: [
       "Long chains of thought cause the model to lose track of early reasoning steps (attention dilution); RL learns when to summarise and resume, keeping the effective context focused",
       "The model forgets its system prompt after 1000 tokens; summarisation restates it",
@@ -76,12 +92,14 @@ export const sota2026Questions: Question[] = [
     ],
     correctIndex: 0,
     explanation:
-      'InftyThink+ uses RL to decide when to "compress" its reasoning into a summary. This prevents attention dilution in massive chains of thought, allowing for effectively infinite-horizon logical processing.',
-    realWorld:
-      "Referencing [arXiv:2602.06960](https://arxiv.org/abs/2602.06960), this mimics how human mathematicians summarize sub-proofs before moving to the next stage of a complex problem.",
-    hint: "Attention is finite. What happens to tokens from 5000 steps ago in a 10000-token chain of thought?",
+      "InftyThink+ uses RL to decide when to compress intermediate reasoning into a summary and continue from that compact state. This addresses “attention dilution” where early-but-important details become hard to retrieve as the chain grows.",
+    realWorld: `InftyThink+ (${arxiv(
+      "2602.06960",
+    )}) mirrors how humans write sub-lemmas and summaries to keep long proofs manageable without rereading everything.`,
+    hint: "Attention is finite. What happens to tokens from 5000 steps ago in a 10k-token chain?",
   },
-  // 5. EnvScaler: Scaling Tool Environments
+
+  // 5) EnvScaler: Scaling Tool Environments
   {
     id: 20260005,
     topic: "sota-2026",
@@ -89,19 +107,21 @@ export const sota2026Questions: Question[] = [
     question:
       "How does EnvScaler address data scarcity for long-horizon agent training through procedural environment generation?",
     options: [
-      "It parameterically generates massive tool-interactive environments with complexity $C = |D| \\times |T| \\times H$ (domains × tools × horizons), providing unlimited diverse training scenarios",
+      "It parametrically generates massive tool-interactive environments with complexity $C = |D| \\times |T| \\times H$ (domains × tools × horizons), providing unlimited diverse training scenarios",
       "It downloads real user interaction logs from production systems",
       "It uses GANs to generate synthetic screenshots of tool interfaces",
       "It simplifies all tasks to single-step interactions to avoid data issues",
     ],
     correctIndex: 0,
     explanation:
-      "EnvScaler parameterises world generation via domain ontologies, creating a combinatorial explosion of training data ($|D| \\times |T| \\times H$) that allows agents to practice millions of unique tool-use scenarios.",
-    realWorld:
-      "EnvScaler (part of the [AgentSkiller Framework](https://arxiv.org/abs/2602.09372)) is the key to training agents that don't break when they encounter a new UI or API.",
-    hint: "The product $|D| \\times |T| \\times H$ grows combinatorially — how many unique environments can you generate?",
+      "EnvScaler parameterizes environment generation via domain ontologies and tool specs, creating a combinatorial explosion of scenarios (often summarized as $|D| \\times |T| \\times H$). This yields effectively unlimited training diversity without requiring real user traces.",
+    realWorld: `EnvScaler is described as part of the AgentSkiller framework (${arxiv(
+      "2602.09372",
+    )}) for training agents that generalize to novel interfaces and workflows.`,
+    hint: "The product $|D| \\times |T| \\times H$ grows combinatorially — what does that imply for variety?",
   },
-  // 6. Block Diffusion Scaling (LLaDA2.0)
+
+  // 6) Block Diffusion Scaling (LLaDA2.0 / diffusion LMs)
   {
     id: 20260006,
     topic: "sota-2026",
@@ -109,19 +129,21 @@ export const sota2026Questions: Question[] = [
     question:
       "Why is parallel block diffusion faster than autoregressive generation for text, and what is the key tradeoff?",
     options: [
-      "Multiple token positions are denoised simultaneously in parallel ($x_{t-1}$ for a block), trading sequential dependency for parallelism; the tradeoff is potential inter-token incoherence",
+      "Multiple token positions are denoised simultaneously in parallel (a block update), trading sequential dependency for parallelism; the tradeoff is potential inter-token incoherence",
       "Block diffusion uses fewer parameters per token",
       "It eliminates the need for a tokeniser",
       "Autoregressive models cannot use GPU tensor cores",
     ],
     correctIndex: 0,
     explanation:
-      'Standard models are $O(n)$ because they generate token-by-token. Block diffusion is $O(T_{diff})$ because it denoises the whole block at once, though it risks local "hallucinations" between tokens in the same block.',
-    realWorld:
-      'High-speed diffusion LMs (see [LLaDA](https://arxiv.org/abs/2602.08676)) enable "instant" document drafting where pages of text appear in seconds, not minutes.',
-    hint: "Autoregressive = one token at a time. Diffusion = all tokens at once.",
+      "Autoregressive decoding is inherently sequential (token-by-token), making it $O(n)$ in sequence length. Block diffusion denoises many positions in parallel across a fixed number of diffusion steps, but the price is that local coherence between simultaneously-updated tokens can be harder to guarantee without strong refinement/editing.",
+    realWorld: `High-speed diffusion LMs (see LLaDA2.1 ${arxiv(
+      "2602.08676",
+    )}) enable “instant” drafting where large chunks appear in seconds rather than minutes.`,
+    hint: "Autoregressive = one token at a time. Diffusion = many tokens at once.",
   },
-  // 7. Statelessness Bottleneck in Foundation Models
+
+  // 7) Statelessness bottleneck + ALMA-style memory
   {
     id: 20260007,
     topic: "sota-2026",
@@ -136,12 +158,14 @@ export const sota2026Questions: Question[] = [
     ],
     correctIndex: 0,
     explanation:
-      'LLMs usually "forget" everything once the context window is cleared. ALMA-style memory gives the agent a "hard drive" that it learns to read and write to, allowing it to improve at its job over months.',
-    realWorld:
-      'While current bots are "goldfish," [ALMA-style modules](https://arxiv.org/abs/2602.07755) turn them into "elephants" that remember your team\'s specific jargon and workflows.',
-    hint: "What's the difference between a goldfish and an elephant?",
+      "Most LLM deployments reset state when the context window clears. Meta-learned memory gives an agent a persistent store it learns to read/write, enabling accumulation of task-specific knowledge across many episodes instead of starting over each session.",
+    realWorld: `ALMA-style memory (${arxiv(
+      "2602.07755",
+    )}) is a path toward assistants that remember your org’s conventions and workflows over weeks/months without manual prompt scaffolding.`,
+    hint: "What’s the difference between having short-term context and having long-term memory?",
   },
-  // 8. RL for Diffusion LLMs (RLHF for dLLMs)
+
+  // 8) RL for diffusion LLMs (PPO / diffusion credit assignment)
   {
     id: 20260008,
     topic: "sota-2026",
@@ -149,25 +173,28 @@ export const sota2026Questions: Question[] = [
     question:
       "What diffusion-specific challenges does RL (PPO) address when aligning diffusion language models like LLaDA2.1, compared to standard autoregressive RLHF?",
     options: [
-      "Diffusion models denoise all tokens simultaneously, making credit assignment across positions harder; PPO's clipped objective $L^{CLIP}$ stabilises training despite the non-sequential generation process",
+      "Diffusion models denoise all tokens simultaneously, making credit assignment across positions harder; PPO's clipped objective stabilises training despite the non-sequential generation process",
       "Diffusion models have no logits, so PPO must be replaced with evolutionary strategies",
       "The noise schedule conflicts with the KL penalty in standard RLHF",
       "Diffusion models cannot generate text, only images, so RL must bridge modalities",
     ],
     correctIndex: 0,
     explanation:
-      'In diffusion, tokens aren\'t generated one-by-one, so standard reward attribution breaks. PPO-based alignment for dLLMs ensures the model learns which denoising steps actually led to a "good" final document.',
-    realWorld:
-      'Aligning diffusion LMs (see [LLaDA 2.1](https://arxiv.org/abs/2602.08676)) allows for AI writing tools that "sculpt" a draft into a finished piece rather than just predicting the next word.',
-    hint: "Autoregressive = clear token-by-token credit. Diffusion = all tokens change simultaneously.",
+      "In diffusion generation, many token positions change together rather than being produced sequentially, which complicates reward attribution (which denoising decisions mattered?). PPO-style objectives provide stability while learning preferences over non-sequential generation dynamics.",
+    realWorld: `Aligning diffusion LMs (see LLaDA2.1 ${arxiv(
+      "2602.08676",
+    )}) supports tools that iteratively “sculpt” a draft into a final document rather than committing to a single left-to-right decode.`,
+    hint: "Autoregressive = clear token-by-token credit. Diffusion = many tokens change at once.",
   },
-  // 9. Cross-Domain Agent Fusion
+
+  // 9) Cross-Domain Agent Fusion (AgentSkiller)
   {
     id: 20260009,
     topic: "sota-2026",
     difficulty: "sota",
-    question:
-      "In AgentSkiller's cross-domain fusion, how do Person-Centric Entity Graphs ensure semantic consistency when linking services?",
+    question: `In AgentSkiller’s cross-domain fusion (${arxiv(
+      "2602.09372",
+    )}), how do Person-Centric Entity Graphs ensure semantic consistency when linking services?`,
     options: [
       "Entity embeddings capture semantic meaning, so the learned link probability only connects entities with compatible roles/types across domains, preventing nonsensical cross-domain fusions",
       "The sigmoid function clips probabilities to prevent overflow",
@@ -176,12 +203,14 @@ export const sota2026Questions: Question[] = [
     ],
     correctIndex: 0,
     explanation:
-      'The fusion logic uses embeddings to realize that a "Customer ID" in one app and a "Client Profile" in another represent the same entity, allowing the agent to move data safely between them.',
-    realWorld:
-      'Techniques from [arXiv:2602.09372](https://arxiv.org/abs/2602.09372) allow an agent to sync your flight booking with your office calendar without getting confused about who the "attendee" is.',
-    hint: "The embeddings encode *meaning*. Do these two entities make sense together?",
+      "The fusion mechanism relies on semantic representations so entities that “mean the same thing” across apps (e.g., “Customer ID” vs “Client Profile”) are linked, while incompatible entity types are unlikely to connect—preventing nonsensical merges.",
+    realWorld: `Techniques in AgentSkiller (${arxiv(
+      "2602.09372",
+    )}) enable an agent to sync bookings with calendars or CRMs while maintaining entity consistency across different schemas.`,
+    hint: "If embeddings encode meaning, what does that imply about which entities should connect?",
   },
-  // 10. Iterative Reasoning Optimisation (Quadratic Cost)
+
+  // 10) Iterative Reasoning Optimization (quadratic attention)
   {
     id: 20260010,
     topic: "sota-2026",
@@ -196,17 +225,24 @@ export const sota2026Questions: Question[] = [
     ],
     correctIndex: 0,
     explanation:
-      "Self-attention scales quadratically. By breaking reasoning into chunks and summarising, models like InftyThink+ keep the active context small, avoiding the massive $O(n^2)$ slowdown of long reasoning chains.",
-    realWorld:
-      'Iterative reasoning ([InftyThink+](https://arxiv.org/abs/2602.06960)) is what will make "deep thinking" AI affordable for daily use instead of costing \$1.00 per query.',
-    hint: "$n^2$ vs $m \\times k^2$. Which is smaller?",
+      "Self-attention compares every token to every other token, so compute/memory scale as $O(n^2)$. Iterative summarization keeps the active working context small (size $k$), so repeated steps cost about $m \\times O(k^2)$ rather than $O(n^2)$ for a massive uninterrupted chain.",
+    realWorld: `Iterative reasoning techniques (e.g., InftyThink+ ${arxiv(
+      "2602.06960",
+    )}) are aimed at making “deep thinking” affordable by preventing huge quadratic slowdowns.`,
+    hint: "$n^2$ vs $m \\times k^2$. Which stays small as $n$ grows?",
   },
+
+  // 11) Unified Latents (symbol links for lambda)
   {
     id: 20260011,
     topic: "sota-2026",
     difficulty: "sota",
-    question:
-      'In DeepMind\'s Unified Latents (arXiv:2602.17270), how does the "Information Density Seesaw" get resolved to achieve a SOTA 1.3 FVD on Kinetics-600?',
+    symbolLinks: {
+      "\\lambda": "lambda",
+    },
+    question: `In DeepMind’s Unified Latents (${arxiv(
+      "2602.17270",
+    )}), how does the "Information Density Seesaw" get resolved to achieve a SOTA 1.3 FVD on Kinetics-600?`,
     options: [
       "By linking the deterministic encoder's fixed output noise to the diffusion prior's minimum noise level, providing a mathematically tight upper bound on latent bitrate",
       "By replacing the diffusion decoder with a GAN-based refiner to reduce high-frequency artifacts",
@@ -215,18 +251,21 @@ export const sota2026Questions: Question[] = [
     ],
     correctIndex: 0,
     explanation:
-      "Unified Latents (UL) eliminates heuristic tuning by jointly regularizing the latent space with a diffusion prior. By using a fixed-noise information bound ($log-SNR$ of $\\lambda(0)=5$), it creates a principled reconstruction-modeling tradeoff that allows larger base models to effectively utilize higher bitrate latents without instability.",
-    realWorld:
-      "According to [arXiv:2602.17270](https://arxiv.org/abs/2602.17270), UL enables high-resolution video generation with significantly lower compute tax, making real-time 4K synthesis commercially viable.",
-    hint: 'Think about how "fixed noise" acts as a physical cap on how much data can fit in the "bottle" of the latent space.',
+      "Unified Latents removes heuristic tuning by jointly regularizing the latent space with a diffusion prior. It ties the prior’s minimum noise to a fixed-noise information bound using the symbol $\\lambda$ (e.g. $\\lambda(0)=5$), producing a principled reconstruction–modeling tradeoff that stabilizes higher-bitrate latents.",
+    realWorld: `According to Unified Latents (${arxiv(
+      "2602.17270",
+    )}), this enables higher-quality video generation at lower compute cost, pushing toward real-time high-res synthesis.`,
+    hint: "Think about how “fixed noise” acts like a cap on how much information a latent can carry.",
   },
-  // 12. ResearchGym: The Capability-Reliability Gap
+
+  // 12) ResearchGym: Capability–Reliability Gap
   {
     id: 20260012,
     topic: "sota-2026",
     difficulty: "sota",
-    question:
-      "According to ResearchGym (arXiv:2602.15112), what is the primary reason frontier agents like GPT-5 struggle with autonomous AI research despite their high reasoning scores?",
+    question: `According to ResearchGym (${arxiv(
+      "2602.15112",
+    )}), what is the primary reason frontier agents struggle with autonomous AI research despite high reasoning scores?`,
     options: [
       'A "capability-reliability gap" where agents propose novel hypotheses but fail at long-horizon resource management and coordination of parallel experiments',
       "Insufficient context windows that prevent the agent from reading more than three papers at once",
@@ -235,18 +274,21 @@ export const sota2026Questions: Question[] = [
     ],
     correctIndex: 0,
     explanation:
-      'ResearchGym identifies a sharp gap: while agents can occasionally surpass human SOTA (e.g., on ICML spotlight tasks), they are unreliable, completing only ~26.5% of sub-tasks. Failure modes include "impatience" and "overconfidence in weak hypotheses" during the long-horizon loop of hypothesis testing.',
-    realWorld:
-      'As detailed in [arXiv:2602.15112](https://arxiv.org/abs/2602.15112), this benchmark suggests that the next frontier in AI isn\'t better "intelligence," but better "stamina" and "project management" for autonomous discovery.',
-    hint: 'It\'s not about how smart the agent is in one turn, but how it manages its "plan" over a thousand turns.',
+      "ResearchGym highlights that agents can be impressive in isolated reasoning, yet unreliable in long-horizon loops: planning, coordinating parallel experiments, tracking resources, and recovering from mistakes. The benchmark emphasizes failure modes like impatience and overconfidence during extended research workflows.",
+    realWorld: `ResearchGym (${arxiv(
+      "2602.15112",
+    )}) suggests the next frontier is less about one-shot IQ and more about multi-day “project management” reliability.`,
+    hint: "It’s not about one-turn brilliance — it’s about staying correct across many turns.",
   },
-  // 13. HalluHard: Multi-Turn Hallucination Cascades
+
+  // 13) HalluHard: Multi-turn hallucination cascades
   {
     id: 20260013,
     topic: "sota-2026",
     difficulty: "sota",
-    question:
-      "How does the HalluHard benchmark (arXiv:2602.01031) differentiate itself from previous hallucination metrics like TruthfulQA?",
+    question: `How does the HalluHard benchmark (${arxiv(
+      "2602.01031",
+    )}) differentiate itself from previous hallucination metrics like TruthfulQA?`,
     options: [
       "It focuses on multi-turn dialogues where early minor errors cascade into massive factual hallucinations that are plausible-sounding but completely ungrounded",
       "It only tests the model on its ability to recite historical dates correctly",
@@ -255,18 +297,21 @@ export const sota2026Questions: Question[] = [
     ],
     correctIndex: 0,
     explanation:
-      "HalluHard uses a judging pipeline that fetches and parses full-text PDFs to check inline citations. It reveals that even the strongest models (Opus-4.5) have a ~30% hallucination rate in complex multi-turn scenarios involving legal and medical research.",
-    realWorld:
-      '[arXiv:2602.01031](https://arxiv.org/abs/2602.01031) highlights that "groundedness" is the biggest hurdle for AI lawyers and doctors, where one wrong citation in Turn 1 ruins the entire Turn 10 conclusion.',
-    hint: 'Think about a "lie" that grows bigger every time someone asks a follow-up question.',
+      "HalluHard targets multi-turn settings where small early mistakes compound across follow-ups, producing confident, plausible-but-ungrounded outputs. The key is the *cascade* effect: one wrong citation or assumption early can corrupt the entire later conclusion.",
+    realWorld: `HalluHard (${arxiv(
+      "2602.01031",
+    )}) stresses that “groundedness” is critical for legal/medical agents where one early error can poison many downstream steps.`,
+    hint: "Think about a small lie that grows each time someone asks a follow-up.",
   },
-  // 14. CIR: Decoupling Logic from Math
+
+  // 14) R2C / CIR: Decoupling logic from math instantiation
   {
     id: 20260014,
     topic: "sota-2026",
     difficulty: "sota",
-    question:
-      "In the R2C framework (arXiv:2602.02029), how does the Canonical Intermediate Representation (CIR) improve optimization problem solving?",
+    question: `In the R2C framework (${arxiv(
+      "2602.02029",
+    )}), how does the Canonical Intermediate Representation (CIR) improve optimization problem solving?`,
     options: [
       "It decouples operational rule logic from mathematical instantiation by using constraint archetypes and modeling paradigms",
       "It converts all natural language into Python code which is then executed by a compiler",
@@ -275,38 +320,44 @@ export const sota2026Questions: Question[] = [
     ],
     correctIndex: 0,
     explanation:
-      'CIR acts as a "bridge" or schema. Instead of the LLM jumping straight to math (which leads to errors), it first maps rules to "constraint archetypes." This modularity allows for 47.2% accuracy on complex operational benchmarks where standard GPT-5-level models fail.',
-    realWorld:
-      "Based on [arXiv:2602.02029](https://arxiv.org/abs/2602.02029), CIR is the blueprint for the next generation of logistics and supply chain AIs that must handle thousands of conflicting business rules.",
-    hint: 'If you can\'t solve the math yet, categorize the "rules" first. What is the middle step?',
+      "CIR acts like a schema/bridge: before committing to equations, the solver identifies constraint archetypes and modeling paradigms that represent the rules. This modularity reduces early translation errors that commonly derail direct NL→math approaches.",
+    realWorld: `R2C (${arxiv(
+      "2602.02029",
+    )}) is aimed at real logistics/supply-chain settings where rules are messy and mapping them cleanly to constraints is the hardest step.`,
+    hint: "If you can’t solve the math yet, categorize the *rules* first—what intermediate structure helps?",
   },
-  // 15. First Proof: Preventing Data Contamination
+
+  // 15) First Proof: Preventing evaluation contamination
   {
     id: 20260015,
     topic: "sota-2026",
     difficulty: "sota",
-    question:
-      'Why did the authors of "First Proof" (arXiv:2602.05192) choose to encrypt the answers to their research-level math questions for a short period?',
+    question: `Why did the authors of "First Proof" (${arxiv(
+      "2602.05192",
+    )}) encrypt the answers to their research-level math questions for a short period?`,
     options: [
-      'To prevent the questions and answers from being ingested by LLM training crawlers (data contamination), ensuring a true "zero-shot" evaluation',
+      "To prevent the questions and answers from being ingested by LLM training crawlers (data contamination), ensuring a true 'zero-shot' evaluation",
       "Because the researchers themselves hadn't figured out the answers yet",
       "To comply with international copyright laws regarding mathematical theorems",
-      'To create a "pay-to-play" model for AI companies wanting to test their models',
+      "To create a 'pay-to-play' model for AI companies wanting to test their models",
     ],
     correctIndex: 0,
     explanation:
-      'By keeping answers encrypted, researchers (including Fields Medalist Martin Hairer) ensure that any model solving them is actually "reasoning" rather than "reciting" from its training data. This is essential for evaluating "Frontier Reasoners" in 2026.',
-    realWorld:
-      "The [First Proof paper](https://arxiv.org/abs/2602.05192) represents the peak of AI evaluation, where models are tested on math that has never been seen on the public internet.",
-    hint: "If a student has the answer key in their pocket, is it a fair test?",
+      "Encrypting the answers prevents models from “learning the test” via training data ingestion. That preserves the integrity of zero-shot evaluation: if a model solves it, it’s more likely due to reasoning than memorization.",
+    realWorld: `First Proof (${arxiv(
+      "2602.05192",
+    )}) represents a peak evaluation regime: problems whose solutions are intentionally withheld to avoid contamination.`,
+    hint: "If the answer key is in the training set, is it still a fair test?",
   },
-  // 16. International AI Safety Report 2026
+
+  // 16) International AI Safety Report 2026
   {
     id: 20260016,
     topic: "sota-2026",
     difficulty: "sota",
-    question:
-      'The "International AI Safety Report 2026" (arXiv:2602.21012), led by Yoshua Bengio, identifies which of these as a primary "Emerging Risk"?',
+    question: `The "International AI Safety Report 2026" (${arxiv(
+      "2602.21012",
+    )}), led by Yoshua Bengio, identifies which of these as a primary "Emerging Risk"?`,
     options: [
       'Systemic destabilization caused by autonomous "agentic swarms" executing high-frequency financial or social manipulations',
       "The risk of AI models running out of electricity due to inefficient cooling",
@@ -315,18 +366,21 @@ export const sota2026Questions: Question[] = [
     ],
     correctIndex: 0,
     explanation:
-      'The 2026 report, mandated by the Bletchley summit nations, focuses on "agentic risks"—situations where autonomous systems, once deployed, can manipulate systems faster than human oversight can intervene.',
-    realWorld:
-      'Referencing [arXiv:2602.21012](https://arxiv.org/abs/2602.21012), this report provides the scientific baseline for the 2026 Global AI Treaty, shifting focus from "chatbots" to "agents."',
-    hint: "It's not about the AI making a mistake; it's about the AI taking a thousand actions before we notice.",
+      "The report emphasizes “agentic risks” where autonomous systems can act at machine speed across many channels (financial, informational, social) faster than human oversight can respond, increasing systemic instability risk.",
+    realWorld: `The report (${arxiv(
+      "2602.21012",
+    )}) is positioned as a scientific baseline for governance that shifts concern from chatbots to deployed autonomous agents.`,
+    hint: "It’s not one mistake—it’s a thousand actions before we notice.",
   },
-  // 17. Empirical-MCTS: Dual Process Evolution
+
+  // 17) Empirical-MCTS: Dual-process evolution
   {
     id: 20260017,
     topic: "sota-2026",
     difficulty: "sota",
-    question:
-      'In Empirical-MCTS (arXiv:2602.04248), how does "Dual Process" evolution enable agents to improve over time without manual fine-tuning?',
+    question: `In Empirical-MCTS (${arxiv(
+      "2602.04248",
+    )}), how does "Dual Process" evolution enable agents to improve over time without manual fine-tuning?`,
     options: [
       'By using a fast "intuitive" model for generation and a slow "search-based" model for evaluation, where the search results are distilled back into the fast model',
       "By running two identical models in parallel and picking the one with the higher temperature",
@@ -335,18 +389,21 @@ export const sota2026Questions: Question[] = [
     ],
     correctIndex: 0,
     explanation:
-      'This mirrors the human "System 1 vs System 2" thinking. The agent uses MCTS (Monte Carlo Tree Search) to find "correct" paths, and then uses those paths to autonomously update its own policy (System 1), leading to "Continuous Agent Evolution."',
-    realWorld:
-      'Systems like [Empirical-MCTS](https://arxiv.org/abs/2602.04248) power 2026 agents that get "smarter" the more they work on a specific task, essentially training themselves on the job.',
-    hint: 'Think: "Practice makes perfect." The model practices with search, then memorizes the results.',
+      "Dual-process evolution mirrors System 1 vs System 2: a fast generator proposes candidates; a slower search/evaluator (e.g., MCTS) identifies better trajectories; then those improvements are distilled back into the fast policy so it improves continuously.",
+    realWorld: `Empirical-MCTS (${arxiv(
+      "2602.04248",
+    )}) captures the “practice → evaluate → internalize” loop that enables agents to improve on the job.`,
+    hint: "Practice with search, then “memorize” the best paths.",
   },
-  // 18. LogicGraph: Multi-Path Reasoning
+
+  // 18) LogicGraph: Multi-path reasoning consistency
   {
     id: 20260018,
     topic: "sota-2026",
     difficulty: "sota",
-    question:
-      "What does the LogicGraph benchmark (arXiv:2602.21044) measure that traditional benchmarks like GSM8K miss?",
+    question: `What does the LogicGraph benchmark (${arxiv(
+      "2602.21044",
+    )}) measure that traditional benchmarks like GSM8K miss?`,
     options: [
       "Multi-path logical consistency: the ability of a model to reach the same correct conclusion through different starting premises or reasoning trajectories",
       "The speed at which a model can calculate basic arithmetic",
@@ -355,12 +412,14 @@ export const sota2026Questions: Question[] = [
     ],
     correctIndex: 0,
     explanation:
-      'LogicGraph tests if a model is "brittle." Brittle models might solve a problem one way but fail if a different logical path is required. SOTA 2026 models like Gemini 3 and Claude 4.5 are tested on their "Graph Consistency" across these paths.',
-    realWorld:
-      'As seen in [LogicGraph](https://arxiv.org/abs/2602.21044), high-reliability AI must be able to "cross-check" its own logic, ensuring there are no contradictions in its internal reasoning.',
-    hint: "If all roads lead to Rome, a smart traveler should be able to take any of them.",
+      "LogicGraph evaluates brittleness by checking whether models remain consistent across different reasoning paths that should yield the same conclusion. A model that only succeeds along one narrow path can fail under equivalent reformulations.",
+    realWorld: `LogicGraph (${arxiv(
+      "2602.21044",
+    )}) aligns with real reliability needs: agents must cross-check reasoning rather than getting lucky once.`,
+    hint: "If all roads lead to Rome, can the model take more than one road?",
   },
-  // 19. Fast KV Compaction (Attention Matching)
+
+  // 19) Attention Matching: KV compaction / long-context memory bottleneck
   {
     id: 20260019,
     topic: "sota-2026",
@@ -375,12 +434,14 @@ export const sota2026Questions: Question[] = [
     ],
     correctIndex: 0,
     explanation:
-      'Attention Matching (part of the [2026 Latent Research](https://arxiv.org/abs/2602.17270) umbrella) allows models to "compress" their memory of a 10-hour video or a massive codebase into a tiny "latent puzzle" that preserves the most important attention weights.',
-    realWorld:
-      'This technique allows 2026 AI coding assistants to keep an entire 1-million-file repository in "active memory" without needing a \$10,000 GPU.',
-    hint: 'Instead of summarizing with words, summarize with the "math of attention."',
+      "Attention Matching frames compression as preserving the most important attention structure (what the model would attend to) while reducing storage. The point is to keep downstream behavior similar while drastically shrinking memory footprint.",
+    realWorld: `This kind of compaction is often discussed alongside long-context advances in the Unified Latents ecosystem (${arxiv(
+      "2602.17270",
+    )}).`,
+    hint: "Instead of summarizing with words, preserve the *structure* of attention.",
   },
-  // 20. GLM-5: Agentic Engineering
+
+  // 20) GLM-5: Agentic Engineering shift
   {
     id: 20260020,
     topic: "sota-2026",
@@ -395,9 +456,10 @@ export const sota2026Questions: Question[] = [
     ],
     correctIndex: 0,
     explanation:
-      'GLM-5 represents the 2026 shift toward "Agentic Engineering," where the AI isn\'t just an autocomplete tool, but a colleague that manages the deployment pipeline, writes unit tests, and refactors code autonomously.',
-    realWorld:
-      "According to [2026 Industry Reports](https://arxiv.org/abs/2602.04248), Agentic Engineering has reduced the time to market for complex SaaS products by over 70% in early 2026.",
-    hint: 'It\'s the difference between asking for a "cool website" and having an AI build, host, and fix that website.',
+      "Agentic Engineering means the model is no longer just autocomplete; it operates as an agent that plans, executes, tests, iterates, and maintains systems over time (CI, unit tests, refactors, deploys), closing the loop from “idea” to “running product.”",
+    realWorld: `This “continuous agent evolution” framing is discussed broadly in 2026 agent systems literature (e.g., Empirical-MCTS ${arxiv(
+      "2602.04248",
+    )}).`,
+    hint: "It’s the difference between generating code and owning the whole lifecycle.",
   },
 ];
