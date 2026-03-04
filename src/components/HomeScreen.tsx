@@ -12,6 +12,7 @@ import { allQuestions } from "@/content";
 import { allGlossaryTerms } from "@/content/glossary";
 import { VAULT_ENTRIES } from "@/config/vault";
 import { vaultQuestions } from "@/content/vault";
+import { EQUATIONS } from "@/config/equations";
 import { t } from "@/i18n";
 import { useLocale } from "@/hooks/useLocale";
 import { useMemo, useState, useEffect } from "react";
@@ -246,7 +247,7 @@ export function HomeScreen({
           { value: THINKERS.length, label: t("stats.thinkers"), emoji: "🗿" },
           { value: TOPICS.length, label: t("stats.topics"), emoji: "🧩" },
           { value: VAULT_ENTRIES.length, label: t("stats.secrets"), emoji: "🔐" },
-          { value: vaultQuestions.length, label: t("stats.equations"), emoji: "📐" },
+          { value: EQUATIONS.length, label: t("stats.formulas"), emoji: "📐" },
         ]}
       />
 
