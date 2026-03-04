@@ -947,6 +947,16 @@ export const allThinkerQuestions: Question[] = [
   ...leonardoDaVinciQuestions,
   ...nicolausCopernicusQuestions,
   ...josephLouisLagrangeQuestions,
+
+  // Notation Pioneers
+  ...williamJonesQuestions,
+  ...williamOughtredQuestions,
+  ...michaelStifelQuestions,
+
+  // Programming Language Creators
+  ...bjarneStroustrupQuestions,
+  ...guidoVanRossumQuestions,
+  ...leonardoDeMouraQuestions,
 ];
 export function getThinkerQuestions(slug: string): Question[] {
   return allThinkerQuestions.filter((q) => q.topic === slug);
