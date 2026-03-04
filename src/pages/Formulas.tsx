@@ -1,5 +1,6 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useSearchParams } from 'react-router-dom';
 import { QuizHeader } from '@/components/QuizHeader';
 import { FloatingBackground } from '@/components/FloatingBackground';
 import { Footer } from '@/components/Footer';
@@ -148,8 +149,13 @@ function EquationCard({ eq, index }: { eq: Equation; index: number }) {
 }
 
 export default function Formulas() {
-  
-  const [search, setSearch] = useState('');
+  const [searchParams] = useSearchParams();
+  const qParam = searchParams.get('q') ?? '';
+  const [search, setSearch] = useState(qParam);
+
+  useEffect(() => {
+    if (qParam) setSearch(qParam);
+  }, [qParam]);
   const [sortBy, setSortBy] = useState<SortKey>('rank');
   const [domainFilter, setDomainFilter] = useState<string>('all');
   const [difficultyFilter, setDifficultyFilter] = useState<string>('all');
