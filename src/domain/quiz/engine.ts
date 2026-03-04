@@ -25,8 +25,7 @@ export function fisherYatesShuffle<T>(arr: T[]): T[] {
  * Stores `originalIndices` so the caller can map back for answer checking.
  */
 export function stripAnswers(q: Question): PublicQuestion {
-  const { correctIndex: _c, explanation: _e, realWorld: _r, ...pub } = q;
-  // Create index array [0,1,2,3] and shuffle it
+  const { correctIndex: _c, explanation: _e, realWorld: _r, symbolLinks: _s, ...pub } = q;
   const indices = Array.from({ length: pub.options.length }, (_, i) => i);
   const shuffledIndices = fisherYatesShuffle(indices);
   const shuffledOptions = shuffledIndices.map((i) => pub.options[i]);
