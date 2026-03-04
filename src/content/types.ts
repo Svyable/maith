@@ -22,4 +22,8 @@ export interface Question {
   symbolLinks?: Record<string, string>;
   /** Source paper metadata for SOTA questions */
   paper?: QuestionPaper;
+  /** Glossary term IDs for cross-linking (e.g. ['big-o', 'transformer']) */
+  glossaryLinks?: string[];
+  /** Formula names for cross-linking to the Formulas page */
+  formulaLinks?: string[];
 }
