@@ -1,6 +1,6 @@
-import { useMemo, useState } from 'react';
+import { useMemo, useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import { FlashCard } from './FlashCard';
 import { getAllGlossaryTerms, getGlossaryByField, getGlossaryFields } from '@/content/glossary';
 import { FIELDS } from '@/config/fields';
@@ -9,9 +9,17 @@ import { useLocale } from '@/hooks/useLocale';
 
 export function GlossaryScreen() {
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
   const { locale } = useLocale();
   const [selectedField, setSelectedField] = useState('all');
-  const [search, setSearch] = useState('');
+
+  // Pre-fill search from ?term= URL param
+  const termParam = searchParams.get('term') ?? '';
+  const [search, setSearch] = useState(termParam);
+
+  useEffect(() => {
+    if (termParam) setSearch(termParam.replace(/-/g, ' '));
+  }, [termParam]);
 
   const allTerms = useMemo(() => getAllGlossaryTerms(), [locale]);
   const availableFields = useMemo(() => getGlossaryFields(), [locale]);

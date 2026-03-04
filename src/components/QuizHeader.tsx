@@ -4,6 +4,7 @@ import { t } from "@/i18n";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { useTheme } from "@/hooks/useTheme";
 import { LanguageFlags } from "@/components/LanguageFlags";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 
 interface QuizHeaderProps {
@@ -32,9 +33,18 @@ export function QuizHeader({ streak, showStreak }: QuizHeaderProps) {
 
   return (
     <header
-      className="flex items-center justify-center px-4 py-2.5 border-b border-border bg-card sticky top-0 z-50"
+      className="flex items-center justify-between px-2 py-2.5 border-b border-border bg-card sticky top-0 z-50"
       style={{ paddingTop: "calc(0.5rem + env(safe-area-inset-top))" }}
     >
+      {/* Back button */}
+      <button
+        onClick={() => window.history.back()}
+        title={t('nav.back') ?? 'Back'}
+        className="w-9 h-9 rounded-lg flex items-center justify-center text-sm transition-colors bg-secondary text-foreground hover:bg-secondary/80 flex-shrink-0"
+      >
+        <ChevronLeft className="w-4 h-4" />
+      </button>
+
       <div className="flex items-center gap-1 flex-wrap justify-center">
         {showStreak && (
           <div className="flex items-center gap-1 mr-1">
@@ -133,6 +143,15 @@ export function QuizHeader({ streak, showStreak }: QuizHeaderProps) {
           </button>
         )}
       </div>
+
+      {/* Forward button */}
+      <button
+        onClick={() => window.history.forward()}
+        title={t('nav.forward') ?? 'Forward'}
+        className="w-9 h-9 rounded-lg flex items-center justify-center text-sm transition-colors bg-secondary text-foreground hover:bg-secondary/80 flex-shrink-0"
+      >
+        <ChevronRight className="w-4 h-4" />
+      </button>
     </header>
   );
 }
