@@ -1,6 +1,13 @@
 // Canonical question type — used everywhere
 export type QuestionDifficulty = 'easy' | 'hard' | 'sota';
 
+export interface QuestionPaper {
+  title: string;
+  url: string;
+  venue?: string;
+  year?: number;
+}
+
 export interface Question {
   id: number;
   topic: string;
@@ -13,4 +20,6 @@ export interface Question {
   hint: string;
   /** Maps a symbol key (e.g. "n") to its greektome letter slug (e.g. "nu") */
   symbolLinks?: Record<string, string>;
+  /** Source paper metadata for SOTA questions */
+  paper?: QuestionPaper;
 }

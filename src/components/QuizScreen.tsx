@@ -5,6 +5,7 @@ import { OptionButton } from './OptionButton';
 import { TimerBar } from './TimerBar';
 import { ExplanationPopup } from './ExplanationPopup';
 import { HintPanel } from './HintPanel';
+import { PaperPill } from './PaperPill';
 import type { PublicQuestion, CheckResult } from '@/domain/quiz';
 import { type Difficulty, getDifficultyMeta, TOPIC_MAP, toDifficulty } from '@/config/constants';
 import { useKeyboard } from '@/hooks/useKeyboard';
@@ -24,11 +25,9 @@ interface QuizScreenProps {
   onSkip: () => void;
   onEndQuiz: () => void;
   onSessionUpdate: (correct: boolean) => void;
-  /** Ref that the parent sets — called when the timer expires */
   timeoutRef?: MutableRefObject<(() => void) | null>;
 }
 
-/** Badge color classes keyed by question-level difficulty */
 const DIFF_BADGE: Record<string, { bg: string; text: string }> = {
   easy: { bg: 'bg-success/10 border-success/30', text: 'text-success' },
   hard: { bg: 'bg-accent/10 border-accent/30', text: 'text-accent' },
@@ -68,11 +67,9 @@ export function QuizScreen({
     setSelectedOption(index);
     setAnswerState('checking');
 
-    // Map shuffled index back to original for answer checking
     const originalIndex = question.originalIndices[index];
     const result = await onAnswer(originalIndex);
     if (result) {
-      // Map correctIndex from original space back to shuffled space for display
       const shuffledCorrectIndex = question.originalIndices.indexOf(result.correctIndex);
       setCheckResult({ ...result, correctIndex: shuffledCorrectIndex });
       setAnswerState(result.correct ? 'correct' : 'wrong');
@@ -83,22 +80,19 @@ export function QuizScreen({
     }
   }, [onAnswer, answerState, onSessionUpdate, eliminatedOptions, question.originalIndices]);
 
-  // Auto-answer on timeout: treat as wrong answer
   const handleTimeoutAnswer = useCallback(async () => {
     if (answerState !== 'pending') return;
-    // Pick a wrong answer (index -1 mapped to original -1 guarantees wrong)
-    const originalIndex = -1; // impossible index = always wrong
+    const originalIndex = -1;
     const result = await onAnswer(originalIndex);
     if (result) {
       const shuffledCorrectIndex = question.originalIndices.indexOf(result.correctIndex);
       setCheckResult({ ...result, correctIndex: shuffledCorrectIndex });
       setAnswerState('wrong');
-      setSelectedOption(-1); // no visual selection
+      setSelectedOption(-1);
       onSessionUpdate(false);
     }
   }, [answerState, onAnswer, onSessionUpdate, question.originalIndices]);
 
-  // Register timeout handler with parent via ref
   useEffect(() => {
     if (timeoutRef) timeoutRef.current = handleTimeoutAnswer;
     return () => { if (timeoutRef) timeoutRef.current = null; };
@@ -141,7 +135,6 @@ export function QuizScreen({
 
   const isAnswered = answerState === 'correct' || answerState === 'wrong';
 
-  // Keyboard shortcuts
   useKeyboard({
     onOption: answerState === 'pending' ? handleSelect : undefined,
     onHint: answerState === 'pending' ? handleShowHint : undefined,
@@ -163,7 +156,6 @@ export function QuizScreen({
         <span className="text-muted-foreground font-mono">
           {t('quiz.question', { current: currentIndex + 1, total: totalQuestions })}
         </span>
-        {/* Per-question difficulty badge */}
         <span className={`px-2 py-0.5 rounded-full text-xs font-bold border ${diffBadge.bg} ${diffBadge.text}`}>
           {qDiffMeta.emoji} {qDiffMeta.tag}
         </span>
@@ -184,10 +176,9 @@ export function QuizScreen({
       <TimerBar fraction={timerFraction} timeLeft={timeLeft} />
 
       {/* Topic + difficulty badges */}
-      <div className="flex items-center gap-2">
+      <div className="flex items-center gap-2 flex-wrap">
         <span className="text-lg">{topicMeta?.emoji ?? '📐'}</span>
         <span className="text-xs text-muted-foreground font-medium">{topicMeta?.label ?? question.topic}</span>
-        {/* Points value indicator */}
         <span className={`text-[10px] px-1.5 py-0.5 rounded font-mono font-bold ${diffBadge.text}`}>
           +{qDiffMeta.slug === 'EASY' ? 10 : qDiffMeta.slug === 'HARD' ? 20 : 35}pts
         </span>
@@ -197,6 +188,11 @@ export function QuizScreen({
           </span>
         )}
       </div>
+
+      {/* Paper pill (SOTA questions) */}
+      {question.paper && (
+        <PaperPill paper={question.paper} />
+      )}
 
       {/* Question */}
       <div className="bg-card rounded-xl border border-border p-4 sm:p-6 min-h-[100px] flex items-center justify-center overflow-x-auto">
@@ -246,6 +242,7 @@ export function QuizScreen({
           realWorld={checkResult.realWorld}
           hint={hintShown ? undefined : question.hint}
           symbolLinks={checkResult.symbolLinks}
+          paper={question.paper}
           onNext={handleNext}
         />
       )}

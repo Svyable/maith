@@ -1,17 +1,29 @@
+import { useState } from 'react';
 import { motion } from 'framer-motion';
+import { ChevronDown, ChevronUp } from 'lucide-react';
 import { LatexRenderer } from './LatexRenderer';
+import { PaperPill } from './PaperPill';
 import { t } from '@/i18n';
 
 interface ExplanationPopupProps {
   isCorrect: boolean;
   explanation: string;
   realWorld: string;
-  hint?: string; // Show missed hint if user didn't use it
+  hint?: string;
   symbolLinks?: Record<string, string>;
+  paper?: { title: string; url: string; venue?: string; year?: number };
   onNext: () => void;
 }
 
-export function ExplanationPopup({ isCorrect, explanation, realWorld, hint, symbolLinks, onNext }: ExplanationPopupProps) {
+export function ExplanationPopup({ isCorrect, explanation, realWorld, hint, symbolLinks, paper, onNext }: ExplanationPopupProps) {
+  const [expanded, setExpanded] = useState(false);
+
+  // Split explanation: first sentence is the summary, rest is detail
+  const dotIdx = explanation.indexOf('. ');
+  const hasSplit = dotIdx > 0 && dotIdx < explanation.length - 2;
+  const summary = hasSplit ? explanation.slice(0, dotIdx + 1) : explanation;
+  const detail = hasSplit ? explanation.slice(dotIdx + 2) : '';
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
@@ -25,17 +37,56 @@ export function ExplanationPopup({ isCorrect, explanation, realWorld, hint, symb
             {isCorrect ? t('quiz.correct') : t('quiz.wrong')}
           </h3>
         </div>
-        <LatexRenderer text={explanation} className="text-card-foreground mb-3 leading-relaxed" symbolLinks={symbolLinks} />
-        <div className="flex items-start gap-2 pt-2 border-t border-border/50">
+
+        {/* Summary line */}
+        <LatexRenderer text={summary} className="text-card-foreground leading-relaxed" symbolLinks={symbolLinks} />
+
+        {/* Collapsible detail */}
+        {detail && (
+          <div className="mt-2">
+            {expanded ? (
+              <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+                <LatexRenderer text={detail} className="text-card-foreground leading-relaxed" symbolLinks={symbolLinks} />
+              </motion.div>
+            ) : null}
+            <button
+              onClick={() => setExpanded(!expanded)}
+              className="flex items-center gap-1 text-xs text-muted-foreground hover:text-foreground mt-1 transition-colors"
+            >
+              {expanded ? <ChevronUp className="w-3 h-3" /> : <ChevronDown className="w-3 h-3" />}
+              {expanded ? 'Less' : 'More detail'}
+            </button>
+          </div>
+        )}
+
+        {/* Symbol guide hint */}
+        {symbolLinks && Object.keys(symbolLinks).length > 0 && (
+          <div className="flex items-center gap-2 text-xs text-muted-foreground mt-3 pt-2 border-t border-border/50">
+            <span>🔤</span>
+            <span>Tap symbols to learn them on GreekToMe</span>
+          </div>
+        )}
+
+        {/* Real-world pill */}
+        <div className="flex items-start gap-2 pt-2 mt-2 border-t border-border/50">
           <span className="text-base">🌍</span>
           <LatexRenderer text={realWorld} className="text-sm text-muted-foreground italic" symbolLinks={symbolLinks} />
         </div>
+
+        {/* Missed hint */}
         {hint && (
           <div className="flex items-start gap-2 pt-2 mt-2 border-t border-border/50">
             <span className="text-base">💡</span>
             <p className="text-sm text-muted-foreground italic">
               <span className="font-medium not-italic">{t('quiz.hintMissed')}</span> {hint}
             </p>
+          </div>
+        )}
+
+        {/* Paper pill */}
+        {paper && (
+          <div className="pt-2 mt-2 border-t border-border/50">
+            <PaperPill paper={paper} />
           </div>
         )}
       </div>

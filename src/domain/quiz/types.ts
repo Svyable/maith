@@ -10,6 +10,8 @@ export interface PublicQuestion {
   hint: string;
   /** Maps shuffled index → original index so answer checks work correctly */
   originalIndices: number[];
+  /** Source paper metadata (SOTA questions) */
+  paper?: { title: string; url: string; venue?: string; year?: number };
 }
 
 export interface CheckResult {
