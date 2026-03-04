@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ChevronDown, ChevronUp } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import { LatexRenderer } from './LatexRenderer';
 import { PaperPill } from './PaperPill';
 import { t } from '@/i18n';
@@ -12,17 +13,22 @@ interface ExplanationPopupProps {
   hint?: string;
   symbolLinks?: Record<string, string>;
   paper?: { title: string; url: string; venue?: string; year?: number };
+  glossaryLinks?: string[];
+  formulaLinks?: string[];
   onNext: () => void;
 }
 
-export function ExplanationPopup({ isCorrect, explanation, realWorld, hint, symbolLinks, paper, onNext }: ExplanationPopupProps) {
+export function ExplanationPopup({ isCorrect, explanation, realWorld, hint, symbolLinks, paper, glossaryLinks, formulaLinks, onNext }: ExplanationPopupProps) {
   const [expanded, setExpanded] = useState(false);
+  const navigate = useNavigate();
 
   // Split explanation: first sentence is the summary, rest is detail
   const dotIdx = explanation.indexOf('. ');
   const hasSplit = dotIdx > 0 && dotIdx < explanation.length - 2;
   const summary = hasSplit ? explanation.slice(0, dotIdx + 1) : explanation;
   const detail = hasSplit ? explanation.slice(dotIdx + 2) : '';
+
+  const hasLearnMore = (glossaryLinks && glossaryLinks.length > 0) || (formulaLinks && formulaLinks.length > 0);
 
   return (
     <motion.div
@@ -89,6 +95,35 @@ export function ExplanationPopup({ isCorrect, explanation, realWorld, hint, symb
             <PaperPill paper={paper} />
           </div>
         )}
+
+        {/* Learn more: glossary & formula cross-links */}
+        {hasLearnMore && (
+          <div className="pt-2 mt-2 border-t border-border/50">
+            <p className="text-xs text-muted-foreground mb-2 font-medium">Learn more</p>
+            <div className="flex flex-wrap gap-2">
+              {glossaryLinks?.map((id) => (
+                <button
+                  key={`g-${id}`}
+                  onClick={() => navigate(`/glossary?term=${id}`)}
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-secondary/60 border border-border text-xs text-muted-foreground hover:text-foreground hover:border-foreground/30 transition-colors cursor-pointer"
+                >
+                  <span>📖</span>
+                  <span className="font-medium text-foreground">{formatTermId(id)}</span>
+                </button>
+              ))}
+              {formulaLinks?.map((name) => (
+                <button
+                  key={`f-${name}`}
+                  onClick={() => navigate(`/formulas?q=${encodeURIComponent(name)}`)}
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-secondary/60 border border-border text-xs text-muted-foreground hover:text-foreground hover:border-foreground/30 transition-colors cursor-pointer"
+                >
+                  <span className="font-mono font-bold">ƒ</span>
+                  <span className="font-medium text-foreground">{name}</span>
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
       <motion.button
         whileHover={{ scale: 1.02 }}
@@ -100,4 +135,9 @@ export function ExplanationPopup({ isCorrect, explanation, realWorld, hint, symb
       </motion.button>
     </motion.div>
   );
+}
+
+/** Convert a glossary term ID like 'big-o' to 'Big-O' for display */
+function formatTermId(id: string): string {
+  return id.split('-').map((w) => w.charAt(0).toUpperCase() + w.slice(1)).join('-');
 }

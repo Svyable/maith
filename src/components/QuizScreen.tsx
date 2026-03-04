@@ -243,6 +243,8 @@ export function QuizScreen({
           hint={hintShown ? undefined : question.hint}
           symbolLinks={checkResult.symbolLinks}
           paper={question.paper}
+          glossaryLinks={checkResult.glossaryLinks}
+          formulaLinks={checkResult.formulaLinks}
           onNext={handleNext}
         />
       )}
