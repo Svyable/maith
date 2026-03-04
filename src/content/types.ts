@@ -9,5 +9,12 @@ export interface Question {
   explanation: string;
   realWorld: string;
   hint: string;
-  symbolLinks?: Record<string, string>; // "n": "nu", "O": "omicron"
+  symbolLinks?: Record<
+    string,
+    {
+      latex: string;
+      greektome: string;
+      description: string;
+    }
+  >;
 }
