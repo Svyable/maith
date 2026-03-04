@@ -65,16 +65,13 @@ export function localFallbackCheck(
 // ── Server calls ─────────────────────────────────────────────────────
 
 /**
- * Check an answer via the edge function, with local fallback.
+ * Check an answer locally against the question pool.
  */
 export async function checkAnswer(
   questionId: number,
   selectedIndex: number,
   pool: Question[],
 ): Promise<CheckResult | null> {
-  // Use local check — instant, has full question bank.
-  // The quiz-check edge function only has a small subset of questions
-  // and adds unnecessary latency for a simple index comparison.
   return localFallbackCheck(questionId, selectedIndex, pool);
 }
 
