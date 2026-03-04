@@ -1,5 +1,15 @@
 import type { Question } from "../types";
 
+// Notation Pioneers
+import { williamJonesQuestions } from "./william-jones";
+import { williamOughtredQuestions } from "./william-oughtred";
+import { michaelStifelQuestions } from "./michael-stifel";
+
+// Programming Language Creators
+import { bjarneStroustrupQuestions } from "./bjarne-stroustrup";
+import { guidoVanRossumQuestions } from "./guido-van-rossum";
+import { leonardoDeMouraQuestions } from "./leonardo-de-moura";
+
 // Modern / foundational
 import { geoffreyHintonQuestions } from "./geoffrey-hinton";
 import { alanTuringQuestions } from "./alan-turing";
@@ -947,6 +957,16 @@ export const allThinkerQuestions: Question[] = [
   ...leonardoDaVinciQuestions,
   ...nicolausCopernicusQuestions,
   ...josephLouisLagrangeQuestions,
+
+  // Notation Pioneers
+  ...williamJonesQuestions,
+  ...williamOughtredQuestions,
+  ...michaelStifelQuestions,
+
+  // Programming Language Creators
+  ...bjarneStroustrupQuestions,
+  ...guidoVanRossumQuestions,
+  ...leonardoDeMouraQuestions,
 ];
 export function getThinkerQuestions(slug: string): Question[] {
   return allThinkerQuestions.filter((q) => q.topic === slug);
