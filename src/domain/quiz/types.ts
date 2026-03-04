@@ -17,6 +17,8 @@ export interface CheckResult {
   correctIndex: number;
   explanation: string;
   realWorld: string;
+  /** Maps symbol key → greektome letter slug for linking */
+  symbolLinks?: Record<string, string>;
 }
 
 export interface MissedQuestion {

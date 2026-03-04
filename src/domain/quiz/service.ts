@@ -58,6 +58,7 @@ export function localFallbackCheck(
     correctIndex: q.correctIndex,
     explanation: tQuestion(q.id, 'explanation', q.explanation),
     realWorld: tQuestion(q.id, 'realWorld', q.realWorld),
+    symbolLinks: q.symbolLinks,
   };
 }
 

@@ -2,9 +2,13 @@ import { useEffect, useRef } from 'react';
 import katex from 'katex';
 import 'katex/dist/katex.min.css';
 
+const GREEKTOME_BASE = 'https://greektome.lovable.app/letter';
+
 interface LatexRendererProps {
   text: string;
   className?: string;
+  /** Maps symbol key (e.g. "n", "\\log") → greektome slug (e.g. "nu", "lambda") */
+  symbolLinks?: Record<string, string>;
 }
 
 // Splits plain text into segments of markdown links and plain text
@@ -22,26 +26,63 @@ function parseMarkdownLinks(raw: string): { type: 'text' | 'link'; text: string;
   return result;
 }
 
-export function LatexRenderer({ text, className = '' }: LatexRendererProps) {
+/**
+ * Find the best matching symbolLink for a LaTeX math string.
+ * For simple expressions like "n", "O", "\log" → direct match.
+ * Returns the greektome URL or null.
+ */
+function findSymbolUrl(math: string, symbolLinks: Record<string, string>): string | null {
+  const trimmed = math.trim();
+  // Direct key match (e.g. "n" → "nu")
+  if (symbolLinks[trimmed]) {
+    return `${GREEKTOME_BASE}/${symbolLinks[trimmed]}`;
+  }
+  // Check for simple symbol-only patterns like "f(n)", "T(n)", "O()"
+  // Only link single-symbol simple expressions, not complex multi-symbol formulas
+  if (trimmed.length <= 4) {
+    for (const [key, slug] of Object.entries(symbolLinks)) {
+      if (trimmed === key) {
+        return `${GREEKTOME_BASE}/${slug}`;
+      }
+    }
+  }
+  return null;
+}
+
+export function LatexRenderer({ text, className = '', symbolLinks }: LatexRendererProps) {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (!containerRef.current) return;
     containerRef.current.innerHTML = '';
 
-    // First split on LaTeX $...$
+    // Split on LaTeX $...$
     const parts = text.split(/(\$[^$]+\$)/g);
 
     parts.forEach((part) => {
       if (part.startsWith('$') && part.endsWith('$')) {
         const math = part.slice(1, -1);
+        const url = symbolLinks ? findSymbolUrl(math, symbolLinks) : null;
+
         const span = document.createElement('span');
         try {
           katex.render(math, span, { throwOnError: false, displayMode: false });
         } catch {
           span.textContent = math;
         }
-        containerRef.current?.appendChild(span);
+
+        if (url) {
+          const a = document.createElement('a');
+          a.href = url;
+          a.target = '_blank';
+          a.rel = 'noopener noreferrer';
+          a.className = 'inline-flex items-baseline border-b border-dotted border-primary/60 hover:border-solid hover:border-primary transition-colors cursor-pointer';
+          a.title = `Learn about this symbol on GreekToMe`;
+          a.appendChild(span);
+          containerRef.current?.appendChild(a);
+        } else {
+          containerRef.current?.appendChild(span);
+        }
       } else {
         // Parse markdown links within plain text segments
         const segments = parseMarkdownLinks(part);
@@ -62,7 +103,7 @@ export function LatexRenderer({ text, className = '' }: LatexRendererProps) {
         });
       }
     });
-  }, [text]);
+  }, [text, symbolLinks]);
 
   return <div ref={containerRef} className={className} />;
 }

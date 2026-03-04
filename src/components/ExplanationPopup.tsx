@@ -7,10 +7,11 @@ interface ExplanationPopupProps {
   explanation: string;
   realWorld: string;
   hint?: string; // Show missed hint if user didn't use it
+  symbolLinks?: Record<string, string>;
   onNext: () => void;
 }
 
-export function ExplanationPopup({ isCorrect, explanation, realWorld, hint, onNext }: ExplanationPopupProps) {
+export function ExplanationPopup({ isCorrect, explanation, realWorld, hint, symbolLinks, onNext }: ExplanationPopupProps) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
@@ -24,10 +25,10 @@ export function ExplanationPopup({ isCorrect, explanation, realWorld, hint, onNe
             {isCorrect ? t('quiz.correct') : t('quiz.wrong')}
           </h3>
         </div>
-        <LatexRenderer text={explanation} className="text-card-foreground mb-3 leading-relaxed" />
+        <LatexRenderer text={explanation} className="text-card-foreground mb-3 leading-relaxed" symbolLinks={symbolLinks} />
         <div className="flex items-start gap-2 pt-2 border-t border-border/50">
           <span className="text-base">🌍</span>
-          <p className="text-sm text-muted-foreground italic">{realWorld}</p>
+          <LatexRenderer text={realWorld} className="text-sm text-muted-foreground italic" symbolLinks={symbolLinks} />
         </div>
         {hint && (
           <div className="flex items-start gap-2 pt-2 mt-2 border-t border-border/50">
