@@ -245,6 +245,7 @@ export function QuizScreen({
           explanation={checkResult.explanation}
           realWorld={checkResult.realWorld}
           hint={hintShown ? undefined : question.hint}
+          symbolLinks={checkResult.symbolLinks}
           onNext={handleNext}
         />
       )}
