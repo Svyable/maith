@@ -12,6 +12,10 @@ export interface PublicQuestion {
   originalIndices: number[];
   /** Source paper metadata (SOTA questions) */
   paper?: { title: string; url: string; venue?: string; year?: number };
+  /** Glossary term IDs for cross-linking */
+  glossaryLinks?: string[];
+  /** Formula names for cross-linking */
+  formulaLinks?: string[];
 }
 
 export interface CheckResult {
@@ -21,6 +25,10 @@ export interface CheckResult {
   realWorld: string;
   /** Maps symbol key → greektome letter slug for linking */
   symbolLinks?: Record<string, string>;
+  /** Glossary term IDs for cross-linking */
+  glossaryLinks?: string[];
+  /** Formula names for cross-linking */
+  formulaLinks?: string[];
 }
 
 export interface MissedQuestion {

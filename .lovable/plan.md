@@ -1,55 +1,147 @@
 
 
-## Plan: Cross-link Quiz Questions to Glossary and Formulas
+# Profile Onboarding and Leaderboard Alignment
 
-### Concept
+## Problem
+- New users (both email signup and OAuth) get auto-generated usernames like `user_a3f8b2c1` with no opportunity to choose a display name
+- OAuth users (Google/Apple) often have `null` display_name since the trigger only reads `raw_user_meta_data`
+- The leaderboard shows `display_name || username`, resulting in cryptic entries
+- There is no post-signup onboarding screen to collect a preferred username
+- The Profile page displays but cannot edit the username/display_name
 
-Add optional metadata to each question that references related glossary terms and formulas. Render these as clickable pills in the explanation popup, linking users directly to the relevant Glossary card or Formula entry.
+## Solution
 
-### Data Model Changes
+### 1. Add a username onboarding screen (`src/pages/Onboarding.tsx`)
+A simple page shown after first login when the user has no custom display_name set. Contains:
+- A text input for choosing a display name (required, 2-20 chars)
+- An optional avatar emoji picker (or keep default)
+- A "Save and Continue" button that writes to the `profiles` table
+- Redirects to `/` after saving
 
-**`src/content/types.ts`** — add two optional fields to `Question`:
+### 2. Create a `useProfile` hook (`src/hooks/useProfile.ts`)
+- Fetches the current user's profile row on auth state change
+- Exposes `profile`, `loading`, `updateProfile(fields)`, and `needsOnboarding` (true when display_name is null or matches the auto-generated pattern `user_XXXXXXXX`)
+- Used by Index.tsx, Profile.tsx, and Onboarding.tsx to avoid scattered `supabase.from('profiles')` calls
 
-```typescript
-/** Glossary term IDs relevant to this question (e.g. ['big-o', 'np-hard']) */
-glossaryLinks?: string[];
-/** Equation names/ranks to link to on the Formulas page */
-formulaLinks?: string[];
+### 3. Update the `handle_new_user` trigger (DB migration)
+- For OAuth users, also extract `full_name` / `name` from `raw_user_meta_data` (Google/Apple provide these)
+- Store it as `display_name` so OAuth users at least have a real name as fallback
+
+### 4. Add onboarding redirect logic in `App.tsx`
+- After auth state resolves, if user is logged in and `needsOnboarding` is true, redirect to `/onboarding`
+- The onboarding route is protected (requires auth)
+
+### 5. Make Profile page editable
+- Add an "Edit" button next to the display name on `Profile.tsx`
+- Inline edit field that calls `updateProfile({ display_name })` on save
+- Updates reflect immediately on the leaderboard views
+
+### 6. Ensure leaderboard views show the right name
+- The existing views (`leaderboard_all_time`, `leaderboard_weekly`, `leaderboard_by_topic`) already join on `profiles.display_name` and `profiles.username`
+- No schema change needed -- once profiles have proper display_names, leaderboard displays correctly
+
+---
+
+## Technical Details
+
+### New files
+| File | Purpose |
+|---|---|
+| `src/pages/Onboarding.tsx` | Post-signup username picker screen |
+| `src/hooks/useProfile.ts` | Shared profile fetch/update hook |
+
+### Modified files
+| File | Change |
+|---|---|
+| `src/App.tsx` | Add `/onboarding` route, add redirect guard |
+| `src/pages/Index.tsx` | Use `useProfile` instead of inline profile fetch |
+| `src/pages/Profile.tsx` | Use `useProfile`, add inline display_name editing |
+| `src/pages/Auth.tsx` | After successful login, navigate to `/onboarding` if needed |
+
+### Database migration
+```sql
+-- Improve handle_new_user to extract name from OAuth providers
+CREATE OR REPLACE FUNCTION public.handle_new_user()
+RETURNS trigger
+LANGUAGE plpgsql
+SECURITY DEFINER
+SET search_path TO 'public'
+AS $$
+DECLARE
+  base_username text;
+  v_display_name text;
+BEGIN
+  base_username := 'user_' || substr(NEW.id::text, 1, 8);
+  
+  -- Try multiple metadata fields (Google sends full_name/name, Apple sends name)
+  v_display_name := COALESCE(
+    NEW.raw_user_meta_data->>'display_name',
+    NEW.raw_user_meta_data->>'full_name',
+    NEW.raw_user_meta_data->>'name',
+    NULL
+  );
+
+  INSERT INTO public.profiles (id, username, display_name, avatar_url, locale, is_public)
+  VALUES (
+    NEW.id,
+    base_username,
+    v_display_name,
+    COALESCE(NEW.raw_user_meta_data->>'avatar_url', NULL),
+    COALESCE(NEW.raw_user_meta_data->>'locale', 'en'),
+    true
+  )
+  ON CONFLICT (id) DO NOTHING;
+
+  INSERT INTO public.user_stats (user_id)
+  VALUES (NEW.id)
+  ON CONFLICT (user_id) DO NOTHING;
+
+  RETURN NEW;
+END;
+$$;
 ```
 
-**`src/domain/quiz/types.ts`** — mirror both fields on `PublicQuestion` and `CheckResult` so they flow through the engine to the UI.
+### `useProfile` hook shape
+```typescript
+interface Profile {
+  id: string;
+  username: string;
+  display_name: string | null;
+  avatar_url: string | null;
+  locale: string;
+}
 
-**`src/domain/quiz/engine.ts`** — pass `glossaryLinks` and `formulaLinks` through in `stripAnswers`.
+interface UseProfileReturn {
+  profile: Profile | null;
+  loading: boolean;
+  needsOnboarding: boolean;
+  updateProfile: (fields: Partial<Profile>) => Promise<void>;
+}
+```
 
-**`src/domain/quiz/service.ts`** — include both fields in the `CheckResult` returned by `localFallbackCheck`.
+### Onboarding flow
+```text
+[User signs up / OAuth] --> [handle_new_user trigger creates profile row]
+        |
+        v
+[App.tsx checks needsOnboarding]
+        |
+  true  |  false
+   v         v
+[/onboarding]  [/ (home)]
+   |
+   v
+[User picks display name] --> [UPDATE profiles SET display_name = ...]
+   |
+   v
+[Redirect to /]
+```
 
-### UI Changes
-
-**`src/components/ExplanationPopup.tsx`** — add a "Learn more" section after the real-world pill with two rows of link pills:
-
-- Glossary pills: link to `/glossary?term={id}` (or anchor scroll). Show term name looked up from the glossary registry.
-- Formula pills: link to `/formulas?q={name}` (or anchor). Show equation name.
-
-Each pill styled similarly to `PaperPill` but with distinct icons (📖 for glossary, ƒ for formulas).
-
-### Content Updates
-
-**`src/content/computer-science/questions.ts`** — annotate existing questions with relevant links:
-
-- Q60001 (binary search): `glossaryLinks: ['big-o']`
-- Q60002 (Master Theorem): `glossaryLinks: ['big-o']`
-- Q60004 (supervised learning): `glossaryLinks: ['overfitting', 'gradient-descent']`
-- Q60005 (bias-variance): `glossaryLinks: ['overfitting']`
-- Q60006 (transformer attention): `glossaryLinks: ['transformer', 'backpropagation']`
-- Q60009 (post-quantum): `glossaryLinks: ['hash-function']`
-
-And formula links where an equation exists (e.g. Shannon entropy, gradient descent formulas).
-
-### Implementation Order
-
-1. Update type definitions (`types.ts`, `quiz/types.ts`)
-2. Thread through engine and service
-3. Build link pill components in `ExplanationPopup`
-4. Annotate CS questions with glossary/formula IDs
-5. Test end-to-end
+### Sequencing
+1. DB migration (update `handle_new_user` trigger)
+2. Create `useProfile` hook
+3. Create `Onboarding.tsx` page
+4. Wire routing in `App.tsx`
+5. Refactor `Index.tsx` and `Profile.tsx` to use `useProfile`
+6. Add edit capability to `Profile.tsx`
 

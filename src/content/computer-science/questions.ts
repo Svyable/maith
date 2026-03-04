@@ -17,6 +17,7 @@ export const computerScienceQuestions: Question[] = [
       O: "omicron",
       "\\log": "lambda",
     },
+    glossaryLinks: ["big-o"],
   },
   {
     id: 60002,
@@ -45,6 +46,7 @@ export const computerScienceQuestions: Question[] = [
       "\\log": "lambda",
       n: "nu",
     },
+    glossaryLinks: ["big-o"],
   },
   {
     id: 60003,
@@ -63,6 +65,7 @@ export const computerScienceQuestions: Question[] = [
       O: "omicron",
       "\\omega": "omega",
     },
+    glossaryLinks: ["big-o"],
   },
   // ── Machine Learning ──────────────────────────────────────
   {
@@ -81,6 +84,8 @@ export const computerScienceQuestions: Question[] = [
       "Supervised learning uses labeled training data — each input has a known target output that the model learns to predict.",
     realWorld: "Email spam filters, image classifiers, and medical diagnosis systems all use supervised learning.",
     hint: 'The "supervisor" provides the correct answers during training.',
+    glossaryLinks: ["overfitting", "gradient-descent"],
+    formulaLinks: ["Gradient Descent Update Rule"],
   },
   {
     id: 60005,
@@ -102,6 +107,7 @@ export const computerScienceQuestions: Question[] = [
     symbolLinks: {
       "\\epsilon": "epsilon",
     },
+    glossaryLinks: ["overfitting"],
   },
   {
     id: 60006,
@@ -126,6 +132,7 @@ export const computerScienceQuestions: Question[] = [
       d: "delta",
       "^T": "transpose",
     },
+    glossaryLinks: ["transformer", "backpropagation"],
   },
   // ── Cryptography ──────────────────────────────────────────
   {
@@ -149,6 +156,7 @@ export const computerScienceQuestions: Question[] = [
       p: "pi",
       q: "capital-psi",
     },
+    glossaryLinks: ["hash-function"],
   },
   {
     id: 60008,
@@ -188,5 +196,7 @@ export const computerScienceQuestions: Question[] = [
       s: "sigma",
       e: "epsilon",
     },
+    glossaryLinks: ["hash-function"],
+    formulaLinks: ["Shannon Entropy"],
   },
 ];
