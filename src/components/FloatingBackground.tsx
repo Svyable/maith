@@ -48,6 +48,7 @@ const MATH_SYMBOL_LIBRARY = [
   "Φ",
   "Ψ",
   "Ω",
+
   // Math Operators
   "∑",
   "∫",
@@ -59,42 +60,41 @@ const MATH_SYMBOL_LIBRARY = [
   "∞",
   "∅",
   "∈",
-  "∉",
   "∪",
   "∩",
   "⊂",
-  "⊃",
-  "≅",
-  "≈",
-  "≠",
-  "≤",
-  "≥",
-  // Analysis & CS
-  "𝒪",
-  "lim",
-  "det",
-  "tr",
-  "dim",
-  "ker",
-  // LaTeX Special
-  "\\\\",
-  "$",
-  "{",
-  "}",
-  // Numbers & Relations
+  "√",
   "ℕ",
   "ℤ",
   "ℚ",
   "ℝ",
   "ℂ",
   "±",
-  "×",
-  "÷",
-  "√",
-  "∛",
+
+  // Equation Snippets (SHORT for floating)
+  "e^{iπ}",
+  "a^2+b^2",
+  "P(A|B)",
+  "∇f=λ∇g",
+  "Av=λv",
+  "E=mc^2",
+  "V-E+F",
+  "∫f(x)dx",
+  "lim",
+  "det",
+  "tr",
+  "𝒪",
+  "Θ",
+  "Ω",
+
+  // LaTeX Special
+  "\\\\",
+  "$",
+  "{",
+  "}",
 ];
 
-const MAX_SYMBOLS = 42;
+const MAX_SYMBOLS = 42; // The Answer ✨
 
 export const FloatingBackground = memo(function FloatingBackground() {
   const [symbols, setSymbols] = useState<MathSymbol[]>([]);
@@ -113,7 +113,7 @@ export const FloatingBackground = memo(function FloatingBackground() {
       x: 45 + Math.random() * 10,
       y: 2 + Math.random() * 4,
       opacity: 1,
-      scale: 0.7 + Math.random() * 0.8, // BIGGER: 0.7-1.5 → was 0.5-1.2
+      scale: 0.7 + Math.random() * 0.8, // BIGGER
       rotation: Math.random() * 360,
       velocityX: Math.cos(angle) * speed,
       velocityY: Math.sin(angle) * speed + 0.8,
@@ -137,7 +137,7 @@ export const FloatingBackground = memo(function FloatingBackground() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [spawnSymbol]);
 
-  // Physics animation loop - SLOWER symbols (linger longer)
+  // Physics animation loop - SLOWER & BIGGER
   useEffect(() => {
     let lastTime = performance.now();
 
@@ -149,12 +149,12 @@ export const FloatingBackground = memo(function FloatingBackground() {
         prev
           .map((s) => ({
             ...s,
-            x: s.x + s.velocityX * delta * 0.3, // SLOWER: 0.3 vs 0.4
-            y: s.y + s.velocityY * delta * 0.3, // SLOWER: 0.3 vs 0.4
-            opacity: s.opacity - 0.003 * delta, // SLOWER FADE: 0.003 vs 0.006
-            rotation: s.rotation + 1.5 * delta, // Slightly slower spin
-            velocityY: s.velocityY + 0.015 * delta, // Reduced gravity
-            hue: (s.hue + 2 * delta) % 360, // Slower color cycle
+            x: s.x + s.velocityX * delta * 0.2, // SLOWER
+            y: s.y + s.velocityY * delta * 0.2, // SLOWER
+            opacity: s.opacity - 0.002 * delta, // LONGER LIFE
+            rotation: s.rotation + 1.2 * delta,
+            velocityY: s.velocityY + 0.01 * delta,
+            hue: (s.hue + 2 * delta) % 360,
           }))
           .filter((s) => s.opacity > 0),
       );
@@ -177,10 +177,10 @@ export const FloatingBackground = memo(function FloatingBackground() {
             left: `${s.x}%`,
             top: `${s.y}%`,
             opacity: s.opacity,
-            transform: `translate(-50%, -50%) scale(${s.scale}) rotate(${s.rotation}deg)`, // Added translate
-            color: `hsla(${s.hue}, 70%, 60%, ${s.opacity * 0.8})`, // Better opacity blending
-            fontSize: `${1.0 + s.scale * 0.8}rem`, // BIGGER baseline
-            textShadow: `0 0 8px hsla(${s.hue}, 80%, 50%, ${s.opacity * 0.5})`, // Stronger glow
+            transform: `translate(-50%, -50%) scale(${s.scale}) rotate(${s.rotation}deg)`,
+            color: `hsla(${s.hue}, 70%, 60%, ${s.opacity * 0.8})`,
+            fontSize: `${1.0 + s.scale * 0.8}rem`, // BIGGER
+            textShadow: `0 0 8px hsla(${s.hue}, 80%, 50%, ${s.opacity * 0.5})`,
           }}
         >
           {s.symbol}
