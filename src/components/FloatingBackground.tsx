@@ -72,14 +72,27 @@ const MATH_SYMBOL_LIBRARY = [
   "±",
 
   // Equation Snippets (SHORT for floating)
-  "e^{iπ}",
-  "a^2+b^2",
+  "e^{iπ}+1=0", // Euler's Identity
+  "a^2+b^2=c^2", // Pythagorean Theorem
   "P(A|B)",
   "∇f=λ∇g",
   "Av=λv",
-  "E=mc^2",
   "V-E+F",
   "∫f(x)dx",
+  "A=UΣV^T", // SVD
+  "θ←θ-η∇_θL(θ)", // Gradient Descent
+  "E=mc^2", // Mass-Energy
+  "ρ(∂_tv+(v·∇)v)=-∇p+μ∇^2v+f", // Navier-Stokes
+  "∫_a^b f(x)dx=F(b)-F(a)", // Fundamental Theorem of Calculus
+  "e^{iθ}=cosθ+isinθ", // Euler's Formula
+  "ζ(s)=∑_{n=1}^∞ 1/n^s", // Riemann Zeta Function
+  "|⟨u,v⟩|^2≤⟨u,u⟩⟨v,v⟩", // Cauchy-Schwarz
+  "P(|\\bar{X}_n-μ|>ε)→0", // Law of Large Numbers
+  "S=k_B lnΩ", // Boltzmann Entropy
+  "∇·E=ρ/ε_0", // Gauss's Law (Electricity)
+  "n!≈√(2πn)(n/e)^n", // Stirling's Approximation
+  "iℏ∂_tΨ=HΨ", // Schrödinger Equation
+  "∂^2u/∂t^2=c^2∇^2u", // Wave Equation
   "lim",
   "det",
   "tr",
