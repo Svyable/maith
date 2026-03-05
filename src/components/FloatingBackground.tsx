@@ -107,7 +107,7 @@ const MATH_SYMBOL_LIBRARY = [
   "}",
 ];
 
-const MAX_SYMBOLS = 42; // The Answer ✨
+const MAX_SYMBOLS = 28; // The Answer ✨
 
 export const FloatingBackground = memo(function FloatingBackground() {
   const [symbols, setSymbols] = useState<MathSymbol[]>([]);
@@ -118,7 +118,7 @@ export const FloatingBackground = memo(function FloatingBackground() {
   const spawnSymbol = useCallback(() => {
     const symbol = MATH_SYMBOL_LIBRARY[Math.floor(Math.random() * MATH_SYMBOL_LIBRARY.length)];
     const angle = Math.random() * Math.PI * 2;
-    const speed = 1.5 + Math.random() * 2.8;
+    const speed = 1.2 + Math.random() * 2.4;
 
     const newSymbol: MathSymbol = {
       id: symbolIdRef.current++,
