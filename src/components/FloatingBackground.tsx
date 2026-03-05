@@ -71,36 +71,36 @@ const MATH_SYMBOL_LIBRARY = [
   "ℂ",
   "±",
 
-  // ALL 31+ EQUATIONS (your favorites!)
-  "e^{iπ}+1=0", // Euler's Identity
-  "a^2+b^2=c^2", // Pythagorean Theorem
-  "x=\\frac{-b±√(b^2-4ac)}{2a}", // Quadratic Formula
-  "P(A|B)=\\frac{P(B|A)P(A)}{P(B)}", // Bayes' Theorem
-  "f(x)=\\frac{1}{σ√(2π)}e^{-\\frac{(x-μ)^2}{2σ^2}}", // Normal Distribution
-  "\\hat{f}(ξ)=∫_{-∞}^∞ f(x)e^{-2πixξ} dx", // Fourier Transform
-  "f(x)=∑_{n=0}^∞ \\frac{f^{(n)}(a)}{n!}(x-a)^n", // Taylor Series
-  "A=UΣV^T", // SVD
-  "θ←θ-η∇_θL(θ)", // Gradient Descent
-  "E=mc^2", // Mass-Energy
-  "ρ(∂_tv+(v·∇)v)=-∇p+μ∇^2v+f", // Navier-Stokes
-  "V-E+F=2", // Euler Characteristic
-  "∇f=λ∇g", // Lagrange Multipliers
-  "Av=λv", // Eigenvalue Equation
-  "∫_a^b f(x)dx=F(b)-F(a)", // Fundamental Theorem of Calculus
-  "e^{iθ}=cosθ+isinθ", // Euler's Formula
-  "ζ(s)=∑_{n=1}^∞ 1/n^s", // Riemann Zeta
-  "|⟨u,v⟩|^2≤⟨u,u⟩⟨v,v⟩", // Cauchy-Schwarz
-  "P(|\\bar{X}_n-μ|>ε)→0", // Law of Large Numbers
-  "S=k_B lnΩ", // Boltzmann Entropy
-  "∇·E=ρ/ε_0", // Gauss's Law
-  "\\frac{d}{dx}∫f(x)dx=f(x)", // FTC derivative form
-  "∑_{k=0}^n \\binom{n}{k} x^k y^{n-k}=(x+y)^n", // Binomial Theorem
-  "n!≈√(2πn)(n/e)^n", // Stirling
-  "γ=lim_{n→∞}(∑_{k=1}^n 1/k - ln n)", // Euler-Mascheroni
-  "DKL(P||Q)=∑P(x)ln(P(x)/Q(x))", // KL Divergence
-  "iℏ∂_tΨ=HΨ", // Schrödinger
-  "∂^2u/∂t^2=c^2∇^2u", // Wave Equation
-  "G_{μν}+Λg_{μν}=8πG/c^4 T_{μν}", // Einstein Field Equations
+  // ALL 31+ EQUATIONS
+  "e^{iπ}+1=0",
+  "a^2+b^2=c^2",
+  "x=\\frac{-b±√(b^2-4ac)}{2a}",
+  "P(A|B)=\\frac{P(B|A)P(A)}{P(B)}",
+  "f(x)=\\frac{1}{σ√(2π)}e^{-\\frac{(x-μ)^2}{2σ^2}}",
+  "\\hat{f}(ξ)=∫_{-∞}^∞ f(x)e^{-2πixξ} dx",
+  "f(x)=∑_{n=0}^∞ \\frac{f^{(n)}(a)}{n!}(x-a)^n",
+  "A=UΣV^T",
+  "θ←θ-η∇_θL(θ)",
+  "E=mc^2",
+  "ρ(∂_tv+(v·∇)v)=-∇p+μ∇^2v+f",
+  "V-E+F=2",
+  "∇f=λ∇g",
+  "Av=λv",
+  "∫_a^b f(x)dx=F(b)-F(a)",
+  "e^{iθ}=cosθ+isinθ",
+  "ζ(s)=∑_{n=1}^∞ 1/n^s",
+  "|⟨u,v⟩|^2≤⟨u,u⟩⟨v,v⟩",
+  "P(|\\bar{X}_n-μ|>ε)→0",
+  "S=k_B lnΩ",
+  "∇·E=ρ/ε_0",
+  "\\frac{d}{dx}∫f(x)dx=f(x)",
+  "∑_{k=0}^n \\binom{n}{k} x^k y^{n-k}=(x+y)^n",
+  "n!≈√(2πn)(n/e)^n",
+  "γ=lim_{n→∞}(∑_{k=1}^n 1/k - ln n)",
+  "DKL(P||Q)=∑P(x)ln(P(x)/Q(x))",
+  "iℏ∂_tΨ=HΨ",
+  "∂^2u/∂t^2=c^2∇^2u",
+  "G_{μν}+Λg_{μν}=8πG/c^4 T_{μν}",
 
   // Analysis & CS
   "𝒪",
@@ -119,7 +119,7 @@ const MATH_SYMBOL_LIBRARY = [
   "}",
 ];
 
-const MAX_SYMBOLS = 42; // The Answer ✨
+const MAX_SYMBOLS = 42;
 
 export const FloatingBackground = memo(function FloatingBackground() {
   const [symbols, setSymbols] = useState<MathSymbol[]>([]);
@@ -130,39 +130,58 @@ export const FloatingBackground = memo(function FloatingBackground() {
   const spawnSymbol = useCallback(() => {
     const symbol = MATH_SYMBOL_LIBRARY[Math.floor(Math.random() * MATH_SYMBOL_LIBRARY.length)];
 
-    // RANDOM FULL-SCREEN SPAWN
-    const x = Math.random() * 100;
-    const y = -8 + Math.random() * 3; // Just above top edge
+    // SPAWN FROM ALL 4 EDGES (random screen entry)
+    const edge = Math.floor(Math.random() * 4);
+    let x, y;
+
+    switch (edge) {
+      case 0: // Top edge
+        x = Math.random() * 100;
+        y = -8;
+        break;
+      case 1: // Right edge
+        x = 105;
+        y = Math.random() * 100;
+        break;
+      case 2: // Bottom edge
+        x = Math.random() * 100;
+        y = 108;
+        break;
+      case 3: // Left edge
+        x = -8;
+        y = Math.random() * 100;
+        break;
+    }
 
     const newSymbol: MathSymbol = {
       id: symbolIdRef.current++,
       symbol,
       x,
       y,
-      opacity: 0, // Fade in
-      scale: 0.7 + Math.random() * 0.8, // BIGGER
+      opacity: 0, // Fade in effect
+      scale: 0.7 + Math.random() * 0.8, // BIGGER symbols
       rotation: Math.random() * 360,
-      velocityX: (Math.random() - 0.5) * 0.3, // Gentle drift
-      velocityY: 0.12 + Math.random() * 0.06, // Slow downward
+      velocityX: (Math.random() - 0.5) * 0.28, // Gentle inward drift
+      velocityY: (Math.random() - 0.5) * 0.28,
       hue: 180 + Math.random() * 120, // Cool math palette
     };
 
     setSymbols((prev) => [...prev.slice(-(MAX_SYMBOLS - 1)), newSymbol]);
   }, []);
 
-  // Scroll gently breathes life into background
+  // Scroll gently breathes life (subtle activation)
   useEffect(() => {
     let scrollTimeout: NodeJS.Timeout;
 
     const handleScroll = () => {
       lastScrollY.current = window.scrollY;
 
-      // Gentle spawn (25% chance)
+      // Gentle spawn (25% chance per scroll)
       if (Math.random() < 0.25) {
         spawnSymbol();
       }
 
-      // Subtle brightness pulse
+      // Subtle brightness pulse on scroll
       setSymbols((prev) =>
         prev.map((s) => ({
           ...s,
@@ -181,18 +200,18 @@ export const FloatingBackground = memo(function FloatingBackground() {
     };
   }, [spawnSymbol]);
 
-  // Ambient spawning for constant life
+  // Ambient spawning (constant background life)
   useEffect(() => {
     const interval = setInterval(() => {
       if (symbols.length < MAX_SYMBOLS * 0.75) {
         spawnSymbol();
       }
-    }, 1600); // Every 1.6s
+    }, 1600); // Every 1.6 seconds
 
     return () => clearInterval(interval);
   }, [spawnSymbol, symbols.length]);
 
-  // Subtle drifting physics
+  // Subtle drifting physics with breathing effect
   useEffect(() => {
     let lastTime = performance.now();
 
@@ -204,15 +223,15 @@ export const FloatingBackground = memo(function FloatingBackground() {
         prev
           .map((s) => ({
             ...s,
-            x: s.x + s.velocityX * delta * 0.22,
+            x: s.x + s.velocityX * delta * 0.22, // Ultra-subtle movement
             y: s.y + s.velocityY * delta * 0.22,
-            // Breathing fade effect
+            // Breathing fade-in/out effect
             opacity: Math.max(0, s.opacity + (Math.random() - 0.49) * 0.006 * delta),
             rotation: s.rotation + 0.9 * delta,
             velocityY: s.velocityY + 0.0015 * delta,
             hue: (s.hue + 0.8 * delta) % 360,
           }))
-          .filter((s) => s.opacity > 0.03 && s.y < 115),
+          .filter((s) => s.opacity > 0.03 && s.x > -10 && s.x < 110 && s.y < 115),
       );
 
       rafRef.current = requestAnimationFrame(animate);
