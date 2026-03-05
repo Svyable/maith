@@ -1,23 +1,23 @@
-import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
-import type { MouseEvent } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { LatexRenderer } from '@/components/LatexRenderer';
-import { t } from '@/i18n';
-import { tGlossary } from '@/i18n/tGlossary';
-import type { GlossaryTerm } from '@/content/glossary/types';
-import { TermMeta } from '@/components/glossary/TermMeta';
+import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
+import type { MouseEvent } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { LatexRenderer } from "@/components/LatexRenderer";
+import { t } from "@/i18n";
+import { tGlossary } from "@/i18n/tGlossary";
+import type { GlossaryTerm } from "@/content/glossary/types";
+import { TermMeta } from "@/components/glossary/TermMeta";
 
 interface FlashCardProps {
   term: GlossaryTerm;
   index: number;
 }
 
-type TabKey = 'definition' | 'latex' | 'code';
+type TabKey = "definition" | "latex" | "code";
 
 const TAB_KEYS: Record<TabKey, string> = {
-  definition: 'glossary.tabDefinition',
-  latex: 'glossary.tabLatex',
-  code: 'glossary.tabCode',
+  definition: "glossary.tabDefinition",
+  latex: "glossary.tabLatex",
+  code: "glossary.tabCode",
 };
 
 // Nice default so cards are visible before first measure
@@ -25,19 +25,15 @@ const FALLBACK_MIN_HEIGHT = 220;
 
 export function FlashCard({ term, index }: FlashCardProps) {
   const [flipped, setFlipped] = useState(false);
-  const [activeTab, setActiveTab] = useState<TabKey>('definition');
+  const [activeTab, setActiveTab] = useState<TabKey>("definition");
   const [containerH, setContainerH] = useState<number>(FALLBACK_MIN_HEIGHT);
 
   const frontRef = useRef<HTMLDivElement>(null);
   const backRef = useRef<HTMLDivElement>(null);
 
   const availableTabs: TabKey[] = useMemo(
-    () => [
-      'definition',
-      ...(term.latex ? (['latex'] as const) : []),
-      ...(term.code ? (['code'] as const) : []),
-    ],
-    [term.latex, term.code]
+    () => ["definition", ...(term.latex ? (["latex"] as const) : []), ...(term.code ? (["code"] as const) : [])],
+    [term.latex, term.code],
   );
 
   const frontMath = term.formula ?? (term.latex ? `$${term.latex}$` : undefined);
@@ -55,7 +51,7 @@ export function FlashCard({ term, index }: FlashCardProps) {
   const handleFlip = () => {
     setFlipped((f) => {
       const next = !f;
-      if (next) setActiveTab('definition');
+      if (next) setActiveTab("definition");
       return next;
     });
   };
@@ -83,11 +79,11 @@ export function FlashCard({ term, index }: FlashCardProps) {
     ro.observe(backRef.current);
 
     const onResize = () => measure();
-    window.addEventListener('resize', onResize);
+    window.addEventListener("resize", onResize);
 
     return () => {
       ro.disconnect();
-      window.removeEventListener('resize', onResize);
+      window.removeEventListener("resize", onResize);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -96,16 +92,16 @@ export function FlashCard({ term, index }: FlashCardProps) {
     side,
     faceRef,
     onClick,
-    className = '',
+    className = "",
     children,
   }: {
-    side: 'front' | 'back';
+    side: "front" | "back";
     faceRef: React.RefObject<HTMLDivElement>;
     onClick?: (e: React.MouseEvent) => void;
     className?: string;
     children: React.ReactNode;
   }) => {
-    const isFront = side === 'front';
+    const isFront = side === "front";
 
     return (
       <div
@@ -113,24 +109,22 @@ export function FlashCard({ term, index }: FlashCardProps) {
         onClick={onClick}
         className={[
           // KEY CHANGE: NOT inset-0. Let height be auto.
-          'absolute left-0 top-0 w-full',
-          'rounded-2xl border bg-card overflow-hidden',
-          'p-6 md:p-7',
-          'backface-hidden',
-          isFront ? 'border-border' : 'border-primary/30 rotate-y-180',
+          "absolute left-0 top-0 w-full",
+          "rounded-2xl border bg-card overflow-hidden",
+          "p-6 md:p-7",
+          "backface-hidden",
+          isFront ? "border-border" : "border-primary/30 rotate-y-180",
           className,
-        ].join(' ')}
+        ].join(" ")}
       >
         <div
           className={[
-            'absolute w-28 h-28 rounded-full bg-primary/10 blur-2xl pointer-events-none',
-            isFront ? '-top-10 -right-10' : '-bottom-10 -left-10',
-          ].join(' ')}
+            "absolute w-28 h-28 rounded-full bg-primary/10 blur-2xl pointer-events-none",
+            isFront ? "-top-10 -right-10" : "-bottom-10 -left-10",
+          ].join(" ")}
         />
 
-        <div className="relative z-10 flex flex-col">
-          {children}
-        </div>
+        <div className="relative z-10 flex flex-col">{children}</div>
       </div>
     );
   };
@@ -144,9 +138,7 @@ export function FlashCard({ term, index }: FlashCardProps) {
     >
       {/* Wrapper MUST have height because children are absolute */}
       <div
-        className={`relative w-full transition-transform duration-500 preserve-3d ${
-          flipped ? 'rotate-y-180' : ''
-        }`}
+        className={`relative w-full transition-transform duration-500 preserve-3d ${flipped ? "rotate-y-180" : ""}`}
         style={{ height: containerH }}
       >
         {/* FRONT */}
@@ -154,11 +146,11 @@ export function FlashCard({ term, index }: FlashCardProps) {
           side="front"
           faceRef={frontRef}
           onClick={handleFlip}
-          className={flipped ? 'pointer-events-none' : 'pointer-events-auto cursor-pointer'}
+          className={flipped ? "pointer-events-none" : "pointer-events-auto cursor-pointer"}
         >
           {/* Header */}
           <h3 className="text-xl md:text-2xl font-semibold text-foreground leading-tight">
-            <LatexRenderer text={tGlossary(term.id, 'term', term.term)} />
+            <LatexRenderer text={tGlossary(term.id, "term", term.term)} />
           </h3>
 
           {/* Body */}
@@ -172,7 +164,7 @@ export function FlashCard({ term, index }: FlashCardProps) {
             ) : null}
 
             <p className="text-sm md:text-[15px] text-muted-foreground leading-relaxed line-clamp-3">
-              <LatexRenderer text={tGlossary(term.id, 'definition', term.definition)} />
+              <LatexRenderer text={tGlossary(term.id, "definition", term.definition)} />
             </p>
           </div>
 
@@ -181,7 +173,7 @@ export function FlashCard({ term, index }: FlashCardProps) {
             <TermMeta field={term.field as any} topic={topic ?? null} />
             <span className="text-[11px] text-muted-foreground uppercase tracking-widest flex items-center gap-2">
               <span className="text-[12px]">👆</span>
-              <span className="hidden sm:inline">{t('glossary.tapToReveal')}</span>
+              <span className="hidden sm:inline">{t("glossary.tapToReveal")}</span>
             </span>
           </div>
         </Face>
@@ -191,11 +183,11 @@ export function FlashCard({ term, index }: FlashCardProps) {
           side="back"
           faceRef={backRef}
           onClick={(e) => e.stopPropagation()}
-          className={flipped ? 'pointer-events-auto' : 'pointer-events-none'}
+          className={flipped ? "pointer-events-auto" : "pointer-events-none"}
         >
           {/* Header */}
           <h3 className="text-xl md:text-2xl font-semibold text-foreground leading-tight">
-            <LatexRenderer text={tGlossary(term.id, 'term', term.term)} />
+            <LatexRenderer text={tGlossary(term.id, "term", term.term)} />
           </h3>
 
           {/* Tabs + close */}
@@ -208,8 +200,8 @@ export function FlashCard({ term, index }: FlashCardProps) {
                     onClick={(e) => handleTabClick(e, tab)}
                     className={`px-3 py-1.5 rounded-lg text-[11px] font-medium transition-all border ${
                       activeTab === tab
-                        ? 'bg-primary/15 text-primary border-primary/30'
-                        : 'text-muted-foreground hover:text-foreground border-transparent'
+                        ? "bg-primary/15 text-primary border-primary/30"
+                        : "text-muted-foreground hover:text-foreground border-transparent"
                     }`}
                   >
                     {t(TAB_KEYS[tab])}
@@ -226,8 +218,8 @@ export function FlashCard({ term, index }: FlashCardProps) {
                 handleFlip();
               }}
               className="px-2.5 py-1.5 rounded-lg text-[11px] font-medium text-muted-foreground hover:text-foreground border border-border hover:border-foreground/30 transition-all"
-              title={t('glossary.tapToClose')}
-              aria-label={t('glossary.tapToClose')}
+              title={t("glossary.tapToClose")}
+              aria-label={t("glossary.tapToClose")}
             >
               ✕
             </button>
@@ -236,7 +228,7 @@ export function FlashCard({ term, index }: FlashCardProps) {
           {/* Content */}
           <div className="mt-4">
             <AnimatePresence mode="wait">
-              {activeTab === 'definition' && (
+              {activeTab === "definition" && (
                 <motion.div
                   key="def"
                   initial={{ opacity: 0, x: -8 }}
@@ -246,17 +238,17 @@ export function FlashCard({ term, index }: FlashCardProps) {
                   className="flex flex-col gap-2"
                 >
                   <p className="text-sm md:text-[15px] text-foreground leading-relaxed">
-                    <LatexRenderer text={tGlossary(term.id, 'definition', term.definition)} />
+                    <LatexRenderer text={tGlossary(term.id, "definition", term.definition)} />
                   </p>
                   {term.example ? (
                     <p className="text-xs md:text-[13px] text-muted-foreground italic mt-1">
-                      💡 {tGlossary(term.id, 'example', term.example)}
+                      💡 {tGlossary(term.id, "example", term.example)}
                     </p>
                   ) : null}
                 </motion.div>
               )}
 
-              {activeTab === 'latex' && term.latex && (
+              {activeTab === "latex" && term.latex && (
                 <motion.div
                   key="latex"
                   initial={{ opacity: 0, x: -8 }}
@@ -274,7 +266,7 @@ export function FlashCard({ term, index }: FlashCardProps) {
                 </motion.div>
               )}
 
-              {activeTab === 'code' && term.code && (
+              {activeTab === "code" && term.code && (
                 <motion.div
                   key="code"
                   initial={{ opacity: 0, x: -8 }}
@@ -295,7 +287,7 @@ export function FlashCard({ term, index }: FlashCardProps) {
             <TermMeta field={term.field as any} topic={topic ?? null} />
             <span className="text-[11px] text-muted-foreground uppercase tracking-widest flex items-center gap-2">
               <span className="text-[12px]">👇</span>
-              <span className="hidden sm:inline">{t('glossary.tapToClose')}</span>
+              <span className="hidden sm:inline">{t("glossary.tapToClose")}</span>
             </span>
           </div>
         </Face>
