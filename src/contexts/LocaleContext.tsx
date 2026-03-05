@@ -4,6 +4,8 @@ import { preloadQuestionTranslations } from '@/i18n/tQuestion';
 import { preloadVaultTranslations } from '@/i18n/tVault';
 import { preloadGlossaryTranslations } from '@/i18n/tGlossary';
 import { preloadFormulaTranslations } from '@/i18n/tFormulas';
+import { preloadThinkersTranslations } from '@/i18n/tThinkers';
+import { preloadBonafidesTranslations } from '@/i18n/tBonafides';
 
 type Locale = typeof SUPPORTED_LOCALES[number]['code'];
 
@@ -44,6 +46,8 @@ export function LocaleProvider({ children }: { children: ReactNode }) {
           preloadVaultTranslations(locale),
           preloadGlossaryTranslations(locale),
           preloadFormulaTranslations(locale),
+          preloadThinkersTranslations(locale),
+          preloadBonafidesTranslations(locale),
         ]).then(() => setLocaleState(locale));
       });
     }
@@ -58,6 +62,8 @@ export function LocaleProvider({ children }: { children: ReactNode }) {
       preloadVaultTranslations(newLocale),
       preloadGlossaryTranslations(newLocale),
       preloadFormulaTranslations(newLocale),
+      preloadThinkersTranslations(newLocale),
+      preloadBonafidesTranslations(newLocale),
     ]);
     localStorage.setItem(STORAGE_KEY, newLocale);
     setLocaleState(newLocale);
