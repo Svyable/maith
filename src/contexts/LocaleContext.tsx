@@ -62,6 +62,8 @@ export function LocaleProvider({ children }: { children: ReactNode }) {
       preloadVaultTranslations(newLocale),
       preloadGlossaryTranslations(newLocale),
       preloadFormulaTranslations(newLocale),
+      preloadThinkersTranslations(newLocale),
+      preloadBonafidesTranslations(newLocale),
     ]);
     localStorage.setItem(STORAGE_KEY, newLocale);
     setLocaleState(newLocale);
