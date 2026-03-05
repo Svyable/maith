@@ -43,7 +43,7 @@ export function GlossaryScreen() {
     return counts;
   }, [allTerms.length, availableFields]);
 
-  // Optimized filtering with debounced search
+  // Optimized filtering
   const terms = useMemo(() => {
     let pool = filters.field === "all" ? allTerms : getGlossaryByField(filters.field);
 
@@ -60,7 +60,7 @@ export function GlossaryScreen() {
     setFilters({ search: "", field: "all" });
   }, []);
 
-  // Update URL on search change (debounced)
+  // Update URL on search change
   useEffect(() => {
     if (filters.search.trim()) {
       const slug = filters.search.trim().replace(/\s+/g, "-").toLowerCase();
@@ -118,7 +118,7 @@ export function GlossaryScreen() {
         </motion.p>
       </section>
 
-      {/* Controls - Improved layout */}
+      {/* Controls */}
       <motion.section
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
@@ -149,13 +149,13 @@ export function GlossaryScreen() {
             )}
           </div>
 
+          {/* FIXED: Removed className prop */}
           <FieldFilterBar
             selectedField={filters.field}
             onFieldChange={(field) => setFilters((prev) => ({ ...prev, field }))}
             availableSlugs={availableFields}
             counts={fieldCounts}
             totalCount={allTerms.length}
-            className="w-full"
           />
         </div>
 
