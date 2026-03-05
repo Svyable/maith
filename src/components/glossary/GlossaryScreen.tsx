@@ -94,30 +94,14 @@ export function GlossaryScreen() {
           )}
         </div>
 
-        {/* Field chips */}
-        <div className="flex flex-wrap gap-2">
-          {fieldChips.map((f) => {
-            const isActive = selectedField === f.slug;
-            const count = f.slug === 'all' ? allTerms.length : getGlossaryByField(f.slug).length;
-
-            return (
-              <motion.button
-                key={f.slug}
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.97 }}
-                onClick={() => setSelectedField(f.slug)}
-                className={`px-3.5 py-2 rounded-full text-xs font-medium border transition-all ${
-                  isActive
-                    ? 'bg-primary/15 border-primary text-primary'
-                    : 'bg-secondary border-border text-muted-foreground hover:border-muted-foreground/50'
-                }`}
-              >
-                {f.emoji} {f.label}{' '}
-                <span className="text-muted-foreground/70">({count})</span>
-              </motion.button>
-            );
-          })}
-        </div>
+        {/* Field filter bar */}
+        <FieldFilterBar
+          selectedField={selectedField}
+          onFieldChange={setSelectedField}
+          availableSlugs={availableFields}
+          counts={fieldCounts}
+          totalCount={allTerms.length}
+        />
 
         {/* Results summary */}
         <div className="flex items-center justify-between">
