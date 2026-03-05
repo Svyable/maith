@@ -71,55 +71,43 @@ const MATH_SYMBOL_LIBRARY = [
   "ℂ",
   "±",
 
-  // ALL 31+ EQUATIONS
-  "e^{iπ}+1=0",
-  "a^2+b^2=c^2",
-  "x=\\frac{-b±√(b^2-4ac)}{2a}",
-  "P(A|B)=\\frac{P(B|A)P(A)}{P(B)}",
-  "f(x)=\\frac{1}{σ√(2π)}e^{-\\frac{(x-μ)^2}{2σ^2}}",
-  "\\hat{f}(ξ)=∫_{-∞}^∞ f(x)e^{-2πixξ} dx",
-  "f(x)=∑_{n=0}^∞ \\frac{f^{(n)}(a)}{n!}(x-a)^n",
-  "A=UΣV^T",
-  "θ←θ-η∇_θL(θ)",
-  "E=mc^2",
-  "ρ(∂_tv+(v·∇)v)=-∇p+μ∇^2v+f",
-  "V-E+F=2",
+  // Equation Snippets (SHORT for floating)
+  "e^{iπ}+1=0", // Euler's Identity
+  "a^2+b^2=c^2", // Pythagorean Theorem
+  "P(A|B)",
   "∇f=λ∇g",
   "Av=λv",
-  "∫_a^b f(x)dx=F(b)-F(a)",
-  "e^{iθ}=cosθ+isinθ",
-  "ζ(s)=∑_{n=1}^∞ 1/n^s",
-  "|⟨u,v⟩|^2≤⟨u,u⟩⟨v,v⟩",
-  "P(|\\bar{X}_n-μ|>ε)→0",
-  "S=k_B lnΩ",
-  "∇·E=ρ/ε_0",
-  "\\frac{d}{dx}∫f(x)dx=f(x)",
-  "∑_{k=0}^n \\binom{n}{k} x^k y^{n-k}=(x+y)^n",
-  "n!≈√(2πn)(n/e)^n",
-  "γ=lim_{n→∞}(∑_{k=1}^n 1/k - ln n)",
-  "DKL(P||Q)=∑P(x)ln(P(x)/Q(x))",
-  "iℏ∂_tΨ=HΨ",
-  "∂^2u/∂t^2=c^2∇^2u",
-  "G_{μν}+Λg_{μν}=8πG/c^4 T_{μν}",
-
-  // Analysis & CS
-  "𝒪",
-  "Θ",
-  "Ω",
+  "V-E+F",
+  "∫f(x)dx",
+  "A=UΣV^T", // SVD
+  "θ←θ-η∇_θL(θ)", // Gradient Descent
+  "E=mc^2", // Mass-Energy
+  "ρ(∂_tv+(v·∇)v)=-∇p+μ∇^2v+f", // Navier-Stokes
+  "∫_a^b f(x)dx=F(b)-F(a)", // Fundamental Theorem of Calculus
+  "e^{iθ}=cosθ+isinθ", // Euler's Formula
+  "ζ(s)=∑_{n=1}^∞ 1/n^s", // Riemann Zeta Function
+  "|⟨u,v⟩|^2≤⟨u,u⟩⟨v,v⟩", // Cauchy-Schwarz
+  "P(|\\bar{X}_n-μ|>ε)→0", // Law of Large Numbers
+  "S=k_B lnΩ", // Boltzmann Entropy
+  "∇·E=ρ/ε_0", // Gauss's Law (Electricity)
+  "n!≈√(2πn)(n/e)^n", // Stirling's Approximation
+  "iℏ∂_tΨ=HΨ", // Schrödinger Equation
+  "∂^2u/∂t^2=c^2∇^2u", // Wave Equation
   "lim",
   "det",
   "tr",
-  "dim",
-  "ker",
+  "𝒪",
+  "Θ",
+  "Ω",
 
   // LaTeX Special
-  "\\\\\\\\",
+  "\\\\",
   "$",
   "{",
   "}",
 ];
 
-const MAX_SYMBOLS = 42;
+const MAX_SYMBOLS = 28; // The Answer ✨
 
 export const FloatingBackground = memo(function FloatingBackground() {
   const [symbols, setSymbols] = useState<MathSymbol[]>([]);
@@ -129,89 +117,40 @@ export const FloatingBackground = memo(function FloatingBackground() {
 
   const spawnSymbol = useCallback(() => {
     const symbol = MATH_SYMBOL_LIBRARY[Math.floor(Math.random() * MATH_SYMBOL_LIBRARY.length)];
-
-    // SPAWN FROM ALL 4 EDGES (random screen entry)
-    const edge = Math.floor(Math.random() * 4);
-    let x, y;
-
-    switch (edge) {
-      case 0: // Top edge
-        x = Math.random() * 100;
-        y = -8;
-        break;
-      case 1: // Right edge
-        x = 105;
-        y = Math.random() * 100;
-        break;
-      case 2: // Bottom edge
-        x = Math.random() * 100;
-        y = 108;
-        break;
-      case 3: // Left edge
-        x = -8;
-        y = Math.random() * 100;
-        break;
-    }
+    const angle = Math.random() * Math.PI * 2;
+    const speed = 1.2 + Math.random() * 2.4;
 
     const newSymbol: MathSymbol = {
       id: symbolIdRef.current++,
       symbol,
-      x,
-      y,
-      opacity: 0, // Fade in effect
-      scale: 0.7 + Math.random() * 0.8, // BIGGER symbols
+      x: 45 + Math.random() * 10,
+      y: 2 + Math.random() * 4,
+      opacity: 1,
+      scale: 0.7 + Math.random() * 0.8, // BIGGER
       rotation: Math.random() * 360,
-      velocityX: (Math.random() - 0.5) * 0.28, // Gentle inward drift
-      velocityY: (Math.random() - 0.5) * 0.28,
-      hue: 180 + Math.random() * 120, // Cool math palette
+      velocityX: Math.cos(angle) * speed,
+      velocityY: Math.sin(angle) * speed + 0.8,
+      hue: Math.random() * 360,
     };
 
     setSymbols((prev) => [...prev.slice(-(MAX_SYMBOLS - 1)), newSymbol]);
   }, []);
 
-  // Scroll gently breathes life (subtle activation)
+  // Scroll triggers particles
   useEffect(() => {
-    let scrollTimeout: NodeJS.Timeout;
-
     const handleScroll = () => {
-      lastScrollY.current = window.scrollY;
-
-      // Gentle spawn (25% chance per scroll)
-      if (Math.random() < 0.25) {
+      const currentScrollY = window.scrollY;
+      const scrollDelta = Math.abs(currentScrollY - lastScrollY.current);
+      if (scrollDelta > 10) {
         spawnSymbol();
+        lastScrollY.current = currentScrollY;
       }
-
-      // Subtle brightness pulse on scroll
-      setSymbols((prev) =>
-        prev.map((s) => ({
-          ...s,
-          opacity: Math.min(0.7, s.opacity + (Math.random() - 0.45) * 0.08),
-        })),
-      );
-
-      clearTimeout(scrollTimeout);
-      scrollTimeout = setTimeout(() => {}, 80);
     };
-
     window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      if (scrollTimeout) clearTimeout(scrollTimeout);
-    };
+    return () => window.removeEventListener("scroll", handleScroll);
   }, [spawnSymbol]);
 
-  // Ambient spawning (constant background life)
-  useEffect(() => {
-    const interval = setInterval(() => {
-      if (symbols.length < MAX_SYMBOLS * 0.75) {
-        spawnSymbol();
-      }
-    }, 1600); // Every 1.6 seconds
-
-    return () => clearInterval(interval);
-  }, [spawnSymbol, symbols.length]);
-
-  // Subtle drifting physics with breathing effect
+  // Physics animation loop - SLOWER & BIGGER
   useEffect(() => {
     let lastTime = performance.now();
 
@@ -223,17 +162,15 @@ export const FloatingBackground = memo(function FloatingBackground() {
         prev
           .map((s) => ({
             ...s,
-            x: s.x + s.velocityX * delta * 0.22, // Ultra-subtle movement
-            y: s.y + s.velocityY * delta * 0.22,
-            // Breathing fade-in/out effect
-            opacity: Math.max(0, s.opacity + (Math.random() - 0.49) * 0.006 * delta),
-            rotation: s.rotation + 0.9 * delta,
-            velocityY: s.velocityY + 0.0015 * delta,
-            hue: (s.hue + 0.8 * delta) % 360,
+            x: s.x + s.velocityX * delta * 0.2, // SLOWER
+            y: s.y + s.velocityY * delta * 0.2, // SLOWER
+            opacity: s.opacity - 0.002 * delta, // LONGER LIFE
+            rotation: s.rotation + 1.2 * delta,
+            velocityY: s.velocityY + 0.01 * delta,
+            hue: (s.hue + 2 * delta) % 360,
           }))
-          .filter((s) => s.opacity > 0.03 && s.x > -10 && s.x < 110 && s.y < 115),
+          .filter((s) => s.opacity > 0),
       );
-
       rafRef.current = requestAnimationFrame(animate);
     };
 
@@ -248,16 +185,15 @@ export const FloatingBackground = memo(function FloatingBackground() {
       {symbols.map((s) => (
         <span
           key={s.id}
-          className="absolute font-mono-code font-semibold select-none will-change-transform whitespace-nowrap"
+          className="absolute font-mono-code font-bold select-none will-change-transform"
           style={{
             left: `${s.x}%`,
             top: `${s.y}%`,
             opacity: s.opacity,
             transform: `translate(-50%, -50%) scale(${s.scale}) rotate(${s.rotation}deg)`,
-            color: `hsla(${s.hue}, 65%, 68%, ${s.opacity})`,
-            fontSize: `${1.0 + s.scale * 0.7}rem`,
-            textShadow: `0 0 7px hsla(${s.hue}, 75%, 55%, ${s.opacity * 0.4})`,
-            lineHeight: 1.1,
+            color: `hsla(${s.hue}, 70%, 60%, ${s.opacity * 0.8})`,
+            fontSize: `${1.0 + s.scale * 0.8}rem`, // BIGGER
+            textShadow: `0 0 8px hsla(${s.hue}, 80%, 50%, ${s.opacity * 0.5})`,
           }}
         >
           {s.symbol}
