@@ -505,7 +505,49 @@ import { leonardoDaVinciQuestions } from "./leonardo-da-vinci";
 import { nicolausCopernicusQuestions } from "./nicolaus-copernicus";
 import { josephLouisLagrangeQuestions } from "./joseph-louis-lagrange";
 
+import { augustusDeMorganQuestions } from "./augustus-de-morgan";
+import { minorskyZieglerNicholsQuestions } from "./minorsky-ziegler-nichols";
+import { konstantinTsiolkovskyQuestions } from "./konstantin-tsiolkovsky";
+import { christianDopplerQuestions } from "./christian-doppler";
+import { williamBraggQuestions } from "./william-bragg";
+import { solomonoffChaitinQuestions } from "./solomonoff-chaitin";
+import { georgeZipfQuestions } from "./george-zipf";
+import { weberFechnerQuestions } from "./weber-fechner";
+import { dempsterShaferQuestions } from "./dempster-shafer";
+import { sergeiSobolevQuestions } from "./sergei-sobolev";
+import { abrahamDeMoivreQuestions } from "./abraham-de-moivre";
+import { heronAlexandriaQuestions } from "./heron-alexandria";
+import { gramSchmidtQuestions } from "./gram-schmidt";
+import { cayleyQuestions } from "./cayley";
+import { fokkerQuestions } from "./fokker";
+import { bardeenCooperSchriefferQuestions } from "./bardeen-cooper-schrieffer";
+import { ginzburgLandauQuestions } from "./ginzburg-landau";
+import { alfvénQuestions } from "./alfven";
+import { jormaRissanenQuestions } from "./jorma-rissanen";
+import { richardBellmanQuestions } from "./richard-bellman";
+
 export const allThinkerQuestions: Question[] = [
+// NEW 20 thinkers
+   ...augustusDeMorganQuestions,
+  ...minorskyZieglerNicholsQuestions,
+  ...konstantinTsiolkovskyQuestions,
+  ...christianDopplerQuestions,
+  ...williamBraggQuestions,
+  ...solomonoffChaitinQuestions,
+  ...georgeZipfQuestions,
+  ...weberFechnerQuestions,
+  ...dempsterShaferQuestions,
+  ...sergeiSobolevQuestions,
+  ...abrahamDeMoivreQuestions,
+  ...heronAlexandriaQuestions,
+  ...gramSchmidtQuestions,
+  ...cayleyQuestions,
+  ...fokkerQuestions,
+  ...bardeenCooperSchriefferQuestions,
+  ...ginzburgLandauQuestions,
+  ...alfvénQuestions,
+  ...jormaRissanenQuestions,
+  ...richardBellmanQuestions,
   // Original 10
   ...geoffreyHintonQuestions,
   ...alanTuringQuestions,

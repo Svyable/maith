@@ -5688,6 +5688,356 @@ export const THINKERS: ThinkerMeta[] = [
     era_group: 'contemporary',
     funFact: 'His Z3 solver is used by Amazon Web Services to formally verify that cloud configurations are secure — mathematical proof applied to infrastructure.',
   },
+{
+    slug: "augustus-de-morgan",
+    name: "Augustus De Morgan",
+    archetype: "The Logic Librarian",
+    emoji: "📚",
+    era: "1806–1871",
+    domain: "Logic & Algebra",
+    fields: ["math", "philosophy"],
+    description: "De Morgan’s laws, formal logic, early foundations of relations",
+    color: "primary",
+    tagline: "He taught logic to behave like algebra.",
+    era_group: "ancient",
+    funFact: "De Morgan’s laws power everything from set theory to digital circuit simplification.",
+  },
+
+  {
+    slug: "nicolas-minorsky",
+    name: "Nicolas Minorsky",
+    archetype: "The PID Pioneer",
+    emoji: "⚓",
+    era: "1885–1970",
+    domain: "Control Theory",
+    fields: ["engineering", "math", "physics"],
+    description: "PID control, feedback stabilization, automatic steering theory",
+    color: "warning",
+    tagline: "He turned steering errors into the mathematics of feedback.",
+    era_group: "modern",
+    funFact:
+    "Minorsky’s classic work on ship steering helped formalize proportional–integral–derivative control.",
+  },
+  {
+    slug: "ziegler-nichols",
+    name: "John G. Ziegler & Nathaniel B. Nichols",
+    archetype: "The Loop Tuners",
+    emoji: "🎛️",
+    era: "1894–1957 / 1905–1986",
+    domain: "Control Engineering",
+    fields: ["engineering", "math"],
+    description: "Ziegler–Nichols tuning rules, heuristic PID tuning, industrial control practice",
+    color: "accent",
+    tagline: "They made PID controllers practical for real industrial systems.",
+    era_group: "modern",
+    funFact: "Their famous tuning rules estimate PID settings from oscillation behavior, making controller setup fast and practical.",
+  },
+  // Konstantin Tsiolkovsky
+  {
+    slug: "konstantin-tsiolkovsky",
+    name: "Konstantin Tsiolkovsky",
+    archetype: "The Rocket Equation Dreamer",
+    emoji: "🚀",
+    era: "1857–1935",
+    domain: "Astronautics",
+    fields: ["physics", "engineering", "earth-space"],
+    description: "Tsiolkovsky rocket equation, staged rockets, spaceflight vision",
+    color: "accent",
+    tagline: "He turned space travel into a solvable equation.",
+    era_group: "modern",
+    funFact:
+      "His rocket equation explains why multi-stage rockets are practically unavoidable for reaching orbit.",
+  },
+
+  // Christian Doppler
+  {
+    slug: "christian-doppler",
+    name: "Christian Doppler",
+    archetype: "The Frequency Shifter",
+    emoji: "🌊",
+    era: "1803–1853",
+    domain: "Waves & Signals",
+    fields: ["physics", "engineering", "math"],
+    description: "Doppler effect, frequency shift from relative motion",
+    color: "secondary",
+    tagline: "He showed motion can change what you hear and see.",
+    era_group: "ancient",
+    funFact:
+      "Doppler shifts are used in radar, medical ultrasound, astronomy, and even phone GPS assistance.",
+  },
+
+  // William Henry Bragg
+  {
+    slug: "william-bragg",
+    name: "William Henry Bragg",
+    archetype: "The Crystal Interpreter",
+    emoji: "🧊",
+    era: "1862–1942",
+    domain: "X-ray Physics & Crystallography",
+    fields: ["physics", "chemistry"],
+    description: "Bragg’s law, X-ray crystallography foundations",
+    color: "success",
+    tagline: "He made crystals readable with X-rays.",
+    era_group: "ancient",
+    funFact:
+      "Bragg’s law links wavelength and lattice spacing—turning diffraction spots into structure.",
+  },
+
+  // Solomonoff + Chaitin
+  {
+    slug: "solomonoff-chaitin",
+    name: "Ray Solomonoff & Gregory Chaitin",
+    archetype: "The Algorithmic Bayesians",
+    emoji: "🧠",
+    era: "1926–2009 / 1947–present",
+    domain: "Algorithmic Information Theory",
+    fields: ["cs", "math"],
+    description:
+      "Algorithmic probability, Kolmogorov complexity perspective, Ω and randomness",
+    color: "destructive",
+    tagline: "They measured explanation by shortest program.",
+    era_group: "modern",
+    funFact:
+      "Chaitin’s Ω is a number whose bits encode answers to infinitely many halting problems.",
+  },
+
+  // George Zipf
+  {
+    slug: "george-zipf",
+    name: "George Kingsley Zipf",
+    archetype: "The Power-Law Cartographer",
+    emoji: "📈",
+    era: "1902–1950",
+    domain: "Linguistics & Statistics",
+    fields: ["cs", "math"],
+    description: "Zipf’s law, rank–frequency scaling, least-effort principle",
+    color: "primary",
+    tagline: "He found hidden order in messy human language.",
+    era_group: "modern",
+    funFact:
+      "Zipf-like distributions show up in city sizes, web traffic, and word frequencies.",
+  },
+
+  // Weber–Fechner
+  {
+    slug: "weber-fechner",
+    name: "Ernst Weber & Gustav Fechner",
+    archetype: "The Perception Quantifiers",
+    emoji: "👁️",
+    era: "1795–1878 / 1801–1887",
+    domain: "Psychophysics",
+    fields: ["biology", "medicine", "math"],
+    description: "Just-noticeable difference (Weber), logarithmic sensation scaling (Fechner)",
+    color: "accent",
+    tagline: "They turned sensation into math you can fit to data.",
+    era_group: "ancient",
+    funFact:
+      "Weber–Fechner ideas influenced modern signal detection and sensory neuroscience.",
+  },
+
+  // Dempster–Shafer
+  {
+    slug: "dempster-shafer",
+    name: "Arthur Dempster & Glenn Shafer",
+    archetype: "The Uncertainty Splitters",
+    emoji: "🧾",
+    era: "1924–present / 1946–present",
+    domain: "Statistical Inference",
+    fields: ["math", "cs"],
+    description: "Belief functions, evidence theory, uncertainty without forced priors",
+    color: "secondary",
+    tagline: "They let evidence stay ambiguous until it must decide.",
+    era_group: "contemporary",
+    funFact:
+      "Dempster–Shafer separates ‘belief’ and ‘plausibility’ to model partial knowledge.",
+  },
+
+  // Sergei Sobolev
+  {
+    slug: "sergei-sobolev",
+    name: "Sergei L. Sobolev",
+    archetype: "The Weak-Solution Builder",
+    emoji: "🧱",
+    era: "1908–1989",
+    domain: "Functional Analysis & PDE",
+    fields: ["math", "physics"],
+    description: "Sobolev spaces, weak derivatives, modern PDE foundations",
+    color: "success",
+    tagline: "He made ‘rough’ functions differentiable in the right sense.",
+    era_group: "modern",
+    funFact:
+      "Sobolev spaces are the backbone of modern PDE theory and finite element methods.",
+  },
+
+  // Abraham de Moivre
+  {
+    slug: "abraham-de-moivre",
+    name: "Abraham de Moivre",
+    archetype: "The Probability Mechanic",
+    emoji: "🎰",
+    era: "1667–1754",
+    domain: "Probability & Complex Numbers",
+    fields: ["math"],
+    description: "De Moivre’s formula, early normal approximation, probability methods",
+    color: "primary",
+    tagline: "He made complex numbers rotate on command.",
+    era_group: "ancient",
+    funFact:
+      "His work on approximations helped pave the road toward the normal distribution.",
+  },
+
+  // Heron of Alexandria
+  {
+    slug: "heron-alexandria",
+    name: "Heron of Alexandria",
+    archetype: "The Ancient Engineer",
+    emoji: "⚙️",
+    era: "c. 10–70 AD",
+    domain: "Mechanics & Geometry",
+    fields: ["engineering", "math", "physics"],
+    description: "Heron’s formula, automata, early steam device (aeolipile)",
+    color: "warning",
+    tagline: "He built machines centuries before ‘engineering’ had a name.",
+    era_group: "ancient",
+    funFact:
+      "Heron’s formula computes triangle area from side lengths alone—no angles needed.",
+  },
+
+  // Gram–Schmidt
+  {
+    slug: "gram-schmidt",
+    name: "Jørgen Gram & Erhard Schmidt",
+    archetype: "The Orthogonalizers",
+    emoji: "📐",
+    era: "1850–1916 / 1876–1959",
+    domain: "Linear Algebra",
+    fields: ["math", "cs", "engineering"],
+    description: "Gram–Schmidt process, orthonormal bases, projections",
+    color: "accent",
+    tagline: "They taught vectors to stand perfectly straight.",
+    era_group: "modern",
+    funFact:
+      "Gram–Schmidt is the conceptual core behind QR factorization and many numerical methods.",
+  },
+
+  // Arthur Cayley
+  {
+    slug: "cayley",
+    name: "Arthur Cayley",
+    archetype: "The Matrix Architect",
+    emoji: "🧮",
+    era: "1821–1895",
+    domain: "Algebra & Geometry",
+    fields: ["math"],
+    description: "Matrix theory, Cayley–Hamilton theorem, group theory foundations",
+    color: "success",
+    tagline: "He made matrices first-class mathematical citizens.",
+    era_group: "ancient",
+    funFact:
+      "Cayley helped formalize group theory—years before it became standard language in math and physics.",
+  },
+
+  // Fokker (Fokker–Planck context)
+  {
+    slug: "fokker",
+    name: "Adriaan D. Fokker",
+    archetype: "The Diffusion Modeler",
+    emoji: "🌫️",
+    era: "1887–1972",
+    domain: "Statistical Physics",
+    fields: ["physics", "math"],
+    description: "Fokker–Planck equation roots, stochastic process descriptions",
+    color: "secondary",
+    tagline: "He described randomness as a flowing probability.",
+    era_group: "modern",
+    funFact:
+      "The Fokker–Planck equation shows up in finance, neuroscience, physics, and any place diffusion-like uncertainty evolves.",
+  },
+
+  // Bardeen–Cooper–Schrieffer
+  {
+    slug: "bardeen-cooper-schrieffer",
+    name: "Bardeen–Cooper–Schrieffer",
+    archetype: "The Superconductivity Explainers",
+    emoji: "❄️",
+    era: "1908–1991 / 1930–present / 1931–2019",
+    domain: "Condensed Matter Physics",
+    fields: ["physics", "math"],
+    description: "BCS theory, Cooper pairs, microscopic explanation of superconductivity",
+    color: "primary",
+    tagline: "They explained how resistance can vanish.",
+    era_group: "modern",
+    funFact:
+      "BCS links an energy gap to paired electrons—predicting many superconducting properties quantitatively.",
+  },
+
+  // Ginzburg–Landau
+  {
+    slug: "ginzburg-landau",
+    name: "Ginzburg & Landau",
+    archetype: "The Order-Parameter Duo",
+    emoji: "🌀",
+    era: "1916–2009 / 1908–1968",
+    domain: "Theoretical Physics",
+    fields: ["physics", "math"],
+    description: "Ginzburg–Landau theory, order parameters, phase transitions, superconductivity phenomenology",
+    color: "accent",
+    tagline: "They turned phases of matter into a field you can optimize.",
+    era_group: "modern",
+    funFact:
+      "Ginzburg–Landau theory bridges microscopic physics and measurable macroscopic behavior via an order parameter.",
+  },
+
+  // Hannes Alfvén
+  {
+    slug: "alfven",
+    name: "Hannes Alfvén",
+    archetype: "The Plasma Messenger",
+    emoji: "🧲",
+    era: "1908–1995",
+    domain: "Plasma Physics & Space Science",
+    fields: ["physics", "earth-space"],
+    description: "Alfvén waves, magnetohydrodynamics, solar/space plasma dynamics",
+    color: "success",
+    tagline: "He gave plasma a voice: waves along magnetic fields.",
+    era_group: "modern",
+    funFact:
+      "Alfvén waves are fundamental to understanding the solar wind and space weather.",
+  },
+
+  // Jorma Rissanen
+  {
+    slug: "jorma-rissanen",
+    name: "Jorma Rissanen",
+    archetype: "The Compression Philosopher",
+    emoji: "🗜️",
+    era: "1942–2020",
+    domain: "Information Theory & MDL",
+    fields: ["cs", "math"],
+    description: "Minimum Description Length (MDL), model selection via compression",
+    color: "destructive",
+    tagline: "He made ‘best model’ mean ‘shortest explanation.’",
+    era_group: "contemporary",
+    funFact:
+      "MDL reframes learning as trading off fit vs complexity—like paying bits for parameters.",
+  },
+
+  // Richard Bellman
+  {
+    slug: "richard-bellman",
+    name: "Richard Bellman",
+    archetype: "The Dynamic Planner",
+    emoji: "🧭",
+    era: "1920–1984",
+    domain: "Optimization & Control",
+    fields: ["math", "cs", "engineering"],
+    description: "Dynamic programming, Bellman equation, optimal control principles",
+    color: "warning",
+    tagline: "He solved hard problems by solving smaller ones—perfectly.",
+    era_group: "modern",
+    funFact:
+      "Dynamic programming powers shortest paths, reinforcement learning value functions, and scheduling optimizers.",
+  },
 ];
 
 /** Typed registry map — O(1) lookup by slug */
