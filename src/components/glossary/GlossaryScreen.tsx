@@ -24,13 +24,13 @@ export function GlossaryScreen() {
   const allTerms = useMemo(() => getAllGlossaryTerms(), [locale]);
   const availableFields = useMemo(() => getGlossaryFields(), [locale]);
 
-  const fieldChips = useMemo(() => {
-    return [
-      { slug: 'all', label: t('glossary.allFields'), emoji: '🌐' },
-      ...FIELDS.filter((f) => f.slug !== 'all' && f.available && availableFields.includes(f.slug)).map(
-        (f) => ({ slug: f.slug, label: f.label, emoji: f.emoji })
-      ),
-    ];
+  // Build counts per field for the filter bar
+  const fieldCounts = useMemo(() => {
+    const counts: Record<string, number> = {};
+    for (const f of availableFields) {
+      counts[f] = getGlossaryByField(f).length;
+    }
+    return counts;
   }, [availableFields, locale]);
 
   const terms = useMemo(() => {
