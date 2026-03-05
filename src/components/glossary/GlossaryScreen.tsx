@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { FlashCard } from './FlashCard';
 import { getAllGlossaryTerms, getGlossaryByField, getGlossaryFields } from '@/content/glossary';
-import { FIELDS } from '@/config/fields';
+import { FieldFilterBar } from '@/components/FieldFilterBar';
 import { t } from '@/i18n';
 import { useLocale } from '@/hooks/useLocale';
 

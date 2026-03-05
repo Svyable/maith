@@ -1,13 +1,13 @@
 import { useState, useMemo } from 'react';
 import { motion } from 'framer-motion';
 import { ThinkerCard } from '@/components/ThinkerCard';
-import { ThinkerFilters, FieldFilter, type EraFilter } from './ThinkerFilters';
-import { DifficultyPicker } from '@/components/DifficultyPicker';
+import { FieldFilterBar } from '@/components/FieldFilterBar';
 import { SearchFilter } from '@/components/SearchFilter';
 import { THINKERS, type ThinkerMeta } from '@/config/thinkers';
 import { getThinkerQuestions } from '@/content/thinkers';
 import { t } from '@/i18n';
 import type { Difficulty } from '@/config/constants';
+import type { EraFilter } from './ThinkerFilters';
 
 /** Parse a birth year from era strings like "≈570–495 BC", "1643–1727", "4th century BC" */
 function parseBirthYear(era: string): number {
@@ -27,12 +27,12 @@ interface ThinkerGalleryProps {
   onBack: () => void;
 }
 
-const ERA_LABELS: Record<string, string> = {
-  ancient: '⚔️ Ancient Minds',
-  modern: '🚀 Modern Pioneers',
-  contemporary: '✨ Contemporary',
-  prodigy: '🌟 Prodigies',
-};
+const ERA_BUTTONS: { key: EraFilter; emoji: string; labelKey: string }[] = [
+  { key: 'ancient', emoji: '⚔️', labelKey: 'thinkers.ancientMinds' },
+  { key: 'modern', emoji: '🚀', labelKey: 'thinkers.modernPioneers' },
+  { key: 'contemporary', emoji: '✨', labelKey: 'thinkers.contemporary' },
+  { key: 'prodigy', emoji: '🌟', labelKey: 'thinkers.prodigies' },
+];
 
 export function ThinkerGallery({
   selectedDifficulties,
@@ -41,14 +41,23 @@ export function ThinkerGallery({
   onBack,
 }: ThinkerGalleryProps) {
   const [selectedEra, setSelectedEra] = useState<EraFilter>('all');
-  const [selectedField, setSelectedField] = useState<string | null>(null);
+  const [selectedField, setSelectedField] = useState<string>('all');
   const [search, setSearch] = useState('');
+
+  // Count thinkers per era
+  const eraCounts = useMemo(() => {
+    const counts: Record<string, number> = { ancient: 0, modern: 0, contemporary: 0, prodigy: 0 };
+    for (const th of THINKERS) {
+      if (counts[th.era_group] != null) counts[th.era_group]++;
+    }
+    return counts;
+  }, []);
 
   // Filter thinkers by era, field, and search
   const filteredThinkers = useMemo(() => {
     return THINKERS.filter((th) => {
       if (selectedEra !== 'all' && th.era_group !== selectedEra) return false;
-      if (selectedField && !th.fields.includes(selectedField)) return false;
+      if (selectedField !== 'all' && !th.fields.includes(selectedField)) return false;
       if (search.trim()) {
         const q = search.toLowerCase();
         if (
@@ -63,7 +72,7 @@ export function ThinkerGallery({
     });
   }, [selectedEra, selectedField, search]);
 
-  // Derive available field slugs from era-filtered thinkers (so field chips update with era)
+  // Derive available field slugs from era-filtered thinkers
   const availableFieldSlugs = useMemo(() => {
     const eraFiltered = selectedEra === 'all' ? THINKERS : THINKERS.filter((th) => th.era_group === selectedEra);
     const slugs = new Set<string>();
@@ -71,6 +80,18 @@ export function ThinkerGallery({
       for (const f of th.fields) slugs.add(f);
     }
     return slugs;
+  }, [selectedEra]);
+
+  // Count thinkers per field for the filter bar
+  const fieldCounts = useMemo(() => {
+    const eraFiltered = selectedEra === 'all' ? THINKERS : THINKERS.filter((th) => th.era_group === selectedEra);
+    const counts: Record<string, number> = {};
+    for (const th of eraFiltered) {
+      for (const f of th.fields) {
+        counts[f] = (counts[f] || 0) + 1;
+      }
+    }
+    return counts;
   }, [selectedEra]);
 
   // Group by era for display, sorted chronologically within each group
@@ -85,6 +106,8 @@ export function ThinkerGallery({
     }
     return groups;
   }, [filteredThinkers]);
+
+  const totalQuestions = filteredThinkers.reduce((sum, th) => sum + getThinkerQuestions(th.slug).length, 0);
 
   return (
     <motion.div
@@ -104,12 +127,59 @@ export function ThinkerGallery({
           {t('thinkers.gallerySubtitle')}
         </p>
         <p className="text-xs text-muted-foreground/70">
-          {filteredThinkers.length} thinker{filteredThinkers.length !== 1 ? 's' : ''} ·{' '}
-          {filteredThinkers.reduce((sum, th) => sum + getThinkerQuestions(th.slug).length, 0)} questions
+          {filteredThinkers.length} thinker{filteredThinkers.length !== 1 ? 's' : ''} · {totalQuestions} questions
         </p>
       </div>
 
-      <DifficultyPicker selected={selectedDifficulties} onToggle={onToggleDifficulty} />
+      {/* Era buttons — 4 big cards */}
+      <div>
+        <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest mb-2 px-1 text-center">
+          {t('field.exploreByEra')}
+        </p>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
+          {ERA_BUTTONS.map((era) => {
+            const isActive = selectedEra === era.key;
+            const isAll = selectedEra === 'all';
+            return (
+              <motion.button
+                key={era.key}
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.97 }}
+                onClick={() => setSelectedEra(isActive ? 'all' : era.key)}
+                className={`relative flex flex-col items-center gap-1.5 p-4 rounded-2xl border-2 transition-all ${
+                  isActive
+                    ? 'bg-primary/10 border-primary shadow-lg shadow-primary/10'
+                    : isAll
+                    ? 'bg-card/80 border-border/60 hover:border-primary/40 hover:bg-primary/5'
+                    : 'bg-card/40 border-border/30 opacity-60 hover:opacity-80'
+                }`}
+              >
+                <span className="text-3xl">{era.emoji}</span>
+                <span className={`text-xs font-bold ${isActive ? 'text-primary' : 'text-foreground'}`}>
+                  {t(era.labelKey)}
+                </span>
+                <span className="text-[10px] text-muted-foreground font-mono">
+                  {eraCounts[era.key]} minds
+                </span>
+              </motion.button>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* Field filter bar */}
+      <div>
+        <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest mb-2 px-1 text-center">
+          {t('field.filterByField')}
+        </p>
+        <FieldFilterBar
+          selectedField={selectedField}
+          onFieldChange={setSelectedField}
+          availableSlugs={availableFieldSlugs}
+          counts={fieldCounts}
+          totalCount={selectedEra === 'all' ? THINKERS.length : THINKERS.filter(th => th.era_group === selectedEra).length}
+        />
+      </div>
 
       <SearchFilter
         value={search}
@@ -119,41 +189,35 @@ export function ThinkerGallery({
         resultLabel="thinkers"
       />
 
-      <ThinkerFilters selectedEra={selectedEra} onEraChange={setSelectedEra} />
-
       {/* Thinker cards grouped by era */}
       <div className="space-y-5">
-        {Object.entries(groupedThinkers).map(([era, thinkers]) => (
-          <div key={era}>
-            <p className="text-[11px] font-bold text-muted-foreground uppercase tracking-widest mb-2 px-1">
-              {ERA_LABELS[era] || era}
-            </p>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-              {thinkers.map((thinker, i) => (
-                <ThinkerCard
-                  key={thinker.slug}
-                  thinker={thinker}
-                  questionCount={getThinkerQuestions(thinker.slug).length}
-                  onSelect={onStartThinker}
-                  index={i}
-                />
-              ))}
+        {Object.entries(groupedThinkers).map(([era, thinkers]) => {
+          const eraBtn = ERA_BUTTONS.find(e => e.key === era);
+          return (
+            <div key={era}>
+              <p className="text-[11px] font-bold text-muted-foreground uppercase tracking-widest mb-2 px-1">
+                {eraBtn ? `${eraBtn.emoji} ${t(eraBtn.labelKey)}` : era}
+              </p>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                {thinkers.map((thinker, i) => (
+                  <ThinkerCard
+                    key={thinker.slug}
+                    thinker={thinker}
+                    questionCount={getThinkerQuestions(thinker.slug).length}
+                    onSelect={onStartThinker}
+                    index={i}
+                  />
+                ))}
+              </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
         {filteredThinkers.length === 0 && (
           <p className="text-center text-sm text-muted-foreground py-8">
             No thinkers match your filters. Try adjusting your selection.
           </p>
         )}
       </div>
-
-      {/* Field filter below cards */}
-      <FieldFilter
-        selectedField={selectedField}
-        onFieldChange={setSelectedField}
-        availableFieldSlugs={availableFieldSlugs}
-      />
 
       <button
         onClick={onBack}
