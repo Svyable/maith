@@ -4,6 +4,8 @@ import { preloadQuestionTranslations } from '@/i18n/tQuestion';
 import { preloadVaultTranslations } from '@/i18n/tVault';
 import { preloadGlossaryTranslations } from '@/i18n/tGlossary';
 import { preloadFormulaTranslations } from '@/i18n/tFormulas';
+import { preloadThinkersTranslations } from '@/i18n/tThinkers';
+import { preloadBonafidesTranslations } from '@/i18n/tBonafides';
 
 type Locale = typeof SUPPORTED_LOCALES[number]['code'];
 
