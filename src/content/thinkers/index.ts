@@ -506,7 +506,8 @@ import { nicolausCopernicusQuestions } from "./nicolaus-copernicus";
 import { josephLouisLagrangeQuestions } from "./joseph-louis-lagrange";
 
 import { augustusDeMorganQuestions } from "./augustus-de-morgan";
-import { minorskyZieglerNicholsQuestions } from "./minorsky-ziegler-nichols";
+import { nicolasMinorskyQuestions } from "./nicolas-minorsky";
+import { zieglerNicholsQuestions } from "./ziegler-nichols";
 import { konstantinTsiolkovskyQuestions } from "./konstantin-tsiolkovsky";
 import { christianDopplerQuestions } from "./christian-doppler";
 import { williamBraggQuestions } from "./william-bragg";
@@ -529,7 +530,8 @@ import { richardBellmanQuestions } from "./richard-bellman";
 export const allThinkerQuestions: Question[] = [
 // NEW 20 thinkers
    ...augustusDeMorganQuestions,
-  ...minorskyZieglerNicholsQuestions,
+  ...nicolasMinorskyQuestions,
+  ...zieglerNicholsQuestions,
   ...konstantinTsiolkovskyQuestions,
   ...christianDopplerQuestions,
   ...williamBraggQuestions,
