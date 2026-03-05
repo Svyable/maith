@@ -46,6 +46,8 @@ export function LocaleProvider({ children }: { children: ReactNode }) {
           preloadVaultTranslations(locale),
           preloadGlossaryTranslations(locale),
           preloadFormulaTranslations(locale),
+          preloadThinkersTranslations(locale),
+          preloadBonafidesTranslations(locale),
         ]).then(() => setLocaleState(locale));
       });
     }
