@@ -55,7 +55,6 @@ const App = () => (
               <Route path="/thinkers" element={<Thinkers />} />
               <Route path="/glossary" element={<Glossary />} />
               <Route path="/formulas" element={<Formulas />} />
-              <Route path="/logos" element={<Navigate to="/formulas" replace />} />
               <Route path="/vault" element={<Vault />} />
               <Route path="/bonafides" element={<Bonafides />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

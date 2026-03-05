@@ -61,7 +61,7 @@ export const ipLawQuestions: Question[] = [
     question: 'A patent protects:',
     options: [
       'Novel, useful, and non-obvious inventions for a limited time',
-      'Brand names and logos indefinitely',
+      'Brand names and formulas indefinitely',
       'Creative literary works automatically upon creation',
       'Trade secrets shared publicly',
     ],

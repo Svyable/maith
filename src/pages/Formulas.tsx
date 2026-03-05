@@ -21,9 +21,9 @@ const DIFFICULTY_STYLES: Record<string, string> = {
 
 function getDifficultyLabel(d: string): string {
   const map: Record<string, string> = {
-    easy: 'logos.accessible',
-    hard: 'logos.advanced',
-    sota: 'logos.frontier',
+    easy: 'formulas.accessible',
+    hard: 'formulas.advanced',
+    sota: 'formulas.frontier',
   };
   return t(map[d] ?? d);
 }
@@ -160,15 +160,15 @@ function EquationCard({ eq, index }: { eq: Equation; index: number }) {
             >
               <div className="mt-4 pt-4 border-t border-border/40 space-y-3 text-sm">
                 <div>
-                  <p className="text-xs font-bold text-muted-foreground uppercase tracking-wide mb-1">{t('logos.significance')}</p>
+                  <p className="text-xs font-bold text-muted-foreground uppercase tracking-wide mb-1">{t('formulas.significance')}</p>
                   <p className="text-foreground/90 leading-relaxed">{eq.significance}</p>
                 </div>
                 <div>
-                  <p className="text-xs font-bold text-muted-foreground uppercase tracking-wide mb-1">{t('logos.constants')}</p>
+                  <p className="text-xs font-bold text-muted-foreground uppercase tracking-wide mb-1">{t('formulas.constants')}</p>
                   <p className="text-foreground/80 font-mono-code text-xs">{eq.constants}</p>
                 </div>
                 <div>
-                  <p className="text-xs font-bold text-muted-foreground uppercase tracking-wide mb-1">{t('logos.applications')}</p>
+                  <p className="text-xs font-bold text-muted-foreground uppercase tracking-wide mb-1">{t('formulas.applications')}</p>
                   <p className="text-foreground/80">{eq.applications}</p>
                 </div>
                 {eq.tags.length > 0 && (
@@ -188,7 +188,7 @@ function EquationCard({ eq, index }: { eq: Equation; index: number }) {
         {/* Expand hint */}
         <div className="mt-2 text-center">
           <span className="text-[10px] text-muted-foreground/50">
-            {expanded ? t('logos.collapse') : t('logos.tapToExplore')}
+            {expanded ? t('formulas.collapse') : t('formulas.tapToExplore')}
           </span>
         </div>
       </div>
@@ -210,10 +210,10 @@ export default function Formulas() {
   const [specialFilter, setSpecialFilter] = useState<string>('all');
 
   const sortOptions: { key: SortKey; labelKey: string }[] = [
-    { key: 'rank', labelKey: 'logos.sortRank' },
-    { key: 'beauty', labelKey: 'logos.sortBeauty' },
-    { key: 'year', labelKey: 'logos.sortEra' },
-    { key: 'name', labelKey: 'logos.sortName' },
+    { key: 'rank', labelKey: 'formulas.sortRank' },
+    { key: 'beauty', labelKey: 'formulas.sortBeauty' },
+    { key: 'year', labelKey: 'formulas.sortEra' },
+    { key: 'name', labelKey: 'formulas.sortName' },
   ];
 
   const filtered = useMemo(() => {
@@ -264,11 +264,11 @@ export default function Formulas() {
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-center mb-6">
           <div className="text-5xl mb-3">📜</div>
           <h1 className="text-3xl md:text-4xl font-display font-bold text-foreground">
-            <span className="text-gradient-primary">{t('logos.title')}</span>
+            <span className="text-gradient-primary">{t('formulas.title')}</span>
           </h1>
-          <p className="text-muted-foreground mt-2 max-w-md mx-auto">{t('logos.subtitle')}</p>
+          <p className="text-muted-foreground mt-2 max-w-md mx-auto">{t('formulas.subtitle')}</p>
           <p className="text-xs text-muted-foreground/70 mt-1">
-            {t('logos.count', { count: EQUATIONS.length, domains: EQUATION_DOMAINS.length })}
+            {t('formulas.count', { count: EQUATIONS.length, domains: EQUATION_DOMAINS.length })}
           </p>
         </motion.div>
 
@@ -282,17 +282,17 @@ export default function Formulas() {
           <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-success/10 border border-success/20">
             <span className="text-xs">📗</span>
             <span className="text-xs font-bold text-success">{DIFFICULTY_COUNTS.easy}</span>
-            <span className="text-[10px] text-success/70">{t('logos.accessible')}</span>
+            <span className="text-[10px] text-success/70">{t('formulas.accessible')}</span>
           </div>
           <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-accent/10 border border-accent/20">
             <span className="text-xs">📙</span>
             <span className="text-xs font-bold text-accent">{DIFFICULTY_COUNTS.hard}</span>
-            <span className="text-[10px] text-accent/70">{t('logos.advanced')}</span>
+            <span className="text-[10px] text-accent/70">{t('formulas.advanced')}</span>
           </div>
           <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-destructive/10 border border-destructive/20">
             <span className="text-xs">📕</span>
             <span className="text-xs font-bold text-destructive">{DIFFICULTY_COUNTS.sota}</span>
-            <span className="text-[10px] text-destructive/70">{t('logos.frontier')}</span>
+            <span className="text-[10px] text-destructive/70">{t('formulas.frontier')}</span>
           </div>
           {SPECIAL_COUNTS.millennium > 0 && (
             <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-primary/10 border border-primary/20">
@@ -332,7 +332,7 @@ export default function Formulas() {
                 : 'bg-secondary text-muted-foreground hover:text-foreground border border-transparent hover:border-border'
             }`}
           >
-            🌐 {t('logos.allDomains')} ({EQUATIONS.length})
+            🌐 {t('formulas.allDomains')} ({EQUATIONS.length})
           </button>
           {DOMAIN_STATS.map(({ domain, count, emoji }) => (
             <button
@@ -354,7 +354,7 @@ export default function Formulas() {
           <SearchFilter
             value={search}
             onChange={setSearch}
-            placeholder={t('logos.searchPlaceholder')}
+            placeholder={t('formulas.searchPlaceholder')}
             resultCount={filtered.length}
             resultLabel={t('stats.formulas').toLowerCase()}
           />
@@ -390,7 +390,7 @@ export default function Formulas() {
                     : 'bg-secondary text-muted-foreground hover:text-foreground border border-transparent'
                 }`}
               >
-                {d === 'all' ? t('logos.allLevels') : getDifficultyLabel(d)}
+                {d === 'all' ? t('formulas.allLevels') : getDifficultyLabel(d)}
               </button>
             ))}
             <span className="text-border mx-1">|</span>
@@ -424,11 +424,11 @@ export default function Formulas() {
           >
             <span>{filtered.length} results</span>
             <span className="text-border">·</span>
-            <span className="text-success">{filteredDiffCounts.easy} {t('logos.accessible')}</span>
+            <span className="text-success">{filteredDiffCounts.easy} {t('formulas.accessible')}</span>
             <span className="text-border">·</span>
-            <span className="text-accent">{filteredDiffCounts.hard} {t('logos.advanced')}</span>
+            <span className="text-accent">{filteredDiffCounts.hard} {t('formulas.advanced')}</span>
             <span className="text-border">·</span>
-            <span className="text-destructive">{filteredDiffCounts.sota} {t('logos.frontier')}</span>
+            <span className="text-destructive">{filteredDiffCounts.sota} {t('formulas.frontier')}</span>
             {(domainFilter !== 'all' || difficultyFilter !== 'all' || specialFilter !== 'all') && (
               <button
                 onClick={() => { setDomainFilter('all'); setDifficultyFilter('all'); setSpecialFilter('all'); setSearch(''); }}
@@ -452,7 +452,7 @@ export default function Formulas() {
         {filtered.length === 0 && (
           <div className="text-center py-12">
             <p className="text-3xl mb-2">🔍</p>
-            <p className="text-muted-foreground">{t('logos.noResults')}</p>
+            <p className="text-muted-foreground">{t('formulas.noResults')}</p>
           </div>
         )}
 
