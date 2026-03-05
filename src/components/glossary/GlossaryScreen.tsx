@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { FlashCard } from './FlashCard';
 import { getAllGlossaryTerms, getGlossaryByField, getGlossaryFields } from '@/content/glossary';
-import { FIELDS } from '@/config/fields';
+import { FieldFilterBar } from '@/components/FieldFilterBar';
 import { t } from '@/i18n';
 import { useLocale } from '@/hooks/useLocale';
 
@@ -24,13 +24,13 @@ export function GlossaryScreen() {
   const allTerms = useMemo(() => getAllGlossaryTerms(), [locale]);
   const availableFields = useMemo(() => getGlossaryFields(), [locale]);
 
-  const fieldChips = useMemo(() => {
-    return [
-      { slug: 'all', label: t('glossary.allFields'), emoji: '🌐' },
-      ...FIELDS.filter((f) => f.slug !== 'all' && f.available && availableFields.includes(f.slug)).map(
-        (f) => ({ slug: f.slug, label: f.label, emoji: f.emoji })
-      ),
-    ];
+  // Build counts per field for the filter bar
+  const fieldCounts = useMemo(() => {
+    const counts: Record<string, number> = {};
+    for (const f of availableFields) {
+      counts[f] = getGlossaryByField(f).length;
+    }
+    return counts;
   }, [availableFields, locale]);
 
   const terms = useMemo(() => {
@@ -94,30 +94,14 @@ export function GlossaryScreen() {
           )}
         </div>
 
-        {/* Field chips */}
-        <div className="flex flex-wrap gap-2">
-          {fieldChips.map((f) => {
-            const isActive = selectedField === f.slug;
-            const count = f.slug === 'all' ? allTerms.length : getGlossaryByField(f.slug).length;
-
-            return (
-              <motion.button
-                key={f.slug}
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.97 }}
-                onClick={() => setSelectedField(f.slug)}
-                className={`px-3.5 py-2 rounded-full text-xs font-medium border transition-all ${
-                  isActive
-                    ? 'bg-primary/15 border-primary text-primary'
-                    : 'bg-secondary border-border text-muted-foreground hover:border-muted-foreground/50'
-                }`}
-              >
-                {f.emoji} {f.label}{' '}
-                <span className="text-muted-foreground/70">({count})</span>
-              </motion.button>
-            );
-          })}
-        </div>
+        {/* Field filter bar */}
+        <FieldFilterBar
+          selectedField={selectedField}
+          onFieldChange={setSelectedField}
+          availableSlugs={availableFields}
+          counts={fieldCounts}
+          totalCount={allTerms.length}
+        />
 
         {/* Results summary */}
         <div className="flex items-center justify-between">
