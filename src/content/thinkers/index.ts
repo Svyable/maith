@@ -519,11 +519,10 @@ import { sergeiSobolevQuestions } from "./sergei-sobolev";
 import { abrahamDeMoivreQuestions } from "./abraham-de-moivre";
 import { heronAlexandriaQuestions } from "./heron-alexandria";
 import { gramSchmidtQuestions } from "./gram-schmidt";
-import { arthurCayleyQuestions } from "./arthur-cayley";
 import { adriaanFokkerQuestions } from "./adriaan-fokker";
 import { bardeenCooperSchriefferQuestions } from "./bardeen-cooper-schrieffer";
 import { ginzburgLandauQuestions } from "./ginzburg-landau";
-import { alfvénQuestions } from "./alfven";
+import { hannesAlfvenQuestions } from "./hannes-alfven";
 import { jormaRissanenQuestions } from "./jorma-rissanen";
 import { richardBellmanQuestions } from "./richard-bellman";
 
@@ -547,7 +546,7 @@ export const allThinkerQuestions: Question[] = [
   ...adriaanFokkerQuestions,
   ...bardeenCooperSchriefferQuestions,
   ...ginzburgLandauQuestions,
-  ...alfvénQuestions,
+  ...hannesAlfvenQuestions,
   ...jormaRissanenQuestions,
   ...richardBellmanQuestions,
   // Original 10
@@ -933,7 +932,6 @@ export const allThinkerQuestions: Question[] = [
   ...brookTaylorQuestions,
   ...colinMaclaurinQuestions,
   ...gaspardMongeQuestions,
-  ...arthurCayleyQuestions,
   ...jamesSylvesterQuestions,
   ...henriLebesgueQuestions,
   ...karlWeierstrassQuestions,
