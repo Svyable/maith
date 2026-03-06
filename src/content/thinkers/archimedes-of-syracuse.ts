@@ -3,7 +3,7 @@ import type { Question } from "../types";
 export const archimedesOfSyracuseQuestions: Question[] = [
   {
     id: 11101,
-    topic: "archimedes",
+    topic: "archimedes-of-syracuse",
     difficulty: "easy",
     question: "Archimedes' principle states that a submerged object experiences an upward buoyant force equal to:",
     options: [
@@ -21,7 +21,7 @@ export const archimedesOfSyracuseQuestions: Question[] = [
   },
   {
     id: 11102,
-    topic: "archimedes",
+    topic: "archimedes-of-syracuse",
     difficulty: "easy",
     question:
       "Archimedes approximated $\\pi$ by inscribing and circumscribing regular polygons around a circle. His final bound was:",
@@ -40,7 +40,7 @@ export const archimedesOfSyracuseQuestions: Question[] = [
   },
   {
     id: 11103,
-    topic: "archimedes",
+    topic: "archimedes-of-syracuse",
     difficulty: "easy",
     question: 'The "Method of Exhaustion" that Archimedes used to find areas and volumes is the precursor to:',
     options: [
@@ -58,7 +58,7 @@ export const archimedesOfSyracuseQuestions: Question[] = [
   },
   {
     id: 11104,
-    topic: "archimedes",
+    topic: "archimedes-of-syracuse",
     difficulty: "easy",
     question: "Archimedes discovered that the surface area of a sphere of radius $r$ is:",
     options: [
@@ -76,7 +76,7 @@ export const archimedesOfSyracuseQuestions: Question[] = [
   },
   {
     id: 11105,
-    topic: "archimedes",
+    topic: "archimedes-of-syracuse",
     difficulty: "hard",
     question:
       "Archimedes computed the area of a parabolic segment by summing $\\sum_{k=1}^{\\infty} \\frac{A}{4^k}$. This evaluates to:",
@@ -95,7 +95,7 @@ export const archimedesOfSyracuseQuestions: Question[] = [
   },
   {
     id: 11106,
-    topic: "archimedes",
+    topic: "archimedes-of-syracuse",
     difficulty: "hard",
     question: "The Archimedean spiral $r = a\\theta$ has arc length from $\\theta=0$ to $\\theta=\\Theta$ given by:",
     options: [
@@ -113,7 +113,7 @@ export const archimedesOfSyracuseQuestions: Question[] = [
   },
   {
     id: 11107,
-    topic: "archimedes",
+    topic: "archimedes-of-syracuse",
     difficulty: "hard",
     question:
       'The "Archimedes Cattle Problem" requires finding the number of cattle satisfying a system of linear Diophantine equations. The smallest solution has approximately:',
@@ -132,7 +132,7 @@ export const archimedesOfSyracuseQuestions: Question[] = [
   },
   {
     id: 11108,
-    topic: "archimedes",
+    topic: "archimedes-of-syracuse",
     difficulty: "sota",
     question:
       'Archimedes\' "Method" used the law of the lever to derive integration results. Which modern concept does this correspond to?',
@@ -151,7 +151,7 @@ export const archimedesOfSyracuseQuestions: Question[] = [
   },
   {
     id: 11109,
-    topic: "archimedes",
+    topic: "archimedes-of-syracuse",
     difficulty: "sota",
     question:
       'In numerical analysis, "Archimedes\' method" for π using polygon perimeters is equivalent to which modern technique?',
@@ -170,7 +170,7 @@ export const archimedesOfSyracuseQuestions: Question[] = [
   },
   {
     id: 11110,
-    topic: "archimedes",
+    topic: "archimedes-of-syracuse",
     difficulty: "sota",
     question:
       'The "Stomachion" puzzle discovered in the Archimedes Palimpsest asks: in how many ways can 14 pieces tile a 12×12 square? Modern combinatorics found:',
