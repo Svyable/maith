@@ -7,7 +7,7 @@ import { THINKERS, type ThinkerMeta } from '@/config/thinkers';
 import { getThinkerQuestions } from '@/content/thinkers';
 import { t } from '@/i18n';
 import type { Difficulty } from '@/config/constants';
-import type { EraFilter } from './ThinkerFilters';
+type EraFilter = 'all' | 'ancient' | 'modern' | 'contemporary' | 'prodigy';
 
 /** Parse a birth year from era strings like "≈570–495 BC", "1643–1727", "4th century BC" */
 function parseBirthYear(era: string): number {

@@ -37,7 +37,6 @@ const Index = () => {
   }, []);
 
   const {
-    sessionCorrect, sessionTotal,
     timeLeft, fraction,
     resetTimer, resetSession,
     handleSessionUpdate,
