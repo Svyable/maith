@@ -44,6 +44,7 @@ export function HomeScreen({
 }: HomeScreenProps) {
   const navigate = useNavigate();
   const { locale, changeLocale } = useLocale();
+  const [topicSearch, setTopicSearch] = useState("");
 
   const handleSelectField = (slug: string) => {
     onSelectField(slug);
