@@ -257,10 +257,6 @@ export function HomeScreen({
         <LanguageSelector locale={locale} onChangeLocale={changeLocale} />
       </div>
 
-      {/* Duplicate Difficulty Picker under Language */}
-      <div className="w-full max-w-xl">
-        <DifficultyPicker selected={selectedDifficulties} onToggle={onToggleDifficulty} />
-      </div>
 
       {/* Field Selector */}
       <div className="w-full">
