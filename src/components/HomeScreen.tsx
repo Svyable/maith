@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { TopicSelector } from "./TopicSelector";
 import { FieldSelector } from "./FieldSelector";
 import { DifficultyPicker } from "./DifficultyPicker";
+import { MatrixQuoteBoard } from "./MatrixQuoteBoard";
 import { LanguageSelector } from "./LanguageSelector";
 import { SearchFilter } from "./SearchFilter";
 import { StatsShowcase } from "./StatsShowcase";
@@ -15,8 +16,7 @@ import { vaultQuestions } from "@/content/vault";
 import { EQUATIONS } from "@/config/equations";
 import { t } from "@/i18n";
 import { useLocale } from "@/hooks/useLocale";
-import { useMemo, useState, useEffect } from "react";
-import { getRandomQuote, type Quote } from "@/content/quotes";
+import { useMemo, useState } from "react";
 import { THINKERS } from "@/config/thinkers";
 
 interface HomeScreenProps {
@@ -44,12 +44,6 @@ export function HomeScreen({
 }: HomeScreenProps) {
   const navigate = useNavigate();
   const { locale, changeLocale } = useLocale();
-  const [quote, setQuote] = useState<Quote>(() => getRandomQuote("en"));
-  const [topicSearch, setTopicSearch] = useState("");
-
-  useEffect(() => {
-    setQuote(getRandomQuote(locale));
-  }, [locale]);
 
   const handleSelectField = (slug: string) => {
     onSelectField(slug);
@@ -119,17 +113,8 @@ export function HomeScreen({
         <p className="text-muted-foreground max-w-xs md:max-w-md mx-auto">{t("app.tagline")}</p>
       </div>
 
-      {/* Motivational Quote */}
-      <motion.div
-        key={quote.text}
-        initial={{ opacity: 0, y: 8 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        className="w-full max-w-xl rounded-xl border border-border/60 bg-card/50 p-4 text-center"
-      >
-        <p className="text-sm italic text-muted-foreground leading-relaxed">&ldquo;{quote.text}&rdquo;</p>
-        <p className="text-xs font-semibold text-accent mt-2">— {quote.author}</p>
-      </motion.div>
+      {/* Motivational Quote — Matrix cycling */}
+      <MatrixQuoteBoard />
 
       {/* ─── Top Action Zone: Desktop 2-col, Mobile stack ─── */}
       <div className="w-full max-w-xl space-y-4">
