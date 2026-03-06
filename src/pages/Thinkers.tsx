@@ -34,7 +34,6 @@ export default function Thinkers() {
   }, []);
 
   const {
-    sessionCorrect, sessionTotal,
     timeLeft, fraction,
     resetTimer, resetSession,
     handleSessionUpdate,

@@ -37,7 +37,6 @@ export default function Bonafides() {
     : [];
 
   const {
-    sessionCorrect, sessionTotal,
     timeLeft, fraction,
     resetTimer, resetSession,
     handleSessionUpdate,
