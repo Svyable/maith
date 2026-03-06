@@ -519,8 +519,8 @@ import { sergeiSobolevQuestions } from "./sergei-sobolev";
 import { abrahamDeMoivreQuestions } from "./abraham-de-moivre";
 import { heronAlexandriaQuestions } from "./heron-alexandria";
 import { gramSchmidtQuestions } from "./gram-schmidt";
-import { cayleyQuestions } from "./cayley";
-import { fokkerQuestions } from "./fokker";
+import { arthurCayleyQuestions } from "./arthur-cayley";
+import { adriaanFokkerQuestions } from "./adriaan-fokker";
 import { bardeenCooperSchriefferQuestions } from "./bardeen-cooper-schrieffer";
 import { ginzburgLandauQuestions } from "./ginzburg-landau";
 import { alfvénQuestions } from "./alfven";
@@ -543,8 +543,8 @@ export const allThinkerQuestions: Question[] = [
   ...abrahamDeMoivreQuestions,
   ...heronAlexandriaQuestions,
   ...gramSchmidtQuestions,
-  ...cayleyQuestions,
-  ...fokkerQuestions,
+  ...arthurCayleyQuestions,
+  ...adriaanFokkerQuestions,
   ...bardeenCooperSchriefferQuestions,
   ...ginzburgLandauQuestions,
   ...alfvénQuestions,

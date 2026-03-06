@@ -5922,36 +5922,34 @@ export const THINKERS: ThinkerMeta[] = [
 
   // Arthur Cayley
   {
-    slug: "cayley",
+    slug: "arthur-cayley",
     name: "Arthur Cayley",
-    archetype: "The Matrix Architect",
-    emoji: "🧮",
+    archetype: "The Algebraic Architect",
+    emoji: "🌳",
     era: "1821–1895",
-    domain: "Algebra & Geometry",
+    domain: "Algebra & Graph Theory",
     fields: ["math"],
-    description: "Matrix theory, Cayley–Hamilton theorem, group theory foundations",
-    color: "success",
-    tagline: "He made matrices first-class mathematical citizens.",
-    era_group: "ancient",
-    funFact:
-      "Cayley helped formalize group theory—years before it became standard language in math and physics.",
+    description: "Cayley’s formula, matrix theory, and foundational work across modern algebra",
+    color: "primary",
+    tagline: "He gave abstract structure a combinatorial spine.",
+    era_group: "modern",
+    funFact: "Cayley helped formalize both matrix algebra and the counting of labeled trees.",
   },
 
   // Fokker (Fokker–Planck context)
   {
-    slug: "fokker",
-    name: "Adriaan D. Fokker",
+    slug: "adriaan-fokker",
+    name: "Adriaan Fokker",
     archetype: "The Diffusion Modeler",
     emoji: "🌫️",
     era: "1887–1972",
     domain: "Statistical Physics",
     fields: ["physics", "math"],
-    description: "Fokker–Planck equation roots, stochastic process descriptions",
+    description: "Fokker–Planck equation roots and stochastic descriptions of evolving uncertainty",
     color: "secondary",
     tagline: "He described randomness as a flowing probability.",
     era_group: "modern",
-    funFact:
-      "The Fokker–Planck equation shows up in finance, neuroscience, physics, and any place diffusion-like uncertainty evolves.",
+    funFact: "The Fokker–Planck equation appears in physics, neuroscience, finance, and anywhere diffusion-like uncertainty evolves.",
   },
 
   // Bardeen–Cooper–Schrieffer
