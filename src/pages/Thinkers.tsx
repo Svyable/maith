@@ -7,6 +7,7 @@ import { Footer } from '@/components/Footer';
 import { QuizScreen } from '@/components/QuizScreen';
 import { QuizResults } from '@/components/QuizResults';
 import { ThinkerGallery } from '@/components/thinkers/ThinkerGallery';
+import { QEDCelebration } from '@/components/QEDCelebration';
 
 import { useThinkerQuiz } from '@/hooks/useThinkerQuiz';
 import { useQuizSession } from '@/hooks/useQuizSession';
@@ -24,6 +25,8 @@ export default function Thinkers() {
   const [screen, setScreen] = useState<Screen>('gallery');
   const [selectedSlug, setSelectedSlug] = useState<string | null>(null);
   const [selectedDifficulties, setSelectedDifficulties] = useState<Difficulty[]>(DEFAULT_DIFFICULTIES);
+  const [showCelebration, setShowCelebration] = useState(false);
+  const [newlyAchieved, setNewlyAchieved] = useState(false);
 
   const { state, questions, currentQuestion, startThinker, answer, nextQuestion, skipQuestion, endQuiz } =
     useThinkerQuiz(selectedDifficulties);
@@ -87,9 +90,17 @@ export default function Thinkers() {
     if (state.isFinished && screen === 'quiz') {
       // Award achievement on perfect score: ∀q ∈ Q, correct(q) ⟹ Q.E.D. ∎
       if (selectedSlug) {
-        awardIfPerfect(selectedSlug, state.correctAnswered, state.totalAnswered, Math.round(state.score));
+        awardIfPerfect(selectedSlug, state.correctAnswered, state.totalAnswered, Math.round(state.score))
+          .then((awarded) => {
+            if (awarded) {
+              setNewlyAchieved(true);
+              setShowCelebration(true);
+            }
+            setScreen('results');
+          });
+      } else {
+        setScreen('results');
       }
-      setScreen('results');
     }
   }, [state.isFinished, screen, selectedSlug, state.correctAnswered, state.totalAnswered, state.score, awardIfPerfect]);
 
