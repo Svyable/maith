@@ -6015,7 +6015,7 @@ export const THINKERS: ThinkerMeta[] = [
     emoji: '🏞️',
     era: '1876–1930',
     domain: 'Geophysics & Geomorphology',
-    fields: ['physics', 'earth-science'],
+    fields: ['physics', 'earth-space'],
     description: 'Sediment continuity, bed evolution, the Exner equation, and morphodynamics',
     color: 'success',
     tagline: 'He tracked landscapes by following where sediment goes.',

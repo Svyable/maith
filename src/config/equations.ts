@@ -6386,7 +6386,6 @@ export const EQUATIONS: Equation[] = [
     difficulty: "hard",
     tags: ["replicator", "growth", "chemical evolution", "dissipation"],
   },
-,
   {
     rank: 315,
     name: "Smoluchowski Diffusion Equation",
