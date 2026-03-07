@@ -1,61 +1,147 @@
 
 
-## Plan: Add University Coursework to Bonafides
+# Profile Onboarding and Leaderboard Alignment
 
-### Key Issues in the Bash Script
+## Problem
+- New users (both email signup and OAuth) get auto-generated usernames like `user_a3f8b2c1` with no opportunity to choose a display name
+- OAuth users (Google/Apple) often have `null` display_name since the trigger only reads `raw_user_meta_data`
+- The leaderboard shows `display_name || username`, resulting in cryptic entries
+- There is no post-signup onboarding screen to collect a preferred username
+- The Profile page displays but cannot edit the username/display_name
 
-The script has several type mismatches that would break the build:
+## Solution
 
-1. **`difficulty: 'medium'`** — doesn't exist. The type is `'easy' | 'hard' | 'sota'` only.
-2. **`symbolLinks: ['∪', '∩']`** — wrong type. It's `Record<string, string>` (e.g. `{ 'π': 'pi', 'λ': 'lambda' }`), not a string array.
-3. **`thinkerLinks: ['kolmogorov']`** — this field doesn't exist on `Question`. The type only has `symbolLinks`, `glossaryLinks`, and `formulaLinks`.
-4. **`export type Question = typeof ...`** — re-exports a local type that shadows the canonical import. Must not be included.
+### 1. Add a username onboarding screen (`src/pages/Onboarding.tsx`)
+A simple page shown after first login when the user has no custom display_name set. Contains:
+- A text input for choosing a display name (required, 2-20 chars)
+- An optional avatar emoji picker (or keep default)
+- A "Save and Continue" button that writes to the `profiles` table
+- Redirects to `/` after saving
 
-### What We'll Build
+### 2. Create a `useProfile` hook (`src/hooks/useProfile.ts`)
+- Fetches the current user's profile row on auth state change
+- Exposes `profile`, `loading`, `updateProfile(fields)`, and `needsOnboarding` (true when display_name is null or matches the auto-generated pattern `user_XXXXXXXX`)
+- Used by Index.tsx, Profile.tsx, and Onboarding.tsx to avoid scattered `supabase.from('profiles')` calls
 
-**Two new bonafide course packs** following the exact existing pattern (CFA, FINRA, etc.):
+### 3. Update the `handle_new_user` trigger (DB migration)
+- For OAuth users, also extract `full_name` / `name` from `raw_user_meta_data` (Google/Apple provide these)
+- Store it as `display_name` so OAuth users at least have a real name as fallback
 
-#### 1. Content Files
+### 4. Add onboarding redirect logic in `App.tsx`
+- After auth state resolves, if user is logged in and `needsOnboarding` is true, redirect to `/onboarding`
+- The onboarding route is protected (requires auth)
 
-- `src/content/ucb-eecs126/questions.ts` — 10 questions (easy/hard/sota) covering probability, Markov chains, PageRank, queueing theory. Rich `symbolLinks` (Record format), `glossaryLinks`, `formulaLinks`.
-- `src/content/ucb-eecs126/index.ts` — re-export barrel.
-- `src/content/cs50/questions.ts` — 10 questions covering C, algorithms, memory, data structures, SQL, Flask. Same cross-link metadata.
-- `src/content/cs50/index.ts` — re-export barrel.
+### 5. Make Profile page editable
+- Add an "Edit" button next to the display name on `Profile.tsx`
+- Inline edit field that calls `updateProfile({ display_name })` on save
+- Updates reflect immediately on the leaderboard views
 
-#### 2. Registry Update (`src/config/bonafides.ts`)
+### 6. Ensure leaderboard views show the right name
+- The existing views (`leaderboard_all_time`, `leaderboard_weekly`, `leaderboard_by_topic`) already join on `profiles.display_name` and `profiles.username`
+- No schema change needed -- once profiles have proper display_names, leaderboard displays correctly
 
-Add a new `// ═══ UNIVERSITY COURSEWORK ═══` section with entries for `ucb-eecs126` and `cs50`.
+---
 
-#### 3. Aggregator Update (`src/content/bonafides/index.ts`)
+## Technical Details
 
-Import and spread both new question arrays into `allBonafideQuestions`.
+### New files
+| File | Purpose |
+|---|---|
+| `src/pages/Onboarding.tsx` | Post-signup username picker screen |
+| `src/hooks/useProfile.ts` | Shared profile fetch/update hook |
 
-#### 4. Difficulty Mapping
+### Modified files
+| File | Change |
+|---|---|
+| `src/App.tsx` | Add `/onboarding` route, add redirect guard |
+| `src/pages/Index.tsx` | Use `useProfile` instead of inline profile fetch |
+| `src/pages/Profile.tsx` | Use `useProfile`, add inline display_name editing |
+| `src/pages/Auth.tsx` | After successful login, navigate to `/onboarding` if needed |
 
-All `'medium'` → `'hard'`, keeping the strict `easy | hard | sota` union.
+### Database migration
+```sql
+-- Improve handle_new_user to extract name from OAuth providers
+CREATE OR REPLACE FUNCTION public.handle_new_user()
+RETURNS trigger
+LANGUAGE plpgsql
+SECURITY DEFINER
+SET search_path TO 'public'
+AS $$
+DECLARE
+  base_username text;
+  v_display_name text;
+BEGIN
+  base_username := 'user_' || substr(NEW.id::text, 1, 8);
+  
+  -- Try multiple metadata fields (Google sends full_name/name, Apple sends name)
+  v_display_name := COALESCE(
+    NEW.raw_user_meta_data->>'display_name',
+    NEW.raw_user_meta_data->>'full_name',
+    NEW.raw_user_meta_data->>'name',
+    NULL
+  );
 
-#### 5. Symbol Links Format
+  INSERT INTO public.profiles (id, username, display_name, avatar_url, locale, is_public)
+  VALUES (
+    NEW.id,
+    base_username,
+    v_display_name,
+    COALESCE(NEW.raw_user_meta_data->>'avatar_url', NULL),
+    COALESCE(NEW.raw_user_meta_data->>'locale', 'en'),
+    true
+  )
+  ON CONFLICT (id) DO NOTHING;
 
-Convert from arrays to proper Records:
-```typescript
-// ✗ symbolLinks: ['π', 'λ']
-// ✓ symbolLinks: { 'π': 'pi', 'λ': 'lambda' }
+  INSERT INTO public.user_stats (user_id)
+  VALUES (NEW.id)
+  ON CONFLICT (user_id) DO NOTHING;
+
+  RETURN NEW;
+END;
+$$;
 ```
 
-#### 6. Thinker References
+### `useProfile` hook shape
+```typescript
+interface Profile {
+  id: string;
+  username: string;
+  display_name: string | null;
+  avatar_url: string | null;
+  locale: string;
+}
 
-Use `glossaryLinks` for thinker cross-refs (e.g. `glossaryLinks: ['markov-chain', 'pagerank']`) since `thinkerLinks` isn't on the Question type. No type changes needed — the existing metadata fields cover all use cases.
+interface UseProfileReturn {
+  profile: Profile | null;
+  loading: boolean;
+  needsOnboarding: boolean;
+  updateProfile: (fields: Partial<Profile>) => Promise<void>;
+}
+```
 
-### Files to Create/Modify
+### Onboarding flow
+```text
+[User signs up / OAuth] --> [handle_new_user trigger creates profile row]
+        |
+        v
+[App.tsx checks needsOnboarding]
+        |
+  true  |  false
+   v         v
+[/onboarding]  [/ (home)]
+   |
+   v
+[User picks display name] --> [UPDATE profiles SET display_name = ...]
+   |
+   v
+[Redirect to /]
+```
 
-| File | Action |
-|------|--------|
-| `src/content/ucb-eecs126/questions.ts` | Create — 10 questions |
-| `src/content/ucb-eecs126/index.ts` | Create — barrel export |
-| `src/content/cs50/questions.ts` | Create — 10 questions |
-| `src/content/cs50/index.ts` | Create — barrel export |
-| `src/config/bonafides.ts` | Add 2 entries under new University section |
-| `src/content/bonafides/index.ts` | Import + spread both new pools |
-
-Zero type changes. Zero breaking changes. Follows the exact CFA/FINRA pattern.
+### Sequencing
+1. DB migration (update `handle_new_user` trigger)
+2. Create `useProfile` hook
+3. Create `Onboarding.tsx` page
+4. Wire routing in `App.tsx`
+5. Refactor `Index.tsx` and `Profile.tsx` to use `useProfile`
+6. Add edit capability to `Profile.tsx`
 
