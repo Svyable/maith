@@ -6,6 +6,7 @@ import { t } from "@/i18n";
 import { tGlossary } from "@/i18n/tGlossary";
 import type { GlossaryTerm } from "@/content/glossary/types";
 import { TermMeta } from "@/components/glossary/TermMeta";
+import { CrossLinkPills } from "@/components/glossary/CrossLinkPills";
 
 interface FlashCardProps {
   term: GlossaryTerm;
@@ -281,6 +282,14 @@ export function FlashCard({ term, index }: FlashCardProps) {
               )}
             </AnimatePresence>
           </div>
+
+          {/* Cross-link pills */}
+          <CrossLinkPills
+            symbolLinks={term.symbolLinks}
+            formulaLinks={term.formulaLinks}
+            thinkerLinks={term.thinkerLinks}
+            glossaryLinks={term.related}
+          />
 
           {/* Footer */}
           <div className="mt-5 flex items-center justify-between gap-3">
