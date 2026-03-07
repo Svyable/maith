@@ -66,6 +66,13 @@ import { differentialEquationsQuestions } from './differential-equations';
 import { abstractAlgebraQuestions } from './abstract-algebra';
 import { opticsQuestions } from './optics';
 import { relativityQuestions } from './relativity';
+import { statisticalPhysicsQuestions } from './statistical-physics';
+import { plasmaPhysicsQuestions } from './plasma-physics';
+import { condensedMatterQuestions } from './condensed-matter';
+import { nonlinearDynamicsQuestions } from './nonlinear-dynamics';
+import { quantumFieldTheoryQuestions } from './quantum-field-theory';
+import { manyBodyPhysicsQuestions } from './many-body-physics';
+import { quantumGravityQuestions } from './quantum-gravity';
 import { distributedSystemsQuestions } from './distributed-systems';
 import { operatingSystemsQuestions } from './operating-systems';
 // ── 2024 SOTA ──────────────────────────────────────────────
