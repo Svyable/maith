@@ -819,6 +819,7 @@ export const allThinkerQuestions: Question[] = [
   // New Modern AI & Math thinkers
   ...subhashKhotQuestions,
   ...emmanuelCandesQuestions,
+  ...robertTibshiraniQuestions,
   ...sanjeevAroraQuestions,
   ...cedricVillaniQuestions,
   ...michaelJordanQuestions,
