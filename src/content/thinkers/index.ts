@@ -1,3 +1,4 @@
+import { alfredTarskiQuestions } from "./alfred-tarski";
 import type { Question } from "../types";
 
 import { felixExnerQuestions } from "./felix-exner";
@@ -541,6 +542,7 @@ import { jormaRissanenQuestions } from "./jorma-rissanen";
 import { richardBellmanQuestions } from "./richard-bellman";
 
 export const allThinkerQuestions: Question[] = [
+  ...alfredTarskiQuestions,
   ...felixExnerQuestions,
   ...marianSmoluchowskiQuestions,
   ...addyProssQuestions,
