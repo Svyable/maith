@@ -6,6 +6,7 @@ import { t } from "@/i18n";
 import { tGlossary } from "@/i18n/tGlossary";
 import type { GlossaryTerm } from "@/content/glossary/types";
 import { TermMeta } from "@/components/glossary/TermMeta";
+import { CrossLinkPills } from "@/components/glossary/CrossLinkPills";
 
 interface FlashCardProps {
   term: GlossaryTerm;
