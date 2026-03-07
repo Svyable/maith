@@ -283,6 +283,14 @@ export function FlashCard({ term, index }: FlashCardProps) {
             </AnimatePresence>
           </div>
 
+          {/* Cross-link pills */}
+          <CrossLinkPills
+            symbolLinks={term.symbolLinks}
+            formulaLinks={term.formulaLinks}
+            thinkerLinks={term.thinkerLinks}
+            glossaryLinks={term.related}
+          />
+
           {/* Footer */}
           <div className="mt-5 flex items-center justify-between gap-3">
             <TermMeta field={term.field as any} topic={topic ?? null} />
