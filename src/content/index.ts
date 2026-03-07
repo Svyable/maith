@@ -123,6 +123,13 @@ export const allQuestions: Question[] = [
   ...fluidDynamicsQuestions,
   ...opticsQuestions,
   ...relativityQuestions,
+  ...statisticalPhysicsQuestions,
+  ...plasmaPhysicsQuestions,
+  ...condensedMatterQuestions,
+  ...nonlinearDynamicsQuestions,
+  ...quantumFieldTheoryQuestions,
+  ...manyBodyPhysicsQuestions,
+  ...quantumGravityQuestions,
   // ── Chemistry ──────────────────────────────────────────────
   ...chemistryQuestions,
   // ── Biology & Medicine ──────────────────────────────────────
