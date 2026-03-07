@@ -5,6 +5,8 @@ import { frmQuestions } from '../frm';
 import { cqfQuestions } from '../cqf';
 import { caiaQuestions } from '../caia';
 import { allFinraQuestions } from '../finra';
+import { ucbEecs126Questions } from '../ucb-eecs126';
+import { cs50Questions } from '../cs50';
 
 export const allBonafideQuestions: Question[] = [
   ...cfaQuestions,
@@ -13,6 +15,8 @@ export const allBonafideQuestions: Question[] = [
   ...cqfQuestions,
   ...caiaQuestions,
   ...allFinraQuestions,
+  ...ucbEecs126Questions,
+  ...cs50Questions,
 ];
 
 /** Get bonafide questions filtered by topic slugs */

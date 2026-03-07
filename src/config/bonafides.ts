@@ -44,6 +44,10 @@ export const BONAFIDES: BonafideMeta[] = [
   { slug: 'series-24', label: 'Series 24', emoji: '🏢', description: 'FINRA General Securities Principal — supervision, compliance, net capital', topics: ['series-24'], color: 'accent', available: true },
   { slug: 'series-3', label: 'Series 3', emoji: '📈', description: 'NFA National Commodities Futures — futures, options on futures, regulations', topics: ['series-3'], color: 'primary', available: true },
   { slug: 'series-52', label: 'Series 52', emoji: '🏗️', description: 'MSRB Municipal Securities Representative — municipal bonds, underwriting, trading', topics: ['series-52'], color: 'success', available: true },
+
+  // ═══ UNIVERSITY COURSEWORK ═══
+  { slug: 'ucb-eecs126', label: 'UCB EECS 126', emoji: '📐', description: 'Probability & Random Processes — Markov chains, PageRank, queueing theory (Berkeley)', topics: ['ucb-eecs126'], color: 'accent', sections: ['Basic Probability', 'Markov Chains', 'PageRank', 'Queueing Theory', 'Continuous Probability'], available: true },
+  { slug: 'cs50', label: 'Harvard CS50x', emoji: '💻', description: 'Introduction to Computer Science — C, algorithms, memory, data structures, SQL, web (Harvard)', topics: ['cs50'], color: 'success', sections: ['C Basics', 'Algorithms', 'Memory', 'Data Structures', 'SQL', 'Web'], available: true },
 ];
 
 export const BONAFIDE_MAP: Record<string, BonafideMeta> = Object.fromEntries(
