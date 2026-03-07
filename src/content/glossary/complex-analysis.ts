@@ -1,4 +1,4 @@
-import type { GlossaryTerm } from '../types';
+import type { GlossaryTerm } from './types';
 
 export const complexAnalysisTerms: GlossaryTerm[] = [
   {
