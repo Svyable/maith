@@ -3,6 +3,8 @@ import { motion } from 'framer-motion';
 import { ThinkerCard } from '@/components/ThinkerCard';
 import { FieldFilterBar } from '@/components/FieldFilterBar';
 import { SearchFilter } from '@/components/SearchFilter';
+import { ThinkerProgressBar } from '@/components/thinkers/ThinkerProgressBar';
+import { AchievementFilter, type AchievementFilterValue } from '@/components/thinkers/AchievementFilter';
 import { THINKERS, type ThinkerMeta } from '@/config/thinkers';
 import { getThinkerQuestions } from '@/content/thinkers';
 import { t } from '@/i18n';
@@ -45,6 +47,7 @@ export function ThinkerGallery({
   const [selectedEra, setSelectedEra] = useState<EraFilter>('all');
   const [selectedField, setSelectedField] = useState<string>('all');
   const [search, setSearch] = useState('');
+  const [achievementFilter, setAchievementFilter] = useState<AchievementFilterValue>('all');
 
   // Count thinkers per era
   const eraCounts = useMemo(() => {
@@ -55,11 +58,13 @@ export function ThinkerGallery({
     return counts;
   }, []);
 
-  // Filter thinkers by era, field, and search
+  // Filter thinkers by era, field, search, and achievement status
   const filteredThinkers = useMemo(() => {
     return THINKERS.filter((th) => {
       if (selectedEra !== 'all' && th.era_group !== selectedEra) return false;
       if (selectedField !== 'all' && !th.fields.includes(selectedField)) return false;
+      if (achievementFilter === 'achieved' && !achievedSlugs.has(th.slug)) return false;
+      if (achievementFilter === 'unachieved' && achievedSlugs.has(th.slug)) return false;
       if (search.trim()) {
         const q = search.toLowerCase();
         if (
@@ -72,7 +77,7 @@ export function ThinkerGallery({
       }
       return true;
     });
-  }, [selectedEra, selectedField, search]);
+  }, [selectedEra, selectedField, search, achievementFilter, achievedSlugs]);
 
   // Derive available field slugs from era-filtered thinkers
   const availableFieldSlugs = useMemo(() => {
@@ -132,6 +137,17 @@ export function ThinkerGallery({
           {filteredThinkers.length} thinker{filteredThinkers.length !== 1 ? 's' : ''} · {totalQuestions} questions
         </p>
       </div>
+
+      {/* User progress stats */}
+      <ThinkerProgressBar achievedSlugs={achievedSlugs} />
+
+      {/* Achievement filter */}
+      <AchievementFilter
+        value={achievementFilter}
+        onChange={setAchievementFilter}
+        achievedCount={achievedSlugs.size}
+        totalCount={THINKERS.length}
+      />
 
       {/* Era buttons — 4 big cards */}
       <div>
