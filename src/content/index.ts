@@ -100,6 +100,12 @@ import { creditRiskQuestions } from './credit-risk';
 import { predictionMarketsQuestions } from './prediction-markets';
 import { formalVerificationQuestions } from './formal-verification';
 import { informationTheoryQuestions } from './information-theory';
+// ── New math topics ──────────────────────────────────────
+import { complexAnalysisQuestions } from './complex-analysis';
+import { functionalAnalysisQuestions } from './functional-analysis';
+import { graphTheoryQuestions } from './graph-theory';
+import { differentialGeometryQuestions } from './differential-geometry';
+import { numericalMethodsQuestions } from './numerical-methods';
 // ── Vault ──────────────────────────────────────────────────
 import { vaultQuestions } from './vault';
 
@@ -122,6 +128,11 @@ export const allQuestions: Question[] = [
   ...ergodicTheoryQuestions,
   ...algebraicGeometryQuestions,
   ...measureTheoryQuestions,
+  ...complexAnalysisQuestions,
+  ...functionalAnalysisQuestions,
+  ...graphTheoryQuestions,
+  ...differentialGeometryQuestions,
+  ...numericalMethodsQuestions,
   // ── Physics ──────────────────────────────────────────────────
   ...physicsQuestions,
   ...electromagnetismQuestions,

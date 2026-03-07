@@ -110,6 +110,11 @@ export const TOPICS: TopicMeta[] = [
   { slug: 'ergodic-theory',    label: 'Ergodic Theory',       emoji: '🌀', description: 'Mixing, Lyapunov, Ratner, NSE turbulence',            field: 'math'    },
   { slug: 'algebraic-geometry', label: 'Algebraic Geometry',  emoji: '🔷', description: 'Schemes, sheaves, MMP, perfectoid spaces',            field: 'math'    },
   { slug: 'measure-theory',   label: 'Measure Theory',        emoji: '📏', description: 'Lebesgue, Radon-Nikodym, optimal transport',          field: 'math'    },
+  { slug: 'complex-analysis', label: 'Complex Analysis',      emoji: '🌀', description: 'Holomorphic functions, residues, conformal maps',        field: 'math'    },
+  { slug: 'functional-analysis', label: 'Functional Analysis', emoji: '🔲', description: 'Banach & Hilbert spaces, spectral theory, operators',   field: 'math'    },
+  { slug: 'graph-theory',     label: 'Graph Theory',          emoji: '🕸️', description: 'Chromatic polynomials, Ramsey, planarity, minors',       field: 'math'    },
+  { slug: 'differential-geometry', label: 'Differential Geometry', emoji: '🌐', description: 'Curvature, geodesics, Ricci flow, fiber bundles',  field: 'math'    },
+  { slug: 'numerical-methods', label: 'Numerical Methods',    emoji: '🔢', description: 'Newton-Raphson, CG, FMM, PINNs, spectral methods',     field: 'math'    },
   // ── Physics ──────────────────────────────────────────────
   { slug: 'quantum-mechanics',   label: 'Quantum Mechanics',    emoji: '⚛️', description: 'Wave functions, operators, Schrödinger, uncertainty', field: 'physics' },
   { slug: 'classical-mechanics', label: 'Classical Mechanics',  emoji: '🍎', description: 'Newtonian dynamics, Lagrangians, Hamiltonians',      field: 'physics' },

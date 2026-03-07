@@ -36,7 +36,7 @@ export const FIELDS: FieldMeta[] = [
     label: 'Mathematics',
     emoji: '📐',
     description: 'Linear Algebra, Calculus, Probability, Optimization, Discrete Math, Number Theory, Real Analysis, Topology',
-    topics: ['linear-algebra', 'calculus', 'probability-stats', 'optimization', 'discrete-math', 'number-theory', 'real-analysis', 'topology', 'differential-equations', 'abstract-algebra', 'combinatorics', 'category-theory', 'ergodic-theory', 'algebraic-geometry', 'measure-theory'],
+    topics: ['linear-algebra', 'calculus', 'probability-stats', 'optimization', 'discrete-math', 'number-theory', 'real-analysis', 'topology', 'differential-equations', 'abstract-algebra', 'combinatorics', 'category-theory', 'ergodic-theory', 'algebraic-geometry', 'measure-theory', 'complex-analysis', 'functional-analysis', 'graph-theory', 'differential-geometry', 'numerical-methods'],
     color: 'accent',
     available: true,
   },
