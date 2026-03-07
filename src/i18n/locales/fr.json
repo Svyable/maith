@@ -48,7 +48,7 @@
   "quiz.hintUsed": "Indice utilisé",
   "quiz.eliminate": "50/50",
   "quiz.eliminateUsed": "50/50 utilisé",
-  "quiz.hintMissed": "💡 Vous auriez pu utiliser cet indice :",
+  "quiz.hintMissed": "Vous auriez pu utiliser cet indice :",
   "quiz.questionCount": "{{count}} questions disponibles",
   "quiz.keys": "Touches : 1-4 réponse · H indice · S passer · Entrée suivante",
   "quiz.score": "Score",

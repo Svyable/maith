@@ -48,7 +48,7 @@
   "quiz.hintUsed": "Hint Used",
   "quiz.eliminate": "50/50",
   "quiz.eliminateUsed": "50/50 Used",
-  "quiz.hintMissed": "💡 You could have used this hint:",
+  "quiz.hintMissed": "You could have used this hint:",
   "quiz.questionCount": "{{count}} questions available",
   "quiz.keys": "Keys: 1-4 answer · H hint · S skip · Enter next",
   "quiz.score": "Score",

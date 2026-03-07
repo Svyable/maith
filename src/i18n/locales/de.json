@@ -48,7 +48,7 @@
   "quiz.hintUsed": "Hinweis genutzt",
   "quiz.eliminate": "50/50",
   "quiz.eliminateUsed": "50/50 genutzt",
-  "quiz.hintMissed": "💡 Du hättest diesen Hinweis nutzen können:",
+  "quiz.hintMissed": "Du hättest diesen Hinweis nutzen können:",
   "quiz.questionCount": "{{count}} Fragen verfügbar",
   "quiz.keys": "Tasten: 1-4 Antwort · H Hinweis · S überspringen · Enter weiter",
   "quiz.score": "Punktzahl",

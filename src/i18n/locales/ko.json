@@ -48,7 +48,7 @@
   "quiz.hintUsed": "힌트 사용함",
   "quiz.eliminate": "50/50",
   "quiz.eliminateUsed": "50/50 사용함",
-  "quiz.hintMissed": "💡 이 힌트를 사용할 수 있었어요:",
+  "quiz.hintMissed": "이 힌트를 사용할 수 있었어요:",
   "quiz.questionCount": "{{count}}문항 사용 가능",
   "quiz.keys": "키: 1-4 답 · H 힌트 · S 건너뛰기 · Enter 다음",
   "quiz.score": "점수",

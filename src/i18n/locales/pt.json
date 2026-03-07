@@ -48,7 +48,7 @@
   "quiz.hintUsed": "Dica usada",
   "quiz.eliminate": "50/50",
   "quiz.eliminateUsed": "50/50 usado",
-  "quiz.hintMissed": "💡 Você poderia ter usado esta dica:",
+  "quiz.hintMissed": "Você poderia ter usado esta dica:",
   "quiz.questionCount": "{{count}} perguntas disponíveis",
   "quiz.keys": "Teclas: 1-4 resposta · H dica · S pular · Enter próxima",
   "quiz.score": "Pontuação",

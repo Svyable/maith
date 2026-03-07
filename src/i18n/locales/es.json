@@ -48,7 +48,7 @@
   "quiz.hintUsed": "Pista usada",
   "quiz.eliminate": "50/50",
   "quiz.eliminateUsed": "50/50 usado",
-  "quiz.hintMissed": "💡 Podrías haber usado esta pista:",
+  "quiz.hintMissed": "Podrías haber usado esta pista:",
   "quiz.questionCount": "{{count}} preguntas disponibles",
   "quiz.keys": "Teclas: 1-4 respuesta · H pista · S saltar · Enter siguiente",
   "quiz.score": "Puntuación",

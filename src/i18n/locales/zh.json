@@ -48,7 +48,7 @@
   "quiz.hintUsed": "已使用提示",
   "quiz.eliminate": "50/50",
   "quiz.eliminateUsed": "已使用 50/50",
-  "quiz.hintMissed": "💡 你本可以使用这个提示：",
+  "quiz.hintMissed": "你本可以使用这个提示：",
   "quiz.questionCount": "共有 {{count}} 题可用",
   "quiz.keys": "按键：1-4 选择 · H 提示 · S 跳过 · Enter 下一题",
   "quiz.score": "得分",

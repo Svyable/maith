@@ -48,7 +48,7 @@
   "quiz.hintUsed": "संकेत उपयोग किया गया",
   "quiz.eliminate": "50/50",
   "quiz.eliminateUsed": "50/50 उपयोग किया गया",
-  "quiz.hintMissed": "💡 आप यह संकेत उपयोग कर सकते थे:",
+  "quiz.hintMissed": "आप यह संकेत उपयोग कर सकते थे:",
   "quiz.questionCount": "{{count}} प्रश्न उपलब्ध",
   "quiz.keys": "कुंजियाँ: 1-4 उत्तर · H संकेत · S छोड़ें · Enter अगला",
   "quiz.score": "स्कोर",

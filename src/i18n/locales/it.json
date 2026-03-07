@@ -48,7 +48,7 @@
   "quiz.hintUsed": "Indizio usato",
   "quiz.eliminate": "50/50",
   "quiz.eliminateUsed": "50/50 usato",
-  "quiz.hintMissed": "💡 Avresti potuto usare questo indizio:",
+  "quiz.hintMissed": "Avresti potuto usare questo indizio:",
   "quiz.questionCount": "{{count}} domande disponibili",
   "quiz.keys": "Tasti: 1-4 risposta · H indizio · S salta · Invio avanti",
   "quiz.score": "Punteggio",

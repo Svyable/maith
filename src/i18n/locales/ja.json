@@ -48,7 +48,7 @@
   "quiz.hintUsed": "ヒント使用済み",
   "quiz.eliminate": "50/50",
   "quiz.eliminateUsed": "50/50使用済み",
-  "quiz.hintMissed": "💡 このヒントを使えました:",
+  "quiz.hintMissed": "このヒントを使えました:",
   "quiz.questionCount": "{{count}}問利用可能",
   "quiz.keys": "キー: 1-4 回答 · H ヒント · S スキップ · Enter 次へ",
   "quiz.score": "スコア",
