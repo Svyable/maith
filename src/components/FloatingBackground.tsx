@@ -118,7 +118,7 @@ export const FloatingBackground = memo(function FloatingBackground() {
   const spawnSymbol = useCallback(() => {
     const symbol = MATH_SYMBOL_LIBRARY[Math.floor(Math.random() * MATH_SYMBOL_LIBRARY.length)];
     const angle = Math.random() * Math.PI * 2;
-    const speed = 1.2 + Math.random() * 2.4;
+    const speed = 1 + Math.random() * 1.4;
 
     const newSymbol: MathSymbol = {
       id: symbolIdRef.current++,
@@ -126,7 +126,7 @@ export const FloatingBackground = memo(function FloatingBackground() {
       x: 45 + Math.random() * 10,
       y: 2 + Math.random() * 4,
       opacity: 1,
-      scale: 0.7 + Math.random() * 0.8, // BIGGER
+      scale: 0.7 + Math.random() * 0.6, // BIGGER
       rotation: Math.random() * 360,
       velocityX: Math.cos(angle) * speed,
       velocityY: Math.sin(angle) * speed + 0.8,
