@@ -7,6 +7,7 @@ interface ThinkerCardProps {
   questionCount: number;
   onSelect: (slug: string) => void;
   index: number;
+  achieved?: boolean;
 }
 
 const COLOR_CLASSES: Record<string, string> = {
@@ -23,8 +24,10 @@ const BADGE_CLASSES: Record<string, string> = {
   destructive: 'bg-destructive/15 text-destructive',
 };
 
-export function ThinkerCard({ thinker, questionCount, onSelect, index }: ThinkerCardProps) {
-  const borderClass = COLOR_CLASSES[thinker.color] ?? COLOR_CLASSES.primary;
+export function ThinkerCard({ thinker, questionCount, onSelect, index, achieved }: ThinkerCardProps) {
+  const borderClass = achieved
+    ? 'border-amber-400/60 hover:border-amber-300 bg-amber-500/5 hover:bg-amber-500/10'
+    : (COLOR_CLASSES[thinker.color] ?? COLOR_CLASSES.primary);
   const badgeClass = BADGE_CLASSES[thinker.color] ?? BADGE_CLASSES.primary;
 
   return (
@@ -35,7 +38,9 @@ export function ThinkerCard({ thinker, questionCount, onSelect, index }: Thinker
       whileHover={{ scale: 1.02 }}
       whileTap={{ scale: 0.98 }}
       onClick={() => onSelect(thinker.slug)}
-      className={`w-full text-left p-4 rounded-xl border transition-all ${borderClass}`}
+      className={`w-full text-left p-4 rounded-xl border transition-all ${borderClass} ${
+        achieved ? 'shadow-[0_0_18px_-3px_hsl(45,90%,55%,0.35)] hover:shadow-[0_0_24px_-3px_hsl(45,90%,55%,0.5)]' : ''
+      }`}
     >
       <div className="flex items-start gap-3">
         <span className="text-3xl mt-0.5 select-none">{thinker.emoji}</span>
@@ -45,6 +50,11 @@ export function ThinkerCard({ thinker, questionCount, onSelect, index }: Thinker
             <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${badgeClass}`}>
               {thinker.archetype}
             </span>
+            {achieved && (
+              <span className="text-[9px] font-mono font-bold px-1.5 py-0.5 rounded-full bg-amber-500/20 text-amber-400 border border-amber-400/30">
+                Q.E.D. ∎
+              </span>
+            )}
           </div>
           <p className="text-xs text-muted-foreground mt-0.5 leading-relaxed">{thinker.tagline}</p>
           {thinker.funFact && (

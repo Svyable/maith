@@ -10,6 +10,7 @@ import { ThinkerGallery } from '@/components/thinkers/ThinkerGallery';
 
 import { useThinkerQuiz } from '@/hooks/useThinkerQuiz';
 import { useQuizSession } from '@/hooks/useQuizSession';
+import { useThinkerAchievements } from '@/hooks/useThinkerAchievements';
 import { THINKERS } from '@/config/thinkers';
 import { DEFAULT_DIFFICULTIES } from '@/config/constants';
 import type { Difficulty } from '@/config/constants';
@@ -26,6 +27,8 @@ export default function Thinkers() {
 
   const { state, questions, currentQuestion, startThinker, answer, nextQuestion, skipQuestion, endQuiz } =
     useThinkerQuiz(selectedDifficulties);
+
+  const { achievedSlugs, awardIfPerfect } = useThinkerAchievements();
 
   const timeoutRef = useRef<(() => void) | null>(null);
 
@@ -82,9 +85,13 @@ export default function Thinkers() {
 
   useEffect(() => {
     if (state.isFinished && screen === 'quiz') {
+      // Award achievement on perfect score: ∀q ∈ Q, correct(q) ⟹ Q.E.D. ∎
+      if (selectedSlug) {
+        awardIfPerfect(selectedSlug, state.correctAnswered, state.totalAnswered, Math.round(state.score));
+      }
       setScreen('results');
     }
-  }, [state.isFinished, screen]);
+  }, [state.isFinished, screen, selectedSlug, state.correctAnswered, state.totalAnswered, state.score, awardIfPerfect]);
 
   const thinkerMeta = selectedSlug ? THINKERS.find((th) => th.slug === selectedSlug) : null;
 
@@ -105,6 +112,7 @@ export default function Thinkers() {
               onToggleDifficulty={toggleDifficulty}
               onStartThinker={handleStartThinker}
               onBack={() => navigate('/')}
+              achievedSlugs={achievedSlugs}
             />
           )}
 
