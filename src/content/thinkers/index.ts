@@ -1,3 +1,6 @@
+import { luigiBianchiQuestions } from "./luigi-bianchi";
+import { davidBohmQuestions } from "./david-bohm";
+import { yakirAharonovQuestions } from "./yakir-aharonov";
 import { alfredTarskiQuestions } from "./alfred-tarski";
 import type { Question } from "../types";
 
@@ -561,6 +564,9 @@ import { andrzejEhrenfeuchtQuestions } from "./andrzej-ehrenfeucht";
 import { herbertGrotzschQuestions } from "./herbert-grotzsch";
 
 export const allThinkerQuestions: Question[] = [
+  ...luigiBianchiQuestions,
+  ...yakirAharonovQuestions,
+  ...davidBohmQuestions,
   ...alfredTarskiQuestions,
   ...felixExnerQuestions,
   ...marianSmoluchowskiQuestions,
