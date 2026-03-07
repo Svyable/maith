@@ -183,6 +183,12 @@ export default function Thinkers() {
         </AnimatePresence>
       </main>
       {screen === 'gallery' && <div className="relative z-10"><Footer /></div>}
+
+      <QEDCelebration
+        thinker={thinkerMeta ?? null}
+        show={showCelebration}
+        onDone={() => setShowCelebration(false)}
+      />
     </div>
   );
 }
