@@ -40,10 +40,17 @@ export type SubDomain =
   | "Thermodynamics & Stat Mech"
   | "Relativity & Gravity"
   | "Condensed Matter & Applied"
+  | "Ergodic Theory"
+  | "Hamiltonian Dynamics"
+  | "Brownian Motion"
+  | "Transport Theory"
   // Chemistry
   | "Physical Chemistry"
   | "Organic Chemistry"
   | "Materials Science"
+  | "Systems Chemistry"
+  | "Origin of Life"
+  | "Replicating Systems"
   // Biology & Medicine
   | "Molecular Biology"
   | "Genetics & Evolution"
@@ -77,6 +84,9 @@ export type SubDomain =
   // Earth & Space
   | "Astronomy & Astrophysics"
   | "Geosciences"
+  | "Geomorphology"
+  | "Sediment Transport"
+  | "Landscape Dynamics"
   // Philosophy
   | "Philosophy of Mathematics"
   | "Mathematical Logic";
@@ -862,7 +872,7 @@ export const EQUATIONS: Equation[] = [
     year: "1877",
     field: "Statistical Mechanics",
     domain: "Physics",
-    subDomain: "Thermodynamics & Stat Mech",
+    subDomain: "Brownian Motion",
     domainEmoji: "⚛️",
     significance:
       "Bridges the microscopic world of atoms to macroscopic thermodynamics. Defines entropy as the log of the number of microscopic states. Engraved on Boltzmann's tombstone. Connected thermodynamics to probability and information.",
@@ -881,7 +891,7 @@ export const EQUATIONS: Equation[] = [
     year: "1850",
     field: "Thermodynamics",
     domain: "Physics",
-    subDomain: "Thermodynamics & Stat Mech",
+    subDomain: "Transport Theory",
     domainEmoji: "⚛️",
     significance:
       "Entropy of an isolated system never decreases. Defines the arrow of time — the only fundamental physical law that distinguishes past from future. Imposes fundamental limits on engines, computation (Landauer), and the ultimate fate of the universe.",
@@ -3776,7 +3786,7 @@ export const EQUATIONS: Equation[] = [
     year: "1935 / 1979",
     field: "Seismology",
     domain: "Earth & Space",
-    subDomain: "Geosciences",
+    subDomain: "Sediment Transport",
     domainEmoji: "🌍",
     significance:
       "Quantifies earthquake energy release via seismic moment M₀. Each unit increase = 31.6× more energy. The moment magnitude scale (Mw) replaced Richter for large earthquakes and is the standard used globally. A logarithmic scale connecting energy to a universally reported number.",
@@ -3797,7 +3807,7 @@ export const EQUATIONS: Equation[] = [
     year: "1902",
     field: "Geochronology / Nuclear Physics",
     domain: "Earth & Space",
-    subDomain: "Geosciences",
+    subDomain: "Landscape Dynamics",
     domainEmoji: "🌍",
     significance:
       "Uses the constant rate of radioactive decay to determine the age of rocks, fossils, and ancient artefacts. Established the age of Earth at 4.54 Gyr. The basis of carbon-14 dating and all radiometric geochronology.",
@@ -6307,6 +6317,143 @@ export const EQUATIONS: Equation[] = [
     beauty: 8,
     difficulty: "sota",
     tags: ["conformal prediction", "uncertainty quantification", "distribution-free", "coverage"],
+  },
+  {
+    rank: 311,
+    name: "Birkhoff Ergodic Theorem",
+    equation: "\\lim_{N\\to\\infty} \\frac{1}{N}\\sum_{n=0}^{N-1} f(T^n x) = \\int f \\, d\\mu",
+    discoverer: "George D. Birkhoff",
+    year: "1931",
+    field: "Dynamical Systems",
+    domain: "Mathematics",
+    subDomain: "Ergodic Theory",
+    domainEmoji: "🌀",
+    significance: "Connects long-run trajectory averages to statistical averages in measure-preserving systems.",
+    constants: "f = observable, T = transformation, x = state, μ = invariant measure",
+    applications: "Statistical mechanics, simulation, chaos, probability",
+    beauty: 9,
+    difficulty: "hard",
+    tags: ["ergodic theorem", "dynamics", "measure theory", "statistical mechanics"],
+  },
+  {
+    rank: 312,
+    name: "Poincaré–Birkhoff Theorem",
+    equation: "\\text{Area-preserving twist map of an annulus} \\Rightarrow \\text{at least two fixed points}",
+    discoverer: "Henri Poincaré / George D. Birkhoff",
+    year: "1913",
+    field: "Dynamical Systems",
+    domain: "Mathematics",
+    subDomain: "Hamiltonian Dynamics",
+    domainEmoji: "🪐",
+    significance: "A foundational fixed-point result in conservative dynamics.",
+    constants: "Area preservation and boundary twist conditions",
+    applications: "Hamiltonian systems, celestial mechanics, symplectic geometry",
+    beauty: 8,
+    difficulty: "hard",
+    tags: ["fixed points", "twist map", "annulus", "hamiltonian systems"],
+  },
+  {
+    rank: 313,
+    name: "Dynamic Kinetic Stability",
+    equation: "\\frac{dX}{dt} = (k_r - k_d)X",
+    discoverer: "Addy Pross",
+    year: "2012",
+    field: "Systems Chemistry",
+    domain: "Chemistry",
+    subDomain: "Origin of Life",
+    domainEmoji: "🧪",
+    significance: "Describes how replicating systems persist through driven kinetics rather than equilibrium.",
+    constants: "X = replicator concentration, k_r = replication rate, k_d = degradation rate",
+    applications: "Abiogenesis, systems chemistry, prebiotic evolution",
+    beauty: 7,
+    difficulty: "hard",
+    tags: ["dynamic kinetic stability", "origin of life", "replication", "systems chemistry"],
+  },
+  {
+    rank: 314,
+    name: "Replicator Growth Equation",
+    equation: "X_{t+1} = (1 + r - d)X_t",
+    discoverer: "Modern replicator framework",
+    year: "Contemporary",
+    field: "Non-Equilibrium Chemistry",
+    domain: "Chemistry",
+    subDomain: "Replicating Systems",
+    domainEmoji: "♻️",
+    significance: "A simple persistence model for reproducing systems under growth and decay.",
+    constants: "X_t = population at time t, r = growth, d = degradation",
+    applications: "Chemical evolution, protocells, replication models",
+    beauty: 6,
+    difficulty: "hard",
+    tags: ["replicator", "growth", "chemical evolution", "dissipation"],
+  },
+,
+  {
+    rank: 315,
+    name: "Smoluchowski Diffusion Equation",
+    equation: "\\frac{\partial p}{\partial t} = D \\nabla^2 p - \\nabla \\cdot (\\mu F p)",
+    discoverer: "Marian Smoluchowski",
+    year: "1906",
+    field: "Statistical Physics",
+    domain: "Physics",
+    subDomain: "Brownian Motion",
+    domainEmoji: "🌫️",
+    significance: "Models how probability density evolves under diffusion and drift in fluctuation-driven systems.",
+    constants: "p = probability density, D = diffusion coefficient, μ = mobility, F = force",
+    applications: "Brownian motion, colloids, soft matter, stochastic transport",
+    beauty: 8,
+    difficulty: "hard",
+    tags: ["smoluchowski", "diffusion", "brownian motion", "statistical physics"],
+  },
+  {
+    rank: 316,
+    name: "Einstein–Smoluchowski Relation",
+    equation: "D = \\mu k_B T",
+    discoverer: "Albert Einstein / Marian Smoluchowski",
+    year: "1905",
+    field: "Statistical Physics",
+    domain: "Physics",
+    subDomain: "Transport Theory",
+    domainEmoji: "⚛️",
+    significance: "Links diffusion to mobility and temperature, one of the classic fluctuation-dissipation relations.",
+    constants: "D = diffusion coefficient, μ = mobility, k_B = Boltzmann constant, T = temperature",
+    applications: "Colloids, transport theory, soft matter, biophysics",
+    beauty: 9,
+    difficulty: "hard",
+    tags: ["diffusion", "mobility", "brownian motion", "einstein-smoluchowski"],
+  },
+  {
+    rank: 317,
+    name: "Exner Equation",
+    equation: "\\frac{\partial \\eta}{\partial t} = -\\frac{1}{1-\\lambda_p} \\nabla \\cdot \\mathbf{q_s}",
+    discoverer: "Felix Maria Exner",
+    year: "1925",
+    field: "Geomorphology",
+    domain: "Earth Science",
+    subDomain: "Sediment Transport",
+    domainEmoji: "🏞️",
+    significance: "Expresses sediment-mass conservation in an evolving bed, making it foundational for morphodynamic modeling.",
+    constants: "η = bed elevation, λ_p = bed porosity, q_s = sediment flux",
+    applications: "River morphodynamics, delta evolution, erosion, channel adjustment",
+    beauty: 8,
+    difficulty: "hard",
+    tags: ["exner equation", "sediment transport", "geomorphology", "morphodynamics"],
+  },
+  {
+    rank: 318,
+    name: "Sediment Continuity Law",
+    equation: "\\frac{\partial \\eta}{\partial t} + \\frac{1}{1-\\lambda_p} \\nabla \\cdot \\mathbf{q_s} = 0",
+    discoverer: "Morphodynamic continuity framework",
+    year: "Modern form",
+    field: "Geomorphology",
+    domain: "Earth Science",
+    subDomain: "Landscape Dynamics",
+    domainEmoji: "🌍",
+    significance: "A conservation-law form of bed evolution used to couple transport and topographic change.",
+    constants: "η = bed elevation, λ_p = porosity, q_s = sediment flux",
+    applications: "Landscape evolution, river engineering, sediment-routing models",
+    beauty: 7,
+    difficulty: "hard",
+    tags: ["sediment continuity", "bed evolution", "transport", "earth science"],
   },
 ];
 
