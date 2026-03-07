@@ -1,8 +1,9 @@
+import type { Question } from "../types";
+
 import { felixExnerQuestions } from "./felix-exner";
 import { marianSmoluchowskiQuestions } from "./marian-smoluchowski";
 import { addyProssQuestions } from "./addy-pross";
 import { georgeBirkhoffQuestions } from "./george-birkhoff";
-import type { Question } from "../types";
 
 // Notation Pioneers
 import { williamJonesQuestions } from "./william-jones";
