@@ -1074,6 +1074,14 @@ export const allThinkerQuestions: Question[] = [
   ...jamesStorerQuestions,
   ...yannColletQuestions,
   ...jarekDudaQuestions,
+
+  // Graph Theory, Symmetry & Logic Pioneers
+  ...sophusLieQuestions,
+  ...ginoFanoQuestions,
+  ...stanWagonQuestions,
+  ...janMycielskiQuestions,
+  ...andrzejEhrenfeuchtQuestions,
+  ...herbertGrotzschQuestions,
 ];
 export function getThinkerQuestions(slug: string): Question[] {
   return allThinkerQuestions.filter((q) => q.topic === slug);
