@@ -25,6 +25,7 @@ interface ThinkerGalleryProps {
   onToggleDifficulty: (d: Difficulty) => void;
   onStartThinker: (slug: string) => void;
   onBack: () => void;
+  achievedSlugs: Set<string>;
 }
 
 const ERA_BUTTONS: { key: EraFilter; emoji: string; labelKey: string }[] = [
@@ -39,6 +40,7 @@ export function ThinkerGallery({
   onToggleDifficulty,
   onStartThinker,
   onBack,
+  achievedSlugs,
 }: ThinkerGalleryProps) {
   const [selectedEra, setSelectedEra] = useState<EraFilter>('all');
   const [selectedField, setSelectedField] = useState<string>('all');
@@ -206,6 +208,7 @@ export function ThinkerGallery({
                     questionCount={getThinkerQuestions(thinker.slug).length}
                     onSelect={onStartThinker}
                     index={i}
+                    achieved={achievedSlugs.has(thinker.slug)}
                   />
                 ))}
               </div>
