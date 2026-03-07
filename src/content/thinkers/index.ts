@@ -1044,6 +1044,17 @@ export const allThinkerQuestions: Question[] = [
   // Stochastic Processes & Gas Kinetics
   ...markKacQuestions,
   ...emilWarburgQuestions,
+
+  // Compression & Information Coding Pioneers
+  ...jacobZivQuestions,
+  ...abrahamLempelQuestions,
+  ...igorPavlovQuestions,
+  ...lasseCollinQuestions,
+  ...julianSewardQuestions,
+  ...mattMahoneyQuestions,
+  ...jamesStorerQuestions,
+  ...yannColletQuestions,
+  ...jarekDudaQuestions,
 ];
 export function getThinkerQuestions(slug: string): Question[] {
   return allThinkerQuestions.filter((q) => q.topic === slug);
