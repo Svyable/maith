@@ -6221,6 +6221,93 @@ export const EQUATIONS: Equation[] = [
     difficulty: "hard",
     tags: ["VPIN", "order flow toxicity", "informed trading", "flash crash", "market microstructure"],
   },
+  // ─────────────────────────────────────────────────────────────────────────
+  // TIBSHIRANI / STATISTICAL LEARNING
+  // ─────────────────────────────────────────────────────────────────────────
+  {
+    rank: 307,
+    name: "Elastic Net",
+    equation:
+      "\\hat{\\beta} = \\arg\\min_\\beta \\|y - X\\beta\\|_2^2 + \\lambda_1\\|\\beta\\|_1 + \\lambda_2\\|\\beta\\|_2^2",
+    discoverer: "Zou & Hastie (with Tibshirani)",
+    year: "2005",
+    field: "High-Dimensional Statistics / Machine Learning",
+    domain: "Data Science",
+    subDomain: "Statistical Methods",
+    domainEmoji: "📡",
+    significance:
+      "Combines L1 (sparsity) and L2 (grouping) penalties to handle correlated predictors where pure LASSO fails. When predictors come in groups (e.g. gene pathways), Elastic Net selects or drops the entire group together. Strictly generalises both LASSO (λ₂=0) and Ridge (λ₁=0).",
+    constants:
+      "β = regression coefficients, X = design matrix, y = response, λ₁ = L1 penalty (sparsity), λ₂ = L2 penalty (grouping)",
+    applications:
+      "Genomics pathway analysis, multi-collinear financial factor models, NLP with correlated n-gram features",
+    beauty: 7,
+    difficulty: "hard",
+    tags: ["elastic net", "regularisation", "sparsity", "LASSO", "ridge", "statistics"],
+  },
+  {
+    rank: 308,
+    name: "Bias–Variance Decomposition",
+    equation:
+      "E[(y - \\hat{f})^2] = \\underbrace{(E[\\hat{f}] - f)^2}_{\\text{Bias}^2} + \\underbrace{E[(\\hat{f} - E[\\hat{f}])^2]}_{\\text{Variance}} + \\sigma^2",
+    discoverer: "Geman, Bienenstock & Doursat / Hastie, Tibshirani & Friedman",
+    year: "1992 / 2001",
+    field: "Statistical Learning Theory",
+    domain: "Data Science",
+    subDomain: "Statistical Methods",
+    domainEmoji: "📡",
+    significance:
+      "The fundamental decomposition of prediction error into three irreducible components. Every model selection decision is implicitly a bias-variance trade-off: regularisation increases bias but decreases variance, usually winning when the number of predictors exceeds samples.",
+    constants:
+      "f = true function, f̂ = estimated function, σ² = irreducible noise, E = expectation over training sets",
+    applications:
+      "Model selection, hyperparameter tuning, ensemble methods (bagging reduces variance, boosting reduces bias)",
+    beauty: 9,
+    difficulty: "hard",
+    tags: ["bias-variance", "statistical learning", "model selection", "generalisation"],
+  },
+  {
+    rank: 309,
+    name: "SAM Statistic (Significance Analysis of Microarrays)",
+    equation:
+      "d_i = \\frac{\\bar{x}_{i1} - \\bar{x}_{i2}}{s_i + s_0}",
+    discoverer: "Tusher, Tibshirani & Chu",
+    year: "2001",
+    field: "Biostatistics / Genomics",
+    domain: "Data Science",
+    subDomain: "Statistical Methods",
+    domainEmoji: "📡",
+    significance:
+      "A modified t-statistic with a fudge factor s₀ that stabilises variance for low-expression genes. Uses permutation-based FDR estimation to identify differentially expressed genes among thousands of simultaneous tests. The standard tool for microarray and RNA-seq differential expression.",
+    constants:
+      "x̄ᵢ₁, x̄ᵢ₂ = group means for gene i, sᵢ = gene-specific standard error, s₀ = exchangeability factor (percentile of sᵢ distribution)",
+    applications:
+      "Cancer subtype discovery, drug response genomics, single-cell RNA-seq, GWAS",
+    beauty: 6,
+    difficulty: "sota",
+    tags: ["SAM", "genomics", "multiple testing", "FDR", "microarray", "biostatistics"],
+  },
+  {
+    rank: 310,
+    name: "Conformal Prediction Coverage",
+    equation:
+      "P(Y_{n+1} \\in C(X_{n+1})) \\geq 1 - \\alpha",
+    discoverer: "Vovk, Gammerman & Shafer / Lei, G'Sell, Rinaldo, Tibshirani & Wasserman",
+    year: "2005 / 2019",
+    field: "Statistical Inference / Machine Learning",
+    domain: "Data Science",
+    subDomain: "Statistical Methods",
+    domainEmoji: "📡",
+    significance:
+      "Distribution-free prediction sets with exact finite-sample coverage. Wraps any black-box model (neural net, random forest, etc.) to produce prediction intervals that contain the true value with probability ≥ 1-α. Only requires exchangeability — no parametric assumptions.",
+    constants:
+      "C(X) = prediction set, α = miscoverage level, n = calibration set size",
+    applications:
+      "Medical AI uncertainty quantification, autonomous vehicles, drug dosing, financial risk bounds",
+    beauty: 8,
+    difficulty: "sota",
+    tags: ["conformal prediction", "uncertainty quantification", "distribution-free", "coverage"],
+  },
 ];
 
 // =============================================================================

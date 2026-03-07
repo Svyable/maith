@@ -30,6 +30,7 @@ import { graphTheoryTerms } from './graph-theory';
 import { functionalAnalysisTerms } from './functional-analysis';
 import { diffGeometryTerms } from './differential-geometry';
 import { numericalMethodsTerms } from './numerical-methods';
+import { statisticalLearningTerms } from './statistical-learning';
 
 // ── Locale-aware field imports (folder pattern) ─────────────
 import { earthSpaceTerms_en } from './earth-space/en';
@@ -80,6 +81,8 @@ const STATIC_TERMS: GlossaryTerm[] = [
   ...functionalAnalysisTerms,
   ...diffGeometryTerms,
   ...numericalMethodsTerms,
+  // Statistical learning
+  ...statisticalLearningTerms,
 ];
 
 // ── Public API ──────────────────────────────────────────────

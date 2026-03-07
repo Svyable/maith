@@ -313,6 +313,7 @@ import { melanieMitchellQuestions } from "./melanie-mitchell";
 // New Modern AI & Math thinkers
 import { subhashKhotQuestions } from "./subhash-khot";
 import { emmanuelCandesQuestions } from "./emmanuel-candes";
+import { robertTibshiraniQuestions } from "./robert-tibshirani";
 import { sanjeevAroraQuestions } from "./sanjeev-arora";
 import { cedricVillaniQuestions } from "./cedric-villani";
 import { michaelJordanQuestions } from "./michael-jordan";
@@ -818,6 +819,7 @@ export const allThinkerQuestions: Question[] = [
   // New Modern AI & Math thinkers
   ...subhashKhotQuestions,
   ...emmanuelCandesQuestions,
+  ...robertTibshiraniQuestions,
   ...sanjeevAroraQuestions,
   ...cedricVillaniQuestions,
   ...michaelJordanQuestions,
