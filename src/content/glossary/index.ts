@@ -1,7 +1,10 @@
 import type { GlossaryTerm } from './types';
 import { getLocale } from '@/i18n';
 
-// Non-localized field imports (legacy – will be migrated per-field over time)
+// ── Field term imports ──────────────────────────────────────
+// Flat-file fields (single-locale, English-only for now).
+// When a field gets translated, move it to a folder with en.ts / es.ts etc.
+// Both patterns are valid and coexist cleanly.
 import { mathTerms } from './math';
 import { physicsTerms } from './physics';
 import { csTerms } from './cs';
@@ -12,13 +15,17 @@ import { chemistryTerms } from './chemistry';
 import { quantTerms } from './quant';
 import { opticsTerms, commsTerms, semiconductorTerms, materialsTerms } from './applied-sciences';
 
-// Locale-aware field imports
+// ── Locale-aware field imports (folder pattern) ─────────────
 import { earthSpaceTerms_en } from './earth-space/en';
 import { earthSpaceTerms_es } from './earth-space/es';
 
 export type { GlossaryTerm };
 
-// Registry of locale-aware fields
+// ── Locale registry ─────────────────────────────────────────
+// To add a new translated field:
+//   1. Create glossary/<field>/en.ts and glossary/<field>/<locale>.ts
+//   2. Import them above
+//   3. Add an entry here
 const LOCALIZED_FIELDS: Record<string, Record<string, GlossaryTerm[]>> = {
   'earth-space': {
     en: earthSpaceTerms_en,
@@ -33,7 +40,7 @@ function getLocalizedFieldTerms(field: string): GlossaryTerm[] {
   return byLocale[locale] ?? byLocale.en ?? [];
 }
 
-// Legacy (non-localized) terms
+// ── Static (single-locale) terms ────────────────────────────
 const STATIC_TERMS: GlossaryTerm[] = [
   ...mathTerms,
   ...physicsTerms,
@@ -49,7 +56,9 @@ const STATIC_TERMS: GlossaryTerm[] = [
   ...materialsTerms,
 ];
 
-/** All glossary terms across every field (locale-aware for migrated fields) */
+// ── Public API ──────────────────────────────────────────────
+
+/** All glossary terms across every field (locale-aware where available) */
 export function getAllGlossaryTerms(): GlossaryTerm[] {
   return [
     ...STATIC_TERMS,
@@ -57,17 +66,13 @@ export function getAllGlossaryTerms(): GlossaryTerm[] {
   ];
 }
 
-/** For backward compat */
+/** For backward compat — prefer getAllGlossaryTerms() for locale reactivity */
 export const allGlossaryTerms = getAllGlossaryTerms();
 
 /** Terms filtered by field slug */
 export function getGlossaryByField(field: string): GlossaryTerm[] {
   if (field === 'all') return getAllGlossaryTerms();
-
-  // Check localized first
   if (LOCALIZED_FIELDS[field]) return getLocalizedFieldTerms(field);
-
-  // Fallback to static
   return STATIC_TERMS.filter((t) => t.field === field);
 }
 
@@ -76,4 +81,19 @@ export function getGlossaryFields(): string[] {
   const staticFields = [...new Set(STATIC_TERMS.map((t) => t.field))];
   const localizedFields = Object.keys(LOCALIZED_FIELDS);
   return [...new Set([...staticFields, ...localizedFields])];
+}
+
+/** Look up a single term by ID (useful for cross-linking from questions/formulas) */
+export function getGlossaryTermById(id: string): GlossaryTerm | undefined {
+  return getAllGlossaryTerms().find((t) => t.id === id);
+}
+
+/** Get all terms that link to a given thinker slug */
+export function getGlossaryTermsByThinker(thinkerSlug: string): GlossaryTerm[] {
+  return getAllGlossaryTerms().filter((t) => t.thinkerLinks?.includes(thinkerSlug));
+}
+
+/** Get all terms that reference a given formula slug */
+export function getGlossaryTermsByFormula(formulaSlug: string): GlossaryTerm[] {
+  return getAllGlossaryTerms().filter((t) => t.formulaLinks?.includes(formulaSlug));
 }
