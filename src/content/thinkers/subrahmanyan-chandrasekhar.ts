@@ -9,6 +9,7 @@ export const subrahmanyanChandrasekharQuestions: Question[] = [
     explanation: 'White dwarfs are supported by electron degeneracy pressure (Pauli exclusion principle). Above ~1.4 M☉, relativistic effects weaken this support and gravity wins, leading to neutron star formation or Type Ia supernova.',
     realWorld: 'Chandrasekhar derived this at age 19 on a ship from India to England — and was publicly ridiculed by Eddington for the result.',
     hint: 'Quantum mechanics (Pauli exclusion) fights gravity — but relativity tips the balance at high mass.',
+    glossaryLinks: ['fermi-dirac'],
   },
   {
     id: 90902, topic: 'subrahmanyan-chandrasekhar', difficulty: 'sota',
@@ -27,5 +28,16 @@ export const subrahmanyanChandrasekharQuestions: Question[] = [
     explanation: 'The CFS instability causes rapidly rotating neutron stars to emit gravitational waves by coupling fluid oscillation modes to gravitational radiation, spinning the star down.',
     realWorld: 'LIGO searches for continuous gravitational waves from spinning neutron stars are directly testing Chandrasekhar\'s instability predictions.',
     hint: 'A spinning star that wobbles can radiate energy as ripples in spacetime.',
+    glossaryLinks: ['stochastic-process'],
+  },
+  {
+    id: 90904, topic: 'subrahmanyan-chandrasekhar', difficulty: 'hard',
+    question: 'Chandrasekhar recognized and expanded upon the stochastic process methods pioneered by:',
+    options: ['Marian Smoluchowski', 'Albert Einstein alone', 'Max Planck', 'Niels Bohr'],
+    correctIndex: 0,
+    explanation: 'In his influential 1943 Reviews of Modern Physics article on stochastic problems, Chandrasekhar explicitly credited Smoluchowski as a co-founder (with Einstein) of the theory of Brownian motion and stochastic processes.',
+    realWorld: 'Chandrasekhar\'s review article unified Smoluchowski\'s and Einstein\'s approaches and became one of the most cited physics reviews of the 20th century.',
+    hint: 'Two physicists independently explained Brownian motion — Chandrasekhar unified their work.',
+    glossaryLinks: ['brownian-motion', 'stochastic-process', 'diffusion'],
   },
 ];
