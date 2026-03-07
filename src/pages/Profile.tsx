@@ -259,6 +259,9 @@ export default function Profile() {
             </div>
           </div>
 
+          {/* ∎ Theorem Collection — thinker achievement badges */}
+          <ThinkerBadgeWall achievements={achievements} />
+
           {/* Gamescape stats — replaces old stats + difficulty cards */}
           <ProfileGamescapeStats
             stats={stats}
