@@ -138,6 +138,17 @@ export function ThinkerGallery({
         </p>
       </div>
 
+      {/* User progress stats */}
+      <ThinkerProgressBar achievedSlugs={achievedSlugs} />
+
+      {/* Achievement filter */}
+      <AchievementFilter
+        value={achievementFilter}
+        onChange={setAchievementFilter}
+        achievedCount={achievedSlugs.size}
+        totalCount={THINKERS.length}
+      />
+
       {/* Era buttons — 4 big cards */}
       <div>
         <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest mb-2 px-1 text-center">
