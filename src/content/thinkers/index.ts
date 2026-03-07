@@ -541,6 +541,17 @@ import { hannesAlfvenQuestions } from "./hannes-alfven";
 import { jormaRissanenQuestions } from "./jorma-rissanen";
 import { richardBellmanQuestions } from "./richard-bellman";
 
+// Compression & Information Coding Pioneers
+import { jacobZivQuestions } from "./jacob-ziv";
+import { abrahamLempelQuestions } from "./abraham-lempel";
+import { igorPavlovQuestions } from "./igor-pavlov";
+import { lasseCollinQuestions } from "./lasse-collin";
+import { julianSewardQuestions } from "./julian-seward";
+import { mattMahoneyQuestions } from "./matt-mahoney";
+import { jamesStorerQuestions } from "./james-storer";
+import { yannColletQuestions } from "./yann-collet";
+import { jarekDudaQuestions } from "./jarek-duda";
+
 export const allThinkerQuestions: Question[] = [
   ...alfredTarskiQuestions,
   ...felixExnerQuestions,
@@ -1044,6 +1055,17 @@ export const allThinkerQuestions: Question[] = [
   // Stochastic Processes & Gas Kinetics
   ...markKacQuestions,
   ...emilWarburgQuestions,
+
+  // Compression & Information Coding Pioneers
+  ...jacobZivQuestions,
+  ...abrahamLempelQuestions,
+  ...igorPavlovQuestions,
+  ...lasseCollinQuestions,
+  ...julianSewardQuestions,
+  ...mattMahoneyQuestions,
+  ...jamesStorerQuestions,
+  ...yannColletQuestions,
+  ...jarekDudaQuestions,
 ];
 export function getThinkerQuestions(slug: string): Question[] {
   return allThinkerQuestions.filter((q) => q.topic === slug);
