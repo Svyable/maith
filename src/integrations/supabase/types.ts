@@ -149,6 +149,30 @@ export type Database = {
         }
         Relationships: []
       }
+      user_thinker_achievements: {
+        Row: {
+          achieved_at: string
+          score: number
+          thinker_slug: string
+          total_questions: number
+          user_id: string
+        }
+        Insert: {
+          achieved_at?: string
+          score: number
+          thinker_slug: string
+          total_questions: number
+          user_id: string
+        }
+        Update: {
+          achieved_at?: string
+          score?: number
+          thinker_slug?: string
+          total_questions?: number
+          user_id?: string
+        }
+        Relationships: []
+      }
       user_topic_stats: {
         Row: {
           correct_answered: number
