@@ -7409,7 +7409,7 @@ export const EQUATIONS: Equation[] = [
     tags: ["binding", "free-energy", "drug-design", "kd", "thermodynamics", "biophysics"],
   },
   {
-    rank: 319,
+    rank: 370,
     name: "Aharonov-Bohm Phase",
     equation: "\\Delta \\phi = \\frac{q}{\\hbar}\\oint \\mathbf{A}\\cdot d\\mathbf{l} = \\frac{q\\Phi_B}{\\hbar}",
     discoverer: "Yakir Aharonov & David Bohm",
@@ -7426,7 +7426,7 @@ export const EQUATIONS: Equation[] = [
     tags: ["Aharonov-Bohm", "quantum phase", "gauge theory", "interference", "vector potential"],
   },
   {
-    rank: 320,
+    rank: 371,
     name: "Weak Value Formula",
     equation: "A_w = \\frac{\\langle \\phi | A | \\psi \\rangle}{\\langle \\phi | \\psi \\rangle}",
     discoverer: "Aharonov, Albert & Vaidman",
@@ -7443,7 +7443,7 @@ export const EQUATIONS: Equation[] = [
     tags: ["weak measurement", "weak value", "Aharonov", "quantum foundations", "post-selection"],
   },
   {
-    rank: 321,
+    rank: 372,
     name: "Bohm Guidance Equation",
     equation: "\\mathbf{v} = \\frac{\\hbar}{m} \\operatorname{Im}\\!\\left(\\frac{\\nabla \\psi}{\\psi}\\right)",
     discoverer: "David Bohm",
@@ -7460,7 +7460,7 @@ export const EQUATIONS: Equation[] = [
     tags: ["Bohmian mechanics", "guidance equation", "pilot-wave", "hidden variables", "quantum foundations"],
   },
   {
-    rank: 322,
+    rank: 373,
     name: "Quantum Potential",
     equation: "Q = -\\frac{\\hbar^2}{2m}\\frac{\\nabla^2 R}{R}",
     discoverer: "David Bohm",
