@@ -1,0 +1,88 @@
+import type { Question } from '../types';
+
+export const andrzejEhrenfeuchtQuestions: Question[] = [
+  // ── Easy ──
+  {
+    id: 92401, topic: 'andrzej-ehrenfeucht', difficulty: 'easy',
+    question: 'Ehrenfeucht–Fraïssé games determine whether two structures are indistinguishable by first-order sentences of quantifier depth:',
+    options: ['$k$ (the number of rounds)', '$2k$', '$k^2$', 'Unlimited depth'],
+    correctIndex: 0,
+    explanation: 'In a $k$-round EF game, Spoiler tries to distinguish two structures while Duplicator maintains a partial isomorphism. Duplicator wins iff the structures satisfy the same first-order sentences of quantifier depth $\\leq k$.',
+    realWorld: 'EF games are the standard tool for proving inexpressibility results in finite model theory and database query languages.',
+    hint: 'Each round adds one quantifier — $k$ rounds = quantifier depth $k$.',
+  },
+  {
+    id: 92402, topic: 'andrzej-ehrenfeucht', difficulty: 'easy',
+    question: 'In an Ehrenfeucht–Fraïssé game, the two players are called:',
+    options: ['Spoiler and Duplicator', 'Prover and Verifier', 'Alice and Bob', 'Attacker and Defender'],
+    correctIndex: 0,
+    explanation: 'Spoiler picks elements trying to expose differences between structures; Duplicator responds trying to maintain a correspondence. These adversarial roles make the game a powerful proof technique.',
+    realWorld: 'The game-theoretic framework has been extended to modal logic, temporal logic, and complexity theory.',
+    hint: 'One player "spoils" equivalence, the other "duplicates" the match.',
+  },
+  {
+    id: 92403, topic: 'andrzej-ehrenfeucht', difficulty: 'easy',
+    question: 'Ehrenfeucht\'s contributions to mathematical linguistics include formalizing:',
+    options: ['Context-free grammar ambiguity and DOL systems', 'Regular expression optimization', 'SQL query compilation', 'Natural language translation'],
+    correctIndex: 0,
+    explanation: 'Ehrenfeucht made fundamental contributions to formal language theory, including Lindenmayer systems (DOL systems) modeling biological growth and the theory of pattern languages.',
+    realWorld: 'L-systems (which Ehrenfeucht helped formalize) are used in computer graphics to generate realistic plants and fractals.',
+    hint: 'Think biological growth modeled by string rewriting.',
+  },
+  // ── Hard ──
+  {
+    id: 92404, topic: 'andrzej-ehrenfeucht', difficulty: 'hard',
+    question: 'The Ehrenfeucht conjecture (proven by Guba and Albert/Lawrence) states that every system of word equations over a free monoid has a finite equivalent:',
+    options: ['Subsystem (finite basis property)', 'Solution set', 'Automaton', 'Grammar'],
+    correctIndex: 0,
+    explanation: 'Every infinite system of word equations is equivalent to a finite subsystem. This compactness-like result for combinatorics on words was conjectured by Ehrenfeucht and proven independently by Guba (1986) and Albert/Lawrence (1985).',
+    realWorld: 'Word equations are fundamental in string solving, verification, and constraint programming.',
+    hint: 'It is a compactness property — infinitely many constraints reduce to finitely many.',
+  },
+  {
+    id: 92405, topic: 'andrzej-ehrenfeucht', difficulty: 'hard',
+    question: 'EF games can prove that the property "the number of elements is even" is not expressible in:',
+    options: ['First-order logic (over pure equality)', 'Second-order logic', 'Monadic second-order logic', 'Fixed-point logic'],
+    correctIndex: 0,
+    explanation: 'Using a Duplicator strategy on structures of sizes $n$ and $n+1$ for large $n$, one shows that no first-order sentence can distinguish even from odd cardinality. This is a classic EF game application.',
+    realWorld: 'This inexpressibility result explains why SQL (essentially first-order) needs aggregate functions for counting.',
+    hint: 'First-order logic cannot count — it lacks the power to detect parity.',
+  },
+  {
+    id: 92406, topic: 'andrzej-ehrenfeucht', difficulty: 'hard',
+    question: 'Ehrenfeucht and Rozenberg\'s theory of 2-structures studies:',
+    options: ['Complete graphs with labeled edges, up to clan decomposition', 'Bipartite graphs only', 'Planar embeddings', 'Directed acyclic graphs'],
+    correctIndex: 0,
+    explanation: 'A 2-structure is a complete graph with edge labels. Ehrenfeucht and Rozenberg developed a deep decomposition theory (clans, modules) with applications to modular decomposition of graphs.',
+    realWorld: 'Modular decomposition is used in graph algorithms for recognition of cographs, comparability graphs, and efficient graph manipulation.',
+    hint: 'Think of a complete graph where edge colors encode structure.',
+  },
+  // ── SOTA ──
+  {
+    id: 92407, topic: 'andrzej-ehrenfeucht', difficulty: 'sota',
+    question: 'Pebble games generalize EF games by allowing reuse of a bounded number of "pebbles." The $k$-pebble game characterizes equivalence in:',
+    options: ['$L^k$ (first-order logic with $k$ variables)', 'Second-order logic', 'Linear temporal logic', 'Presburger arithmetic'],
+    correctIndex: 0,
+    explanation: 'The $k$-pebble game exactly characterizes $k$-variable first-order logic ($L^k$). This connects combinatorial game theory to the descriptive complexity hierarchy and the Weisfeiler-Leman algorithm.',
+    realWorld: 'The $k$-WL algorithm (graph isomorphism) is equivalent to $k$-pebble game distinguishability — connecting GNN expressiveness to logic.',
+    hint: 'Bounded pebbles = bounded variables. Reusing pebbles = reusing variable names.',
+  },
+  {
+    id: 92408, topic: 'andrzej-ehrenfeucht', difficulty: 'sota',
+    question: 'Ehrenfeucht\'s work on DOL equivalence (whether two Lindenmayer systems generate the same language) was shown to be:',
+    options: ['Decidable (Culik & Fris, 1977)', 'Undecidable', 'PSPACE-complete', 'NP-hard but decidable'],
+    correctIndex: 0,
+    explanation: 'The DOL sequence equivalence problem is decidable, despite the general undecidability of many L-system problems. This was a surprising positive result that Ehrenfeucht helped motivate.',
+    realWorld: 'L-system equivalence checking is used in verifying procedural content generation pipelines in game development.',
+    hint: 'D0L means deterministic, 0-context — the simplest L-systems, making decidability possible.',
+  },
+  {
+    id: 92409, topic: 'andrzej-ehrenfeucht', difficulty: 'sota',
+    question: 'The connection between EF games and the Weisfeiler-Leman (WL) algorithm shows that $k$-WL fails to distinguish two graphs iff:',
+    options: ['Duplicator wins the $(k+1)$-pebble bijective game', 'The graphs have equal degree sequences', 'The graphs have the same number of spanning trees', 'The graphs have identical spectra'],
+    correctIndex: 0,
+    explanation: 'The bijective $k$-pebble game exactly captures $k$-WL equivalence. This deep connection (Hella 1996, Cai-Fürer-Immerman 1992) links combinatorial algorithms to logical definability.',
+    realWorld: 'This equivalence explains why GNNs (bounded by WL) cannot distinguish certain non-isomorphic graphs — driving higher-order GNN research.',
+    hint: 'WL refines colorings; pebble games refine variable assignments — they are the same thing.',
+  },
+];

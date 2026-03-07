@@ -1,0 +1,88 @@
+import type { Question } from '../types';
+
+export const sophusLieQuestions: Question[] = [
+  // ── Easy ──
+  {
+    id: 92001, topic: 'sophus-lie', difficulty: 'easy',
+    question: 'A Lie group is a group that is also a:',
+    options: ['Smooth manifold', 'Finite set', 'Discrete lattice', 'Vector space'],
+    correctIndex: 0,
+    explanation: 'A Lie group combines algebraic group structure with the topology and differentiability of a smooth manifold, allowing calculus on symmetries.',
+    realWorld: 'Lie groups describe continuous symmetries in physics — rotations (SO(3)), Lorentz transformations, and gauge symmetries of the Standard Model.',
+    hint: 'Think about groups where multiplication and inversion are smooth (differentiable) operations.',
+  },
+  {
+    id: 92002, topic: 'sophus-lie', difficulty: 'easy',
+    question: 'The Lie algebra of a Lie group $G$ is the tangent space at which element?',
+    options: ['The identity element $e$', 'Any arbitrary element', 'The inverse element', 'The center of $G$'],
+    correctIndex: 0,
+    explanation: 'The Lie algebra $\\mathfrak{g} = T_e G$ consists of tangent vectors at the identity, equipped with the Lie bracket $[X, Y]$. It linearizes the group near the identity.',
+    realWorld: 'Lie algebras simplify computations in robotics — infinitesimal rotations are easier to handle than full rotation matrices.',
+    hint: 'The identity is the natural basepoint for linearizing a group.',
+  },
+  {
+    id: 92003, topic: 'sophus-lie', difficulty: 'easy',
+    question: 'The Lie bracket $[X, Y]$ on a Lie algebra satisfies antisymmetry and which other key identity?',
+    options: ['Jacobi identity', 'Associativity', 'Commutativity', 'Distributivity over multiplication'],
+    correctIndex: 0,
+    explanation: 'The Jacobi identity $[X,[Y,Z]] + [Y,[Z,X]] + [Z,[X,Y]] = 0$ is the fundamental axiom (alongside antisymmetry) defining a Lie algebra.',
+    realWorld: 'The Jacobi identity ensures consistency of infinitesimal symmetry transformations in gauge field theories.',
+    hint: 'It is a cyclic sum of double brackets equaling zero.',
+  },
+  // ── Hard ──
+  {
+    id: 92004, topic: 'sophus-lie', difficulty: 'hard',
+    question: 'Lie\'s third theorem states that every finite-dimensional real Lie algebra is the Lie algebra of:',
+    options: ['Some Lie group', 'A unique compact group', 'An abelian group only', 'A matrix group'],
+    correctIndex: 0,
+    explanation: 'Lie\'s third theorem guarantees that every finite-dimensional real Lie algebra $\\mathfrak{g}$ can be integrated to a (simply connected) Lie group $G$ with $\\text{Lie}(G) \\cong \\mathfrak{g}$.',
+    realWorld: 'This theorem justifies working at the algebra level in physics — every symmetry algebra corresponds to a genuine symmetry group.',
+    hint: 'The theorem bridges the algebraic (infinitesimal) and geometric (global) perspectives.',
+  },
+  {
+    id: 92005, topic: 'sophus-lie', difficulty: 'hard',
+    question: 'The exponential map $\\exp: \\mathfrak{g} \\to G$ for a matrix Lie group is given by:',
+    options: ['The matrix exponential $e^X = \\sum_{n=0}^{\\infty} \\frac{X^n}{n!}$', 'The determinant of $X$', 'The trace of $X$', 'The inverse of $X$'],
+    correctIndex: 0,
+    explanation: 'For matrix Lie groups, the exponential map is literally the matrix exponential series, mapping Lie algebra elements to group elements.',
+    realWorld: 'The matrix exponential is computed millions of times daily in control systems, quantum mechanics simulations, and 3D graphics engines.',
+    hint: 'It is the same power series as the scalar exponential, but with matrices.',
+  },
+  {
+    id: 92006, topic: 'sophus-lie', difficulty: 'hard',
+    question: 'Lie\'s original motivation was to create a "Galois theory" for:',
+    options: ['Differential equations', 'Polynomial rings', 'Number fields', 'Topological spaces'],
+    correctIndex: 0,
+    explanation: 'Lie developed continuous transformation groups to systematically solve differential equations by their symmetries, analogous to how Galois used finite groups for polynomial equations.',
+    realWorld: 'Symmetry methods for ODEs (Lie point symmetries) remain a standard tool in mathematical physics and engineering.',
+    hint: 'Galois solved algebraic equations with finite groups — Lie solved continuous equations with continuous groups.',
+  },
+  // ── SOTA ──
+  {
+    id: 92007, topic: 'sophus-lie', difficulty: 'sota',
+    question: 'The classification of simple Lie algebras over $\\mathbb{C}$ yields which families and exceptional cases?',
+    options: ['$A_n, B_n, C_n, D_n$ and five exceptionals ($G_2, F_4, E_6, E_7, E_8$)', 'Only $A_n$ and $B_n$', 'Infinitely many exceptional types', 'Only the classical families, no exceptions'],
+    correctIndex: 0,
+    explanation: 'The Killing–Cartan classification shows that simple Lie algebras fall into four infinite classical families plus exactly five exceptional algebras, encoded by Dynkin diagrams.',
+    realWorld: '$E_8$ appears in string theory and was spectacularly confirmed in condensed matter experiments on cobalt niobate (2010).',
+    hint: 'Dynkin diagrams encode the root systems — there are exactly 5 that don\'t fit infinite families.',
+  },
+  {
+    id: 92008, topic: 'sophus-lie', difficulty: 'sota',
+    question: 'The Langlands program connects Lie group representations to which other mathematical structures?',
+    options: ['Automorphic forms and Galois representations', 'Combinatorial species', 'Knot invariants only', 'Cellular automata'],
+    correctIndex: 0,
+    explanation: 'The Langlands program is a vast web of conjectures linking representation theory of reductive Lie groups to number theory via automorphic forms, L-functions, and Galois representations.',
+    realWorld: 'The geometric Langlands program has unexpected connections to quantum field theory and string dualities.',
+    hint: 'It is often called a "grand unified theory of mathematics."',
+  },
+  {
+    id: 92009, topic: 'sophus-lie', difficulty: 'sota',
+    question: 'Lie groupoids generalize Lie groups by allowing the group operation to be:',
+    options: ['Partially defined (composable only for matching source/target)', 'Non-associative', 'Defined only on finite subsets', 'Commutative'],
+    correctIndex: 0,
+    explanation: 'A Lie groupoid has a space of arrows composable only when source matches target, generalizing groups (one object) to "many-object symmetries." Their infinitesimal counterparts are Lie algebroids.',
+    realWorld: 'Lie groupoids model symmetries of singular spaces, foliated manifolds, and gauge theories with boundary conditions.',
+    hint: 'Think of a category where every morphism is invertible and everything is smooth.',
+  },
+];
