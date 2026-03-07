@@ -89,8 +89,23 @@ export const FIELDS: FieldMeta[] = [
     slug: 'engineering',
     label: 'Engineering',
     emoji: '⚙️',
-    description: 'Electrical, Mechanical, Materials, Robotics, Aerospace, Audio Engineering',
-    topics: ['electrical-engineering', 'mechanical-engineering', 'materials-science', 'robotics', 'aerospace', 'audio-engineering', 'control-theory', 'signal-processing'],
+    description: 'Electrical, Mechanical, Materials, Robotics, Aerospace, Chemical, Nuclear, Biomedical, Environmental Engineering',
+    topics: [
+      // Electrical & Electronics
+      'circuits-electronics', 'signal-processing', 'control-systems', 'communications-coding',
+      'power-systems', 'semiconductor-engineering',
+      // Mechanical & Robotics
+      'solid-mechanics', 'thermofluids', 'robotics-mechatronics',
+      // Chemical & Process
+      'reaction-engineering', 'transport-phenomena', 'process-design',
+      // Aerospace & Nuclear
+      'aerodynamics', 'orbital-mechanics', 'nuclear-engineering',
+      // Cross-disciplinary
+      'materials-science', 'biomedical-engineering', 'environmental-engineering',
+      'structural-engineering', 'audio-engineering',
+      // Legacy slugs for backwards compat
+      'electrical-engineering', 'mechanical-engineering', 'robotics', 'aerospace', 'control-theory',
+    ],
     color: 'accent',
     available: true,
   },
