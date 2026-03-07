@@ -119,6 +119,13 @@ export const TOPICS: TopicMeta[] = [
   { slug: 'fluid-dynamics',     label: 'Fluid Dynamics',       emoji: '🌊', description: 'Navier-Stokes, turbulence, Reynolds number, CFD',    field: 'physics' },
   { slug: 'optics',             label: 'Optics',               emoji: '🔦', description: 'Snell\'s law, diffraction, metamaterials, adaptive optics', field: 'physics' },
   { slug: 'relativity',         label: 'Relativity',           emoji: '🕐', description: 'Special & general relativity, spacetime, black holes',  field: 'physics' },
+  { slug: 'statistical-physics', label: 'Statistical Physics', emoji: '📊', description: 'Ensembles, partition functions, phase transitions, RG',   field: 'physics' },
+  { slug: 'plasma-physics',     label: 'Plasma Physics',       emoji: '🌐', description: 'MHD, fusion, Alfvén waves, Debye shielding',            field: 'physics' },
+  { slug: 'condensed-matter',   label: 'Condensed Matter',     emoji: '🔷', description: 'Band theory, superconductivity, topological phases',     field: 'physics' },
+  { slug: 'nonlinear-dynamics', label: 'Nonlinear Dynamics',   emoji: '🦋', description: 'Chaos, bifurcations, strange attractors, fractals',      field: 'physics' },
+  { slug: 'quantum-field-theory', label: 'Quantum Field Theory', emoji: '🌀', description: 'QED, QCD, Higgs mechanism, renormalization',          field: 'physics' },
+  { slug: 'many-body-physics',  label: 'Many-Body Physics',    emoji: '🔮', description: 'DFT, tensor networks, Hubbard model, quasiparticles',   field: 'physics' },
+  { slug: 'quantum-gravity',    label: 'Quantum Gravity',      emoji: '🕳️', description: 'Planck scale, AdS/CFT, holography, black hole info',    field: 'physics' },
   // ── Chemistry ──────────────────────────────────────────────
   { slug: 'physical-chemistry',  label: 'Physical Chemistry',   emoji: '⚗️', description: 'Thermodynamics, kinetics, quantum chemistry',       field: 'chemistry' },
   { slug: 'organic-chemistry',   label: 'Organic Chemistry',    emoji: '🧪', description: 'Reactions, stereochemistry, synthesis',              field: 'chemistry' },
