@@ -174,7 +174,9 @@ export default function Thinkers() {
               difficulties={selectedDifficulties}
               missedQuestions={state.missedQuestions}
               skippedQuestions={state.skippedQuestions}
-              onRestart={() => setScreen('gallery')}
+              onRestart={() => { setNewlyAchieved(false); setScreen('gallery'); }}
+              thinkerMeta={thinkerMeta ?? undefined}
+              newlyAchieved={newlyAchieved}
             />
           )}
 
