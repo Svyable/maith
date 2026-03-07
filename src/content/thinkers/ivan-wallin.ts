@@ -1,0 +1,55 @@
+import type { Question } from '../types';
+
+export const ivanWallinQuestions: Question[] = [
+  {
+    id: 401001,
+    topic: 'ivan-wallin',
+    difficulty: 'easy',
+    question: 'Ivan Wallin proposed in the 1920s that mitochondria originated as:',
+    options: [
+      'Free-living bacteria that became symbionts inside cells',
+      'Viral particles that invaded eukaryotic nuclei',
+      'Protein aggregates formed by spontaneous assembly',
+      'Organelles that budded off from the nucleus',
+    ],
+    correctIndex: 0,
+    explanation: 'Wallin proposed that mitochondria were once free-living bacteria that entered a symbiotic relationship with host cells — the endosymbiotic hypothesis, decades before it gained acceptance.',
+    realWorld: 'Wallin\'s ideas were ridiculed for 50 years until Lynn Margulis revived and proved them with molecular evidence.',
+    hint: 'Think symbiosis at the cellular level.',
+    glossaryLinks: ['endosymbiosis', 'mitochondria'],
+  },
+  {
+    id: 401002,
+    topic: 'ivan-wallin',
+    difficulty: 'hard',
+    question: 'Wallin attempted to culture mitochondria outside of cells. Why was this significant despite failing?',
+    options: [
+      'It was the first experimental test of the endosymbiotic hypothesis',
+      'It proved mitochondria are not bacteria',
+      'It showed organelles can photosynthesize independently',
+      'It disproved germ theory',
+    ],
+    correctIndex: 0,
+    explanation: 'By trying to grow mitochondria in culture, Wallin attempted to demonstrate their bacterial origin experimentally. Though he failed (mitochondria have lost too many genes), the approach was scientifically prescient.',
+    realWorld: 'Modern genomics confirmed Wallin\'s intuition: mitochondrial DNA is clearly of alpha-proteobacterial origin.',
+    hint: 'If they were once bacteria, could they still grow on their own?',
+    glossaryLinks: ['endosymbiosis'],
+  },
+  {
+    id: 401003,
+    topic: 'ivan-wallin',
+    difficulty: 'sota',
+    question: 'Why couldn\'t mitochondria survive Wallin\'s culture experiments, from a modern genomic perspective?',
+    options: [
+      'Mitochondria have transferred most of their genes to the host nucleus, making them obligate endosymbionts',
+      'Mitochondria lack ribosomes entirely',
+      'Mitochondria cannot produce ATP outside a cell',
+      'Mitochondrial DNA is identical to nuclear DNA',
+    ],
+    correctIndex: 0,
+    explanation: 'Over ~2 billion years, mitochondria transferred most of their ancestral genome to the host nucleus. They retain only ~37 genes (in humans) and depend on nuclear-encoded proteins imported via TIM/TOM complexes.',
+    realWorld: 'This gene transfer explains why mitochondrial diseases often involve nuclear gene mutations affecting mitochondrial protein import.',
+    hint: 'Think about what happened to the bacterial genome over evolutionary time.',
+    glossaryLinks: ['endosymbiosis'],
+  },
+];
