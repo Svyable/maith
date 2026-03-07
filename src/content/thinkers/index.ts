@@ -533,6 +533,10 @@ import { jormaRissanenQuestions } from "./jorma-rissanen";
 import { richardBellmanQuestions } from "./richard-bellman";
 
 export const allThinkerQuestions: Question[] = [
+  ...felixExnerQuestions,
+  ...marianSmoluchowskiQuestions,
+  ...addyProssQuestions,
+  ...georgeBirkhoffQuestions,
 // NEW 20 thinkers
    ...augustusDeMorganQuestions,
   ...nicolasMinorskyQuestions,
