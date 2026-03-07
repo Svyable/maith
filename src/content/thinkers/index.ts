@@ -4,6 +4,9 @@ import { felixExnerQuestions } from "./felix-exner";
 import { marianSmoluchowskiQuestions } from "./marian-smoluchowski";
 import { addyProssQuestions } from "./addy-pross";
 import { georgeBirkhoffQuestions } from "./george-birkhoff";
+import { bradleyEfronQuestions } from "./bradley-efron";
+import { trevorHastieQuestions } from "./trevor-hastie";
+import { benjaminBannekerQuestions } from "./benjamin-banneker";
 
 // Notation Pioneers
 import { williamJonesQuestions } from "./william-jones";
@@ -1020,6 +1023,11 @@ export const allThinkerQuestions: Question[] = [
   ...bjarneStroustrupQuestions,
   ...guidoVanRossumQuestions,
   ...leonardoDeMouraQuestions,
+
+  // Statistical Learning & History
+  ...bradleyEfronQuestions,
+  ...trevorHastieQuestions,
+  ...benjaminBannekerQuestions,
 ];
 export function getThinkerQuestions(slug: string): Question[] {
   return allThinkerQuestions.filter((q) => q.topic === slug);
