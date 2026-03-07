@@ -1,0 +1,88 @@
+import type { Question } from '../types';
+
+export const janMycielskiQuestions: Question[] = [
+  // ── Easy ──
+  {
+    id: 92301, topic: 'jan-mycielski', difficulty: 'easy',
+    question: 'Mycielski\'s theorem proves that there exist triangle-free graphs with arbitrarily large:',
+    options: ['Chromatic number', 'Clique number', 'Maximum degree', 'Diameter'],
+    correctIndex: 0,
+    explanation: 'Mycielski (1955) constructively showed that high chromatic number does not require triangles (or any short cycles). The Mycielskian construction iteratively builds triangle-free graphs needing more and more colors.',
+    realWorld: 'This result is fundamental in graph theory — it separates clique number from chromatic number, showing coloring hardness is not just about dense subgraphs.',
+    hint: 'Triangle-free means clique number 2, yet the chromatic number grows without bound.',
+  },
+  {
+    id: 92302, topic: 'jan-mycielski', difficulty: 'easy',
+    question: 'The Mycielskian $\\mu(G)$ of a graph $G$ with $n$ vertices produces a new graph with how many vertices?',
+    options: ['$2n + 1$', '$2n$', '$n + 1$', '$n^2$'],
+    correctIndex: 0,
+    explanation: 'The Mycielskian adds $n$ new "twin" vertices (one per original vertex) plus one extra vertex $u$ connected to all twins, giving $2n + 1$ vertices total.',
+    realWorld: 'The construction is used in combinatorics courses as a canonical example of increasing chromatic number without increasing clique number.',
+    hint: 'Mirror each vertex, then add one universal vertex for the mirrors.',
+  },
+  {
+    id: 92303, topic: 'jan-mycielski', difficulty: 'easy',
+    question: 'The Mycielski–Grötzsch graph is the Mycielskian of the 5-cycle $C_5$. How many vertices does it have?',
+    options: ['11', '10', '13', '15'],
+    correctIndex: 0,
+    explanation: 'Applying $\\mu$ to $C_5$ (5 vertices) gives $2 \\cdot 5 + 1 = 11$ vertices. This graph is triangle-free and requires 4 colors — it is the smallest such graph.',
+    realWorld: 'The Mycielski–Grötzsch graph is a standard benchmark in graph coloring algorithms and computational complexity.',
+    hint: 'Use the formula $2n + 1$ with $n = 5$.',
+  },
+  // ── Hard ──
+  {
+    id: 92304, topic: 'jan-mycielski', difficulty: 'hard',
+    question: 'If $\\chi(G) = k$, then the chromatic number of the Mycielskian $\\chi(\\mu(G))$ equals:',
+    options: ['$k + 1$', '$k$', '$2k$', '$k^2$'],
+    correctIndex: 0,
+    explanation: 'The Mycielskian increases the chromatic number by exactly 1. This is the key property that lets the iterated construction build triangle-free graphs of any chromatic number.',
+    realWorld: 'This "chromatic number pump" is one of the most elegant constructions in combinatorics.',
+    hint: 'The new universal vertex forces one more color.',
+  },
+  {
+    id: 92305, topic: 'jan-mycielski', difficulty: 'hard',
+    question: 'The Ehrenfeucht–Mycielski sequence is a binary sequence where each new bit is chosen to avoid the longest previously seen:',
+    options: ['Suffix match (maximizing unpredictability)', 'Palindrome', 'Arithmetic progression', 'Repeated block'],
+    correctIndex: 0,
+    explanation: 'Each new bit is the complement of the bit following the longest suffix of the current sequence that has appeared before. This deterministic rule produces a sequence with strong pseudorandom properties.',
+    realWorld: 'The sequence achieves pseudorandomness without true randomness — relevant to deterministic simulation and testing.',
+    hint: 'Look at the longest suffix that appeared earlier, then flip the next bit.',
+  },
+  {
+    id: 92306, topic: 'jan-mycielski', difficulty: 'hard',
+    question: 'Mycielski co-developed the Axiom of Determinacy (AD) as an alternative to which standard axiom?',
+    options: ['Axiom of Choice (AC)', 'Axiom of Infinity', 'Axiom of Foundation', 'Axiom of Extensionality'],
+    correctIndex: 0,
+    explanation: 'AD states that every two-player infinite game on integers is determined (one player has a winning strategy). It contradicts AC but implies all sets of reals are measurable — eliminating Banach–Tarski-type paradoxes.',
+    realWorld: 'AD provides a beautiful alternative foundation where pathological sets don\'t exist — all sets behave "nicely."',
+    hint: 'AC produces non-measurable sets; AD prevents them.',
+  },
+  // ── SOTA ──
+  {
+    id: 92307, topic: 'jan-mycielski', difficulty: 'sota',
+    question: 'The fractional chromatic number of the $k$-th iterated Mycielskian $\\mu^k(K_2)$ grows as:',
+    options: ['$\\Theta(k / \\log k)$', '$\\Theta(k)$', '$\\Theta(2^k)$', '$\\Theta(\\sqrt{k})$'],
+    correctIndex: 0,
+    explanation: 'While the integer chromatic number of $\\mu^k(K_2)$ is $k+2$, the fractional chromatic number grows much slower at $\\Theta(k/\\log k)$, revealing a gap between integer and fractional coloring.',
+    realWorld: 'The fractional-integer chromatic gap is central to understanding the hardness of approximating chromatic number.',
+    hint: 'Fractional relaxation is always $\\leq$ integer, but the gap here is substantial.',
+  },
+  {
+    id: 92308, topic: 'jan-mycielski', difficulty: 'sota',
+    question: 'Mycielski\'s theorem on locally finite groups states that every connected locally finite graph has a spanning tree that is:',
+    options: ['Locally finite (every vertex has finite degree)', 'Binary', 'Of bounded depth', 'Hamiltonian'],
+    correctIndex: 0,
+    explanation: 'This is a non-trivial extension of the spanning tree theorem to infinite graphs — every connected locally finite graph has a locally finite spanning tree, proved using König\'s infinity lemma.',
+    realWorld: 'This result underpins algorithms on infinite structures in theoretical computer science and automata theory.',
+    hint: 'The key constraint is preserving the finite-degree property.',
+  },
+  {
+    id: 92309, topic: 'jan-mycielski', difficulty: 'sota',
+    question: 'The Ehrenfeucht–Mycielski sequence is conjectured to be:',
+    options: ['Normal (every finite binary string appears with equal frequency)', 'Eventually periodic', 'Compressible (low Kolmogorov complexity)', 'Ultimately constant'],
+    correctIndex: 0,
+    explanation: 'Despite being completely deterministic, the EM sequence is conjectured to be normal — meaning every binary string of length $k$ appears with frequency $2^{-k}$. This is unproven but supported by extensive computation.',
+    realWorld: 'If true, this would give a simple, explicit construction of a normal number — a major open problem in number theory.',
+    hint: 'Normality means statistical indistinguishability from a random sequence.',
+  },
+];

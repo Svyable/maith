@@ -1,0 +1,88 @@
+import type { Question } from '../types';
+
+export const herbertGrotzschQuestions: Question[] = [
+  // ── Easy ──
+  {
+    id: 92501, topic: 'herbert-grotzsch', difficulty: 'easy',
+    question: 'Grötzsch\'s theorem states that every triangle-free planar graph is:',
+    options: ['3-colorable', '2-colorable', '4-colorable', '5-colorable'],
+    correctIndex: 0,
+    explanation: 'Grötzsch (1959) proved that planarity plus triangle-freeness drops the chromatic bound from 4 (four color theorem) to 3. This is tight — the Grötzsch graph is triangle-free but not 2-colorable (it has odd cycles).',
+    realWorld: 'This theorem optimizes resource allocation when conflicts form triangle-free planar networks — one fewer resource category suffices.',
+    hint: 'The four color theorem says 4 for all planar graphs; removing triangles saves one color.',
+  },
+  {
+    id: 92502, topic: 'herbert-grotzsch', difficulty: 'easy',
+    question: 'The Grötzsch graph (Mycielskian of $C_5$) has chromatic number:',
+    options: ['4', '3', '5', '2'],
+    correctIndex: 0,
+    explanation: 'The Grötzsch graph is the smallest triangle-free graph with $\\chi = 4$. It has 11 vertices and 20 edges. It shows that Grötzsch\'s theorem (triangle-free planar → 3-colorable) truly needs planarity.',
+    realWorld: 'The Grötzsch graph is a standard counterexample in graph coloring — it shows triangle-freeness alone doesn\'t bound chromatic number.',
+    hint: 'It is triangle-free but NOT planar, so Grötzsch\'s 3-coloring theorem doesn\'t apply.',
+  },
+  {
+    id: 92503, topic: 'herbert-grotzsch', difficulty: 'easy',
+    question: 'In complex analysis, Grötzsch studied extremal quasiconformal mappings, which generalize conformal maps by allowing bounded:',
+    options: ['Distortion of angles', 'Distortion of areas', 'Translation only', 'Rotation only'],
+    correctIndex: 0,
+    explanation: 'Quasiconformal mappings allow angles to be distorted by a bounded factor $K \\geq 1$. When $K = 1$, they are conformal. Grötzsch was among the first to study these systematically.',
+    realWorld: 'Quasiconformal maps are used in medical imaging (brain flattening), texture mapping, and Teichmüller theory.',
+    hint: 'Conformal = angle-preserving. Quasi-conformal = bounded angle distortion.',
+  },
+  // ── Hard ──
+  {
+    id: 92504, topic: 'herbert-grotzsch', difficulty: 'hard',
+    question: 'The Grötzsch ring lemma provides a lower bound on the modulus of a ring domain, connecting to:',
+    options: ['Extremal length and quasiconformal mapping theory', 'Spectral graph theory', 'Algebraic number theory', 'Topological K-theory'],
+    correctIndex: 0,
+    explanation: 'The Grötzsch ring is a canonical domain in quasiconformal theory. Its modulus provides sharp bounds used throughout geometric function theory and Teichmüller space.',
+    realWorld: 'Extremal length estimates are used in random walk theory, percolation, and conformal field theory.',
+    hint: 'Ring domains have a modulus measuring how "thick" the annular region is.',
+  },
+  {
+    id: 92505, topic: 'herbert-grotzsch', difficulty: 'hard',
+    question: 'Grötzsch\'s theorem on triangle-free planar graphs was strengthened by Thomassen (2003) to show that such graphs are actually:',
+    options: ['Choosable from any lists of size 3 (3-choosable)', 'Uniquely 3-colorable', '2-colorable if also $C_5$-free', 'Hamiltonian'],
+    correctIndex: 0,
+    explanation: 'List coloring (choosability) is harder than ordinary coloring. Thomassen\'s strengthening to 3-choosability is non-trivial — there exist graphs that are $k$-colorable but not $k$-choosable.',
+    realWorld: 'List coloring models assignment problems where each resource has a restricted set of available options.',
+    hint: 'Choosability from lists is a strict generalization of coloring with a fixed palette.',
+  },
+  {
+    id: 92506, topic: 'herbert-grotzsch', difficulty: 'hard',
+    question: 'The significance of triangle-free graphs in Ramsey theory includes the result that $R(3, k)$ grows as:',
+    options: ['$\\Theta(k^2 / \\log k)$', '$\\Theta(k)$', '$\\Theta(2^k)$', '$\\Theta(k^3)$'],
+    correctIndex: 0,
+    explanation: '$R(3,k)$ — the smallest $n$ such that every 2-coloring of $K_n$ has a red triangle or blue $K_k$ — grows as $\\Theta(k^2/\\log k)$. The upper bound is by Ajtai-Komlós-Szemerédi (1980), the lower by Kim (1995).',
+    realWorld: 'Triangle-free Ramsey numbers connect to the probabilistic method and the Lovász Local Lemma.',
+    hint: 'Kim\'s breakthrough used the semi-random method to match the AKS upper bound.',
+  },
+  // ── SOTA ──
+  {
+    id: 92507, topic: 'herbert-grotzsch', difficulty: 'sota',
+    question: 'The Dvořák–Postle framework of DP-coloring (correspondence coloring) generalizes list coloring. For triangle-free planar graphs:',
+    options: ['They are DP-3-colorable (Dvořák–Postle, 2018)', 'DP-4-coloring is needed', 'DP-coloring equals ordinary coloring', 'No finite bound exists'],
+    correctIndex: 0,
+    explanation: 'DP-coloring is a strict generalization of list coloring. Dvořák and Postle proved that Grötzsch\'s theorem extends even to this stronger framework — triangle-free planar graphs are DP-3-colorable.',
+    realWorld: 'DP-coloring has become a central tool in modern graph coloring, unifying and strengthening many classical results.',
+    hint: 'DP-coloring removes the "same list" constraint — different edges can have different correspondence rules.',
+  },
+  {
+    id: 92508, topic: 'herbert-grotzsch', difficulty: 'sota',
+    question: 'Quasiconformal mappings in dimension $n \\geq 3$ are much more rigid than in dimension 2. The Liouville theorem states that $1$-quasiconformal maps in $\\mathbb{R}^n$ ($n \\geq 3$) are:',
+    options: ['Möbius transformations (compositions of inversions)', 'Arbitrary diffeomorphisms', 'Affine maps', 'Polynomial maps'],
+    correctIndex: 0,
+    explanation: 'In higher dimensions, conformal maps are extremely rigid — only Möbius transformations (generated by reflections in spheres). This contrasts dramatically with the infinite-dimensional space of conformal maps in 2D.',
+    realWorld: 'This rigidity has deep implications in hyperbolic geometry, geometric group theory, and analysis on metric spaces.',
+    hint: 'In 2D, conformal maps form an infinite-dimensional group; in 3D+, only a finite-dimensional one.',
+  },
+  {
+    id: 92509, topic: 'herbert-grotzsch', difficulty: 'sota',
+    question: 'The density version of Grötzsch\'s theorem (Thomassen, 2007) shows that planar graphs with sufficiently large girth $g$ have chromatic number at most:',
+    options: ['3 (for $g \\geq 4$, tight by Grötzsch), and fractional chromatic number approaching 2 as $g \\to \\infty$', 'Always exactly 2 for $g \\geq 5$', '4 for all girths', 'Dependent on the number of vertices'],
+    correctIndex: 0,
+    explanation: 'As girth increases, planar graphs become "sparser" and more nearly bipartite. The fractional chromatic number of planar graphs with girth $g$ approaches 2 as $g \\to \\infty$, refining Grötzsch.',
+    realWorld: 'High-girth graphs are used in LDPC codes (error correction) and expander graph constructions.',
+    hint: 'Larger girth = fewer short cycles = more nearly bipartite.',
+  },
+];

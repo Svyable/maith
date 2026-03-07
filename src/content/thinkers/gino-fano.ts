@@ -1,0 +1,88 @@
+import type { Question } from '../types';
+
+export const ginoFanoQuestions: Question[] = [
+  // ── Easy ──
+  {
+    id: 92101, topic: 'gino-fano', difficulty: 'easy',
+    question: 'The Fano plane is the smallest finite projective plane, having how many points?',
+    options: ['7', '9', '6', '13'],
+    correctIndex: 0,
+    explanation: 'The Fano plane $PG(2,2)$ has 7 points and 7 lines, with every line containing 3 points and every point on 3 lines. It is the unique projective plane of order 2.',
+    realWorld: 'The Fano plane\'s structure appears in error-correcting codes (Hamming(7,4)) and quantum information (Mermin\'s magic square).',
+    hint: 'It is the projective plane over $\\mathbb{F}_2$ — count $2^3 - 1 = 7$ nonzero vectors.',
+  },
+  {
+    id: 92102, topic: 'gino-fano', difficulty: 'easy',
+    question: 'In a finite projective plane of order $q$, each line contains exactly how many points?',
+    options: ['$q + 1$', '$q$', '$q^2$', '$2q$'],
+    correctIndex: 0,
+    explanation: 'A projective plane of order $q$ has $q+1$ points on each line, $q+1$ lines through each point, and $q^2 + q + 1$ total points.',
+    realWorld: 'Finite projective planes provide optimal configurations for experimental design (BIBD) and sensor placement.',
+    hint: 'Add the "point at infinity" to each affine line of $q$ points.',
+  },
+  {
+    id: 92103, topic: 'gino-fano', difficulty: 'easy',
+    question: 'Fano\'s work established that projective spaces can be coordinatized over:',
+    options: ['Division rings (skew fields)', 'Only the reals', 'Only finite fields', 'The integers'],
+    correctIndex: 0,
+    explanation: 'The Veblen-Young theorem (building on Fano\'s ideas) shows that projective spaces of dimension $\\geq 3$ can be coordinatized over a division ring, which need not be commutative.',
+    realWorld: 'Quaternionic projective spaces (over the non-commutative quaternions) appear in gauge theory and computer vision.',
+    hint: 'Think beyond commutative fields — Hamilton\'s quaternions form a division ring.',
+  },
+  // ── Hard ──
+  {
+    id: 92104, topic: 'gino-fano', difficulty: 'hard',
+    question: 'A Fano variety in algebraic geometry is defined by the condition that its anticanonical divisor $-K_X$ is:',
+    options: ['Ample', 'Trivial', 'Negative', 'Torsion'],
+    correctIndex: 0,
+    explanation: 'Fano varieties have ample anticanonical class, making them "positively curved" in a precise sense. They are the algebraic-geometric analogue of positively curved Riemannian manifolds.',
+    realWorld: 'Fano varieties are central to the Minimal Model Program (Mori program), classifying the building blocks of algebraic geometry.',
+    hint: 'Ample means "sufficiently positive" — the opposite of canonical being negative.',
+  },
+  {
+    id: 92105, topic: 'gino-fano', difficulty: 'hard',
+    question: 'The automorphism group of the Fano plane is isomorphic to:',
+    options: ['$GL(3, \\mathbb{F}_2) \\cong PSL(2,7)$, of order 168', '$S_7$, of order 5040', '$\\mathbb{Z}_7$, of order 7', '$A_7$, of order 2520'],
+    correctIndex: 0,
+    explanation: 'The Fano plane\'s automorphism group is $GL(3, \\mathbb{F}_2)$, the simple group of order 168. It is the second-smallest non-abelian simple group and equals $PSL(2,7)$.',
+    realWorld: 'This group appears in the classification of finite simple groups and in the construction of the Mathieu groups.',
+    hint: 'The Fano plane is $PG(2,2)$, so its automorphisms are invertible $3 \\times 3$ matrices over $\\mathbb{F}_2$.',
+  },
+  {
+    id: 92106, topic: 'gino-fano', difficulty: 'hard',
+    question: 'Fano\'s contribution to the "Fano postulate" in projective geometry asserts that:',
+    options: ['The diagonal points of a complete quadrilateral are not collinear (characteristic $\\neq 2$)', 'Every line has infinitely many points', 'Parallel lines always exist', 'Every triangle has a circumscribed circle'],
+    correctIndex: 0,
+    explanation: 'Fano\'s postulate states that the three diagonal points of a complete quadrilateral are non-collinear. This fails precisely in characteristic 2 (e.g., the Fano plane itself!).',
+    realWorld: 'This axiom distinguishes projective geometries over fields of characteristic 2 from others — crucial in coding theory and cryptography.',
+    hint: 'The Fano plane is the counterexample — it has characteristic 2.',
+  },
+  // ── SOTA ──
+  {
+    id: 92107, topic: 'gino-fano', difficulty: 'sota',
+    question: 'The Fano–Mori fiber space structure in birational geometry decomposes varieties with negative Kodaira dimension into:',
+    options: ['Fibrations whose general fibers are Fano varieties', 'Products of abelian varieties', 'Unions of rational curves', 'Flat families of K3 surfaces'],
+    correctIndex: 0,
+    explanation: 'In the Minimal Model Program, varieties of negative Kodaira dimension admit Mori fiber spaces — fibrations with Fano fibers. This is the "Fano end" of the MMP classification.',
+    realWorld: 'Caucher Birkar\'s Fields Medal (2018) work on boundedness of Fano varieties (BAB conjecture) resolved a central question in this program.',
+    hint: 'The MMP produces either a minimal model or a Mori fiber space.',
+  },
+  {
+    id: 92108, topic: 'gino-fano', difficulty: 'sota',
+    question: 'The prime existence question for finite projective planes asks whether a plane of order $n$ exists when $n$ is:',
+    options: ['Not a prime power (unknown for $n = 12, 15, 18, \\ldots$)', 'Any even number', 'Any odd number', 'A Mersenne prime'],
+    correctIndex: 0,
+    explanation: 'Projective planes exist for all prime power orders. For non-prime-powers, existence is open — the Bruck–Ryser theorem rules out some (e.g., $n=6$), and exhaustive search killed $n=10$ (Lam, 1989).',
+    realWorld: 'The non-existence proof for order 10 was one of the earliest major computer-assisted proofs in combinatorics.',
+    hint: 'We know planes for $q = 2, 3, 4, 5, 7, 8, 9, 11, 13, \\ldots$ but not $n = 6$ or $10$.',
+  },
+  {
+    id: 92109, topic: 'gino-fano', difficulty: 'sota',
+    question: 'The octonion projective plane $\\mathbb{O}P^2$ (Cayley plane) is a Fano manifold that cannot be constructed as a projective space over a division ring because:',
+    options: ['The octonions are non-associative', 'The octonions are non-commutative', 'The octonions have zero divisors', 'The octonions are infinite-dimensional'],
+    correctIndex: 0,
+    explanation: 'The octonions $\\mathbb{O}$ are non-associative, so the standard projective space construction fails beyond dimension 2. $\\mathbb{O}P^2$ must be built using exceptional Jordan algebras.',
+    realWorld: 'The Cayley plane is intimately connected to the exceptional Lie group $F_4$ and appears in M-theory compactifications.',
+    hint: 'Non-associativity means $(ab)c \\neq a(bc)$ — matrix multiplication breaks down.',
+  },
+];

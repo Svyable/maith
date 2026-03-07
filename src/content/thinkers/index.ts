@@ -552,6 +552,14 @@ import { jamesStorerQuestions } from "./james-storer";
 import { yannColletQuestions } from "./yann-collet";
 import { jarekDudaQuestions } from "./jarek-duda";
 
+// Graph Theory, Symmetry & Logic Pioneers
+import { sophusLieQuestions } from "./sophus-lie";
+import { ginoFanoQuestions } from "./gino-fano";
+import { stanWagonQuestions } from "./stan-wagon";
+import { janMycielskiQuestions } from "./jan-mycielski";
+import { andrzejEhrenfeuchtQuestions } from "./andrzej-ehrenfeucht";
+import { herbertGrotzschQuestions } from "./herbert-grotzsch";
+
 export const allThinkerQuestions: Question[] = [
   ...alfredTarskiQuestions,
   ...felixExnerQuestions,
@@ -1066,6 +1074,14 @@ export const allThinkerQuestions: Question[] = [
   ...jamesStorerQuestions,
   ...yannColletQuestions,
   ...jarekDudaQuestions,
+
+  // Graph Theory, Symmetry & Logic Pioneers
+  ...sophusLieQuestions,
+  ...ginoFanoQuestions,
+  ...stanWagonQuestions,
+  ...janMycielskiQuestions,
+  ...andrzejEhrenfeuchtQuestions,
+  ...herbertGrotzschQuestions,
 ];
 export function getThinkerQuestions(slug: string): Question[] {
   return allThinkerQuestions.filter((q) => q.topic === slug);
