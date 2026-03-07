@@ -1,0 +1,50 @@
+import type { GlossaryTerm } from '../types';
+
+export const qftTerms: GlossaryTerm[] = [
+  {
+    id: 'feynman-diagram', field: 'physics', topic: 'quantum-field-theory',
+    term: 'Feynman Diagram',
+    definition: 'A pictorial representation of particle interactions where lines represent propagators and vertices represent interaction terms in the Lagrangian.',
+    example: 'The simplest QED vertex shows an electron emitting a photon: $e \\to e + \\gamma$.',
+    thinkerLinks: ['feynman'],
+    related: ['path-integral-gloss', 'renormalization-qft'],
+    difficulty: 'intermediate',
+  },
+  {
+    id: 'path-integral-gloss', field: 'physics', topic: 'quantum-field-theory',
+    term: 'Path Integral',
+    definition: 'Feynman\'s formulation summing over all possible histories: $\\langle f|i\\rangle = \\int \\mathcal{D}[\\phi]\\, e^{iS[\\phi]/\\hbar}$.',
+    formula: '$\\langle f|i\\rangle = \\int \\mathcal{D}[\\phi]\\, e^{iS[\\phi]/\\hbar}$',
+    latex: '\\langle f|i\\rangle = \\int \\mathcal{D}[\\phi]\\, e^{iS[\\phi]/\\hbar}',
+    symbolLinks: { 'S': 'sigma', 'ℏ': 'eta' },
+    thinkerLinks: ['feynman'],
+    related: ['feynman-diagram'],
+    difficulty: 'advanced',
+  },
+  {
+    id: 'renormalization-qft', field: 'physics', topic: 'quantum-field-theory',
+    term: 'Renormalization',
+    definition: 'The procedure of absorbing infinities arising in loop diagrams into redefined (renormalized) physical parameters like mass and charge.',
+    example: 'QED\'s prediction of the electron anomalous magnetic moment agrees with experiment to 10 significant figures.',
+    thinkerLinks: ['feynman', 'dyson'],
+    related: ['feynman-diagram', 'renormalization-gloss'],
+    difficulty: 'advanced',
+  },
+  {
+    id: 'higgs-mechanism-gloss', field: 'physics', topic: 'quantum-field-theory',
+    term: 'Higgs Mechanism',
+    definition: 'Spontaneous symmetry breaking gives mass to gauge bosons via coupling to the Higgs field. The remaining degree of freedom is the Higgs boson.',
+    example: 'Discovered at CERN in 2012, confirming the Standard Model\'s mass generation mechanism.',
+    formulaLinks: ['higgs-potential'],
+    related: ['yang-mills-gloss'],
+    difficulty: 'advanced',
+  },
+  {
+    id: 'yang-mills-gloss', field: 'physics', topic: 'quantum-field-theory',
+    term: 'Yang–Mills Theory',
+    definition: 'Non-abelian gauge theories generalizing electromagnetism. The strong and weak forces are described by $SU(3)$ and $SU(2)$ Yang–Mills theories.',
+    example: 'The Yang–Mills mass gap is one of the seven Millennium Prize Problems.',
+    related: ['higgs-mechanism-gloss'],
+    difficulty: 'advanced',
+  },
+];

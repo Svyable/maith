@@ -1,0 +1,52 @@
+import type { GlossaryTerm } from '../types';
+
+export const graphTheoryTerms: GlossaryTerm[] = [
+  {
+    id: 'euler-path', field: 'math', topic: 'graph-theory',
+    term: 'Eulerian Path',
+    definition: 'A trail that visits every edge of a graph exactly once. Exists iff the graph has exactly 0 or 2 vertices of odd degree.',
+    example: 'The Königsberg bridge problem — solved by Euler in 1736 — launched graph theory.',
+    thinkerLinks: ['euler'],
+    related: ['hamiltonian-cycle'],
+    difficulty: 'intro',
+  },
+  {
+    id: 'hamiltonian-cycle', field: 'math', topic: 'graph-theory',
+    term: 'Hamiltonian Cycle',
+    definition: 'A cycle that visits every vertex exactly once. Deciding existence is NP-complete, unlike the Eulerian case.',
+    example: 'The Travelling Salesman Problem seeks the shortest Hamiltonian cycle.',
+    related: ['euler-path', 'graph-coloring'],
+    difficulty: 'intermediate',
+  },
+  {
+    id: 'graph-coloring', field: 'math', topic: 'graph-theory',
+    term: 'Graph Coloring',
+    definition: 'Assigning labels (colors) to vertices so no two adjacent vertices share a color. The chromatic number $\\chi(G)$ is the minimum colors needed.',
+    formula: '$\\chi(G) \\leq \\Delta(G) + 1$',
+    latex: '\\chi(G) \\leq \\Delta(G) + 1',
+    symbolLinks: { 'χ': 'chi', 'Δ': 'delta' },
+    example: 'The Four Color Theorem states every planar graph is 4-colorable.',
+    related: ['planar-graph'],
+    difficulty: 'intermediate',
+  },
+  {
+    id: 'planar-graph', field: 'math', topic: 'graph-theory',
+    term: 'Planar Graph',
+    definition: 'A graph that can be drawn in the plane without edge crossings. Euler\'s formula: $V - E + F = 2$.',
+    formula: '$V - E + F = 2$',
+    latex: 'V - E + F = 2',
+    thinkerLinks: ['euler'],
+    formulaLinks: ['euler-polyhedron'],
+    related: ['graph-coloring', 'euler-path'],
+    difficulty: 'intro',
+  },
+  {
+    id: 'spectral-graph', field: 'math', topic: 'graph-theory',
+    term: 'Spectral Graph Theory',
+    definition: 'Studying graph properties through eigenvalues of associated matrices (adjacency, Laplacian). The spectrum encodes connectivity, expansion, and mixing time.',
+    symbolLinks: { 'λ': 'lambda' },
+    example: 'Google PageRank is the dominant eigenvector of the web graph\'s transition matrix.',
+    related: ['eigenvalue'],
+    difficulty: 'advanced',
+  },
+];
