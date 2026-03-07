@@ -15,6 +15,22 @@ import { chemistryTerms } from './chemistry';
 import { quantTerms } from './quant';
 import { opticsTerms, commsTerms, semiconductorTerms, materialsTerms } from './applied-sciences';
 
+// ── New physics topic imports ───────────────────────────────
+import { statisticalPhysicsTerms } from './statistical-physics';
+import { qftTerms } from './quantum-field-theory';
+import { condensedMatterTerms } from './condensed-matter';
+import { plasmaPhysicsTerms } from './plasma-physics';
+import { nonlinearDynamicsTerms } from './nonlinear-dynamics';
+import { manyBodyTerms } from './many-body-physics';
+import { quantumGravityTerms } from './quantum-gravity';
+
+// ── New math topic imports ──────────────────────────────────
+import { complexAnalysisTerms } from './complex-analysis';
+import { graphTheoryTerms } from './graph-theory';
+import { functionalAnalysisTerms } from './functional-analysis';
+import { diffGeometryTerms } from './differential-geometry';
+import { numericalMethodsTerms } from './numerical-methods';
+
 // ── Locale-aware field imports (folder pattern) ─────────────
 import { earthSpaceTerms_en } from './earth-space/en';
 import { earthSpaceTerms_es } from './earth-space/es';
@@ -22,10 +38,6 @@ import { earthSpaceTerms_es } from './earth-space/es';
 export type { GlossaryTerm };
 
 // ── Locale registry ─────────────────────────────────────────
-// To add a new translated field:
-//   1. Create glossary/<field>/en.ts and glossary/<field>/<locale>.ts
-//   2. Import them above
-//   3. Add an entry here
 const LOCALIZED_FIELDS: Record<string, Record<string, GlossaryTerm[]>> = {
   'earth-space': {
     en: earthSpaceTerms_en,
@@ -54,6 +66,20 @@ const STATIC_TERMS: GlossaryTerm[] = [
   ...commsTerms,
   ...semiconductorTerms,
   ...materialsTerms,
+  // New physics topics
+  ...statisticalPhysicsTerms,
+  ...qftTerms,
+  ...condensedMatterTerms,
+  ...plasmaPhysicsTerms,
+  ...nonlinearDynamicsTerms,
+  ...manyBodyTerms,
+  ...quantumGravityTerms,
+  // New math topics
+  ...complexAnalysisTerms,
+  ...graphTheoryTerms,
+  ...functionalAnalysisTerms,
+  ...diffGeometryTerms,
+  ...numericalMethodsTerms,
 ];
 
 // ── Public API ──────────────────────────────────────────────
