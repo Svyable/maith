@@ -1,0 +1,77 @@
+import type { Question } from '../types';
+
+export const leonardSusskindQuestions: Question[] = [
+  {
+    id: 310201, topic: 'leonard-susskind', difficulty: 'easy',
+    question: 'Susskind\'s black hole complementarity principle resolves the information paradox by arguing that:',
+    options: [
+      'An infalling observer and a distant observer give complementary but mutually consistent descriptions — information is on the horizon AND passes through it, but no single observer sees a contradiction',
+      'Information is destroyed at the singularity and quantum mechanics must be modified',
+      'Black holes never form because Hawking radiation prevents horizon formation',
+      'Information escapes through wormholes connecting the black hole to white holes',
+    ],
+    correctIndex: 0,
+    explanation: 'Complementarity (Susskind, Thorlacius, Uglum, 1993) resolves the paradox by noting that no single observer can verify both descriptions simultaneously. The infalling observer sees smooth horizon crossing; the distant observer sees information thermalized and re-emitted. Both are consistent within their own causal patches.',
+    realWorld: 'Complementarity was the dominant resolution of the information paradox until the AMPS firewall argument (2012) challenged it.',
+    hint: 'No observer can access both sides of the horizon — consistency requires only one perspective at a time.',
+    glossaryLinks: ['holographic-principle', 'black-hole-entropy'],
+  },
+  {
+    id: 310202, topic: 'leonard-susskind', difficulty: 'easy',
+    question: 'Susskind is credited as one of the independent co-discoverers of:',
+    options: [
+      'String theory — he independently proposed that Veneziano\'s dual resonance amplitudes described one-dimensional extended objects (strings)',
+      'Quantum chromodynamics and asymptotic freedom',
+      'The Higgs mechanism for electroweak symmetry breaking',
+      'Supersymmetry and the MSSM',
+    ],
+    correctIndex: 0,
+    explanation: 'In 1969–70, Susskind (along with Nambu and Nielsen independently) recognized that the Veneziano amplitude described the scattering of one-dimensional objects — strings. This launched string theory as a framework for quantum gravity.',
+    realWorld: 'Susskind\'s string theory insight was initially rejected by his thesis committee, who didn\'t understand it.',
+    hint: 'He saw one-dimensional objects in a scattering amplitude originally proposed for hadrons.',
+  },
+  {
+    id: 310203, topic: 'leonard-susskind', difficulty: 'hard',
+    question: 'Susskind\'s "ER = EPR" conjecture (with Maldacena, 2013) proposes that:',
+    options: [
+      'Einstein-Rosen bridges (wormholes) and Einstein-Podolsky-Rosen entanglement are the same phenomenon — entangled particles are connected by non-traversable wormholes',
+      'Wormholes can be used for faster-than-light communication between entangled particles',
+      'EPR correlations prove that spacetime is not fundamental',
+      'Black holes are connected to white holes in parallel universes via entanglement',
+    ],
+    correctIndex: 0,
+    explanation: 'ER = EPR identifies quantum entanglement with geometric connectivity: every pair of entangled particles is connected by a Planck-scale Einstein-Rosen bridge. This doesn\'t allow FTL signaling (the wormholes are non-traversable) but suggests that spacetime geometry emerges from entanglement structure.',
+    realWorld: 'ER = EPR connects quantum information theory to quantum gravity, suggesting that "entanglement builds spacetime."',
+    hint: 'Wormholes and entanglement are two descriptions of the same quantum connection.',
+    glossaryLinks: ['ads-cft'],
+  },
+  {
+    id: 310204, topic: 'leonard-susskind', difficulty: 'hard',
+    question: 'Susskind\'s "complexity = volume" (later "complexity = action") conjecture addresses the interior of black holes by proposing that:',
+    options: [
+      'The computational complexity of the boundary quantum state is dual to the volume (or gravitational action) of a maximal spatial slice behind the horizon',
+      'The interior volume of a black hole is always zero in quantum gravity',
+      'Complexity decreases monotonically as a black hole evaporates',
+      'The black hole interior can be simulated efficiently on a quantum computer',
+    ],
+    correctIndex: 0,
+    explanation: 'After the horizon reaches thermal equilibrium (entropy saturates), the interior volume continues to grow linearly in time. Susskind proposed that this growth corresponds to increasing quantum computational complexity of the boundary state — complexity, not entropy, is the quantity that tracks the black hole interior.',
+    realWorld: 'This connects quantum complexity theory to general relativity, suggesting deep relationships between computation, gravity, and spacetime growth.',
+    hint: 'Entropy saturates quickly, but something else keeps growing behind the horizon.',
+  },
+  {
+    id: 310205, topic: 'leonard-susskind', difficulty: 'sota',
+    question: 'In "The Black Hole War," Susskind\'s key argument against Hawking\'s claim of information loss relied on:',
+    options: [
+      'Showing that information loss would violate unitarity of quantum mechanics, and that AdS/CFT (via Maldacena) proved unitarity is preserved because the boundary CFT is manifestly unitary',
+      'Demonstrating that Hawking radiation carries information through quantum error correction codes',
+      'Proving that black holes never fully evaporate due to quantum gravity corrections',
+      'Showing that the no-cloning theorem prevents information from being on both the horizon and the interior',
+    ],
+    correctIndex: 0,
+    explanation: 'Susskind\'s argument was twofold: (1) information loss implies non-unitarity, which would destroy the mathematical consistency of quantum mechanics, and (2) Maldacena\'s AdS/CFT provided a concrete proof — the boundary CFT evolves unitarily by construction, so the dual bulk gravity must also preserve information.',
+    realWorld: 'Hawking conceded the bet in 2004, acknowledging that information is preserved. The "war" lasted nearly 30 years (1976–2004).',
+    hint: 'The boundary theory is quantum mechanical — it MUST be unitary. Therefore the bulk is too.',
+    glossaryLinks: ['ads-cft', 'holographic-principle'],
+  },
+];
