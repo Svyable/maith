@@ -34,6 +34,13 @@
   "stats.formulas": "공식",
 
   "difficulty.selectHint": "하나 이상의 레벨을 선택하세요",
+  "difficulty.easy": "쉽게",
+  "difficulty.hard": "어려움",
+  "difficulty.sota": "SOTA",
+  "difficulty.easyDesc": "기초 — 부드러운 점수",
+  "difficulty.hardDesc": "경쟁 — 두 배 점수",
+  "difficulty.sotaDesc": "최첨단 — 최대 보상",
+  "difficulty.pts": "+{{pts}}점",
 
   "quiz.question": "Q {{current}}/{{total}}",
   "quiz.points": "{{score}}점",

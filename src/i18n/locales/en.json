@@ -34,6 +34,13 @@
   "stats.formulas": "Formulas",
 
   "difficulty.selectHint": "Select one or more levels",
+  "difficulty.easy": "EASY",
+  "difficulty.hard": "HARD",
+  "difficulty.sota": "SOTA",
+  "difficulty.easyDesc": "Fundamentals — gentle scoring",
+  "difficulty.hardDesc": "Competitive — double points",
+  "difficulty.sotaDesc": "Frontier — max reward",
+  "difficulty.pts": "+{{pts}}pts",
 
   "quiz.question": "Q {{current}}/{{total}}",
   "quiz.points": "{{score}} pts",

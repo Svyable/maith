@@ -65,7 +65,7 @@ function FieldPill({
       )}
     >
       <span>{field.emoji}</span>
-      <span>{field.label}</span>
+      <span>{t(`field.${field.slug}`) || field.label}</span>
       {!field.available && (
         <span className="ml-1 text-[9px] font-bold text-muted-foreground bg-muted px-1 py-0.5 rounded-full">
           {t('field.soon')}

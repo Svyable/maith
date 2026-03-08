@@ -34,6 +34,13 @@
   "stats.formulas": "公式",
 
   "difficulty.selectHint": "1つ以上のレベルを選択",
+  "difficulty.easy": "簡単",
+  "difficulty.hard": "難しい",
+  "difficulty.sota": "SOTA",
+  "difficulty.easyDesc": "基礎 — 穏やかなスコア",
+  "difficulty.hardDesc": "競争 — ダブルポイント",
+  "difficulty.sotaDesc": "最先端 — 最大報酬",
+  "difficulty.pts": "+{{pts}}ポイント",
 
   "quiz.question": "Q {{current}}/{{total}}",
   "quiz.points": "{{score}}点",

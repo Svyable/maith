@@ -34,6 +34,13 @@
   "stats.formulas": "公式",
 
   "difficulty.selectHint": "选择一个或多个等级",
+  "difficulty.easy": "简单",
+  "difficulty.hard": "困难",
+  "difficulty.sota": "SOTA",
+  "difficulty.easyDesc": "基础 — 温和评分",
+  "difficulty.hardDesc": "竞争 — 双倍分数",
+  "difficulty.sotaDesc": "前沿 — 最高奖励",
+  "difficulty.pts": "+{{pts}}分",
 
   "quiz.question": "第 {{current}}/{{total}} 题",
   "quiz.points": "{{score}} 分",

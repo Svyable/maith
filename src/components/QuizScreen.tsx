@@ -180,7 +180,7 @@ export function QuizScreen({
         <span className="text-lg">{topicMeta?.emoji ?? '📐'}</span>
         <span className="text-xs text-muted-foreground font-medium">{topicMeta?.label ?? question.topic}</span>
         <span className={`text-[10px] px-1.5 py-0.5 rounded font-mono font-bold ${diffBadge.text}`}>
-          +{qDiffMeta.slug === 'EASY' ? 10 : qDiffMeta.slug === 'HARD' ? 20 : 35}pts
+          {t('difficulty.pts', { pts: qDiffMeta.pointsPerCorrect })}
         </span>
         {streak >= 3 && (
           <span className="ml-auto text-xs font-bold text-accent">

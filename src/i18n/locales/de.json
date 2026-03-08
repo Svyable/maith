@@ -34,6 +34,13 @@
   "stats.formulas": "Formeln",
 
   "difficulty.selectHint": "Wähle eine oder mehrere Stufen",
+  "difficulty.easy": "LEICHT",
+  "difficulty.hard": "SCHWER",
+  "difficulty.sota": "SOTA",
+  "difficulty.easyDesc": "Grundlagen – sanfte Punktzahl",
+  "difficulty.hardDesc": "Wettbewerb – doppelte Punkte",
+  "difficulty.sotaDesc": "Grenze – maximale Belohnung",
+  "difficulty.pts": "+{{pts}}Pkt",
 
   "quiz.question": "F {{current}}/{{total}}",
   "quiz.points": "{{score}} Pkt",
