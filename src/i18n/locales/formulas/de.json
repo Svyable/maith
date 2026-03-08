@@ -140,5 +140,145 @@
 
   "formula.35.name": "Maxwellsche Gleichungen",
   "formula.35.significance": "Vier Gleichungen, die Elektrizität, Magnetismus und Licht vereinen. Sagten elektromagnetische Wellen voraus, bevor sie entdeckt wurden. Grundlage aller elektromagnetischen Technologie.",
-  "formula.35.applications": "Radio, WiFi, MRT, Glasfaser, Elektrotechnik, Antennendesign, Photonik"
+  "formula.35.applications": "Radio, WiFi, MRT, Glasfaser, Elektrotechnik, Antennendesign, Photonik",
+
+  "formula.36.name": "Schrödinger-Gleichung",
+  "formula.36.significance": "Die fundamentale Gleichung aller nicht-relativistischen Quantensysteme. Beschreibt die zeitliche Entwicklung des Quantenzustands. Ermöglichte Halbleiter, Laser und Quantencomputer.",
+  "formula.36.applications": "Halbleiter, Transistoren, Laser, MRT, Quantencomputing, Atom- und Molekülphysik",
+
+  "formula.37.name": "Heisenbergsche Unschärferelation",
+  "formula.37.significance": "Setzt eine fundamentale Untergrenze für das Produkt der Unschärfen von Ort und Impuls. Keine Beschränkung der Messtechnik, sondern eine inhärente Eigenschaft der Realität.",
+  "formula.37.applications": "Quantencomputing, Elektronenmikroskopie, Kernphysik, Quantenkryptographie",
+
+  "formula.38.name": "Dirac-Gleichung",
+  "formula.38.significance": "Die erste Gleichung, die Quantenmechanik mit spezieller Relativitätstheorie vereint. Sagte die Existenz der Antimaterie (Positron) voraus, bevor sie entdeckt wurde.",
+  "formula.38.applications": "Teilchenphysik, Quantenfeldtheorie, Positronen-Emissions-Tomographie (PET), Antimaterie-Forschung",
+
+  "formula.39.name": "Einsteinsche Feldgleichungen",
+  "formula.39.significance": "Beschreiben Gravitation als Krümmung der Raumzeit durch Masse-Energie. Sagten schwarze Löcher, Gravitationswellen und die Expansion des Universums voraus — alles experimentell bestätigt.",
+  "formula.39.applications": "GPS (relativistische Korrekturen), Gravitationswellendetektoren (LIGO), Bildgebung schwarzer Löcher, Kosmologie",
+
+  "formula.40.name": "Noethersches Theorem",
+  "formula.40.significance": "Jede kontinuierliche Symmetrie einer physikalischen Wirkung entspricht einer Erhaltungsgröße. Zeitsymmetrie → Energieerhaltung. Raumsymmetrie → Impulserhaltung. Der Grund, warum Erhaltungssätze überhaupt existieren.",
+  "formula.40.applications": "Gesamte theoretische Physik: Teilchenphysik, ART, Quantenfeldtheorie, Festkörperphysik",
+
+  "formula.41.name": "Boltzmannsche Entropieformel",
+  "formula.41.significance": "Verbindet die mikroskopische Welt der Atome mit der makroskopischen Thermodynamik. Definiert Entropie als Logarithmus der Anzahl der Mikrozustände. Auf Boltzmanns Grabstein eingraviert.",
+  "formula.41.applications": "Statistische Mechanik, Physik schwarzer Löcher (Bekenstein-Hawking), Informationstheorie, Komplexitätstheorie",
+
+  "formula.42.name": "Zweiter Hauptsatz der Thermodynamik",
+  "formula.42.significance": "Die Entropie eines isolierten Systems nimmt niemals ab. Definiert den Zeitpfeil — das einzige fundamentale physikalische Gesetz, das Vergangenheit von Zukunft unterscheidet.",
+  "formula.42.applications": "Wärmekraftmaschinen, Kühlung, Informationstheorie, Maxwells Dämon, Kosmologie",
+
+  "formula.43.name": "Plancksches Strahlungsgesetz",
+  "formula.43.significance": "Beschreibt die Spektralverteilung der Schwarzkörperstrahlung. Die erste Quantengleichung — Planck musste Energie quantisieren, um die Ultraviolettkatastrophe zu vermeiden. Nobelpreis 1918.",
+  "formula.43.applications": "Astrophysik (Sternklassifikation), LED-Design, Wärmebildgebung, Klimawissenschaft, CMB-Kosmologie",
+
+  "formula.44.name": "Navier-Stokes-Gleichungen",
+  "formula.44.significance": "Beschreiben die Bewegung aller viskosen Fluide. Eines der Clay-Millenniumsprobleme ($1M): Ob glatte globale Lösungen immer existieren, ist ungelöst und eines der schwersten Probleme der Mathematik.",
+  "formula.44.applications": "Aerodynamik, Wettervorhersage, CFD, kardiovaskuläre Modellierung, Ozeanströmungen",
+
+  "formula.45.name": "Wellengleichung",
+  "formula.45.significance": "Beschreibt die Ausbreitung aller Wellenphänomene — Schall, Licht, seismische Wellen, Wasserwellen. Eine der wichtigsten PDEs der Physik.",
+  "formula.45.applications": "Akustik, Optik, Seismologie, elektromagnetische Wellen, Musikinstrumente, Ultraschall",
+
+  "formula.46.name": "Euler-Lagrange-Gleichung",
+  "formula.46.significance": "Die zentrale Gleichung der Lagrangeschen Mechanik. Äquivalent zu Newtons Gesetzen, aber über Energie statt Kraft formuliert. Basis der gesamten modernen theoretischen Physik.",
+  "formula.46.applications": "Klassische Mechanik, Optik, allgemeine Relativitätstheorie, Quantenfeldtheorie, Regelungstechnik, Robotik",
+
+  "formula.47.name": "Prinzip der kleinsten Wirkung",
+  "formula.47.significance": "Die Natur folgt dem Pfad, für den das Wirkungsintegral stationär ist. Tiefgreifender als Newtons Gesetze — es regiert klassische Mechanik, Optik, Elektrodynamik, ART und Quantenmechanik gleichermaßen.",
+  "formula.47.applications": "Gesamte Physik: Optik (Fermat), Mechanik, Feldtheorie, Feynmansche Pfadintegrale, Robotik",
+
+  "formula.48.name": "Bornsche Regel",
+  "formula.48.significance": "Verknüpft die Quantenwellenfunktion mit experimentellen Messwahrscheinlichkeiten. Die Brücke zwischen dem abstrakten mathematischen Formalismus und der beobachtbaren physikalischen Welt. Nobelpreis 1954.",
+  "formula.48.applications": "Quantenchemie, Atomphysik, Quantencomputing, Materialwissenschaft",
+
+  "formula.49.name": "Ideales Gasgesetz",
+  "formula.49.significance": "Kombiniert drei experimentelle Gasgesetze in einer eleganten Gleichung. Der Prototyp aller Zustandsgleichungen und Ausgangspunkt der statistischen Mechanik.",
+  "formula.49.applications": "Chemie, Chemieingenieurwesen, Atmosphärenwissenschaft, Kühlung, Verbrennungsmotoren",
+
+  "formula.50.name": "Bellsche Ungleichung",
+  "formula.50.significance": "Liefert eine überprüfbare Ungleichung, die jede lokale Theorie verborgener Variablen erfüllen muss. Quantenmechanik sagt Verletzungen bis 2√2 voraus. Experimentelle Verletzungen bewiesen, dass Verschränkung real ist. Nobelpreis 2022.",
+  "formula.50.applications": "Quantenkryptographie, Quantenschlüsselverteilung (QKD), Tests der Quantenfundamente, Quantencomputing",
+
+  "formula.51.name": "Bernoulli-Gleichung",
+  "formula.51.significance": "Drückt Energieerhaltung in Strömungen aus — bei steigender Geschwindigkeit sinkt der Druck. Erklärt Auftrieb in der Luftfahrt und den Venturi-Effekt.",
+  "formula.51.applications": "Luftfahrt (Auftrieb), Hydraulik, Vergaser, Venturi-Messgeräte, kardiovaskuläre Strömungsmechanik",
+
+  "formula.52.name": "Minkowski-Metrik",
+  "formula.52.significance": "Definiert die Geometrie der flachen Raumzeit in der speziellen Relativitätstheorie und vereint Raum und Zeit mit einem charakteristischen Minuszeichen.",
+  "formula.52.applications": "Spezielle Relativitätstheorie, GPS (relativistische Korrekturen), Teilchenphysik-Kinematik, Gravitationswellendetektion",
+
+  "formula.53.name": "Ricci-Fluss",
+  "formula.53.significance": "Beschreibt die Entwicklung einer Riemannschen Metrik hin zu gleichmäßigerer Krümmung. Perelman nutzte den Ricci-Fluss zum Beweis der Poincaré-Vermutung — das einzige gelöste Millenniumsproblem.",
+  "formula.53.applications": "Topologie (Poincaré-Vermutung), geometrische Analysis, Klassifikation von 3-Mannigfaltigkeiten, mögliche Quantengravitation",
+
+  "formula.54.name": "De-Broglie-Wellenlänge",
+  "formula.54.significance": "Schlug vor, dass Materie wie Licht Welleneigenschaften besitzt. Die Schlüsselerkenntnis, die Schrödinger zur Entwicklung seiner Gleichung führte. Nobelpreis.",
+  "formula.54.applications": "Elektronenmikroskopie, Quantencomputing, Neutronenstreuung, Materialcharakterisierung, Teilchenphysik",
+
+  "formula.55.name": "Gibbs-Energie",
+  "formula.55.significance": "Sagt voraus, ob eine chemische Reaktion bei konstantem Druck und Temperatur spontan abläuft (ΔG < 0). Eckpfeiler der chemischen Thermodynamik und Biochemie.",
+  "formula.55.applications": "Chemische Reaktionen, Biochemie, Pharmadesign, Materialsynthese, Elektrochemie (Batterien)",
+
+  "formula.56.name": "Arrhenius-Gleichung",
+  "formula.56.significance": "Beschreibt die exponentielle Temperaturabhängigkeit von Reaktionsgeschwindigkeiten. Erklärt, warum Reaktionen bei Erwärmung schneller ablaufen.",
+  "formula.56.applications": "Chemieingenieurwesen, Arzneimittelstabilität, Lebensmittelwissenschaft, Katalysedesign, Materialabbau",
+
+  "formula.57.name": "Henderson-Hasselbalch-Gleichung",
+  "formula.57.significance": "Verknüpft den pH einer Pufferlösung mit dem pKa und dem Konzentrationsverhältnis einer schwachen Säure und ihrer konjugierten Base. Essenziell für die Blut-pH-Regulation.",
+  "formula.57.applications": "Biochemie, Blut-pH-Regulation, Pharmaformulierung, Titrationskurven, Zellbiologie",
+
+  "formula.58.name": "Nernst-Gleichung",
+  "formula.58.significance": "Verknüpft das elektrochemische Zellpotential mit den Konzentrationen der Reaktanden. Unverzichtbar in der Neurowissenschaft für Membranruhepotentiale. Nobelpreis 1920.",
+  "formula.58.applications": "Neurowissenschaft (Aktionspotentiale), Batterien, Brennstoffzellen, Galvanotechnik, pH-Meter, Biosensoren",
+
+  "formula.59.name": "Michaelis-Menten-Kinetik",
+  "formula.59.significance": "Beschreibt die Geschwindigkeit enzymkatalysierter Reaktionen als Funktion der Substratkonzentration. Fundament der Enzymologie und Pharmakokinetik.",
+  "formula.59.applications": "Arzneimitteldesign, Pharmakokinetik, Stoffwechselmodellierung, Bioreaktordesign, klinische Pharmakologie",
+
+  "formula.60.name": "Hardy-Weinberg-Gleichgewicht",
+  "formula.60.significance": "Beschreibt die erwarteten Allel- und Genotypfrequenzen in einer nicht-evolvierenden Population. Das Nullmodell der Populationsgenetik.",
+  "formula.60.applications": "Populationsgenetik, GWAS, forensische DNA, Naturschutzbiologie",
+
+  "formula.61.name": "SIR-Epidemiemodell",
+  "formula.61.significance": "Modelliert die Ausbreitung von Infektionskrankheiten durch Anfällige, Infizierte und Genesene Kompartimente. Die Basisreproduktionszahl R₀ wurde zur meistzitierten COVID-19-Statistik.",
+  "formula.61.applications": "COVID-19-Modellierung, Impfstrategie, Herdenimmunität, Gesundheitspolitik, Bioterrorismus-Reaktion",
+
+  "formula.62.name": "Hodgkin-Huxley-Modell",
+  "formula.62.significance": "Beschreibt, wie Aktionspotentiale in Neuronen durch spannungsgesteuerte Ionenkanäle initiiert und weitergeleitet werden. Nobelpreis 1963. Das erste mechanistische Modell einer biologischen Berechnung.",
+  "formula.62.applications": "Computational Neuroscience, Gehirn-Computer-Schnittstellen, neuronale Prothesen, Wirkstoffforschung",
+
+  "formula.63.name": "Lotka-Volterra-Gleichungen",
+  "formula.63.significance": "Beschreiben oszillierende Räuber-Beute-Populationsdynamiken. Das einfachste Modell ökologischer Interaktion — erzeugt zyklisches Verhalten aus rein deterministischen Gleichungen.",
+  "formula.63.applications": "Ökologie, Fischereimanagement, Epidemiologie, ökonomische Wettbewerbsmodellierung, Wettrüstungstheorie",
+
+  "formula.64.name": "Logistisches Wachstum",
+  "formula.64.significance": "Modelliert Populationswachstum mit Kapazitätsgrenze. Die diskrete Version führte das Chaos in die Öffentlichkeit ein. Robert May zeigte, dass ein einfaches biologisches Modell deterministisches Chaos erzeugen kann.",
+  "formula.64.applications": "Populationsbiologie, Epidemiologie, Ressourcenmanagement, Technologieadoptionskurven, Chaostheorie",
+
+  "formula.65.name": "Shannon-Entropie",
+  "formula.65.significance": "Quantifiziert den Informationsgehalt — die durchschnittliche Überraschung einer Wahrscheinlichkeitsverteilung. Begründete die gesamte Informationstheorie.",
+  "formula.65.applications": "Datenkompression (Huffman, Lempel-Ziv), Kryptographie, maschinelles Lernen (Kreuzentropie-Verlust), Telekommunikation",
+
+  "formula.66.name": "Halteproblem (Unentscheidbarkeit)",
+  "formula.66.significance": "Beweist, dass kein allgemeiner Algorithmus bestimmen kann, ob ein beliebiges Programm bei gegebener Eingabe terminiert. Grundlage der theoretischen Informatik.",
+  "formula.66.applications": "Compiler-Design, formale Verifikation, Programmanalyse, Rices Theorem, Softwaretesttheorie",
+
+  "formula.67.name": "P versus NP",
+  "formula.67.significance": "Fragt, ob jedes Problem, dessen Lösung in Polynomialzeit verifizierbar ist, auch in Polynomialzeit lösbar ist. Das wichtigste offene Problem der Informatik.",
+  "formula.67.applications": "Kryptographie (Sicherheit hängt von P≠NP ab), KI, Scheduling, Logistik, Proteinfaltung",
+
+  "formula.68.name": "RSA-Verschlüsselung",
+  "formula.68.significance": "Das erste praktische Public-Key-Kryptosystem, basierend auf der vermuteten Schwierigkeit der Faktorisierung großer Ganzzahlen.",
+  "formula.68.applications": "HTTPS/TLS, digitale Signaturen, Zertifizierungsstellen, sichere E-Mail, Online-Banking",
+
+  "formula.69.name": "PageRank-Algorithmus",
+  "formula.69.significance": "Modelliert die Wichtigkeit von Webseiten als stationäre Verteilung eines Zufallssurfers über den Hyperlink-Graphen. Trieb Googles ursprüngliche Suchmaschine an.",
+  "formula.69.applications": "Websuche, Zitationsanalyse, Empfehlungssysteme, Netzwerkzentralität, soziale Netzwerkanalyse",
+
+  "formula.70.name": "Aufmerksamkeitsmechanismus (Transformer)",
+  "formula.70.significance": "Skalierte Skalarprodukt-Aufmerksamkeit, die Kernoperation jedes Transformer-Modells. Ermöglichte parallelisierbare Sequenzmodellierung. Die Gleichung hinter GPT, Claude, Gemini, LLaMA, AlphaFold.",
+  "formula.70.applications": "Große Sprachmodelle (GPT, Claude, Gemini), maschinelle Übersetzung, Bilderzeugung, AlphaFold, Code-Generierung"
 }
