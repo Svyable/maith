@@ -397,5 +397,125 @@
 
   "formula.100.name": "생존 함수(사력)",
   "formula.100.significance": "시간 t를 초과하여 생존할 확률을 누적 위험률의 지수로 제공한다. 생존 분석과 보험수리학의 기본 함수.",
-  "formula.100.applications": "생명보험 가격 설정, 연금 가치 평가, 임상 시험, 신뢰성 공학, 이탈 모델링"
+  "formula.100.applications": "생명보험 가격 설정, 연금 가치 평가, 임상 시험, 신뢰성 공학, 이탈 모델링",
+
+  "formula.101.name": "슈테판-볼츠만 법칙",
+  "formula.101.significance": "흑체의 단위 면적당 총 복사 전력이 온도의 네 제곱에 비례함을 기술한다.",
+  "formula.101.applications": "항성 분류, 행성 표면 온도, 기후 과학(에너지 수지), 적외선 센서, 열 설계",
+
+  "formula.102.name": "프리드만 방정식",
+  "formula.102.significance": "아인슈타인 장방정식으로부터 우주의 팽창을 지배한다. 허블의 관측 이전에 빅뱅과 우주 팽창을 예측했다.",
+  "formula.102.applications": "우주론, 암흑 에너지 모델, 빅뱅 핵합성, CMB 분석, 구조 형성",
+
+  "formula.103.name": "푸아송 분포",
+  "formula.103.significance": "사건이 일정한 평균률로 독립적으로 발생할 때, 고정 구간 내 주어진 사건 수의 확률을 모형화한다.",
+  "formula.103.applications": "통신, 역학, 보험, 천문학, 대기 행렬 이론, ML(계수 모델)",
+
+  "formula.104.name": "라플라스 변환(양측)",
+  "formula.104.significance": "시간 영역과 복소 주파수 영역 사이를 변환하는 변환 쌍. 전 세계 제어 및 전기 공학자의 공통 언어.",
+  "formula.104.applications": "제어 시스템, 전기 회로, 신호 처리, 시스템 식별, 미분 방정식",
+
+  "formula.105.name": "파세발 정리",
+  "formula.105.significance": "신호의 총 에너지가 푸리에 변환 하에서 보존됨을 명시한다.",
+  "formula.105.applications": "신호 처리, 음향학, 전력 스펙트럼 밀도, 통신, 오디오 공학",
+
+  "formula.106.name": "발산 정리(가우스 정리)",
+  "formula.106.significance": "닫힌 곡면을 통한 벡터장의 선속과 둘러싸인 체적 내의 발산을 관련시킨다.",
+  "formula.106.applications": "전자기학(가우스 법칙), 유체역학, 열전달, 계산 물리학",
+
+  "formula.107.name": "해밀턴의 사원수",
+  "formula.107.significance": "복소수를 4차원으로 확장하되 교환법칙을 포기했다. 짐벌 락 없는 3D 회전의 가장 효율적인 표현.",
+  "formula.107.applications": "3D 컴퓨터 그래픽스, 우주선 자세 제어, 로보틱스, 게임 엔진, IMU 센서 융합",
+
+  "formula.108.name": "오일러-베르누이 판 방정식",
+  "formula.108.significance": "보의 굽힘 이론을 2D 박판으로 확장한다. 바닥, 항공기 외피, MEMS 멤브레인의 처짐을 지배한다.",
+  "formula.108.applications": "구조공학, 항공우주 패널, 마이크로일렉트로닉스(MEMS), 음향 패널, FEA 모델링",
+
+  "formula.109.name": "확산 방정식(열 방정식)",
+  "formula.109.significance": "열(또는 확산되는 물리량)이 시간에 따라 어떻게 퍼지는지 기술한다. 전형적인 포물선형 편미분방정식.",
+  "formula.109.applications": "열전달, 브라운 운동, 옵션 가격 결정(블랙-숄즈), 확산 MRI, 재료 과학",
+
+  "formula.110.name": "도플러 효과",
+  "formula.110.significance": "음원과 관찰자 사이의 상대 운동으로 인한 관측 주파수 변화를 기술한다.",
+  "formula.110.applications": "속도 측정 레이더, 의료 초음파, 천문학적 적색편이, 기상 레이더, 소나",
+
+  "formula.111.name": "브래그 법칙",
+  "formula.111.significance": "결정면에서 회절된 X선의 보강 간섭을 기술한다. 1915년 노벨상. DNA 이중 나선 구조 결정에 직결.",
+  "formula.111.applications": "X선 결정학, 재료 특성화, DNA 구조 결정, 약물 발견, 반도체 분석",
+
+  "formula.112.name": "콜모고로프 복잡도",
+  "formula.112.significance": "문자열의 내재적 복잡도를 범용 튜링 기계 위의 최단 설명 길이로 정의한다.",
+  "formula.112.applications": "데이터 압축, AI 이론, 알고리즘적 무작위성, MDL 원리, 계산 생물학, 과학 철학",
+
+  "formula.113.name": "지프 법칙",
+  "formula.113.significance": "단어의 빈도는 빈도표에서의 순위에 대략 반비례한다. 도시 규모, 소득 분포, 인터넷 트래픽에 나타난다.",
+  "formula.113.applications": "계산 언어학, LLM 어휘 설계, 도시 규모 모델링, 네트워크 과학, 생태학",
+
+  "formula.114.name": "베버-페히너 법칙",
+  "formula.114.significance": "인간의 자극 강도 인지는 대수적이다 — 등차가 아니라 등비를 인지한다.",
+  "formula.114.applications": "심리음향학(데시벨 척도), 시각 인지, UX 설계, 통증 평가, 마케팅, 리히터 규모",
+
+  "formula.115.name": "체비쇼프 부등식",
+  "formula.115.significance": "확률 변수가 평균에서 k 표준편차 이상 벗어날 확률에 대한 분포 무관 상계를 제공한다.",
+  "formula.115.applications": "통계학, 기계학습(PAC 한계), 품질 관리, 금융(위험 한계), 강건 추정",
+
+  "formula.116.name": "기대-최대화 알고리즘",
+  "formula.116.significance": "잠재 변수가 있는 최대 우도 추정을 위한 반복 알고리즘으로, E단계와 M단계를 교대로 수행한다.",
+  "formula.116.applications": "가우시안 혼합 모델, HMM(음성 인식), 생물정보학, 토픽 모델(LDA), 이미지 분할",
+
+  "formula.117.name": "코시 유수 정리",
+  "formula.117.significance": "둘러싸인 극점의 유수를 합산하여 복소 경로 적분을 평가한다. 수학에서 가장 강력한 계산 정리 중 하나.",
+  "formula.117.applications": "신호 처리(역 라플라스/Z변환), 제어 이론, 양자역학, 조합론",
+
+  "formula.118.name": "라플라스 방정식",
+  "formula.118.significance": "원천이 없는 영역의 퍼텐셜 장을 기술한다. 해는 조화 함수로, 수학에서 가장 아름다운 대상 중 하나.",
+  "formula.118.applications": "정전기학, 유체역학(포텐셜 흐름), 컴퓨터 그래픽스(메시 평활화), 의료 영상, 금융",
+
+  "formula.119.name": "사인의 오일러 곱 공식",
+  "formula.119.significance": "사인을 그 영점들 위의 무한곱으로 표현한다. 오일러는 이를 사용하여 ζ(2) = π²/6(바젤 문제)을 계산했다.",
+  "formula.119.applications": "정수론(바젤 문제), 복소해석, 특수함수, 감마 함수 항등식",
+
+  "formula.120.name": "콜모고로프 확률 공리",
+  "formula.120.significance": "확률론을 엄밀한 수학적 기초 위에 놓는 세 가지 공리.",
+  "formula.120.applications": "모든 확률과 통계, 확률 과정, 베이즈 추론, 금융 모델링",
+
+  "formula.121.name": "그린 정리",
+  "formula.121.significance": "닫힌 곡선 주위의 선적분과 둘러싸인 영역 위의 이중적분을 관련시킨다. 스토크스 정리의 2D 특수 경우.",
+  "formula.121.applications": "복소해석, 유체역학, 면적계, 정전기학(2D), 컴퓨터 그래픽스",
+
+  "formula.122.name": "계수-퇴화차수 정리",
+  "formula.122.significance": "선형 사상의 상의 차원(계수)과 핵의 차원(퇴화차수)을 관련시킨다.",
+  "formula.122.applications": "연립방정식, 기계학습(중복 특징), 데이터 분석, 신호 부분공간 방법",
+
+  "formula.123.name": "드무아브르 정리",
+  "formula.123.significance": "복소수의 거듭제곱과 다중 각도 삼각함수 공식을 연결한다. 대수학과 삼각법 사이의 아름다운 다리.",
+  "formula.123.applications": "삼각함수 항등식, 신호 처리, 다항식 근, 전기공학(교류 페이저)",
+
+  "formula.124.name": "비네 공식(피보나치)",
+  "formula.124.significance": "황금비를 이용한 n번째 피보나치 수의 닫힌 형태 표현. 무리수 공식이 항상 정수를 산출하는 점이 놀랍다.",
+  "formula.124.applications": "알고리즘 분석, 금융 기술적 분석, 자연 성장 패턴, 컴퓨터 과학, 암호학",
+
+  "formula.125.name": "월리스 곱",
+  "formula.125.significance": "정수만을 사용한 π의 최초 무한곱 표현 중 하나. 순수 대수적 비의 수열이 초월 상수로 수렴한다.",
+  "formula.125.applications": "수학적 분석, π 근사, 양자역학, 확률론(스털링)",
+
+  "formula.126.name": "라이프니츠 π 공식",
+  "formula.126.significance": "π의 가장 단순한 무한급수. 인도 케랄라의 마다바가 약 1400년에 발견 — 라이프니츠보다 275년 앞섰다.",
+  "formula.126.applications": "수학 교육, 이론적 관심, 역사적 의의, 급수 수렴 예시",
+
+  "formula.127.name": "만델브로 집합",
+  "formula.127.significance": "수학에서 가장 유명한 프랙탈의 가장 간결한 정의. 기본 반복 규칙이 무한한 복잡성을 생성함을 보여준다.",
+  "formula.127.applications": "컴퓨터 그래픽스, 프랙탈 압축, 카오스 이론, 복소 동역학, 수학적 예술",
+
+  "formula.128.name": "뉴턴의 제2법칙",
+  "formula.128.significance": "고전 역학에서 가장 기본적인 방정식. 힘을 운동량의 시간 변화율로 정의한다. 모든 뉴턴 역학의 출발점.",
+  "formula.128.applications": "모든 고전 역학, 공학 동역학, 항공우주, 자동차 설계, 생체역학",
+
+  "formula.129.name": "스넬의 굴절 법칙",
+  "formula.129.significance": "서로 다른 굴절률의 매질 사이를 통과하는 빛이 어떻게 꺾이는지 기술한다. 모든 광학을 지배하는 법칙.",
+  "formula.129.applications": "렌즈, 안경, 망원경, 현미경, 광섬유, 카메라 설계, 신기루",
+
+  "formula.130.name": "헤론의 공식",
+  "formula.130.significance": "높이 없이 세 변의 길이만으로 임의의 삼각형 넓이를 계산한다.",
+  "formula.130.applications": "측량, 계산 기하학, 지리정보시스템, 건축, 물리 시뮬레이션"
 }

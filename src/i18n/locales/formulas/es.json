@@ -399,5 +399,125 @@
 
   "formula.100.name": "Función de supervivencia (Fuerza de mortalidad)",
   "formula.100.significance": "Da la probabilidad de sobrevivir más allá del tiempo t como la exponencial de la tasa de riesgo integrada. La función fundamental del análisis de supervivencia y la ciencia actuarial.",
-  "formula.100.applications": "Fijación de precios de seguros de vida, valoración de pensiones, ensayos clínicos, ingeniería de fiabilidad, modelado de abandono"
+  "formula.100.applications": "Fijación de precios de seguros de vida, valoración de pensiones, ensayos clínicos, ingeniería de fiabilidad, modelado de abandono",
+
+  "formula.101.name": "Ley de Stefan-Boltzmann",
+  "formula.101.significance": "Describe la potencia total radiada por unidad de área de un cuerpo negro como proporcional a la cuarta potencia de la temperatura.",
+  "formula.101.applications": "Clasificación estelar, temperaturas planetarias, ciencia del clima (balance energético), sensores infrarrojos, diseño térmico",
+
+  "formula.102.name": "Ecuaciones de Friedmann",
+  "formula.102.significance": "Gobiernan la expansión del universo a partir de las ecuaciones de campo de Einstein. Predijeron el Big Bang y la expansión cósmica antes de las observaciones de Hubble.",
+  "formula.102.applications": "Cosmología, modelos de energía oscura, nucleosíntesis del Big Bang, análisis del CMB, formación de estructuras",
+
+  "formula.103.name": "Distribución de Poisson",
+  "formula.103.significance": "Modela la probabilidad de un número dado de eventos en un intervalo fijo cuando ocurren independientemente a una tasa promedio constante.",
+  "formula.103.applications": "Telecomunicaciones, epidemiología, seguros, astronomía, teoría de colas, ML (modelos de conteo)",
+
+  "formula.104.name": "Transformada de Laplace (bilateral)",
+  "formula.104.significance": "El par de transformadas que convierte entre dominio temporal y dominio de frecuencia compleja. El lenguaje de ingenieros de control y electricidad.",
+  "formula.104.applications": "Sistemas de control, circuitos eléctricos, procesamiento de señales, identificación de sistemas, ecuaciones diferenciales",
+
+  "formula.105.name": "Teorema de Parseval",
+  "formula.105.significance": "Establece que la energía total de una señal se conserva bajo la transformada de Fourier.",
+  "formula.105.applications": "Procesamiento de señales, acústica, densidad espectral de potencia, comunicaciones, ingeniería de audio",
+
+  "formula.106.name": "Teorema de la divergencia (Teorema de Gauss)",
+  "formula.106.significance": "Relaciona el flujo de un campo vectorial a través de una superficie cerrada con la divergencia en el volumen encerrado.",
+  "formula.106.applications": "Electromagnetismo (ley de Gauss), dinámica de fluidos, transferencia de calor, física computacional",
+
+  "formula.107.name": "Cuaterniones de Hamilton",
+  "formula.107.significance": "Extendieron los números complejos a cuatro dimensiones, sacrificando la conmutatividad. La representación más eficiente de rotaciones 3D sin bloqueo gimbal.",
+  "formula.107.applications": "Gráficos 3D, control de actitud espacial, robótica, motores de juegos, fusión de sensores IMU",
+
+  "formula.108.name": "Ecuación de placa de Euler-Bernoulli",
+  "formula.108.significance": "Extiende la teoría de flexión de vigas a placas delgadas 2D. Gobierna la deflexión de suelos, pieles de aviones y membranas MEMS.",
+  "formula.108.applications": "Ingeniería estructural, paneles aeroespaciales, microelectrónica (MEMS), paneles acústicos, modelado FEA",
+
+  "formula.109.name": "Ecuación de difusión (ecuación del calor)",
+  "formula.109.significance": "Describe cómo el calor (o cualquier cantidad que se difunda) se propaga con el tiempo. La EDP parabólica prototípica.",
+  "formula.109.applications": "Transferencia de calor, movimiento browniano, fijación de precios de opciones (Black-Scholes), MRI de difusión, ciencia de materiales",
+
+  "formula.110.name": "Efecto Doppler",
+  "formula.110.significance": "Describe el cambio en la frecuencia observada debido al movimiento relativo entre fuente y observador.",
+  "formula.110.applications": "Radares de velocidad, ultrasonido médico, corrimiento al rojo astronómico, radar meteorológico, sonar",
+
+  "formula.111.name": "Ley de Bragg",
+  "formula.111.significance": "Describe la interferencia constructiva de rayos X difractados por planos cristalinos. Premio Nobel 1915. Condujo a la determinación de la estructura del ADN.",
+  "formula.111.applications": "Cristalografía de rayos X, caracterización de materiales, determinación de estructura del ADN, descubrimiento de fármacos",
+
+  "formula.112.name": "Complejidad de Kolmogórov",
+  "formula.112.significance": "Define la complejidad intrínseca de una cadena como la longitud de su descripción más corta en una máquina de Turing universal.",
+  "formula.112.applications": "Compresión de datos, teoría de IA, aleatoriedad algorítmica, principio MDL, biología computacional",
+
+  "formula.113.name": "Ley de Zipf",
+  "formula.113.significance": "La frecuencia de cualquier palabra es aproximadamente inversamente proporcional a su rango en la tabla de frecuencias. Aparece en tamaños de ciudades, distribuciones de ingresos y tráfico de internet.",
+  "formula.113.applications": "Lingüística computacional, diseño de vocabulario LLM, modelado de tamaño de ciudades, ciencia de redes, ecología",
+
+  "formula.114.name": "Ley de Weber-Fechner",
+  "formula.114.significance": "Establece que la percepción humana de la intensidad del estímulo es logarítmica — percibimos razones iguales, no diferencias iguales.",
+  "formula.114.applications": "Psicoacústica (escala dB), percepción visual, diseño UX, evaluación del dolor, marketing, escala Richter",
+
+  "formula.115.name": "Desigualdad de Chebyshev",
+  "formula.115.significance": "Proporciona una cota superior libre de distribución sobre la probabilidad de que una variable aleatoria se desvíe más de k desviaciones estándar de su media.",
+  "formula.115.applications": "Estadística, aprendizaje automático (cotas PAC), control de calidad, finanzas (cotas de riesgo), estimación robusta",
+
+  "formula.116.name": "Algoritmo Expectation-Maximisation",
+  "formula.116.significance": "Un algoritmo iterativo para estimación de máxima verosimilitud con variables latentes, alternando pasos E y M.",
+  "formula.116.applications": "Modelos de mezcla gaussiana, HMMs (reconocimiento de voz), bioinformática, modelos temáticos (LDA), segmentación de imágenes",
+
+  "formula.117.name": "Teorema de los residuos de Cauchy",
+  "formula.117.significance": "Evalúa integrales de contorno complejas sumando los residuos en los polos encerrados. Uno de los teoremas computacionales más poderosos de las matemáticas.",
+  "formula.117.applications": "Procesamiento de señales (transformadas inversas de Laplace/Z), teoría de control, mecánica cuántica, combinatoria",
+
+  "formula.118.name": "Ecuación de Laplace",
+  "formula.118.significance": "Describe campos potenciales en regiones libres de fuentes. Las soluciones son funciones armónicas, algunos de los objetos más bellos de las matemáticas.",
+  "formula.118.applications": "Electrostática, hidrodinámica (flujo potencial), gráficos por computadora, imágenes médicas, finanzas",
+
+  "formula.119.name": "Fórmula del producto de Euler para el seno",
+  "formula.119.significance": "Expresa el seno como un producto infinito sobre sus ceros. Euler la usó para evaluar ζ(2) = π²/6 (problema de Basilea).",
+  "formula.119.applications": "Teoría de números (problema de Basilea), análisis complejo, funciones especiales, identidades de la función Gamma",
+
+  "formula.120.name": "Axiomas de Kolmogórov de la probabilidad",
+  "formula.120.significance": "Los tres axiomas que ponen la teoría de probabilidades sobre un fundamento matemático riguroso.",
+  "formula.120.applications": "Toda la probabilidad y estadística, procesos estocásticos, inferencia bayesiana, modelado financiero",
+
+  "formula.121.name": "Teorema de Green",
+  "formula.121.significance": "Relaciona una integral de línea alrededor de una curva cerrada con una integral doble sobre la región encerrada. El caso especial 2D del teorema de Stokes.",
+  "formula.121.applications": "Análisis complejo, dinámica de fluidos, planímetros, electrostática (2D), gráficos por computadora",
+
+  "formula.122.name": "Teorema del rango y la nulidad",
+  "formula.122.significance": "Relaciona la dimensión de la imagen (rango) con la dimensión del núcleo (nulidad) de una aplicación lineal.",
+  "formula.122.applications": "Sistemas de ecuaciones, aprendizaje automático (características redundantes), análisis de datos, métodos de subespacio de señales",
+
+  "formula.123.name": "Teorema de De Moivre",
+  "formula.123.significance": "Conecta potencias de números complejos con fórmulas trigonométricas de ángulos múltiples. Un hermoso puente entre álgebra y trigonometría.",
+  "formula.123.applications": "Identidades trigonométricas, procesamiento de señales, raíces de polinomios, ingeniería eléctrica (fasores AC)",
+
+  "formula.124.name": "Fórmula de Binet (Fibonacci)",
+  "formula.124.significance": "Una expresión cerrada para el n-ésimo número de Fibonacci en términos de la razón áurea. Notable que una fórmula con irracionales siempre produce enteros.",
+  "formula.124.applications": "Análisis de algoritmos, análisis técnico financiero, patrones de crecimiento natural, informática, criptografía",
+
+  "formula.125.name": "Producto de Wallis",
+  "formula.125.significance": "Una de las primeras representaciones de π como producto infinito usando solo enteros. Una secuencia puramente algebraica de razones convergiendo a una constante trascendente.",
+  "formula.125.applications": "Análisis matemático, aproximación de π, mecánica cuántica, probabilidad (Stirling)",
+
+  "formula.126.name": "Fórmula de Leibniz para π",
+  "formula.126.significance": "La serie infinita más simple para π, descubierta primero en Kerala, India, por Madhava alrededor de 1400 — 275 años antes que Leibniz.",
+  "formula.126.applications": "Educación matemática, interés teórico, significado histórico, ilustración de convergencia de series",
+
+  "formula.127.name": "Conjunto de Mandelbrot",
+  "formula.127.significance": "La definición más simple del fractal más famoso de las matemáticas. Demuestra que reglas de iteración elementales producen complejidad infinita.",
+  "formula.127.applications": "Gráficos por computadora, compresión fractal, teoría del caos, dinámica compleja, arte matemático",
+
+  "formula.128.name": "Segunda ley de Newton",
+  "formula.128.significance": "La ecuación más fundamental de la mecánica clásica. Define la fuerza como la tasa de cambio del momento. Punto de partida de toda la dinámica newtoniana.",
+  "formula.128.applications": "Toda la mecánica clásica, dinámica de ingeniería, aeroespacial, diseño automotriz, biomecánica",
+
+  "formula.129.name": "Ley de Snell de la refracción",
+  "formula.129.significance": "Describe cómo la luz se dobla al pasar entre medios de diferentes índices de refracción. La ley que gobierna toda la óptica.",
+  "formula.129.applications": "Lentes, gafas, telescopios, microscopios, fibra óptica, diseño de cámaras, espejismos",
+
+  "formula.130.name": "Fórmula de Herón",
+  "formula.130.significance": "Calcula el área de cualquier triángulo a partir solo de sus tres longitudes de lado, sin necesitar la altura.",
+  "formula.130.applications": "Topografía, geometría computacional, sistemas de información geográfica, arquitectura, simulaciones físicas"
 }
