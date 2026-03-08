@@ -3616,16 +3616,16 @@ export const THINKERS: ThinkerMeta[] = [
   {
     slug: 'roger-penrose',
     name: 'Roger Penrose',
-    archetype: 'The Tiler',
+    archetype: 'The Tiler of Reality',
     emoji: '🔷',
     era: '1931–present',
-    domain: 'Mathematical Physics & Geometry',
+    domain: 'Mathematical Physics, Quantum Gravity & Consciousness',
     fields: ['physics', 'math'],
-    description: 'Proved black holes must exist, invented aperiodic Penrose tilings, and pioneered twistor theory.',
+    description: 'Proved black holes must exist, invented Penrose tilings, pioneered twistor theory, proposed objective reduction (OR) as the bridge between quantum mechanics and gravity, and co-developed Orch OR theory of consciousness',
     color: 'success',
-    tagline: 'He proved black holes must exist and tiled the plane without ever repeating a pattern.',
+    tagline: 'He proved black holes must exist, tiled the plane aperiodically, and argued consciousness requires new physics.',
     era_group: 'modern',
-    funFact: 'Penrose tilings were thought to be purely theoretical until they were later discovered in nature as quasicrystals (2011 Nobel Prize in Chemistry).',
+    funFact: 'Penrose tilings were thought to be purely theoretical until quasicrystals were discovered in nature (2011 Nobel Prize in Chemistry).',
   },
   // ── Digital Architects ─────────────────────────────────────
   {
