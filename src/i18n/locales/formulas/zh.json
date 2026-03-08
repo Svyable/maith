@@ -277,5 +277,125 @@
 
   "formula.70.name": "注意力机制（Transformer）",
   "formula.70.significance": "缩放点积注意力，每个Transformer模型中的核心操作。实现了可并行化的序列建模，取代了RNN。GPT、Claude、Gemini、LLaMA、DALL-E、AlphaFold背后的方程——可以说是21世纪最有影响力的ML方程。",
-  "formula.70.applications": "大语言模型（GPT、Claude、Gemini）、机器翻译、图像生成、AlphaFold、代码生成"
+  "formula.70.applications": "大语言模型（GPT、Claude、Gemini）、机器翻译、图像生成、AlphaFold、代码生成",
+
+  "formula.71.name": "反向传播（链式法则）",
+  "formula.71.significance": "通过递归应用链式法则高效计算损失函数关于所有网络权重的梯度。使深度神经网络的训练变得可行，开启了深度学习革命。",
+  "formula.71.applications": "所有深度学习：图像识别、NLP、语音、生成式AI、强化学习",
+
+  "formula.72.name": "Softmax函数",
+  "formula.72.significance": "将原始分数向量（logits）转换为类别上的概率分布。多分类的标准输出层以及注意力机制中的归一化步骤。",
+  "formula.72.applications": "神经网络分类器、Transformer注意力、语言模型token预测、RL策略网络",
+
+  "formula.73.name": "主定理",
+  "formula.73.significance": "为分治递推提供封闭解。算法分析的通用工具——每个计算机科学学生最常用的时间复杂度证明定理。",
+  "formula.73.applications": "算法分析（归并排序、FFT、二分查找）、全球计算机科学课程",
+
+  "formula.74.name": "VC维 / PAC学习界",
+  "formula.74.significance": "确定以概率保证进行学习所需的训练样本数。机器学习的理论基础——定义模型何时能泛化。",
+  "formula.74.applications": "泛化界、模型选择、SVM理论、神经网络理论、学习保证",
+
+  "formula.75.name": "量子比特叠加",
+  "formula.75.significance": "量子信息的基本单元——一个量子比特可以同时处于|0⟩和|1⟩的叠加态。实现量子并行性和指数级状态空间。",
+  "formula.75.applications": "量子算法（Shor、Grover）、量子纠错、量子密钥分发、量子模拟",
+
+  "formula.76.name": "Shor因子分解算法",
+  "formula.76.significance": "利用量子傅里叶变换，以指数级快于任何已知经典算法的速度分解大整数。将破解RSA加密。",
+  "formula.76.applications": "后量子密码学、量子霸权演示、公钥安全、量子硬件基准测试",
+
+  "formula.77.name": "德摩根定律",
+  "formula.77.significance": "布尔代数的基本定律，展示AND和OR在取反下的关系。数字逻辑简化和编译器优化的基础构件。",
+  "formula.77.applications": "数字电路、CPU设计、编译器优化、数据库查询处理、形式验证",
+
+  "formula.78.name": "伊藤引理",
+  "formula.78.significance": "随机链式法则——所有连续时间金融的基础。修正项的出现是因为布朗运动具有非零二次变差。",
+  "formula.78.applications": "衍生品定价、随机控制、金融风险模型、对冲基金策略、量化交易",
+
+  "formula.79.name": "布莱克-斯科尔斯-默顿方程",
+  "formula.79.significance": "提供了第一个无套利期权定价模型。创造了现代衍生品行业。1997年诺贝尔经济学奖。",
+  "formula.79.applications": "期权市场、结构化产品、风险管理、对冲、波动率曲面",
+
+  "formula.80.name": "风险中性定价",
+  "formula.80.significance": "任何衍生品的公允价格等于其在风险中性测度下的预期收益，以无风险利率贴现。",
+  "formula.80.applications": "所有衍生品定价、结构化产品、利率模型、CVA/XVA、奇异期权",
+
+  "formula.81.name": "CAPM（资本资产定价模型）",
+  "formula.81.significance": "将预期收益与系统性风险（beta）联系起来。第一个也是教授最多的资产定价模型。1990年诺贝尔奖颁予夏普。",
+  "formula.81.applications": "股权估值、资本成本（WACC）、投资组合构建、绩效归因、ESG因子分析",
+
+  "formula.82.name": "马科维茨均值-方差优化",
+  "formula.82.significance": "将投资组合的风险-回报权衡形式化并定义了有效前沿。创立了现代投资组合理论，1990年诺贝尔奖颁予马科维茨。",
+  "formula.82.applications": "机构资产配置、智能投顾、风险平价策略、因子投资",
+
+  "formula.83.name": "吉尔萨诺夫定理",
+  "formula.83.significance": "展示概率测度变换如何将带漂移的布朗运动转化为标准布朗运动。风险中性测度变换背后的理论机制。",
+  "formula.83.applications": "衍生品定价（测度变换）、利率建模、奇异期权估值、XVA",
+
+  "formula.84.name": "风险价值（VaR）",
+  "formula.84.significance": "定义在给定置信水平下特定期限内的最大损失。巴塞尔II/III银行监管规定的行业标准风险指标。",
+  "formula.84.applications": "银行监管资本（巴塞尔III）、交易组合风险、压力测试、风险报告",
+
+  "formula.85.name": "看涨-看跌平价",
+  "formula.85.significance": "欧式看涨和看跌期权价格之间的无套利关系。期权市场中最简单的无套利约束。",
+  "formula.85.applications": "期权套利、合成头寸构建、隐含波动率曲面、期权做市",
+
+  "formula.86.name": "资产定价基本定理",
+  "formula.86.significance": "通过风险中性概率测度的存在来刻画无套利市场。连接无套利与鞅定价的理论基石。",
+  "formula.86.applications": "所有衍生品定价理论、模型验证、监管资本模型、结构化产品",
+
+  "formula.87.name": "布莱克-利特曼模型",
+  "formula.87.significance": "在贝叶斯框架中将市场均衡回报与投资者主观观点相结合。解决了马科维茨权重极端不稳定的问题。",
+  "formula.87.applications": "机构投资组合管理、战术资产配置、对冲基金系统化策略、因子投资",
+
+  "formula.88.name": "纳什均衡",
+  "formula.88.significance": "在该策略组合下，任何参与者都无法通过单方面改变策略来提高自身收益。1994年诺贝尔奖颁予纳什。非合作博弈论的核心解概念。",
+  "formula.88.applications": "经济学、机制设计、拍卖、演化生物学、AI多智能体系统、政治科学",
+
+  "formula.89.name": "普通最小二乘法",
+  "formula.89.significance": "最小化残差平方和的封闭解。统计回归和计量经济学的基础。由高斯-马尔可夫定理保证为最佳线性无偏估计量（BLUE）。",
+  "formula.89.applications": "计量经济学、社会科学研究、机器学习（线性回归）、因果推断、预测",
+
+  "formula.90.name": "前景理论价值函数",
+  "formula.90.significance": "建模人们如何相对于参考点不对称地评估收益和损失。损失厌恶解释了对期望效用理论的系统性偏离。2002年诺贝尔奖颁予卡尼曼。",
+  "formula.90.applications": "行为金融、政策助推、保险定价、用户体验设计、营销、福利经济学",
+
+  "formula.91.name": "索洛增长模型",
+  "formula.91.significance": "通过资本积累、劳动力增长和技术进步解释长期经济增长。1987年诺贝尔奖颁予索洛。",
+  "formula.91.applications": "发展经济学、增长核算、政策分析、跨国收入比较",
+
+  "formula.92.name": "PID控制器",
+  "formula.92.significance": "工业中部署最广泛的反馈控制算法，估计在超过90%的工业控制回路中运行。",
+  "formula.92.applications": "工业自动化、机器人（关节控制）、暖通空调、航空自动驾驶、电机驱动、无人机",
+
+  "formula.93.name": "齐奥尔科夫斯基火箭方程",
+  "formula.93.significance": "将火箭的速度变化与排气速度及初始质量与最终质量之比联系起来。所有火箭推进的基本方程。",
+  "formula.93.applications": "火箭设计、轨道力学、任务规划、级间分离优化、可重复使用运载火箭设计",
+
+  "formula.94.name": "欧拉-伯努利梁方程",
+  "formula.94.significance": "描述细长梁在分布载荷下的挠度。结构工程的基础——用于几乎所有建筑、桥梁和飞机机翼的设计。",
+  "formula.94.applications": "结构工程、土木工程、MEMS器件、航空航天结构",
+
+  "formula.95.name": "傅里叶热传导定律",
+  "formula.95.significance": "指出热量从高温流向低温，与温度梯度成正比。最早的场方程之一，也是所有传热工程的基础。",
+  "formula.95.applications": "电子散热、建筑保温、暖通空调设计、核反应堆设计、气候建模",
+
+  "formula.96.name": "开普勒第三定律",
+  "formula.96.significance": "将绕中心质量运行的任何天体的轨道周期与半长轴联系起来。使牛顿得以推导出平方反比引力定律。",
+  "formula.96.applications": "卫星设计、GPS、太空任务规划、系外行星探测、潮汐锁定",
+
+  "formula.97.name": "拉普拉斯变换",
+  "formula.97.significance": "将时域微分方程转换为复频域代数方程。在电气工程和控制理论中不可或缺。",
+  "formula.97.applications": "控制系统、电路、信号处理、机械振动、量子力学",
+
+  "formula.98.name": "泊松方程",
+  "formula.98.significance": "描述源分布（电荷、质量、热量）如何产生势场。静电学、牛顿引力和稳态热传导的基本方程。",
+  "formula.98.applications": "静电学、引力、热传导、图像处理（修复）、流体力学、计算机图形学",
+
+  "formula.99.name": "科尔莫戈罗夫-斯米尔诺夫检验统计量",
+  "formula.99.significance": "一种非参数检验，判断样本是否来自指定分布。在数据科学中广泛用于分布验证和数据漂移检测。",
+  "formula.99.applications": "数据验证、模型回测（金融）、分布检验、数据漂移检测、基因组学",
+
+  "formula.100.name": "生存函数（死亡力）",
+  "formula.100.significance": "给出存活超过时间t的概率，表示为累积危险率的指数。生存分析和精算科学的基本函数。",
+  "formula.100.applications": "人寿保险定价、养老金估值、临床试验、可靠性工程、客户流失建模"
 }

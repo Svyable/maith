@@ -277,5 +277,125 @@
 
   "formula.70.name": "어텐션 메커니즘(Transformer)",
   "formula.70.significance": "스케일드 닷-프로덕트 어텐션, 모든 Transformer 모델의 핵심 연산. 병렬화 가능한 시퀀스 모델링을 가능하게 했다. GPT, Claude, Gemini, LLaMA, AlphaFold 뒤의 방정식.",
-  "formula.70.applications": "대규모 언어 모델(GPT, Claude, Gemini), 기계번역, 이미지 생성, AlphaFold, 코드 생성"
+  "formula.70.applications": "대규모 언어 모델(GPT, Claude, Gemini), 기계번역, 이미지 생성, AlphaFold, 코드 생성",
+
+  "formula.71.name": "역전파(연쇄 법칙)",
+  "formula.71.significance": "연쇄 법칙의 재귀적 적용을 통해 손실 함수의 모든 네트워크 가중치에 대한 기울기를 효율적으로 계산한다. 심층 신경망 훈련을 실용화하여 딥러닝 혁명을 가능하게 했다.",
+  "formula.71.applications": "모든 딥러닝: 이미지 인식, NLP, 음성, 생성형 AI, 강화학습",
+
+  "formula.72.name": "소프트맥스 함수",
+  "formula.72.significance": "원시 점수 벡터(로짓)를 클래스에 대한 확률 분포로 변환한다. 다중 클래스 분류의 표준 출력 층이자 어텐션 메커니즘의 정규화 단계.",
+  "formula.72.applications": "신경망 분류기, 트랜스포머 어텐션, 언어 모델 토큰 예측, RL 정책 네트워크",
+
+  "formula.73.name": "마스터 정리",
+  "formula.73.significance": "분할 정복 재귀의 닫힌 형태 해를 제공한다. 알고리즘 분석의 보편적 도구 — 모든 컴퓨터 과학 학생이 시간 복잡도 증명에 가장 많이 사용하는 정리.",
+  "formula.73.applications": "알고리즘 분석(합병 정렬, FFT, 이진 탐색), 전 세계 컴퓨터 과학 교육과정",
+
+  "formula.74.name": "VC 차원 / PAC 학습 한계",
+  "formula.74.significance": "확률적 보장으로 학습하기 위해 필요한 훈련 예제 수를 결정한다. 기계학습의 이론적 기반 — 모델이 언제 일반화되는지 정의한다.",
+  "formula.74.applications": "일반화 한계, 모델 선택, SVM 이론, 신경망 이론, 학습 보장",
+
+  "formula.75.name": "큐비트 중첩",
+  "formula.75.significance": "양자 정보의 기본 단위 — 큐비트는 |0⟩과 |1⟩의 중첩 상태에 동시에 존재할 수 있다. 양자 병렬성과 지수적 상태 공간을 가능하게 한다.",
+  "formula.75.applications": "양자 알고리즘(Shor, Grover), 양자 오류 정정, 양자 키 분배, 양자 시뮬레이션",
+
+  "formula.76.name": "쇼어의 소인수분해 알고리즘",
+  "formula.76.significance": "양자 푸리에 변환을 사용하여 알려진 어떤 고전 알고리즘보다 지수적으로 빠르게 큰 정수를 소인수분해한다. RSA 암호화를 깨뜨릴 수 있다.",
+  "formula.76.applications": "포스트 양자 암호학, 양자 우위 시연, 공개키 보안, 양자 하드웨어 벤치마크",
+
+  "formula.77.name": "드모르간 법칙",
+  "formula.77.significance": "부울 대수의 기본 법칙으로, 부정 하에서 AND와 OR이 어떻게 관계되는지 보여준다. 디지털 논리 간소화와 컴파일러 최적화의 구성 요소.",
+  "formula.77.applications": "디지털 회로, CPU 설계, 컴파일러 최적화, 데이터베이스 쿼리 처리, 형식 검증",
+
+  "formula.78.name": "이토 보조정리",
+  "formula.78.significance": "확률적 연쇄 법칙 — 모든 연속 시간 금융의 기초. 보정항은 브라운 운동의 이차 변동이 영이 아니기 때문에 발생한다.",
+  "formula.78.applications": "파생상품 가격 결정, 확률 제어, 금융 리스크 모델, 헤지펀드 전략, 퀀트 트레이딩",
+
+  "formula.79.name": "블랙-숄즈-머튼 방정식",
+  "formula.79.significance": "옵션 가격 결정을 위한 최초의 무차익 모델을 제공한다. 금융시장을 변혁하여 현대 파생상품 산업을 창출했다. 1997년 노벨 경제학상.",
+  "formula.79.applications": "옵션 시장, 구조화 상품, 리스크 관리, 헤징, 변동성 곡면",
+
+  "formula.80.name": "위험 중립 가격 결정",
+  "formula.80.significance": "모든 파생상품의 공정 가격은 위험 중립 측도 하의 기대 수익을 무위험 이자율로 할인한 것과 같다.",
+  "formula.80.applications": "모든 파생상품 가격 결정, 구조화 상품, 금리 모델, CVA/XVA, 이색 옵션",
+
+  "formula.81.name": "CAPM(자본자산가격결정모형)",
+  "formula.81.significance": "기대 수익률을 체계적 위험(베타)과 연결한다. 최초이자 가장 많이 가르치는 자산 가격 결정 모형. 1990년 노벨상이 샤프에게 수여.",
+  "formula.81.applications": "주식 가치평가, 자본비용(WACC), 포트폴리오 구성, 성과 귀속, ESG 팩터 분석",
+
+  "formula.82.name": "마코위츠 평균-분산 최적화",
+  "formula.82.significance": "포트폴리오의 위험-수익 트레이드오프를 형식화하고 효율적 프론티어를 정의했다. 현대 포트폴리오 이론을 창설, 1990년 노벨상이 마코위츠에게 수여.",
+  "formula.82.applications": "기관 자산 배분, 로보어드바이저, 리스크 패리티 전략, 팩터 투자",
+
+  "formula.83.name": "기르사노프 정리",
+  "formula.83.significance": "확률 측도 변환이 드리프트가 있는 브라운 운동을 표준 브라운 운동으로 변환하는 방법을 보여준다. 위험 중립 측도 변환 뒤의 이론적 기구.",
+  "formula.83.applications": "파생상품 가격 결정(측도 변환), 금리 모델링, 이색 옵션 평가, XVA",
+
+  "formula.84.name": "위험 가치(VaR)",
+  "formula.84.significance": "주어진 신뢰 수준에서 특정 기간 동안의 최대 손실을 정의한다. 바젤 II/III 은행 규제에서 의무화된 업계 표준 리스크 지표.",
+  "formula.84.applications": "은행 규제 자본(바젤 III), 트레이딩 북 리스크, 포트폴리오 스트레스 테스트, 리스크 보고",
+
+  "formula.85.name": "풋-콜 패리티",
+  "formula.85.significance": "유럽형 콜과 풋 가격 사이의 무차익 관계. 옵션 시장에서 가장 단순한 무차익 제약.",
+  "formula.85.applications": "옵션 차익거래, 합성 포지션 구성, 내재 변동성 곡면, 옵션 마켓 메이킹",
+
+  "formula.86.name": "자산 가격의 기본 정리",
+  "formula.86.significance": "위험 중립 확률 측도의 존재를 통해 무차익 시장을 특징짓는다. 무차익과 마팅게일 가격 결정을 연결하는 이론적 기반.",
+  "formula.86.applications": "모든 파생상품 가격 결정 이론, 모델 검증, 규제 자본 모델, 구조화 상품",
+
+  "formula.87.name": "블랙-리터만 모델",
+  "formula.87.significance": "시장 균형 수익률과 투자자의 주관적 견해를 베이즈 프레임워크에서 결합한다. 마코위츠의 극단적이고 불안정한 가중치 문제를 해결.",
+  "formula.87.applications": "기관 포트폴리오 관리, 전술적 자산 배분, 헤지펀드 체계적 전략, 팩터 투자",
+
+  "formula.88.name": "내시 균형",
+  "formula.88.significance": "어떤 참여자도 전략을 일방적으로 변경하여 효용을 개선할 수 없는 전략 프로필. 1994년 노벨상이 내시에게 수여. 비협조 게임 이론의 핵심 해 개념.",
+  "formula.88.applications": "경제학, 메커니즘 설계, 경매, 진화생물학, AI 다중 에이전트 시스템, 정치학",
+
+  "formula.89.name": "보통최소제곱법(OLS)",
+  "formula.89.significance": "잔차 제곱합을 최소화하는 닫힌 형태 해. 통계 회귀와 계량경제학의 기초. 가우스-마르코프 정리에 의해 최량선형불편추정량(BLUE).",
+  "formula.89.applications": "계량경제학, 사회과학 연구, 기계학습(선형 회귀), 인과추론, 예측",
+
+  "formula.90.name": "전망 이론 가치 함수",
+  "formula.90.significance": "사람들이 기준점에 대해 이득과 손실을 비대칭적으로 평가하는 방식을 모형화한다. 손실 회피는 기대 효용 이론으로부터의 체계적 이탈을 설명한다. 2002년 노벨상이 카너먼에게 수여.",
+  "formula.90.applications": "행동금융, 정책 넛지, 보험 가격 설정, UX 디자인, 마케팅, 후생경제학",
+
+  "formula.91.name": "솔로우 성장 모형",
+  "formula.91.significance": "자본 축적, 노동력 증가, 기술 진보를 통해 장기 경제 성장을 설명한다. 1987년 노벨상이 솔로우에게 수여.",
+  "formula.91.applications": "개발경제학, 성장 회계, 정책 분석, 국가 간 소득 비교",
+
+  "formula.92.name": "PID 제어기",
+  "formula.92.significance": "산업에서 가장 널리 배치된 피드백 제어 알고리즘으로, 산업 제어 루프의 90% 이상에서 작동하는 것으로 추정된다.",
+  "formula.92.applications": "산업 자동화, 로보틱스(관절 제어), HVAC, 항공 오토파일럿, 모터 드라이브, 드론",
+
+  "formula.93.name": "치올코프스키 로켓 방정식",
+  "formula.93.significance": "로켓의 속도 변화를 배기 속도와 초기 대 최종 질량 비에 관련시킨다. 모든 로켓 추진을 지배하는 기본 방정식.",
+  "formula.93.applications": "로켓 설계, 궤도 역학, 임무 계획, 단 분리 최적화, 재사용 발사체 설계",
+
+  "formula.94.name": "오일러-베르누이 보 방정식",
+  "formula.94.significance": "분포 하중 하의 가느다란 보의 처짐을 기술한다. 구조공학의 기초 — 사실상 모든 건물, 교량, 항공기 날개 설계에 사용.",
+  "formula.94.applications": "구조공학, 토목공학, MEMS 소자, 항공우주 구조물",
+
+  "formula.95.name": "푸리에 열전도 법칙",
+  "formula.95.significance": "열이 온도 구배에 비례하여 고온에서 저온으로 흐른다는 것을 명시한다. 최초의 장 방정식 중 하나이자 모든 열전달 공학의 기초.",
+  "formula.95.applications": "전자 기기 냉각, 건물 단열, HVAC 설계, 원자로 설계, 기후 모델링",
+
+  "formula.96.name": "케플러의 제3법칙",
+  "formula.96.significance": "중심 질량을 공전하는 모든 천체의 궤도 주기를 장반경에 관련시킨다. 뉴턴이 역제곱 중력 법칙을 도출할 수 있게 했다.",
+  "formula.96.applications": "위성 설계, GPS, 우주 임무 계획, 외계행성 탐지, 조석 고정",
+
+  "formula.97.name": "라플라스 변환",
+  "formula.97.significance": "시간 영역의 미분 방정식을 복소 주파수 영역의 대수 방정식으로 변환한다. 전기공학과 제어 이론에서 필수적.",
+  "formula.97.applications": "제어 시스템, 전기 회로, 신호 처리, 기계 진동, 양자역학",
+
+  "formula.98.name": "푸아송 방정식",
+  "formula.98.significance": "원천 분포(전하, 질량, 열)가 퍼텐셜 장을 어떻게 생성하는지 기술한다. 정전기학, 뉴턴 중력, 정상 상태 열전도의 기본 방정식.",
+  "formula.98.applications": "정전기학, 중력, 열전도, 이미지 처리(인페인팅), 유체역학, 컴퓨터 그래픽스",
+
+  "formula.99.name": "콜모고로프-스미르노프 검정 통계량",
+  "formula.99.significance": "표본이 지정된 분포에서 나왔는지에 대한 비모수 검정. 데이터 과학에서 분포 검증 및 데이터 드리프트 감지에 널리 사용.",
+  "formula.99.applications": "데이터 검증, 모델 백테스팅(금융), 분포 검정, 데이터 드리프트 감지, 유전체학",
+
+  "formula.100.name": "생존 함수(사력)",
+  "formula.100.significance": "시간 t를 초과하여 생존할 확률을 누적 위험률의 지수로 제공한다. 생존 분석과 보험수리학의 기본 함수.",
+  "formula.100.applications": "생명보험 가격 설정, 연금 가치 평가, 임상 시험, 신뢰성 공학, 이탈 모델링"
 }

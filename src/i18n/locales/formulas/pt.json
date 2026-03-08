@@ -277,5 +277,125 @@
 
   "formula.70.name": "Mecanismo de Atenção (Transformer)",
   "formula.70.significance": "Atenção de produto escalar escalado, a operação central de todo modelo Transformer. Permitiu modelagem paralela de sequências. A equação por trás de GPT, Claude, Gemini, LLaMA, AlphaFold.",
-  "formula.70.applications": "Grandes modelos de linguagem (GPT, Claude, Gemini), tradução automática, geração de imagens, AlphaFold, geração de código"
+  "formula.70.applications": "Grandes modelos de linguagem (GPT, Claude, Gemini), tradução automática, geração de imagens, AlphaFold, geração de código",
+
+  "formula.71.name": "Retropropagação (Regra da cadeia)",
+  "formula.71.significance": "Calcula eficientemente os gradientes da perda em relação a todos os pesos da rede por aplicação recursiva da regra da cadeia. Tornou o treinamento de redes neurais profundas viável.",
+  "formula.71.applications": "Todo o deep learning: reconhecimento de imagens, NLP, fala, IA generativa, aprendizado por reforço",
+
+  "formula.72.name": "Função Softmax",
+  "formula.72.significance": "Converte um vetor de pontuações brutas (logits) em uma distribuição de probabilidade sobre classes. A camada de saída padrão para classificação multiclasse e o passo de normalização nos mecanismos de atenção.",
+  "formula.72.applications": "Classificadores neurais, atenção do transformer, predição de tokens, redes de políticas RL",
+
+  "formula.73.name": "Teorema Mestre",
+  "formula.73.significance": "Fornece uma solução fechada para recorrências dividir e conquistar. A ferramenta universal de análise de algoritmos — o teorema mais usado por todo estudante de ciência da computação.",
+  "formula.73.applications": "Análise de algoritmos (merge sort, FFT, busca binária), cursos de ciência da computação no mundo todo",
+
+  "formula.74.name": "Dimensão VC / Limite PAC",
+  "formula.74.significance": "Estabelece quantos exemplos de treinamento são necessários para aprender com garantias probabilísticas. A base teórica do aprendizado de máquina — define quando um modelo generalizará.",
+  "formula.74.applications": "Limites de generalização, seleção de modelos, teoria SVM, teoria de redes neurais, garantias de aprendizado",
+
+  "formula.75.name": "Superposição de qubit",
+  "formula.75.significance": "A unidade fundamental de informação quântica — um qubit pode existir simultaneamente em superposição de |0⟩ e |1⟩. Habilita o paralelismo quântico e espaços de estados exponenciais.",
+  "formula.75.applications": "Algoritmos quânticos (Shor, Grover), correção de erros quânticos, distribuição quântica de chaves, simulação quântica",
+
+  "formula.76.name": "Algoritmo de fatoração de Shor",
+  "formula.76.significance": "Fatora inteiros grandes exponencialmente mais rápido que qualquer algoritmo clássico conhecido usando a transformada quântica de Fourier. Quebraria a encriptação RSA.",
+  "formula.76.applications": "Criptografia pós-quântica, demonstrações de supremacia quântica, segurança de chave pública, benchmarks de hardware quântico",
+
+  "formula.77.name": "Leis de De Morgan",
+  "formula.77.significance": "Leis fundamentais da álgebra booleana mostrando como AND e OR se relacionam sob negação. Os blocos de construção da simplificação lógica digital e otimização de compiladores.",
+  "formula.77.applications": "Circuitos digitais, design de CPU, otimização de compiladores, processamento de consultas de banco de dados, verificação formal",
+
+  "formula.78.name": "Lema de Itô",
+  "formula.78.significance": "A regra da cadeia estocástica — fundamento de todas as finanças em tempo contínuo. O termo de correção surge porque o movimento browniano tem variação quadrática não nula.",
+  "formula.78.applications": "Precificação de derivativos, controle estocástico, modelos de risco financeiro, estratégias de hedge funds, trading quantitativo",
+
+  "formula.79.name": "Equação de Black-Scholes-Merton",
+  "formula.79.significance": "Fornece o primeiro modelo livre de arbitragem para precificar opções. Transformou os mercados financeiros criando a indústria moderna de derivativos. Prêmio Nobel 1997.",
+  "formula.79.applications": "Mercados de opções, produtos estruturados, gestão de riscos, hedging, superfícies de volatilidade",
+
+  "formula.80.name": "Precificação neutra ao risco",
+  "formula.80.significance": "O preço justo de qualquer derivativo é igual ao seu payoff esperado sob a medida neutra ao risco, descontado à taxa livre de risco.",
+  "formula.80.applications": "Toda a precificação de derivativos, produtos estruturados, modelos de taxa de juros, CVA/XVA, opções exóticas",
+
+  "formula.81.name": "CAPM",
+  "formula.81.significance": "O Modelo de Precificação de Ativos de Capital relaciona o retorno esperado com o risco sistemático (beta). O primeiro e mais ensinado modelo de precificação de ativos. Prêmio Nobel 1990 para Sharpe.",
+  "formula.81.applications": "Avaliação de ações, custo de capital (WACC), construção de portfólios, atribuição de performance, análise de fatores ESG",
+
+  "formula.82.name": "Otimização Média-Variância de Markowitz",
+  "formula.82.significance": "Formalizou o trade-off risco-retorno para portfólios e definiu a fronteira eficiente. Fundou a teoria moderna de portfólios, Prêmio Nobel 1990 para Markowitz.",
+  "formula.82.applications": "Alocação institucional de ativos, robo-advisors, estratégias de paridade de risco, investimento fatorial",
+
+  "formula.83.name": "Teorema de Girsanov",
+  "formula.83.significance": "Mostra como uma mudança de medida de probabilidade transforma um movimento browniano com drift em um padrão. A maquinaria teórica por trás da mudança para medida neutra ao risco.",
+  "formula.83.applications": "Precificação de derivativos (mudança de medida), modelagem de taxa de juros, avaliação de opções exóticas, XVA",
+
+  "formula.84.name": "Valor em Risco (VaR)",
+  "formula.84.significance": "Define a perda máxima a um dado nível de confiança sobre um horizonte específico. A métrica de risco padrão da indústria mandatada pela regulação bancária Basileia II/III.",
+  "formula.84.applications": "Capital regulatório bancário (Basileia III), risco do livro de negociação, testes de estresse, relatórios de risco",
+
+  "formula.85.name": "Paridade put-call",
+  "formula.85.significance": "Uma relação livre de arbitragem entre preços de calls e puts europeus. A restrição de não-arbitragem mais simples nos mercados de opções.",
+  "formula.85.applications": "Arbitragem de opções, construção de posições sintéticas, superfícies de volatilidade implícita, market making de opções",
+
+  "formula.86.name": "Teorema Fundamental da Precificação de Ativos",
+  "formula.86.significance": "Caracteriza mercados livres de arbitragem pela existência de uma medida de probabilidade neutra ao risco. O alicerce teórico conectando não-arbitragem e precificação martingale.",
+  "formula.86.applications": "Toda a teoria de precificação de derivativos, validação de modelos, modelos de capital regulatório, produtos estruturados",
+
+  "formula.87.name": "Modelo Black-Litterman",
+  "formula.87.significance": "Combina retornos de equilíbrio de mercado com visões subjetivas do investidor em uma estrutura bayesiana. Resolve o problema dos pesos extremos e instáveis de Markowitz.",
+  "formula.87.applications": "Gestão institucional de portfólios, alocação tática de ativos, estratégias sistemáticas de hedge funds, investimento fatorial",
+
+  "formula.88.name": "Equilíbrio de Nash",
+  "formula.88.significance": "Um perfil de estratégias onde nenhum jogador pode melhorar sua utilidade mudando unilateralmente de estratégia. Prêmio Nobel 1994 para Nash. O conceito central de solução da teoria dos jogos não cooperativos.",
+  "formula.88.applications": "Economia, design de mecanismos, leilões, biologia evolutiva, sistemas multiagentes IA, ciência política",
+
+  "formula.89.name": "Mínimos Quadrados Ordinários",
+  "formula.89.significance": "A solução fechada que minimiza a soma dos resíduos ao quadrado. A base da regressão estatística e da econometria. Pelo teorema de Gauss-Markov, o melhor estimador linear não enviesado (BLUE).",
+  "formula.89.applications": "Econometria, pesquisa em ciências sociais, aprendizado de máquina (regressão linear), inferência causal, previsões",
+
+  "formula.90.name": "Função de valor da Teoria da Perspectiva",
+  "formula.90.significance": "Modela como as pessoas avaliam ganhos e perdas assimetricamente em relação a um ponto de referência. A aversão à perda explica desvios sistemáticos da teoria da utilidade esperada. Prêmio Nobel 2002 para Kahneman.",
+  "formula.90.applications": "Finanças comportamentais, nudges políticos, precificação de seguros, design UX, marketing, economia do bem-estar",
+
+  "formula.91.name": "Modelo de crescimento de Solow",
+  "formula.91.significance": "Explica o crescimento econômico de longo prazo através da acumulação de capital, crescimento da força de trabalho e progresso tecnológico. Prêmio Nobel 1987 para Solow.",
+  "formula.91.applications": "Economia do desenvolvimento, contabilidade do crescimento, análise de políticas, comparações internacionais de renda",
+
+  "formula.92.name": "Controlador PID",
+  "formula.92.significance": "O algoritmo de controle por retroalimentação mais implantado na indústria, estimado em mais de 90% dos loops de controle industriais.",
+  "formula.92.applications": "Automação industrial, robótica, HVAC, pilotos automáticos, acionamentos de motores, drones",
+
+  "formula.93.name": "Equação do foguete de Tsiolkovsky",
+  "formula.93.significance": "Relaciona a mudança de velocidade de um foguete com sua velocidade de exaustão e a razão de massa inicial para final. A equação fundamental de toda propulsão de foguetes.",
+  "formula.93.applications": "Projeto de foguetes, mecânica orbital, planejamento de missões, otimização de separação de estágios, veículos de lançamento reutilizáveis",
+
+  "formula.94.name": "Equação de viga de Euler-Bernoulli",
+  "formula.94.significance": "Descreve a deflexão de vigas esbeltas sob carga distribuída. Fundamento da engenharia estrutural — usada no projeto de praticamente todo edifício, ponte e asa de avião.",
+  "formula.94.applications": "Engenharia estrutural, engenharia civil, dispositivos MEMS, estruturas aeroespaciais",
+
+  "formula.95.name": "Lei de Fourier da condução de calor",
+  "formula.95.significance": "Afirma que o calor flui de alta para baixa temperatura, proporcionalmente ao gradiente de temperatura. Uma das primeiras equações de campo e fundamento de toda engenharia de transferência de calor.",
+  "formula.95.applications": "Resfriamento eletrônico, isolamento de edifícios, projeto HVAC, projeto de reatores nucleares, modelagem climática",
+
+  "formula.96.name": "Terceira lei de Kepler",
+  "formula.96.significance": "Relaciona o período orbital com o semieixo maior para qualquer corpo orbitando uma massa central. Permitiu a Newton derivar a lei da gravitação do inverso do quadrado.",
+  "formula.96.applications": "Projeto de satélites, GPS, planejamento de missões espaciais, detecção de exoplanetas, travamento de maré",
+
+  "formula.97.name": "Transformada de Laplace",
+  "formula.97.significance": "Converte equações diferenciais no domínio do tempo em equações algébricas no domínio de frequência complexa. Indispensável em engenharia elétrica e teoria de controle.",
+  "formula.97.applications": "Sistemas de controle, circuitos elétricos, processamento de sinais, vibrações mecânicas, mecânica quântica",
+
+  "formula.98.name": "Equação de Poisson",
+  "formula.98.significance": "Descreve como uma distribuição de fontes (carga, massa, calor) gera um campo potencial. A equação fundamental da eletrostática, gravitação newtoniana e condução de calor estacionária.",
+  "formula.98.applications": "Eletrostática, gravitação, condução de calor, processamento de imagens (inpainting), mecânica de fluidos, computação gráfica",
+
+  "formula.99.name": "Estatística de Kolmogorov-Smirnov",
+  "formula.99.significance": "Um teste não paramétrico para determinar se uma amostra provém de uma distribuição especificada. Amplamente usado em ciência de dados para validação de distribuições e detecção de drift de dados.",
+  "formula.99.applications": "Validação de dados, backtesting de modelos (finanças), testes de distribuição, detecção de drift de dados, genômica",
+
+  "formula.100.name": "Função de sobrevivência (Força de mortalidade)",
+  "formula.100.significance": "Dá a probabilidade de sobreviver além do tempo t como a exponencial da taxa de risco integrada. A função fundamental da análise de sobrevivência e da ciência atuarial.",
+  "formula.100.applications": "Precificação de seguros de vida, avaliação de pensões, ensaios clínicos, engenharia de confiabilidade, modelagem de churn"
 }
