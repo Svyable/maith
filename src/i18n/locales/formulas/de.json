@@ -280,5 +280,125 @@
 
   "formula.70.name": "Aufmerksamkeitsmechanismus (Transformer)",
   "formula.70.significance": "Skalierte Skalarprodukt-Aufmerksamkeit, die Kernoperation jedes Transformer-Modells. Ermöglichte parallelisierbare Sequenzmodellierung. Die Gleichung hinter GPT, Claude, Gemini, LLaMA, AlphaFold.",
-  "formula.70.applications": "Große Sprachmodelle (GPT, Claude, Gemini), maschinelle Übersetzung, Bilderzeugung, AlphaFold, Code-Generierung"
+  "formula.70.applications": "Große Sprachmodelle (GPT, Claude, Gemini), maschinelle Übersetzung, Bilderzeugung, AlphaFold, Code-Generierung",
+
+  "formula.71.name": "Backpropagation (Kettenregel)",
+  "formula.71.significance": "Berechnet effizient die Gradienten der Verlustfunktion bezüglich aller Netzwerkgewichte durch rekursive Anwendung der Kettenregel. Machte das Training tiefer neuronaler Netze handhabbar und ermöglichte die Deep-Learning-Revolution.",
+  "formula.71.applications": "Gesamtes Deep Learning: Bilderkennung, NLP, Sprache, generative KI, Reinforcement Learning",
+
+  "formula.72.name": "Softmax-Funktion",
+  "formula.72.significance": "Wandelt einen Vektor roher Bewertungen (Logits) in eine Wahrscheinlichkeitsverteilung über Klassen um. Die Standard-Ausgabeschicht für Mehrklassenklassifikation und der Normalisierungsschritt in Aufmerksamkeitsmechanismen.",
+  "formula.72.applications": "Neuronale-Netz-Klassifikatoren, Transformer-Aufmerksamkeit, Sprachmodell-Token-Vorhersage, RL-Strategienetzwerke",
+
+  "formula.73.name": "Master-Theorem",
+  "formula.73.significance": "Liefert eine geschlossene Lösung für Divide-and-Conquer-Rekurrenzen. Das universelle Werkzeug zur Algorithmenanalyse — der meistverwendete Satz jedes Informatikstudenten zum Beweis von Zeitkomplexitäten.",
+  "formula.73.applications": "Algorithmenanalyse (Mergesort, FFT, binäre Suche), Informatik-Lehre weltweit",
+
+  "formula.74.name": "VC-Dimension / PAC-Lernschranke",
+  "formula.74.significance": "Legt fest, wie viele Trainingsbeispiele für Lernen mit probabilistischen Garantien nötig sind. Die theoretische Grundlage des maschinellen Lernens — definiert, wann ein Modell generalisiert.",
+  "formula.74.applications": "Generalisierungsschranken, Modellauswahl, SVM-Theorie, neuronale Netztheorie, Lerngarantien",
+
+  "formula.75.name": "Qubit-Superposition",
+  "formula.75.significance": "Die fundamentale Einheit der Quanteninformation — ein Qubit kann gleichzeitig in Überlagerung von |0⟩ und |1⟩ existieren. Ermöglicht Quantenparallelismus und exponentielle Zustandsräume.",
+  "formula.75.applications": "Quantenalgorithmen (Shor, Grover), Quantenfehlerkorrektur, Quantenschlüsselverteilung, Quantensimulation",
+
+  "formula.76.name": "Shors Faktorisierungsalgorithmus",
+  "formula.76.significance": "Faktorisiert große Ganzzahlen exponentiell schneller als jeder bekannte klassische Algorithmus mittels Quanten-Fourier-Transformation. Würde RSA-Verschlüsselung brechen.",
+  "formula.76.applications": "Post-Quanten-Kryptographie, Quantenüberlegenheitsdemonstrationen, Public-Key-Sicherheit, Quanten-Hardware-Benchmarks",
+
+  "formula.77.name": "De Morgansche Gesetze",
+  "formula.77.significance": "Fundamentale Gesetze der Booleschen Algebra, die zeigen, wie UND und ODER unter Negation zusammenhängen. Die Bausteine der digitalen Logikvereinfachung und Compiler-Optimierung.",
+  "formula.77.applications": "Digitale Schaltkreise, CPU-Design, Compiler-Optimierung, Datenbankabfrageverarbeitung, formale Verifikation",
+
+  "formula.78.name": "Itô-Lemma",
+  "formula.78.significance": "Die stochastische Kettenregel — Grundlage der gesamten zeitstetigen Finanzmathematik. Der Korrekturterm entsteht, weil Brownsche Bewegung nicht-verschwindende quadratische Variation hat.",
+  "formula.78.applications": "Derivatebewertung, stochastische Steuerung, Finanzrisikomodelle, Hedgefonds-Strategien, quantitativer Handel",
+
+  "formula.79.name": "Black-Scholes-Merton-Gleichung",
+  "formula.79.significance": "Liefert das erste arbitragefreie Modell zur Optionsbewertung. Transformierte die Finanzmärkte und schuf die moderne Derivatebranche. Nobelpreis 1997.",
+  "formula.79.applications": "Optionsmärkte, strukturierte Produkte, Risikomanagement, Hedging, Volatilitätsoberflächen",
+
+  "formula.80.name": "Risikoneutrale Bewertung",
+  "formula.80.significance": "Der faire Preis jedes Derivats entspricht seiner erwarteten Auszahlung unter dem risikoneutralen Maß, diskontiert zum risikolosen Zinssatz.",
+  "formula.80.applications": "Gesamte Derivatebewertung, strukturierte Produkte, Zinsmodelle, CVA/XVA, exotische Optionen",
+
+  "formula.81.name": "CAPM",
+  "formula.81.significance": "Das Capital Asset Pricing Model setzt erwartete Rendite mit systematischem Risiko (Beta) in Beziehung. Das erste und meistgelehrte Preismodell für Vermögenswerte. Nobelpreis 1990 für Sharpe.",
+  "formula.81.applications": "Aktienbewertung, Kapitalkosten (WACC), Portfoliokonstruktion, Performance-Attribution, ESG-Faktoranalyse",
+
+  "formula.82.name": "Markowitz-Mittelwert-Varianz-Optimierung",
+  "formula.82.significance": "Formalisierte den Risiko-Rendite-Kompromiss für Portfolios und definierte die effiziente Grenze. Begründete die moderne Portfoliotheorie, Nobelpreis 1990 für Markowitz.",
+  "formula.82.applications": "Institutionelle Vermögensallokation, Robo-Advisors, Risk-Parity-Strategien, Faktorinvestieren",
+
+  "formula.83.name": "Girsanov-Theorem",
+  "formula.83.significance": "Zeigt, wie ein Maßwechsel eine gedriftete Brownsche Bewegung in eine Standard-Brownsche Bewegung transformiert. Die theoretische Maschinerie hinter dem risikoneutralen Maßwechsel.",
+  "formula.83.applications": "Derivatebewertung (Maßwechsel), Zinsmodellierung, exotische Optionsbewertung, XVA",
+
+  "formula.84.name": "Value at Risk",
+  "formula.84.significance": "Definiert den maximalen Verlust bei gegebenem Konfidenzniveau über einen bestimmten Zeithorizont. Die Standard-Risikokennzahl der Industrie, vorgeschrieben durch Basel-II/III-Bankenregulierung.",
+  "formula.84.applications": "Regulatorisches Bankkapital (Basel III), Handelsbuch-Risiko, Portfolio-Stresstests, Risikoberichterstattung",
+
+  "formula.85.name": "Put-Call-Parität",
+  "formula.85.significance": "Eine arbitragefreie Beziehung zwischen europäischen Call- und Put-Preisen. Die einfachste No-Arbitrage-Bedingung auf Optionsmärkten.",
+  "formula.85.applications": "Optionsarbitrage, synthetische Positionskonstruktion, implizite Volatilitätsoberflächen, Options-Market-Making",
+
+  "formula.86.name": "Fundamentalsatz der Vermögenspreistheorie",
+  "formula.86.significance": "Charakterisiert arbitragefreie Märkte durch Existenz eines risikoneutralen Wahrscheinlichkeitsmaßes. Das theoretische Fundament, das No-Arbitrage mit Martingalpreisbildung verbindet.",
+  "formula.86.applications": "Gesamte Derivatebewertungstheorie, Modellvalidierung, regulatorische Kapitalmodelle, strukturierte Produkte",
+
+  "formula.87.name": "Black-Litterman-Modell",
+  "formula.87.significance": "Kombiniert Gleichgewichtsrenditen mit subjektiven Anlegeransichten in einem Bayesschen Rahmen. Löst das Problem extremer, instabiler Markowitz-Gewichte.",
+  "formula.87.applications": "Institutionelles Portfoliomanagement, taktische Vermögensallokation, systematische Hedgefonds-Strategien, Faktorinvestieren",
+
+  "formula.88.name": "Nash-Gleichgewicht",
+  "formula.88.significance": "Ein Strategieprofil, bei dem kein Spieler seinen Nutzen durch einseitige Strategieänderung verbessern kann. Nobelpreis 1994 für Nash. Das zentrale Lösungskonzept der nicht-kooperativen Spieltheorie.",
+  "formula.88.applications": "Volkswirtschaftslehre, Mechanismus-Design, Auktionen, evolutionäre Biologie, KI-Multi-Agenten-Systeme, Politikwissenschaft",
+
+  "formula.89.name": "Gewöhnliche Kleinste Quadrate",
+  "formula.89.significance": "Die geschlossene Lösung, die die Summe der quadrierten Residuen minimiert. Die Grundlage der statistischen Regression und Ökonometrie. Nach dem Gauß-Markov-Theorem der beste lineare unverzerrte Schätzer (BLUE).",
+  "formula.89.applications": "Ökonometrie, Sozialforschung, maschinelles Lernen (lineare Regression), kausale Inferenz, Prognosen",
+
+  "formula.90.name": "Prospect-Theorie-Wertfunktion",
+  "formula.90.significance": "Modelliert, wie Menschen Gewinne und Verluste asymmetrisch relativ zu einem Referenzpunkt bewerten. Verlust-Aversion erklärt systematische Abweichungen von der Erwartungsnutzentheorie. Nobelpreis 2002 für Kahneman.",
+  "formula.90.applications": "Verhaltensfinanzierung, politische Nudges, Versicherungspreisgestaltung, UX-Design, Marketing, Wohlfahrtsökonomie",
+
+  "formula.91.name": "Solow-Wachstumsmodell",
+  "formula.91.significance": "Erklärt langfristiges Wirtschaftswachstum durch Kapitalakkumulation, Arbeitskräftewachstum und technologischen Fortschritt. Nobelpreis 1987 für Solow.",
+  "formula.91.applications": "Entwicklungsökonomie, Wachstumsbuchhaltung, Politikanalyse, Ländervergleiche des Einkommens",
+
+  "formula.92.name": "PID-Regler",
+  "formula.92.significance": "Der am häufigsten eingesetzte Rückkopplungs-Regelalgorithmus in der Industrie, in über 90 % aller industriellen Regelkreise im Einsatz.",
+  "formula.92.applications": "Industrieautomation, Robotik, HLK-Technik, Flugautopiloten, Motorantriebe, Drohnen",
+
+  "formula.93.name": "Ziolkowski-Raketengleichung",
+  "formula.93.significance": "Setzt die Geschwindigkeitsänderung einer Rakete mit ihrer Ausstoßgeschwindigkeit und dem Verhältnis von Anfangs- zu Endmasse in Beziehung. Die fundamentale Gleichung aller Raketenantriebe.",
+  "formula.93.applications": "Raketendesign, Orbitalmechanik, Missionsplanung, Stufentrennungsoptimierung, wiederverwendbare Trägerraketen",
+
+  "formula.94.name": "Euler-Bernoulli-Balkengleichung",
+  "formula.94.significance": "Beschreibt die Durchbiegung schlanker Balken unter verteilter Belastung. Grundlage des Bauingenieurwesens — verwendet beim Entwurf praktisch jedes Gebäudes, jeder Brücke und jedes Flugzeugflügels.",
+  "formula.94.applications": "Bauingenieurwesen, Maschinenbau, MEMS-Bauelemente, Luft- und Raumfahrtstrukturen",
+
+  "formula.95.name": "Fouriersches Wärmeleitungsgesetz",
+  "formula.95.significance": "Besagt, dass Wärme von hoher zu niedriger Temperatur fließt, proportional zum Temperaturgradienten. Eine der ersten Feldgleichungen und Grundlage aller Wärmeübertragungstechnik.",
+  "formula.95.applications": "Elektronikkühlung, Gebäudedämmung, HLK-Design, Kernreaktordesign, Klimamodellierung",
+
+  "formula.96.name": "Drittes Keplersches Gesetz",
+  "formula.96.significance": "Setzt die Umlaufperiode mit der großen Halbachse für jeden Körper in Beziehung, der eine Zentralmasse umkreist. Ermöglichte Newton die Ableitung des Gravitationsgesetzes.",
+  "formula.96.applications": "Satellitendesign, GPS, Weltraummissionsplanung, Exoplanetendetektion, Gezeitenkopplung",
+
+  "formula.97.name": "Laplace-Transformation",
+  "formula.97.significance": "Wandelt Differentialgleichungen im Zeitbereich in algebraische Gleichungen im komplexen Frequenzbereich um. Unverzichtbar in der Elektrotechnik und Regelungstechnik.",
+  "formula.97.applications": "Regelungssysteme, elektrische Schaltkreise, Signalverarbeitung, mechanische Schwingungen, Quantenmechanik",
+
+  "formula.98.name": "Poisson-Gleichung",
+  "formula.98.significance": "Beschreibt, wie eine Quellenverteilung (Ladung, Masse, Wärme) ein Potenzialfeld erzeugt. Die grundlegende Gleichung der Elektrostatik, Newtonschen Gravitation und stationären Wärmeleitung.",
+  "formula.98.applications": "Elektrostatik, Gravitation, Wärmeleitung, Bildverarbeitung (Inpainting), Strömungsmechanik, Computergrafik",
+
+  "formula.99.name": "Kolmogorow-Smirnow-Teststatistik",
+  "formula.99.significance": "Ein nicht-parametrischer Test, ob eine Stichprobe aus einer bestimmten Verteilung stammt. Weit verbreitet in der Datenwissenschaft zur Verteilungsvalidierung und Erkennung von Datendrift.",
+  "formula.99.applications": "Datenvalidierung, Modell-Backtesting (Finanzen), Verteilungstests, Datendrifterkennung, Genomik",
+
+  "formula.100.name": "Überlebensfunktion (Sterblichkeitsintensität)",
+  "formula.100.significance": "Gibt die Wahrscheinlichkeit an, den Zeitpunkt t zu überleben, als Exponential der integrierten Hazardrate. Die grundlegende Funktion der Überlebensanalyse und Versicherungsmathematik.",
+  "formula.100.applications": "Lebensversicherungspreisgestaltung, Rentenbewertung, klinische Studien, Zuverlässigkeitstechnik, Abwanderungsmodellierung"
 }
