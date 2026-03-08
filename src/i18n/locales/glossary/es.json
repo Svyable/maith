@@ -1,1 +1,93 @@
-{}
+{
+  "glossary.eigenvalue.term": "Autovalor",
+  "glossary.eigenvalue.definition": "Un escalar $\\lambda$ tal que $A\\mathbf{v} = \\lambda\\mathbf{v}$ para un vector no nulo $\\mathbf{v}$. Los autovalores indican cómo una matriz estira el espacio.",
+  "glossary.eigenvalue.example": "El PageRank de Google utiliza el autovalor dominante de la matriz de enlaces web.",
+
+  "glossary.determinant.term": "Determinante",
+  "glossary.determinant.definition": "Un valor escalar $\\det(A)$ que describe cómo una transformación lineal escala el área/volumen. Determinante cero significa que la matriz es singular.",
+  "glossary.determinant.example": "Comprobar si un sistema de ecuaciones tiene solución única.",
+
+  "glossary.gradient.term": "Gradiente",
+  "glossary.gradient.definition": "El vector de todas las derivadas parciales $\\nabla f$. Apunta en la dirección de máximo crecimiento de un campo escalar.",
+  "glossary.gradient.example": "El descenso de gradiente en aprendizaje automático sigue $-\\nabla f$ para minimizar la pérdida.",
+
+  "glossary.integral.term": "Integral",
+  "glossary.integral.definition": "La acumulación de una cantidad sobre un dominio: $\\int_a^b f(x)\\,dx$. Operación inversa de la diferenciación.",
+  "glossary.integral.example": "Calcular el área bajo una curva de ingresos da el ingreso total.",
+
+  "glossary.bayes-theorem.term": "Teorema de Bayes",
+  "glossary.bayes-theorem.definition": "$P(A|B) = \\frac{P(B|A)\\,P(A)}{P(B)}$. Actualiza creencias previas con nueva evidencia.",
+  "glossary.bayes-theorem.example": "Los filtros de spam actualizan la probabilidad de que un correo sea spam según sus palabras.",
+
+  "glossary.std-deviation.term": "Desviación estándar",
+  "glossary.std-deviation.definition": "La raíz cuadrada de la varianza $\\sigma = \\sqrt{E[(X-\\mu)^2]}$. Mide la dispersión alrededor de la media.",
+  "glossary.std-deviation.example": "El control de calidad usa ±3σ como tolerancia de fabricación aceptable.",
+
+  "glossary.convexity-math.term": "Convexidad",
+  "glossary.convexity-math.definition": "Un conjunto o función donde cualquier segmento entre dos puntos permanece dentro del conjunto/sobre el grafo. Garantiza un único mínimo global.",
+  "glossary.convexity-math.example": "Los problemas de optimización convexa pueden resolverse eficientemente en tiempo polinomial.",
+
+  "glossary.graph-theory.term": "Grafo",
+  "glossary.graph-theory.definition": "Una estructura $G = (V, E)$ de vértices y aristas que modela relaciones entre pares.",
+  "glossary.graph-theory.example": "Las redes sociales, algoritmos de enrutamiento y árboles de dependencias usan grafos.",
+
+  "glossary.topology-def.term": "Topología",
+  "glossary.topology-def.definition": "El estudio de propiedades que se preservan bajo deformaciones continuas (estirar, doblar, pero no rasgar).",
+  "glossary.topology-def.example": "Una taza de café y un donut son topológicamente equivalentes (ambos de género 1).",
+
+  "glossary.proof-by-contradiction.term": "Demostración por contradicción",
+  "glossary.proof-by-contradiction.definition": "Se asume la negación de la proposición y se deriva una contradicción lógica, demostrando así la proposición original.",
+  "glossary.proof-by-contradiction.example": "Euclides demostró la infinitud de los primos de esta manera.",
+
+  "glossary.wavelet.term": "Wavelet",
+  "glossary.wavelet.definition": "Una función oscilatoria localizada $\\psi(t)$ que descompone señales a múltiples escalas. A diferencia de Fourier, los wavelets capturan frecuencia y tiempo simultáneamente.",
+  "glossary.wavelet.example": "JPEG 2000 y la compresión de huellas dactilares del FBI usan wavelets de Daubechies.",
+
+  "glossary.diophantine-equation.term": "Ecuación diofántica",
+  "glossary.diophantine-equation.definition": "Una ecuación polinomial donde solo se buscan soluciones enteras. El 10.° problema de Hilbert preguntó si existe un algoritmo para decidir la solubilidad — demostrado indecidible (teorema MRDP).",
+  "glossary.diophantine-equation.example": "El último teorema de Fermat es el problema diofántico más famoso: $x^n+y^n=z^n$ para $n>2$.",
+
+  "glossary.sophie-germain-prime.term": "Primo de Sophie Germain",
+  "glossary.sophie-germain-prime.definition": "Un primo $p$ tal que $2p+1$ también es primo. Se usa en criptografía para generar primos seguros.",
+  "glossary.sophie-germain-prime.example": "2, 3, 5, 11, 23, 29 son primos de Sophie Germain. Usados en el intercambio de claves Diffie-Hellman.",
+
+  "glossary.brownian-motion.term": "Movimiento browniano",
+  "glossary.brownian-motion.definition": "El movimiento aleatorio irregular de partículas en un fluido, causado por innumerables colisiones microscópicas. En matemáticas, también designa un proceso estocástico fundamental.",
+  "glossary.brownian-motion.example": "Granos de polen temblando en agua son una observación clásica del movimiento browniano.",
+
+  "glossary.diffusion.term": "Difusión",
+  "glossary.diffusion.definition": "La propagación de partículas, calor o densidad de probabilidad de zonas de alta a baja concentración, modelada frecuentemente por ecuaciones diferenciales.",
+  "glossary.diffusion.example": "Un perfume esparciéndose en una habitación es un proceso de difusión.",
+
+  "glossary.stochastic-process.term": "Proceso estocástico",
+  "glossary.stochastic-process.definition": "Una colección de variables aleatorias indexadas por tiempo o espacio, para modelar incertidumbre que evoluciona.",
+  "glossary.stochastic-process.example": "Los modelos de precios de acciones y el movimiento browniano son procesos estocásticos.",
+
+  "glossary.ergodic-theorem.term": "Teorema ergódico",
+  "glossary.ergodic-theorem.definition": "Un teorema que establece que, bajo condiciones adecuadas, los promedios temporales a largo plazo convergen a un promedio estadístico sobre todo el espacio.",
+  "glossary.ergodic-theorem.example": "Explica por qué simulaciones largas pueden mostrar un comportamiento promedio estable, incluso cuando el movimiento individual parece caótico.",
+
+  "glossary.ergodicity.term": "Ergodicidad",
+  "glossary.ergodicity.definition": "Propiedad de un sistema dinámico donde los promedios a largo plazo de una trayectoria reflejan la estadística global del espacio.",
+  "glossary.ergodicity.example": "En un sistema ergódico, una sola ejecución larga puede ser representativa de todo el conjunto.",
+
+  "glossary.general-relativity.term": "Relatividad general",
+  "glossary.general-relativity.definition": "La teoría geométrica de la gravitación de Einstein, donde la materia y la energía determinan la curvatura del espacio-tiempo.",
+  "glossary.general-relativity.example": "Los agujeros negros, las ondas gravitacionales y la expansión cosmológica se describen mediante la relatividad general.",
+
+  "glossary.hamiltonian-system.term": "Sistema hamiltoniano",
+  "glossary.hamiltonian-system.definition": "Un sistema dinámico gobernado por las ecuaciones de Hamilton, usado frecuentemente para modelar movimiento físico conservativo.",
+  "glossary.hamiltonian-system.example": "El movimiento planetario a menudo se modela con sistemas hamiltonianos.",
+
+  "glossary.riemann-curvature-tensor.term": "Tensor de curvatura de Riemann",
+  "glossary.riemann-curvature-tensor.definition": "Un tensor que mide la curvatura intrínseca de una variedad, codificando cómo los vectores cambian al transportarlos paralelamente alrededor de bucles infinitesimales.",
+  "glossary.riemann-curvature-tensor.example": "El tensor de Riemann se anula en el espacio euclídeo plano, pero no en el espacio-tiempo curvado.",
+
+  "glossary.einstein-tensor.term": "Tensor de Einstein",
+  "glossary.einstein-tensor.definition": "Un tensor construido a partir del tensor de Ricci y la curvatura escalar: $G_{\\mu\\nu} = R_{\\mu\\nu} - \\frac{1}{2}Rg_{\\mu\\nu}$, cuya divergencia se anula.",
+  "glossary.einstein-tensor.example": "Las ecuaciones de campo de Einstein igualan el tensor de Einstein al tensor de energía-impulso.",
+
+  "glossary.bianchi-identity.term": "Identidad de Bianchi",
+  "glossary.bianchi-identity.definition": "Una identidad satisfecha por el tensor de curvatura de Riemann que expresa una simetría cíclica profunda de la curvatura.",
+  "glossary.bianchi-identity.example": "Las identidades de Bianchi restringen cómo puede cambiar la curvatura en una variedad y son centrales en la relatividad general."
+}
