@@ -9,7 +9,7 @@
   "vault.des-sbox.name": "DES S盒差分抗性",
   "vault.des-sbox.codename": "IBM T-Attack",
   "vault.des-sbox.summary": "IBM于1974年发现了差分密码分析并设计DES S盒来抵御它——然后NSA要求他们将该方法保密16年。",
-  "vault.des-sbox.fullStory": "1974年，由Horst Feistel领导、Walter Tuchman和Don Coppersmith参与的IBM密码团队发现了一种攻击技术，他们内部称之为"差分密码分析"：分析明文对中特定差异如何通过密码传播以产生密文对中可预测的差异。这一发现直接融入了DES S盒设计：其输出被设计为使所有差分特征具有均匀低概率。NSA要求IBM不发表细节——IBM同意了。1990年，Eli Biham和Adi Shamir独立重新发现了该技术。1994年，Don Coppersmith披露了原始设计标准，确认DES已被故意加固以抵御差分密码分析。",
+  "vault.des-sbox.fullStory": "1974年，由Horst Feistel领导、Walter Tuchman和Don Coppersmith参与的IBM密码团队发现了一种攻击技术，他们内部称之为「差分密码分析」：分析明文对中特定差异如何通过密码传播以产生密文对中可预测的差异。这一发现直接融入了DES S盒设计：其输出被设计为使所有差分特征具有均匀低概率。NSA要求IBM不发表细节——IBM同意了。1990年，Eli Biham和Adi Shamir独立重新发现了该技术。1994年，Don Coppersmith披露了原始设计标准，确认DES已被故意加固以抵御差分密码分析。",
   "vault.des-sbox.significance": "民用密码学历史上最重大的数学技术压制之一。",
   "vault.des-sbox.legacy": "差分密码分析成为评估现代分组密码的基本工具。AES候选算法也被系统地针对它进行了测试。",
 
