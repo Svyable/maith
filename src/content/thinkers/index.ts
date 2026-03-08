@@ -94,6 +94,7 @@ import { masakiKashiwaraQuestions } from "./masaki-kashiwara";
 import { caucherBirkarQuestions } from "./caucher-birkar";
 import { alexanderGrothendieckQuestions } from "./alexander-grothendieck";
 import { sofiaKovalevskayaQuestions } from "./sofia-kovalevskaya";
+import { halPuthoffQuestions } from "./hal-puthoff";
 
 // New additions
 import { jeffDeanQuestions } from "./jeff-dean";
@@ -1106,6 +1107,9 @@ export const allThinkerQuestions: Question[] = [
   ...janMycielskiQuestions,
   ...andrzejEhrenfeuchtQuestions,
   ...herbertGrotzschQuestions,
+
+  // Frontier Physics
+  ...halPuthoffQuestions,
 
   // Optimal Transport thinkers
   ...marcoCuturiQuestions,
