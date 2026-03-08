@@ -1,0 +1,76 @@
+import type { Question } from '../types';
+
+export const gerardThooftQuestions: Question[] = [
+  {
+    id: 310101, topic: 'gerard-thooft', difficulty: 'easy',
+    question: '\'t Hooft\'s 1993 holographic principle states that the physics of a volume of space can be described by:',
+    options: [
+      'A theory living on the boundary surface of that volume, with information content scaling as area $\\sim V^{2/3}$',
+      'A theory in one higher dimension with additional compactified directions',
+      'A discrete lattice model with spacing equal to the Planck length',
+      'A classical field theory with no quantum corrections',
+    ],
+    correctIndex: 0,
+    explanation: '\'t Hooft formalized Bekenstein\'s area-entropy insight into a general principle: the degrees of freedom of a region scale with boundary area, not bulk volume. This means a $(d+1)$-dimensional gravitational theory is equivalent to a $d$-dimensional non-gravitational theory.',
+    realWorld: 'The holographic principle revolutionized theoretical physics and was concretely realized by Maldacena\'s AdS/CFT correspondence in 1997.',
+    hint: 'Information lives on the surface, not in the volume.',
+    glossaryLinks: ['holographic-principle', 'ads-cft'],
+  },
+  {
+    id: 310102, topic: 'gerard-thooft', difficulty: 'easy',
+    question: '\'t Hooft\'s Nobel Prize-winning work (1999, shared with Veltman) established that:',
+    options: [
+      'Non-abelian gauge theories (Yang-Mills) are renormalizable — making the electroweak Standard Model a consistent quantum theory',
+      'Quantum chromodynamics exhibits confinement at all energy scales',
+      'General relativity can be quantized using path integrals',
+      'Supersymmetry must exist at the TeV scale',
+    ],
+    correctIndex: 0,
+    explanation: '\'t Hooft (1971) proved that spontaneously broken gauge theories are renormalizable using dimensional regularization. This validated the Glashow-Salam-Weinberg electroweak model as a consistent quantum field theory, making the Standard Model predictive.',
+    realWorld: 'Without \'t Hooft\'s proof, the Standard Model would have been a mathematical curiosity rather than the most precisely tested theory in physics.',
+    hint: 'He showed that the electroweak theory\'s infinities could be consistently absorbed.',
+  },
+  {
+    id: 310103, topic: 'gerard-thooft', difficulty: 'hard',
+    question: 'The \'t Hooft large-$N$ expansion reorganizes gauge theory perturbation theory by:',
+    options: [
+      'Classifying Feynman diagrams by their topology (genus) when the gauge group is $SU(N)$ with $N \\to \\infty$, revealing a string-theory-like structure',
+      'Replacing loop integrals with lattice sums that converge for large $N$',
+      'Introducing $N$ copies of the Standard Model that decouple at low energies',
+      'Using $N$ spatial dimensions instead of the usual 3+1',
+    ],
+    correctIndex: 0,
+    explanation: 'In the \'t Hooft limit ($N \\to \\infty$, $g^2 N$ fixed), Feynman diagrams organize by genus: planar diagrams dominate at leading order, torus diagrams at next order, etc. This topological expansion mirrors the string theory genus expansion — the first hint of gauge/string duality.',
+    realWorld: 'The large-$N$ expansion is a cornerstone of the AdS/CFT correspondence: the planar limit maps to classical strings in AdS.',
+    hint: 'Feynman diagrams become topological surfaces — planar, toroidal, etc.',
+    glossaryLinks: ['ads-cft'],
+  },
+  {
+    id: 310104, topic: 'gerard-thooft', difficulty: 'hard',
+    question: '\'t Hooft\'s S-matrix approach to the black hole information paradox proposes that:',
+    options: [
+      'Information is encoded in the S-matrix of incoming and outgoing particles at the horizon, preserving unitarity without requiring an interior description',
+      'Information is destroyed at the singularity, violating quantum mechanics',
+      'Black holes never fully evaporate, trapping information permanently',
+      'Information escapes through baby universes branching off from the interior',
+    ],
+    correctIndex: 0,
+    explanation: '\'t Hooft argued that a complete S-matrix description of black hole formation and evaporation can be unitary, with the horizon acting as a "membrane" that processes and re-emits information. This S-matrix black hole approach directly inspired Susskind\'s complementarity principle.',
+    realWorld: '\'t Hooft\'s insistence on unitarity in black hole physics was vindicated by AdS/CFT, which proves unitarity in the dual CFT.',
+    hint: 'Focus on the scattering matrix: what goes in must come out, just scrambled.',
+  },
+  {
+    id: 310105, topic: 'gerard-thooft', difficulty: 'sota',
+    question: '\'t Hooft\'s "cellular automaton interpretation" of quantum mechanics proposes that:',
+    options: [
+      'Quantum mechanics is emergent from a deterministic, discrete system at the Planck scale — with quantum superposition arising from information loss in the classical-to-quantum mapping',
+      'All physical systems are literally cellular automata running on a Planck-scale grid',
+      'Quantum computers cannot be built because physics is fundamentally classical',
+      'Bell\'s theorem is violated by superdeterministic correlations only in black hole spacetimes',
+    ],
+    correctIndex: 0,
+    explanation: '\'t Hooft has argued that an underlying deterministic theory could reproduce quantum mechanics if: (1) it operates at the Planck scale, (2) information loss (dissipation) maps deterministic states to quantum equivalence classes, and (3) apparent Bell inequality violations arise from superdeterminism.',
+    realWorld: 'This remains highly controversial — most physicists consider superdeterminism an unacceptable conspiracy. But \'t Hooft argues it deserves investigation as a path to quantum gravity.',
+    hint: 'Quantum randomness might be deterministic chaos at a scale we can\'t access.',
+  },
+];
