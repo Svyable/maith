@@ -517,5 +517,125 @@
 
   "formula.130.name": "Fórmula de Heron",
   "formula.130.significance": "Calcula a área de qualquer triângulo apenas a partir de seus três comprimentos de lado, sem precisar da altura.",
-  "formula.130.applications": "Topografia, geometria computacional, sistemas de informação geográfica, arquitetura, simulações físicas"
+  "formula.130.applications": "Topografia, geometria computacional, sistemas de informação geográfica, arquitetura, simulações físicas",
+
+  "formula.131.name": "Fórmula de Haversine",
+  "formula.131.significance": "Calcula distâncias ortodrômicas entre dois pontos numa esfera a partir de suas latitudes e longitudes. A fórmula fundamental da trigonometria esférica para navegação.",
+  "formula.131.applications": "Cálculo de distâncias GPS, rotas de aviação, navegação marítima, sistemas de informação geográfica, aplicativos de mapas",
+
+  "formula.132.name": "Função Logística (Sigmoide)",
+  "formula.132.significance": "Mapeia qualquer número real para (0,1), tornando-o interpretável como probabilidade. A função de ativação canônica da regressão logística e classificação binária.",
+  "formula.132.applications": "Regressão logística, classificação binária, ativação de redes neurais, atualização bayesiana, epidemiologia",
+
+  "formula.133.name": "Identidade da Função Totiente de Euler",
+  "formula.133.significance": "A soma da função totiente de Euler sobre todos os divisores de n é igual a n. Fundamental para aritmética modular e a correção do criptossistema RSA.",
+  "formula.133.applications": "Criptografia RSA, criptografia de chave pública, aritmética modular, teoria dos números",
+
+  "formula.134.name": "Processo de Gram-Schmidt",
+  "formula.134.significance": "Converte qualquer conjunto de vetores linearmente independentes em uma base ortonormal por projeções e subtrações sucessivas. Fundamento da decomposição QR.",
+  "formula.134.applications": "Álgebra linear numérica, decomposição QR, mínimos quadrados, aprendizado de máquina, análise de subespaço de sinais",
+
+  "formula.135.name": "Teorema de Cayley-Hamilton",
+  "formula.135.significance": "Toda matriz quadrada satisfaz seu próprio polinômio característico. Permite inversas matriciais, funções de matrizes e cálculo eficiente de potências de matrizes.",
+  "formula.135.applications": "Sistemas de controle, mecânica quântica, computação gráfica, cálculo de funções matriciais",
+
+  "formula.136.name": "Equação de Fokker-Planck",
+  "formula.136.significance": "Descreve a evolução da densidade de probabilidade de um processo estocástico impulsionado por deriva e difusão. A EDP dual à EDE de Itô.",
+  "formula.136.applications": "Física estatística, finanças (densidade neutra ao risco), neurociência, movimento browniano, controle estocástico",
+
+  "formula.137.name": "Isometria de Itô",
+  "formula.137.significance": "A isometria fundamental para integrais estocásticas: a norma L² de uma integral estocástica é igual à norma L² de seu integrando no domínio temporal.",
+  "formula.137.applications": "Precificação de derivativos, ciências atuariais, controle estocástico, risco financeiro",
+
+  "formula.138.name": "Hipótese do Mercado Eficiente",
+  "formula.138.significance": "Os preços dos ativos no tempo t são a melhor previsão dos preços futuros dada a informação atual — os preços são martingales. A ideia mais debatida em finanças.",
+  "formula.138.applications": "Investimento ativo vs passivo, regulação de mercados, trading algorítmico, pesquisa em finanças comportamentais",
+
+  "formula.139.name": "Lei dos Senos",
+  "formula.139.significance": "Relaciona os comprimentos dos lados de um triângulo com os senos dos ângulos opostos e o raio da circunferência circunscrita. Essencial para resolver triângulos obliquângulos.",
+  "formula.139.applications": "Topografia, navegação, astronomia, arquitetura, computação gráfica, triangulação GPS",
+
+  "formula.140.name": "Regra de Leibniz para Diferenciação sob o Sinal de Integral",
+  "formula.140.significance": "Permite diferenciar uma integral cujos limites e integrando dependem da variável de diferenciação. O truque favorito de Richard Feynman.",
+  "formula.140.applications": "Estatística bayesiana, física, engenharia, precificação de opções (derivação dos gregos), diagramas de Feynman",
+
+  "formula.141.name": "Modus Ponens",
+  "formula.141.significance": "A regra mais fundamental da dedução lógica. Se um condicional é verdadeiro e seu antecedente se verifica, o consequente deve seguir-se.",
+  "formula.141.applications": "Prova matemática, programação (lógica se-então), raciocínio de IA, argumentação jurídica, prova automatizada de teoremas",
+
+  "formula.142.name": "Identidade dos Números de Bernoulli",
+  "formula.142.significance": "Dá uma forma fechada para somas de potências inteiras em termos de números de Bernoulli. Estes aparecem nas séries de Taylor de tan(x) e sec(x).",
+  "formula.142.applications": "Teoria analítica dos números, polinômios de Bernoulli, soma de Euler-Maclaurin, K-teoria algébrica",
+
+  "formula.143.name": "Norma de Sobolev",
+  "formula.143.significance": "Define os espaços de Sobolev — espaços de funções que medem tanto valores de funções quanto de derivadas. O enquadramento natural para soluções fracas de EDPs.",
+  "formula.143.applications": "Teoria de EDPs, métodos de elementos finitos, aproximação de funções, RKHS em ML, processamento de imagens",
+
+  "formula.144.name": "Teorema de Hahn-Banach",
+  "formula.144.significance": "Garante que funcionais lineares limitados num subespaço podem ser estendidos ao espaço inteiro sem aumentar sua norma. Um dos teoremas fundamentais da análise funcional.",
+  "formula.144.applications": "Análise funcional, dualidade de otimização, representação de Riesz, EDPs, teoria da utilidade econômica",
+
+  "formula.145.name": "Números de Stirling de Segunda Espécie",
+  "formula.145.significance": "Conta o número de maneiras de particionar n objetos em k subconjuntos não vazios. Aparecem na combinatória e análise de algoritmos.",
+  "formula.145.applications": "Combinatória, séries formais de potências, análise de algoritmos, ciência da computação, probabilidade (momentos)",
+
+  "formula.146.name": "Mecânica Hamiltoniana",
+  "formula.146.significance": "As equações canônicas de Hamilton reformulam a mecânica clássica em coordenadas do espaço de fases (q,p). Mais simétrica e geral que a mecânica lagrangiana.",
+  "formula.146.applications": "Mecânica estatística, mecânica quântica (quantização canônica), teoria do caos, dinâmica molecular, teoria de controle",
+
+  "formula.147.name": "Teorema de Liouville (Mecânica)",
+  "formula.147.significance": "Mostra que o volume do espaço de fases é conservado sob evolução hamiltoniana — a densidade flui como um fluido incompressível.",
+  "formula.147.applications": "Mecânica estatística, física de plasmas, teoria do caos (dinâmica preservadora de medida), mecânica quântica",
+
+  "formula.148.name": "Teorema de Wilson",
+  "formula.148.significance": "Fornece uma condição necessária e suficiente de primalidade em termos de fatoriais. Elegante mas computacionalmente impraticável para n grande.",
+  "formula.148.applications": "Teoria dos números, primalidade, aritmética modular, criptografia (interesse teórico)",
+
+  "formula.149.name": "Equação de Nernst-Planck",
+  "formula.149.significance": "Descreve o fluxo de espécies carregadas impulsionado por gradientes de concentração e de campo elétrico. Essencial para modelar o transporte iônico.",
+  "formula.149.applications": "Neurociência (canais iônicos), células de combustível, baterias, membranas de dessalinização, biossensores",
+
+  "formula.150.name": "Existência de Navier-Stokes (Problema do Milênio Aberto)",
+  "formula.150.significance": "Um dos sete Problemas do Prêmio do Milênio de Clay ($1M não resolvido). Pergunta se soluções suaves existem sempre para as equações de Navier-Stokes 3D.",
+  "formula.150.applications": "Teoria da turbulência, aerodinâmica, modelagem climática, física fundamental de fluidos",
+
+  "formula.151.name": "Teorema do Índice de Atiyah-Singer",
+  "formula.151.significance": "Um dos teoremas mais profundos do século XX, unificando topologia, geometria e análise. Conecta o índice analítico de um operador diferencial elíptico a invariantes topológicos.",
+  "formula.151.applications": "Física teórica (cancelamento de anomalias em TQC), teoria das cordas, matéria condensada (fases topológicas), K-teoria",
+
+  "formula.152.name": "Teorema de Riemann-Roch",
+  "formula.152.significance": "Relaciona a dimensão do espaço de funções meromorfas com polos prescritos com o grau do divisor e o gênero da curva. Teorema fundamental da geometria algébrica.",
+  "formula.152.applications": "Geometria algébrica, teoria dos códigos (códigos Goppa), criptografia (curvas elípticas), teoria das cordas",
+
+  "formula.153.name": "Conjeturas de Weil (Teorema de Deligne)",
+  "formula.153.significance": "Weil conjecturou que a função zeta de uma variedade sobre um corpo finito satisfaz um análogo da hipótese de Riemann. A prova de Deligne lhe rendeu a Medalha Fields.",
+  "formula.153.applications": "Geometria aritmética, teoria dos códigos, criptografia (curvas elípticas sobre corpos finitos), coomologia motívica",
+
+  "formula.154.name": "Teorema de Grothendieck-Riemann-Roch",
+  "formula.154.significance": "Generaliza o teorema clássico de Riemann-Roch para morfismos entre esquemas. Grothendieck introduziu a K-teoria e métodos de feixes para prová-lo.",
+  "formula.154.applications": "Geometria algébrica, coomologia motívica, teoria das cordas (D-branas), teoria de interseção, K-teoria",
+
+  "formula.155.name": "Dualidade de Poincaré",
+  "formula.155.significance": "Para uma n-variedade fechada orientável, o k-ésimo grupo de coomologia é isomorfo ao (n−k)-ésimo grupo de homologia. Uma simetria fundamental das variedades.",
+  "formula.155.applications": "Topologia algébrica, geometria diferencial, física matemática (teoria de Hodge), teoria das cordas (simetria espelho)",
+
+  "formula.156.name": "Teorema do Ponto Fixo de Lefschetz",
+  "formula.156.significance": "Fornece um critério topológico para a existência de pontos fixos via traço coomológico. Generaliza o teorema do ponto fixo de Brouwer.",
+  "formula.156.applications": "Sistemas dinâmicos (órbitas periódicas), teoria dos jogos (existência do equilíbrio de Nash), geometria algébrica, economia",
+
+  "formula.157.name": "Teorema dos Números Primos",
+  "formula.157.significance": "Prova que o número de primos até x é assintoticamente x/ln(x). Conjecturado por Gauss e provado por Hadamard e de la Vallée Poussin usando análise complexa.",
+  "formula.157.applications": "Criptografia (geração de primos), teoria computacional dos números, escolha de tamanho de chave RSA, testes de primalidade probabilísticos",
+
+  "formula.158.name": "Teorema de Dirichlet sobre Primos em Progressões Aritméticas",
+  "formula.158.significance": "Prova que há infinitos primos em toda progressão aritmética a, a+d, a+2d, … quando mdc(a,d)=1. O nascimento da teoria analítica dos números.",
+  "formula.158.applications": "Teoria analítica dos números, criptografia (distribuição de primos), funções L de Dirichlet, formas automorfas",
+
+  "formula.159.name": "Função Psi de Chebyshev",
+  "formula.159.significance": "Conta potências de primos com peso logarítmico, provando que é assintoticamente x. A abordagem de Chebyshev deu os primeiros limites quantitativos sobre π(x).",
+  "formula.159.applications": "Teoria analítica dos números, limites de distribuição de primos, fórmulas explícitas para zeros de ζ(s)",
+
+  "formula.160.name": "Sistema de Lorenz",
+  "formula.160.significance": "Três EDOs acopladas que produzem o primeiro atrator estranho descoberto: o atrator de Lorenz. Edward Lorenz o encontrou simulando convecção atmosférica, cunhando o 'efeito borboleta'.",
+  "formula.160.applications": "Previsão do tempo, teoria do caos, criptografia (geradores caóticos), dinâmica de fluidos, dinâmica de lasers"
 }

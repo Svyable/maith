@@ -517,5 +517,125 @@
 
   "formula.130.name": "Formula di Erone",
   "formula.130.significance": "Calcola l'area di qualsiasi triangolo dalle sole tre lunghezze dei lati, senza bisogno dell'altezza.",
-  "formula.130.applications": "Topografia, geometria computazionale, sistemi informativi geografici, architettura, simulazioni fisiche"
+  "formula.130.applications": "Topografia, geometria computazionale, sistemi informativi geografici, architettura, simulazioni fisiche",
+
+  "formula.131.name": "Formula di Haversine",
+  "formula.131.significance": "Calcola le distanze ortodromiche tra due punti su una sfera dalle loro latitudini e longitudini. La formula fondamentale della trigonometria sferica per la navigazione.",
+  "formula.131.applications": "Calcolo distanze GPS, rotte aeree, navigazione marittima, sistemi informativi geografici, applicazioni cartografiche",
+
+  "formula.132.name": "Funzione Logistica (Sigmoide)",
+  "formula.132.significance": "Mappa qualsiasi numero reale in (0,1), rendendolo interpretabile come probabilità. La funzione di attivazione canonica della regressione logistica e della classificazione binaria.",
+  "formula.132.applications": "Regressione logistica, classificazione binaria, attivazione reti neurali, aggiornamento bayesiano, epidemiologia",
+
+  "formula.133.name": "Identità della Funzione Toziente di Eulero",
+  "formula.133.significance": "La somma della funzione toziente di Eulero su tutti i divisori di n dà n. Fondamentale per l'aritmetica modulare e la correttezza del crittosistema RSA.",
+  "formula.133.applications": "Crittografia RSA, cifratura a chiave pubblica, aritmetica modulare, teoria dei numeri",
+
+  "formula.134.name": "Processo di Gram-Schmidt",
+  "formula.134.significance": "Converte qualsiasi insieme di vettori linearmente indipendenti in una base ortonormale tramite proiezioni e sottrazioni successive. Fondamento della decomposizione QR.",
+  "formula.134.applications": "Algebra lineare numerica, decomposizione QR, minimi quadrati, apprendimento automatico, analisi di sottospazi di segnale",
+
+  "formula.135.name": "Teorema di Cayley-Hamilton",
+  "formula.135.significance": "Ogni matrice quadrata soddisfa il proprio polinomio caratteristico. Permette inverse matriciali, funzioni di matrici e calcolo efficiente di potenze matriciali.",
+  "formula.135.applications": "Sistemi di controllo, meccanica quantistica, computer grafica, calcolo di funzioni matriciali",
+
+  "formula.136.name": "Equazione di Fokker-Planck",
+  "formula.136.significance": "Descrive l'evoluzione della densità di probabilità di un processo stocastico guidato da deriva e diffusione. La PDE duale dell'SDE di Itô.",
+  "formula.136.applications": "Fisica statistica, finanza (densità neutrale al rischio), neuroscienze, moto browniano, controllo stocastico",
+
+  "formula.137.name": "Isometria di Itô",
+  "formula.137.significance": "L'isometria fondamentale per gli integrali stocastici: la norma L² di un integrale stocastico è uguale alla norma L² del suo integrando nel dominio temporale.",
+  "formula.137.applications": "Pricing di derivati, scienze attuariali, controllo stocastico, rischio finanziario",
+
+  "formula.138.name": "Ipotesi del Mercato Efficiente",
+  "formula.138.significance": "I prezzi degli asset al tempo t sono la migliore previsione dei prezzi futuri data l'informazione attuale — i prezzi sono martingale. L'idea più dibattuta in finanza.",
+  "formula.138.applications": "Investimento attivo vs passivo, regolamentazione dei mercati, trading algoritmico, ricerca in finanza comportamentale",
+
+  "formula.139.name": "Legge dei Seni",
+  "formula.139.significance": "Mette in relazione le lunghezze dei lati di un triangolo con i seni degli angoli opposti e il raggio del cerchio circoscritto. Essenziale per risolvere triangoli obliquangoli.",
+  "formula.139.applications": "Topografia, navigazione, astronomia, architettura, computer grafica, triangolazione GPS",
+
+  "formula.140.name": "Regola di Leibniz per la Differenziazione sotto il Segno di Integrale",
+  "formula.140.significance": "Permette di differenziare un integrale i cui limiti e integrando dipendono dalla variabile di differenziazione. Il trucco preferito di Richard Feynman.",
+  "formula.140.applications": "Statistica bayesiana, fisica, ingegneria, pricing di opzioni (derivazione delle greche), diagrammi di Feynman",
+
+  "formula.141.name": "Modus Ponens",
+  "formula.141.significance": "La regola più fondamentale della deduzione logica. Se un condizionale è vero e il suo antecedente è valido, il conseguente deve seguire.",
+  "formula.141.applications": "Dimostrazione matematica, programmazione (logica se-allora), ragionamento IA, argomentazione giuridica, dimostrazione automatizzata di teoremi",
+
+  "formula.142.name": "Identità dei Numeri di Bernoulli",
+  "formula.142.significance": "Dà una forma chiusa per le somme di potenze intere in termini di numeri di Bernoulli. Questi compaiono nelle serie di Taylor di tan(x) e sec(x).",
+  "formula.142.applications": "Teoria analitica dei numeri, polinomi di Bernoulli, sommazione di Euler-Maclaurin, K-teoria algebrica",
+
+  "formula.143.name": "Norma di Sobolev",
+  "formula.143.significance": "Definisce gli spazi di Sobolev — spazi di funzioni che misurano sia i valori delle funzioni che delle derivate. L'ambientazione naturale per le soluzioni deboli delle PDE.",
+  "formula.143.applications": "Teoria delle PDE, metodi degli elementi finiti, approssimazione di funzioni, RKHS nel ML, elaborazione di immagini",
+
+  "formula.144.name": "Teorema di Hahn-Banach",
+  "formula.144.significance": "Garantisce che i funzionali lineari limitati su un sottospazio possano essere estesi all'intero spazio senza aumentare la loro norma. Uno dei teoremi fondamentali dell'analisi funzionale.",
+  "formula.144.applications": "Analisi funzionale, dualità di ottimizzazione, rappresentazione di Riesz, PDE, teoria dell'utilità economica",
+
+  "formula.145.name": "Numeri di Stirling di Seconda Specie",
+  "formula.145.significance": "Conta il numero di modi per partizionare n oggetti in k sottoinsiemi non vuoti. Compaiono in combinatoria e nell'analisi degli algoritmi.",
+  "formula.145.applications": "Combinatoria, serie formali di potenze, analisi degli algoritmi, informatica, probabilità (momenti)",
+
+  "formula.146.name": "Meccanica Hamiltoniana",
+  "formula.146.significance": "Le equazioni canoniche di Hamilton riformulano la meccanica classica in coordinate dello spazio delle fasi (q,p). Più simmetrica e generale della meccanica lagrangiana.",
+  "formula.146.applications": "Meccanica statistica, meccanica quantistica (quantizzazione canonica), teoria del caos, dinamica molecolare, teoria del controllo",
+
+  "formula.147.name": "Teorema di Liouville (Meccanica)",
+  "formula.147.significance": "Dimostra che il volume dello spazio delle fasi è conservato sotto l'evoluzione hamiltoniana — la densità scorre come un fluido incomprimibile.",
+  "formula.147.applications": "Meccanica statistica, fisica dei plasmi, teoria del caos (dinamica preservante la misura), meccanica quantistica",
+
+  "formula.148.name": "Teorema di Wilson",
+  "formula.148.significance": "Fornisce una condizione necessaria e sufficiente per la primalità in termini di fattoriali. Elegante ma computazionalmente impraticabile per n grande.",
+  "formula.148.applications": "Teoria dei numeri, primalità, aritmetica modulare, crittografia (interesse teorico)",
+
+  "formula.149.name": "Equazione di Nernst-Planck",
+  "formula.149.significance": "Descrive il flusso di specie cariche guidato sia da gradienti di concentrazione che di campo elettrico. Essenziale per modellare il trasporto ionico.",
+  "formula.149.applications": "Neuroscienze (canali ionici), celle a combustibile, batterie, membrane di desalinizzazione, biosensori",
+
+  "formula.150.name": "Esistenza di Navier-Stokes (Problema del Millennio Aperto)",
+  "formula.150.significance": "Uno dei sette Problemi del Premio del Millennio di Clay ($1M irrisolto). Chiede se soluzioni lisce esistano sempre per le equazioni di Navier-Stokes 3D.",
+  "formula.150.applications": "Teoria della turbolenza, aerodinamica, modellazione climatica, fisica fondamentale dei fluidi",
+
+  "formula.151.name": "Teorema dell'Indice di Atiyah-Singer",
+  "formula.151.significance": "Uno dei teoremi più profondi del XX secolo, che unifica topologia, geometria e analisi. Connette l'indice analitico di un operatore differenziale ellittico a invarianti topologici.",
+  "formula.151.applications": "Fisica teorica (cancellazione di anomalie in TQC), teoria delle stringhe, materia condensata (fasi topologiche), K-teoria",
+
+  "formula.152.name": "Teorema di Riemann-Roch",
+  "formula.152.significance": "Mette in relazione la dimensione dello spazio delle funzioni meromorfe con poli prescritti con il grado del divisore e il genere della curva. Teorema fondamentale della geometria algebrica.",
+  "formula.152.applications": "Geometria algebrica, teoria dei codici (codici Goppa), crittografia (curve ellittiche), teoria delle stringhe",
+
+  "formula.153.name": "Congetture di Weil (Teorema di Deligne)",
+  "formula.153.significance": "Weil congetturò che la funzione zeta di una varietà su un campo finito soddisfa un analogo dell'ipotesi di Riemann. La dimostrazione di Deligne gli valse la Medaglia Fields.",
+  "formula.153.applications": "Geometria aritmetica, teoria dei codici, crittografia (curve ellittiche su campi finiti), coomologia motivica",
+
+  "formula.154.name": "Teorema di Grothendieck-Riemann-Roch",
+  "formula.154.significance": "Generalizza il teorema classico di Riemann-Roch ai morfismi tra schemi. Grothendieck introdusse la K-teoria e i metodi di fasci per dimostrarlo.",
+  "formula.154.applications": "Geometria algebrica, coomologia motivica, teoria delle stringhe (D-brane), teoria dell'intersezione, K-teoria",
+
+  "formula.155.name": "Dualità di Poincaré",
+  "formula.155.significance": "Per una n-varietà chiusa orientabile, il k-esimo gruppo di coomologia è isomorfo al (n−k)-esimo gruppo di omologia. Una simmetria fondamentale delle varietà.",
+  "formula.155.applications": "Topologia algebrica, geometria differenziale, fisica matematica (teoria di Hodge), teoria delle stringhe (simmetria speculare)",
+
+  "formula.156.name": "Teorema del Punto Fisso di Lefschetz",
+  "formula.156.significance": "Fornisce un criterio topologico per l'esistenza di punti fissi tramite la traccia coomologica. Generalizza il teorema del punto fisso di Brouwer.",
+  "formula.156.applications": "Sistemi dinamici (orbite periodiche), teoria dei giochi (esistenza dell'equilibrio di Nash), geometria algebrica, economia",
+
+  "formula.157.name": "Teorema dei Numeri Primi",
+  "formula.157.significance": "Dimostra che il numero di primi fino a x è asintoticamente x/ln(x). Congetturato da Gauss e dimostrato da Hadamard e de la Vallée Poussin tramite analisi complessa.",
+  "formula.157.applications": "Crittografia (generazione di numeri primi), teoria computazionale dei numeri, scelta della dimensione della chiave RSA, test di primalità probabilistici",
+
+  "formula.158.name": "Teorema di Dirichlet sui Primi nelle Progressioni Aritmetiche",
+  "formula.158.significance": "Dimostra che ci sono infiniti primi in ogni progressione aritmetica a, a+d, a+2d, … quando MCD(a,d)=1. La nascita della teoria analitica dei numeri.",
+  "formula.158.applications": "Teoria analitica dei numeri, crittografia (distribuzione dei primi), funzioni L di Dirichlet, forme automorfe",
+
+  "formula.159.name": "Funzione Psi di Chebyshev",
+  "formula.159.significance": "Conta le potenze dei primi con peso logaritmico, dimostrando che è asintoticamente x. L'approccio di Chebyshev diede le prime stime quantitative su π(x).",
+  "formula.159.applications": "Teoria analitica dei numeri, stime della distribuzione dei primi, formule esplicite per gli zeri di ζ(s)",
+
+  "formula.160.name": "Sistema di Lorenz",
+  "formula.160.significance": "Tre ODE accoppiate che producono il primo attrattore strano scoperto: l'attrattore di Lorenz. Edward Lorenz lo trovò simulando la convezione atmosferica, coniando l'« effetto farfalla ».",
+  "formula.160.applications": "Previsione meteorologica, teoria del caos, crittografia (generatori caotici), dinamica dei fluidi, dinamica dei laser"
 }
