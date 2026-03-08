@@ -397,5 +397,125 @@
 
   "formula.100.name": "生存函数（死亡力）",
   "formula.100.significance": "给出存活超过时间t的概率，表示为累积危险率的指数。生存分析和精算科学的基本函数。",
-  "formula.100.applications": "人寿保险定价、养老金估值、临床试验、可靠性工程、客户流失建模"
+  "formula.100.applications": "人寿保险定价、养老金估值、临床试验、可靠性工程、客户流失建模",
+
+  "formula.101.name": "斯特藩-玻尔兹曼定律",
+  "formula.101.significance": "描述黑体单位面积辐射的总功率与温度的四次方成正比。",
+  "formula.101.applications": "恒星分类、行星表面温度、气候科学（能量平衡）、红外传感器、热设计",
+
+  "formula.102.name": "弗里德曼方程",
+  "formula.102.significance": "从爱因斯坦场方程推导出的宇宙膨胀方程。在哈勃观测之前就预言了大爆炸和宇宙膨胀。",
+  "formula.102.applications": "宇宙学、暗能量模型、大爆炸核合成、CMB分析、结构形成",
+
+  "formula.103.name": "泊松分布",
+  "formula.103.significance": "在事件以恒定平均速率独立发生时，建模固定区间内给定事件数的概率。",
+  "formula.103.applications": "电信、流行病学、保险、天文学、排队论、ML（计数模型）",
+
+  "formula.104.name": "拉普拉斯变换（双边）",
+  "formula.104.significance": "在时域和复频域之间进行转换的变换对。全球控制工程师和电气工程师的语言。",
+  "formula.104.applications": "控制系统、电路、信号处理、系统辨识、微分方程",
+
+  "formula.105.name": "帕塞瓦尔定理",
+  "formula.105.significance": "指出信号的总能量在傅里叶变换下守恒。",
+  "formula.105.applications": "信号处理、声学、功率谱密度、通信、音频工程",
+
+  "formula.106.name": "散度定理（高斯定理）",
+  "formula.106.significance": "将向量场通过闭合曲面的通量与所围体积内的散度联系起来。",
+  "formula.106.applications": "电磁学（高斯定律）、流体动力学、传热、计算物理",
+
+  "formula.107.name": "哈密顿四元数",
+  "formula.107.significance": "将复数扩展到四维，牺牲了交换律。三维旋转最高效的表示，避免万向节锁定。",
+  "formula.107.applications": "3D计算机图形、航天器姿态控制、机器人、游戏引擎、IMU传感器融合",
+
+  "formula.108.name": "欧拉-伯努利板方程",
+  "formula.108.significance": "将梁弯曲理论扩展到二维薄板。控制地板、飞机蒙皮和MEMS薄膜的挠度。",
+  "formula.108.applications": "结构工程、航空航天面板、微电子（MEMS）、声学面板、FEA建模",
+
+  "formula.109.name": "扩散方程（热方程）",
+  "formula.109.significance": "描述热量（或任何扩散量）随时间的传播。典型的抛物型偏微分方程。",
+  "formula.109.applications": "传热、布朗运动、期权定价（Black-Scholes）、扩散MRI、材料科学",
+
+  "formula.110.name": "多普勒效应",
+  "formula.110.significance": "描述由于源和观察者之间相对运动引起的观测频率变化。",
+  "formula.110.applications": "雷达测速、医学超声、天文红移、气象雷达、声纳",
+
+  "formula.111.name": "布拉格定律",
+  "formula.111.significance": "描述X射线在晶面上的建设性干涉。1915年诺贝尔奖。直接导致了DNA双螺旋结构的确定。",
+  "formula.111.applications": "X射线晶体学、材料表征、DNA结构测定、药物发现、半导体分析",
+
+  "formula.112.name": "科尔莫戈罗夫复杂度",
+  "formula.112.significance": "将字符串的内在复杂度定义为其在通用图灵机上最短描述的长度。",
+  "formula.112.applications": "数据压缩、AI理论、算法随机性、MDL原理、计算生物学、科学哲学",
+
+  "formula.113.name": "齐普夫定律",
+  "formula.113.significance": "任何单词的频率大约与其在频率表中的排名成反比。出现在城市规模、收入分布和互联网流量中。",
+  "formula.113.applications": "计算语言学、LLM词汇设计、城市规模建模、网络科学、生态学",
+
+  "formula.114.name": "韦伯-费希纳定律",
+  "formula.114.significance": "指出人类对刺激强度的感知是对数的——我们感知的是等比，而非等差。",
+  "formula.114.applications": "心理声学（分贝刻度）、视觉感知、UX设计、疼痛评估、营销、里氏震级",
+
+  "formula.115.name": "切比雪夫不等式",
+  "formula.115.significance": "提供随机变量偏离均值超过k个标准差的概率的无分布上界。",
+  "formula.115.applications": "统计学、机器学习（PAC界）、质量控制、金融（风险界）、稳健估计",
+
+  "formula.116.name": "期望最大化算法",
+  "formula.116.significance": "一种用于含隐变量的最大似然估计的迭代算法，交替执行E步和M步。",
+  "formula.116.applications": "高斯混合模型、HMM（语音识别）、生物信息学、主题模型（LDA）、图像分割",
+
+  "formula.117.name": "柯西留数定理",
+  "formula.117.significance": "通过对围道内极点留数求和来计算复围道积分。数学中最强大的计算定理之一。",
+  "formula.117.applications": "信号处理（逆拉普拉斯/Z变换）、控制理论、量子力学、组合数学",
+
+  "formula.118.name": "拉普拉斯方程",
+  "formula.118.significance": "描述无源区域中的势场。解为调和函数，是数学中最美的对象之一。",
+  "formula.118.applications": "静电学、流体动力学（势流）、计算机图形学（网格平滑）、医学成像、金融",
+
+  "formula.119.name": "欧拉正弦乘积公式",
+  "formula.119.significance": "将正弦表示为其零点上的无穷乘积。欧拉用此计算了ζ(2) = π²/6（巴塞尔问题）。",
+  "formula.119.applications": "数论（巴塞尔问题）、复分析、特殊函数、伽马函数恒等式",
+
+  "formula.120.name": "科尔莫戈罗夫概率公理",
+  "formula.120.significance": "将概率论置于严格数学基础之上的三条公理。",
+  "formula.120.applications": "全部概率与统计、随机过程、贝叶斯推断、金融建模",
+
+  "formula.121.name": "格林定理",
+  "formula.121.significance": "将闭曲线上的线积分与所围区域上的二重积分联系起来。斯托克斯定理的二维特例。",
+  "formula.121.applications": "复分析、流体动力学、面积计、静电学（2D）、计算机图形学",
+
+  "formula.122.name": "秩-零度定理",
+  "formula.122.significance": "将线性映射的像的维数（秩）与核的维数（零度）联系起来。",
+  "formula.122.applications": "方程组、机器学习（冗余特征）、数据分析、信号子空间方法",
+
+  "formula.123.name": "棣莫弗定理",
+  "formula.123.significance": "将复数的幂与多倍角三角公式联系起来。代数与三角学之间的优美桥梁。",
+  "formula.123.applications": "三角恒等式、信号处理、多项式根、电气工程（交流相量）",
+
+  "formula.124.name": "比内公式（斐波那契）",
+  "formula.124.significance": "用黄金比例表示第n个斐波那契数的封闭形式。令人惊奇的是无理数公式总是产生整数。",
+  "formula.124.applications": "算法分析、金融技术分析、自然增长模式、计算机科学、密码学",
+
+  "formula.125.name": "沃利斯乘积",
+  "formula.125.significance": "最早的仅使用整数的π无穷乘积表示之一。纯代数比值序列收敛到超越常数。",
+  "formula.125.applications": "数学分析、π近似、量子力学、概率论（斯特林）",
+
+  "formula.126.name": "莱布尼茨π公式",
+  "formula.126.significance": "最简单的π无穷级数，最早由印度喀拉拉邦的马达瓦约1400年发现——比莱布尼茨早275年。",
+  "formula.126.applications": "数学教育、理论兴趣、历史意义、级数收敛说明",
+
+  "formula.127.name": "曼德布罗特集",
+  "formula.127.significance": "数学中最著名分形的最简定义。展示了基本迭代规则产生无限复杂性。",
+  "formula.127.applications": "计算机图形学、分形压缩、混沌理论、复动力学、数学艺术",
+
+  "formula.128.name": "牛顿第二定律",
+  "formula.128.significance": "经典力学中最基本的方程。将力定义为动量的变化率。所有牛顿动力学的起点。",
+  "formula.128.applications": "全部经典力学、工程动力学、航空航天、汽车设计、生物力学",
+
+  "formula.129.name": "斯涅尔折射定律",
+  "formula.129.significance": "描述光在不同折射率介质间通过时如何弯曲。支配所有光学的定律。",
+  "formula.129.applications": "透镜、眼镜、望远镜、显微镜、光纤、相机设计、海市蜃楼",
+
+  "formula.130.name": "海伦公式",
+  "formula.130.significance": "仅从三边长度计算任意三角形的面积，无需知道高。",
+  "formula.130.applications": "测量、计算几何、地理信息系统、建筑、物理模拟"
 }

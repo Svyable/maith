@@ -400,5 +400,125 @@
 
   "formula.100.name": "Überlebensfunktion (Sterblichkeitsintensität)",
   "formula.100.significance": "Gibt die Wahrscheinlichkeit an, den Zeitpunkt t zu überleben, als Exponential der integrierten Hazardrate. Die grundlegende Funktion der Überlebensanalyse und Versicherungsmathematik.",
-  "formula.100.applications": "Lebensversicherungspreisgestaltung, Rentenbewertung, klinische Studien, Zuverlässigkeitstechnik, Abwanderungsmodellierung"
+  "formula.100.applications": "Lebensversicherungspreisgestaltung, Rentenbewertung, klinische Studien, Zuverlässigkeitstechnik, Abwanderungsmodellierung",
+
+  "formula.101.name": "Stefan-Boltzmann-Gesetz",
+  "formula.101.significance": "Beschreibt die gesamte pro Flächeneinheit eines Schwarzkörpers abgestrahlte Leistung als proportional zur vierten Potenz der Temperatur.",
+  "formula.101.applications": "Sternklassifikation, Planetentemperaturen, Klimawissenschaft (Energiebilanz), Infrarotsensoren, Thermaldesign",
+
+  "formula.102.name": "Friedmann-Gleichungen",
+  "formula.102.significance": "Regieren die Expansion des Universums aus Einsteins Feldgleichungen. Sagten den Urknall und die kosmische Expansion vorher, bevor Hubble sie beobachtete.",
+  "formula.102.applications": "Kosmologie, Dunkle-Energie-Modelle, Urknall-Nukleosynthese, CMB-Analyse, Strukturbildung",
+
+  "formula.103.name": "Poisson-Verteilung",
+  "formula.103.significance": "Modelliert die Wahrscheinlichkeit einer bestimmten Anzahl von Ereignissen in einem festen Intervall bei konstanter durchschnittlicher Rate.",
+  "formula.103.applications": "Telekommunikation, Epidemiologie, Versicherung, Astronomie, Warteschlangentheorie, ML (Zählmodelle)",
+
+  "formula.104.name": "Laplace-Transformation (bilateral)",
+  "formula.104.significance": "Das Transformationspaar, das zwischen Zeit- und komplexem Frequenzbereich konvertiert. Die Sprache der Regelungs- und Elektrotechniker weltweit.",
+  "formula.104.applications": "Regelungssysteme, elektrische Schaltkreise, Signalverarbeitung, Systemidentifikation, Differentialgleichungen",
+
+  "formula.105.name": "Parsevalscher Satz",
+  "formula.105.significance": "Besagt, dass die Gesamtenergie eines Signals unter der Fourier-Transformation erhalten bleibt. Verbindet Zeitbereichsenergie mit Frequenzbereichsenergie.",
+  "formula.105.applications": "Signalverarbeitung, Akustik, Leistungsspektraldichte, Kommunikation, Audiotechnik",
+
+  "formula.106.name": "Divergenzsatz (Satz von Gauß)",
+  "formula.106.significance": "Setzt den Fluss eines Vektorfeldes durch eine geschlossene Fläche mit der Divergenz im eingeschlossenen Volumen in Beziehung.",
+  "formula.106.applications": "Elektromagnetismus (Gaußsches Gesetz), Strömungsdynamik, Wärmeübertragung, Computerphysik",
+
+  "formula.107.name": "Hamiltonsche Quaternionen",
+  "formula.107.significance": "Erweiterten die komplexen Zahlen auf vier Dimensionen unter Aufgabe der Kommutativität. Die effizienteste Darstellung dreidimensionaler Rotationen ohne Gimbal Lock.",
+  "formula.107.applications": "3D-Computergrafik, Raumfahrt-Lageregelung, Robotik, Spiel-Engines, IMU-Sensorfusion",
+
+  "formula.108.name": "Euler-Bernoulli-Plattengleichung",
+  "formula.108.significance": "Erweitert die Biegetheorie von Balken auf zweidimensionale dünne Platten. Bestimmt die Durchbiegung von Böden, Flugzeughäuten und MEMS-Membranen.",
+  "formula.108.applications": "Bauingenieurwesen, Luft- und Raumfahrtplatten, Mikroelektronik (MEMS), Akustikplatten, FEA-Modellierung",
+
+  "formula.109.name": "Diffusionsgleichung (Wärmeleitungsgleichung)",
+  "formula.109.significance": "Beschreibt, wie sich Wärme (oder jede diffundierende Größe) über die Zeit ausbreitet. Die prototypische parabolische PDE. Motivierte Fouriers gesamte Reihen- und Transformationstheorie.",
+  "formula.109.applications": "Wärmeübertragung, Brownsche Bewegung, Optionspreisbildung (Black-Scholes), Diffusions-MRT, Materialwissenschaft",
+
+  "formula.110.name": "Doppler-Effekt",
+  "formula.110.significance": "Beschreibt die Verschiebung der beobachteten Frequenz aufgrund der Relativbewegung zwischen Quelle und Beobachter.",
+  "formula.110.applications": "Radargeschwindigkeitsmessung, medizinischer Ultraschall, astronomische Rotverschiebung, Wetterradar, Sonar",
+
+  "formula.111.name": "Braggsches Gesetz",
+  "formula.111.significance": "Beschreibt konstruktive Interferenz von Röntgenstrahlen an Kristallebenen. Nobelpreis 1915. Führte direkt zur Bestimmung der DNA-Doppelhelixstruktur.",
+  "formula.111.applications": "Röntgenkristallographie, Materialcharakterisierung, DNA-Strukturbestimmung, Arzneimittelentdeckung, Halbleiteranalyse",
+
+  "formula.112.name": "Kolmogorow-Komplexität",
+  "formula.112.significance": "Definiert die intrinsische Komplexität einer Zeichenkette als die Länge ihrer kürzesten Beschreibung auf einer universellen Turingmaschine.",
+  "formula.112.applications": "Datenkompression, KI-Theorie, algorithmische Zufälligkeit, MDL-Prinzip, Computerbiologie, Wissenschaftsphilosophie",
+
+  "formula.113.name": "Zipfsches Gesetz",
+  "formula.113.significance": "Die Häufigkeit eines Wortes ist ungefähr umgekehrt proportional zu seinem Rang in der Häufigkeitstabelle. Erscheint in Stadtgrößen, Einkommensverteilungen und Internetverkehr.",
+  "formula.113.applications": "Computerlinguistik, LLM-Vokabulardesign, Stadtgrößenmodellierung, Netzwerkwissenschaft, Ökologie",
+
+  "formula.114.name": "Weber-Fechner-Gesetz",
+  "formula.114.significance": "Besagt, dass die menschliche Wahrnehmung der Reizintensität logarithmisch ist — wir nehmen gleiche Verhältnisse wahr, nicht gleiche Differenzen.",
+  "formula.114.applications": "Psychoakustik (Dezibel-Skala), visuelle Wahrnehmung, UX-Design, Schmerzbeurteilung, Marketing, Richterskala",
+
+  "formula.115.name": "Tschebyscheffsche Ungleichung",
+  "formula.115.significance": "Liefert eine verteilungsfreie obere Schranke für die Wahrscheinlichkeit, dass eine Zufallsvariable mehr als k Standardabweichungen vom Mittelwert abweicht.",
+  "formula.115.applications": "Statistik, maschinelles Lernen (PAC-Schranken), Qualitätskontrolle, Finanzen (Risikoschranken), robuste Schätzung",
+
+  "formula.116.name": "Expectation-Maximisation-Algorithmus",
+  "formula.116.significance": "Ein iterativer Algorithmus zur Maximum-Likelihood-Schätzung mit latenten Variablen, der E-Schritt und M-Schritt abwechselt.",
+  "formula.116.applications": "Gaußsche Mischmodelle, HMMs (Spracherkennung), Bioinformatik, Themenmodelle (LDA), Bildsegmentierung",
+
+  "formula.117.name": "Cauchyscher Residuensatz",
+  "formula.117.significance": "Bewertet komplexe Konturintegrale durch Summation der Residuen an eingeschlossenen Polstellen. Einer der leistungsfähigsten Rechensätze der Mathematik.",
+  "formula.117.applications": "Signalverarbeitung (inverse Laplace-/Z-Transformationen), Regelungstechnik, Quantenmechanik, Kombinatorik",
+
+  "formula.118.name": "Laplace-Gleichung",
+  "formula.118.significance": "Beschreibt Potentialfelder in quellenfreien Regionen. Lösungen sind harmonische Funktionen, einige der schönsten Objekte der Mathematik.",
+  "formula.118.applications": "Elektrostatik, Hydrodynamik (Potentialströmung), Computergrafik (Glättung), medizinische Bildgebung, Finanzen",
+
+  "formula.119.name": "Eulersche Produktformel für den Sinus",
+  "formula.119.significance": "Drückt den Sinus als unendliches Produkt über seine Nullstellen aus. Euler nutzte dies zur Berechnung von ζ(2) = π²/6 (Basler Problem).",
+  "formula.119.applications": "Zahlentheorie (Basler Problem), komplexe Analysis, Spezialfunktionen, Gammafunktionsidentitäten",
+
+  "formula.120.name": "Kolmogorowsche Axiome der Wahrscheinlichkeit",
+  "formula.120.significance": "Die drei Axiome, die die Wahrscheinlichkeitstheorie auf ein rigoroses mathematisches Fundament stellen. Kolmogorows maßtheoretischer Rahmen löste grundlegende Paradoxien.",
+  "formula.120.applications": "Gesamte Wahrscheinlichkeitstheorie und Statistik, stochastische Prozesse, Bayessche Inferenz, Finanzmodellierung",
+
+  "formula.121.name": "Greenscher Satz",
+  "formula.121.significance": "Setzt ein Linienintegral um eine geschlossene Kurve mit einem Doppelintegral über die eingeschlossene Region in Beziehung. Der 2D-Spezialfall des Satzes von Stokes.",
+  "formula.121.applications": "Komplexe Analysis, Strömungsdynamik, Planimeter, Elektrostatik (2D), Computergrafik",
+
+  "formula.122.name": "Rangsatz (Rang-Nullitäts-Theorem)",
+  "formula.122.significance": "Setzt die Dimension des Bildes (Rang) mit der Dimension des Kerns (Nullität) einer linearen Abbildung in Beziehung.",
+  "formula.122.applications": "Gleichungssysteme, maschinelles Lernen (redundante Merkmale), Datenanalyse, Signal-Unterraum-Methoden",
+
+  "formula.123.name": "Satz von De Moivre",
+  "formula.123.significance": "Verbindet Potenzen komplexer Zahlen mit Mehrfachwinkel-Trigonometrieformeln. Eine schöne Brücke zwischen Algebra und Trigonometrie.",
+  "formula.123.applications": "Trigonometrische Identitäten, Signalverarbeitung, Polynomwurzeln, Elektrotechnik (Wechselstrom-Phasoren)",
+
+  "formula.124.name": "Binets Formel (Fibonacci)",
+  "formula.124.significance": "Ein geschlossener Ausdruck für die n-te Fibonacci-Zahl in Begriffen des Goldenen Schnitts. Bemerkenswert, dass eine irrationale Formel stets ganze Zahlen liefert.",
+  "formula.124.applications": "Algorithmenanalyse, technische Finanzanalyse, natürliche Wachstumsmuster, Informatik, Kryptographie",
+
+  "formula.125.name": "Wallis-Produkt",
+  "formula.125.significance": "Eine der frühesten unendlichen Produktdarstellungen von π, die nur ganze Zahlen verwendet. Eine rein algebraische Folge von Verhältnissen, die gegen eine transzendente Konstante konvergiert.",
+  "formula.125.applications": "Mathematische Analysis, π-Approximation, Quantenmechanik, Wahrscheinlichkeit (Stirling)",
+
+  "formula.126.name": "Leibniz-Formel für π",
+  "formula.126.significance": "Die einfachste unendliche Reihe für π, zuerst in Kerala, Indien, von Madhava um 1400 entdeckt — 275 Jahre vor Leibniz. Zu langsam für Berechnung, aber außerordentlich schön.",
+  "formula.126.applications": "Mathematische Bildung, theoretisches Interesse, historische Bedeutung, Reihenkonvergenz-Illustration",
+
+  "formula.127.name": "Mandelbrot-Menge",
+  "formula.127.significance": "Die einfachste Definition des berühmtesten Fraktals der Mathematik. Zeigt, dass elementare Iterationsregeln unendliche Komplexität erzeugen.",
+  "formula.127.applications": "Computergrafik, Fraktalkompression, Chaostheorie, komplexe Dynamik, mathematische Kunst",
+
+  "formula.128.name": "Newtonsches Zweites Gesetz",
+  "formula.128.significance": "Die fundamentalste Gleichung der klassischen Mechanik. Definiert Kraft als Änderungsrate des Impulses. Ausgangspunkt der gesamten Newtonschen Dynamik.",
+  "formula.128.applications": "Gesamte klassische Mechanik, Ingenieurdynamik, Luft- und Raumfahrt, Automobildesign, Biomechanik",
+
+  "formula.129.name": "Snelliussches Brechungsgesetz",
+  "formula.129.significance": "Beschreibt, wie Licht beim Übergang zwischen Medien verschiedener Brechungsindizes gebrochen wird. Das Gesetz aller Optik von Brillen bis Glasfasern.",
+  "formula.129.applications": "Linsen, Brillen, Teleskope, Mikroskope, Glasfaseroptik, Kameradesign, Luftspiegelungen",
+
+  "formula.130.name": "Heronsche Formel",
+  "formula.130.significance": "Berechnet die Fläche jedes Dreiecks allein aus seinen drei Seitenlängen, ohne die Höhe zu benötigen.",
+  "formula.130.applications": "Vermessung, algorithmische Geometrie, Geoinformationssysteme, Architektur, Physiksimulationen"
 }
