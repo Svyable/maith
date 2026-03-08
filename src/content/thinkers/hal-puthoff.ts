@@ -1,0 +1,88 @@
+import type { Question } from '../types';
+
+export const halPuthoffQuestions: Question[] = [
+  {
+    id: 309001, topic: 'hal-puthoff', difficulty: 'easy',
+    question: 'Harold Puthoff\'s Stochastic Electrodynamics (SED) program attempts to derive quantum phenomena from:',
+    options: [
+      'Classical electrodynamics plus the zero-point field — treating vacuum fluctuations as a real, classical background radiation',
+      'String theory compactification on Calabi-Yau manifolds',
+      'Bohmian pilot-wave theory with hidden variables',
+      'Loop quantum gravity spin networks',
+    ],
+    correctIndex: 0,
+    explanation: 'SED posits that the quantum zero-point field (ZPF) is a real, classical electromagnetic radiation field pervading all of space. Puthoff and others have shown that several quantum phenomena (ground-state stability of hydrogen, van der Waals forces, Casimir effect) can be derived from classical charged particles interacting with this background field.',
+    realWorld: 'If SED is correct, quantum mechanics is an emergent statistical theory — analogous to how thermodynamics emerges from molecular motion.',
+    hint: 'Think of quantum behavior emerging from a real background field, not from inherent randomness.',
+  },
+  {
+    id: 309002, topic: 'hal-puthoff', difficulty: 'easy',
+    question: 'Puthoff\'s work on the polarizable vacuum (PV) model reinterprets general relativity by treating spacetime curvature as:',
+    options: [
+      'Variations in the vacuum\'s dielectric permittivity and magnetic permeability — gravity as a refractive index effect',
+      'Torsion in a Riemann-Cartan geometry',
+      'Quantum entanglement between spacetime points',
+      'Vibrations of higher-dimensional branes',
+    ],
+    correctIndex: 0,
+    explanation: 'In the PV model, the vacuum is treated as a polarizable medium where the presence of mass-energy changes the local $\\epsilon$ and $\\mu$, causing light to curve and clocks to slow — reproducing GR predictions to first order without invoking curved spacetime geometry.',
+    realWorld: 'The PV framework provides an engineering-friendly way to think about metric modification: change the vacuum\'s electromagnetic properties and you change the effective geometry.',
+    hint: 'Gravity as optics — the vacuum becomes a medium with variable refractive index.',
+  },
+  {
+    id: 309003, topic: 'hal-puthoff', difficulty: 'hard',
+    question: 'Puthoff\'s analysis of zero-point energy extraction focuses on whether the ZPF is a "reservoir" or a "ground state." The key thermodynamic question is:',
+    options: [
+      'Whether the ZPF represents extractable energy with a lower-entropy state available, or whether it is already the lowest-energy state of the electromagnetic field',
+      'Whether the ZPF violates conservation of baryon number',
+      'Whether photons in the ZPF carry electric charge',
+      'Whether the ZPF exists only inside superconductors',
+    ],
+    correctIndex: 0,
+    explanation: 'If the ZPF is analogous to thermal noise at $T > 0$ (a reservoir), energy extraction is possible. If it is the true ground state ($T = 0$ analog), extraction violates the second law. Puthoff has argued that certain nonequilibrium configurations (Casimir cavities, plasma fluctuations) may allow thermodynamically consistent extraction.',
+    realWorld: 'The Casimir effect demonstrates that vacuum energy differences between geometries produce real, measurable forces — but whether net energy can be extracted cyclically remains debated.',
+    hint: 'Can you extract heat from the coldest possible bath? It depends on whether the bath is truly the coldest.',
+  },
+  {
+    id: 309004, topic: 'hal-puthoff', difficulty: 'hard',
+    question: 'In Puthoff\'s SED derivation of hydrogen ground-state stability, the electron doesn\'t spiral into the nucleus because:',
+    options: [
+      'The power radiated by the orbiting electron is exactly balanced by power absorbed from the zero-point field at the ground-state orbit',
+      'The electron is a standing wave with integer wavelength',
+      'The Pauli exclusion principle prevents collapse',
+      'Quantum tunneling creates a repulsive barrier at short range',
+    ],
+    correctIndex: 0,
+    explanation: 'In SED, a classical electron orbiting a proton radiates energy via Larmor radiation. However, it also absorbs energy from the ambient zero-point field. Puthoff showed that at the Bohr radius $a_0$, these two rates balance exactly: $P_{\\text{rad}} = P_{\\text{abs}}$, yielding a stable orbit without invoking quantization.',
+    realWorld: 'This was one of the first demonstrations that a "quantum" result (ground-state stability) could emerge from purely classical physics plus the ZPF.',
+    hint: 'Radiation loss equals absorption gain at exactly one special radius.',
+  },
+  {
+    id: 309005, topic: 'hal-puthoff', difficulty: 'sota',
+    question: 'Puthoff served as a co-founder of the DIA\'s Advanced Aerospace Weapon System Applications Program (AAWSAP). The program\'s 38 Defense Intelligence Reference Documents (DIRDs) covered:',
+    options: [
+      'Theoretical physics topics including warp drives, wormholes, extra dimensions, dark energy propulsion, metamaterials, and vacuum energy — commissioned as scientific feasibility assessments',
+      'Classified radar cross-section reduction techniques for stealth aircraft',
+      'Satellite reconnaissance sensor specifications and orbital mechanics',
+      'Biological weapons detection and countermeasure protocols',
+    ],
+    correctIndex: 0,
+    explanation: 'The 38 DIRDs, many authored by Puthoff\'s EarthTech International colleagues, assessed the physics feasibility of advanced propulsion and energy concepts. Topics included Eric Davis\'s paper on traversable wormholes, Puthoff\'s own work on the polarizable vacuum approach to GR, and assessments of metamaterial waveguide applications.',
+    realWorld: 'Several DIRDs have been released via FOIA. They represent the most systematic government-funded assessment of breakthrough propulsion physics since NASA\'s BPP program.',
+    hint: 'Think physics white papers commissioned by an intelligence agency.',
+  },
+  {
+    id: 309006, topic: 'hal-puthoff', difficulty: 'sota',
+    question: 'Puthoff\'s early career at NSA and Stanford involved co-developing the tunable infrared laser. His key contribution was:',
+    options: [
+      'Demonstrating stimulated emission in the far-infrared using a CO₂-pumped molecular gas laser, extending coherent light sources beyond visible/near-IR wavelengths',
+      'Inventing the ruby laser for optical communications',
+      'Developing X-ray free electron lasers for lithography',
+      'Creating the first semiconductor diode laser for fiber optics',
+    ],
+    correctIndex: 0,
+    explanation: 'Before his work on exotic physics, Puthoff was a respected laser physicist. His Stanford work on tunable IR lasers contributed to spectroscopy, remote sensing, and military IR countermeasure technologies.',
+    realWorld: 'Puthoff holds patents on tunable IR laser technology. His early conventional credentials are often overlooked in discussions of his later frontier physics work.',
+    hint: 'His physics career started with very conventional, very classified laser work.',
+  },
+];
