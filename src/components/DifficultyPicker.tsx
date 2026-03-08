@@ -65,9 +65,9 @@ function DifficultyCard({ meta, isSelected, onSelect }: { meta: DifficultyMeta; 
       )}
       <div className="text-2xl mb-1">{meta.emoji}</div>
       <div className={`text-xs font-bold font-mono ${isSelected ? colors.badge : 'text-foreground'}`}>
-        {meta.tag}
+        {t(meta.tagKey)}
       </div>
-      <div className="text-[10px] text-muted-foreground mt-0.5">+{meta.pointsPerCorrect}pts</div>
+      <div className="text-[10px] text-muted-foreground mt-0.5">{t('difficulty.pts', { pts: meta.pointsPerCorrect })}</div>
     </motion.button>
   );
 }
