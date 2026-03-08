@@ -101,6 +101,9 @@ import { leonardSusskindQuestions } from "./leonard-susskind";
 import { juanMaldacenaQuestions } from "./juan-maldacena";
 import { stuartHameroffQuestions } from "./stuart-hameroff";
 import { anirbanBandyopadhyayQuestions } from "./anirban-bandyopadhyay";
+import { herbertFrohlichQuestions } from "./herbert-frohlich";
+import { andrewStromingerQuestions } from "./andrew-strominger";
+import { cumrunVafaQuestions } from "./cumrun-vafa";
 
 // New additions
 import { jeffDeanQuestions } from "./jeff-dean";
@@ -1126,6 +1129,9 @@ export const allThinkerQuestions: Question[] = [
   // Quantum Consciousness
   ...stuartHameroffQuestions,
   ...anirbanBandyopadhyayQuestions,
+  ...herbertFrohlichQuestions,
+  ...andrewStromingerQuestions,
+  ...cumrunVafaQuestions,
 
   // Optimal Transport thinkers
   ...marcoCuturiQuestions,
