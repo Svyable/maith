@@ -95,6 +95,10 @@ import { caucherBirkarQuestions } from "./caucher-birkar";
 import { alexanderGrothendieckQuestions } from "./alexander-grothendieck";
 import { sofiaKovalevskayaQuestions } from "./sofia-kovalevskaya";
 import { halPuthoffQuestions } from "./hal-puthoff";
+import { jacobBekensteinQuestions } from "./jacob-bekenstein";
+import { gerardThooftQuestions } from "./gerard-thooft";
+import { leonardSusskindQuestions } from "./leonard-susskind";
+import { juanMaldacenaQuestions } from "./juan-maldacena";
 
 // New additions
 import { jeffDeanQuestions } from "./jeff-dean";
