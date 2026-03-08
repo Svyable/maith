@@ -766,5 +766,78 @@ export const vaultQuestions: Question[] = [
     realWorld: 'The STARGATE program remains the largest controlled dataset on anomalous cognition ever produced, and its statistical findings have never been overturned — only debated in terms of interpretation.',
     hint: 'The skeptic and the proponent agreed on the statistics — they disagreed on what caused them.',
   },
+
+  // ── NHI / REVERSE-ENGINEERING VAULT QUESTIONS ──────────────────────
+
+  {
+    id: 4450060, topic: 'engineering', difficulty: 'hard',
+    question: 'The "memory metal" described by Roswell witnesses shares properties with which alloy developed at the Naval Ordnance Laboratory in 1962?',
+    options: [
+      'Nitinol (NiTi) — a nickel-titanium shape-memory alloy that returns to its original form after deformation via a martensitic phase transition',
+      'Inconel 718 — a nickel-chromium superalloy used in jet engines',
+      'Maraging steel — an ultra-high-strength low-carbon steel',
+      'Hastelloy X — a nickel-based alloy resistant to oxidation',
+    ],
+    correctIndex: 0,
+    explanation: 'Nitinol (Nickel Titanium Naval Ordnance Laboratory) exhibits shape-memory via a reversible austenite↔martensite phase transition at $T_{A_f}$. Battelle Memorial Institute\'s 1949 Ni-Ti phase diagram contracts coincide with the period Roswell debris was at Wright-Patterson.',
+    realWorld: 'Nitinol is now a $50B+ industry used in cardiac stents, orthodontic wires, and spacecraft actuators — yet its connection to Battelle\'s 1949 Roswell-era contracts remains unexplained.',
+    hint: 'Think of a binary alloy of nickel and titanium that undergoes a solid-state phase transformation.',
+  },
+  {
+    id: 4450061, topic: 'information-theory', difficulty: 'sota',
+    question: 'In the Wilson-Davis memo, Vice Admiral Wilson was denied access to a reverse-engineering program despite being DIA Director. What classification mechanism was described?',
+    options: [
+      'An unacknowledged waived Special Access Program (SAP) with a "bigoted" access list controlled by corporate gatekeepers, operating outside normal Congressional oversight',
+      'A standard TS/SCI compartment under the DNI with routine SSCI briefings',
+      'An allied foreign intelligence sharing program under FVEY protocols',
+      'A DARPA Advanced Research Activity with university oversight',
+    ],
+    correctIndex: 0,
+    explanation: 'Waived unacknowledged SAPs are exempt from normal Congressional notification — only the "Big 8" gang of eight members may be briefed, and even this can be waived. Wilson described being told the program was managed by aerospace contractors under this structure.',
+    realWorld: 'The 2023 Schumer-Rounds UAP Disclosure Act specifically targeted unacknowledged SAPs, attempting to create a review board with eminent domain authority over any recovered materials.',
+    hint: 'The key mechanism allows programs to exist without Congressional notification — even the DIA Director couldn\'t get in.',
+  },
+  {
+    id: 4450062, topic: 'engineering', difficulty: 'hard',
+    question: 'The "Art\'s Parts" bismuth-magnesium layered samples are theorized to function as:',
+    options: [
+      'A terahertz waveguide metamaterial — the sub-micron bismuth layers create resonant structures that could couple electromagnetic fields to gravitational degrees of freedom',
+      'A conventional thermoelectric Peltier device for waste heat recovery',
+      'A magnetic shielding composite for MRI machines',
+      'A piezoelectric transducer for sonar applications',
+    ],
+    correctIndex: 0,
+    explanation: 'Puthoff proposed that 26 alternating layers of Bi (~1-4 μm) and Mg-Zn (~100-200 μm) could act as a metamaterial with resonances in the THz regime. The US Army signed a $750K CRADA with TTSA to study this hypothesis.',
+    realWorld: 'Metamaterials with sub-wavelength periodic structures are already used in electromagnetic cloaking and superlensing — extending this to gravitational coupling is the speculative leap.',
+    hint: 'The layering scale matches terahertz wavelengths, and the material was studied under a formal Army research agreement.',
+  },
+  {
+    id: 4450063, topic: 'information-theory', difficulty: 'hard',
+    question: 'David Grusch\'s 2023 Congressional testimony stated the US government possesses "intact and partially intact vehicles of non-human origin." What institutional validation preceded his public testimony?',
+    options: [
+      'The Inspector General of the Intelligence Community (ICIG) reviewed his classified complaint and deemed it "credible and urgent," forwarding it to Congressional intelligence committees',
+      'The DoD\'s AARO office confirmed his claims in a public report',
+      'NASA\'s UAP Independent Study Team validated the evidence',
+      'The JASON advisory group published a classified assessment supporting his claims',
+    ],
+    correctIndex: 0,
+    explanation: 'ICIG Charles McCullough III — a Trump-appointed IG with no history of UAP advocacy — made the "credible and urgent" determination, which legally required notification of Congressional oversight committees.',
+    realWorld: 'The "credible and urgent" designation is the highest priority classification an ICIG complaint can receive — it had never before been applied to a UAP-related matter.',
+    hint: 'The key institutional step came from the intelligence community\'s own internal watchdog.',
+  },
+  {
+    id: 4450064, topic: 'relativity', difficulty: 'sota',
+    question: 'The Nimitz "Tic-Tac" (2004) descended from ~80,000 ft to ~28,000 ft in under a second on SPY-1B radar. Assuming $\\Delta h \\approx 15,800\\text{ m}$ in $\\Delta t \\approx 0.78\\text{ s}$, the average acceleration is approximately:',
+    options: [
+      '$\\bar{a} \\approx 5,200\\text{ g}$ — over 5,000 times Earth\'s gravitational acceleration, far exceeding any known aerospace technology or biological survivability',
+      '$\\bar{a} \\approx 50\\text{ g}$ — comparable to an ejection seat',
+      '$\\bar{a} \\approx 500\\text{ g}$ — comparable to a railgun projectile',
+      '$\\bar{a} \\approx 9.8\\text{ m/s}^2$ — simple free-fall',
+    ],
+    correctIndex: 0,
+    explanation: 'Using $\\bar{a} = 2\\Delta h / (\\Delta t)^2 \\approx 2(15800)/(0.78)^2 \\approx 51,900\\text{ m/s}^2 \\approx 5,300g$. Human tolerance is ~9g sustained; fighter aircraft are limited to ~12g structural. This exceeds known technology by orders of magnitude.',
+    realWorld: 'Senior Chief Kevin Day tracked these objects for two weeks on the USS Princeton\'s radar. Multiple witnesses confirmed the performance parameters independently.',
+    hint: 'Use simple kinematics: $a = 2\\Delta h / t^2$, then convert to g-forces.',
+  },
 ];
 
