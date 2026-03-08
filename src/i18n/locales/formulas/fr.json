@@ -137,6 +137,146 @@
   "formula.34.applications": "Énergie nucléaire, armes nucléaires, PET-scan, accélérateurs de particules, astrophysique",
 
   "formula.35.name": "Équations de Maxwell",
-  "formula.35.significance": "Quatre équations qui unifient l'électricité, le magnétisme et la lumière. Ont prédit les ondes électromagnétiques avant leur découverte. Fondement de toute technologie électromagnétique.",
-  "formula.35.applications": "Radio, WiFi, IRM, fibre optique, génie électrique, conception d'antennes, photonique"
+  "formula.35.significance": "Quatre équations unifiant électricité, magnétisme et lumière. Ont prédit les ondes électromagnétiques avant leur découverte.",
+  "formula.35.applications": "Radio, WiFi, IRM, fibre optique, génie électrique, conception d'antennes, photonique",
+
+  "formula.36.name": "Équation de Schrödinger",
+  "formula.36.significance": "L'équation fondamentale gouvernant tous les systèmes quantiques non relativistes. Décrit l'évolution temporelle de l'état quantique.",
+  "formula.36.applications": "Semi-conducteurs, transistors, lasers, IRM, informatique quantique, physique atomique/moléculaire",
+
+  "formula.37.name": "Principe d'incertitude de Heisenberg",
+  "formula.37.significance": "Fixe une borne inférieure fondamentale au produit des incertitudes de position et d'impulsion. Ce n'est pas une limitation technologique mais une propriété intrinsèque de la réalité.",
+  "formula.37.applications": "Informatique quantique, limites de résolution du microscope électronique, physique nucléaire, cryptographie quantique",
+
+  "formula.38.name": "Équation de Dirac",
+  "formula.38.significance": "Première équation combinant mécanique quantique et relativité restreinte. A prédit l'antimatière (positron). Le spin émerge naturellement. Prototype de toutes les théories quantiques des champs.",
+  "formula.38.applications": "Physique des particules, théorie quantique des champs, TEP, recherche sur l'antimatière",
+
+  "formula.39.name": "Équations de champ d'Einstein",
+  "formula.39.significance": "Décrit la gravité comme courbure de l'espace-temps causée par la masse-énergie. A prédit les trous noirs, les ondes gravitationnelles et l'expansion de l'univers.",
+  "formula.39.applications": "GPS (corrections relativistes), LIGO, imagerie de trous noirs, cosmologie",
+
+  "formula.40.name": "Théorème de Noether",
+  "formula.40.significance": "Chaque symétrie continue d'une action physique correspond à une quantité conservée. Symétrie temporelle → conservation de l'énergie. Symétrie spatiale → conservation de l'impulsion.",
+  "formula.40.applications": "Toute la physique théorique : particules, RG, théorie quantique des champs, matière condensée",
+
+  "formula.41.name": "Formule d'entropie de Boltzmann",
+  "formula.41.significance": "Relie le monde microscopique des atomes à la thermodynamique macroscopique. Définit l'entropie comme le logarithme du nombre de micro-états. Gravée sur la tombe de Boltzmann.",
+  "formula.41.applications": "Mécanique statistique, physique des trous noirs, théorie de l'information, complexité computationnelle",
+
+  "formula.42.name": "Deuxième loi de la thermodynamique",
+  "formula.42.significance": "L'entropie d'un système isolé ne diminue jamais. Définit la flèche du temps — la seule loi physique fondamentale distinguant passé et futur.",
+  "formula.42.applications": "Moteurs thermiques, cycles frigorifiques, théorie de l'information, démon de Maxwell, cosmologie",
+
+  "formula.43.name": "Loi de Planck",
+  "formula.43.significance": "Décrit la distribution spectrale du rayonnement du corps noir. Première équation quantique — Planck a quantifié l'énergie pour éviter la catastrophe ultraviolette.",
+  "formula.43.applications": "Astrophysique (classification stellaire), conception LED, imagerie thermique, climatologie, cosmologie CMB",
+
+  "formula.44.name": "Équations de Navier-Stokes",
+  "formula.44.significance": "Régissent le mouvement de tous les fluides visqueux. L'un des problèmes du Millénaire de Clay (1M$) : prouver l'existence de solutions globales régulières reste non résolu.",
+  "formula.44.applications": "Aérodynamique, prévision météorologique, CFD, modélisation cardiovasculaire, circulation océanique",
+
+  "formula.45.name": "Équation d'onde",
+  "formula.45.significance": "Décrit la propagation de tous les phénomènes ondulatoires — son, lumière, ondes sismiques, vagues. L'une des EDP les plus importantes de la physique.",
+  "formula.45.applications": "Acoustique, optique, sismologie, ondes électromagnétiques, instruments de musique, ultrasons",
+
+  "formula.46.name": "Équation d'Euler-Lagrange",
+  "formula.46.significance": "L'équation centrale de la mécanique lagrangienne. Équivalente aux lois de Newton mais exprimée via l'énergie plutôt que la force.",
+  "formula.46.applications": "Mécanique classique, optique, relativité générale, théorie quantique des champs, robotique",
+
+  "formula.47.name": "Principe de moindre action",
+  "formula.47.significance": "La nature suit le chemin pour lequel l'intégrale d'action est stationnaire. Plus profond que les lois de Newton — gouverne mécanique, optique, électromagnétisme, RG et mécanique quantique.",
+  "formula.47.applications": "Toute la physique : optique (Fermat), mécanique, théorie des champs, intégrales de chemin de Feynman, robotique",
+
+  "formula.48.name": "Règle de Born",
+  "formula.48.significance": "Relie la fonction d'onde quantique aux probabilités de mesure expérimentale. Le pont entre le formalisme mathématique abstrait et le monde physique observable.",
+  "formula.48.applications": "Chimie quantique, physique atomique, informatique quantique, science des matériaux",
+
+  "formula.49.name": "Loi des gaz parfaits",
+  "formula.49.significance": "Combine trois lois expérimentales des gaz en une équation élégante. Prototype de toutes les équations d'état et point de départ de la mécanique statistique.",
+  "formula.49.applications": "Chimie, génie chimique, science atmosphérique, réfrigération, moteurs à combustion interne",
+
+  "formula.50.name": "Inégalité de Bell",
+  "formula.50.significance": "Fournit une inégalité testable que toute théorie locale à variables cachées doit satisfaire. Les violations expérimentales ont prouvé l'intrication quantique. Prix Nobel 2022.",
+  "formula.50.applications": "Cryptographie quantique, QKD, tests des fondements quantiques, informatique quantique",
+
+  "formula.51.name": "Équation de Bernoulli",
+  "formula.51.significance": "Exprime la conservation de l'énergie dans les écoulements — quand la vitesse augmente, la pression diminue. Explique la portance et l'effet Venturi.",
+  "formula.51.applications": "Aéronautique (portance), hydraulique, carburateurs, débitmètres Venturi, mécanique des fluides cardiovasculaire",
+
+  "formula.52.name": "Métrique de Minkowski",
+  "formula.52.significance": "Définit la géométrie de l'espace-temps plat en relativité restreinte, unifiant espace et temps avec un signe moins caractéristique.",
+  "formula.52.applications": "Relativité restreinte, GPS, cinématique des particules, détection d'ondes gravitationnelles",
+
+  "formula.53.name": "Flot de Ricci",
+  "formula.53.significance": "Décrit l'évolution d'une métrique riemannienne vers une courbure plus uniforme. Perelman l'a utilisé pour prouver la conjecture de Poincaré — le seul problème du Millénaire résolu.",
+  "formula.53.applications": "Topologie (conjecture de Poincaré), analyse géométrique, classification des 3-variétés",
+
+  "formula.54.name": "Longueur d'onde de De Broglie",
+  "formula.54.significance": "A proposé que la matière a des propriétés ondulatoires avec une longueur d'onde inversement proportionnelle à l'impulsion. Confirmée par la diffraction d'électrons.",
+  "formula.54.applications": "Microscopie électronique, informatique quantique, diffusion de neutrons, caractérisation des matériaux",
+
+  "formula.55.name": "Énergie libre de Gibbs",
+  "formula.55.significance": "Prédit si une réaction chimique se produit spontanément à température et pression constantes (ΔG < 0). Pierre angulaire de la thermodynamique chimique.",
+  "formula.55.applications": "Réactions chimiques, biochimie, conception pharmaceutique, synthèse de matériaux, électrochimie",
+
+  "formula.56.name": "Équation d'Arrhenius",
+  "formula.56.significance": "Décrit la dépendance exponentielle des vitesses de réaction à la température. Base de la conception des procédés chimiques industriels.",
+  "formula.56.applications": "Génie chimique, stabilité des médicaments, science alimentaire, conception de catalyseurs",
+
+  "formula.57.name": "Équation de Henderson-Hasselbalch",
+  "formula.57.significance": "Relie le pH d'une solution tampon au pKa et au rapport des concentrations. Essentielle pour la régulation du pH sanguin et la formulation pharmaceutique.",
+  "formula.57.applications": "Biochimie, régulation du pH sanguin, formulation pharmaceutique, courbes de titrage",
+
+  "formula.58.name": "Équation de Nernst",
+  "formula.58.significance": "Relie le potentiel électrochimique aux concentrations des réactifs. Utilisée en neurosciences pour les potentiels de repos membranaires.",
+  "formula.58.applications": "Neurosciences (potentiels d'action), batteries, piles à combustible, galvanoplastie, pH-mètres, biocapteurs",
+
+  "formula.59.name": "Cinétique de Michaelis-Menten",
+  "formula.59.significance": "Décrit la vitesse des réactions enzymatiques en fonction de la concentration de substrat. Fondement de l'enzymologie et de la pharmacocinétique.",
+  "formula.59.applications": "Conception de médicaments, pharmacocinétique, modélisation métabolique, conception de bioréacteurs",
+
+  "formula.60.name": "Équilibre de Hardy-Weinberg",
+  "formula.60.significance": "Décrit les fréquences attendues des allèles et génotypes dans une population non évolutive. Le modèle nul de la génétique des populations.",
+  "formula.60.applications": "Génétique des populations, GWAS, ADN médico-légal, biologie de la conservation",
+
+  "formula.61.name": "Modèle épidémique SIR",
+  "formula.61.significance": "Modélise la propagation des maladies infectieuses via les compartiments S/I/R. R₀ = β/γ est devenu la statistique la plus citée pendant le COVID-19.",
+  "formula.61.applications": "Modélisation COVID-19, stratégie vaccinale, immunité collective, politique de santé publique",
+
+  "formula.62.name": "Modèle de Hodgkin-Huxley",
+  "formula.62.significance": "Décrit comment les potentiels d'action sont initiés et propagés dans les neurones. Prix Nobel 1963. Premier modèle mécanistique de calcul biologique.",
+  "formula.62.applications": "Neurosciences computationnelles, interfaces cerveau-ordinateur, neuroprothèses, identification de cibles thérapeutiques",
+
+  "formula.63.name": "Équations de Lotka-Volterra",
+  "formula.63.significance": "Décrivent la dynamique oscillante des populations prédateur-proie. Le modèle le plus simple d'interaction écologique avec comportement cyclique.",
+  "formula.63.applications": "Écologie, gestion des pêches, épidémiologie, modélisation de la concurrence économique",
+
+  "formula.64.name": "Équation de croissance logistique",
+  "formula.64.significance": "Modélise la croissance de population limitée par la capacité de charge. La version discrète a introduit le chaos auprès du public.",
+  "formula.64.applications": "Biologie des populations, épidémiologie, gestion des ressources, courbes d'adoption technologique, théorie du chaos",
+
+  "formula.65.name": "Entropie de Shannon",
+  "formula.65.significance": "Quantifie le contenu informationnel — la surprise moyenne dans une distribution de probabilité. A fondé la théorie de l'information.",
+  "formula.65.applications": "Compression de données (Huffman, Lempel-Ziv), cryptographie, apprentissage automatique (entropie croisée), télécommunications",
+
+  "formula.66.name": "Problème de l'arrêt (indécidabilité)",
+  "formula.66.significance": "Prouve qu'aucun algorithme général ne peut déterminer si un programme arbitraire s'arrête sur une entrée donnée. A établi les limites fondamentales du calcul.",
+  "formula.66.applications": "Conception de compilateurs, vérification formelle, analyse de programmes, théorème de Rice",
+
+  "formula.67.name": "P vs NP",
+  "formula.67.significance": "Demande si tout problème dont la solution est vérifiable en temps polynomial est aussi résoluble en temps polynomial. Le problème ouvert le plus important en informatique.",
+  "formula.67.applications": "Cryptographie (sécurité repose sur P≠NP), IA, ordonnancement, logistique, repliement des protéines",
+
+  "formula.68.name": "Chiffrement RSA",
+  "formula.68.significance": "Le premier cryptosystème à clé publique pratique, basé sur la difficulté présumée de factoriser de grands entiers.",
+  "formula.68.applications": "HTTPS/TLS, signatures numériques, autorités de certification, courrier sécurisé, banque en ligne",
+
+  "formula.69.name": "Algorithme PageRank",
+  "formula.69.significance": "Modélise l'importance des pages web comme distribution stationnaire d'un surfeur aléatoire sur le graphe des hyperliens. A propulsé le moteur de recherche original de Google.",
+  "formula.69.applications": "Recherche web, analyse de citations, systèmes de recommandation, centralité de réseau, analyse de réseaux sociaux",
+
+  "formula.70.name": "Mécanisme d'attention (Transformer)",
+  "formula.70.significance": "Attention par produit scalaire, l'opération centrale de tout modèle Transformer. A permis la modélisation parallèle de séquences. L'équation derrière GPT, Claude, Gemini, LLaMA, AlphaFold.",
+  "formula.70.applications": "Grands modèles de langage (GPT, Claude, Gemini), traduction automatique, génération d'images, AlphaFold, génération de code"
 }

@@ -137,5 +137,145 @@
 
   "formula.35.name": "麦克斯韦方程组",
   "formula.35.significance": "统一电、磁和光的四个方程。在电磁波被发现之前预言了它们的存在。所有电磁技术的基础。",
-  "formula.35.applications": "无线电、WiFi、MRI、光纤、电气工程、天线设计、光子学"
+  "formula.35.applications": "无线电、WiFi、MRI、光纤、电气工程、天线设计、光子学",
+
+  "formula.36.name": "薛定谔方程",
+  "formula.36.significance": "支配所有非相对论量子系统的基本方程。描述量子态如何随时间演化。在原子尺度取代了经典力学，使半导体、激光和量子计算成为可能。",
+  "formula.36.applications": "半导体、晶体管、激光、MRI、量子计算、原子/分子物理学",
+
+  "formula.37.name": "海森堡不确定性原理",
+  "formula.37.significance": "为位置和动量不确定性的乘积设定了基本下限。这不是测量技术的局限，而是现实的内在特征。揭示了量子世界是不可约化的概率性的。",
+  "formula.37.applications": "量子计算、电子显微镜分辨率极限、核物理学、量子密码学",
+
+  "formula.38.name": "狄拉克方程",
+  "formula.38.significance": "第一个将量子力学与狭义相对论结合的方程。在反物质（正电子）被发现之前预言了其存在。自旋自然涌现——无需假设。所有量子场论的原型。",
+  "formula.38.applications": "粒子物理学、量子场论、正电子发射断层扫描（PET）、反物质研究",
+
+  "formula.39.name": "爱因斯坦场方程",
+  "formula.39.significance": "将引力描述为质量-能量引起的时空弯曲。预言了黑洞、引力波和膨胀宇宙——全部已实验证实。有史以来一人创造的最精密物理理论。",
+  "formula.39.applications": "GPS（相对论校正）、引力波探测器（LIGO）、黑洞成像、宇宙学",
+
+  "formula.40.name": "诺特定理",
+  "formula.40.significance": "物理作用量的每一个连续对称性都对应一个守恒量。时间对称→能量守恒。空间对称→动量守恒。被称为'物理学中最重要的定理'。",
+  "formula.40.applications": "所有理论物理：粒子物理学、广义相对论、量子场论、凝聚态物理",
+
+  "formula.41.name": "玻尔兹曼熵公式",
+  "formula.41.significance": "连接原子微观世界与宏观热力学。将熵定义为微观状态数的对数。刻在玻尔兹曼墓碑上。将热力学与概率和信息联系起来。",
+  "formula.41.applications": "统计力学、黑洞物理学（Bekenstein-Hawking）、信息论、计算复杂性",
+
+  "formula.42.name": "热力学第二定律",
+  "formula.42.significance": "孤立系统的熵永不减少。定义了时间之箭——唯一区分过去与未来的基本物理定律。对引擎、计算（Landauer）和宇宙最终命运施加了基本限制。",
+  "formula.42.applications": "热机、制冷循环、信息论、麦克斯韦妖、宇宙学",
+
+  "formula.43.name": "普朗克定律",
+  "formula.43.significance": "描述黑体辐射的光谱分布。第一个量子方程——普朗克被迫量子化能量以避免紫外灾难。开启了量子革命并获得1918年诺贝尔奖。",
+  "formula.43.applications": "天体物理学（恒星分类）、LED设计、热成像、气候科学、CMB宇宙学",
+
+  "formula.44.name": "纳维-斯托克斯方程",
+  "formula.44.significance": "支配所有粘性流体的运动，从血液到洋流到大气流。Clay千禧年大奖问题之一（100万美元）：证明光滑全局解是否总是存在。",
+  "formula.44.applications": "空气动力学、天气预报、CFD、心血管建模、海洋环流",
+
+  "formula.45.name": "波动方程",
+  "formula.45.significance": "描述所有波动现象的传播——声波、光波、地震波、水波。物理学中最重要的偏微分方程之一。",
+  "formula.45.applications": "声学、光学、地震学、电磁波、乐器、超声波",
+
+  "formula.46.name": "欧拉-拉格朗日方程",
+  "formula.46.significance": "拉格朗日力学的核心方程。等价于牛顿定律但用能量而非力表达。推广到任意坐标系，优雅处理约束。所有现代理论物理的基础。",
+  "formula.46.applications": "经典力学、光学、广义相对论、量子场论、控制论、机器人学",
+
+  "formula.47.name": "最小作用量原理",
+  "formula.47.significance": "自然遵循作用量积分取驻值的路径。比牛顿定律更深刻——它统治经典力学、光学、电磁学、广义相对论和量子力学。费曼路径积分将其扩展到量子理论。",
+  "formula.47.applications": "所有物理学：光学（费马）、力学、场论、费曼路径积分、机器人学",
+
+  "formula.48.name": "波恩规则",
+  "formula.48.significance": "将量子波函数与实验测量概率联系起来。量子力学抽象数学形式与可观测物理世界之间的桥梁。波恩因此获得1954年诺贝尔奖。",
+  "formula.48.applications": "量子化学、原子物理学、量子计算、材料科学",
+
+  "formula.49.name": "理想气体定律",
+  "formula.49.significance": "将三个实验气体定律合并为一个优雅方程。所有状态方程的原型和统计力学的起点。在常规条件下对真实气体出奇地准确。",
+  "formula.49.applications": "化学、化学工程、大气科学、制冷、内燃机",
+
+  "formula.50.name": "贝尔不等式",
+  "formula.50.significance": "提供了任何局域隐变量理论必须满足的可检验不等式。量子力学预测违反量可达2√2（Tsirelson界）。实验违反证明了量子纠缠是真实的非经典现象。2022年诺贝尔奖。",
+  "formula.50.applications": "量子密码学、量子密钥分发（QKD）、量子基础检验、量子计算",
+
+  "formula.51.name": "伯努利方程",
+  "formula.51.significance": "表达流体流动中的能量守恒——速度增加时压力降低。解释了航空中的升力、文丘里效应和化油器。工程中最实用的方程之一。",
+  "formula.51.applications": "航空学（升力）、液压学、化油器、文丘里流量计、心血管流体力学",
+
+  "formula.52.name": "闵可夫斯基度规",
+  "formula.52.significance": "定义狭义相对论中平坦时空的几何，用特征性的负号统一空间和时间。不变量ds²对所有惯性观察者相同。为爱因斯坦在广义相对论中扩展到弯曲时空提供了几何基础。",
+  "formula.52.applications": "狭义相对论、GPS（相对论校正）、粒子物理运动学、引力波探测",
+
+  "formula.53.name": "里奇流",
+  "formula.53.significance": "描述黎曼度量向更均匀曲率演化，像几何的热扩散。佩雷尔曼用带手术的里奇流证明了庞加莱猜想——唯一已解的千禧年大奖问题。",
+  "formula.53.applications": "拓扑学（庞加莱猜想）、几何分析、3-流形分类、可能的量子引力",
+
+  "formula.54.name": "德布罗意波长",
+  "formula.54.significance": "提出物质像光一样具有波动性，波长与动量成反比。这一关键洞见使薛定谔发展了他的方程。被电子衍射证实，是量子力学的基础。",
+  "formula.54.applications": "电子显微镜、量子计算、中子散射、材料表征、粒子物理学",
+
+  "formula.55.name": "吉布斯自由能",
+  "formula.55.significance": "预测化学反应在恒温恒压下是否自发进行（ΔG < 0）。化学热力学和生物化学的基石。吉布斯被认为是19世纪最伟大的美国科学家。",
+  "formula.55.applications": "化学反应、生物化学、药物设计、材料合成、电化学（电池）",
+
+  "formula.56.name": "阿伦尼乌斯方程",
+  "formula.56.significance": "描述反应速率如何随温度指数增长。解释了加热时反应为何更快，是工业化学过程设计、药物稳定性测试和食品保存的基础。",
+  "formula.56.applications": "化学工程、药物稳定性、食品科学、催化设计、材料降解",
+
+  "formula.57.name": "亨德森-哈塞尔巴尔赫方程",
+  "formula.57.significance": "将缓冲溶液的pH与pKa及弱酸与其共轭碱的浓度比联系起来。对理解血液pH调节、设计药物配方和生化缓冲液制备至关重要。",
+  "formula.57.applications": "生物化学、血液pH调节、药物配方、滴定曲线、细胞生物学",
+
+  "formula.58.name": "能斯特方程",
+  "formula.58.significance": "将电化学电池电位与反应物浓度联系起来。在神经科学中用于计算膜静息电位，在工程中用于设计电池和传感器。能斯特因此获1920年诺贝尔奖。",
+  "formula.58.applications": "神经科学（动作电位）、电池、燃料电池、电镀、pH计、生物传感器",
+
+  "formula.59.name": "米氏动力学",
+  "formula.59.significance": "描述酶催化反应速率与底物浓度的关系。酶学和药物动力学的基础。Km（米氏常数）表征酶-底物亲和力并指导药物设计。",
+  "formula.59.applications": "药物设计、药物动力学、代谢建模、生物反应器设计、临床药理学",
+
+  "formula.60.name": "哈迪-温伯格平衡",
+  "formula.60.significance": "描述非进化种群中预期的等位基因和基因型频率。群体遗传学的零假设模型——偏离表示选择、突变、漂变或迁移。GWAS和法医DNA的基础。",
+  "formula.60.applications": "群体遗传学、GWAS（全基因组关联研究）、法医DNA、保护生物学",
+
+  "formula.61.name": "SIR流行病模型",
+  "formula.61.significance": "通过易感、感染和恢复区室建模传染病传播。现代流行病学建模的基础。基本再生数R₀=β/γ成为COVID-19期间被引用最多的统计量。",
+  "formula.61.applications": "COVID-19建模、疫苗策略、群体免疫计算、公共卫生政策、生物恐怖主义应对",
+
+  "formula.62.name": "霍奇金-赫胥黎模型",
+  "formula.62.significance": "描述神经元如何通过电压门控离子通道电导发起和传播动作电位。获1963年诺贝尔奖。第一个生物计算的机制模型——所有计算神经科学的原型。",
+  "formula.62.applications": "计算神经科学、脑机接口、神经假体、药物靶标识别",
+
+  "formula.63.name": "洛特卡-沃尔泰拉方程",
+  "formula.63.significance": "描述捕食者-猎物种群动态的振荡。最简单的生态相互作用模型——从纯确定性方程产生周期行为。数学生态学的基础。",
+  "formula.63.applications": "生态学、渔业管理、流行病学、经济竞争建模、军备竞赛理论",
+
+  "formula.64.name": "逻辑斯谛增长方程",
+  "formula.64.significance": "建模受承载容量限制的种群增长。离散版本是向公众引入混沌的方程。Robert May展示了简单的生物模型可以产生确定性混沌。",
+  "formula.64.applications": "种群生物学、流行病学、资源管理、技术采用曲线、混沌理论",
+
+  "formula.65.name": "香农熵",
+  "formula.65.significance": "量化信息含量——概率分布的平均意外性。创立了整个信息论领域。香农证明数据压缩不能低于H比特/符号，可靠通信需要信道容量>H。",
+  "formula.65.applications": "数据压缩（Huffman、Lempel-Ziv）、密码学、机器学习（交叉熵损失）、电信",
+
+  "formula.66.name": "停机问题（不可判定性）",
+  "formula.66.significance": "证明没有通用算法能确定任意程序在给定输入上是否停机。确立了计算的基本极限——某些问题对任何算法都不可判定。理论计算机科学的基础。",
+  "formula.66.applications": "编译器设计、形式验证、程序分析、Rice定理、软件测试理论",
+
+  "formula.67.name": "P vs NP",
+  "formula.67.significance": "询问每个解可在多项式时间内验证的问题是否也能在多项式时间内求解。计算机科学最重要的开放问题。证明P≠NP将对密码学、AI和优化产生深远影响。",
+  "formula.67.applications": "密码学（安全性依赖P≠NP）、AI、调度、物流、蛋白质折叠",
+
+  "formula.68.name": "RSA加密",
+  "formula.68.significance": "第一个实用的公钥密码系统，基于分解大整数的假定困难性。保护今天绝大多数互联网通信。数论与数字文明安全之间的实际联系。",
+  "formula.68.applications": "HTTPS/TLS、数字签名、证书机构、安全电子邮件、网上银行",
+
+  "formula.69.name": "PageRank算法",
+  "formula.69.significance": "将网页重要性建模为随机冲浪者在超链接图上行走的平稳分布。驱动了Google最初的搜索引擎并变革了信息检索。概念上等价于网络矩阵的主特征向量。",
+  "formula.69.applications": "网络搜索、引文分析、推荐系统、网络中心性、社交网络分析",
+
+  "formula.70.name": "注意力机制（Transformer）",
+  "formula.70.significance": "缩放点积注意力，每个Transformer模型中的核心操作。实现了可并行化的序列建模，取代了RNN。GPT、Claude、Gemini、LLaMA、DALL-E、AlphaFold背后的方程——可以说是21世纪最有影响力的ML方程。",
+  "formula.70.applications": "大语言模型（GPT、Claude、Gemini）、机器翻译、图像生成、AlphaFold、代码生成"
 }
