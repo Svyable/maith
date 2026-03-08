@@ -6,7 +6,7 @@
 
   "home.greeting": "Salut, {{name}} 👋",
   "home.selectDifficulty": "CHOISIR LA DIFFICULTÉ",
-  "home.selectTopics": "CHOISIR LES THÈMES",
+  "home.selectTopics": "SÉLECTIONNER LES DOMAINES",
   "home.startQuiz": "Lancer le Quiz 🚀",
   "home.allTopics": "Tous les thèmes",
   "home.signOut": "Se déconnecter",
