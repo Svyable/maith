@@ -43,6 +43,10 @@ export interface DifficultyMeta {
   slug: Difficulty;
   label: string;
   tag: string;        // short badge text
+  /** i18n key for the translated tag (e.g. "difficulty.easy") */
+  tagKey: string;
+  /** i18n key for the translated description */
+  descKey: string;
   emoji: string;
   description: string;
   pointsPerCorrect: number;
@@ -54,6 +58,8 @@ export const DIFFICULTIES: DifficultyMeta[] = [
     slug: 'EASY',
     label: 'Easy',
     tag: 'EASY',
+    tagKey: 'difficulty.easy',
+    descKey: 'difficulty.easyDesc',
     emoji: '🌱',
     description: 'Fundamentals — gentle scoring',
     pointsPerCorrect: 10,
@@ -63,6 +69,8 @@ export const DIFFICULTIES: DifficultyMeta[] = [
     slug: 'HARD',
     label: 'Hard',
     tag: 'HARD',
+    tagKey: 'difficulty.hard',
+    descKey: 'difficulty.hardDesc',
     emoji: '⚡',
     description: 'Competitive — double points',
     pointsPerCorrect: 20,
@@ -72,6 +80,8 @@ export const DIFFICULTIES: DifficultyMeta[] = [
     slug: 'SOTA',
     label: 'State of the Art',
     tag: 'SOTA',
+    tagKey: 'difficulty.sota',
+    descKey: 'difficulty.sotaDesc',
     emoji: '🔥',
     description: 'Frontier — max reward',
     pointsPerCorrect: 35,
