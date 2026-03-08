@@ -1,3 +1,6 @@
+import { sergeTabachnikovQuestions } from "./serge-tabachnikov";
+import { johannaBimmermannQuestions } from "./johanna-bimmermann";
+import { mishaBialyQuestions } from "./misha-bialy";
 import { luigiBianchiQuestions } from "./luigi-bianchi";
 import { davidBohmQuestions } from "./david-bohm";
 import { yakirAharonovQuestions } from "./yakir-aharonov";
@@ -564,6 +567,9 @@ import { andrzejEhrenfeuchtQuestions } from "./andrzej-ehrenfeucht";
 import { herbertGrotzschQuestions } from "./herbert-grotzsch";
 
 export const allThinkerQuestions: Question[] = [
+  ...mishaBialyQuestions,
+  ...johannaBimmermannQuestions,
+  ...sergeTabachnikovQuestions,
   ...luigiBianchiQuestions,
   ...yakirAharonovQuestions,
   ...davidBohmQuestions,

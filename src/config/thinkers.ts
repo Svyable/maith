@@ -19,6 +19,49 @@ export interface ThinkerMeta {
 }
 
 export const THINKERS: ThinkerMeta[] = [
+  {
+    slug: "misha-bialy",
+    name: "Misha Bialy",
+    archetype: "The Integrability Hunter",
+    emoji: "🎯",
+    era: "1960s–present",
+    domain: "Dynamical Systems & Billiards",
+    fields: ['math', 'physics'],
+    description: "Studies rigidity of integrable systems, magnetic billiards, and variational dynamics",
+    color: "accent",
+    tagline: "When integrability exists, geometry becomes rigid.",
+    era_group: "contemporary",
+    funFact: "Many of Bialy’s questions explore when billiard systems admit invariant tori.",
+  },
+  {
+    slug: "johanna-bimmermann",
+    name: "Johanna Bimmermann",
+    archetype: "The Symplectic Capacity Explorer",
+    emoji: "📏",
+    era: "1990s–present",
+    domain: "Symplectic Geometry",
+    fields: ['math', 'physics'],
+    description: "Works on Hofer–Zehnder capacity, Hamiltonian dynamics, and periodic orbit theory",
+    color: "accent",
+    tagline: "She studies how large a symplectic world can grow before periodic motion must appear.",
+    era_group: "contemporary",
+    funFact: "Her work connects symplectic capacity to existence questions for Hamiltonian periodic orbits.",
+  },
+  {
+    slug: "serge-tabachnikov",
+    name: "Serge Tabachnikov",
+    archetype: "The Billiard Geometer",
+    emoji: "🎱",
+    era: "1963–present",
+    domain: "Geometry & Dynamical Systems",
+    fields: ['math', 'physics'],
+    description: "Known for deep work on billiards, projective geometry, outer billiards, and symplectic dynamics",
+    color: "accent",
+    tagline: "He turns bouncing trajectories into geometry.",
+    era_group: "contemporary",
+    funFact: "Tabachnikov helped shape the modern theory of outer, projective, and symplectic billiards.",
+  },
+
   // ── Ancient thinkers (pre-1900 birth) ─────────────────────
   {
     slug: "aleksandr-lyapunov",
