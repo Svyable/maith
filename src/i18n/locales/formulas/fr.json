@@ -1,1 +1,142 @@
-{}
+{
+  "formula.1.name": "Identité d'Euler",
+  "formula.1.significance": "Relie les cinq constantes les plus fondamentales — 0, 1, π, e et i — en une équation parfaitement équilibrée. Feynman l'a appelée « notre joyau » et « la formule la plus remarquable des mathématiques ».",
+  "formula.1.applications": "Traitement du signal, mécanique quantique, génie électrique, analyse de Fourier, théorie du contrôle",
+  "formula.1.constants": "e ≈ 2,71828 (nombre d'Euler), i = √−1 (unité imaginaire), π ≈ 3,14159 (pi), 0 (identité additive), 1 (identité multiplicative)",
+
+  "formula.2.name": "Théorème de Pythagore",
+  "formula.2.significance": "Définit la relation fondamentale entre les côtés d'un triangle rectangle. L'un des plus anciens théorèmes prouvés avec plus de 370 démonstrations distinctes.",
+  "formula.2.applications": "Architecture, navigation, triangulation GPS, infographie, physique, apprentissage automatique (distance euclidienne)",
+
+  "formula.3.name": "Théorème fondamental de l'analyse",
+  "formula.3.significance": "Relie la différentiation et l'intégration comme opérations inverses — l'une des connexions les plus profondes de toutes les mathématiques.",
+  "formula.3.applications": "Physique, ingénierie, économie, probabilités, statistiques, apprentissage automatique (rétropropagation)",
+
+  "formula.4.name": "Formule d'Euler",
+  "formula.4.significance": "Révèle la connexion profonde entre fonctions exponentielles et trigonométrie à travers les nombres complexes. La formule mère de l'Identité d'Euler.",
+  "formula.4.applications": "Traitement du signal, circuits CA, analyse de Fourier, mécanique quantique, théorie du contrôle",
+
+  "formula.5.name": "Formule quadratique",
+  "formula.5.significance": "Résout exactement toute équation quadratique. L'une des formules mathématiques les plus anciennes et universellement connues.",
+  "formula.5.applications": "Physique (cinématique), ingénierie, infographie, optimisation, finance (analyse du seuil de rentabilité)",
+
+  "formula.6.name": "Théorème de Bayes",
+  "formula.6.significance": "Fournit le cadre mathématique pour mettre à jour les croyances à la lumière de nouvelles preuves. Le moteur du raisonnement probabiliste et de l'apprentissage automatique.",
+  "formula.6.applications": "Apprentissage automatique, statistiques bayésiennes, diagnostic médical, filtres anti-spam, IA, inférence scientifique",
+
+  "formula.7.name": "Distribution normale (densité de probabilité)",
+  "formula.7.significance": "La courbe en cloche qui apparaît partout dans la nature, garantie par le théorème central limite. Fondement de la statistique classique.",
+  "formula.7.applications": "Statistiques, contrôle qualité, finance, sciences naturelles, sciences sociales, théorie de la mesure",
+
+  "formula.8.name": "Théorème de Stokes (forme générale)",
+  "formula.8.significance": "La généralisation ultime du théorème fondamental de l'analyse aux formes différentielles sur les variétés. Unifie le théorème de Green et le théorème de la divergence.",
+  "formula.8.applications": "Électromagnétisme, dynamique des fluides, topologie, théorie des champs de jauge, relativité générale",
+
+  "formula.9.name": "Transformée de Fourier",
+  "formula.9.significance": "Décompose tout signal en ses fréquences constitutives. Sans doute l'outil mathématique le plus utile en science et ingénierie.",
+  "formula.9.applications": "Compression MP3/JPEG, imagerie IRM, spectroscopie, radio/WiFi, radar, apprentissage automatique",
+
+  "formula.10.name": "Série de Taylor",
+  "formula.10.significance": "Représente toute fonction lisse comme une série polynomiale infinie autour d'un point. Le fondement de toute approximation numérique.",
+  "formula.10.applications": "Calcul numérique, approximation en physique, ingénierie, fonctions d'activation en deep learning",
+
+  "formula.11.name": "Formule intégrale de Cauchy",
+  "formula.11.significance": "Montre que la valeur d'une fonction analytique en tout point intérieur d'un contour est entièrement déterminée par ses valeurs sur le contour.",
+  "formula.11.applications": "Traitement du signal, théorie du contrôle, mécanique quantique, intégration par résidus, transformées de Laplace inverses",
+
+  "formula.12.name": "Fonction zêta de Riemann",
+  "formula.12.significance": "Encode la distribution des nombres premiers et relie l'analyse à la théorie des nombres. L'hypothèse de Riemann est le plus grand problème non résolu des mathématiques.",
+  "formula.12.applications": "Distribution des premiers, cryptographie, chaos quantique, théorie des matrices aléatoires",
+
+  "formula.13.name": "Inégalité de Cauchy-Schwarz",
+  "formula.13.significance": "L'une des inégalités les plus omniprésentes et élégantes de toutes les mathématiques. Apparaît en géométrie, probabilités, mécanique quantique et convergence d'algorithmes.",
+  "formula.13.applications": "Statistiques (corrélation), mécanique quantique, traitement du signal, optimisation, apprentissage automatique",
+
+  "formula.14.name": "Équation aux valeurs propres",
+  "formula.14.significance": "Définit les modes naturels d'une transformation linéaire — les directions qui ne sont que mises à l'échelle, pas tournées. Le concept le plus important des mathématiques appliquées.",
+  "formula.14.applications": "Mécanique quantique, ACP, Google PageRank, génie des structures, réseaux de neurones, théorie du contrôle",
+
+  "formula.15.name": "Décomposition en valeurs singulières",
+  "formula.15.significance": "Décompose toute matrice en composantes rotation-échelle-rotation. La factorisation matricielle la plus puissante en sciences computationnelles.",
+  "formula.15.applications": "ACP, systèmes de recommandation (Netflix), compression d'images, NLP (LSA), pseudo-inverse, deep learning",
+
+  "formula.16.name": "Multiplicateurs de Lagrange",
+  "formula.16.significance": "La méthode standard pour trouver les extrema de fonctions sous contraintes. Fondement de toute optimisation contrainte.",
+  "formula.16.applications": "Économie (maximisation de l'utilité), conception d'ingénierie, apprentissage automatique (SVM), physique (principes variationnels)",
+
+  "formula.17.name": "Descente de gradient",
+  "formula.17.significance": "Le moteur derrière l'entraînement de pratiquement tous les modèles modernes d'apprentissage automatique.",
+  "formula.17.applications": "Deep learning, réseaux de neurones, LLMs (GPT, Claude), vision par ordinateur, systèmes de recommandation",
+
+  "formula.18.name": "Théorème central limite",
+  "formula.18.significance": "Établit que la moyenne de nombreuses variables aléatoires indépendantes converge vers une distribution normale, quelle que soit leur distribution d'origine.",
+  "formula.18.applications": "Inférence statistique, tests A/B, contrôle qualité, sondages, épidémiologie, risque financier",
+
+  "formula.19.name": "Dernier théorème de Fermat",
+  "formula.19.significance": "Conjecturé en 1637 et non prouvé pendant 358 ans. La preuve de Wiles a utilisé les formes modulaires et les courbes elliptiques.",
+  "formula.19.applications": "A stimulé le développement de la géométrie algébrique, des formes modulaires, des représentations de Galois et de la cryptographie sur courbes elliptiques",
+
+  "formula.20.name": "Formule des polyèdres d'Euler",
+  "formula.20.significance": "Relie sommets, arêtes et faces de tout polyèdre convexe. A fondé le domaine de la topologie en identifiant un invariant de forme.",
+  "formula.20.applications": "Infographie, topologie des réseaux, science des matériaux, coloration de cartes, structure des protéines",
+
+  "formula.21.name": "Théorème de Gauss-Bonnet",
+  "formula.21.significance": "Connecte la géométrie locale (courbure) d'une surface à sa topologie globale (caractéristique d'Euler). L'un des théorèmes les plus profonds de la géométrie.",
+  "formula.21.applications": "Relativité générale, géométrie différentielle, infographie, topologie, analyse de formes",
+
+  "formula.22.name": "Argument diagonal de Cantor",
+  "formula.22.significance": "Prouve que les nombres réels ne peuvent pas être mis en correspondance bijective avec les naturels — il existe infiniment de tailles d'infini.",
+  "formula.22.applications": "Fondements des mathématiques, théorie de la calculabilité, théorie des langages formels, philosophie des mathématiques",
+
+  "formula.23.name": "Théorème d'incomplétude de Gödel",
+  "formula.23.significance": "Prouve que tout système formel cohérent suffisamment puissant contient des vérités qu'il ne peut pas démontrer. A brisé le programme de Hilbert.",
+  "formula.23.applications": "Fondements des mathématiques, limites de la calculabilité, philosophie, IA (limites du raisonnement formel)",
+
+  "formula.24.name": "Loi des grands nombres",
+  "formula.24.significance": "Garantit que les moyennes d'échantillons convergent vers la vraie moyenne de la population. Base mathématique de la statistique et de l'assurance.",
+  "formula.24.applications": "Statistiques, assurance, jeux de hasard (avantage de la maison), contrôle qualité, mesure scientifique",
+
+  "formula.25.name": "Conjecture de Poincaré (théorème de Perelman)",
+  "formula.25.significance": "Toute 3-variété fermée simplement connexe est homéomorphe à la 3-sphère. Le seul problème du millénaire de Clay résolu. Perelman a refusé le prix d'un million de dollars.",
+  "formula.25.applications": "Topologie, cosmologie (forme de l'univers), imagerie médicale, analyse de formes",
+
+  "formula.26.name": "Théorème du binôme",
+  "formula.26.significance": "Fournit une formule pour développer les puissances de binômes et relie l'algèbre à la combinatoire via le triangle de Pascal.",
+  "formula.26.applications": "Probabilités, statistiques, arithmétique polynomiale, méthodes numériques, combinatoire",
+
+  "formula.27.name": "Approximation de Stirling",
+  "formula.27.significance": "Fournit une excellente approximation des grandes factorielles, combinant π et e dans une formule frappante.",
+  "formula.27.applications": "Mécanique statistique, théorie de l'information, combinatoire, probabilités, analyse d'algorithmes",
+
+  "formula.28.name": "Constante d'Euler-Mascheroni",
+  "formula.28.significance": "Une constante mystérieuse reliant la série harmonique au logarithme naturel. Si elle est rationnelle ou irrationnelle reste un problème ouvert depuis plus de 280 ans.",
+  "formula.28.applications": "Théorie des nombres, fonctions spéciales (fonction Gamma), probabilités, théorie des matrices aléatoires",
+
+  "formula.29.name": "Théorème de Radon-Nikodym",
+  "formula.29.significance": "Garantit l'existence d'une fonction de densité quand une mesure est absolument continue par rapport à une autre. Fondement théorique de la théorie des probabilités.",
+  "formula.29.applications": "Théorie des probabilités, statistiques bayésiennes, processus stochastiques, mathématiques financières, théorie ergodique",
+
+  "formula.30.name": "Lemme de Yoneda",
+  "formula.30.significance": "Établit qu'un objet mathématique est entièrement déterminé par ses relations avec tous les autres objets. Fondement de la pensée catégorielle.",
+  "formula.30.applications": "Algèbre abstraite, théorie des types, programmation fonctionnelle (monades), topologie algébrique, HoTT",
+
+  "formula.31.name": "Théorème ergodique de Birkhoff",
+  "formula.31.significance": "Prouve que les moyennes temporelles égalent les moyennes spatiales pour les systèmes ergodiques préservant la mesure. Fondement de la mécanique statistique.",
+  "formula.31.applications": "Mécanique statistique, théorie des nombres (distribution uniforme), systèmes dynamiques, théorie du chaos",
+
+  "formula.32.name": "Divergence KL",
+  "formula.32.significance": "Mesure à quel point une distribution de probabilité diffère d'une distribution de référence. L'outil fondamental pour comparer les distributions.",
+  "formula.32.applications": "Auto-encodeurs variationnels, RLHF (alignement de LLM), inférence bayésienne, théorie de l'information, NLP",
+
+  "formula.33.name": "Loi de la gravitation universelle de Newton",
+  "formula.33.significance": "A unifié la mécanique céleste et terrestre en montrant que la même force gouverne les pommes qui tombent et les planètes en orbite. La première loi universelle de la nature.",
+  "formula.33.applications": "Mécanique orbitale, navigation par satellite, planification de missions spatiales, forces de marée, lentilles gravitationnelles",
+
+  "formula.34.name": "Équivalence masse-énergie",
+  "formula.34.significance": "L'équation la plus célèbre de la science. Montre que masse et énergie sont des manifestations différentes de la même chose, reliées par le carré de la vitesse de la lumière.",
+  "formula.34.applications": "Énergie nucléaire, armes nucléaires, PET-scan, accélérateurs de particules, astrophysique",
+
+  "formula.35.name": "Équations de Maxwell",
+  "formula.35.significance": "Quatre équations qui unifient l'électricité, le magnétisme et la lumière. Ont prédit les ondes électromagnétiques avant leur découverte. Fondement de toute technologie électromagnétique.",
+  "formula.35.applications": "Radio, WiFi, IRM, fibre optique, génie électrique, conception d'antennes, photonique"
+}

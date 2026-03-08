@@ -1,1 +1,141 @@
-{}
+{
+  "formula.1.name": "オイラーの等式",
+  "formula.1.significance": "最も基本的な5つの定数——0、1、π、e、i——を一つの完璧に均衡した方程式で結びつける。ファインマンはこれを「我々の宝石」と呼んだ。",
+  "formula.1.applications": "信号処理、量子力学、電気工学、フーリエ解析、制御理論",
+
+  "formula.2.name": "ピタゴラスの定理",
+  "formula.2.significance": "直角三角形の辺の間の基本的な関係を定義する。370以上の異なる証明を持つ、数学で最も古い証明された定理の一つ。",
+  "formula.2.applications": "建築、航法、GPS三角測量、コンピュータグラフィックス、物理学、機械学習（ユークリッド距離）",
+
+  "formula.3.name": "微積分学の基本定理",
+  "formula.3.significance": "微分と積分を逆演算として結びつける——数学全体で最も深遠な関係の一つ。",
+  "formula.3.applications": "物理学、工学、経済学、確率、統計、機械学習（誤差逆伝播法）",
+
+  "formula.4.name": "オイラーの公式",
+  "formula.4.significance": "複素数を通じて指数関数と三角関数の深い関係を明らかにする。オイラーの等式の母公式。",
+  "formula.4.applications": "信号処理、交流回路、フーリエ解析、量子力学、制御理論",
+
+  "formula.5.name": "二次方程式の解の公式",
+  "formula.5.significance": "あらゆる二次方程式を正確に解く。古代バビロンからイスラム代数学を経て世界中の学校まで、最も古く普遍的な数学公式の一つ。",
+  "formula.5.applications": "物理学（運動学）、工学、コンピュータグラフィックス、最適化、金融（損益分岐分析）",
+
+  "formula.6.name": "ベイズの定理",
+  "formula.6.significance": "新しい証拠に基づいて信念を更新するための数学的枠組みを提供する。確率的推論と機械学習のエンジン。",
+  "formula.6.applications": "機械学習、ベイズ統計、医療診断、スパムフィルタ、AI、科学的推論",
+
+  "formula.7.name": "正規分布（確率密度関数）",
+  "formula.7.significance": "中心極限定理により保証される、自然界のあらゆる場所に現れるベルカーブ。古典統計学の基礎。",
+  "formula.7.applications": "統計、品質管理、金融、自然科学、社会科学、測定理論",
+
+  "formula.8.name": "ストークスの定理（一般形）",
+  "formula.8.significance": "微積分の基本定理の多様体上の微分形式への究極の一般化。グリーンの定理と発散定理を統一する。",
+  "formula.8.applications": "電磁気学、流体力学、トポロジー、ゲージ場理論、一般相対性理論",
+
+  "formula.9.name": "フーリエ変換",
+  "formula.9.significance": "あらゆる信号をその構成周波数に分解する。科学と工学で最も有用な数学的ツールと言える。",
+  "formula.9.applications": "MP3/JPEG圧縮、MRI画像、分光法、無線/WiFi、レーダー、機械学習",
+
+  "formula.10.name": "テイラー級数",
+  "formula.10.significance": "あらゆる滑らかな関数をある点の周りの無限多項式級数として表現する。すべての数値近似の基礎。",
+  "formula.10.applications": "数値計算、物理近似、工学、ディープラーニング活性化関数",
+
+  "formula.11.name": "コーシーの積分公式",
+  "formula.11.significance": "解析関数の輪郭内部の任意の点での値が、輪郭上の値によって完全に決定されることを示す。",
+  "formula.11.applications": "信号処理、制御理論、量子力学、留数積分、ラプラス逆変換",
+
+  "formula.12.name": "リーマンゼータ関数",
+  "formula.12.significance": "素数の分布を符号化する。リーマン予想は数学最大の未解決問題である。",
+  "formula.12.applications": "素数分布、暗号学、量子カオス、ランダム行列理論",
+
+  "formula.13.name": "コーシー・シュワルツの不等式",
+  "formula.13.significance": "数学全体で最も遍在し優雅な不等式の一つ。",
+  "formula.13.applications": "統計（相関）、量子力学、信号処理、最適化、機械学習",
+
+  "formula.14.name": "固有値方程式",
+  "formula.14.significance": "線形変換の自然モード——回転されずスケーリングされるだけの方向——を定義する。応用数学で最も重要な概念。",
+  "formula.14.applications": "量子力学、PCA、Google PageRank、構造工学、ニューラルネットワーク、制御理論",
+
+  "formula.15.name": "特異値分解",
+  "formula.15.significance": "あらゆる行列を回転-スケーリング-回転成分に分解する。計算科学で最も強力で汎用性の高い行列分解。",
+  "formula.15.applications": "PCA、推薦システム（Netflix）、画像圧縮、NLP（LSA）、擬似逆行列、ディープラーニング",
+
+  "formula.16.name": "ラグランジュの未定乗数法",
+  "formula.16.significance": "制約条件下で関数の極値を求める標準的手法。すべての制約付き最適化の基礎。",
+  "formula.16.applications": "経済学（効用最大化）、工学設計、機械学習（SVM）、物理学（変分原理）",
+
+  "formula.17.name": "勾配降下法",
+  "formula.17.significance": "事実上すべての現代機械学習モデルの訓練を支えるエンジン。",
+  "formula.17.applications": "ディープラーニング、ニューラルネットワーク、LLM（GPT、Claude）、コンピュータビジョン、推薦システム",
+
+  "formula.18.name": "中心極限定理",
+  "formula.18.significance": "多数の独立な確率変数の平均が、元の分布に関係なく正規分布に収束することを述べる。",
+  "formula.18.applications": "統計的推論、A/Bテスト、品質管理、世論調査、疫学、金融リスク",
+
+  "formula.19.name": "フェルマーの最終定理",
+  "formula.19.significance": "1637年に予想され、358年間証明されなかった。ワイルズの証明はモジュラー形式と楕円曲線を使用した。",
+  "formula.19.applications": "代数幾何学、モジュラー形式、ガロア表現、楕円曲線暗号の発展を促進",
+
+  "formula.20.name": "オイラーの多面体公式",
+  "formula.20.significance": "任意の凸多面体の頂点、辺、面を関係づける。形状不変量を特定することでトポロジーの分野を創設した。",
+  "formula.20.applications": "コンピュータグラフィックス、ネットワークトポロジー、材料科学、地図の彩色、タンパク質構造",
+
+  "formula.21.name": "ガウス・ボネの定理",
+  "formula.21.significance": "曲面の局所幾何（曲率）をその大域的トポロジー（オイラー標数）と結びつける。幾何学で最も深遠な定理の一つ。",
+  "formula.21.applications": "一般相対性理論、微分幾何、コンピュータグラフィックス、トポロジー、形状解析",
+
+  "formula.22.name": "カントールの対角線論法",
+  "formula.22.significance": "実数が自然数と一対一対応できないことを証明する——無限には無限の大きさがある。",
+  "formula.22.applications": "数学の基礎、計算可能性理論、形式言語理論、数学の哲学",
+
+  "formula.23.name": "ゲーデルの不完全性定理",
+  "formula.23.significance": "十分に強力な無矛盾の形式体系は、証明できない真なる命題を含むことを証明する。ヒルベルトの計画を打ち砕いた。",
+  "formula.23.applications": "数学の基礎、計算可能性の限界、哲学、AI（形式的推論の限界）",
+
+  "formula.24.name": "大数の法則",
+  "formula.24.significance": "標本平均が真の母平均に収束することを保証する。統計学と保険業の数学的基盤。",
+  "formula.24.applications": "統計、保険、ギャンブル（ハウスエッジ）、品質管理、科学的測定",
+
+  "formula.25.name": "ポアンカレ予想（ペレルマンの定理）",
+  "formula.25.significance": "すべての単連結閉3次元多様体は3次元球面と同相である。唯一解決されたクレイ・ミレニアム問題。ペレルマンは100万ドルの賞金を辞退した。",
+  "formula.25.applications": "トポロジー、宇宙論（宇宙の形）、医用画像、形状解析",
+
+  "formula.26.name": "二項定理",
+  "formula.26.significance": "二項式の累乗を展開する公式を提供し、パスカルの三角形を通じて代数と組合せ論を結びつける。",
+  "formula.26.applications": "確率、統計、多項式演算、数値手法、組合せ論",
+
+  "formula.27.name": "スターリングの近似",
+  "formula.27.significance": "大きな階乗に対する優れた近似を提供し、πとeを印象的な公式で結合する。",
+  "formula.27.applications": "統計力学、情報理論、組合せ論、確率、アルゴリズム解析",
+
+  "formula.28.name": "オイラー・マスケローニ定数",
+  "formula.28.significance": "調和級数と自然対数を結びつける神秘的な定数。有理数か無理数かは280年以上未解決の問題である。",
+  "formula.28.applications": "数論、特殊関数（ガンマ関数）、確率、ランダム行列理論",
+
+  "formula.29.name": "ラドン・ニコディムの定理",
+  "formula.29.significance": "一つの測度が他方に関して絶対連続であるとき、密度関数の存在を保証する。確率論の理論的基盤。",
+  "formula.29.applications": "確率論、ベイズ統計、確率過程、金融数学、エルゴード理論",
+
+  "formula.30.name": "米田の補題",
+  "formula.30.significance": "数学的対象はすべての他の対象との関係によって完全に決定されることを述べる。圏論的思考の基礎。",
+  "formula.30.applications": "抽象代数、型理論、関数型プログラミング（モナド）、代数的トポロジー、HoTT",
+
+  "formula.31.name": "バーコフのエルゴード定理",
+  "formula.31.significance": "エルゴード的な測度保存系において時間平均が空間平均に等しいことを証明する。統計力学の数学的基礎。",
+  "formula.31.applications": "統計力学、数論（一様分布）、力学系、カオス理論",
+
+  "formula.32.name": "KLダイバージェンス",
+  "formula.32.significance": "ある確率分布が参照分布からどれだけ異なるかを測定する。分布を比較するための基本的ツール。",
+  "formula.32.applications": "変分オートエンコーダ、RLHF（LLMアラインメント）、ベイズ推論、情報理論、NLP",
+
+  "formula.33.name": "ニュートンの万有引力の法則",
+  "formula.33.significance": "落下するリンゴと軌道を回る惑星を同じ力が支配していることを示し、天体力学と地上力学を統一した。最初の普遍的自然法則。",
+  "formula.33.applications": "軌道力学、衛星航法、宇宙ミッション計画、潮汐力、重力レンズ効果",
+
+  "formula.34.name": "質量エネルギー等価",
+  "formula.34.significance": "科学で最も有名な方程式。質量とエネルギーが同じものの異なる表現であり、光速の二乗で関係づけられることを示す。",
+  "formula.34.applications": "原子力、核兵器、PETスキャン、粒子加速器、天体物理学",
+
+  "formula.35.name": "マクスウェル方程式",
+  "formula.35.significance": "電気、磁気、光を統一する4つの方程式。電磁波が発見される前にその存在を予言した。すべての電磁技術の基礎。",
+  "formula.35.applications": "ラジオ、WiFi、MRI、光ファイバー、電気工学、アンテナ設計、フォトニクス"
+}
