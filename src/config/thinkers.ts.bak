@@ -20,35 +20,6 @@ export interface ThinkerMeta {
 
 export const THINKERS: ThinkerMeta[] = [
   {
-    slug: "evgeny-lifshitz",
-    name: "Evgeny Lifshitz",
-    archetype: "The Continuum Theorist",
-    emoji: "🧲",
-    era: "1915–1985",
-    domain: "Theoretical Physics",
-    fields: ['math', 'physics'],
-    description: "Statistical physics, condensed matter, electrodynamics of continuous media, and the Landau-Lifshitz formalism",
-    color: "accent",
-    tagline: "He gave matter a language elegant enough to describe its deepest collective behavior.",
-    era_group: "modern",
-    funFact: "The Landau-Lifshitz Course of Theoretical Physics became one of the most influential physics textbook series ever written.",
-  },
-  {
-    slug: "thomas-gilbert",
-    name: "Thomas Gilbert",
-    archetype: "The Damping Engineer",
-    emoji: "🌀",
-    era: "1920s–present",
-    domain: "Magnetism & Spin Dynamics",
-    fields: ['physics', 'engineering'],
-    description: "Gilbert damping, magnetization relaxation, and the modern form of the Landau-Lifshitz-Gilbert equation",
-    color: "primary",
-    tagline: "He taught spinning magnets how to lose energy gracefully.",
-    era_group: "contemporary",
-    funFact: "Gilbert’s damping term is now standard in micromagnetics, spintronics, and magnetic-device simulation.",
-  },
-
-  {
     slug: "misha-bialy",
     name: "Misha Bialy",
     archetype: "The Integrability Hunter",

@@ -1,7 +1,5 @@
 import { sergeTabachnikovQuestions } from "./serge-tabachnikov";
-
-import { thomasGilbertQuestions } from "./thomas-gilbert";
-import { evgenyLifshitzQuestions } from "./evgeny-lifshitz";import { johannaBimmermannQuestions } from "./johanna-bimmermann";
+import { johannaBimmermannQuestions } from "./johanna-bimmermann";
 import { mishaBialyQuestions } from "./misha-bialy";
 import { luigiBianchiQuestions } from "./luigi-bianchi";
 import { davidBohmQuestions } from "./david-bohm";
@@ -569,8 +567,6 @@ import { andrzejEhrenfeuchtQuestions } from "./andrzej-ehrenfeucht";
 import { herbertGrotzschQuestions } from "./herbert-grotzsch";
 
 export const allThinkerQuestions: Question[] = [
-  ...thomasGilbertQuestions,
-  ...evgenyLifshitzQuestions,
   ...mishaBialyQuestions,
   ...johannaBimmermannQuestions,
   ...sergeTabachnikovQuestions,
