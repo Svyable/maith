@@ -1,1 +1,93 @@
-{}
+{
+  "glossary.eigenvalue.term": "Eigenwert",
+  "glossary.eigenvalue.definition": "Ein Skalar $\\lambda$, sodass $A\\mathbf{v} = \\lambda\\mathbf{v}$ f\u00fcr einen Nicht-Null-Vektor $\\mathbf{v}$ gilt. Eigenwerte zeigen, wie eine Matrix den Raum streckt.",
+  "glossary.eigenvalue.example": "Googles PageRank nutzt den dominanten Eigenwert der Web-Link-Matrix.",
+
+  "glossary.determinant.term": "Determinante",
+  "glossary.determinant.definition": "Ein Skalarwert $\\det(A)$, der beschreibt, wie eine lineare Transformation Fl\u00e4che/Volumen skaliert. Determinante null bedeutet, die Matrix ist singul\u00e4r.",
+  "glossary.determinant.example": "Pr\u00fcfung, ob ein Gleichungssystem eine eindeutige L\u00f6sung hat.",
+
+  "glossary.gradient.term": "Gradient",
+  "glossary.gradient.definition": "Der Vektor aller partiellen Ableitungen $\\nabla f$. Zeigt in die Richtung des steilsten Anstiegs eines Skalarfeldes.",
+  "glossary.gradient.example": "Gradientenabstieg im maschinellen Lernen folgt $-\\nabla f$, um den Verlust zu minimieren.",
+
+  "glossary.integral.term": "Integral",
+  "glossary.integral.definition": "Die Akkumulation einer Gr\u00f6\u00dfe \u00fcber einen Bereich: $\\int_a^b f(x)\\,dx$. Umkehroperation der Differentiation.",
+  "glossary.integral.example": "Die Fl\u00e4che unter einer Umsatzkurve berechnen ergibt den Gesamterlös.",
+
+  "glossary.bayes-theorem.term": "Satz von Bayes",
+  "glossary.bayes-theorem.definition": "$P(A|B) = \\frac{P(B|A)\\,P(A)}{P(B)}$. Aktualisiert vorherige \u00dcberzeugungen anhand neuer Evidenz.",
+  "glossary.bayes-theorem.example": "Spamfilter aktualisieren die Wahrscheinlichkeit, dass eine E-Mail Spam ist, anhand ihrer W\u00f6rter.",
+
+  "glossary.std-deviation.term": "Standardabweichung",
+  "glossary.std-deviation.definition": "Die Quadratwurzel der Varianz $\\sigma = \\sqrt{E[(X-\\mu)^2]}$. Misst die Streuung um den Mittelwert.",
+  "glossary.std-deviation.example": "Die Qualit\u00e4tskontrolle nutzt \u00b13\u03c3 als akzeptable Fertigungstoleranz.",
+
+  "glossary.convexity-math.term": "Konvexit\u00e4t",
+  "glossary.convexity-math.definition": "Eine Menge oder Funktion, bei der jede Verbindungsstrecke zweier Punkte innerhalb der Menge/\u00fcber dem Graphen bleibt. Garantiert ein einziges globales Minimum.",
+  "glossary.convexity-math.example": "Konvexe Optimierungsprobleme k\u00f6nnen effizient in Polynomialzeit gel\u00f6st werden.",
+
+  "glossary.graph-theory.term": "Graph",
+  "glossary.graph-theory.definition": "Eine Struktur $G = (V, E)$ aus Knoten und Kanten, die paarweise Beziehungen modelliert.",
+  "glossary.graph-theory.example": "Soziale Netzwerke, Routing-Algorithmen und Abh\u00e4ngigkeitsb\u00e4ume nutzen alle Graphen.",
+
+  "glossary.topology-def.term": "Topologie",
+  "glossary.topology-def.definition": "Die Lehre von Eigenschaften, die unter stetigen Verformungen (Strecken, Biegen, aber nicht Rei\u00dfen) erhalten bleiben.",
+  "glossary.topology-def.example": "Eine Kaffeetasse und ein Donut sind topologisch \u00e4quivalent (beide Genus 1).",
+
+  "glossary.proof-by-contradiction.term": "Beweis durch Widerspruch",
+  "glossary.proof-by-contradiction.definition": "Man nimmt die Negation der Aussage an und leitet einen logischen Widerspruch her. Damit ist die urspr\u00fcngliche Aussage bewiesen.",
+  "glossary.proof-by-contradiction.example": "Euklid bewies die Unendlichkeit der Primzahlen auf diese Weise.",
+
+  "glossary.wavelet.term": "Wavelet",
+  "glossary.wavelet.definition": "Eine lokalisierte oszillierende Funktion $\\psi(t)$, die Signale auf mehreren Skalen zerlegt. Im Gegensatz zu Fourier erfassen Wavelets sowohl Frequenz als auch Zeit.",
+  "glossary.wavelet.example": "JPEG 2000 und die FBI-Fingerabdruckkompression verwenden Daubechies-Wavelets.",
+
+  "glossary.diophantine-equation.term": "Diophantische Gleichung",
+  "glossary.diophantine-equation.definition": "Eine Polynomgleichung, bei der nur ganzzahlige L\u00f6sungen gesucht werden. Hilberts 10. Problem fragte, ob ein Algorithmus zur Entscheidung der L\u00f6sbarkeit existiert \u2014 als unentscheidbar bewiesen (MRDP-Theorem).",
+  "glossary.diophantine-equation.example": "Fermats letzter Satz ist das ber\u00fchmteste diophantische Problem: $x^n+y^n=z^n$ f\u00fcr $n>2$.",
+
+  "glossary.sophie-germain-prime.term": "Sophie-Germain-Primzahl",
+  "glossary.sophie-germain-prime.definition": "Eine Primzahl $p$, sodass auch $2p+1$ prim ist. Wird in der Kryptographie zur Erzeugung sicherer Primzahlen verwendet.",
+  "glossary.sophie-germain-prime.example": "2, 3, 5, 11, 23, 29 sind Sophie-Germain-Primzahlen. Verwendet im Diffie-Hellman-Schl\u00fcsselaustausch.",
+
+  "glossary.brownian-motion.term": "Brownsche Bewegung",
+  "glossary.brownian-motion.definition": "Die unregelm\u00e4\u00dfige zuf\u00e4llige Bewegung von Teilchen in einer Fl\u00fcssigkeit, verursacht durch unz\u00e4hlige mikroskopische Kollisionen. In der Mathematik bezeichnet sie auch einen fundamentalen stochastischen Prozess.",
+  "glossary.brownian-motion.example": "Pollenk\u00f6rner, die in Wasser zittern, sind eine klassische Beobachtung der Brownschen Bewegung.",
+
+  "glossary.diffusion.term": "Diffusion",
+  "glossary.diffusion.definition": "Die Ausbreitung von Teilchen, W\u00e4rme oder Wahrscheinlichkeitsdichte von Bereichen hoher zu niedriger Konzentration, oft durch Differentialgleichungen modelliert.",
+  "glossary.diffusion.example": "Parf\u00fcm, das sich in einem Raum verteilt, ist ein Diffusionsprozess.",
+
+  "glossary.stochastic-process.term": "Stochastischer Prozess",
+  "glossary.stochastic-process.definition": "Eine Sammlung von Zufallsvariablen, indiziert nach Zeit oder Raum, zur Modellierung sich entwickelnder Unsicherheit.",
+  "glossary.stochastic-process.example": "Aktienkursmodelle und Brownsche Bewegung sind stochastische Prozesse.",
+
+  "glossary.ergodic-theorem.term": "Ergodensatz",
+  "glossary.ergodic-theorem.definition": "Ein Satz, der besagt, dass unter geeigneten Bedingungen langfristige Zeitmittelwerte entlang einer Trajektorie gegen einen statistischen Mittelwert \u00fcber den gesamten Raum konvergieren.",
+  "glossary.ergodic-theorem.example": "Er erkl\u00e4rt, warum lange Simulationen stabiles Durchschnittsverhalten zeigen k\u00f6nnen, selbst wenn die Einzelbewegung chaotisch aussieht.",
+
+  "glossary.ergodicity.term": "Ergodit\u00e4t",
+  "glossary.ergodicity.definition": "Eine Eigenschaft eines dynamischen Systems, bei dem langfristige Trajektorienmittelwerte die Gesamtstatistik des Raums widerspiegeln.",
+  "glossary.ergodicity.example": "In einem ergodischen System kann ein einziger langer Durchlauf repr\u00e4sentativ f\u00fcr das gesamte Ensemble sein.",
+
+  "glossary.general-relativity.term": "Allgemeine Relativit\u00e4tstheorie",
+  "glossary.general-relativity.definition": "Einsteins geometrische Theorie der Gravitation, in der Materie und Energie die Raumzeitkr\u00fcmmung bestimmen.",
+  "glossary.general-relativity.example": "Schwarze L\u00f6cher, Gravitationswellen und die kosmologische Expansion werden durch die allgemeine Relativit\u00e4tstheorie beschrieben.",
+
+  "glossary.hamiltonian-system.term": "Hamiltonsches System",
+  "glossary.hamiltonian-system.definition": "Ein dynamisches System, das durch die Hamiltonschen Gleichungen regiert wird, h\u00e4ufig zur Modellierung konservativer physikalischer Bewegung verwendet.",
+  "glossary.hamiltonian-system.example": "Planetenbewegung wird oft mit Hamiltonschen Systemen modelliert.",
+
+  "glossary.riemann-curvature-tensor.term": "Riemannscher Kr\u00fcmmungstensor",
+  "glossary.riemann-curvature-tensor.definition": "Ein Tensor, der die intrinsische Kr\u00fcmmung einer Mannigfaltigkeit misst, indem er kodiert, wie sich Vektoren bei Paralleltransport um infinitesimale Schleifen \u00e4ndern.",
+  "glossary.riemann-curvature-tensor.example": "Der Riemann-Tensor verschwindet im flachen euklidischen Raum, aber nicht in gekr\u00fcmmter Raumzeit.",
+
+  "glossary.einstein-tensor.term": "Einstein-Tensor",
+  "glossary.einstein-tensor.definition": "Ein aus dem Ricci-Tensor und der skalaren Kr\u00fcmmung gebauter Tensor: $G_{\\mu\\nu} = R_{\\mu\\nu} - \\frac{1}{2}Rg_{\\mu\\nu}$, dessen Divergenz verschwindet.",
+  "glossary.einstein-tensor.example": "Einsteins Feldgleichungen setzen den Einstein-Tensor gleich dem Energie-Impuls-Tensor.",
+
+  "glossary.bianchi-identity.term": "Bianchi-Identit\u00e4t",
+  "glossary.bianchi-identity.definition": "Eine Identit\u00e4t, die der Riemannsche Kr\u00fcmmungstensor erf\u00fcllt und eine tiefe zyklische Symmetrie der Kr\u00fcmmung ausdr\u00fcckt.",
+  "glossary.bianchi-identity.example": "Die Bianchi-Identit\u00e4ten schr\u00e4nken ein, wie sich die Kr\u00fcmmung auf einer Mannigfaltigkeit \u00e4ndern kann, und sind zentral in der allgemeinen Relativit\u00e4tstheorie."
+}
