@@ -6,7 +6,7 @@
 
   "home.greeting": "Hey, {{name}} 👋",
   "home.selectDifficulty": "SCHWIERIGKEIT WÄHLEN",
-  "home.selectTopics": "THEMEN WÄHLEN",
+  "home.selectTopics": "DOMÄNEN WÄHLEN",
   "home.startQuiz": "Quiz Starten 🚀",
   "home.allTopics": "Alle Themen",
   "home.signOut": "Abmelden",
@@ -171,8 +171,7 @@
   "field.cs": "Informatik",
   "field.earth-space": "Erde & Weltraum",
   "field.engineering": "Ingenieurwesen",
-  "field.economics": "Wirtschaft",
-  "field.quant": "Quant. Finanzen",
+  "field.finance": "Finanzen",
   "field.sota-2024": "2024 SOTA",
   "field.sota-2025": "2025 SOTA",
   "field.sota-2026": "2026 SOTA",

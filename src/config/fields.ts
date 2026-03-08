@@ -31,6 +31,35 @@ export const FIELDS: FieldMeta[] = [
     color: 'primary',
     available: true,
   },
+  // ── SOTA fields first ──────────────────────────────────────
+  {
+    slug: 'sota-2024',
+    label: '2024 SOTA',
+    emoji: '⚡',
+    description: 'GPT-4, Llama 2/3, Mixtral, DPO, Constitutional AI, DALL-E 3, Gemini 1.0',
+    topics: ['sota-2024'],
+    color: 'primary',
+    available: true,
+  },
+  {
+    slug: 'sota-2025',
+    label: '2025 SOTA',
+    emoji: '🧠',
+    description: 'Frontier AI papers: CALM, DeepSeek-R1, Speculative Decoding, Data Shapley, SAM 2',
+    topics: ['sota-2025'],
+    color: 'destructive',
+    available: true,
+  },
+  {
+    slug: 'sota-2026',
+    label: '2026 SOTA',
+    emoji: '🚀',
+    description: 'Cutting-edge 2026: AgentSkiller, ALMA, LLaDA2.1, InftyThink+, Block Diffusion',
+    topics: ['sota-2026'],
+    color: 'accent',
+    available: true,
+  },
+  // ── Core academic fields ───────────────────────────────────
   {
     slug: 'math',
     label: 'Mathematics',
@@ -110,50 +139,18 @@ export const FIELDS: FieldMeta[] = [
     available: true,
   },
   {
-    slug: 'economics',
-    label: 'Economics',
-    emoji: '📊',
-    description: 'Microeconomics, Macroeconomics, Econometrics, Game Theory',
-    topics: ['microeconomics', 'macroeconomics', 'econometrics', 'game-theory', 'behavioral-economics', 'development-economics'],
-    color: 'primary',
-    available: true,
-  },
-  {
-    slug: 'quant',
-    label: 'Quant / Finance',
+    slug: 'finance',
+    label: 'Finance',
     emoji: '📈',
-    description: 'Stochastic Calculus, Derivatives, Risk, Portfolio Theory, Fixed Income, Algo Trading',
-    topics: ['stochastic-calculus', 'derivatives-pricing', 'risk-management', 'portfolio-theory', 'fixed-income', 'algo-trading', 'market-microstructure', 'credit-risk', 'prediction-markets'],
+    description: 'Micro/Macroeconomics, Econometrics, Game Theory, Stochastic Calculus, Derivatives, Risk, Portfolio Theory, Algo Trading',
+    topics: [
+      // Economics
+      'microeconomics', 'macroeconomics', 'econometrics', 'game-theory', 'behavioral-economics', 'development-economics',
+      // Quant / Finance
+      'stochastic-calculus', 'derivatives-pricing', 'risk-management', 'portfolio-theory',
+      'fixed-income', 'algo-trading', 'market-microstructure', 'credit-risk', 'prediction-markets',
+    ],
     color: 'destructive',
-    available: true,
-  },
-  // ── Bonafides (CFA, CPA, Actuarial, MBA, Law, Medical, Data Science)
-  // moved to src/config/bonafides.ts and the /bonafides route.
-  {
-    slug: 'sota-2024',
-    label: '2024 SOTA',
-    emoji: '⚡',
-    description: 'GPT-4, Llama 2/3, Mixtral, DPO, Constitutional AI, DALL-E 3, Gemini 1.0',
-    topics: ['sota-2024'],
-    color: 'primary',
-    available: true,
-  },
-  {
-    slug: 'sota-2025',
-    label: '2025 SOTA',
-    emoji: '🧠',
-    description: 'Frontier AI papers: CALM, DeepSeek-R1, Speculative Decoding, Data Shapley, SAM 2',
-    topics: ['sota-2025'],
-    color: 'destructive',
-    available: true,
-  },
-  {
-    slug: 'sota-2026',
-    label: '2026 SOTA',
-    emoji: '🚀',
-    description: 'Cutting-edge 2026: AgentSkiller, ALMA, LLaDA2.1, InftyThink+, Block Diffusion',
-    topics: ['sota-2026'],
-    color: 'accent',
     available: true,
   },
 ];
