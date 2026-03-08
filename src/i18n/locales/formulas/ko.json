@@ -1,1 +1,141 @@
-{}
+{
+  "formula.1.name": "오일러 항등식",
+  "formula.1.significance": "가장 근본적인 다섯 상수 — 0, 1, π, e, i — 를 하나의 완벽하게 균형 잡힌 방정식으로 연결한다. 파인만은 이를 '우리의 보석'이라 불렀다.",
+  "formula.1.applications": "신호 처리, 양자역학, 전기공학, 푸리에 해석, 제어 이론",
+
+  "formula.2.name": "피타고라스 정리",
+  "formula.2.significance": "직각삼각형 변들 사이의 근본적 관계를 정의한다. 370개 이상의 다른 증명을 가진 수학에서 가장 오래된 증명된 정리 중 하나.",
+  "formula.2.applications": "건축, 항법, GPS 삼각측량, 컴퓨터 그래픽스, 물리학, 머신러닝(유클리드 거리)",
+
+  "formula.3.name": "미적분학의 기본 정리",
+  "formula.3.significance": "미분과 적분을 역연산으로 연결한다 — 수학 전체에서 가장 심오한 연결 중 하나.",
+  "formula.3.applications": "물리학, 공학, 경제학, 확률, 통계, 머신러닝(역전파)",
+
+  "formula.4.name": "오일러 공식",
+  "formula.4.significance": "복소수를 통해 지수함수와 삼각함수 사이의 깊은 연결을 드러낸다.",
+  "formula.4.applications": "신호 처리, 교류 회로, 푸리에 해석, 양자역학, 제어 이론",
+
+  "formula.5.name": "근의 공식",
+  "formula.5.significance": "모든 이차방정식을 정확히 풀 수 있다. 고대 바빌로니아에서 이슬람 대수학을 거쳐 전 세계 학교까지, 가장 오래되고 보편적인 수학 공식 중 하나.",
+  "formula.5.applications": "물리학(운동학), 공학, 컴퓨터 그래픽스, 최적화, 금융(손익분기 분석)",
+
+  "formula.6.name": "베이즈 정리",
+  "formula.6.significance": "새로운 증거를 바탕으로 믿음을 업데이트하기 위한 수학적 프레임워크를 제공한다. 확률적 추론과 머신러닝의 엔진.",
+  "formula.6.applications": "머신러닝, 베이즈 통계, 의학 진단, 스팸 필터, AI, 과학적 추론",
+
+  "formula.7.name": "정규분포(확률밀도함수)",
+  "formula.7.significance": "중심극한정리에 의해 보장되는, 자연 어디에나 나타나는 종형 곡선. 고전 통계학의 기초.",
+  "formula.7.applications": "통계, 품질 관리, 금융, 자연과학, 사회과학, 측정 이론",
+
+  "formula.8.name": "스토크스 정리(일반형)",
+  "formula.8.significance": "미적분의 기본 정리를 다양체 위의 미분형식으로 궁극적으로 일반화한 것.",
+  "formula.8.applications": "전자기학, 유체역학, 위상수학, 게이지장 이론, 일반 상대성이론",
+
+  "formula.9.name": "푸리에 변환",
+  "formula.9.significance": "모든 신호를 구성 주파수로 분해한다. 과학과 공학에서 가장 유용한 수학 도구.",
+  "formula.9.applications": "MP3/JPEG 압축, MRI 영상, 분광학, 라디오/WiFi, 레이더, 머신러닝",
+
+  "formula.10.name": "테일러 급수",
+  "formula.10.significance": "모든 매끄러운 함수를 한 점 주위의 무한 다항식 급수로 표현한다. 모든 수치 근사의 기초.",
+  "formula.10.applications": "수치 계산, 물리 근사, 공학, 딥러닝 활성화 함수",
+
+  "formula.11.name": "코시 적분 공식",
+  "formula.11.significance": "해석함수의 등고선 내부 임의의 점에서의 값이 등고선 위의 값에 의해 완전히 결정됨을 보여준다.",
+  "formula.11.applications": "신호 처리, 제어 이론, 양자역학, 유수 적분, 역 라플라스 변환",
+
+  "formula.12.name": "리만 제타 함수",
+  "formula.12.significance": "소수의 분포를 인코딩한다. 리만 가설은 수학에서 가장 큰 미해결 문제이다.",
+  "formula.12.applications": "소수 분포, 암호학, 양자 카오스, 랜덤 행렬 이론",
+
+  "formula.13.name": "코시-슈바르츠 부등식",
+  "formula.13.significance": "수학 전체에서 가장 편재하고 우아한 부등식 중 하나.",
+  "formula.13.applications": "통계(상관관계), 양자역학, 신호 처리, 최적화, 머신러닝",
+
+  "formula.14.name": "고유값 방정식",
+  "formula.14.significance": "선형 변환의 자연 모드 — 회전되지 않고 스케일링만 되는 방향 — 를 정의한다. 응용수학에서 가장 중요한 개념.",
+  "formula.14.applications": "양자역학, PCA, Google PageRank, 구조공학, 신경망, 제어 이론",
+
+  "formula.15.name": "특이값 분해",
+  "formula.15.significance": "모든 행렬을 회전-스케일링-회전 성분으로 분해한다. 계산과학에서 가장 강력하고 다재다능한 행렬 분해.",
+  "formula.15.applications": "PCA, 추천 시스템(Netflix), 이미지 압축, NLP(LSA), 의사역행렬, 딥러닝",
+
+  "formula.16.name": "라그랑주 승수법",
+  "formula.16.significance": "제약 조건 하에서 함수의 극값을 찾는 표준 방법. 모든 제약 최적화의 기초.",
+  "formula.16.applications": "경제학(효용 최대화), 공학 설계, 머신러닝(SVM), 물리학(변분 원리)",
+
+  "formula.17.name": "경사 하강법",
+  "formula.17.significance": "사실상 모든 현대 머신러닝 모델 훈련의 엔진.",
+  "formula.17.applications": "딥러닝, 신경망, LLM(GPT, Claude), 컴퓨터 비전, 추천 시스템",
+
+  "formula.18.name": "중심극한정리",
+  "formula.18.significance": "많은 독립 확률변수의 평균이 원래 분포에 관계없이 정규분포로 수렴함을 진술한다.",
+  "formula.18.applications": "통계적 추론, A/B 테스트, 품질 관리, 여론조사, 역학, 금융 리스크",
+
+  "formula.19.name": "페르마의 마지막 정리",
+  "formula.19.significance": "1637년에 추측되어 358년간 증명되지 않았다. 와일즈의 증명은 모듈러 형식과 타원 곡선을 사용했다.",
+  "formula.19.applications": "대수기하학, 모듈러 형식, 갈루아 표현, 타원 곡선 암호학 발전을 촉진",
+
+  "formula.20.name": "오일러의 다면체 공식",
+  "formula.20.significance": "모든 볼록 다면체의 꼭짓점, 모서리, 면을 연관시킨다. 형상 불변량을 식별하여 위상수학 분야를 창시했다.",
+  "formula.20.applications": "컴퓨터 그래픽스, 네트워크 토폴로지, 재료과학, 지도 채색, 단백질 구조",
+
+  "formula.21.name": "가우스-보네 정리",
+  "formula.21.significance": "곡면의 국소 기하(곡률)를 전역 위상(오일러 특성수)과 연결한다.",
+  "formula.21.applications": "일반 상대성이론, 미분기하, 컴퓨터 그래픽스, 위상수학, 형상 해석",
+
+  "formula.22.name": "칸토어의 대각선 논법",
+  "formula.22.significance": "실수가 자연수와 일대일 대응될 수 없음을 증명한다 — 무한의 크기가 무한히 많다.",
+  "formula.22.applications": "수학의 기초, 계산가능성 이론, 형식 언어 이론, 수학 철학",
+
+  "formula.23.name": "괴델의 불완전성 정리",
+  "formula.23.significance": "충분히 강력한 무모순 형식 체계는 증명할 수 없는 참인 명제를 포함함을 증명한다.",
+  "formula.23.applications": "수학의 기초, 계산가능성의 한계, 철학, AI(형식적 추론의 한계)",
+
+  "formula.24.name": "큰 수의 법칙",
+  "formula.24.significance": "표본 평균이 진정한 모평균으로 수렴함을 보장한다. 통계학과 보험업의 수학적 기반.",
+  "formula.24.applications": "통계, 보험, 도박(하우스 에지), 품질 관리, 과학적 측정",
+
+  "formula.25.name": "푸앵카레 추측(페렐만의 정리)",
+  "formula.25.significance": "모든 단순 연결 닫힌 3차원 다양체는 3차원 구와 위상동형이다. 유일하게 해결된 클레이 밀레니엄 문제.",
+  "formula.25.applications": "위상수학, 우주론(우주의 형태), 의료 영상, 형상 해석",
+
+  "formula.26.name": "이항 정리",
+  "formula.26.significance": "이항식의 거듭제곱을 전개하는 공식을 제공하며, 파스칼의 삼각형을 통해 대수학과 조합론을 연결한다.",
+  "formula.26.applications": "확률, 통계, 다항식 연산, 수치 방법, 조합론",
+
+  "formula.27.name": "스털링 근사",
+  "formula.27.significance": "큰 계승에 대한 우수한 근사를 제공하며, π와 e를 인상적인 공식으로 결합한다.",
+  "formula.27.applications": "통계역학, 정보이론, 조합론, 확률, 알고리즘 분석",
+
+  "formula.28.name": "오일러-마스케로니 상수",
+  "formula.28.significance": "조화급수와 자연로그를 연결하는 신비로운 상수. 유리수인지 무리수인지는 280년 이상 미해결 문제이다.",
+  "formula.28.applications": "정수론, 특수함수(감마함수), 확률, 랜덤 행렬 이론",
+
+  "formula.29.name": "라돈-니코딤 정리",
+  "formula.29.significance": "한 측도가 다른 측도에 대해 절대연속일 때 밀도함수의 존재를 보장한다.",
+  "formula.29.applications": "확률론, 베이즈 통계, 확률 과정, 금융수학, 에르고드 이론",
+
+  "formula.30.name": "요네다 보조정리",
+  "formula.30.significance": "수학적 대상은 다른 모든 대상과의 관계에 의해 완전히 결정됨을 진술한다.",
+  "formula.30.applications": "추상대수, 타입 이론, 함수형 프로그래밍(모나드), 대수적 위상수학, HoTT",
+
+  "formula.31.name": "버코프의 에르고드 정리",
+  "formula.31.significance": "에르고드 측도 보존계에서 시간 평균이 공간 평균과 같음을 증명한다.",
+  "formula.31.applications": "통계역학, 정수론(균등분포), 역학계, 카오스 이론",
+
+  "formula.32.name": "KL 발산",
+  "formula.32.significance": "확률분포가 참조분포와 얼마나 다른지를 측정한다. 분포를 비교하는 근본적 도구.",
+  "formula.32.applications": "변분 오토인코더, RLHF(LLM 정렬), 베이즈 추론, 정보이론, NLP",
+
+  "formula.33.name": "뉴턴의 만유인력 법칙",
+  "formula.33.significance": "떨어지는 사과와 궤도를 도는 행성을 같은 힘이 지배함을 보여주며 천체역학과 지상역학을 통일했다.",
+  "formula.33.applications": "궤도역학, 위성 항법, 우주 임무 계획, 조석력, 중력 렌즈 효과",
+
+  "formula.34.name": "질량-에너지 등가",
+  "formula.34.significance": "과학에서 가장 유명한 방정식. 질량과 에너지가 같은 것의 다른 표현이며 빛의 속도 제곱으로 관계됨을 보여준다.",
+  "formula.34.applications": "원자력, 핵무기, PET 스캔, 입자 가속기, 천체물리학",
+
+  "formula.35.name": "맥스웰 방정식",
+  "formula.35.significance": "전기, 자기, 빛을 통일하는 네 방정식. 전자기파가 발견되기 전에 그 존재를 예측했다.",
+  "formula.35.applications": "라디오, WiFi, MRI, 광섬유, 전기공학, 안테나 설계, 포토닉스"
+}
