@@ -7790,14 +7790,63 @@ export const EQUATIONS: Equation[] = [
     difficulty: "sota",
     tags: ["tubulin", "microtubule", "qubit", "Ising model", "consciousness", "Orch OR", "Hameroff"],
   },
+  {
+    rank: 391,
+    name: "Fröhlich Polaron Hamiltonian",
+    equation: "H_F = \\sum_k \\epsilon_k c_k^\\dagger c_k + \\sum_q \\hbar\\omega_q a_q^\\dagger a_q + \\sum_{k,q} g_{kq}(a_q + a_{-q}^\\dagger)c_k^\\dagger c_{k+q}",
+    discoverer: "Herbert Fröhlich",
+    year: "1950",
+    field: "Condensed Matter / Superconductivity",
+    domain: "Physics",
+    subDomain: "Quantum Mechanics",
+    domainEmoji: "🔬",
+    significance: "The fundamental electron-phonon interaction Hamiltonian: free electrons + free phonons + their coupling. The polaron quasiparticle (electron dressed by phonon cloud) has renormalized mass $m^* > m_e$. This framework enabled BCS theory of superconductivity.",
+    constants: "cₖ = electron annihilation, aₖ = phonon annihilation, gₖq = coupling strength, εₖ = electron energy, ωq = phonon frequency",
+    applications: "BCS superconductivity, polaron physics, electron mobility in ionic crystals, high-Tc superconductivity, quantum biology",
+    beauty: 9,
+    difficulty: "hard",
+    tags: ["Fröhlich", "polaron", "electron-phonon", "BCS", "superconductivity", "condensed matter"],
+  },
+  {
+    rank: 392,
+    name: "Weak Gravity Conjecture",
+    equation: "m \\leq \\sqrt{2}\\, q\\, M_{\\text{Pl}}",
+    discoverer: "Arkani-Hamed, Motl, Nicolis & Vafa",
+    year: "2006",
+    field: "Quantum Gravity / Swampland Program",
+    domain: "Physics",
+    subDomain: "Quantum Mechanics",
+    domainEmoji: "⚖️",
+    significance: "In any consistent quantum gravity theory, there must exist a particle whose charge-to-mass ratio exceeds that of an extremal black hole, ensuring all black holes can decay. This constrains the landscape of consistent effective field theories.",
+    constants: "m = particle mass, q = charge, M_Pl = Planck mass",
+    applications: "Swampland program, axion physics, dark photon constraints, inflation model building, black hole decay",
+    beauty: 8,
+    difficulty: "sota",
+    tags: ["Vafa", "swampland", "weak gravity", "extremal black hole", "quantum gravity"],
+  },
+  {
+    rank: 393,
+    name: "Diósi-Penrose Gravitational Collapse Rate",
+    equation: "\\Lambda = \\frac{Gm^2}{\\hbar R}",
+    discoverer: "Lajos Diósi / Roger Penrose",
+    year: "1989 / 1996",
+    field: "Quantum Gravity / Foundations",
+    domain: "Physics",
+    subDomain: "Quantum Mechanics",
+    domainEmoji: "🌀",
+    significance: "Predicts the spontaneous collapse rate of spatial superpositions due to gravitational self-energy. For mass $m$ displaced by distance $R$, collapse occurs at rate $\\Lambda = Gm^2/(\\hbar R)$. Experimentally testable with levitated nanoparticles.",
+    constants: "G = gravitational constant, m = mass, ℏ = reduced Planck constant, R = spatial displacement",
+    applications: "Experimental quantum gravity tests, Orch OR timescale predictions, MAQRO satellite proposal, nanoparticle interferometry",
+    beauty: 9,
+    difficulty: "sota",
+    tags: ["Penrose", "Diósi", "gravitational collapse", "OR", "quantum gravity", "consciousness"],
+  },
 
 ];
 
 // =============================================================================
 // DERIVED EXPORTS
 // =============================================================================
-
-/** All unique domain values */
 export const EQUATION_DOMAINS: Domain[] = [...new Set(EQUATIONS.map((e) => e.domain))] as Domain[];
 
 /** All unique sub-domain values */
