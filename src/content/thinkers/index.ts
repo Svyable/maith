@@ -1123,6 +1123,10 @@ export const allThinkerQuestions: Question[] = [
   ...leonardSusskindQuestions,
   ...juanMaldacenaQuestions,
 
+  // Quantum Consciousness
+  ...stuartHameroffQuestions,
+  ...anirbanBandyopadhyayQuestions,
+
   // Optimal Transport thinkers
   ...marcoCuturiQuestions,
   ...richardSinkhornQuestions,
