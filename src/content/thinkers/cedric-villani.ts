@@ -49,4 +49,36 @@ export const cedricVillaniQuestions: Question[] = [
     realWorld: 'Understanding gas relaxation to equilibrium has applications in aerospace engineering, plasma physics, and semiconductor modeling.',
     hint: 'This equation describes how gases relax to the Maxwell-Boltzmann distribution.'
   },
+  {
+    id: 21233,
+    topic: 'cedric-villani',
+    difficulty: 'sota',
+    question: 'Villani\'s "Optimal Transport: Old and New" synthesizes OT with Riemannian geometry. What is the Otto calculus?',
+    options: [
+      'A formal Riemannian structure on the space of probability measures where the metric tensor is W₂',
+      'A symbolic calculus for computing Wasserstein distances analytically',
+      'A numerical method for solving the Monge-Ampère equation',
+      'A variational calculus for entropy-regularized transport plans'
+    ],
+    correctIndex: 0,
+    explanation: 'Otto (2001) introduced a formal infinite-dimensional Riemannian structure on P₂(ℝⁿ) where the tangent space at ρ consists of velocity fields and the inner product yields W₂ as the geodesic distance. Villani rigorously developed and popularized this framework.',
+    realWorld: 'Otto calculus inspired Wasserstein natural gradient descent methods in machine learning and information geometry.',
+    hint: 'It treats probability space as a curved manifold with a specific Riemannian metric.'
+  },
+  {
+    id: 21234,
+    topic: 'cedric-villani',
+    difficulty: 'hard',
+    question: 'In Villani\'s framework, what is the Monge problem versus the Kantorovich relaxation?',
+    options: [
+      'Monge seeks a deterministic map T; Kantorovich allows probabilistic couplings (transport plans)',
+      'Monge is continuous; Kantorovich is discrete',
+      'Monge is for L¹ cost; Kantorovich is for L² cost',
+      'Monge works on manifolds; Kantorovich works on Euclidean spaces only'
+    ],
+    correctIndex: 0,
+    explanation: 'Monge (1781) required a map T:X→Y with T#μ=ν; Kantorovich (1942) relaxed this to joint measures γ∈Π(μ,ν). The Kantorovich formulation is a linear program that always has a solution, while Monge\'s may not.',
+    realWorld: 'Kantorovich\'s relaxation made OT computationally tractable and earned him the 1975 Nobel Prize in Economics.',
+    hint: 'One requires each grain of sand to go to exactly one destination; the other allows splitting.'
+  },
 ];
