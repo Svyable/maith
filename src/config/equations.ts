@@ -7845,8 +7845,8 @@ export const EQUATIONS: Equation[] = [
 ];
 
 // =============================================================================
-
-/** All unique domain values */
+// DERIVED EXPORTS
+// =============================================================================
 export const EQUATION_DOMAINS: Domain[] = [...new Set(EQUATIONS.map((e) => e.domain))] as Domain[];
 
 /** All unique sub-domain values */
