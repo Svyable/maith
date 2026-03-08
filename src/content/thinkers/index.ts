@@ -1107,6 +1107,9 @@ export const allThinkerQuestions: Question[] = [
   ...andrzejEhrenfeuchtQuestions,
   ...herbertGrotzschQuestions,
 
+  // Frontier Physics
+  ...halPuthoffQuestions,
+
   // Optimal Transport thinkers
   ...marcoCuturiQuestions,
   ...richardSinkhornQuestions,
