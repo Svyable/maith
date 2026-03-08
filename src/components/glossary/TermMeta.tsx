@@ -9,8 +9,7 @@ type FieldSlug =
   | 'computer-science'
   | 'earth-space'
   | 'engineering'
-  | 'economics'
-  | 'quant-finance'
+  | 'finance'
   | 'cfa-program'
   | 'cpa-exam'
   | 'actuarial-exams'
@@ -32,8 +31,7 @@ const FIELD_META: Record<string, { emoji: string; label: string }> = {
   'computer-science': { emoji: '💻', label: 'Computer Science' },
   'earth-space': { emoji: '🌍', label: 'Earth & Space' },
   engineering: { emoji: '⚙️', label: 'Engineering' },
-  economics: { emoji: '📊', label: 'Economics' },
-  'quant-finance': { emoji: '📈', label: 'Quant / Finance' },
+  finance: { emoji: '📈', label: 'Finance' },
   'cfa-program': { emoji: '🏛️', label: 'CFA Program' },
   'cpa-exam': { emoji: '📋', label: 'CPA Exam' },
   'actuarial-exams': { emoji: '📐', label: 'Actuarial Exams' },
