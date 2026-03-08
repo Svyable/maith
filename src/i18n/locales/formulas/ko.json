@@ -517,5 +517,125 @@
 
   "formula.130.name": "헤론의 공식",
   "formula.130.significance": "높이 없이 세 변의 길이만으로 임의의 삼각형 넓이를 계산한다.",
-  "formula.130.applications": "측량, 계산 기하학, 지리정보시스템, 건축, 물리 시뮬레이션"
+  "formula.130.applications": "측량, 계산 기하학, 지리정보시스템, 건축, 물리 시뮬레이션",
+
+  "formula.131.name": "하버사인 공식",
+  "formula.131.significance": "위도와 경도로부터 구면 위 두 점 사이의 대원 거리를 계산한다. 항해를 위한 구면삼각법의 기본 공식.",
+  "formula.131.applications": "GPS 거리 계산, 항공 경로 계획, 해상 항해, 지리정보시스템, 지도 앱",
+
+  "formula.132.name": "로지스틱 함수 (시그모이드)",
+  "formula.132.significance": "임의의 실수를 (0,1)로 매핑하여 확률로 해석할 수 있게 한다. 로지스틱 회귀와 이진 분류의 표준 활성화 함수.",
+  "formula.132.applications": "로지스틱 회귀, 이진 분류, 신경망 활성화, 베이즈 갱신, 역학",
+
+  "formula.133.name": "오일러 토티언트 함수 항등식",
+  "formula.133.significance": "n의 모든 약수에 대한 오일러 토티언트 함수의 합은 n이다. 모듈러 산술과 RSA 암호체계의 정확성에 근본적.",
+  "formula.133.applications": "RSA 암호학, 공개키 암호화, 모듈러 산술, 정수론",
+
+  "formula.134.name": "그람-슈미트 과정",
+  "formula.134.significance": "선형 독립인 벡터 집합을 축차 사영과 감산으로 정규직교 기저로 변환한다. QR 분해의 기초.",
+  "formula.134.applications": "수치 선형대수, QR 분해, 최소제곱법, 기계 학습, 신호 부분공간 분석",
+
+  "formula.135.name": "케일리-해밀턴 정리",
+  "formula.135.significance": "모든 정사각행렬은 자신의 특성 다항식을 만족한다. 행렬 역행렬, 행렬 함수, 행렬 거듭제곱의 효율적 계산을 가능하게 한다.",
+  "formula.135.applications": "제어 시스템, 양자 역학, 컴퓨터 그래픽스, 행렬 함수 계산",
+
+  "formula.136.name": "포커-플랑크 방정식",
+  "formula.136.significance": "표류와 확산에 의해 구동되는 확률 과정의 확률 밀도 진화를 기술한다. 이토 SDE의 PDE 쌍대.",
+  "formula.136.applications": "통계 물리학, 금융 (위험중립 밀도), 신경과학, 브라운 운동, 확률적 제어",
+
+  "formula.137.name": "이토의 등장성",
+  "formula.137.significance": "확률 적분의 기본 등장성: 확률 적분의 L² 노름은 피적분 함수의 시간 영역 L² 노름과 같다.",
+  "formula.137.applications": "파생상품 가격결정, 보험수리학, 확률적 제어, 금융 위험",
+
+  "formula.138.name": "효율적 시장 가설",
+  "formula.138.significance": "시점 t의 자산 가격은 현재 정보에 기반한 미래 가격의 최적 예측이다 — 가격은 마팅게일이다. 금융에서 가장 논쟁적인 아이디어.",
+  "formula.138.applications": "액티브 vs 패시브 투자, 시장 규제, 알고리즘 트레이딩, 행동금융학 연구",
+
+  "formula.139.name": "사인 법칙",
+  "formula.139.significance": "삼각형의 변의 길이를 대각의 사인 값과 외접원 반지름에 연결한다. 빗삼각형을 풀기 위한 필수 도구.",
+  "formula.139.applications": "측량, 항해, 천문학, 건축, 컴퓨터 그래픽스, GPS 삼각측량",
+
+  "formula.140.name": "적분 기호 아래 미분에 관한 라이프니츠 법칙",
+  "formula.140.significance": "적분 상하한과 피적분 함수 모두 미분 변수에 의존하는 적분의 미분을 가능하게 한다. 리처드 파인만이 가장 좋아한 기법.",
+  "formula.140.applications": "베이즈 통계, 물리학, 공학, 옵션 가격결정 (그릭스 도출), 파인만 다이어그램",
+
+  "formula.141.name": "전건 긍정",
+  "formula.141.significance": "논리적 연역의 가장 기본적인 규칙. 조건문이 참이고 전건이 성립하면 후건이 반드시 따른다.",
+  "formula.141.applications": "수학적 증명, 프로그래밍 (if-then 논리), AI 추론, 법적 논증, 자동 정리 증명",
+
+  "formula.142.name": "베르누이 수 항등식",
+  "formula.142.significance": "베르누이 수를 사용하여 정수 거듭제곱의 합에 대한 닫힌 형태를 제공한다. tan(x)와 sec(x)의 테일러 급수에 등장.",
+  "formula.142.applications": "해석적 정수론, 베르누이 다항식, 오일러-매클로린 합산, 대수적 K이론",
+
+  "formula.143.name": "소볼레프 노름",
+  "formula.143.significance": "함수 값과 도함수 값을 모두 측정하는 함수 공간인 소볼레프 공간을 정의한다. PDE 약해의 자연스러운 프레임워크.",
+  "formula.143.applications": "PDE 이론, 유한요소법, 함수 근사, ML의 RKHS, 이미지 처리",
+
+  "formula.144.name": "한-바나흐 정리",
+  "formula.144.significance": "부분공간에서의 유계 선형 범함수가 노름을 증가시키지 않고 전체 공간으로 확장될 수 있음을 보장한다. 함수해석학의 기초 정리 중 하나.",
+  "formula.144.applications": "함수해석학, 최적화 쌍대성, 리스 표현 정리, PDE, 경제적 효용 이론",
+
+  "formula.145.name": "제2종 스털링 수",
+  "formula.145.significance": "n개의 대상을 k개의 비어 있지 않은 부분집합으로 분할하는 방법의 수를 센다. 조합론과 알고리즘 분석에 등장.",
+  "formula.145.applications": "조합론, 형식적 멱급수, 알고리즘 분석, 컴퓨터 과학, 확률 (모멘트)",
+
+  "formula.146.name": "해밀턴 역학",
+  "formula.146.significance": "해밀턴의 정준 방정식은 고전 역학을 위상 공간 좌표 (q,p)로 재정식화한다. 라그랑주 역학보다 더 대칭적이고 일반적.",
+  "formula.146.applications": "통계 역학, 양자 역학 (정준 양자화), 카오스 이론, 분자 동역학, 제어 이론",
+
+  "formula.147.name": "리우빌 정리 (역학)",
+  "formula.147.significance": "해밀턴 진화 하에서 위상 공간 부피가 보존됨을 보인다 — 밀도는 비압축성 유체처럼 흐른다.",
+  "formula.147.applications": "통계 역학, 플라즈마 물리학, 카오스 이론 (측도 보존 동역학), 양자 역학",
+
+  "formula.148.name": "윌슨의 정리",
+  "formula.148.significance": "계승을 이용한 소수성의 필요충분조건을 제공한다. 우아하지만 큰 n에 대해 계산적으로 비실용적.",
+  "formula.148.applications": "정수론, 소수성, 모듈러 산술, 암호학 (이론적 관심)",
+
+  "formula.149.name": "네른스트-플랑크 방정식",
+  "formula.149.significance": "농도 구배와 전기장 구배 모두에 의해 구동되는 하전 입자 플럭스를 기술한다. 이온 수송 모델링에 필수적.",
+  "formula.149.applications": "신경과학 (이온 채널), 연료전지, 배터리, 담수화 막, 바이오센서",
+
+  "formula.150.name": "나비에-스토크스 존재성 (미해결 밀레니엄 문제)",
+  "formula.150.significance": "클레이 수학연구소의 7대 밀레니엄 현상금 문제 중 하나 ($1M 미해결). 3D 나비에-스토크스 방정식에 매끄러운 해가 항상 존재하는지 묻는다.",
+  "formula.150.applications": "난류 이론, 공기역학, 기후 모델링, 유체의 기초 물리학",
+
+  "formula.151.name": "아티야-싱어 지수 정리",
+  "formula.151.significance": "20세기 가장 심오한 정리 중 하나로, 위상수학, 기하학, 해석학을 통합한다. 타원 미분 작용소의 해석적 지수를 위상 불변량에 연결.",
+  "formula.151.applications": "이론 물리학 (QFT 이상 소거), 끈 이론, 응집물질 (위상 상), K이론",
+
+  "formula.152.name": "리만-로흐 정리",
+  "formula.152.significance": "지정된 극을 갖는 유리형 함수 공간의 차원을 인자의 차수와 곡선의 종수에 연결한다. 대수기하학의 기본 정리.",
+  "formula.152.applications": "대수기하학, 부호 이론 (고파 부호), 암호학 (타원곡선), 끈 이론",
+
+  "formula.153.name": "베유 추측 (들리뉴 정리)",
+  "formula.153.significance": "유한체 위의 다양체의 제타 함수가 리만 가설의 유사물을 만족한다고 베유가 추측했다. 들리뉴의 증명으로 필즈상을 수상.",
+  "formula.153.applications": "산술 기하학, 부호 이론, 암호학 (유한체 위의 타원곡선), 모티프 코호몰로지",
+
+  "formula.154.name": "그로텐디크-리만-로흐 정리",
+  "formula.154.significance": "고전적 리만-로흐 정리를 스킴 간의 사상으로 일반화한다. 그로텐디크는 K이론과 층 방법을 도입하여 증명했다.",
+  "formula.154.applications": "대수기하학, 모티프 코호몰로지, 끈 이론 (D-브레인), 교차 이론, K이론",
+
+  "formula.155.name": "푸앵카레 쌍대성",
+  "formula.155.significance": "닫힌 가향 n-다양체에서 제k 코호몰로지 군은 제(n−k) 호몰로지 군과 동형이다. 다양체의 근본적 대칭성.",
+  "formula.155.applications": "대수적 위상수학, 미분기하학, 수리물리학 (호지 이론), 끈 이론 (거울 대칭)",
+
+  "formula.156.name": "레프셰츠 고정점 정리",
+  "formula.156.significance": "코호몰로지 대각합을 통해 고정점 존재의 위상적 판정 기준을 제공한다. 브라우어 고정점 정리를 일반화.",
+  "formula.156.applications": "동역학계 (주기 궤도), 게임 이론 (내쉬 균형 존재), 대수기하학, 경제학",
+
+  "formula.157.name": "소수 정리",
+  "formula.157.significance": "x 이하의 소수 개수가 점근적으로 x/ln(x)임을 증명한다. 가우스가 추측하고 아다마르와 드 라 발레 푸생이 복소해석으로 증명.",
+  "formula.157.applications": "암호학 (소수 생성), 계산 정수론, RSA 키 크기 선택, 확률적 소수성 테스트",
+
+  "formula.158.name": "등차수열에서의 소수에 관한 디리클레 정리",
+  "formula.158.significance": "gcd(a,d)=1일 때 등차수열 a, a+d, a+2d, …에 무한히 많은 소수가 있음을 증명한다. 해석적 정수론의 탄생.",
+  "formula.158.applications": "해석적 정수론, 암호학 (소수 분포), 디리클레 L-함수, 보형형식",
+
+  "formula.159.name": "체비셰프 프사이 함수",
+  "formula.159.significance": "로그 가중치로 소수 거듭제곱을 세며, 점근적으로 x임을 증명한다. 체비셰프의 접근법은 π(x)에 대한 최초의 정량적 상한을 제공.",
+  "formula.159.applications": "해석적 정수론, 소수 분포 상한, ζ(s) 영점에 대한 명시적 공식",
+
+  "formula.160.name": "로렌츠 계",
+  "formula.160.significance": "최초로 발견된 이상한 끌개인 로렌츠 끌개를 생성하는 세 연립 상미분방정식. 대기 대류 시뮬레이션 중 발견되어 '나비효과'를 탄생시켰다.",
+  "formula.160.applications": "기상 예보, 카오스 이론, 암호학 (카오스 생성기), 유체역학, 레이저 동역학"
 }

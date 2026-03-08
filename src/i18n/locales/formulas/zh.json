@@ -517,5 +517,125 @@
 
   "formula.130.name": "海伦公式",
   "formula.130.significance": "仅从三边长度计算任意三角形的面积，无需知道高。",
-  "formula.130.applications": "测量、计算几何、地理信息系统、建筑、物理模拟"
+  "formula.130.applications": "测量、计算几何、地理信息系统、建筑、物理模拟",
+
+  "formula.131.name": "半正矢公式",
+  "formula.131.significance": "根据两点的经纬度计算球面上的大圆距离。球面三角学在导航中的基本公式。",
+  "formula.131.applications": "GPS距离计算、航线规划、海上导航、地理信息系统、地图应用",
+
+  "formula.132.name": "逻辑函数（Sigmoid）",
+  "formula.132.significance": "将任意实数映射到(0,1)，使其可解释为概率。逻辑回归和二分类的经典激活函数。",
+  "formula.132.applications": "逻辑回归、二分类、神经网络激活、贝叶斯更新、流行病学",
+
+  "formula.133.name": "欧拉欧拉函数恒等式",
+  "formula.133.significance": "欧拉欧拉函数在n的所有因子上的求和等于n。对模算术和RSA密码系统的正确性至关重要。",
+  "formula.133.applications": "RSA密码学、公钥加密、模算术、数论",
+
+  "formula.134.name": "格拉姆-施密特正交化过程",
+  "formula.134.significance": "通过逐步投影和减法将任意线性无关向量组转换为正交归一基。QR分解的基础。",
+  "formula.134.applications": "数值线性代数、QR分解、最小二乘、机器学习、信号子空间分析",
+
+  "formula.135.name": "凯莱-哈密顿定理",
+  "formula.135.significance": "每个方阵都满足其自身的特征多项式。可用于矩阵求逆、矩阵函数和矩阵幂的高效计算。",
+  "formula.135.applications": "控制系统、量子力学、计算机图形学、矩阵函数计算",
+
+  "formula.136.name": "福克-普朗克方程",
+  "formula.136.significance": "描述由漂移和扩散驱动的随机过程概率密度的演化。伊藤随机微分方程的PDE对偶。",
+  "formula.136.applications": "统计物理、金融（风险中性密度）、神经科学、布朗运动、随机控制",
+
+  "formula.137.name": "伊藤等距",
+  "formula.137.significance": "随机积分的基本等距关系：随机积分的L²范数等于其被积函数在时间域中的L²范数。",
+  "formula.137.applications": "衍生品定价、精算科学、随机控制、金融风险",
+
+  "formula.138.name": "有效市场假说",
+  "formula.138.significance": "t时刻的资产价格是基于当前信息的未来价格最佳预测——价格是鞅。金融学中最有争议的理论。",
+  "formula.138.applications": "主动与被动投资、市场监管、算法交易、行为金融学研究",
+
+  "formula.139.name": "正弦定理",
+  "formula.139.significance": "将三角形的边长与对角的正弦值及外接圆半径联系起来。求解斜三角形的基本工具。",
+  "formula.139.applications": "测量、导航、天文学、建筑、计算机图形学、GPS三角定位",
+
+  "formula.140.name": "莱布尼茨积分号下求导法则",
+  "formula.140.significance": "允许对积分上下限和被积函数都依赖于求导变量的积分进行求导。理查德·费曼最喜欢的技巧。",
+  "formula.140.applications": "贝叶斯统计、物理学、工程学、期权定价（希腊字母推导）、费曼图",
+
+  "formula.141.name": "肯定前件",
+  "formula.141.significance": "逻辑演绎最基本的规则。若一个条件命题为真且其前件成立，则后件必然成立。",
+  "formula.141.applications": "数学证明、编程（if-then逻辑）、AI推理、法律论证、自动定理证明",
+
+  "formula.142.name": "伯努利数恒等式",
+  "formula.142.significance": "用伯努利数给出整数幂之和的封闭形式。伯努利数出现在tan(x)和sec(x)的泰勒级数中。",
+  "formula.142.applications": "解析数论、伯努利多项式、欧拉-麦克劳林求和、代数K理论",
+
+  "formula.143.name": "索伯列夫范数",
+  "formula.143.significance": "定义索伯列夫空间——同时度量函数值和导数值的函数空间。PDE弱解的自然框架。",
+  "formula.143.applications": "PDE理论、有限元方法、函数逼近、ML中的RKHS、图像处理",
+
+  "formula.144.name": "哈恩-巴拿赫定理",
+  "formula.144.significance": "保证子空间上的有界线性泛函可以扩展到全空间而不增加其范数。泛函分析的基础定理之一。",
+  "formula.144.applications": "泛函分析、优化对偶、里斯表示、PDE、经济效用理论",
+
+  "formula.145.name": "第二类斯特林数",
+  "formula.145.significance": "计算将n个对象划分为k个非空子集的方式数。出现在组合数学和算法分析中。",
+  "formula.145.applications": "组合数学、形式幂级数、算法分析、计算机科学、概率（矩）",
+
+  "formula.146.name": "哈密顿力学",
+  "formula.146.significance": "哈密顿正则方程用相空间坐标(q,p)重新表述经典力学。比拉格朗日力学更对称、更一般。",
+  "formula.146.applications": "统计力学、量子力学（正则量子化）、混沌理论、分子动力学、控制理论",
+
+  "formula.147.name": "刘维尔定理（力学）",
+  "formula.147.significance": "表明相空间体积在哈密顿演化下守恒——密度像不可压缩流体一样流动。",
+  "formula.147.applications": "统计力学、等离子体物理、混沌理论（保测动力学）、量子力学",
+
+  "formula.148.name": "威尔逊定理",
+  "formula.148.significance": "用阶乘给出素性的充要条件。优雅但对大n计算不可行。",
+  "formula.148.applications": "数论、素性、模算术、密码学（理论兴趣）",
+
+  "formula.149.name": "能斯特-普朗克方程",
+  "formula.149.significance": "描述由浓度梯度和电场梯度共同驱动的带电粒子通量。建模离子传输的关键方程。",
+  "formula.149.applications": "神经科学（离子通道）、燃料电池、电池、海水淡化膜、生物传感器",
+
+  "formula.150.name": "纳维-斯托克斯存在性（开放千禧年问题）",
+  "formula.150.significance": "七大克莱千禧年奖问题之一（$1M悬赏）。问3D纳维-斯托克斯方程是否总存在光滑解。",
+  "formula.150.applications": "湍流理论、空气动力学、气候建模、流体基本物理",
+
+  "formula.151.name": "阿蒂亚-辛格指标定理",
+  "formula.151.significance": "20世纪最深刻的定理之一，统一了拓扑、几何和分析。将椭圆微分算子的解析指标与拓扑不变量联系起来。",
+  "formula.151.applications": "理论物理（QFT反常消除）、弦理论、凝聚态（拓扑相）、K理论",
+
+  "formula.152.name": "黎曼-洛赫定理",
+  "formula.152.significance": "将具有规定极点的亚纯函数空间的维数与因子的度和曲线的亏格联系起来。代数几何的基本定理。",
+  "formula.152.applications": "代数几何、编码理论（Goppa码）、密码学（椭圆曲线）、弦理论",
+
+  "formula.153.name": "韦伊猜想（德利涅定理）",
+  "formula.153.significance": "韦伊猜测有限域上簇的zeta函数满足黎曼假设的类似物。德利涅的证明使他获得了菲尔兹奖。",
+  "formula.153.applications": "算术几何、编码理论、密码学（有限域上的椭圆曲线）、动机上同调",
+
+  "formula.154.name": "格罗滕迪克-黎曼-洛赫定理",
+  "formula.154.significance": "将经典黎曼-洛赫定理推广到概型之间的态射。格罗滕迪克引入K理论和层方法来证明它。",
+  "formula.154.applications": "代数几何、动机上同调、弦理论（D-膜）、交叉理论、K理论",
+
+  "formula.155.name": "庞加莱对偶",
+  "formula.155.significance": "对于闭合可定向n-流形，第k上同调群同构于第(n−k)同调群。流形的基本对称性。",
+  "formula.155.applications": "代数拓扑、微分几何、数学物理（霍奇理论）、弦理论（镜像对称）",
+
+  "formula.156.name": "莱夫谢茨不动点定理",
+  "formula.156.significance": "通过上同调迹提供不动点存在性的拓扑判据。推广了布劳威尔不动点定理。",
+  "formula.156.applications": "动力系统（周期轨道）、博弈论（纳什均衡存在性）、代数几何、经济学",
+
+  "formula.157.name": "素数定理",
+  "formula.157.significance": "证明x以下的素数个数渐近为x/ln(x)。由高斯猜想，由阿达马和德拉瓦莱-普桑用复分析证明。",
+  "formula.157.applications": "密码学（素数生成）、计算数论、RSA密钥大小选择、概率素性测试",
+
+  "formula.158.name": "狄利克雷算术级数中的素数定理",
+  "formula.158.significance": "证明当gcd(a,d)=1时，每个算术级数a, a+d, a+2d, …中有无穷多个素数。解析数论的诞生。",
+  "formula.158.applications": "解析数论、密码学（素数分布）、狄利克雷L函数、自守形式",
+
+  "formula.159.name": "切比雪夫Psi函数",
+  "formula.159.significance": "用对数权重计数素数幂，证明其渐近为x。切比雪夫的方法给出了π(x)的最早定量界。",
+  "formula.159.applications": "解析数论、素数分布界、ζ(s)零点的显式公式",
+
+  "formula.160.name": "洛伦兹系统",
+  "formula.160.significance": "三个耦合常微分方程产生了首个被发现的奇异吸引子——洛伦兹吸引子。洛伦兹在模拟大气对流时发现了它，创造了'蝴蝶效应'一词。",
+  "formula.160.applications": "天气预报、混沌理论、密码学（混沌生成器）、流体动力学、激光动力学"
 }

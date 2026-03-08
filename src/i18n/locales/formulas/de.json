@@ -520,5 +520,125 @@
 
   "formula.130.name": "Heronsche Formel",
   "formula.130.significance": "Berechnet die Fläche jedes Dreiecks allein aus seinen drei Seitenlängen, ohne die Höhe zu benötigen.",
-  "formula.130.applications": "Vermessung, algorithmische Geometrie, Geoinformationssysteme, Architektur, Physiksimulationen"
+  "formula.130.applications": "Vermessung, algorithmische Geometrie, Geoinformationssysteme, Architektur, Physiksimulationen",
+
+  "formula.131.name": "Haversine-Formel",
+  "formula.131.significance": "Berechnet Großkreisentfernungen zwischen zwei Punkten auf einer Kugel aus ihren Breiten- und Längengraden. Die grundlegende Formel der sphärischen Trigonometrie für die Navigation.",
+  "formula.131.applications": "GPS-Entfernungsberechnung, Flugrouten, Seenavigation, Geoinformationssysteme, Kartenanwendungen",
+
+  "formula.132.name": "Logistische Funktion (Sigmoid)",
+  "formula.132.significance": "Bildet jede reelle Zahl auf (0,1) ab und macht sie als Wahrscheinlichkeit interpretierbar. Die kanonische Aktivierungsfunktion der logistischen Regression und binären Klassifikation.",
+  "formula.132.applications": "Logistische Regression, binäre Klassifikation, neuronale Netzaktivierung, Bayes'sche Aktualisierung, Epidemiologie",
+
+  "formula.133.name": "Euler'sche Totientenfunktion-Identität",
+  "formula.133.significance": "Die Summe der Euler'schen Totientenfunktion über alle Teiler von n ergibt n. Fundamental für die modulare Arithmetik und die Korrektheit des RSA-Kryptosystems.",
+  "formula.133.applications": "RSA-Kryptographie, Public-Key-Verschlüsselung, modulare Arithmetik, Zahlentheorie",
+
+  "formula.134.name": "Gram-Schmidt-Verfahren",
+  "formula.134.significance": "Wandelt jede linear unabhängige Menge von Vektoren durch sukzessive Projektionen und Subtraktionen in eine Orthonormalbasis um. Grundlage der QR-Zerlegung.",
+  "formula.134.applications": "Numerische lineare Algebra, QR-Zerlegung, kleinste Quadrate, maschinelles Lernen, Signal-Unterraumanalyse",
+
+  "formula.135.name": "Satz von Cayley-Hamilton",
+  "formula.135.significance": "Jede quadratische Matrix erfüllt ihr eigenes charakteristisches Polynom. Ermöglicht Matrixinverse, Matrixfunktionen und effiziente Berechnung von Matrixpotenzen.",
+  "formula.135.applications": "Regelungssysteme, Quantenmechanik, Computergrafik, Berechnung von Matrixfunktionen",
+
+  "formula.136.name": "Fokker-Planck-Gleichung",
+  "formula.136.significance": "Beschreibt die Entwicklung der Wahrscheinlichkeitsdichte eines stochastischen Prozesses, getrieben durch Drift und Diffusion. Die PDE-Duale zur Itô-SDE.",
+  "formula.136.applications": "Statistische Physik, Finanzen (risikoneutrale Dichte), Neurowissenschaften, Brown'sche Bewegung, stochastische Steuerung",
+
+  "formula.137.name": "Itô-Isometrie",
+  "formula.137.significance": "Die fundamentale Isometrie für stochastische Integrale: die L²-Norm eines stochastischen Integrals entspricht der L²-Norm seines Integranden im Zeitbereich.",
+  "formula.137.applications": "Derivatebewertung, Versicherungsmathematik, stochastische Steuerung, Finanzrisiko",
+
+  "formula.138.name": "Effizienzmarkthypothese",
+  "formula.138.significance": "Anlagepreise zum Zeitpunkt t sind die beste Prognose künftiger Preise bei gegebener Information — Preise sind Martingale. Die meistdiskutierte Idee der Finanzwissenschaft.",
+  "formula.138.applications": "Aktives vs. passives Investieren, Marktregulierung, algorithmischer Handel, verhaltensökonomische Forschung",
+
+  "formula.139.name": "Sinussatz",
+  "formula.139.significance": "Setzt die Seitenlängen eines Dreiecks in Beziehung zu den Sinuswerten der gegenüberliegenden Winkel und dem Umkreisradius. Wesentlich zur Lösung schiefwinkliger Dreiecke.",
+  "formula.139.applications": "Vermessung, Navigation, Astronomie, Architektur, Computergrafik, GPS-Triangulation",
+
+  "formula.140.name": "Leibniz-Regel für Differentiation unter dem Integralzeichen",
+  "formula.140.significance": "Erlaubt die Differentiation eines Integrals, dessen Grenzen und Integrand beide von der Differentiationsvariable abhängen. Richard Feynmans Lieblingstrick.",
+  "formula.140.applications": "Bayes'sche Statistik, Physik, Ingenieurwesen, Optionspreisbildung (Herleitung der Greeks), Feynman-Diagramme",
+
+  "formula.141.name": "Modus Ponens",
+  "formula.141.significance": "Die fundamentalste Regel der logischen Deduktion. Wenn ein Konditional wahr ist und sein Antezedens gilt, muss das Konsequens folgen.",
+  "formula.141.applications": "Mathematischer Beweis, Programmierung (Wenn-Dann-Logik), KI-Schlussfolgerung, juristische Argumentation, automatisiertes Theorembeweisen",
+
+  "formula.142.name": "Bernoulli-Zahlen-Identität",
+  "formula.142.significance": "Gibt eine geschlossene Form für Summen ganzzahliger Potenzen mittels Bernoulli-Zahlen. Diese erscheinen in den Taylor-Reihen von tan(x) und sec(x).",
+  "formula.142.applications": "Analytische Zahlentheorie, Bernoulli-Polynome, Euler-Maclaurin-Summation, algebraische K-Theorie",
+
+  "formula.143.name": "Sobolev-Norm",
+  "formula.143.significance": "Definiert Sobolev-Räume — Funktionsräume, die sowohl Funktions- als auch Ableitungswerte messen. Der natürliche Rahmen für schwache Lösungen von PDEs.",
+  "formula.143.applications": "PDE-Theorie, Finite-Elemente-Methoden, Funktionsapproximation, RKHS in ML, Bildverarbeitung",
+
+  "formula.144.name": "Satz von Hahn-Banach",
+  "formula.144.significance": "Garantiert, dass beschränkte lineare Funktionale auf einem Unterraum auf den gesamten Raum fortgesetzt werden können, ohne ihre Norm zu erhöhen. Ein Grundsatz der Funktionalanalysis.",
+  "formula.144.applications": "Funktionalanalysis, Optimierungsdualität, Riesz-Darstellung, PDEs, ökonomische Nutzentheorie",
+
+  "formula.145.name": "Stirling-Zahlen zweiter Art",
+  "formula.145.significance": "Zählt die Anzahl der Möglichkeiten, n Objekte in k nichtleere Teilmengen aufzuteilen. Erscheinen in der Kombinatorik und der Algorithmenanalyse.",
+  "formula.145.applications": "Kombinatorik, formale Potenzreihen, Algorithmenanalyse, Informatik, Wahrscheinlichkeit (Momente)",
+
+  "formula.146.name": "Hamilton'sche Mechanik",
+  "formula.146.significance": "Hamiltons kanonische Gleichungen reformulieren die klassische Mechanik in Phasenraumkoordinaten (q,p). Symmetrischer und allgemeiner als die Lagrange-Mechanik.",
+  "formula.146.applications": "Statistische Mechanik, Quantenmechanik (kanonische Quantisierung), Chaostheorie, Molekulardynamik, Regelungstheorie",
+
+  "formula.147.name": "Satz von Liouville (Mechanik)",
+  "formula.147.significance": "Zeigt, dass das Phasenraumvolumen unter Hamilton'scher Evolution erhalten bleibt — die Dichte strömt wie eine inkompressible Flüssigkeit.",
+  "formula.147.applications": "Statistische Mechanik, Plasmaphysik, Chaostheorie (maßerhaltende Dynamik), Quantenmechanik",
+
+  "formula.148.name": "Satz von Wilson",
+  "formula.148.significance": "Liefert eine notwendige und hinreichende Bedingung für Primalität in Form von Fakultäten. Elegant, aber rechnerisch unpraktikabel für große n.",
+  "formula.148.applications": "Zahlentheorie, Primalität, modulare Arithmetik, Kryptographie (theoretisches Interesse)",
+
+  "formula.149.name": "Nernst-Planck-Gleichung",
+  "formula.149.significance": "Beschreibt den Fluss geladener Spezies, getrieben durch Konzentrations- und elektrische Feldgradienten. Wesentlich für die Modellierung des Ionentransports.",
+  "formula.149.applications": "Neurowissenschaften (Ionenkanäle), Brennstoffzellen, Batterien, Entsalzungsmembranen, Biosensoren",
+
+  "formula.150.name": "Navier-Stokes-Existenz (Offenes Millenniumsproblem)",
+  "formula.150.significance": "Eines der sieben Clay-Millenniumspreisprobleme ($1M ungelöst). Fragt, ob glatte Lösungen für die 3D-Navier-Stokes-Gleichungen immer existieren.",
+  "formula.150.applications": "Turbulenztheorie, Aerodynamik, Klimamodellierung, fundamentale Strömungsphysik",
+
+  "formula.151.name": "Atiyah-Singer-Indexsatz",
+  "formula.151.significance": "Einer der tiefsten Sätze des 20. Jahrhunderts, der Topologie, Geometrie und Analysis vereint. Verbindet den analytischen Index eines elliptischen Differentialoperators mit topologischen Invarianten.",
+  "formula.151.applications": "Theoretische Physik (Anomalieaufhebung in QFT), Stringtheorie, kondensierte Materie (topologische Phasen), K-Theorie",
+
+  "formula.152.name": "Riemann-Roch-Satz",
+  "formula.152.significance": "Setzt die Dimension des Raums meromorpher Funktionen mit vorgeschriebenen Polen zum Grad des Divisors und dem Geschlecht der Kurve in Beziehung. Grundsatz der algebraischen Geometrie.",
+  "formula.152.applications": "Algebraische Geometrie, Codierungstheorie (Goppa-Codes), Kryptographie (elliptische Kurven), Stringtheorie",
+
+  "formula.153.name": "Weil-Vermutungen (Satz von Deligne)",
+  "formula.153.significance": "Weil vermutete, dass die Zetafunktion einer Varietät über einem endlichen Körper ein Analogon der Riemann-Hypothese erfüllt. Delignes Beweis brachte ihm die Fields-Medaille.",
+  "formula.153.applications": "Arithmetische Geometrie, Codierungstheorie, Kryptographie (elliptische Kurven über endlichen Körpern), motivische Kohomologie",
+
+  "formula.154.name": "Grothendieck-Riemann-Roch-Satz",
+  "formula.154.significance": "Verallgemeinert den klassischen Riemann-Roch-Satz auf Morphismen zwischen Schemata. Grothendieck führte K-Theorie und Garbenmethoden zu seinem Beweis ein.",
+  "formula.154.applications": "Algebraische Geometrie, motivische Kohomologie, Stringtheorie (D-Branen), Schnitttheorie, K-Theorie",
+
+  "formula.155.name": "Poincaré-Dualität",
+  "formula.155.significance": "Für eine geschlossene orientierbare n-Mannigfaltigkeit ist die k-te Kohomologiegruppe isomorph zur (n−k)-ten Homologiegruppe. Eine fundamentale Symmetrie der Mannigfaltigkeiten.",
+  "formula.155.applications": "Algebraische Topologie, Differentialgeometrie, mathematische Physik (Hodge-Theorie), Stringtheorie (Spiegelsymmetrie)",
+
+  "formula.156.name": "Lefschetz-Fixpunktsatz",
+  "formula.156.significance": "Liefert ein topologisches Kriterium für die Existenz von Fixpunkten über die kohomologische Spur. Verallgemeinert den Fixpunktsatz von Brouwer.",
+  "formula.156.applications": "Dynamische Systeme (periodische Bahnen), Spieltheorie (Existenz des Nash-Gleichgewichts), algebraische Geometrie, Wirtschaftswissenschaften",
+
+  "formula.157.name": "Primzahlsatz",
+  "formula.157.significance": "Beweist, dass die Anzahl der Primzahlen bis x asymptotisch x/ln(x) beträgt. Von Gauss vermutet und durch Hadamard und de la Vallée Poussin mittels komplexer Analysis bewiesen.",
+  "formula.157.applications": "Kryptographie (Primzahlerzeugung), rechnerische Zahlentheorie, RSA-Schlüsselgrößenwahl, probabilistische Primalitätstests",
+
+  "formula.158.name": "Dirichlets Satz über Primzahlen in arithmetischen Folgen",
+  "formula.158.significance": "Beweist, dass unendlich viele Primzahlen in jeder arithmetischen Folge a, a+d, a+2d, … liegen, wenn ggT(a,d)=1. Die Geburt der analytischen Zahlentheorie.",
+  "formula.158.applications": "Analytische Zahlentheorie, Kryptographie (Primzahlverteilung), Dirichlet-L-Funktionen, automorphe Formen",
+
+  "formula.159.name": "Tschebyschew'sche Psi-Funktion",
+  "formula.159.significance": "Zählt Primzahlpotenzen mit logarithmischem Gewicht und beweist, dass sie asymptotisch x ist. Tschebyschews Ansatz gab die ersten quantitativen Schranken für π(x).",
+  "formula.159.applications": "Analytische Zahlentheorie, Schranken der Primzahlverteilung, explizite Formeln für ζ(s)-Nullstellen",
+
+  "formula.160.name": "Lorenz-System",
+  "formula.160.significance": "Drei gekoppelte ODEs, die den ersten entdeckten seltsamen Attraktor erzeugen: den Lorenz-Attraktor. Edward Lorenz fand ihn bei der Simulation atmosphärischer Konvektion und prägte den „Schmetterlingseffekt".",
+  "formula.160.applications": "Wettervorhersage, Chaostheorie, Kryptographie (chaotische Generatoren), Strömungsdynamik, Laserdynamik"
 }
