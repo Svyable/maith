@@ -338,6 +338,14 @@ import { emmanuelCandesQuestions } from "./emmanuel-candes";
 import { robertTibshiraniQuestions } from "./robert-tibshirani";
 import { sanjeevAroraQuestions } from "./sanjeev-arora";
 import { cedricVillaniQuestions } from "./cedric-villani";
+import { marcoCuturiQuestions } from "./marco-cuturi";
+import { richardSinkhornQuestions } from "./richard-sinkhorn";
+import { paulKnoppQuestions } from "./paul-knopp";
+import { jeanDavidBenamouQuestions } from "./jean-david-benamou";
+import { yannBrenierQuestions } from "./yann-brenier";
+import { luigiAmbrosioQuestions } from "./luigi-ambrosio";
+import { filippoSantambrogioQuestions } from "./filippo-santambrogio";
+import { gabrielPeyreQuestions } from "./gabriel-peyre";
 import { michaelJordanQuestions } from "./michael-jordan";
 import { alexandrWangQuestions } from "./alexandr-wang";
 import { benGreenQuestions } from "./ben-green";
@@ -1098,6 +1106,16 @@ export const allThinkerQuestions: Question[] = [
   ...janMycielskiQuestions,
   ...andrzejEhrenfeuchtQuestions,
   ...herbertGrotzschQuestions,
+
+  // Optimal Transport thinkers
+  ...marcoCuturiQuestions,
+  ...richardSinkhornQuestions,
+  ...paulKnoppQuestions,
+  ...jeanDavidBenamouQuestions,
+  ...yannBrenierQuestions,
+  ...luigiAmbrosioQuestions,
+  ...filippoSantambrogioQuestions,
+  ...gabrielPeyreQuestions,
 ];
 export function getThinkerQuestions(slug: string): Question[] {
   return allThinkerQuestions.filter((q) => q.topic === slug);

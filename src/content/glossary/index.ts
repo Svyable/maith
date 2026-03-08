@@ -31,7 +31,7 @@ import { functionalAnalysisTerms } from './functional-analysis';
 import { diffGeometryTerms } from './differential-geometry';
 import { numericalMethodsTerms } from './numerical-methods';
 import { statisticalLearningTerms } from './statistical-learning';
-
+import { optimalTransportTerms } from './optimal-transport';
 // ── Locale-aware field imports (folder pattern) ─────────────
 import { earthSpaceTerms_en } from './earth-space/en';
 import { earthSpaceTerms_es } from './earth-space/es';
@@ -83,6 +83,8 @@ const STATIC_TERMS: GlossaryTerm[] = [
   ...numericalMethodsTerms,
   // Statistical learning
   ...statisticalLearningTerms,
+  // Optimal Transport
+  ...optimalTransportTerms,
 ];
 
 // ── Public API ──────────────────────────────────────────────
