@@ -34,6 +34,13 @@
   "stats.formulas": "सूत्र",
 
   "difficulty.selectHint": "एक या अधिक स्तर चुनें",
+  "difficulty.easy": "आसान",
+  "difficulty.hard": "कठिन",
+  "difficulty.sota": "SOTA",
+  "difficulty.easyDesc": "मूल बातें — नर्म अंक",
+  "difficulty.hardDesc": "प्रतिस्पर्धी — दोहरे अंक",
+  "difficulty.sotaDesc": "अग्रणी — अधिकतम इनाम",
+  "difficulty.pts": "+{{pts}}अंक",
 
   "quiz.question": "प्र {{current}}/{{total}}",
   "quiz.points": "{{score}} अंक",
