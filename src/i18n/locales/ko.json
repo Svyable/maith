@@ -6,7 +6,7 @@
 
   "home.greeting": "안녕, {{name}} 👋",
   "home.selectDifficulty": "난이도 선택",
-  "home.selectTopics": "주제 선택",
+  "home.selectTopics": "도메인 선택",
   "home.startQuiz": "퀴즈 시작 🚀",
   "home.allTopics": "모든 주제",
   "home.signOut": "로그아웃",
@@ -171,8 +171,7 @@
   "field.cs": "컴퓨터 과학",
   "field.earth-space": "지구·우주",
   "field.engineering": "공학",
-  "field.economics": "경제학",
-  "field.quant": "퀀트·금융",
+  "field.finance": "금융",
   "field.sota-2024": "2024 SOTA",
   "field.sota-2025": "2025 SOTA",
   "field.sota-2026": "2026 SOTA",

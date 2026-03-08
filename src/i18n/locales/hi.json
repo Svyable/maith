@@ -6,7 +6,7 @@
 
   "home.greeting": "नमस्ते, {{name}} 👋",
   "home.selectDifficulty": "कठिनाई चुनें",
-  "home.selectTopics": "विषय चुनें",
+  "home.selectTopics": "डोमेन चुनें",
   "home.startQuiz": "क्विज़ शुरू करें 🚀",
   "home.allTopics": "सभी विषय",
   "home.signOut": "लॉग आउट",
@@ -171,8 +171,7 @@
   "field.cs": "कंप्यूटर विज्ञान",
   "field.earth-space": "पृथ्वी एवं अंतरिक्ष",
   "field.engineering": "इंजीनियरिंग",
-  "field.economics": "अर्थशास्त्र",
-  "field.quant": "क्वांट / वित्त",
+  "field.finance": "वित्त",
   "field.sota-2024": "2024 SOTA",
   "field.sota-2025": "2025 SOTA",
   "field.sota-2026": "2026 SOTA",
