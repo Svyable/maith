@@ -1115,6 +1115,12 @@ export const allThinkerQuestions: Question[] = [
   // Frontier Physics
   ...halPuthoffQuestions,
 
+  // Holography & Black Hole Physics
+  ...jacobBekensteinQuestions,
+  ...gerardThooftQuestions,
+  ...leonardSusskindQuestions,
+  ...juanMaldacenaQuestions,
+
   // Optimal Transport thinkers
   ...marcoCuturiQuestions,
   ...richardSinkhornQuestions,
