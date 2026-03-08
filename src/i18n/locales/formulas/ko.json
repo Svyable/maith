@@ -137,5 +137,145 @@
 
   "formula.35.name": "맥스웰 방정식",
   "formula.35.significance": "전기, 자기, 빛을 통일하는 네 방정식. 전자기파가 발견되기 전에 그 존재를 예측했다.",
-  "formula.35.applications": "라디오, WiFi, MRI, 광섬유, 전기공학, 안테나 설계, 포토닉스"
+  "formula.35.applications": "라디오, WiFi, MRI, 광섬유, 전기공학, 안테나 설계, 광자공학",
+
+  "formula.36.name": "슈뢰딩거 방정식",
+  "formula.36.significance": "모든 비상대론적 양자 시스템을 지배하는 기본 방정식. 양자 상태가 시간에 따라 어떻게 진화하는지 기술한다.",
+  "formula.36.applications": "반도체, 트랜지스터, 레이저, MRI, 양자 컴퓨팅, 원자/분자 물리학",
+
+  "formula.37.name": "하이젠베르크 불확정성 원리",
+  "formula.37.significance": "위치와 운동량 불확정성의 곱에 대한 근본적인 하한을 설정한다. 이것은 측정 기술의 한계가 아니라 현실의 본질적 특성이다.",
+  "formula.37.applications": "양자 컴퓨팅, 전자현미경 분해능 한계, 핵물리학, 양자 암호학",
+
+  "formula.38.name": "디랙 방정식",
+  "formula.38.significance": "양자역학과 특수상대성이론을 최초로 결합한 방정식. 반물질(양전자)을 예측했다. 스핀이 자연스럽게 나타난다.",
+  "formula.38.applications": "입자물리학, 양자장론, PET, 반물질 연구",
+
+  "formula.39.name": "아인슈타인 장방정식",
+  "formula.39.significance": "중력을 질량-에너지에 의한 시공간 곡률로 기술한다. 블랙홀, 중력파, 팽창 우주를 예측했다 — 모두 실험적으로 확인됨.",
+  "formula.39.applications": "GPS(상대론적 보정), 중력파 검출기(LIGO), 블랙홀 촬영, 우주론",
+
+  "formula.40.name": "뇌터의 정리",
+  "formula.40.significance": "물리적 작용의 모든 연속 대칭은 보존량에 대응한다. 시간 대칭 → 에너지 보존. 공간 대칭 → 운동량 보존.",
+  "formula.40.applications": "모든 이론물리학: 입자물리학, 일반상대론, 양자장론, 응집물질물리학",
+
+  "formula.41.name": "볼츠만 엔트로피 공식",
+  "formula.41.significance": "원자의 미시적 세계와 거시적 열역학을 연결한다. 엔트로피를 미시상태 수의 로그로 정의. 볼츠만의 묘비에 새겨져 있다.",
+  "formula.41.applications": "통계역학, 블랙홀 물리학, 정보이론, 계산 복잡도",
+
+  "formula.42.name": "열역학 제2법칙",
+  "formula.42.significance": "고립계의 엔트로피는 절대 감소하지 않는다. 시간의 화살을 정의 — 과거와 미래를 구별하는 유일한 기본 물리법칙.",
+  "formula.42.applications": "열기관, 냉동 사이클, 정보이론, 맥스웰의 도깨비, 우주론",
+
+  "formula.43.name": "플랑크 법칙",
+  "formula.43.significance": "흑체 복사의 스펙트럼 분포를 기술한다. 최초의 양자 방정식 — 플랑크는 자외선 재앙을 피하기 위해 에너지를 양자화해야 했다.",
+  "formula.43.applications": "천체물리학(항성 분류), LED 설계, 열화상, 기후과학, CMB 우주론",
+
+  "formula.44.name": "나비에-스토크스 방정식",
+  "formula.44.significance": "모든 점성 유체의 운동을 지배한다. 클레이 밀레니엄 상 문제 중 하나(100만 달러): 매끄러운 전역해가 항상 존재하는지 증명은 미해결.",
+  "formula.44.applications": "공기역학, 기상 예보, CFD, 심혈관 모델링, 해양 순환",
+
+  "formula.45.name": "파동 방정식",
+  "formula.45.significance": "모든 파동 현상의 전파를 기술한다 — 음파, 광파, 지진파, 수면파. 물리학에서 가장 중요한 편미분방정식 중 하나.",
+  "formula.45.applications": "음향학, 광학, 지진학, 전자기파, 악기, 초음파",
+
+  "formula.46.name": "오일러-라그랑주 방정식",
+  "formula.46.significance": "라그랑주 역학의 핵심 방정식. 뉴턴의 법칙과 동치이지만 힘이 아닌 에너지로 표현된다.",
+  "formula.46.applications": "고전역학, 광학, 일반상대론, 양자장론, 제어이론, 로보틱스",
+
+  "formula.47.name": "최소 작용의 원리",
+  "formula.47.significance": "자연은 작용 적분이 정류하는 경로를 따른다. 뉴턴의 법칙보다 더 심오 — 고전역학, 광학, 전자기학, 일반상대론, 양자역학을 동등하게 지배.",
+  "formula.47.applications": "모든 물리학: 광학(페르마), 역학, 장이론, 파인만 경로적분, 로보틱스",
+
+  "formula.48.name": "보른 규칙",
+  "formula.48.significance": "양자 파동함수를 실험적 측정 확률에 연결한다. 양자역학의 추상적 수학 형식과 관측 가능한 물리적 세계 사이의 다리.",
+  "formula.48.applications": "양자화학, 원자물리학, 양자 컴퓨팅, 재료과학",
+
+  "formula.49.name": "이상기체 법칙",
+  "formula.49.significance": "세 가지 실험적 기체 법칙을 하나의 우아한 방정식으로 결합. 모든 상태방정식의 원형이자 통계역학의 출발점.",
+  "formula.49.applications": "화학, 화학공학, 대기과학, 냉동, 내연기관",
+
+  "formula.50.name": "벨 부등식",
+  "formula.50.significance": "모든 국소 숨은 변수 이론이 만족해야 하는 검증 가능한 부등식을 제공. 실험적 위반이 양자 얽힘의 실재성을 증명. 2022년 노벨상.",
+  "formula.50.applications": "양자 암호학, 양자 키 분배(QKD), 양자 기초 검증, 양자 컴퓨팅",
+
+  "formula.51.name": "베르누이 방정식",
+  "formula.51.significance": "유체 흐름에서 에너지 보존을 표현 — 속도가 증가하면 압력이 감소. 항공기 양력과 벤투리 효과를 설명.",
+  "formula.51.applications": "항공학(양력), 수력학, 기화기, 벤투리 유량계, 심혈관 유체역학",
+
+  "formula.52.name": "민코프스키 계량",
+  "formula.52.significance": "특수상대론에서 평탄한 시공간의 기하학을 정의하며, 특징적인 마이너스 부호로 공간과 시간을 통일한다.",
+  "formula.52.applications": "특수상대론, GPS, 입자 운동학, 중력파 검출",
+
+  "formula.53.name": "리치 흐름",
+  "formula.53.significance": "리만 계량을 보다 균일한 곡률로 진화시킨다. 페렐만이 리치 흐름으로 푸앵카레 추측을 증명 — 유일하게 해결된 밀레니엄 상 문제.",
+  "formula.53.applications": "위상수학(푸앵카레 추측), 기하학적 해석, 3차원 다양체 분류",
+
+  "formula.54.name": "드브로이 파장",
+  "formula.54.significance": "물질이 빛처럼 파동 성질을 가지며 파장이 운동량에 반비례함을 제안. 전자 회절로 확인됨.",
+  "formula.54.applications": "전자현미경, 양자 컴퓨팅, 중성자 산란, 재료 특성화, 입자물리학",
+
+  "formula.55.name": "깁스 자유 에너지",
+  "formula.55.significance": "화학 반응이 일정 온도·압력에서 자발적으로 진행되는지 예측(ΔG < 0). 화학 열역학과 생화학의 초석.",
+  "formula.55.applications": "화학 반응, 생화학, 의약품 설계, 재료 합성, 전기화학(배터리)",
+
+  "formula.56.name": "아레니우스 방정식",
+  "formula.56.significance": "반응 속도가 온도에 지수함수적으로 의존함을 기술. 산업 화학 공정 설계와 약물 안정성 시험의 기반.",
+  "formula.56.applications": "화학공학, 약물 안정성, 식품과학, 촉매 설계, 재료 열화",
+
+  "formula.57.name": "헨더슨-하셀바흐 방정식",
+  "formula.57.significance": "완충 용액의 pH를 pKa와 농도비에 연관시킨다. 혈액 pH 조절과 의약품 제형에 필수적.",
+  "formula.57.applications": "생화학, 혈액 pH 조절, 의약품 제형, 적정 곡선, 세포생물학",
+
+  "formula.58.name": "네른스트 방정식",
+  "formula.58.significance": "전기화학 셀 전위를 반응물 농도에 연관시킨다. 신경과학에서 막 휴지전위 계산에 사용. 1920년 노벨상.",
+  "formula.58.applications": "신경과학(활동전위), 배터리, 연료전지, 전기도금, pH미터, 바이오센서",
+
+  "formula.59.name": "미카엘리스-멘텐 동역학",
+  "formula.59.significance": "효소 촉매 반응 속도를 기질 농도의 함수로 기술. 효소학과 약동학의 기초.",
+  "formula.59.applications": "약물 설계, 약동학, 대사 모델링, 생물반응기 설계, 임상 약리학",
+
+  "formula.60.name": "하디-바인베르크 평형",
+  "formula.60.significance": "진화하지 않는 집단에서 예상되는 대립유전자 및 유전자형 빈도를 기술. 집단유전학의 영가설 모델.",
+  "formula.60.applications": "집단유전학, GWAS, 법의학 DNA, 보전생물학",
+
+  "formula.61.name": "SIR 전염병 모델",
+  "formula.61.significance": "감수성/감염/회복 구획을 통해 전염병 확산을 모델화. R₀=β/γ는 COVID-19 동안 가장 많이 인용된 통계량.",
+  "formula.61.applications": "COVID-19 모델링, 백신 전략, 집단면역 계산, 공중보건 정책",
+
+  "formula.62.name": "호지킨-헉슬리 모델",
+  "formula.62.significance": "뉴런의 활동전위가 전압 의존성 이온 채널을 통해 어떻게 생성되고 전파되는지 기술. 1963년 노벨상.",
+  "formula.62.applications": "계산신경과학, 뇌-컴퓨터 인터페이스, 신경보철, 약물 표적 식별",
+
+  "formula.63.name": "로트카-볼테라 방정식",
+  "formula.63.significance": "포식자-피식자 집단 동역학의 진동을 기술. 가장 단순한 생태학적 상호작용 모델.",
+  "formula.63.applications": "생태학, 어업 관리, 역학, 경제 경쟁 모델링, 군비 경쟁 이론",
+
+  "formula.64.name": "로지스틱 성장 방정식",
+  "formula.64.significance": "환경 수용력에 의해 제한되는 집단 성장을 모델화. 이산 버전은 카오스를 대중에게 소개한 방정식.",
+  "formula.64.applications": "집단생물학, 역학, 자원 관리, 기술 채택 곡선, 카오스 이론",
+
+  "formula.65.name": "섀넌 엔트로피",
+  "formula.65.significance": "정보량을 정량화 — 확률 분포의 평균적 놀라움. 정보이론 전체 분야를 창설했다.",
+  "formula.65.applications": "데이터 압축(허프만, Lempel-Ziv), 암호학, 기계학습(교차 엔트로피 손실), 통신",
+
+  "formula.66.name": "정지 문제(결정 불가능성)",
+  "formula.66.significance": "임의의 프로그램이 주어진 입력에서 정지하는지 결정할 수 있는 일반적 알고리즘이 존재하지 않음을 증명. 계산의 근본적 한계를 확립.",
+  "formula.66.applications": "컴파일러 설계, 형식 검증, 프로그램 분석, 라이스 정리, 소프트웨어 테스트 이론",
+
+  "formula.67.name": "P 대 NP",
+  "formula.67.significance": "해가 다항시간 내에 검증 가능한 모든 문제가 다항시간 내에 풀 수 있는지 묻는다. 컴퓨터 과학에서 가장 중요한 미해결 문제.",
+  "formula.67.applications": "암호학(보안은 P≠NP에 의존), AI, 스케줄링, 물류, 단백질 접힘",
+
+  "formula.68.name": "RSA 암호화",
+  "formula.68.significance": "최초의 실용적 공개키 암호시스템. 큰 정수의 인수분해의 추정된 어려움에 기반.",
+  "formula.68.applications": "HTTPS/TLS, 디지털 서명, 인증 기관, 보안 이메일, 온라인 뱅킹",
+
+  "formula.69.name": "PageRank 알고리즘",
+  "formula.69.significance": "웹페이지 중요도를 하이퍼링크 그래프 위의 랜덤 서퍼의 정상 분포로 모델화. Google의 원래 검색엔진을 구동했다.",
+  "formula.69.applications": "웹 검색, 인용 분석, 추천 시스템, 네트워크 중심성, 소셜 네트워크 분석",
+
+  "formula.70.name": "어텐션 메커니즘(Transformer)",
+  "formula.70.significance": "스케일드 닷-프로덕트 어텐션, 모든 Transformer 모델의 핵심 연산. 병렬화 가능한 시퀀스 모델링을 가능하게 했다. GPT, Claude, Gemini, LLaMA, AlphaFold 뒤의 방정식.",
+  "formula.70.applications": "대규모 언어 모델(GPT, Claude, Gemini), 기계번역, 이미지 생성, AlphaFold, 코드 생성"
 }

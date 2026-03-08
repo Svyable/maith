@@ -136,6 +136,146 @@
   "formula.34.applications": "原子力、核兵器、PETスキャン、粒子加速器、天体物理学",
 
   "formula.35.name": "マクスウェル方程式",
-  "formula.35.significance": "電気、磁気、光を統一する4つの方程式。電磁波が発見される前にその存在を予言した。すべての電磁技術の基礎。",
-  "formula.35.applications": "ラジオ、WiFi、MRI、光ファイバー、電気工学、アンテナ設計、フォトニクス"
+  "formula.35.significance": "電気、磁気、光を統一する4つの方程式。電磁波が発見される前にその存在を予言した。",
+  "formula.35.applications": "ラジオ、WiFi、MRI、光ファイバー、電気工学、アンテナ設計、フォトニクス",
+
+  "formula.36.name": "シュレーディンガー方程式",
+  "formula.36.significance": "全ての非相対論的量子系を支配する基本方程式。量子状態の時間発展を記述する。原子スケールで古典力学に取って代わった。",
+  "formula.36.applications": "半導体、トランジスタ、レーザー、MRI、量子コンピューティング、原子・分子物理学",
+
+  "formula.37.name": "ハイゼンベルクの不確定性原理",
+  "formula.37.significance": "位置と運動量の不確定性の積に基本的な下限を設定する。これは測定技術の限界ではなく、現実の内在的特性である。",
+  "formula.37.applications": "量子コンピューティング、電子顕微鏡の分解能限界、核物理学、量子暗号",
+
+  "formula.38.name": "ディラック方程式",
+  "formula.38.significance": "量子力学と特殊相対性理論を初めて結合した方程式。反物質（陽電子）を予言した。スピンが自然に出現する。全ての量子場理論の原型。",
+  "formula.38.applications": "素粒子物理学、量子場理論、PET、反物質研究",
+
+  "formula.39.name": "アインシュタイン場方程式",
+  "formula.39.significance": "重力を質量-エネルギーによる時空の曲がりとして記述する。ブラックホール、重力波、膨張宇宙を予言した——全て実験的に確認済み。",
+  "formula.39.applications": "GPS（相対論的補正）、重力波検出器（LIGO）、ブラックホール撮影、宇宙論",
+
+  "formula.40.name": "ネーターの定理",
+  "formula.40.significance": "物理的作用の全ての連続対称性は保存量に対応する。時間対称性→エネルギー保存。空間対称性→運動量保存。「物理学で最も重要な定理」と呼ばれる。",
+  "formula.40.applications": "全理論物理学：素粒子物理学、一般相対論、量子場理論、物性物理学",
+
+  "formula.41.name": "ボルツマンのエントロピー公式",
+  "formula.41.significance": "原子の微視的世界とマクロな熱力学を結びつける。エントロピーを微視的状態数の対数として定義。ボルツマンの墓碑に刻まれている。",
+  "formula.41.applications": "統計力学、ブラックホール物理学、情報理論、計算複雑性",
+
+  "formula.42.name": "熱力学第二法則",
+  "formula.42.significance": "孤立系のエントロピーは決して減少しない。時間の矢を定義する——過去と未来を区別する唯一の基本物理法則。",
+  "formula.42.applications": "熱機関、冷凍サイクル、情報理論、マクスウェルの悪魔、宇宙論",
+
+  "formula.43.name": "プランクの法則",
+  "formula.43.significance": "黒体放射のスペクトル分布を記述する。最初の量子方程式——プランクは紫外線カタストロフィーを避けるためエネルギーを量子化せざるを得なかった。",
+  "formula.43.applications": "天体物理学（恒星分類）、LED設計、熱画像、気候科学、CMB宇宙論",
+
+  "formula.44.name": "ナビエ-ストークス方程式",
+  "formula.44.significance": "全ての粘性流体の運動を支配する。クレイ・ミレニアム賞問題の一つ（100万ドル）：滑らかな大域解が常に存在するかの証明は未解決。",
+  "formula.44.applications": "空気力学、天気予報、CFD、心血管モデリング、海洋循環",
+
+  "formula.45.name": "波動方程式",
+  "formula.45.significance": "全ての波動現象の伝播を記述する——音波、光波、地震波、水波。物理学で最も重要な偏微分方程式の一つ。",
+  "formula.45.applications": "音響学、光学、地震学、電磁波、楽器、超音波",
+
+  "formula.46.name": "オイラー-ラグランジュ方程式",
+  "formula.46.significance": "ラグランジュ力学の中心方程式。ニュートンの法則と等価だが、力ではなくエネルギーで表現される。",
+  "formula.46.applications": "古典力学、光学、一般相対論、量子場理論、制御理論、ロボティクス",
+
+  "formula.47.name": "最小作用の原理",
+  "formula.47.significance": "自然は作用積分が停留する経路をたどる。ニュートンの法則より深遠——古典力学、光学、電磁気学、一般相対論、量子力学を等しく支配する。",
+  "formula.47.applications": "全物理学：光学（フェルマー）、力学、場の理論、ファインマン経路積分、ロボティクス",
+
+  "formula.48.name": "ボルンの規則",
+  "formula.48.significance": "量子波動関数と実験的測定確率を結びつける。量子力学の抽象的数学形式と観測可能な物理世界の橋渡し。",
+  "formula.48.applications": "量子化学、原子物理学、量子コンピューティング、材料科学",
+
+  "formula.49.name": "理想気体の法則",
+  "formula.49.significance": "3つの実験的気体法則を1つの優雅な方程式に統合。全状態方程式の原型であり統計力学の出発点。",
+  "formula.49.applications": "化学、化学工学、大気科学、冷凍、内燃機関",
+
+  "formula.50.name": "ベルの不等式",
+  "formula.50.significance": "局所隠れた変数理論が満たすべき検証可能な不等式を提供。量子力学は2√2までの違反を予測。実験的違反が量子もつれの実在性を証明。2022年ノーベル賞。",
+  "formula.50.applications": "量子暗号、量子鍵配送（QKD）、量子基礎の検証、量子コンピューティング",
+
+  "formula.51.name": "ベルヌーイの方程式",
+  "formula.51.significance": "流体の流れにおけるエネルギー保存を表現——速度が増すと圧力が低下。航空機の揚力、ベンチュリ効果を説明。",
+  "formula.51.applications": "航空学（揚力）、水力学、キャブレター、ベンチュリ計、心血管流体力学",
+
+  "formula.52.name": "ミンコフスキー計量",
+  "formula.52.significance": "特殊相対論における平坦な時空の幾何学を定義し、特徴的なマイナス符号で空間と時間を統一する。",
+  "formula.52.applications": "特殊相対論、GPS、素粒子運動学、重力波検出",
+
+  "formula.53.name": "リッチフロー",
+  "formula.53.significance": "リーマン計量をより均一な曲率へ進化させる。ペレルマンがリッチフローを用いてポアンカレ予想を証明——唯一解決されたミレニアム賞問題。",
+  "formula.53.applications": "トポロジー（ポアンカレ予想）、幾何学的解析、3次元多様体の分類",
+
+  "formula.54.name": "ド・ブロイ波長",
+  "formula.54.significance": "物質も光のように波動性を持ち、波長は運動量に反比例することを提唱。電子回折で確認。",
+  "formula.54.applications": "電子顕微鏡、量子コンピューティング、中性子散乱、材料特性評価、素粒子物理学",
+
+  "formula.55.name": "ギブス自由エネルギー",
+  "formula.55.significance": "化学反応が一定温度・圧力で自発的に進むかを予測（ΔG < 0）。化学熱力学と生化学の礎石。",
+  "formula.55.applications": "化学反応、生化学、医薬品設計、材料合成、電気化学（電池）",
+
+  "formula.56.name": "アレニウスの式",
+  "formula.56.significance": "反応速度が温度に指数関数的に依存することを記述。工業化学プロセスの設計と薬物安定性試験の基盤。",
+  "formula.56.applications": "化学工学、薬物安定性、食品科学、触媒設計、材料劣化",
+
+  "formula.57.name": "ヘンダーソン-ハッセルバルヒの式",
+  "formula.57.significance": "緩衝液のpHをpKaと濃度比に関連付ける。血液pH調節と医薬品処方に不可欠。",
+  "formula.57.applications": "生化学、血液pH調節、医薬品処方、滴定曲線、細胞生物学",
+
+  "formula.58.name": "ネルンストの式",
+  "formula.58.significance": "電気化学セル電位を反応物濃度に関連付ける。神経科学で膜静止電位の計算に使用。1920年ノーベル賞。",
+  "formula.58.applications": "神経科学（活動電位）、電池、燃料電池、電気めっき、pHメーター、バイオセンサー",
+
+  "formula.59.name": "ミカエリス-メンテン動力学",
+  "formula.59.significance": "酵素触媒反応の速度を基質濃度の関数として記述。酵素学と薬物動態学の基礎。",
+  "formula.59.applications": "医薬品設計、薬物動態学、代謝モデリング、バイオリアクター設計、臨床薬理学",
+
+  "formula.60.name": "ハーディ-ワインベルグ平衡",
+  "formula.60.significance": "進化していない集団における予想対立遺伝子頻度と遺伝子型頻度を記述。集団遺伝学のヌルモデル。",
+  "formula.60.applications": "集団遺伝学、GWAS、法医学DNA、保全生物学",
+
+  "formula.61.name": "SIR感染症モデル",
+  "formula.61.significance": "感受性・感染・回復の区画を通じて感染症の伝播をモデル化。R₀=β/γはCOVID-19中に最も引用された統計量。",
+  "formula.61.applications": "COVID-19モデリング、ワクチン戦略、集団免疫計算、公衆衛生政策",
+
+  "formula.62.name": "ホジキン-ハクスレーモデル",
+  "formula.62.significance": "ニューロンの活動電位が電圧依存性イオンチャネルを通じてどのように発生・伝播するかを記述。1963年ノーベル賞。",
+  "formula.62.applications": "計算神経科学、脳-コンピューターインターフェース、神経補綴、薬物標的同定",
+
+  "formula.63.name": "ロトカ-ヴォルテラ方程式",
+  "formula.63.significance": "捕食者-被食者の振動する集団動態を記述。最も単純な生態学的相互作用モデル。",
+  "formula.63.applications": "生態学、漁業管理、疫学、経済競争モデリング、軍拡競争理論",
+
+  "formula.64.name": "ロジスティック成長方程式",
+  "formula.64.significance": "環境収容力に制限された集団増殖をモデル化。離散版はカオスを一般に紹介した方程式。",
+  "formula.64.applications": "集団生物学、疫学、資源管理、技術普及曲線、カオス理論",
+
+  "formula.65.name": "シャノンエントロピー",
+  "formula.65.significance": "情報量を定量化——確率分布の平均的な驚き。情報理論の全分野を創設した。",
+  "formula.65.applications": "データ圧縮（ハフマン、Lempel-Ziv）、暗号学、機械学習（交差エントロピー損失）、電気通信",
+
+  "formula.66.name": "停止問題（決定不能性）",
+  "formula.66.significance": "任意のプログラムが与えられた入力で停止するかを決定できる一般的なアルゴリズムは存在しないことを証明。計算の基本的限界を確立。",
+  "formula.66.applications": "コンパイラ設計、形式検証、プログラム解析、Riceの定理、ソフトウェアテスト理論",
+
+  "formula.67.name": "P対NP問題",
+  "formula.67.significance": "解が多項式時間で検証可能な全ての問題が多項式時間で解けるかを問う。コンピュータ科学で最も重要な未解決問題。",
+  "formula.67.applications": "暗号学（安全性はP≠NPに依存）、AI、スケジューリング、物流、タンパク質折りたたみ",
+
+  "formula.68.name": "RSA暗号",
+  "formula.68.significance": "最初の実用的な公開鍵暗号システム。大きな整数の因数分解の推定される困難さに基づく。",
+  "formula.68.applications": "HTTPS/TLS、デジタル署名、認証局、セキュアメール、オンラインバンキング",
+
+  "formula.69.name": "PageRankアルゴリズム",
+  "formula.69.significance": "ウェブページの重要度をハイパーリンクグラフ上のランダムサーファーの定常分布としてモデル化。Googleのオリジナル検索エンジンを駆動した。",
+  "formula.69.applications": "ウェブ検索、引用分析、推薦システム、ネットワーク中心性、ソーシャルネットワーク分析",
+
+  "formula.70.name": "アテンション機構（Transformer）",
+  "formula.70.significance": "スケーリングされた内積アテンション、全Transformerモデルの中核操作。並列化可能なシーケンスモデリングを実現。GPT、Claude、Gemini、LLaMA、AlphaFoldの背後にある方程式。",
+  "formula.70.applications": "大規模言語モデル（GPT、Claude、Gemini）、機械翻訳、画像生成、AlphaFold、コード生成"
 }
