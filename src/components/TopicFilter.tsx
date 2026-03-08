@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { TOPICS } from '@/config/constants';
+import { tTopic } from '@/i18n/tTopics';
 
 interface TopicFilterProps {
   selected: string[];
@@ -23,7 +24,7 @@ export function TopicFilter({ selected, onToggle }: TopicFilterProps) {
                 : 'bg-secondary border-border text-muted-foreground'
             }`}
           >
-            {topic.emoji} {topic.label}
+            {topic.emoji} {tTopic(topic.slug, 'label', topic.label)}
           </motion.button>
         );
       })}
