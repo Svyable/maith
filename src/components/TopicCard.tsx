@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { useMemo } from 'react';
 import type { TopicRecord } from '@/hooks/useTopics';
 import { allQuestions } from '@/content';
+import { tTopic } from '@/i18n/tTopics';
 
 interface TopicCardProps {
   topic: TopicRecord;
@@ -35,9 +36,9 @@ export function TopicCard({ topic, isSelected, onToggle }: TopicCardProps) {
       <div className="flex items-start gap-3">
         <span className="text-2xl">{topic.emoji}</span>
         <div className="flex-1 min-w-0">
-          <div className="font-display font-semibold text-foreground text-sm">{topic.label}</div>
+          <div className="font-display font-semibold text-foreground text-sm">{tTopic(topic.slug, 'label', topic.label)}</div>
           {topic.description && (
-            <p className="text-xs text-muted-foreground mt-0.5 line-clamp-1">{topic.description}</p>
+            <p className="text-xs text-muted-foreground mt-0.5 line-clamp-1">{tTopic(topic.slug, 'desc', topic.description)}</p>
           )}
           <div className="flex items-center gap-2 mt-1.5">
             {counts.easy > 0 && (
