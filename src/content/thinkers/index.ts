@@ -105,6 +105,24 @@ import { anastasWarnerQuestions } from "./anastas-warner";
 import { jamesLovelockQuestions } from "./james-lovelock";
 import { lehnCramPedersenQuestions } from "./lehn-cram-pedersen";
 
+// Biology & Medicine Legends
+import { williamHarveyQuestions } from "./william-harvey";
+import { andreasVesaliusQuestions } from "./andreas-vesalius";
+import { hippocratesQuestions } from "./hippocrates";
+import { galenQuestions } from "./galen";
+import { paulEhrlichQuestions } from "./paul-ehrlich";
+import { josephListerQuestions } from "./joseph-lister";
+import { rudolfVirchowQuestions } from "./rudolf-virchow";
+import { santiagoRamonYCajalQuestions } from "./santiago-ramon-y-cajal";
+import { ignazSemmelweisQuestions } from "./ignaz-semmelweis";
+import { elizabethGarrettAndersonQuestions } from "./elizabeth-garrett-anderson";
+import { shushrutaQuestions } from "./sushruta";
+import { ibnSinaQuestions } from "./ibn-sina";
+import { virginiaApgarQuestions } from "./virginia-apgar";
+import { charlesSherringtonQuestions } from "./charles-sherrington";
+import { hodgkinHuxleyQuestions } from "./hodgkin-huxley";
+import { theodorSchwannQuestions } from "./theodor-schwann";
+
 import { felixExnerQuestions } from "./felix-exner";
 import { marianSmoluchowskiQuestions } from "./marian-smoluchowski";
 import { addyProssQuestions } from "./addy-pross";
