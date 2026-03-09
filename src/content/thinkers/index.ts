@@ -1481,6 +1481,9 @@ export const allThinkerQuestions: Question[] = [
   ...charlesSherringtonQuestions,
   ...hodgkinHuxleyQuestions,
   ...theodorSchwannQuestions,
+  ...ericKandelQuestions,
+  ...ritaLeviMontalciniQuestions,
+  ...wilderPenfieldQuestions,
 
   ...seppHochreiterQuestions,
   ...alecRadfordQuestions,
