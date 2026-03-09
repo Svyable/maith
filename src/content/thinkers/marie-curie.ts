@@ -49,4 +49,52 @@ export const marieCurieQuestions: Question[] = [
     realWorld: 'Curie broke barriers as the first woman Nobel laureate and first person to win in two sciences, inspiring generations of scientists.',
     hint: 'She bridged two entire fields of science at the Nobel level.',
   },
+  {
+    id: 10194,
+    topic: 'marie-curie',
+    difficulty: 'hard',
+    question: 'Radioactive decay, quantified by Curie\'s measurements, follows the exponential decay law $N(t) = N_0 e^{-\\lambda t}$. What is the relationship between the decay constant $\\lambda$ and the half-life $t_{1/2}$?',
+    options: [
+      '$t_{1/2} = \\frac{\\ln 2}{\\lambda}$, derived by setting $N(t_{1/2}) = N_0/2$ and solving for $t_{1/2}$.',
+      '$t_{1/2} = \\frac{1}{\\lambda}$, which equals the mean lifetime $\\tau$ of the radioactive nucleus.',
+      '$t_{1/2} = \\frac{2\\pi}{\\lambda}$, analogous to the period of oscillation in harmonic decay.',
+      '$t_{1/2} = \\frac{\\lambda}{\\ln 2}$, because higher decay constants mean longer half-lives for heavier nuclei.'
+    ],
+    correctIndex: 0,
+    explanation: 'Setting $N_0 e^{-\\lambda t_{1/2}} = N_0/2$ gives $e^{-\\lambda t_{1/2}} = 1/2$, so $\\lambda t_{1/2} = \\ln 2$. The half-life is thus $t_{1/2} = \\ln 2 / \\lambda \\approx 0.693/\\lambda$. For radium-226, Curie measured $t_{1/2} \\approx 1600$ years.',
+    realWorld: 'The half-life concept is used everywhere: carbon-14 dating ($t_{1/2} = 5730$ yr), medical isotopes like Tc-99m ($t_{1/2} = 6$ hr), and nuclear waste management.',
+    hint: 'Set $N = N_0/2$ in the exponential law and solve — the natural log of 2 appears.',
+  },
+  {
+    id: 10195,
+    topic: 'marie-curie',
+    difficulty: 'sota',
+    question: 'Curie\'s radium research led to understanding alpha decay, later explained by Gamow\'s quantum tunneling formula. What is the Geiger-Nuttall law that Curie\'s activity measurements helped establish?',
+    options: [
+      '$\\log \\lambda = a + b \\log E_\\alpha$, relating the decay constant $\\lambda$ to the alpha particle kinetic energy $E_\\alpha$. Higher energy alphas correspond to shorter-lived isotopes — a linear relationship on a log-log plot.',
+      '$\\lambda = \\sigma n v$, where $\\sigma$ is the nuclear cross section, $n$ is the neutron density, and $v$ is the relative velocity of the alpha particle inside the nucleus.',
+      '$E_\\alpha = Q(1 - m_\\alpha/M)$, where $Q$ is the total energy released and $M$ is the daughter nucleus mass, following conservation of momentum.',
+      '$\\lambda \\propto e^{-2\\pi Z_1 Z_2 e^2/(\\hbar v)}$, the pure Coulomb barrier penetration factor with no dependence on $E_\\alpha$.'
+    ],
+    correctIndex: 0,
+    explanation: 'Curie\'s systematic measurements of radium and its decay products revealed that isotopes emitting higher-energy alphas decay faster. Geiger and Nuttall formalized this as a log-linear relationship. Gamow later explained it via quantum tunneling through the Coulomb barrier: $\\lambda \\propto e^{-2\\pi \\eta}$ where $\\eta = Z_1 Z_2 e^2/(\\hbar v)$.',
+    realWorld: 'The Geiger-Nuttall law is still used to predict unknown decay rates and identify new isotopes at facilities like GSI and RIKEN. It also constrains models of superheavy element stability.',
+    hint: 'Plotting log(decay rate) vs log(alpha energy) gives a straight line — more energetic alphas escape faster.',
+  },
+  {
+    id: 10196,
+    topic: 'marie-curie',
+    difficulty: 'easy',
+    question: 'To isolate radium, Marie Curie processed tonnes of pitchblende ore. The unit of radioactivity originally named in her honor is the "curie" (Ci). What does 1 Ci represent?',
+    options: [
+      '$3.7 \\times 10^{10}$ disintegrations per second — originally defined as the activity of one gram of pure radium-226.',
+      '$1.0 \\times 10^{6}$ disintegrations per second — the activity of one milligram of polonium-210.',
+      '$6.022 \\times 10^{23}$ disintegrations per mole — one Avogadro\'s number of nuclear decays.',
+      '$1$ disintegration per second — the simplest possible unit of radioactive decay rate.'
+    ],
+    correctIndex: 0,
+    explanation: 'The curie was defined based on the activity of 1 gram of Ra-226. It equals $3.7 \\times 10^{10}$ decays per second (37 GBq). The modern SI unit is the becquerel (Bq = 1 decay/s), so 1 Ci = 37 GBq.',
+    realWorld: 'Medical isotope doses are often prescribed in millicuries (mCi). A typical thyroid cancer treatment uses 100–200 mCi of I-131.',
+    hint: 'It was defined by the decay rate of her most famous element — about 37 billion decays per second.',
+  },
 ];
