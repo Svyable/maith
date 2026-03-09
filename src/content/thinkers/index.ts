@@ -687,6 +687,17 @@ import { davidMumfordQuestions } from "./david-mumford";
 import { danielQuillenQuestions } from "./daniel-quillen";
 import { laszloLovaszQuestions } from "./laszlo-lovasz";
 
+// Finance & Quant Market Makers
+import { robertAlmgrenQuestions } from "./robert-almgren";
+import { albertKyleQuestions } from "./albert-kyle";
+import { stevenHestonQuestions } from "./steven-heston";
+import { brunoDupireQuestions } from "./bruno-dupire";
+import { jeanPhilippeBouchaudQuestions } from "./jean-philippe-bouchaud";
+import { cliffAsnessQuestions } from "./cliff-asness";
+import { darrellDuffieQuestions } from "./darrell-duffie";
+import { johnHullQuestions } from "./john-hull";
+import { marcosLopezDePradoQuestions } from "./marcos-lopez-de-prado";
+
 export const allThinkerQuestions: Question[] = [
   ...thomasGilbertQuestions,
   ...evgenyLifshitzQuestions,
@@ -1333,6 +1344,31 @@ export const allThinkerQuestions: Question[] = [
   ...reneThomQuestions,
   ...peterDirichletQuestions,
   ...charlesHermiteQuestions,
+
+  // Fields Medalists & Abel laureates (batch 3)
+  ...michaelFreedmanQuestions,
+  ...laurentLafforgueQuestions,
+  ...elonLindenstraussQuestions,
+  ...stanislavSmirnovQuestions,
+  ...enricoBombieriQuestions,
+  ...atleSelbergQuestions,
+  ...endreszemerediQuestions,
+  ...aviWigdersonQuestions,
+  ...andreWeilQuestions,
+  ...davidMumfordQuestions,
+  ...danielQuillenQuestions,
+  ...laszloLovaszQuestions,
+
+  // Finance & Quant Market Makers
+  ...robertAlmgrenQuestions,
+  ...albertKyleQuestions,
+  ...stevenHestonQuestions,
+  ...brunoDupireQuestions,
+  ...jeanPhilippeBouchaudQuestions,
+  ...cliffAsnessQuestions,
+  ...darrellDuffieQuestions,
+  ...johnHullQuestions,
+  ...marcosLopezDePradoQuestions,
 ];
 export function getThinkerQuestions(slug: string): Question[] {
   return allThinkerQuestions.filter((q) => q.topic === slug);
