@@ -22,6 +22,22 @@ import { peterWeinbergerQuestions } from "./peter-weinberger";
 import { rogerKornbergQuestions } from "./roger-kornberg";
 import { jenniferDoudnaExpandedQuestions } from "./jennifer-doudna-expanded";
 import { marieAnnePaulzeLavoisierQuestions } from "./marie-anne-paulze-lavoisier";
+// Islamic Golden Age Mathematicians
+import { thabitIbnQurraQuestions } from "./thabit-ibn-qurra";
+import { alKindiQuestions } from "./al-kindi";
+import { abulWafaAlBuzjaniQuestions } from "./abul-wafa-al-buzjani";
+import { alBattaniQuestions } from "./al-battani";
+import { alSamawalQuestions } from "./al-samawal";
+import { ibrahimIbnSinanQuestions } from "./ibrahim-ibn-sinan";
+import { abuKamilShujaQuestions } from "./abu-kamil-shuja";
+import { ibnYunusQuestions } from "./ibn-yunus";
+import { ibnAlShatirQuestions } from "./ibn-al-shatir";
+import { alQalasadiQuestions } from "./al-qalasadi";
+import { banuMusaQuestions } from "./banu-musa";
+import { sharafAlDinAlTusiQuestions } from "./sharaf-al-din-al-tusi";
+import { alHassarQuestions } from "./al-hassar";
+import { ibnMunimQuestions } from "./ibn-munim";
+import { alKhaziniQuestions } from "./al-khazini";
 import { peterHiggsQuestions } from "./peter-higgs";
 import { chenNingYangQuestions } from "./chen-ning-yang";
 import { abdusSalamQuestions } from "./abdus-salam";
@@ -1240,6 +1256,23 @@ export const allThinkerQuestions: Question[] = [
   ...rogerKornbergQuestions,
   ...jenniferDoudnaExpandedQuestions,
   ...marieAnnePaulzeLavoisierQuestions,
+
+  // Islamic Golden Age Mathematicians
+  ...thabitIbnQurraQuestions,
+  ...alKindiQuestions,
+  ...abulWafaAlBuzjaniQuestions,
+  ...alBattaniQuestions,
+  ...alSamawalQuestions,
+  ...ibrahimIbnSinanQuestions,
+  ...abuKamilShujaQuestions,
+  ...ibnYunusQuestions,
+  ...ibnAlShatirQuestions,
+  ...alQalasadiQuestions,
+  ...banuMusaQuestions,
+  ...sharafAlDinAlTusiQuestions,
+  ...alHassarQuestions,
+  ...ibnMunimQuestions,
+  ...alKhaziniQuestions,
 ];
 export function getThinkerQuestions(slug: string): Question[] {
   return allThinkerQuestions.filter((q) => q.topic === slug);
