@@ -1,4 +1,4 @@
-// Nobel Laureates (additional)
+// Nobel Laureates (additional batch 1)
 import { stevenWeinbergQuestions } from "./steven-weinberg";
 import { peterHiggsQuestions } from "./peter-higgs";
 import { chenNingYangQuestions } from "./chen-ning-yang";
@@ -11,6 +11,18 @@ import { frankWilczekQuestions } from "./frank-wilczek";
 import { philipAndersonQuestions } from "./philip-anderson";
 import { sinItiroTomonagaQuestions } from "./sin-itiro-tomonaga";
 import { kennethWilsonQuestions } from "./kenneth-wilson";
+
+// Nobel Laureates (additional batch 2 - math formulations)
+import { yoichiroNambuQuestions } from "./yoichiro-nambu";
+import { tsungDaoLeeQuestions } from "./tsung-dao-lee";
+import { sheldonGlashowQuestions } from "./sheldon-glashow";
+import { davidGrossQuestions } from "./david-gross";
+import { klausVonKlitzingQuestions } from "./klaus-von-klitzing";
+import { davidThoulessQuestions } from "./david-thouless";
+import { robertLaughlinQuestions } from "./robert-laughlin";
+import { alainAspectQuestions } from "./alain-aspect";
+import { pierreGillesDeGennesQuestions } from "./pierre-gilles-de-gennes";
+import { willisLambQuestions } from "./willis-lamb";
 
 import { sergeTabachnikovQuestions } from "./serge-tabachnikov";
 
@@ -1170,6 +1182,18 @@ export const allThinkerQuestions: Question[] = [
   ...philipAndersonQuestions,
   ...sinItiroTomonagaQuestions,
   ...kennethWilsonQuestions,
+
+  // Nobel Laureates (batch 2 - math formulations)
+  ...yoichiroNambuQuestions,
+  ...tsungDaoLeeQuestions,
+  ...sheldonGlashowQuestions,
+  ...davidGrossQuestions,
+  ...klausVonKlitzingQuestions,
+  ...davidThoulessQuestions,
+  ...robertLaughlinQuestions,
+  ...alainAspectQuestions,
+  ...pierreGillesDeGennesQuestions,
+  ...willisLambQuestions,
 ];
 export function getThinkerQuestions(slug: string): Question[] {
   return allThinkerQuestions.filter((q) => q.topic === slug);
