@@ -673,6 +673,20 @@ import { reneThomQuestions } from "./rene-thom";
 import { peterDirichletQuestions } from "./peter-dirichlet";
 import { charlesHermiteQuestions } from "./charles-hermite";
 
+// Fields Medalists & Abel laureates (batch 3)
+import { michaelFreedmanQuestions } from "./michael-freedman";
+import { laurentLafforgueQuestions } from "./laurent-lafforgue";
+import { elonLindenstraussQuestions } from "./elon-lindenstrauss";
+import { stanislavSmirnovQuestions } from "./stanislav-smirnov";
+import { enricoBombieriQuestions } from "./enrico-bombieri";
+import { atleSelbergQuestions } from "./atle-selberg";
+import { endreszemerediQuestions } from "./endre-szemeredi";
+import { aviWigdersonQuestions } from "./avi-wigderson";
+import { andreWeilQuestions } from "./andre-weil";
+import { davidMumfordQuestions } from "./david-mumford";
+import { danielQuillenQuestions } from "./daniel-quillen";
+import { laszloLovaszQuestions } from "./laszlo-lovasz";
+
 export const allThinkerQuestions: Question[] = [
   ...thomasGilbertQuestions,
   ...evgenyLifshitzQuestions,
