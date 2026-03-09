@@ -11,9 +11,10 @@ export const elizabethBlackburnQuestions: Question[] = [
       'Ribosomal RNA gene clusters located at chromosome tips that increase protein synthesis capacity in rapidly dividing cells.'
     ],
     correctIndex: 0,
-    explanation: 'Blackburn discovered the telomeric repeat sequence TTGGGG in Tetrahymena (TTAGGG in humans). Telomeres solve the "end-replication problem" — DNA polymerase cannot fully replicate chromosome ends, so telomeres act as sacrificial buffers that shorten ~50–200 bp per division.',
+    explanation: 'Blackburn discovered the telomeric repeat sequence TTGGGG in Tetrahymena (TTAGGG in humans). Telomeres solve the "end-replication problem" — DNA polymerase cannot fully replicate chromosome ends, so telomeres act as sacrificial buffers. Telomere length after $n$ divisions follows: $$L_n = L_0 - n \\cdot \\delta$$ where $L_0 \\approx 10\\text{–}15$ kb at birth and $\\delta \\approx 50\\text{–}200$ bp/division. The Hayflick limit is reached when $L_n < L_{\\text{crit}} \\approx 4\\text{–}6$ kb.',
     realWorld: 'Short telomeres are linked to aging, cardiovascular disease, and cancer risk. Telomere length is now a biomarker studied in longevity research and stress biology.',
     hint: 'Think of the plastic tips on shoelaces — they protect the ends from fraying.',
+    formulaLinks: ['linear-decay'],
   },
   {
     id: 31511, topic: 'elizabeth-blackburn', difficulty: 'hard',
@@ -25,9 +26,10 @@ export const elizabethBlackburnQuestions: Question[] = [
       'Telomerase is a histone acetyltransferase that opens chromatin at chromosome ends, permitting access by recombination enzymes that extend telomeres via the ALT pathway.'
     ],
     correctIndex: 0,
-    explanation: 'Telomerase carries its own RNA template (TERC, ~451 nt in humans) and uses its TERT catalytic subunit to reverse-transcribe telomeric repeats. It binds the 3\' overhang, extends it by one repeat, translocates, and repeats — processively adding hundreds of nucleotides. This makes telomerase a specialized reverse transcriptase.',
+    explanation: 'Telomerase carries its own RNA template (TERC, ~451 nt in humans) and uses its TERT catalytic subunit to reverse-transcribe telomeric repeats: $$\\text{3\'-overhang} + n \\cdot \\text{dNTP} \\xrightarrow{\\text{TERT/TERC}} \\text{(TTAGGG)}_n$$ The processivity follows Michaelis-Menten kinetics: $v = \\frac{V_{\\max}[\\text{dNTP}]}{K_m + [\\text{dNTP}]}$ with $K_m \\approx 1\\text{–}5\\ \\mu\\text{M}$ for telomerase.',
     realWorld: '~90% of human cancers reactivate telomerase to achieve replicative immortality. Telomerase inhibitors (e.g., imetelstat) are in clinical trials for myelodysplastic syndromes and other cancers.',
     hint: 'It carries its own RNA template and works like a reverse transcriptase — building DNA from an RNA blueprint.',
+    formulaLinks: ['michaelis-menten'],
   },
   {
     id: 31512, topic: 'elizabeth-blackburn', difficulty: 'sota',
@@ -39,8 +41,9 @@ export const elizabethBlackburnQuestions: Question[] = [
       'DNA polymerase dissociates from the template at chromosome ends due to loss of the sliding clamp (PCNA), which requires a circular DNA topology to remain loaded.'
     ],
     correctIndex: 0,
-    explanation: 'The leading strand can be replicated to the very end, but the lagging strand uses discontinuous Okazaki fragments, each requiring an RNA primer. When the final RNA primer at the chromosome terminus is removed, DNA polymerase has no upstream primer to fill the gap. This creates a permanent single-stranded 3\' overhang that shortens by $\\delta$ each division.',
+    explanation: 'The leading strand can be replicated to the very end, but the lagging strand uses discontinuous Okazaki fragments, each requiring an RNA primer. When the final RNA primer at the chromosome terminus is removed, DNA polymerase has no upstream primer to fill the gap. The net loss per division: $$\\Delta L = l_{\\text{primer}} + l_{\\text{processing}} \\approx 50\\text{–}200\\text{ bp}$$ The Hayflick limit $N_{\\max}$ is: $$N_{\\max} = \\frac{L_0 - L_{\\text{crit}}}{\\Delta L} \\approx \\frac{10000 - 5000}{100} = 50\\text{ divisions}$$',
     realWorld: 'This is why somatic cells have a finite replicative lifespan (Hayflick limit, ~50–70 divisions). Stem cells and germ cells express telomerase to maintain telomere length across generations.',
     hint: 'The lagging strand needs RNA primers — but there\'s nothing upstream of the very last primer to fill the gap it leaves behind.',
+    formulaLinks: ['linear-decay', 'michaelis-menten'],
   },
 ];
