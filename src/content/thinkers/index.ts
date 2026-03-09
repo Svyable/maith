@@ -122,6 +122,9 @@ import { virginiaApgarQuestions } from "./virginia-apgar";
 import { charlesSherringtonQuestions } from "./charles-sherrington";
 import { hodgkinHuxleyQuestions } from "./hodgkin-huxley";
 import { theodorSchwannQuestions } from "./theodor-schwann";
+import { ericKandelQuestions } from "./eric-kandel";
+import { ritaLeviMontalciniQuestions } from "./rita-levi-montalcini";
+import { wilderPenfieldQuestions } from "./wilder-penfield";
 
 import { felixExnerQuestions } from "./felix-exner";
 import { marianSmoluchowskiQuestions } from "./marian-smoluchowski";
@@ -1481,6 +1484,9 @@ export const allThinkerQuestions: Question[] = [
   ...charlesSherringtonQuestions,
   ...hodgkinHuxleyQuestions,
   ...theodorSchwannQuestions,
+  ...ericKandelQuestions,
+  ...ritaLeviMontalciniQuestions,
+  ...wilderPenfieldQuestions,
 
   ...seppHochreiterQuestions,
   ...alecRadfordQuestions,
