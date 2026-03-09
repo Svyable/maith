@@ -89,6 +89,8 @@ const STATIC_TERMS: GlossaryTerm[] = [
   ...optimalTransportTerms,
   // Quantum Consciousness
   ...quantumConsciousnessTerms,
+  // AI & Machine Learning
+  ...aiMlTerms,
 ];
 
 // ── Public API ──────────────────────────────────────────────
