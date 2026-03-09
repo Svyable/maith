@@ -1369,6 +1369,18 @@ export const allThinkerQuestions: Question[] = [
   ...darrellDuffieQuestions,
   ...johnHullQuestions,
   ...marcosLopezDePradoQuestions,
+
+  // AI Legends & Leaders
+  ...davidSilverQuestions,
+  ...seppHochreiterQuestions,
+  ...alecRadfordQuestions,
+  ...noamShazeerQuestions,
+  ...oriolVinyalsQuestions,
+  ...pieterAbbeelQuestions,
+  ...jaredKaplanQuestions,
+  ...jacobDevlinQuestions,
+  ...albertGuQuestions,
+  ...triDaoQuestions,
 ];
 export function getThinkerQuestions(slug: string): Question[] {
   return allThinkerQuestions.filter((q) => q.topic === slug);
