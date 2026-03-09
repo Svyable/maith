@@ -1,3 +1,17 @@
+// Nobel Laureates (additional)
+import { stevenWeinbergQuestions } from "./steven-weinberg";
+import { peterHiggsQuestions } from "./peter-higgs";
+import { chenNingYangQuestions } from "./chen-ning-yang";
+import { abdusSalamQuestions } from "./abdus-salam";
+import { louisDeBroglieQuestions } from "./louis-de-broglie";
+import { hidekiYukawaQuestions } from "./hideki-yukawa";
+import { donnaStricklandQuestions } from "./donna-strickland";
+import { andreaGhezQuestions } from "./andrea-ghez";
+import { frankWilczekQuestions } from "./frank-wilczek";
+import { philipAndersonQuestions } from "./philip-anderson";
+import { sinItiroTomonagaQuestions } from "./sin-itiro-tomonaga";
+import { kennethWilsonQuestions } from "./kenneth-wilson";
+
 import { sergeTabachnikovQuestions } from "./serge-tabachnikov";
 
 import { thomasGilbertQuestions } from "./thomas-gilbert";
@@ -1142,6 +1156,20 @@ export const allThinkerQuestions: Question[] = [
   ...luigiAmbrosioQuestions,
   ...filippoSantambrogioQuestions,
   ...gabrielPeyreQuestions,
+
+  // Nobel Laureates (additional)
+  ...stevenWeinbergQuestions,
+  ...peterHiggsQuestions,
+  ...chenNingYangQuestions,
+  ...abdusSalamQuestions,
+  ...louisDeBroglieQuestions,
+  ...hidekiYukawaQuestions,
+  ...donnaStricklandQuestions,
+  ...andreaGhezQuestions,
+  ...frankWilczekQuestions,
+  ...philipAndersonQuestions,
+  ...sinItiroTomonagaQuestions,
+  ...kennethWilsonQuestions,
 ];
 export function getThinkerQuestions(slug: string): Question[] {
   return allThinkerQuestions.filter((q) => q.topic === slug);
