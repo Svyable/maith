@@ -687,6 +687,17 @@ import { davidMumfordQuestions } from "./david-mumford";
 import { danielQuillenQuestions } from "./daniel-quillen";
 import { laszloLovaszQuestions } from "./laszlo-lovasz";
 
+// Finance & Quant Market Makers
+import { robertAlmgrenQuestions } from "./robert-almgren";
+import { albertKyleQuestions } from "./albert-kyle";
+import { stevenHestonQuestions } from "./steven-heston";
+import { brunoDupireQuestions } from "./bruno-dupire";
+import { jeanPhilippeBouchaudQuestions } from "./jean-philippe-bouchaud";
+import { cliffAsnessQuestions } from "./cliff-asness";
+import { darrellDuffieQuestions } from "./darrell-duffie";
+import { johnHullQuestions } from "./john-hull";
+import { marcosLopezDePradoQuestions } from "./marcos-lopez-de-prado";
+
 export const allThinkerQuestions: Question[] = [
   ...thomasGilbertQuestions,
   ...evgenyLifshitzQuestions,
