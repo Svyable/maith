@@ -73,6 +73,16 @@ import { yakirAharonovQuestions } from "./yakir-aharonov";
 import { alfredTarskiQuestions } from "./alfred-tarski";
 import type { Question } from "../types";
 
+// Chemistry Legends
+import { gilbertLewisQuestions } from "./gilbert-lewis";
+import { fritzHaberQuestions } from "./fritz-haber";
+import { robertWoodwardQuestions } from "./robert-woodward";
+import { ahmedZewailQuestions } from "./ahmed-zewail";
+import { jacobusVanTHoffQuestions } from "./jacobus-van-t-hoff";
+import { peterDebyeQuestions } from "./peter-debye";
+import { kenichiFukuiQuestions } from "./kenichi-fukui";
+import { roaldHoffmannQuestions } from "./roald-hoffmann";
+
 import { felixExnerQuestions } from "./felix-exner";
 import { marianSmoluchowskiQuestions } from "./marian-smoluchowski";
 import { addyProssQuestions } from "./addy-pross";
@@ -1384,6 +1394,16 @@ export const allThinkerQuestions: Question[] = [
 
   // AI Legends & Leaders
   ...davidSilverQuestions,
+  // Chemistry Legends
+  ...gilbertLewisQuestions,
+  ...fritzHaberQuestions,
+  ...robertWoodwardQuestions,
+  ...ahmedZewailQuestions,
+  ...jacobusVanTHoffQuestions,
+  ...peterDebyeQuestions,
+  ...kenichiFukuiQuestions,
+  ...roaldHoffmannQuestions,
+
   ...seppHochreiterQuestions,
   ...alecRadfordQuestions,
   ...noamShazeerQuestions,
