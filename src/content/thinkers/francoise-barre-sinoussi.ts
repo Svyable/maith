@@ -11,9 +11,10 @@ export const francoiseBarreSinoussiQuestions: Question[] = [
       'Ebola virus — the filovirus causing hemorrhagic fever outbreaks in Central and West Africa.'
     ],
     correctIndex: 0,
-    explanation: 'In 1983, Barré-Sinoussi isolated a retrovirus from a patient\'s lymph node at the Pasteur Institute. She demonstrated reverse transcriptase activity and budding viral particles by electron microscopy, proving a retrovirus was the cause of AIDS. The virus was initially called LAV before being renamed HIV.',
+    explanation: 'In 1983, Barré-Sinoussi isolated a retrovirus from a patient\'s lymph node at the Pasteur Institute. She demonstrated reverse transcriptase activity and budding viral particles by electron microscopy. HIV\'s basic reproduction number $R_0 \\approx 2\\text{–}5$ (sexual transmission) means each infected person infects 2–5 others without intervention. Viral load dynamics follow: $$V(t) = V_0 \\, e^{(p/\\delta - c)t}$$ where $p$ = viral production rate, $\\delta$ = infected-cell death rate, and $c$ = viral clearance rate.',
     realWorld: 'Her discovery enabled the development of HIV blood tests, antiretroviral therapy (ART), and prevention strategies like PrEP that have transformed HIV from a death sentence into a manageable chronic condition.',
     hint: 'She found the retrovirus that destroys the immune system — the cause of a devastating 1980s epidemic.',
+    formulaLinks: ['sir-model'],
   },
   {
     id: 31521, topic: 'francoise-barre-sinoussi', difficulty: 'hard',
@@ -25,9 +26,10 @@ export const francoiseBarreSinoussiQuestions: Question[] = [
       'Protease — it cleaves host cell proteins to create space for viral genome replication in the cytoplasm.'
     ],
     correctIndex: 0,
-    explanation: 'Barré-Sinoussi detected reverse transcriptase activity in her cell cultures — the hallmark of retroviruses. RT first synthesizes a complementary DNA strand from the RNA template (RNA-dependent DNA polymerase activity), then its RNase H domain degrades the RNA, and RT synthesizes the second DNA strand. The resulting proviral DNA integrates into the host genome via integrase.',
+    explanation: 'Barré-Sinoussi detected reverse transcriptase activity — the hallmark of retroviruses. RT catalyzes: $$\\text{ssRNA} \\xrightarrow[k_{\\text{pol}}]{\\text{RT}} \\text{RNA:DNA} \\xrightarrow{\\text{RNase H}} \\text{ssDNA} \\xrightarrow{\\text{RT}} \\text{dsDNA}$$ The polymerization rate $k_{\\text{pol}} \\approx 1\\text{–}10$ nt/s with fidelity $\\sim 10^{4}$ (no proofreading). Drug inhibition follows: $$\\text{IC}_{50} = K_i \\left(1 + \\frac{[S]}{K_m}\\right)$$ for competitive inhibitors like tenofovir.',
     realWorld: 'RT is the target of nucleoside (AZT, tenofovir) and non-nucleoside (efavirenz, rilpivirine) reverse transcriptase inhibitors — the backbone of HIV antiretroviral therapy.',
     hint: 'This enzyme does the "reverse" of normal biology — making DNA from an RNA template.',
+    formulaLinks: ['michaelis-menten'],
   },
   {
     id: 31522, topic: 'francoise-barre-sinoussi', difficulty: 'sota',
@@ -39,8 +41,9 @@ export const francoiseBarreSinoussiQuestions: Question[] = [
       'HIV protease makes random cleavage errors in ~$10^{-3}$ of polyprotein processing events, generating truncated proteins that mimic antigenic variation.'
     ],
     correctIndex: 0,
-    explanation: 'Unlike DNA polymerases, HIV RT has no proofreading capability. The error rate of ~$3 \\times 10^{-5}$/base/cycle means each new virion carries ~0.3 mutations. With $10^{9}$–$10^{10}$ virions produced daily, the virus explores its entire mutational landscape every day, enabling rapid escape from immune responses and drug resistance.',
+    explanation: 'Unlike DNA polymerases, HIV RT has no proofreading capability. The mutation rate $\\mu \\approx 3 \\times 10^{-5}$/base/cycle means each new virion carries $\\mu \\cdot L \\approx 0.3$ mutations (genome $L = 9.7$ kb). With $N \\approx 10^{10}$ virions/day, the probability of any single point mutation existing is: $$P(\\text{mutation at site } i) = 1 - (1 - \\mu)^N \\approx 1$$ The virus explores its entire single-mutant landscape daily, enabling rapid immune escape.',
     realWorld: 'This is why HIV treatment requires combination therapy (≥3 drugs targeting different enzymes) — single-drug therapy selects resistant mutants within weeks. It also explains why an HIV vaccine remains elusive after 40 years.',
     hint: 'The enzyme that copies the viral genome has no "spell-checker" — so billions of slightly different viruses are made every day.',
+    formulaLinks: ['probability'],
   },
 ];
