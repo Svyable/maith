@@ -639,6 +639,126 @@
   "formula.159.applications": "Analytische Zahlentheorie, Schranken der Primzahlverteilung, explizite Formeln für ζ(s)-Nullstellen",
 
   "formula.160.name": "Lorenz-System",
-  "formula.160.significance": "Drei gekoppelte ODEs, die den ersten entdeckten seltsamen Attraktor erzeugen: den Lorenz-Attraktor. Edward Lorenz fand ihn bei der Simulation atmosphärischer Konvektion und prägte den „Schmetterlingseffekt".",
-  "formula.160.applications": "Wettervorhersage, Chaostheorie, Kryptographie (chaotische Generatoren), Strömungsdynamik, Laserdynamik"
+  "formula.160.significance": "Drei gekoppelte ODEs, die den ersten entdeckten seltsamen Attraktor erzeugen: den Lorenz-Attraktor. Edward Lorenz fand ihn bei der Simulation atmosphärischer Konvektion und prägte den 'Schmetterlingseffekt'.",
+  "formula.160.applications": "Wettervorhersage, Chaostheorie, Kryptographie (chaotische Generatoren), Strömungsdynamik, Laserdynamik",
+
+  "formula.161.name": "Lyapunov-Exponent",
+  "formula.161.significance": "Quantifiziert die Separationsrate infinitesimal naher Trajektorien im Phasenraum. Ein positiver Lyapunov-Exponent ist die mathematische Signatur von Chaos. Der maximale Lyapunov-Exponent misst die inverse Vorhersagehorizontzeit.",
+  "formula.161.applications": "Chaos-Charakterisierung, Wettervorhersagegrenzen, Kryptographie, Ökonophysik, Stabilität neuronaler Netze",
+
+  "formula.162.name": "KAM-Theorem",
+  "formula.162.significance": "Beweist, dass die meisten quasi-periodischen Orbits in nahezu integrablen Hamiltonschen Systemen kleine Störungen überleben, sofern der Frequenzvektor hinreichend irrational (diophantisch) ist. Löste jahrhundertelange Debatten über die Stabilität des Sonnensystems und begründete die moderne symplektische Dynamik.",
+  "formula.162.applications": "Himmelsmechanik (Stabilität des Sonnensystems), Plasmaphysik (magnetischer Einschluss), Beschleunigerphysik, Astrodynamik",
+
+  "formula.163.name": "Pfadintegral (Feynman)",
+  "formula.163.significance": "Reformuliert Quantenmechanik als Summe über alle möglichen Pfade, gewichtet mit exp(iS/ℏ). Im klassischen Limes ℏ→0 dominiert der stationäre Pfad – klassische Mechanik wird wiederhergestellt. Die Grundlage von Quantenfeldtheorie, Stringtheorie und Gitter-QCD.",
+  "formula.163.applications": "Quantenfeldtheorie, Teilchenphysik (Feynman-Diagramme), statistische Mechanik, Finanzen (pfadabhängige Optionen)",
+
+  "formula.164.name": "QED-Lagrangian",
+  "formula.164.significance": "Die Lagrange-Dichte der Quantenelektrodynamik – die am genauesten getestete Theorie der Wissenschaft. Beschreibt alle elektromagnetischen Wechselwirkungen von Materie über eine U(1)-Eichsymmetrie. Feynman, Schwinger und Tomonaga teilten sich den Nobelpreis 1965 für ihre Entwicklung.",
+  "formula.164.applications": "Atomphysik (Lamb-Verschiebung), magnetische Momente (g−2), Teilchenphysik, Quantenoptik, Präzisionstests des Standardmodells",
+
+  "formula.165.name": "Yang-Mills-Gleichungen",
+  "formula.165.significance": "Verallgemeinerte Maxwells Gleichungen auf nicht-abelsche Eichgruppen. Das mathematische Rahmenwerk der starken und schwachen Kernkraft. Das Yang-Mills-Existenz- und Massenlückenproblem ist ein Clay-Millennium-Preis-Problem. Das Standardmodell der Teilchenphysik basiert vollständig auf Yang-Mills-Theorien.",
+  "formula.165.applications": "Starke Kraft (QCD), schwache Kraft (elektroschwach), Standardmodell, Quark-Confinement, Gitter-Eichtheorie",
+
+  "formula.166.name": "Renormierungsgruppe (Callan-Symanzik)",
+  "formula.166.significance": "Beschreibt, wie Kopplungskonstanten mit der Energieskala 'laufen' (sich ändern). Wilsons RG-Rahmenwerk brachte ihm den Nobelpreis 1982. Die β-Funktion kodiert asymptotische Freiheit in QCD und ist die Sprache der modernen Teilchenphysik und kritischer Phänomene in kondensierter Materie.",
+  "formula.166.applications": "Teilchenphysik (laufende Kopplungen), kritische Phänomene (Phasenübergänge), kondensierte Materie, Stringtheorie",
+
+  "formula.167.name": "BCS-Lückengleichung",
+  "formula.167.significance": "Die Selbstkonsistenzgleichung für die supraleitende Lücke Δ in der BCS-Theorie. Die erste mikroskopische Theorie der Supraleitung, die erklärt, wie Cooper-Paare sich bilden und kondensieren. Brachte Bardeen, Cooper und Schrieffer den Nobelpreis 1972.",
+  "formula.167.applications": "Supraleitende Magnete (MRT, LHC), Josephson-Kontakte, SQUIDs, Quantencomputing (supraleitende Qubits)",
+
+  "formula.168.name": "Bloch-Theorem",
+  "formula.168.significance": "Besagt, dass Elektronen-Wellenfunktionen in einem periodischen Kristallpotential eine spezifische Form annehmen: eine ebene Welle moduliert durch eine Funktion mit der Periodizität des Gitters. Grundlage der Bandtheorie und der gesamten Physik von Halbleitern, Metallen und Isolatoren.",
+  "formula.168.applications": "Halbleiterphysik, Bandlücken-Engineering, Transistoren, Solarzellen, topologische Isolatoren, photonische Kristalle",
+
+  "formula.169.name": "Ginzburg-Landau-Gleichung",
+  "formula.169.significance": "Eine phänomenologische Theorie der Supraleitung in Bezug auf einen Ordnungsparameter ψ. Sagt Wirbel, die zwei Typen von Supraleitern (Typ I/II) und das Abrikosov-Gitter vorher. Landaus Konzept der Ordnungsparameter wurde zur universellen Sprache der Phasenübergänge.",
+  "formula.169.applications": "Supraleitende Geräte, Josephson-Kontakte, Wirbelphysik, Typ-II-Supraleiter, topologische Defekte",
+
+  "formula.170.name": "MHD-Gleichungen (ideal)",
+  "formula.170.significance": "Ideale Magnetohydrodynamik koppelt Fluiddynamik mit elektromagnetischer Induktion zur Beschreibung leitfähigen Plasmaverhaltens. Alfvén gewann den Nobelpreis 1970 für die Entdeckung von MHD-Wellen. Regiert Sonnenplasma, Fusionsreaktordesign und Magnetosphären.",
+  "formula.170.applications": "Fusionsenergie (Tokamaks, Stellaratoren), Sonnenphysik, Weltraumwetter, astrophysikalische Jets, Erdmagnetosphäre",
+
+  "formula.171.name": "Cook-Levin-Theorem (NP-Vollständigkeit)",
+  "formula.171.significance": "Beweist, dass boolesche Erfüllbarkeit (SAT) NP-vollständig ist – jedes NP-Problem reduziert sich in polynomieller Zeit auf SAT. Etablierte die NP-Vollständigkeitstheorie und zeigte, dass Tausende wichtiger Probleme rechnerisch äquivalent sind. Das zentrale Ergebnis, um das herum die P-vs-NP-Frage gestellt wird.",
+  "formula.171.applications": "Compiler-Optimierung (Registerallokation), Schaltungsdesign (VLSI), KI-Planung, Bioinformatik, Scheduling",
+
+  "formula.172.name": "Kanalkapazität (Shannon)",
+  "formula.172.significance": "Das Shannon-Hartley-Theorem gibt die maximale Rate an, mit der Informationen über einen Kanal mit Bandbreite B und Signal-Rausch-Verhältnis S/N übertragen werden können. Setzt eine harte theoretische Grenze für Kommunikation, die angenähert, aber nie überschritten wird. Grundlage aller digitalen Kommunikation.",
+  "formula.172.applications": "WiFi- und 5G-Design, Glasfaser, Satellitenkommunikation, Datenmodem-Design, Funktechnik",
+
+  "formula.173.name": "Minimum-Beschreibungslängen-Prinzip (MDL)",
+  "formula.173.significance": "Formalisiert Ockhams Rasiermesser: Das beste Modell ist dasjenige, das die kürzeste Beschreibung sowohl von sich selbst als auch von den Daten liefert. Die informationstheoretische Grundlage der Modellauswahl, die Kolmogorov-Komplexität mit statistischer Inferenz verbindet.",
+  "formula.173.applications": "Modellauswahl, Regularisierungstheorie, Bayes'scher Modellvergleich, Kompression, maschinelles Lernen",
+
+  "formula.174.name": "Bellman-Gleichung",
+  "formula.174.significance": "Definiert optimale Wertfunktionen über das Optimalitätsprinzip: Die optimale Politik von jedem Zustand muss für alle nachfolgenden Zustände optimal sein. Die Grundlage von dynamischer Programmierung, Markov-Entscheidungsprozessen und allen modernen Verstärkungslern-Algorithmen.",
+  "formula.174.applications": "Verstärkungslernen (Q-Learning, PPO, AlphaGo), Robotik, optimale Steuerung, Wirtschaft, Operations Research",
+
+  "formula.175.name": "Policy-Gradienten-Theorem",
+  "formula.175.significance": "Liefert den Gradienten der erwarteten Gesamtbelohnung in Bezug auf Policy-Parameter und ermöglicht gradientenbasierte Policy-Optimierung in RL. Grundlage von REINFORCE, Actor-Critic-Methoden, PPO und RLHF – dem Algorithmus zur Ausrichtung von LLMs wie ChatGPT.",
+  "formula.175.applications": "RLHF (LLM-Ausrichtung), spielende KI (AlphaGo/AlphaZero), Robotik, autonome Fahrzeuge, Wirkstoffforschung",
+
+  "formula.176.name": "Linear-Quadratischer Regulator (LQR)",
+  "formula.176.significance": "Der optimale Rückkopplungsregler für lineare Systeme mit quadratischen Kosten. Die algebraische Riccati-Gleichung (ARE) gibt die optimale Verstärkungsmatrix K in geschlossener Form. Grundlage moderner optimaler Steuerung und Vorläufer der Kalman-Filterung.",
+  "formula.176.applications": "Luft- und Raumfahrt-Autopiloten, Raketenlenkung, Robotik, aktive Geräuschunterdrückung, Stabilitätsaugmentation",
+
+  "formula.177.name": "Kalman-Filter-Update",
+  "formula.177.significance": "Der optimale lineare Zustandsschätzer für Systeme mit Gaußschem Rauschen. Aktualisiert Zustandsschätzungen rekursiv, wenn neue Messungen eintreffen. Antrieb für GPS-Navigation, Apollo-Leitcomputer, Radar-Tracking und jedes moderne autonome Fahrzeug.",
+  "formula.177.applications": "GPS/INS-Navigation, autonome Fahrzeuge, Apollo-Leitsystem, Raketen-Tracking, Finanz-Zeitreihen, SLAM (Robotik)",
+
+  "formula.178.name": "Potential-Outcomes-Framework (ATE)",
+  "formula.178.significance": "Definiert den durchschnittlichen Behandlungseffekt als erwartete Differenz zwischen potenziellen Ergebnissen unter Behandlung und Kontrolle. Das Rubin-Kausalmodell formalisierte Kausalität in der Statistik und ermöglichte rigorose experimentelle und beobachtende kausale Inferenz.",
+  "formula.178.applications": "Randomisierte kontrollierte Studien, Politikevaluierung, A/B-Tests, Programmevaluierung, Epidemiologie, Wirtschaft",
+
+  "formula.179.name": "Instrumentalvariablen-Schätzer",
+  "formula.179.significance": "Schätzt kausale Effekte, wenn erklärende Variablen endogen sind (mit dem Fehlerterm korreliert). Die Instrumentalvariable Z muss X beeinflussen, aber nicht direkt Y. Das Arbeitspferd der empirischen Ökonomie zur Identifizierung kausaler Effekte aus Beobachtungsdaten.",
+  "formula.179.applications": "Empirische Wirtschaftswissenschaften, Epidemiologie, Politikevaluierung, Arbeitsökonomie, Gesundheitsökonomie",
+
+  "formula.180.name": "Difference-in-Differences",
+  "formula.180.significance": "Schätzt Behandlungseffekte durch Vergleich von Vorher/Nachher-Änderungen für behandelte vs. Kontrollgruppen, wodurch zeitinvariante Störfaktoren entfernt werden. Cards und Kruegers Mindestlohnstudie mit DiD formte die empirische Ökonomie neu und trug zu Cards Nobelpreis 2021 bei.",
+  "formula.180.applications": "Politikevaluierung, natürliche Experimente, öffentliche Gesundheit, Arbeitsökonomie, A/B-Tests im großen Maßstab",
+
+  "formula.181.name": "AR(p)-Prozess",
+  "formula.181.significance": "Das autoregressive Modell der Ordnung p – eine Zeitreihe hängt linear von ihren eigenen p vorherigen Werten plus Rauschen ab. Grundlage der Zeitreihenanalyse und ökonometrischen Modellierung. Die Basis von ARMA, ARIMA, GARCH und Zustandsraummodellen.",
+  "formula.181.applications": "Finanz-Zeitreihen, Wirtschaftsprognosen, Sprachverarbeitung, Signalanalyse, Klimamodellierung",
+
+  "formula.182.name": "GARCH(1,1)-Modell",
+  "formula.182.significance": "Modelliert zeitvariable Volatilität – Varianzclustering in Finanzmärkten (hohe Volatilität folgt hoher Volatilität). Engle gewann den Nobelpreis 2003. GARCH ist das Standardmodell für Finanzvolatilität und das Rückgrat des Risikomanagements und der Optionsbewertung.",
+  "formula.182.applications": "Finanzrisikomanagement, VaR-Schätzung, Optionsbewertung, Hochfrequenzhandel, Portfoliooptimierung",
+
+  "formula.183.name": "Kointegration / Fehlerkorrekturmodell",
+  "formula.183.significance": "Modelliert die langfristige Gleichgewichtsbeziehung zwischen nicht-stationären Zeitreihen. Engle und Granger teilten sich den Nobelpreis 2003 dafür. Wesentlich für makroökonomische Modellierung, Paarhandel und jede Analyse langfristiger Beziehungen zwischen finanziellen oder wirtschaftlichen Variablen.",
+  "formula.183.applications": "Makroökonomie, Zentralbankmodellierung, Paarhandel (Quant-Finanzen), langfristige Prognosen",
+
+  "formula.184.name": "Kollektives Risikomodell (Compound Poisson)",
+  "formula.184.significance": "Modelliert aggregierte Versicherungsverluste als Summe einer Poisson-verteilten Anzahl von Einzelansprüchen. Die Grundlage der Schadenversicherungspreisgestaltung, Rückstellungsbildung und Risikokapitalberechnungen. Erzeugende Funktionen von S werden verwendet, um Ruinwahrscheinlichkeiten zu berechnen.",
+  "formula.184.applications": "Sachversicherungspreisgestaltung, Rückstellungsbildung, Solvenzkapital (Solvency II), Katastrophenmodellierung, Rückversicherung",
+
+  "formula.185.name": "Cramér-Lundberg-Ruinformel",
+  "formula.185.significance": "Liefert eine exponentielle Obergrenze für die Wahrscheinlichkeit, dass der Überschuss eines Versicherers negativ wird (Ruin) bei gegebenem Anfangsreserve u. Der Anpassungskoeffizient R löst Lundbergs Gleichung. Grundlage der klassischen Ruintheorie und Solvenzmodellierung.",
+  "formula.185.applications": "Versicherungssolvenzregulierung, optimale Dividendenstrategien, Rückversicherungsdesign, Solvency II, Katastrophenanleihen",
+
+  "formula.186.name": "KKT-Bedingungen",
+  "formula.186.significance": "Karush-Kuhn-Tucker-Bedingungen verallgemeinern Lagrange-Multiplikatoren auf Ungleichheitsbeschränkungen. Notwendige (und hinreichende für konvexe Probleme) Bedingungen für beschränkte Optimalität. Die theoretische Grundlage aller nichtlinearen Programmierung und SVM-Trainings.",
+  "formula.186.applications": "Nichtlineare Programmierung, SVM (Support-Vektor-Maschinen), neuronales Netzwerk-Pruning, Ingenieurdesign, Wirtschaft",
+
+  "formula.187.name": "Simplex-Methode (Dualität)",
+  "formula.187.significance": "LP-Dualität: Jedes lineare Maximierungsproblem hat ein duales Minimierungsproblem mit gleichem optimalem Wert (starke Dualität). Die Simplex-Methode löst beide. Einer der praktisch wirkungsvollsten Algorithmen, die je entwickelt wurden, löst täglich Milliarden von Optimierungsproblemen.",
+  "formula.187.applications": "Lieferkette, Logistik, Scheduling, Flugzeugbesatzungsplanung, Netzwerkfluss, Telekommunikation, Finanzen",
+
+  "formula.188.name": "Little's Gesetz",
+  "formula.188.significance": "Besagt, dass die durchschnittliche Anzahl von Elementen in einem stabilen Warteschlangensystem gleich der durchschnittlichen Ankunftsrate mal der durchschnittlichen Verweildauer ist. Gilt unter erstaunlich allgemeinen Bedingungen – keine Verteilungsannahmen erforderlich. Allgegenwärtig in Betrieb, Fertigung und Computersystemen.",
+  "formula.188.applications": "Fertigung (WIP), Softwareentwicklung (Zykluszeit), Krankenhausmanagement, Callcenter, Netzwerkdesign",
+
+  "formula.189.name": "Richter- / Momenten-Magnitudenskala",
+  "formula.189.significance": "Quantifiziert Erdbebenenergiefrei­setzung über das seismische Moment M₀. Jede Einheit Anstieg = 31,6× mehr Energie. Die Momentmagnitudenskala (Mw) ersetzte Richter für große Erdbeben und ist der weltweit verwendete Standard. Eine logarithmische Skala, die Energie mit einer universell berichteten Zahl verbindet.",
+  "formula.189.applications": "Erdbebengefährdungsbewertung, Bauvorschriften, Tsunami-Warnung, Versicherung (Katastrophenrisiko), seismische Überwachung",
+
+  "formula.190.name": "Radiometrische Datierung (Zerfallsgesetz)",
+  "formula.190.significance": "Ermöglicht die Datierung von Gesteinen durch Messung des Verhältnisses von Tochter- zu Mutterisotopen. Etablierte das Alter der Erde (4,54 Mrd. Jahre) und revolutionierte Geologie, Paläontologie und unser Verständnis der geologischen Zeit. Grundlage der modernen Geochronologie.",
+  "formula.190.applications": "Datierung von Gesteinen (U-Pb, Rb-Sr), Kohlenstoffdatierung (¹⁴C), Alter der Erde, Fossildatierung, archäologische Chronologie"
 }
