@@ -84,6 +84,27 @@ import { peterDebyeQuestions } from "./peter-debye";
 import { kenichiFukuiQuestions } from "./kenichi-fukui";
 import { roaldHoffmannQuestions } from "./roald-hoffmann";
 
+// Chemistry Legends (batch 2)
+import { friedrichWohlerQuestions } from "./friedrich-wohler";
+import { augustKekuleQuestions } from "./august-kekule";
+import { justusVonLiebigQuestions } from "./justus-von-liebig";
+import { williamPerkinQuestions } from "./william-perkin";
+import { hermannKolbeQuestions } from "./hermann-kolbe";
+import { williamRamsayQuestions } from "./william-ramsay";
+import { robertBunsenQuestions } from "./robert-bunsen";
+import { heitlerLondonQuestions } from "./heitler-london";
+import { johnPopleQuestions } from "./john-pople";
+import { fischerWilkinsonQuestions } from "./fischer-wilkinson";
+import { georgeOlahQuestions } from "./george-olah";
+import { robertGrubbsQuestions } from "./robert-grubbs";
+import { barrySharplessQuestions } from "./barry-sharpless";
+import { heegerMacdiarmidShirakawaQuestions } from "./heeger-macdiarmid-shirakawa";
+import { emilFischerQuestions } from "./emil-fischer";
+import { perutzKendrewQuestions } from "./perutz-kendrew";
+import { anastasWarnerQuestions } from "./anastas-warner";
+import { jamesLovelockQuestions } from "./james-lovelock";
+import { lehnCramPedersenQuestions } from "./lehn-cram-pedersen";
+
 import { felixExnerQuestions } from "./felix-exner";
 import { marianSmoluchowskiQuestions } from "./marian-smoluchowski";
 import { addyProssQuestions } from "./addy-pross";
