@@ -650,6 +650,17 @@ import { janMycielskiQuestions } from "./jan-mycielski";
 import { andrzejEhrenfeuchtQuestions } from "./andrzej-ehrenfeucht";
 import { herbertGrotzschQuestions } from "./herbert-grotzsch";
 
+// Fields Medal & Abel Prize laureates (formula-rich batch)
+import { manjulBhargavaQuestions } from "./manjul-bhargava";
+import { jamesMaynardQuestions } from "./james-maynard";
+import { hugoDuminilCopinQuestions } from "./hugo-duminil-copin";
+import { maximKontsevichQuestions } from "./maxim-kontsevich";
+import { ngoBaoChauQuestions } from "./ngo-bao-chau";
+import { alessioFigalliQuestions } from "./alessio-figalli";
+import { laurentSchwartzQuestions } from "./laurent-schwartz";
+import { mikhailGromovQuestions } from "./mikhail-gromov";
+import { timothyGowersQuestions } from "./timothy-gowers";
+
 export const allThinkerQuestions: Question[] = [
   ...thomasGilbertQuestions,
   ...evgenyLifshitzQuestions,
@@ -1273,6 +1284,17 @@ export const allThinkerQuestions: Question[] = [
   ...alHassarQuestions,
   ...ibnMunimQuestions,
   ...alKhaziniQuestions,
+
+  // Fields Medal & Abel Prize laureates (formula-rich batch)
+  ...manjulBhargavaQuestions,
+  ...jamesMaynardQuestions,
+  ...hugoDuminilCopinQuestions,
+  ...maximKontsevichQuestions,
+  ...ngoBaoChauQuestions,
+  ...alessioFigalliQuestions,
+  ...laurentSchwartzQuestions,
+  ...mikhailGromovQuestions,
+  ...timothyGowersQuestions,
 ];
 export function getThinkerQuestions(slug: string): Question[] {
   return allThinkerQuestions.filter((q) => q.topic === slug);
