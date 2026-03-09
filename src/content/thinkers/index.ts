@@ -698,7 +698,18 @@ import { darrellDuffieQuestions } from "./darrell-duffie";
 import { johnHullQuestions } from "./john-hull";
 import { marcosLopezDePradoQuestions } from "./marcos-lopez-de-prado";
 
-export const allThinkerQuestions: Question[] = [
+// AI Legends & Leaders
+import { davidSilverQuestions } from "./david-silver";
+import { seppHochreiterQuestions } from "./sepp-hochreiter";
+import { alecRadfordQuestions } from "./alec-radford";
+import { noamShazeerQuestions } from "./noam-shazeer";
+import { oriolVinyalsQuestions } from "./oriol-vinyals";
+import { pieterAbbeelQuestions } from "./pieter-abbeel";
+import { jaredKaplanQuestions } from "./jared-kaplan";
+import { jacobDevlinQuestions } from "./jacob-devlin";
+import { albertGuQuestions } from "./albert-gu";
+import { triDaoQuestions } from "./tri-dao";
+
   ...thomasGilbertQuestions,
   ...evgenyLifshitzQuestions,
   ...mishaBialyQuestions,
