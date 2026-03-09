@@ -1,5 +1,10 @@
 // Nobel Laureates (additional batch 1)
 import { stevenWeinbergQuestions } from "./steven-weinberg";
+// Nobel Laureates (batch 3 - key equations)
+import { wolfgangKetterleQuestions } from "./wolfgang-ketterle";
+import { royGlauberQuestions } from "./roy-glauber";
+import { johnClauserQuestions } from "./john-clauser";
+import { antonZeilingerQuestions } from "./anton-zeilinger";
 import { peterHiggsQuestions } from "./peter-higgs";
 import { chenNingYangQuestions } from "./chen-ning-yang";
 import { abdusSalamQuestions } from "./abdus-salam";
@@ -1194,6 +1199,12 @@ export const allThinkerQuestions: Question[] = [
   ...alainAspectQuestions,
   ...pierreGillesDeGennesQuestions,
   ...willisLambQuestions,
+
+  // Nobel Laureates (batch 3 - key equations)
+  ...wolfgangKetterleQuestions,
+  ...royGlauberQuestions,
+  ...johnClauserQuestions,
+  ...antonZeilingerQuestions,
 ];
 export function getThinkerQuestions(slug: string): Question[] {
   return allThinkerQuestions.filter((q) => q.topic === slug);
