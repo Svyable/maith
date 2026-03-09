@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 
-const GREEKTOME_BASE = 'https://greektome.lovable.app/letter';
+const GEEKTOME_BASE = 'https://geektome.lovable.app/letter';
 
 interface CrossLinkPillsProps {
   symbolLinks?: Record<string, string>;
@@ -79,14 +79,14 @@ export function CrossLinkPills({
 
   return (
     <div className="flex flex-wrap gap-1.5 mt-3">
-      {/* Symbol links → GreekToMe */}
+      {/* Symbol links → GeekToMe */}
       {symbolLinks &&
         Object.entries(symbolLinks).map(([symbol, slug]) => (
           <Pill
             key={`sym-${symbol}`}
             emoji="🔤"
             label={symbol}
-            href={`${GREEKTOME_BASE}/${slug}`}
+            href={`${GEEKTOME_BASE}/${slug}`}
           />
         ))}
 

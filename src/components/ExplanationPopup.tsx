@@ -69,7 +69,7 @@ export function ExplanationPopup({ isCorrect, explanation, realWorld, hint, symb
         {symbolLinks && Object.keys(symbolLinks).length > 0 && (
           <div className="flex items-center gap-2 text-xs text-muted-foreground mt-3 pt-2 border-t border-border/50">
             <span>🔤</span>
-            <span>Tap symbols to learn them on GreekToMe</span>
+            <span>Tap symbols to learn them on GeekToMe</span>
           </div>
         )}
 

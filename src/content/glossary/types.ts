@@ -41,7 +41,7 @@ export interface GlossaryTerm {
   related?: string[];
 
   /**
-   * Maps a symbol key (e.g. "n") to its GreekToMe letter slug (e.g. "nu").
+   * Maps a symbol key (e.g. "n") to its GeekToMe letter slug (e.g. "nu").
    * Mirrors the Question.symbolLinks pattern.
    */
   symbolLinks?: Record<string, string>;

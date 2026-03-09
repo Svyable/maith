@@ -410,7 +410,7 @@ Maith's power comes from cross-references between content types. Here's how they
 
 ```
 ┌─────────────┐   symbolLinks    ┌──────────────┐
-│  Questions   │────────────────→│  GreekToMe   │
+│  Questions   │────────────────→│  GeekToMe   │
 │  (quiz)      │   formulaLinks  │  (external)  │
 │              │────────────────→│              │
 │              │   glossaryLinks ┌──────────────┐
@@ -431,7 +431,7 @@ Maith's power comes from cross-references between content types. Here's how they
 
 | Field | Type | Source → Target | Example |
 |-------|------|-----------------|---------|
-| `symbolLinks` | `Record<string, string>` | Any → GreekToMe | `{ 'λ': 'lambda' }` |
+| `symbolLinks` | `Record<string, string>` | Any → GeekToMe | `{ 'λ': 'lambda' }` |
 | `formulaLinks` | `string[]` | Any → Formulas page | `['euler-identity']` |
 | `glossaryLinks` | `string[]` | Questions → Glossary | `['fourier-transform']` |
 | `thinkerLinks` | `string[]` | Glossary → MasterMinds | `['euler', 'gauss']` |
@@ -439,7 +439,7 @@ Maith's power comes from cross-references between content types. Here's how they
 
 ### How slugs resolve
 
-- **`symbolLinks`**: Value is a GreekToMe letter slug → links to `https://greektome.lovable.app/letter/<slug>`
+- **`symbolLinks`**: Value is a GeekToMe letter slug → links to `https://geektome.lovable.app/letter/<slug>`
 - **`formulaLinks`**: Slug is URL-encoded and sent as `?q=` param → `/formulas?q=<slug>`
 - **`glossaryLinks`**: Slug is sent as `?term=` param → `/glossary?term=<slug>`
 - **`thinkerLinks`**: Slug is sent as `?q=` param → `/masterminds?q=<slug>`

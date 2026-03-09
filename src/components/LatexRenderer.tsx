@@ -2,12 +2,12 @@ import { useEffect, useRef } from 'react';
 import katex from 'katex';
 import 'katex/dist/katex.min.css';
 
-const GREEKTOME_BASE = 'https://greektome.lovable.app/letter';
+const GEEKTOME_BASE = 'https://geektome.lovable.app/letter';
 
 interface LatexRendererProps {
   text: string;
   className?: string;
-  /** Maps symbol key (e.g. "n", "\\log") → greektome slug (e.g. "nu", "lambda") */
+  /** Maps symbol key (e.g. "n", "\\log") → geektome slug (e.g. "nu", "lambda") */
   symbolLinks?: Record<string, string>;
 }
 
@@ -29,20 +29,20 @@ function parseMarkdownLinks(raw: string): { type: 'text' | 'link'; text: string;
 /**
  * Find the best matching symbolLink for a LaTeX math string.
  * For simple expressions like "n", "O", "\log" → direct match.
- * Returns the greektome URL or null.
+ * Returns the geektome URL or null.
  */
 function findSymbolUrl(math: string, symbolLinks: Record<string, string>): string | null {
   const trimmed = math.trim();
   // Direct key match (e.g. "n" → "nu")
   if (symbolLinks[trimmed]) {
-    return `${GREEKTOME_BASE}/${symbolLinks[trimmed]}`;
+    return `${GEEKTOME_BASE}/${symbolLinks[trimmed]}`;
   }
   // Check for simple symbol-only patterns like "f(n)", "T(n)", "O()"
   // Only link single-symbol simple expressions, not complex multi-symbol formulas
   if (trimmed.length <= 4) {
     for (const [key, slug] of Object.entries(symbolLinks)) {
       if (trimmed === key) {
-        return `${GREEKTOME_BASE}/${slug}`;
+        return `${GEEKTOME_BASE}/${slug}`;
       }
     }
   }
@@ -77,7 +77,7 @@ export function LatexRenderer({ text, className = '', symbolLinks }: LatexRender
           a.target = '_blank';
           a.rel = 'noopener noreferrer';
           a.className = 'inline-flex items-baseline border-b border-dotted border-primary/60 hover:border-solid hover:border-primary transition-colors cursor-pointer';
-          a.title = `Learn about this symbol on GreekToMe`;
+          a.title = `Learn about this symbol on GeekToMe`;
           a.appendChild(span);
           containerRef.current?.appendChild(a);
         } else {

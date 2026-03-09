@@ -18,7 +18,7 @@ export interface Question {
   explanation: string;
   realWorld: string;
   hint: string;
-  /** Maps a symbol key (e.g. "n") to its greektome letter slug (e.g. "nu") */
+  /** Maps a symbol key (e.g. "n") to its geektome letter slug (e.g. "nu") */
   symbolLinks?: Record<string, string>;
   /** Source paper metadata for SOTA questions */
   paper?: QuestionPaper;

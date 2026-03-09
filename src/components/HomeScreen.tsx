@@ -194,7 +194,7 @@ export function HomeScreen({
 
         {/* Alphabet — Greek Letters (external) */}
         <motion.a
-          href="https://greektome.lovable.app"
+          href="https://geektome.lovable.app"
           target="_blank"
           rel="noopener noreferrer"
           whileHover={{ scale: 1.03 }}

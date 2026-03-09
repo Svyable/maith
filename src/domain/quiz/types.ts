@@ -23,7 +23,7 @@ export interface CheckResult {
   correctIndex: number;
   explanation: string;
   realWorld: string;
-  /** Maps symbol key → greektome letter slug for linking */
+  /** Maps symbol key → geektome letter slug for linking */
   symbolLinks?: Record<string, string>;
   /** Glossary term IDs for cross-linking */
   glossaryLinks?: string[];
