@@ -1273,6 +1273,17 @@ export const allThinkerQuestions: Question[] = [
   ...alHassarQuestions,
   ...ibnMunimQuestions,
   ...alKhaziniQuestions,
+
+  // Fields Medal & Abel Prize laureates (formula-rich batch)
+  ...manjulBhargavaQuestions,
+  ...jamesMaynardQuestions,
+  ...hugoDuminilCopinQuestions,
+  ...maximKontsevichQuestions,
+  ...ngoBaoChauQuestions,
+  ...alessioFigalliQuestions,
+  ...laurentSchwartzQuestions,
+  ...mikhailGromovQuestions,
+  ...timothyGowersQuestions,
 ];
 export function getThinkerQuestions(slug: string): Question[] {
   return allThinkerQuestions.filter((q) => q.topic === slug);

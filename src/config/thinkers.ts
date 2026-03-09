@@ -7585,6 +7585,8 @@ export const THINKERS: ThinkerMeta[] = [
   },
 ];
 
+/** Typed registry map — O(1) lookup by slug */
+export const THINKER_REGISTRY: Record<string, ThinkerMeta> = Object.fromEntries(
   THINKERS.map((t) => [t.slug, t])
 );
 
