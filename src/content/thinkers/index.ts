@@ -661,6 +661,18 @@ import { laurentSchwartzQuestions } from "./laurent-schwartz";
 import { mikhailGromovQuestions } from "./mikhail-gromov";
 import { timothyGowersQuestions } from "./timothy-gowers";
 
+// Fields Medalists & foundational minds (batch 2)
+import { pierreDeligneQuestions } from "./pierre-deligne";
+import { johnMilnorQuestions } from "./john-milnor";
+import { ghHardyQuestions } from "./gh-hardy";
+import { arturAvilaQuestions } from "./artur-avila";
+import { vladimirVoevodskyQuestions } from "./vladimir-voevodsky";
+import { simonDonaldsonQuestions } from "./simon-donaldson";
+import { vaughanJonesQuestions } from "./vaughan-jones";
+import { reneThomQuestions } from "./rene-thom";
+import { peterDirichletQuestions } from "./peter-dirichlet";
+import { charlesHermiteQuestions } from "./charles-hermite";
+
 export const allThinkerQuestions: Question[] = [
   ...thomasGilbertQuestions,
   ...evgenyLifshitzQuestions,
@@ -1295,6 +1307,18 @@ export const allThinkerQuestions: Question[] = [
   ...laurentSchwartzQuestions,
   ...mikhailGromovQuestions,
   ...timothyGowersQuestions,
+
+  // Fields Medalists & foundational minds (batch 2)
+  ...pierreDeligneQuestions,
+  ...johnMilnorQuestions,
+  ...ghHardyQuestions,
+  ...arturAvilaQuestions,
+  ...vladimirVoevodskyQuestions,
+  ...simonDonaldsonQuestions,
+  ...vaughanJonesQuestions,
+  ...reneThomQuestions,
+  ...peterDirichletQuestions,
+  ...charlesHermiteQuestions,
 ];
 export function getThinkerQuestions(slug: string): Question[] {
   return allThinkerQuestions.filter((q) => q.topic === slug);
