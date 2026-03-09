@@ -1384,6 +1384,16 @@ export const allThinkerQuestions: Question[] = [
 
   // AI Legends & Leaders
   ...davidSilverQuestions,
+  // Chemistry Legends
+  ...gilbertLewisQuestions,
+  ...fritzHaberQuestions,
+  ...robertWoodwardQuestions,
+  ...ahmedZewailQuestions,
+  ...jacobusVanTHoffQuestions,
+  ...peterDebyeQuestions,
+  ...kenichiFukuiQuestions,
+  ...roaldHoffmannQuestions,
+
   ...seppHochreiterQuestions,
   ...alecRadfordQuestions,
   ...noamShazeerQuestions,
