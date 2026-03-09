@@ -1333,6 +1333,31 @@ export const allThinkerQuestions: Question[] = [
   ...reneThomQuestions,
   ...peterDirichletQuestions,
   ...charlesHermiteQuestions,
+
+  // Fields Medalists & Abel laureates (batch 3)
+  ...michaelFreedmanQuestions,
+  ...laurentLafforgueQuestions,
+  ...elonLindenstraussQuestions,
+  ...stanislavSmirnovQuestions,
+  ...enricoBombieriQuestions,
+  ...atleSelbergQuestions,
+  ...endreszemerediQuestions,
+  ...aviWigdersonQuestions,
+  ...andreWeilQuestions,
+  ...davidMumfordQuestions,
+  ...danielQuillenQuestions,
+  ...laszloLovaszQuestions,
+
+  // Finance & Quant Market Makers
+  ...robertAlmgrenQuestions,
+  ...albertKyleQuestions,
+  ...stevenHestonQuestions,
+  ...brunoDupireQuestions,
+  ...jeanPhilippeBouchaudQuestions,
+  ...cliffAsnessQuestions,
+  ...darrellDuffieQuestions,
+  ...johnHullQuestions,
+  ...marcosLopezDePradoQuestions,
 ];
 export function getThinkerQuestions(slug: string): Question[] {
   return allThinkerQuestions.filter((q) => q.topic === slug);
