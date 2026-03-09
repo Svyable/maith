@@ -1142,6 +1142,20 @@ export const allThinkerQuestions: Question[] = [
   ...luigiAmbrosioQuestions,
   ...filippoSantambrogioQuestions,
   ...gabrielPeyreQuestions,
+
+  // Nobel Laureates (additional)
+  ...stevenWeinbergQuestions,
+  ...peterHiggsQuestions,
+  ...chenNingYangQuestions,
+  ...abdusSalamQuestions,
+  ...louisDeBroglieQuestions,
+  ...hidekiYukawaQuestions,
+  ...donnaStricklandQuestions,
+  ...andreaGhezQuestions,
+  ...frankWilczekQuestions,
+  ...philipAndersonQuestions,
+  ...sinItiroTomonagaQuestions,
+  ...kennethWilsonQuestions,
 ];
 export function getThinkerQuestions(slug: string): Question[] {
   return allThinkerQuestions.filter((q) => q.topic === slug);
