@@ -1222,6 +1222,24 @@ export const allThinkerQuestions: Question[] = [
   ...royGlauberQuestions,
   ...johnClauserQuestions,
   ...antonZeilingerQuestions,
+
+  // Nobel Laureates & Minds (batch 4)
+  ...tuYouyouQuestions,
+  ...elizabethBlackburnQuestions,
+  ...francoiseBarreSinoussiQuestions,
+  ...shinyaYamanakaQuestions,
+  ...frederickSangerExpandedQuestions,
+  ...johnBardeenQuestions,
+  ...stevenChuQuestions,
+  ...robertLanglandsQuestions,
+  ...williamThurstonQuestions,
+  ...alainConnesQuestions,
+  ...stephenSmaleQuestions,
+  ...shingTungYauQuestions,
+  ...peterWeinbergerQuestions,
+  ...rogerKornbergQuestions,
+  ...jenniferDoudnaExpandedQuestions,
+  ...marieAnnePaulzeLavoisierQuestions,
 ];
 export function getThinkerQuestions(slug: string): Question[] {
   return allThinkerQuestions.filter((q) => q.topic === slug);
