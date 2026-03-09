@@ -10,7 +10,7 @@ import { tuYouyouQuestions } from "./tu-youyou";
 import { elizabethBlackburnQuestions } from "./elizabeth-blackburn";
 import { francoiseBarreSinoussiQuestions } from "./francoise-barre-sinoussi";
 import { shinyaYamanakaQuestions } from "./shinya-yamanaka";
-import { frederickSangerQuestions } from "./frederick-sanger";
+import { frederickSangerQuestions as frederickSangerExpandedQuestions } from "./frederick-sanger";
 import { johnBardeenQuestions } from "./john-bardeen";
 import { stevenChuQuestions } from "./steven-chu";
 import { robertLanglandsQuestions } from "./robert-langlands";
