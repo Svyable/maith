@@ -710,6 +710,7 @@ import { jacobDevlinQuestions } from "./jacob-devlin";
 import { albertGuQuestions } from "./albert-gu";
 import { triDaoQuestions } from "./tri-dao";
 
+export const allThinkerQuestions: Question[] = [
   ...thomasGilbertQuestions,
   ...evgenyLifshitzQuestions,
   ...mishaBialyQuestions,
