@@ -5,6 +5,23 @@ import { wolfgangKetterleQuestions } from "./wolfgang-ketterle";
 import { royGlauberQuestions } from "./roy-glauber";
 import { johnClauserQuestions } from "./john-clauser";
 import { antonZeilingerQuestions } from "./anton-zeilinger";
+// Nobel Laureates & Minds (batch 4)
+import { tuYouyouQuestions } from "./tu-youyou";
+import { elizabethBlackburnQuestions } from "./elizabeth-blackburn";
+import { francoiseBarreSinoussiQuestions } from "./francoise-barre-sinoussi";
+import { shinyaYamanakaQuestions } from "./shinya-yamanaka";
+import { frederickSangerQuestions as frederickSangerExpandedQuestions } from "./frederick-sanger";
+import { johnBardeenQuestions } from "./john-bardeen";
+import { stevenChuQuestions } from "./steven-chu";
+import { robertLanglandsQuestions } from "./robert-langlands";
+import { williamThurstonQuestions } from "./william-thurston";
+import { alainConnesQuestions } from "./alain-connes";
+import { stephenSmaleQuestions } from "./stephen-smale";
+import { shingTungYauQuestions } from "./shing-tung-yau";
+import { peterWeinbergerQuestions } from "./peter-weinberger";
+import { rogerKornbergQuestions } from "./roger-kornberg";
+import { jenniferDoudnaExpandedQuestions } from "./jennifer-doudna-expanded";
+import { marieAnnePaulzeLavoisierQuestions } from "./marie-anne-paulze-lavoisier";
 import { peterHiggsQuestions } from "./peter-higgs";
 import { chenNingYangQuestions } from "./chen-ning-yang";
 import { abdusSalamQuestions } from "./abdus-salam";
@@ -1205,6 +1222,24 @@ export const allThinkerQuestions: Question[] = [
   ...royGlauberQuestions,
   ...johnClauserQuestions,
   ...antonZeilingerQuestions,
+
+  // Nobel Laureates & Minds (batch 4)
+  ...tuYouyouQuestions,
+  ...elizabethBlackburnQuestions,
+  ...francoiseBarreSinoussiQuestions,
+  ...shinyaYamanakaQuestions,
+  ...frederickSangerExpandedQuestions,
+  ...johnBardeenQuestions,
+  ...stevenChuQuestions,
+  ...robertLanglandsQuestions,
+  ...williamThurstonQuestions,
+  ...alainConnesQuestions,
+  ...stephenSmaleQuestions,
+  ...shingTungYauQuestions,
+  ...peterWeinbergerQuestions,
+  ...rogerKornbergQuestions,
+  ...jenniferDoudnaExpandedQuestions,
+  ...marieAnnePaulzeLavoisierQuestions,
 ];
 export function getThinkerQuestions(slug: string): Question[] {
   return allThinkerQuestions.filter((q) => q.topic === slug);
