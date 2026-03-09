@@ -40,6 +40,7 @@ export type SubDomain =
   | "Thermodynamics & Stat Mech"
   | "Relativity & Gravity"
   | "Condensed Matter & Applied"
+  | "String Theory & Quantum Gravity"
   | "Ergodic Theory"
   | "Hamiltonian Dynamics"
   | "Brownian Motion"
