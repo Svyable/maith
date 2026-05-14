@@ -1,0 +1,19 @@
+# mAIth
+
+> Interactive learning platform for math, physics, computer science, and AI/ML — gamified quizzes, a curated formula library, glossary flash cards, master-mind profiles, and leaderboards.
+
+mAIth helps learners master technical knowledge through bite-sized quizzes across dozens of fields (mathematics, physics, chemistry, biology, CS, finance, frontier AI). Content is organized by domain and difficulty, cross-linked between formulas, glossary terms, and the thinkers who discovered them.
+
+## Pages
+
+- [Home](/): Pick topics, difficulty, and start a quiz session.
+- [Master Minds](/thinkers): Legendary thinkers (ancient to contemporary) with question sets per thinker.
+- [Formulas](/formulas): Humanity's greatest equations — ranked, tagged, and explored.
+- [Glossary](/glossary): Flash cards for key terms across every field, with LaTeX and code.
+- [Vault](/vault): Classified secrets — declassified level by level via challenge questions.
+- [Bonafides](/bonafides): Professional certification and credentialing prep (CFA, FRM, CPA, etc.).
+- [Leaderboard](/leaderboard): All-time, weekly, and per-topic rankings.
+
+## Optional
+
+- [Profile](/profile): Personal stats, accuracy heatmap, and recent sessions (requires sign-in).
