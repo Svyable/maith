@@ -163,6 +163,7 @@ export const TOPICS: TopicMeta[] = [
   { slug: 'compiler-theory',    label: 'Compiler Theory',      emoji: '⚙️', description: 'Parsing, SSA, LLVM, MLIR, tensor compilers',           field: 'cs' },
   { slug: 'formal-verification', label: 'Formal Verification', emoji: '✅', description: 'Lean 4, Coq, model checking, SMT solvers',             field: 'cs' },
   { slug: 'information-theory', label: 'Information Theory',   emoji: '📊', description: 'Shannon entropy, KL divergence, channel capacity',      field: 'cs' },
+  { slug: 'ai-substrates',      label: 'AI Math Substrates',   emoji: '🧮', description: 'Rate-distortion KV cache, maximal coupling, curvature-aware quantization', field: 'cs' },
   // ── Earth & Space ──────────────────────────────────────────
   { slug: 'astronomy',           label: 'Astronomy',            emoji: '🔭', description: 'Stars, galaxies, cosmology, CMB',                   field: 'earth-space' },
   { slug: 'geology',             label: 'Geology',              emoji: '🪨', description: 'Rocks, tectonics, geochronology',                   field: 'earth-space' },

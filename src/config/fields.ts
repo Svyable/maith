@@ -101,7 +101,7 @@ export const FIELDS: FieldMeta[] = [
     label: 'Computer Science',
     emoji: '💻',
     description: 'Algorithms, Machine Learning, Cryptography, AI Models, Quantum Computing, Cybersecurity',
-    topics: ['algorithms', 'machine-learning', 'cryptography', 'ai-models', 'quantum-computing', 'cybersecurity', 'distributed-systems', 'operating-systems', 'compiler-theory', 'formal-verification', 'information-theory'],
+    topics: ['algorithms', 'machine-learning', 'cryptography', 'ai-models', 'quantum-computing', 'cybersecurity', 'distributed-systems', 'operating-systems', 'compiler-theory', 'formal-verification', 'information-theory', 'ai-substrates'],
     color: 'accent',
     available: true,
   },
