@@ -62,3 +62,60 @@ informative than the win would have been:
 - **`speculative_coupling.py` B5** — the usual multi-draft upper bound goes
   vacuous (equals 1.0) by $k = 4$, so it must be bracketed by an achievable
   scheme to say anything at all.
+
+---
+
+# v2: the same questions, on a real trained model
+
+v1's prototypes (above) ran on synthetic matrices — the largest caveat in the
+whole programme. The v2 scripts remove it by **training transformers from
+scratch** on a real corpus, then re-running every claim on learned weights and
+real activation statistics.
+
+| Script | What it settles |
+|---|---|
+| `real_model.py` | The harness: corpus, tokenizer, TinyGPT, AdamW + Muon. Run first. |
+| `real_cond_g.py` | v1's #1 open question — is cond(G) ill-conditioned in practice? |
+| `trellis_quantizer.py` | Builds the decoder v1 argued for, then tries to falsify v1's prediction about it |
+| `real_quantization.py` | R1–R5 on real weights: curvature, search, KV sensitivity, Muon |
+| `real_speculative.py` | S1–S4: the coupling identity, acceptance heterogeneity, entropy-scheduled γ, joint serving |
+| `real_pipeline.py` | The end-to-end ablation against a production baseline |
+
+```bash
+pip install numpy torch
+python3 real_model.py          # ~40 min on 4 CPU cores; checkpoints are cached
+python3 real_cond_g.py         # then any of the others, in any order
+```
+
+No GPU and no network access required. HuggingFace is blocked by this
+environment's network policy, which is *why* the harness trains its own models
+rather than loading a checkpoint.
+
+## What v2 changed
+
+**Confirmed:** curvature-aware rounding (median 2.79× over RTN on real weights,
+matching v1's synthetic 2.7–3.0×); the coupling identity α = 1 − TV on a real
+draft/target pair; sensitivity ≠ variance; and — the headline — **24/24 real
+layers are both ill-conditioned and strongly non-diagonal in G**, so the
+Kronecker-factored prize v1 could only bound is broadly available.
+
+**The one thing that worked end-to-end:** rate-distortion bit allocation reduced
+excess validation loss **3.29×** versus uniform GPTQ with act-order at 2.5
+bits/weight.
+
+**Falsified, and retracted:** v1 predicted a trellis decoder would help most at
+the lowest bit width. It doesn't — the gain is flat. The replacement hypothesis
+(gain tracks cond(H), corr **+0.958** synthetic) **reversed sign on real layers**
+(**−0.907**), and using cond(H) to triage the decoder made the end-to-end
+pipeline *worse* than not using the decoder at all. v1 recommended this
+direction; v2 retracts it.
+
+**Two more instructive failures:** a banded-Viterbi decoder that solves a
+truncated objective exactly loses to greedy solving the real one — truncate the
+search, not the problem. And v1's joint serving-allocation win shrinks from 6.70×
+to **1.33×** once the baseline is int4 KV with batch and γ properly tuned, rather
+than fp16 KV.
+
+The pattern across both documents: **the identities transferred and the
+extrapolations did not.** Everything that failed was an inference from a
+mechanism to a method, fitted on synthetic data.

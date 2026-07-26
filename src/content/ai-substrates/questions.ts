@@ -468,4 +468,106 @@ export const aiSubstratesQuestions: Question[] = [
     hint: "How many bits does a source actually need, versus how many its alphabet size suggests?",
     glossaryLinks: ["substrate-information-theory", "rate-distortion-allocation"],
   },
+
+  // ═══════════════════════════════════════════════════════════════════
+  // SOTA — v2: results from testing v1's predictions on a trained model.
+  // Includes the predictions that FAILED, because those taught more.
+  // See docs/ai-substrate-breakthroughs-v2.md
+  // ═══════════════════════════════════════════════════════════════════
+  {
+    id: 15060,
+    topic: "ai-substrates",
+    difficulty: "sota",
+    question: `Deployed quantizers optimise $\\operatorname{tr}(\\Delta W H \\Delta W^\\top)$, the $G = I$ slice of the two-sided objective. Measured on a real trained transformer, what does the output-side metric $G$ actually look like?`,
+    options: [
+      "Ill-conditioned AND strongly non-diagonal in every layer, with only ~9% of output directions carrying the metric",
+      "Nearly diagonal, so per-row scaling already captures it",
+      "Well-conditioned, so the one-sided objective is provably optimal",
+      "Isotropic, since layer normalization equalizes output channels",
+    ],
+    correctIndex: 0,
+    explanation:
+      `Measuring the Gauss-Newton block $G = \\mathbb{E}[(\\partial L/\\partial y)(\\partial L/\\partial y)^\\top]$ across all 24 linear layers of a trained transformer gives median cond$_{99}(G) \\approx 2.8\\times10^3$ and median off-diagonal mass $0.88$ — every layer clears both thresholds at which a two-sided objective was shown to matter. Effective rank is only about 9% of $d_{\\text{out}}$, meaning roughly nine-tenths of output-space directions are nearly free to damage.`,
+    realWorld:
+      "This is the measurement that decides whether Kronecker-factored rounding earns its complexity, and the answer came back yes: 24/24 layers qualify. Every shipping quantizer is spending its bit budget as though all output directions cost the same.",
+    hint: "Two statistics are needed: is there a cheap direction, and can a diagonal see it?",
+    symbolLinks: { "⊗": "otimes" },
+    glossaryLinks: ["kronecker-factored-curvature", "layerwise-hessian"],
+  },
+  {
+    id: 15061,
+    topic: "ai-substrates",
+    difficulty: "sota",
+    question: `A quantization study predicted that a bounded-memory trellis decoder should beat greedy rounding most at the *lowest* bit width, reasoning that the required correlation order is smallest there. Testing showed the gain was flat in bit width. Where did the reasoning break?`,
+    options: [
+      "It assumed bounded memory means a fixed correlation order — true of a banded trellis state, false of a beam, which reallocates its search wherever the coupling is",
+      "The measured correlation order was an artifact of floating-point error",
+      "Beam search does not actually generalise greedy error feedback",
+      "Bit width does not affect the quantization grid spacing",
+    ],
+    correctIndex: 0,
+    explanation:
+      `The underlying mechanism was sound and independently verified: greedy error feedback sits in a strict 1-opt local minimum, and beam search at wide beam provably reaches the exact integer least-squares optimum. What failed was the inference from mechanism to method. A banded trellis carries a fixed number of past decisions as state, so its reach really is a fixed correlation order. A beam carries whole candidate solutions ranked by exact cost, so it spends its width wherever coupling happens to be — making it insensitive to the bit width in the way predicted.`,
+    realWorld:
+      "Measured gains were 1.342x, 1.271x and 1.338x at 2, 3 and 4 bits — flat, and the prediction held in only 4 of 6 configurations. A correct mechanism does not guarantee a correct prediction about a method built on it.",
+    hint: "What kind of memory does a beam have, compared with a Viterbi state?",
+    glossaryLinks: ["trellis-quantization", "layerwise-hessian"],
+  },
+  {
+    id: 15062,
+    topic: "ai-substrates",
+    difficulty: "sota",
+    question: `A synthetic sweep found that the advantage of correlated-search rounding over greedy tracked $\\mathrm{cond}(H)$ with correlation $+0.958$, monotonically. On real trained layers the same measurement gave $-0.907$. What is the general lesson?`,
+    options: [
+      "A mechanism story fitted to synthetic data can be strongly supported in-sample and still reverse out of sample — the more strongly supported, the harder it can fail",
+      "Correlation is not a valid statistic for this kind of comparison",
+      "Real Hessians are better conditioned than synthetic ones, so the effect vanishes",
+      "The sign flip indicates a bug, since correlations cannot change sign",
+    ],
+    correctIndex: 0,
+    explanation:
+      `The synthetic result was clean: monotone across three orders of magnitude of conditioning, correlation $+0.958$. It was also constructed on layers whose activation covariance had a deliberately controlled spectrum and a random eigenbasis. Real layers differ in ways the synthetic generator did not model — and on them, high $\\mathrm{cond}(H)$ is where greedy with act-order does *best* relative to a beam. Nothing was buggy; the synthetic family simply was not representative.`,
+    realWorld:
+      "This is the ordinary shape of overfitting a mechanism to synthetic data, and it is why the identities in this area transfer while the extrapolations do not. Theorems like $\\alpha = 1 - \\mathrm{TV}$ held on real models; every fitted relationship that failed was an inference from mechanism to method.",
+    hint: "Which claim was better supported in-sample, and which failed harder?",
+    glossaryLinks: ["trellis-quantization", "gauss-newton-sensitivity"],
+  },
+  {
+    id: 15063,
+    topic: "ai-substrates",
+    difficulty: "sota",
+    question: `In speculative decoding, per-token acceptance is heterogeneous (measured p1 = 0.20 to p99 = 0.89), so a single block length $\\gamma$ leaves value behind. Which signal best predicts local acceptance while costing nothing?`,
+    options: [
+      "The draft model's own predictive entropy $H(q)$ — it correlates $+0.650$ and is already computed",
+      "The target model's entropy $H(p)$, which is the most accurate available signal",
+      "Whether the draft and target argmax agree",
+      "The position index within the sequence",
+    ],
+    correctIndex: 0,
+    explanation:
+      `The draft's entropy is available for free at every step, since the draft already produced a full distribution. Measured against per-token acceptance it correlates $+0.650$ — better than the *target's* entropy at $+0.512$, which is the point, because obtaining target entropy requires the target forward pass that speculation exists to avoid. Bucketing tokens by draft entropy and fitting one $\\gamma$ per bucket captured 51.3% of the adaptive-$\\gamma$ headroom on held-out tokens.`,
+    realWorld:
+      "This composes two independent levers: entropy as a free uncertainty estimate, and acceptance-dependent block length. It is the cheapest measured win of the whole programme — no extra compute, no model changes, and it generalises to held-out data.",
+    hint: "The best signal must be available *before* you pay for the target.",
+    glossaryLinks: ["entropy-adaptive-compute", "maximal-coupling-acceptance"],
+  },
+  {
+    id: 15064,
+    topic: "ai-substrates",
+    difficulty: "sota",
+    question: `Solving the serving allocation over $(\\gamma, \\text{batch}, \\text{bits})$ jointly rather than separately was reported as a 6.70x throughput win. Why is that number misleading, and what is the honest one?`,
+    options: [
+      "The 6.70x was against an fp16-KV baseline; against int4 KV with batch and $\\gamma$ each tuned, the joint solve is worth 1.33x — most of the apparent win is just KV compression",
+      "The roofline model overestimates bandwidth, so all the numbers are inflated equally",
+      "Joint optimisation is invalid because the variables are independent",
+      "The measured acceptance rate was too low for speculation to help at all",
+    ],
+    correctIndex: 0,
+    explanation:
+      `A joint optimum is only as impressive as the baseline it beats. Against fp16 KV with $\\gamma$ chosen from a bandwidth-blind cost model, the joint solve looks like 6.70x. Against int8 KV it is 3.35x. Against int4 KV with batch and $\\gamma$ each separately tuned — a baseline a competent engineer would actually build — it is 1.33x. The genuine coupling effect is real but modest: optimal $\\gamma$ depends on bit width through the batch size that fits in bandwidth.`,
+    realWorld:
+      "Reporting the strongest baseline you can construct, rather than the weakest one that still counts as prior art, is the difference between a result and a press release.",
+    hint: "Ask what the baseline was doing, not what the optimum achieved.",
+    glossaryLinks: ["arithmetic-intensity-roofline", "rate-distortion-allocation"],
+  },
 ];
