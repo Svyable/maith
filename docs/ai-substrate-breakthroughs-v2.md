@@ -210,6 +210,96 @@ the median is 1.04× and the worst-conditioned layers get *worse*.
 
 ---
 
+## C-real-5 — Sensitivity vs variance: **v1's claim did not replicate**
+
+v1 made a lot of the observation that per-head KV sensitivity is only
+0.38-correlated with variance, concluding that "a variance-ranked allocator is
+optimizing a weakly-correlated proxy." Measured on the real model's 24 attention
+heads:
+
+**[measured]**
+
+| | v1 (synthetic) | v2 (real model) |
+|---|---|---|
+| variance spread across heads | 7828× | **4.4×** |
+| sensitivity spread | 22906× | 40.7× |
+| corr(log var, log sensitivity) | 0.38 | **0.907** |
+| top-6 overlap (variance vs sensitivity ranking) | — | **5 / 6** |
+
+The claim does not hold. On a real trained model, variance is a *good* proxy for
+sensitivity — a variance-ranked allocator gets 5 of the top 6 heads right.
+
+The reason is instructive and is a flaw in v1's synthetic design rather than a
+subtle effect: v1's generator drew per-head scale and per-head output gain
+**independently**, which decouples variance from sensitivity by construction and
+guarantees a low correlation. Training couples them — a head whose activations
+matter gets larger weights — so the real spread is 4.4× rather than 7828×, and
+the two statistics move together.
+
+This does not undermine the sensitivity probe itself, which still earned its
+place end-to-end at *layer* granularity (3.29×, above). It undermines the
+specific argument that variance-based KV allocation is leaving a lot on the
+table. On this model it is not.
+
+---
+
+## C-real-6 — Do Muon-trained models quantize better? **No — the opposite, and the mechanism is clear**
+
+v1 called this "the cheapest high-value experiment in this document" and did not
+run it. Its argument: Muon takes steepest-descent steps under a spectral-norm
+trust region, so singular values stay bounded; Pathway C showed spectral
+concentration drives rounding error; therefore a Muon-trained model should
+quantize better.
+
+Compared at **matched loss** — Muon at 1500 steps (val 5.3653) against AdamW at
+600 steps (val 5.3752), a gap of 0.0099 — so a quantization difference cannot be
+a capability difference in disguise.
+
+**[measured]** weight spectra, median over the 24 hidden layers:
+
+| run | cond(W) | stable rank | incoherence |
+|---|---|---|---|
+| muon@1500 | **615** | **48.66** | 9.81 |
+| adamw@600 | 2278 | 5.79 | 7.05 |
+| adamw@1500 | 2300 | 9.71 | 7.30 |
+
+**[measured]** excess loss after quantization, each model against its *own* fp32 loss:
+
+| bits | method | muon@1500 | adamw@600 | Muon better? |
+|---|---|---|---|---|
+| 2 | RTN | 3.6733 | 0.3370 | no |
+| 2 | GPTQ | **3.0176** | **0.0074** | no |
+| 3 | RTN | 0.6424 | 0.0001 | no |
+| 3 | GPTQ | 0.2309 | −0.0000 | no |
+| 4 | RTN | 0.1293 | −0.0001 | no |
+| 4 | GPTQ | 0.0433 | 0.0000 | no |
+
+**Muon quantized worse in 6 of 6 settings**, and not marginally — at 2-bit GPTQ
+its excess loss is **408× larger**.
+
+The interesting part is that Muon did exactly what it promises. Its weights are
+**better conditioned** (cond 615 vs 2278) and have **8.4× higher stable rank**
+(48.66 vs 5.79). Spectral control worked. That is precisely why quantization
+fails: high stable rank means the weight energy is spread across many singular
+directions instead of concentrated in a few, so there is no low-rank structure
+left for a quantizer to exploit and rounding error in any direction costs
+something.
+
+**v1's cross-substrate argument was backwards.** It assumed spectral control
+would reduce the concentration that hurts rounding. In fact spectral control
+*removes* the concentration that rounding *exploits*. The two substrates do
+interact — just with the opposite sign, and there is a real tension here: the
+optimizer that produces better-conditioned models produces less compressible
+ones.
+
+*Confound addressed:* matching loss meant comparing a mature Muon model against
+an earlier AdamW checkpoint, and early-training weights sit closer to their small
+random init, which could independently explain a low stable rank. But the
+**fully-trained** AdamW model has stable rank 9.71 — still 5× below Muon's 48.66.
+The effect tracks the optimizer, not the training length.
+
+---
+
 # Pathway B revisited: the identity holds, and a composition works
 
 ## B-real-1 — The coupling identity on a real model pair
@@ -360,7 +450,7 @@ trade-offs — at 3.0 bits with a 2-bit floor there is nothing to trade.
 |---|---|
 | Curvature beats RTN 2.7–3.0× | **CONFIRMED** — median 2.79× real, up to 17× |
 | $\alpha = 1 - \mathrm{TV}$, output law exactly $p$ | **CONFIRMED** on a real pair |
-| Sensitivity ≠ variance | **CONFIRMED** (see `real_quantization.py` R3) |
+| Sensitivity ≠ variance (corr 0.38) | **DID NOT REPLICATE** — corr **0.907** on real heads |
 | Ignoring $G$ costs up to 3.6× when ill-conditioned | **CONDITIONS MET IN 24/24 REAL LAYERS** |
 | `diag(G)` recovers nothing | **CONFIRMED** — 88% median off-diagonal mass |
 | Trellis gain largest at lowest bit width | **FALSIFIED** — flat; held 4/6 |
@@ -368,6 +458,7 @@ trade-offs — at 3.0 bits with a 2-bit floor there is nothing to trade.
 | Entropy-scheduled γ should work | **CONFIRMED** — 51.3% of headroom, free |
 | Joint serving allocation is a big win | **SHRUNK** — 1.33× vs a strong baseline |
 | Fit β per head | **still no gain** (v1 result stands) |
+| Muon-trained models should quantize better | **REFUTED, sign reversed** — 0/6 settings, 408× worse at 2-bit |
 | Rate-distortion allocation beats uniform | **CONFIRMED END-TO-END** — 3.29× less excess loss at 2.5 b/weight |
 | cond(H) triage should target the expensive decoder | **HARMFUL** — 3.08× vs 3.29× for no beam at all |
 
@@ -403,6 +494,10 @@ this domain the math transfers and the extrapolations do not.
    predictions about it failed. **v1 recommended this direction; v2 retracts
    that recommendation.**
 6. **Use cond(H) to triage anything.** Measured harmful end-to-end.
+7. **Expect spectral training to give quantization for free.** It does the
+   reverse. If a spectral optimizer is used, budget *more* bits, not fewer —
+   and treat "trains better" and "compresses better" as competing objectives
+   rather than complementary ones.
 
 ---
 

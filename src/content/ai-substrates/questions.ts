@@ -358,7 +358,7 @@ export const aiSubstratesQuestions: Question[] = [
     explanation:
       `What a bit buys is a reduction in *output* distortion, and a second-order expansion gives $\\mathrm{KL} \\approx \\tfrac12 s_h D_h$ where $s_h$ is the Gauss–Newton sensitivity of the output distribution to head $h$. Since $D_h$ is the injected MSE, $s_h$ is recoverable from a single noise probe per head — one forward pass, no gradients. A head can carry large activations and still barely move the logits, because the output projection weights heads unequally.`,
     realWorld:
-      "Measured on a synthetic layer: variance spans 7828×, sensitivity spans 22906×, and their logs correlate at only 0.38. A variance-ranked allocator is optimizing a weakly-correlated proxy.",
+      "The probe itself is sound and earns its place: allocating layer bit widths by measured sensitivity cut excess validation loss 3.29× versus uniform GPTQ on a real model. But the stronger version of this claim did not survive testing — on a real trained transformer, per-head variance and sensitivity correlate at 0.907, not the 0.38 seen on synthetic data, and a variance-ranked allocator gets 5 of the top 6 heads right. Training couples the two statistics; a synthetic generator that draws them independently does not.",
     hint: "You want the derivative of the thing you care about, not the size of an intermediate.",
     glossaryLinks: ["rate-distortion-allocation", "gauss-newton-sensitivity"],
   },
@@ -569,5 +569,26 @@ export const aiSubstratesQuestions: Question[] = [
       "Reporting the strongest baseline you can construct, rather than the weakest one that still counts as prior art, is the difference between a result and a press release.",
     hint: "Ask what the baseline was doing, not what the optimum achieved.",
     glossaryLinks: ["arithmetic-intensity-roofline", "rate-distortion-allocation"],
+  },
+
+  {
+    id: 15065,
+    topic: "ai-substrates",
+    difficulty: "sota",
+    question: `Muon constrains updates in the spectral norm, so its weights end up better conditioned. Tested at matched loss, do Muon-trained models quantize better than AdamW-trained ones?`,
+    options: [
+      "No — much worse, because spectral control raises stable rank, spreading weight energy across many singular directions and leaving no low-rank structure to exploit",
+      "Yes — bounded singular values directly bound rounding error, as predicted",
+      "Identically, since quantization error depends only on the grid, not the weights",
+      "Better at 4 bits but worse at 2 bits, because the effect is rate-dependent",
+    ],
+    correctIndex: 0,
+    explanation:
+      `The prediction was that spectral control bounds singular values, hence bounds the concentration that drives rounding error. Measured at matched loss (val 5.3653 vs 5.3752), Muon quantized *worse* in 6 of 6 bit-width × method settings — 408× more excess loss at 2-bit GPTQ. The mechanism is legible rather than mysterious: Muon delivered exactly what it promises, with better-conditioned weights (cond 615 vs 2278) and 8.4× higher stable rank (48.7 vs 5.8). High stable rank is the problem. Quantization exploits concentration; spectral control removes it.`,
+    realWorld:
+      "A real tension rather than a tidy synergy: the optimizer that produces better-conditioned models produces less compressible ones. If you train with a spectral optimizer, budget more bits, not fewer — and treat 'trains better' and 'compresses better' as competing objectives.",
+    hint: "Ask what quantization actually exploits, then ask what spectral control does to it.",
+    glossaryLinks: ["spectral-descent-muon", "layerwise-hessian", "in-sample-mechanism-overfit"],
+    formulaLinks: ["Muon Spectral Descent Update"],
   },
 ];

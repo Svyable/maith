@@ -349,4 +349,59 @@ export const aiSubstratesTerms: GlossaryTerm[] = [
     formulaLinks: ['Muon Spectral Descent Update'],
     difficulty: 'advanced',
   },
+
+  // ── v2: concepts that came out of testing on a real model ─────────
+  {
+    id: 'beam-error-feedback',
+    field: 'cs',
+    topic: 'ai-substrates',
+    term: 'Beam-Search Error Feedback',
+    definition:
+      'A strict generalisation of GPTQ. Ordering coordinates last-to-first makes each term of $\\lVert Rd\\rVert^2$ close exactly when its coordinate is decided, so carrying the accumulator $a[i\'] = \\sum_{j>i} R[i\',j]d[j]$ renders the *exact* objective incremental. Beam search over that recovers greedy error feedback at beam width 1 and provably reaches the integer least-squares optimum at wide beam.',
+    example:
+      'Validated against exhaustive enumeration: beam 64 reproduces the brute-force optimal rounding exactly. But the practical payoff is small — median 1.04× over greedy on real layers, and end-to-end it failed to earn its ~4× cost.',
+    formula: '$\\min_k \\lVert R(w - sk)\\rVert^2$, beam over exact partial cost',
+    latex: '\\min_k \\lVert R(w - sk)\\rVert^2',
+    related: ['trellis-quantization', 'layerwise-hessian'],
+    difficulty: 'advanced',
+  },
+  {
+    id: 'truncate-search-not-objective',
+    field: 'cs',
+    topic: 'ai-substrates',
+    term: 'Truncate the Search, Not the Objective',
+    definition:
+      'A design principle for bounded-memory combinatorial optimisation. Given a dense objective, it is tempting to sparsify it — band the matrix, drop small terms — so that exact dynamic programming becomes affordable. But solving a mutilated problem optimally can be much worse than solving the real problem greedily.',
+    example:
+      'A banded Viterbi quantizer that truncates the Cholesky factor to bandwidth 3 loses to plain GPTQ by roughly 1.5×, because the discarded off-band terms are precisely the long-range coupling that error feedback already handles exactly. Keeping the objective exact and bounding the *search* instead reverses the outcome.',
+    related: ['beam-error-feedback', 'trellis-quantization'],
+    difficulty: 'advanced',
+  },
+  {
+    id: 'output-side-metric',
+    field: 'cs',
+    topic: 'ai-substrates',
+    term: 'Output-Side Metric $G$',
+    definition:
+      'The Gauss-Newton block of the downstream loss with respect to a layer\'s *outputs*: $G = \\mathbb{E}[(\\partial L/\\partial y)(\\partial L/\\partial y)^\\top]$. Together with the input-side Hessian $H = 2XX^\\top$ it gives the true quantization curvature $G \\otimes H$. Every deployed quantizer optimises the $G = I$ slice.',
+    example:
+      'Measured across all 24 layers of a trained transformer: median cond$_{99}(G) \\approx 2.8\\times 10^3$, median off-diagonal mass $0.88$, and effective rank only ~9% of $d_\\text{out}$ — so roughly nine-tenths of output directions are nearly free to damage, and a diagonal approximation cannot see any of it.',
+    formula: '$G = \\mathbb{E}\\!\\left[\\tfrac{\\partial L}{\\partial y}\\tfrac{\\partial L}{\\partial y}^{\\top}\\right]$',
+    latex: 'G = \\mathbb{E}\\left[\\frac{\\partial L}{\\partial y}\\frac{\\partial L}{\\partial y}^{\\top}\\right]',
+    related: ['kronecker-factored-curvature', 'layerwise-hessian', 'gauss-newton-sensitivity'],
+    symbolLinks: { '⊗': 'otimes' },
+    difficulty: 'advanced',
+  },
+  {
+    id: 'in-sample-mechanism-overfit',
+    field: 'cs',
+    topic: 'ai-substrates',
+    term: 'Mechanism Overfitting',
+    definition:
+      'Fitting a causal story to synthetic data, then extrapolating it to a method. The mechanism can be genuine and independently verified while the inference drawn from it still fails — and the more strongly the story is supported in-sample, the harder it can fail out of sample.',
+    example:
+      'A quantization study found the advantage of correlated search tracked $\\mathrm{cond}(H)$ with correlation $+0.958$, monotone across three orders of magnitude — on synthetic layers. On real trained layers the same measurement gave $-0.907$: a sign reversal, not a weakening. Nothing was buggy; the synthetic family simply was not representative.',
+    related: ['beam-error-feedback', 'gauss-newton-sensitivity'],
+    difficulty: 'intermediate',
+  },
 ];
