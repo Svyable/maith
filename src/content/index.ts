@@ -99,6 +99,7 @@ import { marketMicrostructureQuestions } from './market-microstructure';
 import { creditRiskQuestions } from './credit-risk';
 import { predictionMarketsQuestions } from './prediction-markets';
 import { formalVerificationQuestions } from './formal-verification';
+import { aiSubstratesQuestions } from './ai-substrates';
 import { informationTheoryQuestions } from './information-theory';
 // ── New math topics ──────────────────────────────────────
 import { complexAnalysisQuestions } from './complex-analysis';
@@ -163,6 +164,7 @@ export const allQuestions: Question[] = [
   ...compilerTheoryQuestions,
   ...formalVerificationQuestions,
   ...informationTheoryQuestions,
+  ...aiSubstratesQuestions,
   // ── Earth & Space ──────────────────────────────────────────────
   ...earthSpaceQuestions,
   ...astrophysicsQuestions,

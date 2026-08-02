@@ -31,6 +31,7 @@ import { functionalAnalysisTerms } from './functional-analysis';
 import { diffGeometryTerms } from './differential-geometry';
 import { numericalMethodsTerms } from './numerical-methods';
 import { statisticalLearningTerms } from './statistical-learning';
+import { aiSubstratesTerms } from './ai-substrates';
 import { optimalTransportTerms } from './optimal-transport';
 import { quantumConsciousnessTerms } from './quantum-consciousness';
 import { aiMlTerms } from './ai-ml';
@@ -85,6 +86,7 @@ const STATIC_TERMS: GlossaryTerm[] = [
   ...numericalMethodsTerms,
   // Statistical learning
   ...statisticalLearningTerms,
+  ...aiSubstratesTerms,
   // Optimal Transport
   ...optimalTransportTerms,
   // Quantum Consciousness
