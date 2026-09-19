@@ -28,7 +28,7 @@ export default function Thinkers() {
   const [showCelebration, setShowCelebration] = useState(false);
   const [newlyAchieved, setNewlyAchieved] = useState(false);
 
-  const { state, questions, currentQuestion, startThinker, answer, nextQuestion, skipQuestion, endQuiz } =
+  const { state, questions, currentQuestion, startThinker, answer, eliminateOptions, nextQuestion, skipQuestion, endQuiz } =
     useThinkerQuiz(selectedDifficulties);
 
   const { achievedSlugs, awardIfPerfect } = useThinkerAchievements();
@@ -39,13 +39,17 @@ export default function Thinkers() {
     timeoutRef.current?.();
   }, []);
 
+  const currentQuestionResolved = currentQuestion
+    ? state.answeredIds.includes(currentQuestion.id)
+    : false;
+
   const {
     timeLeft, fraction,
     resetTimer, resetSession,
     handleSessionUpdate,
   } = useQuizSession({
     difficulties: selectedDifficulties,
-    isQuizActive: screen === 'quiz',
+    isQuizActive: screen === 'quiz' && !currentQuestionResolved,
     quizState: state,
     sessionTag: 'thnk',
     topics: selectedSlug ? [selectedSlug] : [],
@@ -153,6 +157,7 @@ export default function Thinkers() {
                 timerFraction={fraction}
                 timeLeft={timeLeft}
                 onAnswer={answer}
+                onEliminate={eliminateOptions}
                 onNext={handleNext}
                 onSkip={handleSkip}
                 onEndQuiz={handleEndQuiz}
