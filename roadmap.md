@@ -1,5 +1,7 @@
-- [x] Capture production bundle baseline and trace landing imports
-- [x] Remove safe eager heavy-content imports without changing behavior
-- [x] Verify lazy routes, stable loading, and PWA behavior
-- [x] Run locales, tests, TypeScript, build, and compare output
-- [x] Report measured before/after bundle results
+## Third performance pass
+- [x] Capture current bundle and question module organization
+- [x] Implement selective grouped question loading with session cache
+- [x] Polish quiz loading and active-screen issues supported by audit
+- [x] Run locale, tests, TypeScript, and production build
+- [x] Browser-test desktop/mobile full quiz flows and offline behavior
+- [x] Record before/after payloads and remaining bottleneck

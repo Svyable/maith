@@ -12,6 +12,7 @@ import { useProfile } from '@/hooks/useProfile';
 import { type Difficulty, DEFAULT_DIFFICULTIES } from '@/config/constants';
 import { FIELD_MAP } from '@/config/fields';
 import { t } from '@/i18n';
+import { Button } from '@/components/ui/button';
 
 type Screen = 'home' | 'quiz' | 'results';
 
@@ -126,10 +127,32 @@ const Index = () => {
           )}
 
           {screen === 'quiz' && state.loading && (
-            <div className="flex items-center justify-center py-20">
-              <div className="text-center space-y-3">
-                <div className="text-4xl animate-bounce">🧠</div>
-                <p className="text-muted-foreground">{t('quiz.loading')}</p>
+            <div className="flex min-h-64 items-center justify-center py-20" role="status" aria-live="polite">
+              <div className="w-full max-w-xs text-center space-y-4">
+                <div className="mx-auto h-10 w-10 rounded-full border-2 border-border border-t-primary animate-spin" aria-hidden="true" />
+                <p className="text-muted-foreground">
+                  {state.loadingProgress && state.loadingProgress.total > 1
+                    ? t('quiz.loadingProgress', state.loadingProgress)
+                    : t('quiz.loading')}
+                </p>
+                <progress
+                  className="h-1.5 w-full overflow-hidden rounded-full accent-primary"
+                  value={state.loadingProgress?.loaded ?? 0}
+                  max={state.loadingProgress?.total ?? 1}
+                />
+              </div>
+            </div>
+          )}
+
+          {screen === 'quiz' && state.loadError && (
+            <div className="flex min-h-64 items-center justify-center py-20" role="alert">
+              <div className="max-w-sm text-center space-y-4">
+                <h1 className="text-xl font-display font-bold text-foreground">{t('quiz.loadError')}</h1>
+                <p className="text-sm text-muted-foreground">{t('quiz.loadErrorDetail')}</p>
+                <div className="flex justify-center gap-2">
+                  <Button variant="outline" onClick={() => setScreen('home')}>{t('quiz.backToSetup')}</Button>
+                  <Button onClick={startQuiz}>{t('quiz.retry')}</Button>
+                </div>
               </div>
             </div>
           )}
