@@ -28,9 +28,9 @@ The quiz, MasterMinds, and Bonafides flows pass their active streak/header state
 
 `src/config/content-registry.ts` owns topic-to-field membership.
 
-`src/config/fields.ts` owns field presentation only: label, emoji, description, color, availability, and ordering. Its `topics` arrays are derived from `STANDARD_TOPICS`; no hand-maintained topic membership belongs in the field file.
+`src/config/fields.ts` owns standard-quiz field presentation only: label, emoji, description, color, availability, and ordering. Its `topics` arrays are derived from selectable entries in `STANDARD_TOPICS`; unavailable aliases, compatibility topics, and Bonafide/professional collections are excluded by construction. No hand-maintained topic membership belongs in the field file.
 
-This means adding or moving a topic requires changing its canonical topic metadata once, rather than synchronizing a second list.
+This means adding or moving a standard topic requires changing its canonical topic metadata once, rather than synchronizing a second list. Professional credentials and course collections belong to the Bonafides surface instead of appearing as empty quiz fields.
 
 ## Integrity guard
 
@@ -41,7 +41,9 @@ This means adding or moving a topic requires changing its canonical topic metada
 - top-level pages do not hard-code internal navigation paths;
 - standard page chrome stays behind the shared `SiteShell` boundary;
 - field slugs are unique;
-- every standard topic resolves into exactly one declared field.
+- every selectable standard topic resolves into exactly one declared field;
+- unavailable compatibility aliases do not leak into field selection;
+- no available standard field is empty.
 
 `.github/workflows/site-integrity.yml` runs the structural test and a production build whenever pages, shared chrome, routing, navigation, or field structure change.
 
