@@ -1,5 +1,5 @@
 import { useState, useCallback, useEffect, type MutableRefObject } from 'react';
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import { LatexRenderer } from './LatexRenderer';
 import { OptionButton } from './OptionButton';
 import { TimerBar } from './TimerBar';
@@ -10,7 +10,7 @@ import type { PublicQuestion, CheckResult } from '@/domain/quiz';
 import { type Difficulty, getDifficultyMeta, TOPIC_MAP, toDifficulty } from '@/config/constants';
 import { useKeyboard } from '@/hooks/useKeyboard';
 import { t } from '@/i18n';
-import { streakBonusLabel } from '@/domain/scoring';
+import { calculatePoints, streakBonusLabel } from '@/domain/scoring';
 
 interface QuizScreenProps {
   question: PublicQuestion;
@@ -59,6 +59,8 @@ export function QuizScreen({
   const [eliminateUsed, setEliminateUsed] = useState(false);
   const [eliminatedOptions, setEliminatedOptions] = useState<number[]>([]);
   const [checkResult, setCheckResult] = useState<CheckResult | null>(null);
+  const [pointsAwarded, setPointsAwarded] = useState(0);
+  const prefersReducedMotion = useReducedMotion();
 
   const topicMeta = TOPIC_MAP[question.topic];
   const qDiffMeta = getDifficultyMeta(toDifficulty(question.difficulty));
@@ -75,13 +77,14 @@ export function QuizScreen({
     if (result) {
       const shuffledCorrectIndex = question.originalIndices.indexOf(result.correctIndex);
       setCheckResult({ ...result, correctIndex: shuffledCorrectIndex });
+      setPointsAwarded(result.correct ? calculatePoints(question.difficulty, streak + 1) : 0);
       setAnswerState(result.correct ? 'correct' : 'wrong');
       onSessionUpdate(result.correct);
     } else {
       setAnswerState('pending');
       setSelectedOption(null);
     }
-  }, [onAnswer, answerState, onSessionUpdate, eliminatedOptions, question.originalIndices]);
+  }, [onAnswer, answerState, onSessionUpdate, eliminatedOptions, question.difficulty, question.originalIndices, streak]);
 
   const handleTimeoutAnswer = useCallback(async () => {
     if (answerState !== 'pending') return;
@@ -90,6 +93,7 @@ export function QuizScreen({
     if (result) {
       const shuffledCorrectIndex = question.originalIndices.indexOf(result.correctIndex);
       setCheckResult({ ...result, correctIndex: shuffledCorrectIndex });
+      setPointsAwarded(0);
       setAnswerState('wrong');
       setSelectedOption(-1);
       onSessionUpdate(false);
@@ -108,6 +112,7 @@ export function QuizScreen({
     setEliminateUsed(false);
     setEliminatedOptions([]);
     setCheckResult(null);
+    setPointsAwarded(0);
   }, []);
 
   const handleNext = useCallback(() => {
@@ -147,34 +152,46 @@ export function QuizScreen({
   return (
     <motion.div
       key={`quiz-${question.id}`}
-      initial={{ opacity: 0, x: 30 }}
+      initial={prefersReducedMotion ? { opacity: 0 } : { opacity: 0, x: 30 }}
       animate={{ opacity: 1, x: 0 }}
-      exit={{ opacity: 0, x: -30 }}
+      exit={prefersReducedMotion ? { opacity: 0 } : { opacity: 0, x: -30 }}
       className="space-y-5"
     >
-      {/* Progress */}
-      <div className="flex items-center justify-between text-sm">
-        <span className="text-muted-foreground font-mono">
-          {t('quiz.question', { current: currentIndex + 1, total: totalQuestions })}
-        </span>
-        <span className={`px-2 py-0.5 rounded-full text-xs font-bold border ${diffBadge.bg} ${diffBadge.text}`}>
-          {qDiffMeta.emoji} {qDiffMeta.tag}
-        </span>
-        <span className="font-mono font-bold text-foreground">
-          {t('quiz.points', { score: Math.round(score) })}
-        </span>
-      </div>
+      {/* Compact gameplay HUD — sticky on small screens so progress, score, and time stay visible. */}
+      <div className="sticky top-2 z-20 -mx-1 rounded-xl border border-border/80 bg-background/95 p-2.5 shadow-sm backdrop-blur supports-[backdrop-filter]:bg-background/85 sm:static sm:mx-0 sm:border-0 sm:bg-transparent sm:p-0 sm:shadow-none">
+        <div className="flex items-center justify-between gap-2 text-sm">
+          <span className="text-muted-foreground font-mono">
+            {t('quiz.question', { current: currentIndex + 1, total: totalQuestions })}
+          </span>
+          <span className={`px-2 py-0.5 rounded-full text-xs font-bold border ${diffBadge.bg} ${diffBadge.text}`}>
+            {qDiffMeta.emoji} {qDiffMeta.tag}
+          </span>
+          <span className="relative font-mono font-bold text-foreground" aria-live="polite">
+            {t('quiz.points', { score: Math.round(score) })}
+            {isAnswered && pointsAwarded > 0 && (
+              <motion.span
+                initial={prefersReducedMotion ? { opacity: 1 } : { opacity: 0, y: 6, scale: 0.9 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                className="absolute -bottom-5 right-0 whitespace-nowrap text-[11px] font-bold text-success"
+              >
+                {t('quiz.pointsAwarded', { points: pointsAwarded })}
+              </motion.span>
+            )}
+          </span>
+        </div>
 
-      {/* Progress bar */}
-      <div className="h-1.5 bg-secondary rounded-full overflow-hidden">
-        <motion.div
-          className="h-full bg-primary rounded-full"
-          animate={{ width: `${((currentIndex + 1) / totalQuestions) * 100}%` }}
-        />
-      </div>
+        <div className="mt-2 h-1.5 bg-secondary rounded-full overflow-hidden" role="progressbar" aria-valuemin={1} aria-valuemax={totalQuestions} aria-valuenow={currentIndex + 1}>
+          <motion.div
+            className="h-full bg-primary rounded-full"
+            animate={{ width: `${((currentIndex + 1) / totalQuestions) * 100}%` }}
+            transition={prefersReducedMotion ? { duration: 0 } : undefined}
+          />
+        </div>
 
-      {/* Timer */}
-      <TimerBar fraction={timerFraction} timeLeft={timeLeft} paused={answerState !== 'pending'} />
+        <div className="mt-2">
+          <TimerBar fraction={timerFraction} timeLeft={timeLeft} paused={answerState !== 'pending'} />
+        </div>
+      </div>
 
       {/* Topic + difficulty badges */}
       <div className="flex items-center gap-2 flex-wrap">
