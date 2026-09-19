@@ -1,4 +1,4 @@
-import { allGlossaryTerms, type GlossaryTerm } from '@/content/glossary';
+import { allGlossaryTerms, type GlossaryTerm } from '../content/glossary';
 import { APP_PATHS, buildGlossaryTermPath } from './site-navigation';
 import { compactTitle, trimMeta, type ReferenceSeo } from './reference-utils';
 
