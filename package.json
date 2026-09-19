@@ -14,7 +14,9 @@
     "check:locales": "node scripts/check-locales.mjs",
     "generate:content-stats": "bun scripts/generate-content-stats.ts",
     "generate:question-loaders": "bun scripts/generate-question-loaders.ts",
-    "validate:content": "bun scripts/validate-content.ts"
+    "validate:content": "bun scripts/validate-content.ts",
+    "audit:quality": "bun scripts/audit-question-quality.ts",
+    "validate:all-content": "bun run validate:content && bun run audit:quality"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
