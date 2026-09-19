@@ -36,7 +36,7 @@ export const algoTradingQuestions: Question[] = [
   {
     id: 70302, topic: "algo-trading", difficulty: "sota",
     question: "Avellaneda-Stoikov market making balances spread capture against:",
-    options: ["Dividend forecasts","Inventory risk and order arrivals","Accounting leverage","Guaranteed arbitrage"],
+    options: ["Dividend forecasts","Inventory and fill risk","Accounting leverage","Guaranteed arbitrage"],
     correctIndex: 1,
     explanation: "The model chooses bid and ask quotes for a dealer facing uncertain prices, stochastic order arrivals, and inventory risk.",
     realWorld: "It is a foundational stylized model for quantitative market making and has inspired many extensions.",

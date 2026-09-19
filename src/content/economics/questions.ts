@@ -14,7 +14,7 @@ export const economicsQuestions: Question[] = [
   {
     id: 490002, topic: 'microeconomics', difficulty: 'hard',
     question: 'In a Nash equilibrium:',
-    options: ['No player can improve their payoff by unilaterally changing strategy', 'All players achieve maximum payoff', 'One player dominates all others', 'Players must cooperate'],
+    options: ["No profitable unilateral deviation","All players achieve maximum payoff","One player dominates all others","Players must cooperate"],
     correctIndex: 0,
     explanation: 'A Nash equilibrium is a strategy profile where each player\'s strategy is a best response to the others — no unilateral deviation is profitable.',
     realWorld: 'The Prisoner\'s Dilemma Nash equilibrium explains why competitors often fail to cooperate even when mutual cooperation would be better.',
@@ -23,7 +23,7 @@ export const economicsQuestions: Question[] = [
   {
     id: 490003, topic: 'microeconomics', difficulty: 'sota',
     question: 'The Arrow-Debreu theorem proves the existence of general equilibrium under conditions including:',
-    options: ['Complete markets, convex preferences, and no externalities', 'Perfect information only', 'Zero transaction costs only', 'Government price controls'],
+    options: ["Market-clearing prices exist","Perfect information only","Zero transaction costs only","Government price controls"],
     correctIndex: 0,
     explanation: 'Arrow and Debreu (1954) used fixed-point theorems to prove existence of competitive equilibrium prices that clear all markets simultaneously, under specific mathematical conditions.',
     realWorld: 'This theorem is the foundation of modern general equilibrium theory and earned both economists Nobel Prizes.',
@@ -36,7 +36,7 @@ export const economicsQuestions: Question[] = [
   {
     id: 490004, topic: 'macroeconomics', difficulty: 'easy',
     question: 'GDP (Gross Domestic Product) measures:',
-    options: ['Total market value of all final goods and services produced in a country in a given period', 'Total government spending', 'Total exports minus imports', 'Total stock market value'],
+    options: ["Final domestic production","Total government spending","Total exports minus imports","Total stock market value"],
     correctIndex: 0,
     explanation: 'GDP = C + I + G + (X - M), where C is consumption, I is investment, G is government spending, and (X-M) is net exports.',
     realWorld: 'GDP growth rate is the most widely watched indicator of economic health.',
@@ -54,7 +54,7 @@ export const economicsQuestions: Question[] = [
   {
     id: 490006, topic: 'macroeconomics', difficulty: 'sota',
     question: 'In DSGE models, the Euler equation for consumption relates:',
-    options: ['Current marginal utility to expected future marginal utility discounted by the interest rate', 'GDP to money supply', 'Investment to depreciation', 'Exports to exchange rates'],
+    options: ["Marginal utility across time","GDP to money supply","Investment to depreciation","Exports to exchange rates"],
     correctIndex: 0,
     explanation: 'The consumption Euler equation $u\'(c_t) = \\beta(1 + r_t)E_t[u\'(c_{t+1})]$ is the intertemporal optimality condition that governs household saving/consumption decisions in DSGE models.',
     realWorld: 'Central banks use DSGE models incorporating this equation to forecast the effects of monetary policy.',
@@ -76,7 +76,7 @@ export const economicsQuestions: Question[] = [
   {
     id: 490008, topic: 'econometrics', difficulty: 'hard',
     question: 'Instrumental variables (IV) estimation addresses:',
-    options: ['Endogeneity caused by omitted variable bias or simultaneous causality', 'Heteroscedasticity', 'Multicollinearity', 'Serial correlation'],
+    options: ["Endogeneity","Heteroscedasticity","Multicollinearity","Serial correlation"],
     correctIndex: 0,
     explanation: 'IV estimation uses instruments correlated with the endogenous regressor but uncorrelated with the error term, providing consistent estimates when OLS is biased.',
     realWorld: 'Angrist & Krueger used quarter of birth as an instrument for education to estimate returns to schooling.',
@@ -85,7 +85,7 @@ export const economicsQuestions: Question[] = [
   {
     id: 490009, topic: 'econometrics', difficulty: 'sota',
     question: 'The difference-in-differences (DiD) estimator requires the assumption of:',
-    options: ['Parallel trends in outcomes between treatment and control groups absent treatment', 'Random assignment to treatment', 'Homogeneous treatment effects', 'No spillover between groups'],
+    options: ["Parallel counterfactual trends","Random assignment to treatment","Homogeneous treatment effects","No spillover between groups"],
     correctIndex: 0,
     explanation: 'DiD compares changes over time between treated and control groups. The key identifying assumption is that both groups would have followed parallel trends without the intervention.',
     realWorld: 'Card & Krueger\'s minimum wage study used DiD to compare employment in NJ vs PA after NJ raised its minimum wage.',
