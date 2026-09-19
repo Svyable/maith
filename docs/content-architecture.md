@@ -2,7 +2,7 @@
 
 ## Source of truth
 
-`src/config/content-registry.ts` is the lightweight canonical registry for quiz topics and content collections. It records each topic slug, presentation metadata, owning field, content kind, availability, loader group, and supported legacy alias. Full questions remain in `src/content/**`; the registry never duplicates question text.
+`src/config/content-registry.ts` and its tooling-only companion `content-registry-tooling.ts` form the lightweight canonical registry layer for quiz topics and content collections. It records each topic slug, presentation metadata, owning field, content kind, availability, loader group, and supported legacy alias. Full questions remain in `src/content/**`; the registry never duplicates question text.
 
 `src/config/fields.ts` owns field presentation and ordering. Its topic arrays are derived from the canonical registry. `src/config/bonafides.ts` owns credential presentation; its topic records are incorporated into the canonical registry. MasterMinds, Vault entries, glossary terms, formulas, and editorial quotes remain isolated in their existing feature registries and are declared as separate collection kinds.
 
@@ -20,7 +20,7 @@ Vault questions are the sole compatibility exception: they historically contribu
 ## Adding a standard topic
 
 1. Add or extend a question module under `src/content/`; preserve globally unique IDs within the standard pool.
-2. Add its lightweight topic metadata and question-pack export to `src/config/content-registry.ts`.
+2. Add its lightweight topic metadata to `src/config/content-registry.ts` and its question-pack export to the tooling companion.
 3. If it introduces a field, add the field presentation entry to `src/config/fields.ts`. Do not hand-maintain its topic list.
 4. Run `bun run generate:question-loaders` and `bun run generate:content-stats`.
 5. Run `bun run validate:content` and the full test suite.

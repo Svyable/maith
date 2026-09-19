@@ -5,7 +5,8 @@ import { allGlossaryTerms } from '../src/content/glossary/index';
 import { THINKERS } from '../src/config/thinkers';
 import { EQUATIONS } from '../src/config/equations';
 import { VAULT_ENTRIES } from '../src/config/vault';
-import { CONTENT_TOPIC_MAP, QUESTION_PACKS } from '../src/config/content-registry';
+import { CONTENT_TOPIC_MAP } from '../src/config/content-registry';
+import { QUESTION_PACKS } from '../src/config/content-registry-tooling';
 import { BONAFIDES } from '../src/config/bonafides';
 
 const countQuestions = (questions: typeof allQuestions) => Object.fromEntries(

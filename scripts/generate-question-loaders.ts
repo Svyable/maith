@@ -1,5 +1,5 @@
 import { writeFile } from 'node:fs/promises';
-import { QUESTION_PACKS } from '../src/config/content-registry';
+import { QUESTION_PACKS } from '../src/config/content-registry-tooling';
 
 type QuestionLike = { topic: string };
 
