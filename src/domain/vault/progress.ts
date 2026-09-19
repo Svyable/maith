@@ -39,9 +39,19 @@ export function mergeUnlockedIds(
   remoteIds: readonly string[],
   localIds: readonly string[],
   initialEntryId: string,
+  validEntryIds?: readonly string[],
 ): string[] {
-  const merged = new Set([...remoteIds, ...localIds].filter(Boolean));
-  if (initialEntryId) merged.add(initialEntryId);
+  const valid = validEntryIds ? new Set(validEntryIds) : null;
+  const merged = new Set(
+    [...remoteIds, ...localIds].filter(
+      (id) => Boolean(id) && (!valid || valid.has(id)),
+    ),
+  );
+
+  if (initialEntryId && (!valid || valid.has(initialEntryId))) {
+    merged.add(initialEntryId);
+  }
+
   return [...merged];
 }
 
