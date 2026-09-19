@@ -48,7 +48,11 @@ import {
   MIN_FORMULA_CLUSTER_SCORE,
   MIN_GLOSSARY_CLUSTER_SCORE,
   MIN_THINKER_CLUSTER_SCORE,
+  MAX_REFERENCE_TOPIC_LINKS,
+  buildAllReferenceTopicBacklinks,
   buildAllTopicReferenceClusters,
+  getReferenceTopicBacklinks,
+  getTopicReferenceCluster,
 } from '../src/config/topic-reference-clusters';
 
 const errors: string[] = [];
@@ -224,6 +228,50 @@ if (topicClusterCoverage < 0.35) {
       + Math.round(topicClusterCoverage * 100)
       + '% is below the 35% quality floor',
   );
+}
+
+const allReferenceTopicBacklinks = buildAllReferenceTopicBacklinks();
+let referencesWithPracticeBacklinks = 0;
+let visibleReciprocalEdges = 0;
+
+for (const [referencePath, backlinks] of allReferenceTopicBacklinks) {
+  const visibleBacklinks = getReferenceTopicBacklinks(referencePath);
+  if (visibleBacklinks.length > 0) referencesWithPracticeBacklinks += 1;
+
+  if (visibleBacklinks.length > MAX_REFERENCE_TOPIC_LINKS) {
+    fail(referencePath + ': reciprocal topic links exceed configured cap');
+  }
+
+  assertUnique(
+    referencePath + ' reciprocal topic paths',
+    visibleBacklinks.map((link) => link.path),
+  );
+
+  for (const backlink of visibleBacklinks) {
+    visibleReciprocalEdges += 1;
+
+    if (!indexableTopicPathSet.has(backlink.path)) {
+      fail(referencePath + ': reciprocal link targets non-indexable topic ' + backlink.path);
+    }
+
+    const cluster = getTopicReferenceCluster(backlink.path);
+    const forwardPaths = cluster
+      ? [...cluster.formulas, ...cluster.glossary, ...cluster.thinkers].map((link) => link.path)
+      : [];
+
+    if (!forwardPaths.includes(referencePath)) {
+      fail(
+        referencePath
+          + ': reciprocal topic link '
+          + backlink.path
+          + ' has no matching forward cluster edge',
+      );
+    }
+  }
+
+  if (backlinks.length === 0) {
+    fail(referencePath + ': reciprocal backlink registry contains an empty entry');
+  }
 }
 
 assertUnique(
@@ -500,5 +548,9 @@ console.log(
     + indexableClustersWithGlossary
     + ' with glossary terms, '
     + indexableClustersWithThinker
-    + ' with thinkers.',
+    + ' with thinkers. Reciprocal graph: '
+    + referencesWithPracticeBacklinks
+    + ' references with practice backlinks, '
+    + visibleReciprocalEdges
+    + ' visible reciprocal edges.',
 );
