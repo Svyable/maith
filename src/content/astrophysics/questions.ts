@@ -15,7 +15,7 @@ export const astrophysicsQuestions: Question[] = [
   {
     id: 71002, topic: "astrophysics", difficulty: "easy",
     question: "A neutron star can form when:",
-    options: ["A low-mass red dwarf simply cools for a few years","The core of a sufficiently massive star collapses during a core-collapse supernova","A planet accretes an atmosphere","A comet crosses the Roche limit"],
+    options: ["A low-mass red dwarf simply cools for a few years","Core collapse of a sufficiently massive star","A planet accretes an atmosphere","A comet crosses the Roche limit"],
     correctIndex: 1,
     explanation: "When a massive star develops an unstable iron core, collapse can compress the remnant to nuclear densities; if the remnant is not too massive, a neutron star can remain.",
     realWorld: "Pulsars and magnetars are observational manifestations of neutron stars with extreme rotation and magnetic fields.",
@@ -47,7 +47,7 @@ export const astrophysicsQuestions: Question[] = [
   {
     id: 71005, topic: "astrophysics", difficulty: "hard",
     question: "Type Ia supernovae are useful for measuring cosmological distances mainly because:",
-    options: ["Their standardized peak luminosities can be inferred from empirical light-curve and colour relations","Every event explodes at exactly the same mass and brightness","They occur only in galaxies of known distance","Their spectra contain no heavy elements"],
+    options: ["Standardizable light-curve and colour relations","Every event explodes at exactly the same mass and brightness","They occur only in galaxies of known distance","Their spectra contain no heavy elements"],
     correctIndex: 0,
     explanation: "Type Ia supernovae are not perfectly identical, but their luminosities can be standardized using relationships involving light-curve shape and colour.",
     realWorld: "Standardized Type Ia supernovae provided key evidence for the accelerated expansion of the Universe.",
@@ -69,7 +69,7 @@ export const astrophysicsQuestions: Question[] = [
   {
     id: 71007, topic: "astrophysics", difficulty: "sota",
     question: "GW170817 was a landmark because astronomers detected the same neutron-star merger through:",
-    options: ["Neutrinos only","Cosmic rays only","Gravitational waves and electromagnetic radiation","Optical light with no gravitational-wave signal"],
+    options: ["Neutrinos without a gravitational-wave counterpart","Cosmic rays without an identified transient source","Gravitational waves and light","Optical light without a gravitational-wave signal"],
     correctIndex: 2,
     explanation: "GW170817 was the first binary-neutron-star merger detected in gravitational waves and was followed across the electromagnetic spectrum, inaugurating gravitational-wave multi-messenger astronomy.",
     realWorld: "The event linked compact-object dynamics to a kilonova and provided evidence that neutron-star mergers contribute to heavy r-process nucleosynthesis.",
@@ -80,7 +80,7 @@ export const astrophysicsQuestions: Question[] = [
   {
     id: 71008, topic: "astrophysics", difficulty: "sota",
     question: "The Event Horizon Telescope's 2019 M87* image most directly resolved:",
-    options: ["Hawking radiation from the event horizon","A traversable wormhole throat","The singularity itself","A dark central brightness depression surrounded by asymmetric millimetre emission consistent with a black-hole shadow"],
+    options: ["Hawking radiation from the event horizon","A traversable wormhole throat","The singularity itself","Emission surrounding a black-hole shadow"],
     correctIndex: 3,
     explanation: "The EHT resolved an asymmetric emission ring around a central brightness depression whose scale is consistent with the expected shadow of a Kerr black hole.",
     realWorld: "Earth-sized very-long-baseline interferometry opened direct horizon-scale tests of accretion physics and strong-field gravity.",
@@ -91,7 +91,7 @@ export const astrophysicsQuestions: Question[] = [
   {
     id: 71009, topic: "astrophysics", difficulty: "sota",
     question: "JWST spectroscopy confirming luminous galaxies around redshift 14 is important because it:",
-    options: ["Places direct observational constraints on how rapidly galaxies formed during the first few hundred million years of cosmic history","Proves the standard cosmological model is false","Shows galaxies existed before the Big Bang","Measures dark matter particles directly"],
+    options: ["How rapidly galaxies formed at cosmic dawn","Proves the standard cosmological model is false","Shows galaxies existed before the Big Bang","Measures dark matter particles directly"],
     correctIndex: 0,
     explanation: "Spectroscopic redshifts near 14 confirm galaxies at extremely early cosmic times and provide strong constraints on star-formation efficiency, galaxy growth, and models of cosmic dawn.",
     realWorld: "The observations sharpen tests of early-galaxy models without by themselves invalidating ΛCDM.",

@@ -4,7 +4,7 @@ export const environmentalScienceQuestions: Question[] = [
   {
     id: 41401, topic: "environmental-science", difficulty: "easy",
     question: "Eutrophication in a lake is commonly driven by excessive inputs of:",
-    options: ["Nitrogen and phosphorus nutrients","Helium and neon","Silica only from bedrock","Atmospheric argon"],
+    options: ["Nitrogen and phosphorus","Helium and neon","Silica only from bedrock","Atmospheric argon"],
     correctIndex: 0,
     explanation: "Excess nitrogen and phosphorus can stimulate algal blooms; decomposition of the added biomass can then deplete dissolved oxygen.",
     realWorld: "Nutrient management in agriculture and wastewater treatment is central to controlling harmful algal blooms and hypoxic zones.",
@@ -24,7 +24,7 @@ export const environmentalScienceQuestions: Question[] = [
   {
     id: 41407, topic: "environmental-science", difficulty: "easy",
     question: "Biomagnification means that the concentration of a persistent contaminant can:",
-    options: ["Always decrease in predators","Remain identical in every organism","Increase at higher trophic levels of a food web","Occur only in rocks"],
+    options: ["Always decrease in predators","Remain identical in every organism","Increase toward higher trophic levels","Occur only in rocks"],
     correctIndex: 2,
     explanation: "Persistent contaminants that are not readily metabolized or excreted can become more concentrated as predators consume many contaminated prey.",
     realWorld: "Biomagnification helps explain why top predators can face high exposure to substances such as methylmercury and some persistent organic pollutants.",
@@ -44,7 +44,7 @@ export const environmentalScienceQuestions: Question[] = [
   {
     id: 41405, topic: "environmental-science", difficulty: "hard",
     question: "A life-cycle assessment (LCA) is designed to compare environmental impacts across:",
-    options: ["Stages from raw-material extraction through production, use, and end-of-life","Only the retail price of a product","Only emissions at the factory gate","Only consumer opinions"],
+    options: ["Extraction, production, use, and end-of-life","Only the retail price of a product","Only emissions at the factory gate","Only consumer opinions"],
     correctIndex: 0,
     explanation: "LCA tracks material and energy flows and associated impacts across a defined product system, with boundaries and functional units stated explicitly.",
     realWorld: "Life-cycle thinking can reveal trade-offs where a technology reduces impacts in one stage but shifts them to another.",
@@ -76,7 +76,7 @@ export const environmentalScienceQuestions: Question[] = [
   {
     id: 41409, topic: "environmental-science", difficulty: "sota",
     question: "Why can modern multispectral satellites help find large methane point-source emissions?",
-    options: ["Methane is brightly visible to the naked eye from orbit","Methane plumes permanently change Earth's magnetic field","Satellites detect methane only through sound waves","Methane leaves wavelength-dependent absorption signatures that algorithms can detect in repeated imagery"],
+    options: ["Methane is brightly visible to the naked eye from orbit","Methane plumes permanently change Earth's magnetic field","Satellites detect methane only through sound waves","Spectral methane absorption in repeated imagery"],
     correctIndex: 3,
     explanation: "Methane absorbs in specific shortwave-infrared bands; repeated multispectral observations combined with image processing or machine learning can isolate plume-like signals.",
     realWorld: "Rapid identification of large leaks can support repair and mitigation because methane is a strong but relatively short-lived greenhouse gas.",
@@ -87,7 +87,7 @@ export const environmentalScienceQuestions: Question[] = [
   {
     id: 41406, topic: "environmental-science", difficulty: "sota",
     question: "A major reason environmental scientists require baseline surveys before industrial deep-sea mining is to:",
-    options: ["Separate mining impacts from substantial natural spatial and temporal variability","Guarantee that no organisms are present","Prove impacts are always zero","Replace post-disturbance monitoring entirely"],
+    options: ["Separate mining effects from natural variability","Guarantee that no organisms are present","Prove impacts are always zero","Replace post-disturbance monitoring entirely"],
     correctIndex: 0,
     explanation: "Robust before-after-control-impact designs need pre-disturbance data so changes caused by mining can be distinguished from natural variability in abyssal communities.",
     realWorld: "Recent large-scale collector trials show why baseline taxonomy, abundance, and community data are essential for credible environmental impact assessment.",

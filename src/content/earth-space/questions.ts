@@ -55,7 +55,7 @@ export const earthSpaceQuestions: Question[] = [
   {
     id: 70013, topic: "astronomy", difficulty: "hard",
     question: "Why is absolute magnitude useful when comparing stars?",
-    options: ["It measures only a star's surface temperature","It describes how bright a star would appear at a standard distance, separating luminosity from distance effects","It gives the star's age directly","It is identical to apparent magnitude for every star"],
+    options: ["It measures only a star's surface temperature","Brightness at a standard distance","It gives the star's age directly","It is identical to apparent magnitude for every star"],
     correctIndex: 1,
     explanation: "Absolute magnitude is defined from the brightness an object would have at 10 parsecs, allowing intrinsic brightness to be compared without the confounding effect of distance.",
     realWorld: "The apparent-versus-absolute magnitude distinction underlies distance-modulus calculations across astronomy.",
@@ -76,7 +76,7 @@ export const earthSpaceQuestions: Question[] = [
   {
     id: 70014, topic: "astronomy", difficulty: "sota",
     question: "What is a central scientific capability of ESA's Gaia mission and Gaia DR3?",
-    options: ["Imaging exoplanet surfaces at kilometre resolution","Detecting gravitational waves from black-hole mergers","Measuring only gamma-ray bursts outside the Milky Way","Measuring astrometry such as positions, parallaxes, and proper motions for enormous numbers of stars"],
+    options: ["Imaging exoplanet surfaces at kilometre resolution","Detecting gravitational waves from black-hole mergers","Measuring only gamma-ray bursts outside the Milky Way","Precision stellar astrometry"],
     correctIndex: 3,
     explanation: "Gaia repeatedly measures stellar positions and motions with high precision, enabling three-dimensional and kinematic mapping of a large fraction of the Milky Way.",
     realWorld: "Gaia astrometry is transforming studies of Galactic structure, stellar populations, clusters, binaries, and the distance scale.",
@@ -88,7 +88,7 @@ export const earthSpaceQuestions: Question[] = [
   {
     id: 70015, topic: "astronomy", difficulty: "sota",
     question: "JWST transmission spectroscopy of the hot Saturn WASP-39b demonstrated that exoplanet atmospheres can be probed by:",
-    options: ["Measuring wavelength-dependent starlight filtered through the planet's atmosphere during transit","Photographing weather systems on the planet's solid surface","Measuring only the planet's radio rotation period","Sampling atmospheric gas directly with a spacecraft"],
+    options: ["Transit transmission spectroscopy","Photographing weather systems on the planet's solid surface","Measuring only the planet's radio rotation period","Sampling atmospheric gas directly with a spacecraft"],
     correctIndex: 0,
     explanation: "During transit, a small fraction of starlight passes through the planet's atmosphere; wavelength-dependent absorption reveals atmospheric species and chemical processes.",
     realWorld: "JWST spectra of WASP-39b robustly detected molecules including water, carbon dioxide, and carbon monoxide and opened a new precision era for comparative exoplanet atmospheres.",
@@ -161,7 +161,7 @@ export const earthSpaceQuestions: Question[] = [
   {
     id: 70006, topic: "geology", difficulty: "sota",
     question: "Why are Jack Hills zircons scientifically important?",
-    options: ["They are the youngest volcanic rocks on Earth","They prove plate tectonics operated exactly as today from Earth's first year","They include minerals about 4.4 billion years old that preserve evidence about very early crust and hydrosphere conditions","They are meteorites that formed on Mars"],
+    options: ["They are the youngest volcanic rocks on Earth","They prove plate tectonics operated exactly as today from Earth's first year","~4.4-billion-year-old zircons preserving Hadean evidence","They are meteorites that formed on Mars"],
     correctIndex: 2,
     explanation: "Detrital zircons from Jack Hills include grains around 4.4 billion years old, making them among the oldest known terrestrial minerals and rare archives of Hadean conditions.",
     realWorld: "Their age and isotope chemistry constrain when crust, magmatism, and surface water could have existed on the early Earth.",
@@ -172,7 +172,7 @@ export const earthSpaceQuestions: Question[] = [
   {
     id: 70020, topic: "geology", difficulty: "sota",
     question: "Modern studies of great subduction-zone earthquakes emphasize that seismic and tsunami hazard depends strongly on:",
-    options: ["Plate age alone determining whether magnitude-9 earthquakes are possible","A single universal recurrence interval at all trenches","Volcanic ash thickness as the only predictor","Rupture extent, where strong shaking is generated, seafloor displacement, and recurrence behaviour"],
+    options: ["Plate age alone determining whether magnitude-9 earthquakes are possible","A single universal recurrence interval at all trenches","Volcanic ash thickness as the only predictor","Rupture geometry, seafloor displacement, and recurrence"],
     correctIndex: 3,
     explanation: "Observations show that simple rules based only on plate age or convergence rate are inadequate; rupture geometry, coupling, seafloor displacement, recurrence, and monitoring all matter.",
     realWorld: "Improved offshore geodesy, seismology, and paleoseismic records are essential for realistic hazard assessment along subduction margins.",
@@ -206,7 +206,7 @@ export const earthSpaceQuestions: Question[] = [
   {
     id: 70022, topic: "climate-science", difficulty: "easy",
     question: "Which statement best distinguishes weather from climate?",
-    options: ["Weather concerns temperature only; climate concerns precipitation only","Weather describes short-term atmospheric conditions; climate describes statistical patterns over longer periods","Climate changes hourly while weather requires decades","They are exact synonyms"],
+    options: ["Weather concerns temperature only; climate concerns precipitation only","Weather is short-term; climate is long-term statistics","Climate changes hourly while weather requires decades","They are exact synonyms"],
     correctIndex: 1,
     explanation: "Weather is the state of the atmosphere over short timescales, whereas climate summarizes distributions, averages, variability, and extremes over much longer periods.",
     realWorld: "A single cold day does not diagnose global climate trends; climate analysis uses many observations over time and space.",
@@ -236,7 +236,7 @@ export const earthSpaceQuestions: Question[] = [
   {
     id: 70024, topic: "climate-science", difficulty: "hard",
     question: "Why do sulfate aerosols usually exert a cooling influence on climate?",
-    options: ["They scatter incoming sunlight and can brighten clouds, increasing reflected solar energy","They strongly absorb all outgoing infrared radiation like CO₂","They increase solar luminosity","They eliminate water vapour from the atmosphere"],
+    options: ["Scattering sunlight and brightening clouds","They strongly absorb all outgoing infrared radiation like CO₂","They increase solar luminosity","They eliminate water vapour from the atmosphere"],
     correctIndex: 0,
     explanation: "Many sulfate aerosols directly scatter sunlight and indirectly alter cloud droplet properties, producing a net negative radiative forcing.",
     realWorld: "Aerosol cooling partially offsets greenhouse-gas warming but is shorter-lived and spatially heterogeneous.",
@@ -246,7 +246,7 @@ export const earthSpaceQuestions: Question[] = [
   {
     id: 70025, topic: "climate-science", difficulty: "hard",
     question: "Why does the ocean strongly affect the pace of surface climate change?",
-    options: ["Seawater cannot store heat","Its large heat capacity and circulation allow it to absorb and redistribute a large amount of excess heat","Ocean currents stop whenever atmospheric CO₂ rises","Only the deep ocean receives solar energy"],
+    options: ["Seawater cannot store heat","Large heat capacity and ocean circulation","Ocean currents stop whenever atmospheric CO₂ rises","Only the deep ocean receives solar energy"],
     correctIndex: 1,
     explanation: "The ocean's high heat capacity and overturning circulation let it take up most of the excess heat accumulated by the climate system, delaying and redistributing surface warming.",
     realWorld: "Ocean heat content is therefore a central indicator of planetary energy imbalance and affects sea level through thermal expansion.",
@@ -267,7 +267,7 @@ export const earthSpaceQuestions: Question[] = [
   {
     id: 70009, topic: "climate-science", difficulty: "sota",
     question: "What did IPCC AR6 conclude about the Atlantic Meridional Overturning Circulation (AMOC) during the 21st century?",
-    options: ["It is very likely to strengthen in every scenario","It has already permanently collapsed","Its future cannot be assessed at all","It is very likely to weaken, while an abrupt collapse before 2100 is not expected"],
+    options: ["It is very likely to strengthen in every scenario","It has already permanently collapsed","Its future cannot be assessed at all","Likely weakening without an expected pre-2100 abrupt collapse"],
     correctIndex: 3,
     explanation: "AR6 assesses that the AMOC is very likely to weaken during the 21st century across considered scenarios, while an abrupt collapse before 2100 is not expected, though low-probability high-impact outcomes remain important.",
     realWorld: "AMOC changes influence regional sea level, heat transport, rainfall patterns, and marine ecosystems.",
@@ -279,7 +279,7 @@ export const earthSpaceQuestions: Question[] = [
   {
     id: 70027, topic: "climate-science", difficulty: "sota",
     question: "Modern detection-and-attribution studies distinguish human influence from natural variability primarily by:",
-    options: ["Comparing observed spatial and temporal fingerprints with modelled responses to different forcings","Assuming every warm year has the same cause","Using only one thermometer record","Ignoring volcanic and solar forcing"],
+    options: ["Observed fingerprints versus responses to different forcings","Assuming every warm year has the same cause","Using only one thermometer record","Ignoring volcanic and solar forcing"],
     correctIndex: 0,
     explanation: "Attribution combines observations, physical understanding, and climate-model experiments driven by greenhouse gases, aerosols, solar variability, volcanic forcing, and internal variability.",
     realWorld: "This fingerprint approach underpins the IPCC conclusion that human influence has unequivocally warmed the atmosphere, ocean, and land.",

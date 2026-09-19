@@ -14,7 +14,7 @@ export const meteorologyQuestions: Question[] = [
   {
     id: 40304, topic: "meteorology", difficulty: "easy",
     question: "A weather front is a boundary separating:",
-    options: ["Two ocean currents only","Air masses with contrasting properties such as temperature and humidity","The troposphere and stratosphere","Day and night sides of Earth"],
+    options: ["Two ocean currents only","Contrasting air masses","The troposphere and stratosphere","Day and night sides of Earth"],
     correctIndex: 1,
     explanation: "Fronts mark boundaries between air masses; lifting near those boundaries often produces clouds, precipitation, and sharp wind or temperature changes.",
     realWorld: "Synoptic weather maps track fronts because they organize many mid-latitude storms.",
@@ -34,7 +34,7 @@ export const meteorologyQuestions: Question[] = [
   {
     id: 40302, topic: "meteorology", difficulty: "hard",
     question: "Numerical weather prediction models integrate equations representing atmospheric:",
-    options: ["Only the ideal-gas law","Quantum wavefunctions of individual molecules","Plate-tectonic motion","Momentum, mass continuity, thermodynamics, and moisture"],
+    options: ["Only ideal-gas thermodynamics without fluid motion","Quantum mechanics of individual atmospheric molecules","Plate-motion equations coupled to tides","Momentum, continuity, heat, and moisture"],
     correctIndex: 3,
     explanation: "NWP solves discretized fluid-dynamical and thermodynamic equations on a rotating Earth, together with parameterizations for unresolved processes.",
     realWorld: "Modern forecasts combine these equations with vast observing systems and data assimilation.",
@@ -44,7 +44,7 @@ export const meteorologyQuestions: Question[] = [
   {
     id: 40305, topic: "meteorology", difficulty: "hard",
     question: "Lorenz's classic chaos result showed that even deterministic atmospheric models can have:",
-    options: ["Sensitive dependence on initial conditions","Perfect predictability at arbitrary lead time","No nonlinear behaviour","Only periodic solutions"],
+    options: ["Sensitivity to initial conditions","Perfect predictability at arbitrary lead time","No nonlinear behaviour","Only periodic solutions"],
     correctIndex: 0,
     explanation: "Small differences in initial conditions can grow rapidly in nonlinear systems, imposing a practical horizon on detailed deterministic weather prediction.",
     realWorld: "Ensemble forecasting samples uncertainty in initial conditions and model evolution rather than pretending one trajectory is exact.",
@@ -75,7 +75,7 @@ export const meteorologyQuestions: Question[] = [
   {
     id: 40308, topic: "meteorology", difficulty: "sota",
     question: "GenCast differs importantly from a single deterministic forecast because it is designed to:",
-    options: ["Return only one fixed future trajectory","Forecast climate centuries ahead from one initialization","Ignore uncertainty by averaging all weather states","Generate probabilistic ensemble forecasts by sampling multiple plausible atmospheric futures"],
+    options: ["Return only one fixed future trajectory","Forecast climate centuries ahead from one initialization","Ignore uncertainty by averaging all weather states","Probabilistic ensembles of plausible futures"],
     correctIndex: 3,
     explanation: "GenCast is a diffusion-based machine-learning weather model that generates an ensemble of possible future states, enabling probabilistic medium-range forecasting.",
     realWorld: "Probabilistic ensembles are valuable for risk decisions because they estimate uncertainty and the range of plausible outcomes, especially for high-impact events.",
@@ -87,7 +87,7 @@ export const meteorologyQuestions: Question[] = [
   {
     id: 40309, topic: "meteorology", difficulty: "sota",
     question: "Deep generative radar nowcasting is especially suited to forecasting:",
-    options: ["Precipitation fields over roughly the next minutes to two hours","Plate motion over millions of years","Seasonal ocean salinity only","Solar flares from stellar spectra"],
+    options: ["Very-short-range precipitation fields","Plate motion over millions of years","Seasonal ocean salinity only","Solar flares from stellar spectra"],
     correctIndex: 0,
     explanation: "Generative nowcasting learns a conditional distribution of future radar precipitation fields, allowing multiple plausible high-resolution rain evolutions to be sampled.",
     realWorld: "Probabilistic short-range precipitation forecasts support flood warning, aviation, emergency response, and other decisions sensitive to localized heavy rain.",

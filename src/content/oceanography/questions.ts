@@ -14,7 +14,7 @@ export const oceanographyQuestions: Question[] = [
   {
     id: 40704, topic: "oceanography", difficulty: "easy",
     question: "Ocean tides are driven mainly by:",
-    options: ["Daily changes in ocean salinity","Differential gravity from the Moon, with an important contribution from the Sun","Underwater volcanoes","Earth's magnetic field"],
+    options: ["Wind stress acting on coastal surface waters","Lunar differential gravity, modified by the Sun","Seafloor volcanic uplift during each tidal cycle","Earth's magnetic field acting on seawater"],
     correctIndex: 1,
     explanation: "The Moon's gravity varies across Earth and creates the dominant tidal forcing; the Sun modifies the amplitude depending on lunar phase and alignment.",
     realWorld: "Tidal predictions are crucial for navigation, coastal planning, ecosystems, and some forms of renewable energy.",
@@ -34,7 +34,7 @@ export const oceanographyQuestions: Question[] = [
   {
     id: 40702, topic: "oceanography", difficulty: "hard",
     question: "Ocean acidification occurs because dissolved anthropogenic CO₂ shifts seawater carbonate chemistry toward:",
-    options: ["Higher pH and unlimited carbonate","Complete removal of bicarbonate","No chemical change at all","Higher hydrogen-ion concentration and reduced carbonate-ion availability"],
+    options: ["Higher pH and unlimited carbonate","Complete removal of bicarbonate","No chemical change at all","More hydrogen ions and fewer carbonate ions"],
     correctIndex: 3,
     explanation: "Dissolved CO₂ forms carbonic acid and shifts carbonate equilibria, lowering pH and generally reducing carbonate-ion availability for calcifying organisms.",
     realWorld: "Ocean acidification affects coral reefs, shell-forming organisms, food webs, and biogeochemical cycling.",
@@ -54,7 +54,7 @@ export const oceanographyQuestions: Question[] = [
   {
     id: 40708, topic: "oceanography", difficulty: "hard",
     question: "Why can western boundary currents such as the Gulf Stream become narrow and fast compared with the broad interior flow of a subtropical gyre?",
-    options: ["The western ocean is always deeper","Planetary vorticity variation with latitude helps produce western intensification","The Moon pulls only on western coasts","Seawater is much saltier only at western boundaries"],
+    options: ["The western ocean is always deeper","Latitude-dependent vorticity and western intensification","The Moon pulls only on western coasts","Seawater is much saltier only at western boundaries"],
     correctIndex: 1,
     explanation: "Conservation of vorticity in a rotating sphere with latitude-dependent Coriolis parameter leads to western intensification in large-scale wind-driven gyres.",
     realWorld: "Strong western boundary currents transport large amounts of heat and strongly influence regional weather and marine ecosystems.",
@@ -64,7 +64,7 @@ export const oceanographyQuestions: Question[] = [
   {
     id: 40703, topic: "oceanography", difficulty: "sota",
     question: "Biogeochemical-Argo extends the traditional Argo observing system by adding sensors that can measure variables such as:",
-    options: ["Only longitude and latitude","Only seafloor rock age","Oxygen, nitrate, pH, chlorophyll-related optical properties, and particles","Only wind speed above land"],
+    options: ["Only geographic position and float velocity","Only seabed rock age and mineralogy","Oxygen, nitrate, pH, and optical biology proxies","Only atmospheric winds above nearby land"],
     correctIndex: 2,
     explanation: "BGC-Argo floats add autonomous biogeochemical sensors to physical temperature and salinity profiling, providing year-round observations across poorly sampled regions.",
     realWorld: "These data improve understanding of ocean carbon uptake, oxygen loss, productivity, and ecosystem response to climate change.",
@@ -86,7 +86,7 @@ export const oceanographyQuestions: Question[] = [
   {
     id: 40706, topic: "oceanography", difficulty: "sota",
     question: "Long-term deep-sea mining disturbance studies show that directly mined abyssal seafloor can:",
-    options: ["Retain physical and biological changes for decades even while some organisms recolonize","Recover completely within days","Show no measurable ecological change","Become identical to untouched seafloor after one tide cycle"],
+    options: ["Persistent physical and biological changes over decades","Recover completely within days","Show no measurable ecological change","Become identical to untouched seafloor after one tide cycle"],
     correctIndex: 0,
     explanation: "A decades-long follow-up of an experimental nodule-mining disturbance found persistent physical tracks and altered communities, although some groups showed partial recolonization.",
     realWorld: "The evidence highlights why baseline monitoring and long timescales matter when evaluating ecological risks of potential commercial nodule mining.",
