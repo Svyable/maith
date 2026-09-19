@@ -1,6 +1,14 @@
 import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { INDEXABLE_SEO_ROUTES, PRERENDER_SEO_ROUTES, canonicalUrl } from '../src/config/seo';
+import {
+  INDEXABLE_SEO_ROUTES,
+  PRERENDER_SEO_ROUTES,
+  canonicalUrl,
+} from '../src/config/seo';
+import {
+  INDEXABLE_REFERENCE_SEO_ROUTES,
+  REFERENCE_SEO_ROUTES,
+} from './reference-seo-routes';
 
 const errors: string[] = [];
 
@@ -17,8 +25,18 @@ function outputPath(pathname: string): string {
   return join('dist', ...pathname.split('/').filter(Boolean), 'index.html');
 }
 
+const allKnownRoutes = [
+  ...PRERENDER_SEO_ROUTES,
+  ...REFERENCE_SEO_ROUTES,
+];
+
+const allIndexableRoutes = [
+  ...INDEXABLE_SEO_ROUTES,
+  ...INDEXABLE_REFERENCE_SEO_ROUTES,
+];
+
 const uniqueRoutes = Array.from(
-  new Map(PRERENDER_SEO_ROUTES.map((entry) => [entry.path, entry])).values(),
+  new Map(allKnownRoutes.map((entry) => [entry.path, entry])).values(),
 );
 
 for (const { path, seo } of uniqueRoutes) {
@@ -34,10 +52,12 @@ for (const { path, seo } of uniqueRoutes) {
 
   if (!html.includes(expectedTitle)) errors.push(path + ': prerendered title mismatch');
   if (!html.includes(expectedCanonical)) errors.push(path + ': prerendered canonical mismatch');
+
   const expectedRobots = seo.indexable ? 'index, follow' : 'noindex, nofollow';
   if (!html.includes('name="robots" content="' + expectedRobots)) {
     errors.push(path + ': prerendered robots metadata mismatch');
   }
+
   if (seo.indexable && !html.includes('id="route-seo-schema"')) {
     errors.push(path + ': missing prerendered route schema');
   }
@@ -54,11 +74,13 @@ if (!existsSync(sitemapPath)) {
   errors.push('dist/sitemap.xml is missing');
 } else {
   const sitemap = readFileSync(sitemapPath, 'utf8');
-  for (const { path } of INDEXABLE_SEO_ROUTES) {
+
+  for (const { path } of allIndexableRoutes) {
     if (!sitemap.includes('<loc>' + canonicalUrl(path) + '</loc>')) {
       errors.push(path + ': missing from built sitemap');
     }
   }
+
   for (const { path, seo } of uniqueRoutes) {
     if (!seo.indexable && sitemap.includes('<loc>' + canonicalUrl(path) + '</loc>')) {
       errors.push(path + ': noindex route leaked into built sitemap');
@@ -72,4 +94,10 @@ if (errors.length > 0) {
   process.exit(1);
 }
 
-console.log('Prerender SEO validation passed for ' + uniqueRoutes.length + ' known routes.');
+console.log(
+  'Prerender SEO validation passed for '
+    + uniqueRoutes.length
+    + ' known routes ('
+    + REFERENCE_SEO_ROUTES.length
+    + ' reference details).',
+);

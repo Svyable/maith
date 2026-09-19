@@ -4,9 +4,13 @@ import {
   PRERENDER_SEO_ROUTES,
   OG_LOCALES,
   SOCIAL_IMAGE,
-  buildRouteSchemaData,
+  buildSeoSchemaData,
   canonicalUrl,
+  getBreadcrumbsForPath,
+  type BreadcrumbItem,
+  type RouteSeo,
 } from '../src/config/seo';
+import { REFERENCE_SEO_ROUTES } from './reference-seo-routes';
 
 function escapeHtml(value: string): string {
   return value
@@ -48,8 +52,13 @@ function replaceCanonical(html: string, href: string): string {
     : html.replace('</head>', '  ' + tag + '\n</head>');
 }
 
-function replaceRouteSchema(html: string, pathname: string): string {
-  const schema = buildRouteSchemaData(pathname, 'en');
+function replaceRouteSchema(
+  html: string,
+  pathname: string,
+  seo: RouteSeo,
+  breadcrumbs: BreadcrumbItem[],
+): string {
+  const schema = buildSeoSchemaData(pathname, seo, breadcrumbs, 'en');
   const existing = /\s*<script[^>]*id=["']route-seo-schema["'][^>]*>[\s\S]*?<\/script>/i;
   if (!schema) return html.replace(existing, '');
 
@@ -72,11 +81,19 @@ if (!existsSync(sourcePath)) {
 }
 
 const baseHtml = readFileSync(sourcePath, 'utf8');
+const allRoutes = [
+  ...PRERENDER_SEO_ROUTES.map((entry) => ({
+    ...entry,
+    breadcrumbs: getBreadcrumbsForPath(entry.path),
+  })),
+  ...REFERENCE_SEO_ROUTES,
+];
+
 const uniqueRoutes = Array.from(
-  new Map(PRERENDER_SEO_ROUTES.map((entry) => [entry.path, entry])).values(),
+  new Map(allRoutes.map((entry) => [entry.path, entry])).values(),
 );
 
-for (const { path, seo } of uniqueRoutes) {
+for (const { path, seo, breadcrumbs } of uniqueRoutes) {
   const canonical = canonicalUrl(path);
   const robots = seo.indexable
     ? 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'
@@ -102,7 +119,7 @@ for (const { path, seo } of uniqueRoutes) {
   html = replaceMeta(html, 'name', 'twitter:image', SOCIAL_IMAGE);
   html = replaceMeta(html, 'name', 'twitter:image:alt', 'mAIth interactive STEM learning platform');
   html = replaceCanonical(html, canonical);
-  html = replaceRouteSchema(html, path);
+  html = replaceRouteSchema(html, path, seo, breadcrumbs);
   html = html.replace('</head>', '  <!-- seo-prerender:' + escapeHtml(path) + ' -->\n</head>');
 
   const destination = outputPath(path);
@@ -110,4 +127,10 @@ for (const { path, seo } of uniqueRoutes) {
   writeFileSync(destination, html);
 }
 
-console.log('Prerendered route-specific HTML heads for ' + uniqueRoutes.length + ' known routes.');
+console.log(
+  'Prerendered route-specific HTML heads for '
+    + uniqueRoutes.length
+    + ' known routes, including '
+    + REFERENCE_SEO_ROUTES.length
+    + ' reference details.',
+);
