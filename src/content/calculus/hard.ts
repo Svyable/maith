@@ -63,7 +63,7 @@ export const hardQuestions: Question[] = [
     question: 'The directional derivative $D_{\\mathbf{u}} f$ gives:',
     options: ['The maximum rate of change', 'The rate of change of $f$ in direction $\\mathbf{u}$', 'The second derivative', 'The integral along $\\mathbf{u}$'],
     correctIndex: 1,
-    explanation: '$D_{\\mathbf{u}} f = \\nabla f \\cdot \\mathbf{u}$, giving the rate of change of $f$ in the direction of unit vector $\\mathbf{u}$.',
+    explanation: 'For a unit direction vector $\\mathbf{u}$, $D_{\\mathbf{u}}f = \\nabla f \\cdot \\mathbf{u}$. This dot product projects the gradient onto $\\mathbf{u}$, so it measures the signed rate of change in that direction. The maximum directional derivative is $\\|\\nabla f\\|$, attained in the gradient direction.',
     realWorld: 'Directional derivatives help understand how loss changes along specific parameter directions.',
     hint: 'Project the gradient onto a specific direction to see how fast the function changes.',
   },
