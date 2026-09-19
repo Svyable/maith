@@ -147,16 +147,10 @@ export const QUESTION_COUNTS = {
     "total": 9
   },
   "control-systems": {
-    "easy": 1,
-    "hard": 2,
-    "sota": 2,
-    "total": 5
-  },
-  "control-theory": {
-    "easy": 3,
-    "hard": 3,
-    "sota": 3,
-    "total": 9
+    "easy": 4,
+    "hard": 5,
+    "sota": 5,
+    "total": 14
   },
   "credit-risk": {
     "easy": 3,
@@ -560,17 +554,11 @@ export const QUESTION_COUNTS = {
     "sota": 1,
     "total": 3
   },
-  "robotics": {
-    "easy": 2,
-    "hard": 2,
-    "sota": 2,
-    "total": 6
-  },
   "robotics-mechatronics": {
-    "easy": 1,
-    "hard": 2,
-    "sota": 2,
-    "total": 5
+    "easy": 3,
+    "hard": 4,
+    "sota": 4,
+    "total": 11
   },
   "semiconductor-engineering": {
     "easy": 1,
