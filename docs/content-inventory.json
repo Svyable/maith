@@ -434,27 +434,13 @@
       "kind": "standard-quiz",
       "available": true,
       "loaderGroups": [
-        "engineering"
-      ],
-      "counts": {
-        "easy": 2,
-        "hard": 2,
-        "sota": 1,
-        "total": 5
-      }
-    },
-    {
-      "slug": "aerospace",
-      "field": "engineering",
-      "kind": "standard-quiz",
-      "available": true,
-      "loaderGroups": [
+        "engineering",
         "aerospace"
       ],
       "counts": {
-        "easy": 2,
+        "easy": 3,
         "hard": 2,
-        "sota": 2,
+        "sota": 1,
         "total": 6
       }
     },
@@ -1479,13 +1465,14 @@
       "kind": "standard-quiz",
       "available": true,
       "loaderGroups": [
-        "engineering"
+        "engineering",
+        "aerospace"
       ],
       "counts": {
-        "easy": 1,
-        "hard": 2,
+        "easy": 2,
+        "hard": 3,
         "sota": 1,
-        "total": 4
+        "total": 6
       }
     },
     {
@@ -1882,6 +1869,21 @@
         "hard": 0,
         "sota": 20,
         "total": 20
+      }
+    },
+    {
+      "slug": "spaceflight-systems",
+      "field": "engineering",
+      "kind": "standard-quiz",
+      "available": true,
+      "loaderGroups": [
+        "aerospace"
+      ],
+      "counts": {
+        "easy": 1,
+        "hard": 1,
+        "sota": 1,
+        "total": 3
       }
     },
     {

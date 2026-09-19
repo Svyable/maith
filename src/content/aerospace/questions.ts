@@ -2,21 +2,21 @@ import type { Question } from '../types';
 
 export const aerospaceQuestions: Question[] = [
   {
-    id: 40901, topic: 'aerospace', difficulty: 'easy',
-    question: 'The Tsiolkovsky rocket equation $\\Delta v = v_e \\ln(m_0/m_f)$ shows that:',
+    id: 40901, topic: 'spaceflight-systems', difficulty: 'easy',
+    question: 'A rocket engine\'s specific impulse $I_{sp}$ primarily measures:',
     options: [
-      'A rocket\'s velocity change depends logarithmically on its mass ratio — you need exponentially more fuel for linearly more speed',
-      'Rockets accelerate at a constant rate regardless of fuel',
-      'Heavier rockets are always faster',
-      'Fuel mass doesn\'t affect rocket performance',
+      'How much impulse the engine produces per unit weight of propellant flow',
+      'The maximum orbital altitude the vehicle can reach',
+      'The structural mass fraction of the launch vehicle',
+      'The time required to complete one orbit',
     ],
     correctIndex: 0,
-    explanation: 'The tyranny of the rocket equation: to double Δv, you need to square the mass ratio. This is why multi-stage rockets exist — each stage sheds dead weight.',
-    realWorld: 'SpaceX\'s Falcon 9 is 96% fuel by mass at launch. The Saturn V was 85% fuel. Reusable first stages save the most expensive hardware.',
-    hint: 'The logarithm means diminishing returns — each extra km/s costs exponentially more fuel.',
+    explanation: '$I_{sp}=F/(\\dot{m}g_0)$ compares thrust with propellant mass flow and is reported in seconds. A higher specific impulse means the engine obtains more momentum change from each unit of propellant.',
+    realWorld: 'Chemical engines trade very high thrust for moderate specific impulse, while electric propulsion can achieve much higher specific impulse at far lower thrust.',
+    hint: 'Think of it as a propellant-performance measure rather than a vehicle speed or orbit measure.',
   },
   {
-    id: 40904, topic: 'aerospace', difficulty: 'easy',
+    id: 40904, topic: 'aerodynamics', difficulty: 'easy',
     question: 'Lift on an airplane wing is generated primarily by:',
     options: [
       'The wing\'s angle of attack deflecting air downward — Newton\'s third law means the air pushes the wing up, with pressure differences described by Bernoulli\'s equation',
@@ -30,7 +30,7 @@ export const aerospaceQuestions: Question[] = [
     hint: 'Push air down → air pushes wing up. The shape and angle both matter.',
   },
   {
-    id: 40902, topic: 'aerospace', difficulty: 'hard',
+    id: 40902, topic: 'orbital-mechanics', difficulty: 'easy',
     question: 'Orbital mechanics requires understanding that objects in orbit are:',
     options: [
       'Continuously falling toward Earth but moving fast enough sideways that they keep missing it — free-fall at orbital velocity creates apparent weightlessness',
@@ -44,7 +44,7 @@ export const aerospaceQuestions: Question[] = [
     hint: 'Newton\'s cannonball: fire fast enough and you fall around the Earth.',
   },
   {
-    id: 40905, topic: 'aerospace', difficulty: 'hard',
+    id: 40905, topic: 'orbital-mechanics', difficulty: 'hard',
     question: 'Hohmann transfer orbits are the most fuel-efficient way to move between orbits because:',
     options: [
       'They use exactly two engine burns (tangential to both orbits) connected by an elliptical path — any other transfer uses more Δv for the same orbit change',
@@ -58,7 +58,7 @@ export const aerospaceQuestions: Question[] = [
     hint: 'Two precise burns connected by an ellipse — the most economical orbital highway.',
   },
   {
-    id: 40903, topic: 'aerospace', difficulty: 'sota',
+    id: 40903, topic: 'spaceflight-systems', difficulty: 'sota',
     question: 'SpaceX\'s Starship full-stack reusability changes space economics because:',
     options: [
       'Reducing launch cost from ~$10,000/kg (expendable) to potentially ~$100/kg (fully reusable) enables economically viable Mars colonization and space manufacturing',
@@ -72,7 +72,7 @@ export const aerospaceQuestions: Question[] = [
     hint: 'If you could reuse an airplane only once, flights would cost $100,000. Reusability changes everything.',
   },
   {
-    id: 40906, topic: 'aerospace', difficulty: 'sota',
+    id: 40906, topic: 'spaceflight-systems', difficulty: 'hard',
     question: 'Ion propulsion (Hall thrusters, used on Starlink satellites) works by:',
     options: [
       'Ionizing propellant (xenon) and accelerating ions to 30-50 km/s using electric fields — 10× higher exhaust velocity than chemical rockets, but with millinewton thrust levels',

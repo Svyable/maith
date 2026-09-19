@@ -15,6 +15,7 @@ export interface ContentTopicMeta extends TopicMeta {
   available: boolean;
   loaderGroups?: readonly string[];
   canonicalSlug?: string;
+  canonicalSlugs?: readonly string[];
 }
 
 const LEGACY_TOPIC_DEFINITIONS: TopicMeta[] = [
@@ -108,6 +109,7 @@ const LEGACY_TOPIC_DEFINITIONS: TopicMeta[] = [
   { slug: 'process-design',         label: 'Process Design',          emoji: '🏭', description: 'Pinch analysis, PFD/P&ID, Aspen Plus, safety', field: 'engineering' },
   { slug: 'aerodynamics',           label: 'Aerodynamics',            emoji: '✈️', description: 'Lift/drag, Prandtl, CFD, supersonic flow',      field: 'engineering' },
   { slug: 'orbital-mechanics',      label: 'Orbital Mechanics',       emoji: '🛰️', description: 'Hohmann, Lambert, restricted 3-body, TLE',    field: 'engineering' },
+  { slug: 'spaceflight-systems',    label: 'Spaceflight Systems',     emoji: '🚀', description: 'Propulsion, launch vehicles, staging, reusability', field: 'engineering' },
   { slug: 'nuclear-engineering',    label: 'Nuclear Engineering',     emoji: '☢️', description: 'Neutron transport, criticality, Lawson criterion', field: 'engineering' },
   { slug: 'materials-science',      label: 'Materials Science',       emoji: '🔩', description: 'Crystallography, dislocations, alloys, nanomaterials', field: 'engineering' },
   { slug: 'biomedical-engineering',  label: 'Biomedical Engineering', emoji: '🫀', description: 'Biomechanics, imaging, tissue engineering, prosthetics', field: 'engineering' },
@@ -173,10 +175,31 @@ const LEGACY_TOPIC_DEFINITIONS: TopicMeta[] = [
 
 
 const LEGACY_ALIAS_TARGETS: Record<string, string> = {
-  'electrical-engineering': 'circuits-electronics',
-  'mechanical-engineering': 'solid-mechanics',
   'robotics': 'robotics-mechatronics',
   'control-theory': 'control-systems',
+};
+
+export const LEGACY_TOPIC_EXPANSIONS: Record<string, readonly string[]> = {
+  'electrical-engineering': [
+    'circuits-electronics',
+    'signal-processing',
+    'control-systems',
+    'communications-coding',
+    'power-systems',
+    'semiconductor-engineering',
+  ],
+  'mechanical-engineering': [
+    'solid-mechanics',
+    'thermofluids',
+    'robotics-mechatronics',
+    'materials-science',
+    'structural-engineering',
+  ],
+  'aerospace': [
+    'aerodynamics',
+    'orbital-mechanics',
+    'spaceflight-systems',
+  ],
 };
 
 const LEGACY_PROFESSIONAL_FIELDS = new Set(["actuarial", "cfa", "cpa", "data-science", "law", "mba", "medical"]);
@@ -200,8 +223,9 @@ export const STANDARD_TOPICS: ContentTopicMeta[] = LEGACY_TOPIC_DEFINITIONS
   .map((topic) => ({
     ...topic,
     kind: 'standard-quiz',
-    available: !LEGACY_ALIAS_TARGETS[topic.slug],
+    available: !LEGACY_ALIAS_TARGETS[topic.slug] && !LEGACY_TOPIC_EXPANSIONS[topic.slug],
     ...(LEGACY_ALIAS_TARGETS[topic.slug] ? { canonicalSlug: LEGACY_ALIAS_TARGETS[topic.slug] } : {}),
+    ...(LEGACY_TOPIC_EXPANSIONS[topic.slug] ? { canonicalSlugs: LEGACY_TOPIC_EXPANSIONS[topic.slug] } : {}),
   }));
 
 // Question-bearing slugs retained in the standard pool but intentionally hidden from selectors.
@@ -235,4 +259,10 @@ export const CONTENT_COLLECTIONS = [
 
 export function resolveTopicSlug(slug: string): string {
   return LEGACY_TOPIC_ALIASES[slug] ?? slug;
+}
+
+export function resolveTopicSlugs(slug: string): string[] {
+  return LEGACY_TOPIC_EXPANSIONS[slug]
+    ? [...LEGACY_TOPIC_EXPANSIONS[slug]]
+    : [resolveTopicSlug(slug)];
 }

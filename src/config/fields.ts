@@ -107,7 +107,7 @@ const FIELD_DEFINITIONS: FieldDefinition[] = [
     slug: 'engineering',
     label: 'Engineering',
     emoji: '⚙️',
-    description: 'Electrical, Mechanical, Materials, Robotics, Aerospace, Chemical, Nuclear, Biomedical, Environmental Engineering',
+    description: 'Circuits, controls, robotics, spaceflight, materials, chemical, nuclear, biomedical, and environmental engineering',
     color: 'accent',
     available: true,
   },

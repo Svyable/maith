@@ -7,6 +7,7 @@ import {
   CONTENT_TOPICS,
   LEGACY_PROFESSIONAL_TOPICS,
   LEGACY_TOPIC_ALIASES,
+  LEGACY_TOPIC_EXPANSIONS,
   STANDARD_TOPICS,
 } from '../src/config/content-registry';
 import { BONAFIDE_TOPICS, QUESTION_PACKS } from '../src/config/content-registry-tooling';
@@ -72,6 +73,33 @@ for (const [alias, target] of Object.entries(LEGACY_TOPIC_ALIASES)) {
   }
   if (allQuestions.some((question) => question.topic === alias)) {
     fail(`Legacy alias ${alias} still owns questions; migrate them to ${target}`);
+  }
+}
+
+for (const [umbrella, targets] of Object.entries(LEGACY_TOPIC_EXPANSIONS)) {
+  const umbrellaMeta = topicMap.get(umbrella);
+  if (!umbrellaMeta) fail(`Legacy umbrella topic is not registered: ${umbrella}`);
+  if (LEGACY_TOPIC_ALIASES[umbrella]) fail(`Legacy topic ${umbrella} cannot be both an alias and an expansion`);
+  if (umbrellaMeta?.available) fail(`Legacy umbrella topic ${umbrella} must not remain selectable`);
+  if (targets.length < 2) fail(`Legacy umbrella topic ${umbrella} must expand to at least two canonical topics`);
+  if (new Set(targets).size !== targets.length) fail(`Legacy umbrella topic ${umbrella} contains duplicate targets`);
+
+  for (const target of targets) {
+    const targetMeta = topicMap.get(target);
+    if (!targetMeta) {
+      fail(`Legacy umbrella topic ${umbrella} targets unknown topic ${target}`);
+      continue;
+    }
+    if (targetMeta.kind !== 'standard-quiz' || !targetMeta.available) {
+      fail(`Legacy umbrella topic ${umbrella} must target available standard topics: ${target}`);
+    }
+    if (umbrellaMeta && targetMeta.field !== umbrellaMeta.field) {
+      fail(`Legacy umbrella topic ${umbrella} crosses fields via ${target}`);
+    }
+  }
+
+  if (allQuestions.some((question) => question.topic === umbrella)) {
+    fail(`Legacy umbrella topic ${umbrella} still owns questions; migrate them to canonical targets`);
   }
 }
 
