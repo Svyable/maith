@@ -4,14 +4,14 @@ This is the structural baseline for the next content pass. The detailed question
 
 ## Coverage baseline
 
-The standard library currently contains 1024 questions. Coverage is highly uneven.
+The standard library currently contains 1036 questions. Coverage is highly uneven.
 
 | Field | Visible topics | Questions | Topics below 9 | Topics below 6 |
 | --- | ---: | ---: | ---: | ---: |
 | Mathematics | 20 | 272 | 3 | 2 |
 | Physics | 15 | 148 | 3 | 1 |
 | Computer Science | 12 | 159 | 0 | 0 |
-| Engineering | 21 | 129 | 16 | 12 |
+| Engineering | 21 | 141 | 14 | 10 |
 | Finance | 15 | 111 | 9 | 7 |
 | Earth & Space | 7 | 63 | 0 | 0 |
 | Biology | 5 | 45 | 0 | 0 |
@@ -26,7 +26,7 @@ The standard library currently contains 1024 questions. Coverage is highly uneve
 The most structurally under-covered visible topics are:
 
 - several Engineering subfields remain at 3–6 total
-- Structural Engineering and Materials Science have now reached 3 EASY / 3 HARD / 3 SOTA
+- Structural Engineering, Materials Science, Power Systems, and Semiconductor Engineering have reached 3 EASY / 3 HARD / 3 SOTA
 - several Finance foundations: 3 total
 
 ## Taxonomy decisions
@@ -66,7 +66,7 @@ Augmentation should proceed field by field after the quality gate is clean:
 
 1. **Computer Science foundations** — Algorithms and Machine Learning before adding new CS subfields.
 2. **Finance foundations** — Microeconomics, Macroeconomics, Econometrics, Fixed Income, Portfolio Theory, and Algo Trading.
-3. **Engineering** — continue the dedicated wave because 16 of 21 canonical topics are still below 9 questions.
+3. **Engineering** — continue the dedicated wave because 14 of 21 canonical topics are still below 9 questions.
 4. **Human Sciences** — bring the three existing topics from 6 toward 9+ before adding new disciplines.
 5. Mathematics and Physics expansion only after the thinner fields are healthier.
 
@@ -79,5 +79,7 @@ Earth & Space has completed its first foundation pass: Astronomy, Astrophysics, 
 Computer Science foundations have completed their thin-topic pass: Algorithms and Machine Learning now each have 3 EASY / 3 HARD / 3 SOTA questions, and Quantum Computing has been lifted to the 9-question floor. The pass updates the matrix-multiplication frontier through September 2026, balances answer positions, hardens distractors, and sources advanced algorithm, ML, and quantum-computing claims.
 
 Engineering foundation wave 1 is complete: Structural Engineering and Materials Science now each have 3 EASY / 3 HARD / 3 SOTA questions. New questions cover load paths, beam-force relationships, second-order effects, modal seismic analysis, fracture mechanics, creep, ICME, additive manufacturing, performance-based seismic engineering, and structural health monitoring. Advanced claims are tied to NIST or FHWA sources, and new answer positions are deliberately balanced.
+
+Engineering foundation wave 2 is complete: Power Systems and Semiconductor Engineering now each have 3 EASY / 3 HARD / 3 SOTA questions. The pass adds transformer and reactive-power fundamentals, symmetrical components, transient stability, synchrophasors, inverter-based-resource dynamics, semiconductor doping, threshold behavior, subthreshold swing, interconnect delay, GAA metrology, and nanoscale thermal transport. Advanced material is sourced to NIST or DOE and legacy SOTA wording was tightened.
 
 The goal is not equal question counts everywhere. It is enough independent material that a quiz can vary meaningfully and still represent the subject honestly.
