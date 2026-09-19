@@ -135,12 +135,11 @@ const Index = () => {
                     ? t('quiz.loadingProgress', state.loadingProgress)
                     : t('quiz.loading')}
                 </p>
-                <div className="h-1.5 overflow-hidden rounded-full bg-secondary">
-                  <div
-                    className="h-full rounded-full bg-primary transition-[width] duration-300"
-                    style={{ width: `${state.loadingProgress?.total ? (state.loadingProgress.loaded / state.loadingProgress.total) * 100 : 12}%` }}
-                  />
-                </div>
+                <progress
+                  className="h-1.5 w-full overflow-hidden rounded-full accent-primary"
+                  value={state.loadingProgress?.loaded ?? 0}
+                  max={state.loadingProgress?.total ?? 1}
+                />
               </div>
             </div>
           )}
