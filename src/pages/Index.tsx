@@ -9,7 +9,8 @@ import { useQuizSession } from '@/hooks/useQuizSession';
 import { useAuth } from '@/hooks/useAuth';
 import { useProfile } from '@/hooks/useProfile';
 import { type Difficulty, DEFAULT_DIFFICULTIES, TOPIC_MAP } from '@/config/constants';
-import { FIELD_MAP } from '@/config/fields';
+import { QUIZ_FIELD_MAP } from '@/config/fields';
+import { resolveQuizTopics } from '@/domain/quiz';
 import { t } from '@/i18n';
 import { Button } from '@/components/ui/button';
 
@@ -20,7 +21,7 @@ const QuizResults = lazy(() => import('@/components/QuizResults').then((module) 
 
 function isStandardField(slug: string | null): slug is string {
   if (!slug) return false;
-  return Boolean(FIELD_MAP[slug]?.topics.some((topic) => TOPIC_MAP[topic]));
+  return Boolean(QUIZ_FIELD_MAP[slug]);
 }
 
 const Index = () => {
@@ -112,11 +113,7 @@ const Index = () => {
   }, [state.isFinished, screen]);
 
   const startQuiz = useCallback(() => {
-    const effectiveTopics = selectedTopics.length > 0
-      ? selectedTopics
-      : selectedField !== 'all'
-        ? (FIELD_MAP[selectedField]?.topics.filter((topic) => TOPIC_MAP[topic]) ?? [])
-        : [];
+    const effectiveTopics = resolveQuizTopics(selectedTopics, selectedField);
     resetSession();
     setScreen('quiz');
     restartQuiz(effectiveTopics, selectedDifficulties);
@@ -126,6 +123,10 @@ const Index = () => {
     setSelectedTopics((prev) =>
       prev.includes(topic) ? prev.filter((t) => t !== topic) : [...prev, topic]
     );
+  }, []);
+
+  const useAllTopics = useCallback(() => {
+    setSelectedTopics([]);
   }, []);
 
   const toggleDifficulty = useCallback((d: Difficulty) => {
@@ -151,6 +152,7 @@ const Index = () => {
               onToggleDifficulty={toggleDifficulty}
               selectedField={selectedField}
               onSelectField={setSelectedField}
+              onUseAllTopics={useAllTopics}
               onStart={startQuiz}
               displayName={profile?.display_name ?? null}
               onSignOut={user ? signOut : undefined}
