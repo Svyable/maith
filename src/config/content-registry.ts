@@ -1,5 +1,7 @@
 // Canonical lightweight content registry. Full content stays in source packs.
 
+import { APP_PATHS } from './site-navigation';
+
 export type ContentKind = 'standard-quiz' | 'bonafide' | 'thinker' | 'vault' | 'glossary' | 'formula' | 'editorial' | 'special';
 
 export interface TopicMeta {
@@ -248,12 +250,12 @@ export const TOPIC_MAP: Record<string, TopicMeta> = Object.fromEntries(TOPICS.ma
 export const LEGACY_TOPIC_ALIASES = LEGACY_ALIAS_TARGETS;
 
 export const CONTENT_COLLECTIONS = [
-  { kind: 'standard-quiz', route: '/', isolated: false },
-  { kind: 'bonafide', route: '/bonafides', isolated: true },
-  { kind: 'thinker', route: '/thinkers', isolated: true },
-  { kind: 'vault', route: '/vault', isolated: true },
-  { kind: 'glossary', route: '/glossary', isolated: true },
-  { kind: 'formula', route: '/formulas', isolated: true },
+  { kind: 'standard-quiz', route: APP_PATHS.home, isolated: false },
+  { kind: 'bonafide', route: APP_PATHS.bonafides, isolated: true },
+  { kind: 'thinker', route: APP_PATHS.thinkers, isolated: true },
+  { kind: 'vault', route: APP_PATHS.vault, isolated: true },
+  { kind: 'glossary', route: APP_PATHS.glossary, isolated: true },
+  { kind: 'formula', route: APP_PATHS.formulas, isolated: true },
   { kind: 'editorial', route: null, isolated: true },
 ] as const;
 
