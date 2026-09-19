@@ -15,9 +15,10 @@ export default function ThinkerDetail() {
   if (!page) return <NotFound />;
 
   const thinker = page.thinker;
-  const knownFields = thinker.fields
-    .map((slug) => FIELD_MAP[slug])
-    .filter((field) => field && field.slug !== 'all');
+  const knownFields = thinker.fields.flatMap((slug) => {
+    const field = FIELD_MAP[slug];
+    return field && field.slug !== 'all' ? [field] : [];
+  });
 
   return (
     <SiteShell>
