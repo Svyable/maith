@@ -81,6 +81,7 @@ export function TopicSelector({ selected, onToggle, fieldFilter, searchFilter, s
             <TopicCard
               topic={topic}
               isSelected={allSelected || selected.includes(topic.slug)}
+              isExplicitSelection={selected.includes(topic.slug)}
               onToggle={() => onToggle(topic.slug)}
               selectedDifficulties={selectedDifficulties}
             />
