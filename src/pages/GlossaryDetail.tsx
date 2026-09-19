@@ -22,9 +22,10 @@ export default function GlossaryDetail() {
   if (!page) return <NotFound />;
 
   const term = page.term;
-  const relatedTerms = (term.related ?? [])
-    .map((id) => GLOSSARY_REFERENCE_PAGE_MAP[id])
-    .filter(Boolean);
+  const relatedTerms = (term.related ?? []).flatMap((id) => {
+    const related = GLOSSARY_REFERENCE_PAGE_MAP[id];
+    return related ? [related] : [];
+  });
 
   return (
     <SiteShell>
