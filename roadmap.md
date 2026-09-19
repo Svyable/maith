@@ -1,7 +1,10 @@
-## Third performance pass
-- [x] Capture current bundle and question module organization
-- [x] Implement selective grouped question loading with session cache
-- [x] Polish quiz loading and active-screen issues supported by audit
-- [x] Run locale, tests, TypeScript, and production build
-- [x] Browser-test desktop/mobile full quiz flows and offline behavior
-- [x] Record before/after payloads and remaining bottleneck
+# Content architecture pass
+
+- [ ] Audit current registries, taxonomy, loaders, stats, and special boundaries
+- [ ] Establish canonical lightweight content registry
+- [ ] Derive fields, loaders, stats, and inventory safely
+- [ ] Add unified content integrity validation
+- [ ] Document contributor workflow and architecture
+- [ ] Run locale, content, tests, TypeScript, and production build
+- [ ] Browser-test selective quiz loading and all special routes
+- [ ] Record taxonomy findings, payloads, and judgment calls

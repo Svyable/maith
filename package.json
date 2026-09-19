@@ -13,7 +13,8 @@
     "test:watch": "vitest",
     "check:locales": "node scripts/check-locales.mjs",
     "generate:content-stats": "bun scripts/generate-content-stats.ts",
-    "generate:question-loaders": "bun scripts/generate-question-loaders.ts"
+    "generate:question-loaders": "bun scripts/generate-question-loaders.ts",
+    "validate:content": "bun scripts/validate-content.ts"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",

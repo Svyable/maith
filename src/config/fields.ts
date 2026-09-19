@@ -1,10 +1,12 @@
+import { STANDARD_TOPICS } from './content-registry';
+
 // ── Field Registry — single source of truth for Fields ───────────────
 //
 // HOW TO ADD A NEW FIELD:
 // 1. Add a FieldMeta entry to FIELDS below with available: false initially
 // 2. Create topic packs in src/content/<field-slug>/
-// 3. Register topics in TOPICS (constants.ts) with field: '<field-slug>'
-// 4. Add content to src/content/index.ts allQuestions
+// 3. Register topics and their pack in content-registry.ts
+// 4. Regenerate loaders/stats and run content validation
 // 5. Flip available: true when content is ready
 
 export interface FieldMeta {
@@ -21,7 +23,7 @@ export interface FieldMeta {
   available: boolean;
 }
 
-export const FIELDS: FieldMeta[] = [
+const FIELD_DEFINITIONS: FieldMeta[] = [
   {
     slug: 'all',
     label: 'All Fields',
@@ -139,6 +141,15 @@ export const FIELDS: FieldMeta[] = [
     available: true,
   },
   {
+    slug: 'human-sciences',
+    label: 'Human Sciences',
+    emoji: '🧠',
+    description: 'Psychology, linguistics, and philosophy of science',
+    topics: [],
+    color: 'primary',
+    available: true,
+  },
+  {
     slug: 'finance',
     label: 'Finance',
     emoji: '📈',
@@ -154,6 +165,13 @@ export const FIELDS: FieldMeta[] = [
     available: true,
   },
 ];
+
+export const FIELDS: FieldMeta[] = FIELD_DEFINITIONS.map((field) => ({
+  ...field,
+  topics: field.slug === 'all'
+    ? []
+    : STANDARD_TOPICS.filter((topic) => topic.field === field.slug).map((topic) => topic.slug),
+}));
 export const FIELD_MAP: Record<string, FieldMeta> = Object.fromEntries(
   FIELDS.map((f) => [f.slug, f])
 );
