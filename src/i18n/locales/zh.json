@@ -41,6 +41,7 @@
   "difficulty.pts": "+{{pts}}分",
   "quiz.question": "第 {{current}}/{{total}} 题",
   "quiz.points": "{{score}} 分",
+  "quiz.pointsAwarded": "+{{points}} 分",
   "quiz.skip": "跳过 →",
   "quiz.streak": "🔥 连续 {{count}} 题！",
   "quiz.checking": "检查中...",
