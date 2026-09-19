@@ -15,6 +15,7 @@ export interface ContentTopicMeta extends TopicMeta {
   available: boolean;
   loaderGroups?: readonly string[];
   canonicalSlug?: string;
+  canonicalSlugs?: readonly string[];
 }
 
 const LEGACY_TOPIC_DEFINITIONS: TopicMeta[] = [
@@ -174,11 +175,31 @@ const LEGACY_TOPIC_DEFINITIONS: TopicMeta[] = [
 
 
 const LEGACY_ALIAS_TARGETS: Record<string, string> = {
-  'electrical-engineering': 'circuits-electronics',
-  'mechanical-engineering': 'solid-mechanics',
   'robotics': 'robotics-mechatronics',
   'control-theory': 'control-systems',
-  'aerospace': 'spaceflight-systems',
+};
+
+export const LEGACY_TOPIC_EXPANSIONS: Record<string, readonly string[]> = {
+  'electrical-engineering': [
+    'circuits-electronics',
+    'signal-processing',
+    'control-systems',
+    'communications-coding',
+    'power-systems',
+    'semiconductor-engineering',
+  ],
+  'mechanical-engineering': [
+    'solid-mechanics',
+    'thermofluids',
+    'robotics-mechatronics',
+    'materials-science',
+    'structural-engineering',
+  ],
+  'aerospace': [
+    'aerodynamics',
+    'orbital-mechanics',
+    'spaceflight-systems',
+  ],
 };
 
 const LEGACY_PROFESSIONAL_FIELDS = new Set(["actuarial", "cfa", "cpa", "data-science", "law", "mba", "medical"]);
@@ -202,8 +223,9 @@ export const STANDARD_TOPICS: ContentTopicMeta[] = LEGACY_TOPIC_DEFINITIONS
   .map((topic) => ({
     ...topic,
     kind: 'standard-quiz',
-    available: !LEGACY_ALIAS_TARGETS[topic.slug],
+    available: !LEGACY_ALIAS_TARGETS[topic.slug] && !LEGACY_TOPIC_EXPANSIONS[topic.slug],
     ...(LEGACY_ALIAS_TARGETS[topic.slug] ? { canonicalSlug: LEGACY_ALIAS_TARGETS[topic.slug] } : {}),
+    ...(LEGACY_TOPIC_EXPANSIONS[topic.slug] ? { canonicalSlugs: LEGACY_TOPIC_EXPANSIONS[topic.slug] } : {}),
   }));
 
 // Question-bearing slugs retained in the standard pool but intentionally hidden from selectors.
@@ -237,4 +259,10 @@ export const CONTENT_COLLECTIONS = [
 
 export function resolveTopicSlug(slug: string): string {
   return LEGACY_TOPIC_ALIASES[slug] ?? slug;
+}
+
+export function resolveTopicSlugs(slug: string): string[] {
+  return LEGACY_TOPIC_EXPANSIONS[slug]
+    ? [...LEGACY_TOPIC_EXPANSIONS[slug]]
+    : [resolveTopicSlug(slug)];
 }
