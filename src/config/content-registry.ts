@@ -172,8 +172,6 @@ const LEGACY_TOPIC_DEFINITIONS: TopicMeta[] = [
 
 
 
-const AVAILABLE_STANDARD_TOPIC_SLUGS = new Set(["linear-algebra", "calculus", "probability-stats", "optimization", "discrete-math", "classical-mechanics", "quantum-mechanics", "algo-trading", "derivatives-pricing", "fixed-income", "portfolio-theory", "stochastic-calculus", "inorganic-chemistry", "organic-chemistry", "physical-chemistry", "ecology", "genetics", "molecular-biology", "ai-models", "algorithms", "cryptography", "machine-learning", "astronomy", "climate-science", "geology", "astrophysics", "aerodynamics", "audio-engineering", "biomedical-engineering", "circuits-electronics", "communications-coding", "control-systems", "environmental-engineering", "materials-science", "nuclear-engineering", "orbital-mechanics", "power-systems", "process-design", "reaction-engineering", "robotics-mechatronics", "semiconductor-engineering", "signal-processing", "solid-mechanics", "structural-engineering", "thermofluids", "transport-phenomena", "econometrics", "macroeconomics", "microeconomics", "electromagnetism", "number-theory", "real-analysis", "risk-management", "thermodynamics", "quantum-computing", "game-theory", "robotics", "meteorology", "neuroscience", "linguistics", "oceanography", "cybersecurity", "aerospace", "nuclear-physics", "fluid-dynamics", "philosophy-of-science", "topology", "psychology", "environmental-science", "pharmacology", "differential-equations", "abstract-algebra", "optics", "relativity", "statistical-physics", "plasma-physics", "condensed-matter", "nonlinear-dynamics", "quantum-field-theory", "many-body-physics", "quantum-gravity", "distributed-systems", "operating-systems", "sota-2024", "sota-2025", "sota-2026", "combinatorics", "category-theory", "ergodic-theory", "algebraic-geometry", "measure-theory", "compiler-theory", "control-theory", "behavioral-economics", "development-economics", "market-microstructure", "credit-risk", "prediction-markets", "formal-verification", "ai-substrates", "information-theory", "complex-analysis", "functional-analysis", "graph-theory", "differential-geometry", "numerical-methods"]);
-
 const LEGACY_ALIAS_TARGETS: Record<string, string> = {
   'electrical-engineering': 'circuits-electronics',
   'mechanical-engineering': 'solid-mechanics',
@@ -184,7 +182,7 @@ const LEGACY_PROFESSIONAL_FIELDS = new Set(["actuarial", "cfa", "cpa", "data-sci
 export const STANDARD_TOPICS: ContentTopicMeta[] = LEGACY_TOPIC_DEFINITIONS.map((topic) => ({
   ...topic,
   kind: LEGACY_PROFESSIONAL_FIELDS.has(topic.field) ? 'bonafide' : 'standard-quiz',
-  available: AVAILABLE_STANDARD_TOPIC_SLUGS.has(topic.slug),
+  available: !LEGACY_PROFESSIONAL_FIELDS.has(topic.field) && !LEGACY_ALIAS_TARGETS[topic.slug],
   ...(LEGACY_ALIAS_TARGETS[topic.slug] ? { canonicalSlug: LEGACY_ALIAS_TARGETS[topic.slug] } : {}),
 }));
 
