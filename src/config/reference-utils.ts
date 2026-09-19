@@ -43,5 +43,10 @@ export function trimMeta(value: string, max = 160): string {
 
 export function compactTitle(primary: string, suffix: string, fallback: string): string {
   const full = primary + suffix;
-  return full.length <= 65 ? full : fallback;
+  if (full.length <= 65) return full;
+  if (fallback.length <= 65) return fallback;
+
+  const slice = fallback.slice(0, 64);
+  const boundary = slice.lastIndexOf(' ');
+  return (boundary > 35 ? slice.slice(0, boundary) : slice) + '…';
 }
