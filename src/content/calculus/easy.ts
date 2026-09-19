@@ -75,7 +75,7 @@ export const easyQuestions: Question[] = [
     options: ['It has a derivative at $a$', '$\\lim_{x \\to a} f(x) = f(a)$', 'It is differentiable everywhere', '$f(a) = 0$'],
     correctIndex: 1,
     explanation: 'Continuity at $a$ means three things line up: $f(a)$ is defined, $\\lim_{x\\to a}f(x)$ exists, and that limit equals $f(a)$. Differentiability at $a$ is sufficient for continuity there, but it is not required.',
-    realWorld: 'Continuity assumptions underlie gradient-based optimization — you can\'t do gradient descent on discontinuous functions.',
+    realWorld: 'Continuity and smoothness assumptions help optimization methods reason about local changes in an objective; discontinuities can make ordinary gradient-based steps undefined or unreliable at the jump.',
     hint: 'The function value and the limit must agree at that point.',
   },
   {
