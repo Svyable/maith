@@ -13,8 +13,8 @@ export const developmentEconomicsQuestions: Question[] = [
   {
     id: 183002, topic: 'development-economics', difficulty: 'easy',
     question: 'The poverty trap hypothesis suggests that:',
-    options: ['Below a certain income threshold, poor countries cannot grow without external intervention', 'Poverty always decreases over time', 'Free markets eliminate poverty automatically', 'Aid always causes dependency'],
-    correctIndex: 0,
+    options: ["Poverty always decreases over time","Below a certain income threshold, poor countries cannot grow without external intervention","Free markets eliminate poverty automatically","Aid always causes dependency"],
+    correctIndex: 1,
     explanation: 'Poverty traps occur when low income → low savings → low investment → low growth → low income. Jeffrey Sachs argues "big push" aid can break this cycle.',
     realWorld: 'Many sub-Saharan African countries have experienced persistent poverty consistent with trap dynamics.',
     hint: 'A vicious cycle where being poor makes it harder to stop being poor.',
@@ -22,8 +22,8 @@ export const developmentEconomicsQuestions: Question[] = [
   {
     id: 183003, topic: 'development-economics', difficulty: 'hard',
     question: 'Randomized Controlled Trials (RCTs) in development economics, pioneered by Banerjee, Duflo, and Kremer, are valued because:',
-    options: ['They establish causal effects of interventions by randomly assigning treatment', 'They are the cheapest method', 'They always have external validity', 'They replace all other methods'],
-    correctIndex: 0,
+    options: ["They are the cheapest method","They always have external validity","They establish causal effects of interventions by randomly assigning treatment","They replace all other methods"],
+    correctIndex: 2,
     explanation: 'RCTs eliminate selection bias through random assignment, providing credible causal estimates. This "credibility revolution" earned the 2019 Nobel Prize in Economics.',
     realWorld: 'RCTs showed that deworming pills ($0.50/child) dramatically increased school attendance in Kenya.',
     hint: 'Same logic as clinical trials in medicine — the gold standard for causal inference.',
@@ -31,8 +31,8 @@ export const developmentEconomicsQuestions: Question[] = [
   {
     id: 183004, topic: 'development-economics', difficulty: 'hard',
     question: 'Amartya Sen\'s "capability approach" argues that development should be measured by:',
-    options: ['People\'s substantive freedoms to achieve lives they value', 'GDP per capita alone', 'Industrial output', 'Trade balance'],
-    correctIndex: 0,
+    options: ["GDP per capita alone","Industrial output","Trade balance","People's substantive freedoms to achieve lives they value"],
+    correctIndex: 3,
     explanation: 'Sen argues development is about expanding capabilities (what people can do and be), not just income. Poverty is "capability deprivation" — lack of freedom to live well.',
     realWorld: 'This framework inspired the HDI and shifted global development policy from pure GDP focus to human welfare.',
     hint: 'Development as freedom — not just wealth.',
@@ -40,8 +40,8 @@ export const developmentEconomicsQuestions: Question[] = [
   {
     id: 183005, topic: 'development-economics', difficulty: 'hard',
     question: 'The "middle income trap" refers to:',
-    options: ['Countries stalling at middle income — too expensive for low-cost manufacturing but lacking innovation for high-value industries', 'Countries achieving high income easily', 'A temporary recession', 'Currency depreciation cycles'],
-    correctIndex: 0,
+    options: ["Countries achieving high income easily","Countries stalling at middle income — too expensive for low-cost manufacturing but lacking innovation for high-value industries","A temporary recession","Currency depreciation cycles"],
+    correctIndex: 1,
     explanation: 'Countries like Brazil and South Africa grew rapidly from low income but stalled. They lose cost competitiveness vs. poorer nations but can\'t compete on innovation with rich ones.',
     realWorld: 'South Korea and Taiwan escaped the trap via heavy R&D investment; many Latin American countries remain stuck.',
     hint: 'Squeezed from below by cheaper labor and from above by better technology.',
@@ -49,20 +49,26 @@ export const developmentEconomicsQuestions: Question[] = [
   {
     id: 183006, topic: 'development-economics', difficulty: 'sota',
     question: 'Acemoglu and Robinson\'s "Why Nations Fail" thesis attributes divergent development to:',
-    options: ['Inclusive vs. extractive political and economic institutions', 'Geography and climate', 'Cultural differences', 'Resource endowments'],
-    correctIndex: 0,
+    options: ["Geography and climate","Cultural differences","Inclusive vs. extractive political and economic institutions","Resource endowments"],
+    correctIndex: 2,
     explanation: 'Inclusive institutions (property rights, rule of law, creative destruction) drive sustained growth; extractive institutions (elite capture, rent-seeking) cause stagnation or decline.',
     realWorld: 'North vs. South Korea — same geography, culture, resources — dramatically different outcomes driven by institutional differences.',
     hint: 'Institutions, institutions, institutions — the 2024 Nobel Prize winners.',
+  
+    sources: [{"title":"The Prize in Economic Sciences 2019","url":"https://www.nobelprize.org/prizes/economic-sciences/2019/press-release/","publisher":"Nobel Prize Outreach","year":2019}],
+    reviewedAt: "2026-09-19",
   },
   {
     id: 183007, topic: 'development-economics', difficulty: 'sota',
     question: 'GiveDirectly\'s unconditional cash transfer experiments in Kenya showed that:',
-    options: ['Direct cash transfers to the poor increased consumption, assets, and wellbeing with no increase in spending on temptation goods', 'Cash was mostly wasted on alcohol', 'In-kind aid was always superior', 'Cash transfers caused inflation'],
-    correctIndex: 0,
+    options: ["Cash was mostly wasted on alcohol","In-kind aid was always superior","Cash transfers caused inflation","Direct cash transfers to the poor increased consumption, assets, and wellbeing with no increase in spending on temptation goods"],
+    correctIndex: 3,
     explanation: 'Rigorous RCTs by Haushofer & Shapiro (2016) found that unconditional cash transfers increased consumption by 23%, assets by 58%, and psychological wellbeing significantly.',
     realWorld: 'This evidence has shifted global aid policy toward cash-first approaches — "just give money."',
     hint: 'The poor know their needs better than donors — trust them with cash.',
+  
+    paper: {"title":"The Short-term Impact of Unconditional Cash Transfers to the Poor: Experimental Evidence from Kenya","url":"https://doi.org/10.1093/qje/qjw025","venue":"The Quarterly Journal of Economics","year":2016},
+    reviewedAt: "2026-09-19",
   },
   {
     id: 183008, topic: 'development-economics', difficulty: 'sota',
@@ -72,5 +78,20 @@ export const developmentEconomicsQuestions: Question[] = [
     explanation: 'Unconditional convergence fails empirically. Conditional convergence (controlling for institutions, education, policy) is supported by cross-country regressions (Barro, 1991).',
     realWorld: 'China and India converging toward rich-country incomes, while many African nations diverge — institutions matter.',
     hint: 'Convergence works among "similar" countries (e.g., US states, EU members).',
+  
+    sources: [{"title":"The Prize in Economic Sciences 2024","url":"https://www.nobelprize.org/prizes/economic-sciences/2024/press-release/","publisher":"Nobel Prize Outreach","year":2024}],
+    reviewedAt: "2026-09-19",
+  },
+
+  // ── Development Economics foundation expansion ──────────────────────────
+  {
+    id: 183009, topic: "development-economics", difficulty: "easy",
+    question: "Real GDP per capita is nominal GDP per capita adjusted mainly for:",
+    options: ["Population growth alone","Exchange-rate changes only","Price changes","Interest-rate changes"],
+    correctIndex: 2,
+    explanation: "Real GDP adjusts nominal production for price changes before interpreting changes in output per person across time.",
+    realWorld: "Development comparisons also require care about purchasing power, distribution, and data quality.",
+    hint: "Remove inflation before interpreting output growth.",
+    reviewedAt: "2026-09-19",
   },
 ];
