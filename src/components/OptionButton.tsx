@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import { LatexRenderer } from './LatexRenderer';
 
 interface OptionButtonProps {
@@ -16,6 +16,7 @@ interface OptionButtonProps {
 const labels = ['A', 'B', 'C', 'D'];
 
 export function OptionButton({ text, index, onSelect, disabled, state, eliminated = false, selected = false }: OptionButtonProps) {
+  const prefersReducedMotion = useReducedMotion();
   const stateClasses = {
     default: 'bg-card border-border hover:border-primary hover:glow-primary',
     correct: 'bg-success/15 border-success glow-success',
@@ -25,10 +26,10 @@ export function OptionButton({ text, index, onSelect, disabled, state, eliminate
 
   return (
     <motion.button
-      whileHover={!disabled ? { scale: 1.02 } : undefined}
-      whileTap={!disabled ? { scale: 0.98 } : undefined}
-      animate={state === 'wrong' ? { x: [0, -8, 8, -8, 8, 0] } : undefined}
-      transition={{ duration: 0.4 }}
+      whileHover={!disabled && !prefersReducedMotion ? { scale: 1.02 } : undefined}
+      whileTap={!disabled && !prefersReducedMotion ? { scale: 0.98 } : undefined}
+      animate={state === 'wrong' && !prefersReducedMotion ? { x: [0, -8, 8, -8, 8, 0] } : undefined}
+      transition={{ duration: prefersReducedMotion ? 0 : 0.4 }}
       onClick={() => !disabled && onSelect(index)}
       disabled={disabled}
       aria-pressed={selected}
