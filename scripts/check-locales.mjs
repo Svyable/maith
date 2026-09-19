@@ -4,6 +4,7 @@ import {
   LOCALES_DIRECTORY,
   QUESTION_COVERAGE_FLOORS,
   QUESTION_FIELDS,
+  getAmbiguousSourceQuestionIds,
   getCoreLocaleCodes,
   getSourceQuestionIndex,
   inspectQuestionDictionary,
@@ -23,7 +24,14 @@ const baselineKeys = Object.keys(baseline).sort();
 const placeholders = (value) =>
   [...String(value).matchAll(/\{\{([^}]+)\}\}/g)].map((match) => match[1]).sort();
 const sourceQuestionIndex = getSourceQuestionIndex();
+const ambiguousSourceQuestionIds = getAmbiguousSourceQuestionIds(sourceQuestionIndex);
 let failed = false;
+
+if (ambiguousSourceQuestionIds.length) {
+  console.warn(
+    `source catalog contains reused question ids=${ambiguousSourceQuestionIds.join(',')}; localization coverage counts these IDs once and reports them under __ambiguous__.`,
+  );
+}
 
 for (const [locale, dictionary] of Object.entries(dictionaries)) {
   const keys = Object.keys(dictionary).sort();
