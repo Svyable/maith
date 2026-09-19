@@ -15,15 +15,9 @@ export const QUESTION_COUNTS = {
     "total": 9
   },
   "aerodynamics": {
-    "easy": 2,
+    "easy": 3,
     "hard": 2,
     "sota": 1,
-    "total": 5
-  },
-  "aerospace": {
-    "easy": 2,
-    "hard": 2,
-    "sota": 2,
     "total": 6
   },
   "ai-models": {
@@ -435,10 +429,10 @@ export const QUESTION_COUNTS = {
     "total": 24
   },
   "orbital-mechanics": {
-    "easy": 1,
-    "hard": 2,
+    "easy": 2,
+    "hard": 3,
     "sota": 1,
-    "total": 4
+    "total": 6
   },
   "organic-chemistry": {
     "easy": 3,
@@ -595,6 +589,12 @@ export const QUESTION_COUNTS = {
     "hard": 0,
     "sota": 20,
     "total": 20
+  },
+  "spaceflight-systems": {
+    "easy": 1,
+    "hard": 1,
+    "sota": 1,
+    "total": 3
   },
   "statistical-physics": {
     "easy": 3,
