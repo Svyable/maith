@@ -2,9 +2,7 @@ import { useState, useMemo, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '@/hooks/useAuth';
-import { QuizHeader } from '@/components/QuizHeader';
-import { FloatingBackground } from '@/components/FloatingBackground';
-import { Footer } from '@/components/Footer';
+import { SiteShell } from '@/components/layout/SiteShell';
 import { LatexRenderer } from '@/components/LatexRenderer';
 
 import { useVaultProgress } from '@/hooks/useVaultProgress';
@@ -15,6 +13,7 @@ import { Progress } from '@/components/ui/progress';
 import { Lock, Unlock, Check, X, RotateCcw } from 'lucide-react';
 import { t } from '@/i18n';
 import { tVault } from '@/i18n/tVault';
+import { APP_PATHS } from '@/config/site-navigation';
 
 // ── Sub-components ───────────────────────────────────────────
 
@@ -377,7 +376,7 @@ export default function Vault() {
   const handleChallenge = useCallback((index: number) => {
     // If guest and trying to go past the cap, redirect to auth
     if (!user && index >= GUEST_LEVEL_CAP) {
-      navigate('/auth');
+      navigate(APP_PATHS.auth);
       return;
     }
     setChallengeIndex(index);
@@ -393,10 +392,7 @@ export default function Vault() {
   const progressPercent = Math.round((totalUnlocked / totalEntries) * 100);
 
   return (
-    <div className="min-h-screen bg-background flex flex-col relative">
-      <FloatingBackground />
-      <QuizHeader streak={0} showStreak={false} />
-
+    <SiteShell>
       <main className="relative z-10 flex-1 px-4 py-6 max-w-5xl mx-auto w-full">
         {/* Hero */}
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-center mb-6">
@@ -468,7 +464,6 @@ export default function Vault() {
         )}
       </AnimatePresence>
 
-      <Footer />
-    </div>
+    </SiteShell>
   );
 }
