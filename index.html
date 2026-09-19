@@ -3,77 +3,111 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    <title>mAIth — Interactive AI Math Quizzes, Formulas & Glossary</title>
-    <meta name="description" content="Master math, physics, and AI through gamified quizzes, a curated formula library, glossary flash cards, and leaderboards. Solve mAIth = Solve everything." />
-    <meta name="author" content="mAIth" />
 
-    <!-- Preconnect to Google Fonts -->
+    <title>mAIth — Interactive Math, Physics & AI Quizzes</title>
+    <meta
+      name="description"
+      content="Learn math, physics, computer science, and AI with gamified quizzes, formulas, glossary flash cards, and knowledge challenges."
+    />
+    <meta name="author" content="mAIth" />
+    <meta
+      name="robots"
+      content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    />
+    <meta
+      name="googlebot"
+      content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    />
+
+    <link rel="canonical" href="https://maith.lovable.app/" />
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap&font-display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap&font-display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap&font-display=swap"
+      />
+    </noscript>
 
-    <!-- Google Fonts - non-render-blocking -->
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap&font-display=swap" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap&font-display=swap" media="print" onload="this.media='all'" />
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap&font-display=swap" /></noscript>
-
-    <!-- PWA / Mobile -->
     <meta name="theme-color" content="#1abfa3" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta name="apple-mobile-web-app-title" content="mAIth" />
     <meta name="mobile-web-app-capable" content="yes" />
 
-    
-    
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://storage.googleapis.com/gpt-engineer-file-uploads/RN78vpXkfGX9PxLUmDbYRwRhiFc2/social-images/social-1772120459577-3e13c96c-ad39-4510-bda6-3b12187983be.webp">
+    <meta property="og:site_name" content="mAIth" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:title" content="mAIth — Interactive Math, Physics & AI Quizzes" />
+    <meta
+      property="og:description"
+      content="Learn math, physics, computer science, and AI with gamified quizzes, formulas, glossary flash cards, and knowledge challenges."
+    />
+    <meta property="og:url" content="https://maith.lovable.app/" />
+    <meta
+      property="og:image"
+      content="https://storage.googleapis.com/gpt-engineer-file-uploads/RN78vpXkfGX9PxLUmDbYRwRhiFc2/social-images/social-1772120459577-3e13c96c-ad39-4510-bda6-3b12187983be.webp"
+    />
+    <meta property="og:image:alt" content="mAIth interactive STEM learning platform" />
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@Lovable" />
-    <meta name="twitter:image" content="https://storage.googleapis.com/gpt-engineer-file-uploads/RN78vpXkfGX9PxLUmDbYRwRhiFc2/social-images/social-1772120459577-3e13c96c-ad39-4510-bda6-3b12187983be.webp">
-    
-    
-    
-    
-  
-  
-  
-  
-  
-  
-  
-  
-  <meta property="og:title" content="mAIth — Interactive AI Math Quizzes, Formulas & Glossary">
-  <meta name="twitter:title" content="mAIth — Interactive AI Math Quizzes, Formulas & Glossary">
-  <meta property="og:description" content="Master math, physics, and AI through gamified quizzes, a curated formula library, glossary flash cards, and leaderboards.">
-  <meta name="twitter:description" content="Master math, physics, and AI through gamified quizzes, a curated formula library, glossary flash cards, and leaderboards.">
-  <meta property="og:url" content="https://maith.lovable.app" />
-  <link rel="canonical" href="https://maith.lovable.app" />
-  <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "mAIth",
-      "url": "https://maith.lovable.app",
-      "description": "Master math, physics, and AI through gamified quizzes, a curated formula library, glossary flash cards, and leaderboards.",
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": "https://maith.lovable.app/glossary?q={search_term_string}",
-        "query-input": "required name=search_term_string"
+    <meta name="twitter:title" content="mAIth — Interactive Math, Physics & AI Quizzes" />
+    <meta
+      name="twitter:description"
+      content="Learn math, physics, computer science, and AI with gamified quizzes, formulas, glossary flash cards, and knowledge challenges."
+    />
+    <meta
+      name="twitter:image"
+      content="https://storage.googleapis.com/gpt-engineer-file-uploads/RN78vpXkfGX9PxLUmDbYRwRhiFc2/social-images/social-1772120459577-3e13c96c-ad39-4510-bda6-3b12187983be.webp"
+    />
+    <meta name="twitter:image:alt" content="mAIth interactive STEM learning platform" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebSite",
+            "@id": "https://maith.lovable.app/#website",
+            "name": "mAIth",
+            "url": "https://maith.lovable.app/",
+            "description": "Interactive learning platform for math, physics, computer science, and AI with gamified quizzes, formulas, glossary flash cards, and knowledge challenges.",
+            "inLanguage": "en",
+            "potentialAction": {
+              "@type": "SearchAction",
+              "target": "https://maith.lovable.app/glossary?q={search_term_string}",
+              "query-input": "required name=search_term_string"
+            }
+          },
+          {
+            "@type": "WebApplication",
+            "@id": "https://maith.lovable.app/#app",
+            "name": "mAIth",
+            "url": "https://maith.lovable.app/",
+            "applicationCategory": "EducationalApplication",
+            "operatingSystem": "Any",
+            "browserRequirements": "Requires JavaScript",
+            "isAccessibleForFree": true,
+            "description": "Gamified technical learning across mathematics, physics, computer science, finance, and artificial intelligence."
+          }
+        ]
       }
-    }
-  </script>
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "EducationalOrganization",
-      "name": "mAIth",
-      "url": "https://maith.lovable.app",
-      "description": "Interactive learning platform for math, physics, computer science, and AI/ML."
-    }
-  </script>
-</head>
+    </script>
+  </head>
 
   <body>
     <div id="root"></div>

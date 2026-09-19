@@ -26,7 +26,7 @@ const Index = () => {
   const { user, signOut } = useAuth();
   const { profile } = useProfile();
 
-  const { state, currentQuestion, answer, nextQuestion, skipQuestion, endQuiz, restartQuiz, totalQuestions } =
+  const { state, currentQuestion, answer, eliminateOptions, nextQuestion, skipQuestion, endQuiz, restartQuiz, totalQuestions } =
     useQuiz(selectedTopics, selectedDifficulties);
 
   // Ref to trigger timeout auto-answer from within QuizScreen
@@ -36,13 +36,17 @@ const Index = () => {
     timeoutRef.current?.();
   }, []);
 
+  const currentQuestionResolved = currentQuestion
+    ? state.answeredIds.includes(currentQuestion.id)
+    : false;
+
   const {
     timeLeft, fraction,
     resetTimer, resetSession,
     handleSessionUpdate,
   } = useQuizSession({
     difficulties: selectedDifficulties,
-    isQuizActive: screen === 'quiz',
+    isQuizActive: screen === 'quiz' && !currentQuestionResolved,
     quizState: state,
     sessionTag: 'quiz',
     topics: selectedTopics,
@@ -161,6 +165,7 @@ const Index = () => {
                 timerFraction={fraction}
                 timeLeft={timeLeft}
                 onAnswer={answer}
+                onEliminate={eliminateOptions}
                 onNext={handleNext}
                 onSkip={handleSkip}
                 onEndQuiz={handleEndQuiz}

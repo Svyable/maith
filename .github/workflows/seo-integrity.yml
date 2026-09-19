@@ -1,0 +1,57 @@
+name: SEO integrity
+
+on:
+  pull_request:
+    paths:
+      - 'index.html'
+      - 'public/robots.txt'
+      - 'public/sitemap.xml'
+      - 'public/llms.txt'
+      - 'src/App.tsx'
+      - 'src/components/SeoManager.tsx'
+      - 'src/config/seo.ts'
+      - 'src/config/site-navigation.ts'
+      - 'scripts/validate-seo.ts'
+      - 'package.json'
+      - '.github/workflows/seo-integrity.yml'
+  push:
+    branches:
+      - main
+    paths:
+      - 'index.html'
+      - 'public/robots.txt'
+      - 'public/sitemap.xml'
+      - 'public/llms.txt'
+      - 'src/App.tsx'
+      - 'src/components/SeoManager.tsx'
+      - 'src/config/seo.ts'
+      - 'src/config/site-navigation.ts'
+      - 'scripts/validate-seo.ts'
+      - 'package.json'
+      - '.github/workflows/seo-integrity.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  validate-seo:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Set up Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: 1.4.2
+
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+
+      - name: Validate SEO route and discovery integrity
+        run: bun run validate:seo
+
+      - name: Build production app
+        run: bun run build

@@ -106,6 +106,31 @@ for (const [poolName, questions] of Object.entries(pools)) {
 
     const normalizedOptions = q.options.map(normalizeText);
     const uniqueOptions = new Set(normalizedOptions);
+
+    const correctOptionLength = normalizedOptions[q.correctIndex]?.length ?? 0;
+    const distractorLengths = normalizedOptions
+      .filter((_, index) => index !== q.correctIndex)
+      .map((option) => option.length)
+      .sort((a, b) => a - b);
+    const medianDistractorLength = distractorLengths.length
+      ? distractorLengths[Math.floor(distractorLengths.length / 2)]
+      : 0;
+    if (
+      correctOptionLength >= 16 &&
+      medianDistractorLength > 0 &&
+      correctOptionLength - medianDistractorLength >= 10 &&
+      correctOptionLength >= medianDistractorLength * 1.6
+    ) {
+      add({
+        severity: 'warning',
+        code: 'CORRECT_OPTION_LENGTH_OUTLIER',
+        pool: poolName,
+        questionId: q.id,
+        topic: q.topic,
+        detail: `Correct option length ${correctOptionLength} is conspicuously above distractor median ${medianDistractorLength}`,
+      });
+    }
+
     if (uniqueOptions.size !== normalizedOptions.length) {
       add({ severity: 'error', code: 'DUPLICATE_OPTIONS', pool: poolName, questionId: q.id, topic: q.topic, detail: 'Two or more answer options are identical after normalization' });
     }
@@ -196,6 +221,27 @@ for (const [poolName, questions] of Object.entries(pools)) {
 // Same-topic near duplicates in the standard pool.
 const byTopic = new Map<string, Question[]>();
 for (const q of allQuestions) byTopic.set(q.topic, [...(byTopic.get(q.topic) ?? []), q]);
+
+for (const [topic, questions] of byTopic) {
+  if (questions.length < 8) continue;
+  const positionCounts = [0, 0, 0, 0];
+  for (const question of questions) {
+    if (question.correctIndex >= 0 && question.correctIndex < positionCounts.length) {
+      positionCounts[question.correctIndex] += 1;
+    }
+  }
+  const maxPositionCount = Math.max(...positionCounts);
+  if (maxPositionCount / questions.length >= 0.55) {
+    add({
+      severity: 'warning',
+      code: 'ANSWER_POSITION_BIAS',
+      pool: 'standard',
+      topic,
+      detail: `Correct-answer positions are concentrated: [${positionCounts.join(', ')}] across ${questions.length} questions`,
+    });
+  }
+}
+
 for (const [topic, questions] of byTopic) {
   for (let i = 0; i < questions.length; i += 1) {
     const aTokens = tokens(questions[i].question);

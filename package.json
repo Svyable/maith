@@ -15,6 +15,7 @@
     "generate:content-stats": "bun scripts/generate-content-stats.ts",
     "generate:question-loaders": "bun scripts/generate-question-loaders.ts",
     "validate:content": "bun scripts/validate-content.ts",
+    "validate:seo": "bun scripts/validate-seo.ts",
     "audit:quality": "bun scripts/audit-question-quality.ts",
     "validate:all-content": "bun run check:locales && bun run validate:content && bun run audit:quality",
     "report:locales": "node scripts/report-localization-coverage.mjs",

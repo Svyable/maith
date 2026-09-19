@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { LatexRenderer } from './LatexRenderer';
 import { t } from '@/i18n';
@@ -42,7 +41,6 @@ export function HintPanel({ hint, onEliminate, hintShown, onShowHint, eliminateU
           }`}
         >
           ✂️ <span className="truncate">{eliminateUsed ? t('quiz.eliminateUsed') : t('quiz.eliminate')}</span>
-          {!eliminateUsed && <span className="text-xs opacity-70 flex-shrink-0">(0.5x)</span>}
         </motion.button>
       </div>
 
