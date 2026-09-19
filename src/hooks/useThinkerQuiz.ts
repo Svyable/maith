@@ -6,6 +6,7 @@ import { toQuestionDifficulty, type Difficulty } from '@/config/constants';
 import {
   buildInitialState,
   applyAnswer,
+  getVisibleOptionIndex,
   advanceQuestion,
   skipCurrentQuestion,
   endQuiz as endQuizEngine,
@@ -46,7 +47,8 @@ export function useThinkerQuiz(difficulties: Difficulty[] = ['HARD']) {
       if (!currentQuestion) return null;
       const result = checkThinkerAnswer(currentQuestion.id, optionIndex);
       if (!result) return null;
-      setState((prev) => applyAnswer(prev, result, currentQuestion, optionIndex));
+      const visibleIndex = getVisibleOptionIndex(optionIndex, currentQuestion.originalIndices);
+      setState((prev) => applyAnswer(prev, result, currentQuestion, visibleIndex));
       return result;
     },
     [currentQuestion],
