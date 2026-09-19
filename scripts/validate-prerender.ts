@@ -9,6 +9,7 @@ import {
   INDEXABLE_REFERENCE_SEO_ROUTES,
   REFERENCE_SEO_ROUTES,
 } from './reference-seo-routes';
+import { getTopicReferenceCluster } from '../src/config/topic-reference-clusters';
 
 const errors: string[] = [];
 
@@ -66,6 +67,19 @@ for (const { path, seo } of uniqueRoutes) {
   }
   if (!html.includes('<!-- seo-prerender:' + escapeHtml(path) + ' -->')) {
     errors.push(path + ': missing prerender marker');
+  }
+
+  if (seo.indexable) {
+    const cluster = getTopicReferenceCluster(path);
+    const relatedLinks = cluster
+      ? [...cluster.formulas, ...cluster.glossary, ...cluster.thinkers]
+      : [];
+
+    for (const link of relatedLinks) {
+      if (!html.includes(canonicalUrl(link.path))) {
+        errors.push(path + ': prerendered schema missing related link ' + link.path);
+      }
+    }
   }
 }
 
