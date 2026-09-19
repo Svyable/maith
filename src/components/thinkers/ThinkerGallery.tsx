@@ -1,4 +1,5 @@
 import { useState, useMemo } from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ThinkerCard } from '@/components/ThinkerCard';
 import { FieldFilterBar } from '@/components/FieldFilterBar';
@@ -9,6 +10,7 @@ import { THINKERS, type ThinkerMeta } from '@/config/thinkers';
 import { getThinkerQuestions } from '@/content/thinkers';
 import { t } from '@/i18n';
 import type { Difficulty } from '@/config/constants';
+import { buildThinkerPath } from '@/config/site-navigation';
 type EraFilter = 'all' | 'ancient' | 'modern' | 'contemporary' | 'prodigy';
 
 /** Parse a birth year from era strings like "≈570–495 BC", "1643–1727", "4th century BC" */
@@ -218,14 +220,23 @@ export function ThinkerGallery({
               </p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                 {thinkers.map((thinker, i) => (
-                  <ThinkerCard
-                    key={thinker.slug}
-                    thinker={thinker}
-                    questionCount={getThinkerQuestions(thinker.slug).length}
-                    onSelect={onStartThinker}
-                    index={i}
-                    achieved={achievedSlugs.has(thinker.slug)}
-                  />
+                  <div key={thinker.slug} className="space-y-1.5">
+                    <ThinkerCard
+                      thinker={thinker}
+                      questionCount={getThinkerQuestions(thinker.slug).length}
+                      onSelect={onStartThinker}
+                      index={i}
+                      achieved={achievedSlugs.has(thinker.slug)}
+                    />
+                    <div className="text-right">
+                      <Link
+                        to={buildThinkerPath(thinker.slug)}
+                        className="text-[11px] font-semibold text-primary hover:underline"
+                      >
+                        View profile →
+                      </Link>
+                    </div>
+                  </div>
                 ))}
               </div>
             </div>
