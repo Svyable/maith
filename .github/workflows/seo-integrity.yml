@@ -34,7 +34,7 @@ permissions:
 jobs:
   validate-seo:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 10
 
     steps:
       - name: Checkout
@@ -45,5 +45,11 @@ jobs:
         with:
           bun-version: 1.4.2
 
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+
       - name: Validate SEO route and discovery integrity
         run: bun run validate:seo
+
+      - name: Build production app
+        run: bun run build
