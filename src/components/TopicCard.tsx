@@ -26,8 +26,8 @@ export function TopicCard({ topic, isSelected, isExplicitSelection, onToggle, se
 
   return (
     <motion.button
-      whileHover={{ scale: 1.02 }}
-      whileTap={{ scale: 0.97 }}
+      whileHover={canToggle ? { scale: 1.02 } : {}}
+      whileTap={canToggle ? { scale: 0.97 } : {}}
       onClick={canToggle ? onToggle : undefined}
       aria-pressed={showSelected}
       aria-disabled={!canToggle}
