@@ -231,7 +231,8 @@ export const TOPIC_TO_GROUPS: Readonly<Record<string, readonly string[]>> = {
     "astrophysics"
   ],
   "aerodynamics": [
-    "engineering"
+    "engineering",
+    "aerospace"
   ],
   "audio-engineering": [
     "engineering",
@@ -260,7 +261,8 @@ export const TOPIC_TO_GROUPS: Readonly<Record<string, readonly string[]>> = {
     "engineering"
   ],
   "orbital-mechanics": [
-    "engineering"
+    "engineering",
+    "aerospace"
   ],
   "power-systems": [
     "engineering"
@@ -343,7 +345,7 @@ export const TOPIC_TO_GROUPS: Readonly<Record<string, readonly string[]>> = {
     "cybersecurity",
     "vault"
   ],
-  "aerospace": [
+  "spaceflight-systems": [
     "aerospace"
   ],
   "nuclear-physics": [
