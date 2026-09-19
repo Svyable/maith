@@ -175,6 +175,8 @@ const LEGACY_TOPIC_DEFINITIONS: TopicMeta[] = [
 const LEGACY_ALIAS_TARGETS: Record<string, string> = {
   'electrical-engineering': 'circuits-electronics',
   'mechanical-engineering': 'solid-mechanics',
+  'robotics': 'robotics-mechatronics',
+  'control-theory': 'control-systems',
 };
 
 const LEGACY_PROFESSIONAL_FIELDS = new Set(["actuarial", "cfa", "cpa", "data-science", "law", "mba", "medical"]);
