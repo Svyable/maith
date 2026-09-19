@@ -277,3 +277,62 @@ export function buildAllTopicReferenceClusters(): TopicReferenceCluster[] {
     return cluster ? [cluster] : [];
   });
 }
+
+
+export const MAX_REFERENCE_TOPIC_LINKS = 5;
+
+export interface ReferenceTopicBacklink {
+  path: string;
+  topicSlug: string;
+  label: string;
+  fieldLabel: string;
+  questionCount: number;
+  score: number;
+}
+
+let referenceTopicBacklinkMap: Map<string, ReferenceTopicBacklink[]> | null = null;
+
+function buildReferenceTopicBacklinkMap(): Map<string, ReferenceTopicBacklink[]> {
+  if (referenceTopicBacklinkMap) return referenceTopicBacklinkMap;
+
+  const next = new Map<string, ReferenceTopicBacklink[]>();
+
+  for (const topic of LEARNING_TOPIC_PAGES) {
+    if (!topic.indexable) continue;
+    const cluster = getTopicReferenceCluster(topic.path);
+    if (!cluster) continue;
+
+    for (const reference of [...cluster.formulas, ...cluster.glossary, ...cluster.thinkers]) {
+      const links = next.get(reference.path) ?? [];
+      links.push({
+        path: topic.path,
+        topicSlug: topic.topic.slug,
+        label: topic.topic.label,
+        fieldLabel: topic.field.label,
+        questionCount: topic.counts.total,
+        score: reference.score,
+      });
+      next.set(reference.path, links);
+    }
+  }
+
+  for (const links of next.values()) {
+    links.sort(
+      (a, b) =>
+        b.score - a.score
+        || b.questionCount - a.questionCount
+        || a.label.localeCompare(b.label),
+    );
+  }
+
+  referenceTopicBacklinkMap = next;
+  return next;
+}
+
+export function getReferenceTopicBacklinks(referencePath: string): ReferenceTopicBacklink[] {
+  return (buildReferenceTopicBacklinkMap().get(referencePath) ?? []).slice(0, MAX_REFERENCE_TOPIC_LINKS);
+}
+
+export function buildAllReferenceTopicBacklinks(): Map<string, ReferenceTopicBacklink[]> {
+  return buildReferenceTopicBacklinkMap();
+}
