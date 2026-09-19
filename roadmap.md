@@ -1,5 +1,5 @@
-- [ ] Capture production bundle baseline and trace landing imports
-- [ ] Remove safe eager heavy-content imports without changing behavior
-- [ ] Verify lazy routes, stable loading, and PWA behavior
-- [ ] Run locales, tests, TypeScript, build, and compare output
-- [ ] Report measured before/after bundle results
+- [x] Capture production bundle baseline and trace landing imports
+- [x] Remove safe eager heavy-content imports without changing behavior
+- [x] Verify lazy routes, stable loading, and PWA behavior
+- [x] Run locales, tests, TypeScript, build, and compare output
+- [x] Report measured before/after bundle results
