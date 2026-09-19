@@ -9,7 +9,7 @@ import { useQuizSession } from '@/hooks/useQuizSession';
 import { useAuth } from '@/hooks/useAuth';
 import { useProfile } from '@/hooks/useProfile';
 import { type Difficulty, DEFAULT_DIFFICULTIES, TOPIC_MAP } from '@/config/constants';
-import { resolveTopicSlug } from '@/config/content-registry';
+import { resolveTopicSlugs } from '@/config/content-registry';
 import { QUIZ_FIELD_MAP } from '@/config/fields';
 import { resolveQuizTopics } from '@/domain/quiz';
 import { t } from '@/i18n';
@@ -25,22 +25,24 @@ function isStandardField(slug: string | null): slug is string {
   return Boolean(QUIZ_FIELD_MAP[slug]);
 }
 
+function resolveRequestedTopics(slug: string | null): string[] {
+  if (!slug) return [];
+  return resolveTopicSlugs(slug).filter((topic) => Boolean(TOPIC_MAP[topic]));
+}
+
 const Index = () => {
   const [searchParams] = useSearchParams();
   const requestedTopic = searchParams.get('topic');
   const requestedField = searchParams.get('field');
-  const canonicalRequestedTopic = requestedTopic ? resolveTopicSlug(requestedTopic) : null;
-  const validRequestedTopic = canonicalRequestedTopic && TOPIC_MAP[canonicalRequestedTopic]
-    ? canonicalRequestedTopic
+  const validRequestedTopics = resolveRequestedTopics(requestedTopic);
+  const requestedTopicField = validRequestedTopics.length > 0
+    ? TOPIC_MAP[validRequestedTopics[0]].field
     : null;
-  const initialField = validRequestedTopic
-    ? TOPIC_MAP[validRequestedTopic].field
-    : isStandardField(requestedField)
-      ? requestedField
-      : 'all';
+  const initialField = requestedTopicField
+    ?? (isStandardField(requestedField) ? requestedField : 'all');
 
   const [screen, setScreen] = useState<Screen>('home');
-  const [selectedTopics, setSelectedTopics] = useState<string[]>(() => validRequestedTopic ? [validRequestedTopic] : []);
+  const [selectedTopics, setSelectedTopics] = useState<string[]>(() => validRequestedTopics);
   const [selectedField, setSelectedField] = useState<string>(initialField);
   const [selectedDifficulties, setSelectedDifficulties] = useState<Difficulty[]>(DEFAULT_DIFFICULTIES);
   
@@ -75,9 +77,10 @@ const Index = () => {
   });
 
   useEffect(() => {
-    if (validRequestedTopic) {
-      setSelectedTopics([validRequestedTopic]);
-      setSelectedField(TOPIC_MAP[validRequestedTopic].field);
+    const nextTopics = resolveRequestedTopics(requestedTopic);
+    if (nextTopics.length > 0) {
+      setSelectedTopics(nextTopics);
+      setSelectedField(TOPIC_MAP[nextTopics[0]].field);
       setScreen('home');
       return;
     }
@@ -87,7 +90,7 @@ const Index = () => {
       setSelectedField(requestedField);
       setScreen('home');
     }
-  }, [validRequestedTopic, requestedField]);
+  }, [requestedTopic, requestedField]);
 
   const handleNext = useCallback(() => {
     nextQuestion();
