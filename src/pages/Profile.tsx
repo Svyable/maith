@@ -3,8 +3,8 @@ import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '@/hooks/useAuth';
 import { useProfile } from '@/hooks/useProfile';
-import { supabase } from '@/integrations/supabase/client';
 import { useThinkerAchievements } from '@/hooks/useThinkerAchievements';
+import { useProfileStats } from '@/hooks/useProfileStats';
 import { TOPIC_MAP } from '@/config/constants';
 import { TopicHeatmap } from '@/components/TopicHeatmap';
 import { FieldStatsBar } from '@/components/FieldStatsBar';
@@ -20,38 +20,6 @@ import { Button } from '@/components/ui/button';
 import { getLevel } from '@/config/levels';
 import { APP_PATHS } from '@/config/site-navigation';
 
-interface UserStats {
-  score_total: number;
-  total_answered: number;
-  correct_answered: number;
-  best_streak: number;
-}
-
-interface TopicStat {
-  topic: string;
-  total_answered: number;
-  correct_answered: number;
-}
-
-interface DifficultyStat {
-  difficulty: string;
-  score_total: number;
-  total_answered: number;
-  correct_answered: number;
-  best_streak: number;
-}
-
-interface RecentSession {
-  id: string;
-  created_at: string;
-  difficulty: string;
-  score: number;
-  total_answered: number;
-  correct_answered: number;
-  best_streak: number;
-  topics: string[];
-}
-
 export default function Profile() {
   const { user, loading: authLoading, signOut } = useAuth();
   const { profile, updateProfile } = useProfile();
@@ -59,40 +27,17 @@ export default function Profile() {
   const { isDark, toggle: toggleTheme } = useTheme();
   const { totalUnlocked, totalEntries, clearance } = useVaultProgress();
   const { achievements } = useThinkerAchievements();
-  const [stats, setStats] = useState<UserStats | null>(null);
-  const [topicStats, setTopicStats] = useState<TopicStat[]>([]);
-  const [difficultyStats, setDifficultyStats] = useState<DifficultyStat[]>([]);
-  const [recentSessions, setRecentSessions] = useState<RecentSession[]>([]);
-  const [loading, setLoading] = useState(true);
+  const { stats, topicStats, difficultyStats, recentSessions, loading } = useProfileStats(user?.id);
   const [editingName, setEditingName] = useState(false);
   const [editName, setEditName] = useState('');
 
   useEffect(() => {
-    if (authLoading) return;
-    if (!user) { navigate(APP_PATHS.auth); return; }
-
-    async function fetchData() {
-      setLoading(true);
-      const [statsRes, topicRes, diffRes, sessionsRes] = await Promise.all([
-        supabase.from('user_stats').select('*').eq('user_id', user.id).maybeSingle(),
-        supabase.from('user_topic_stats').select('*').eq('user_id', user.id),
-        supabase.from('user_difficulty_stats' as any).select('*').eq('user_id', user.id),
-        supabase.from('quiz_sessions').select('*').eq('user_id', user.id).order('created_at', { ascending: false }).limit(10),
-      ]);
-
-      if (statsRes.data) setStats(statsRes.data as UserStats);
-      if (topicRes.data) setTopicStats(topicRes.data as TopicStat[]);
-      if (diffRes.data) setDifficultyStats(diffRes.data as unknown as DifficultyStat[]);
-      if (sessionsRes.data) setRecentSessions(sessionsRes.data as RecentSession[]);
-      setLoading(false);
-    }
-
-    fetchData();
+    if (!authLoading && !user) navigate(APP_PATHS.auth);
   }, [user, authLoading, navigate]);
 
   const level = useMemo(() => getLevel(stats?.score_total ?? 0), [stats]);
 
-  if (authLoading || loading) {
+  if (authLoading || !user || loading) {
     return (
       <SiteShell showFooter={false}>
         <div className="flex-1 flex items-center justify-center">
