@@ -35,7 +35,9 @@ Keep its full data, aggregation, service, and route outside `src/content/index.t
 
 Slugs are stable public identifiers used by filters, links, saved state, and counts. Never rename one silently. Add an entry to `LEGACY_TOPIC_ALIASES` with an existing canonical target when compatibility is required. IDs must remain stable and unique within the standard pool; special collections are isolated and may currently reuse numeric ranges.
 
-Unavailable legacy or planned topics remain represented in the registry but are excluded from standard selectors. `engineering` and `string-theory` are compatibility topics originating in the historical Vault mix and remain hidden.
+An alias is a compatibility pointer, not a second content owner. Before aliasing an old slug, migrate every question to the canonical topic slug and regenerate loaders/counts. The alias source must be unavailable and questionless, while the target must be an available standard topic. Quiz deep links resolve aliases and learning-page aliases redirect to the canonical route. Pack/directory names may remain historical when changing them would add churn; topic ownership is determined by the question metadata and generated loader map.
+
+Unavailable legacy or planned topics remain represented in the registry but are excluded from standard selectors. `electrical-engineering`, `mechanical-engineering`, `control-theory`, and `robotics` are legacy aliases for granular Engineering topics. `engineering` and `string-theory` are compatibility topics originating in the historical Vault mix and remain hidden. Broad topics such as `aerospace` must not be aliased to a narrower topic unless all of their questions actually fit that target.
 
 ## Generated data and validation
 
