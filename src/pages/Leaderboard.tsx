@@ -8,49 +8,19 @@ import { FloatingBackground } from '@/components/FloatingBackground';
 import { Footer } from '@/components/Footer';
 import { TOPICS } from '@/config/constants';
 import { t } from '@/i18n';
+import { LEVELS, getLevel } from '@/config/levels';
 
 type Tab = 'all-time' | 'weekly' | 'topics';
-
-/* ── XP Level System ── */
-const LEVELS = [
-  { nameKey: 'leaderboard.levelNovice', emoji: '🌱', min: 0 },
-  { nameKey: 'leaderboard.levelApprentice', emoji: '📘', min: 50 },
-  { nameKey: 'leaderboard.levelScholar', emoji: '🎓', min: 200 },
-  { nameKey: 'leaderboard.levelAdept', emoji: '⚡', min: 500 },
-  { nameKey: 'leaderboard.levelExpert', emoji: '🔥', min: 1000 },
-  { nameKey: 'leaderboard.levelMaster', emoji: '👑', min: 2500 },
-  { nameKey: 'leaderboard.levelGrandmaster', emoji: '💎', min: 5000 },
-  { nameKey: 'leaderboard.levelLegend', emoji: '🏆', min: 10000 },
-];
-
-function getLevel(xp: number) {
-  let level = LEVELS[0];
-  for (const l of LEVELS) {
-    if (xp >= l.min) level = l;
-  }
-  const idx = LEVELS.indexOf(level);
-  const next = LEVELS[idx + 1];
-  const progress = next
-    ? ((xp - level.min) / (next.min - level.min)) * 100
-    : 100;
-  return { ...level, progress: Math.min(progress, 100), next };
-}
-
-function formatDate(dateStr: string | null) {
-  if (!dateStr) return '';
-  const d = new Date(dateStr);
-  return d.toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' });
-}
 
 function timeAgo(dateStr: string | null) {
   if (!dateStr) return '';
   const diff = Date.now() - new Date(dateStr).getTime();
   const days = Math.floor(diff / 86400000);
-  if (days === 0) return 'today';
-  if (days === 1) return 'yesterday';
-  if (days < 30) return `${days}d ago`;
+  if (days === 0) return t('leaderboard.today');
+  if (days === 1) return t('leaderboard.yesterday');
+  if (days < 30) return t('leaderboard.daysAgo', { count: days });
   const months = Math.floor(days / 30);
-  return `${months}mo ago`;
+  return t('leaderboard.monthsAgo', { count: months });
 }
 
 /* ── Types ── */
@@ -150,7 +120,7 @@ function LeaderRow({
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: index * 0.03 }}
-      className={`flex items-center gap-3 p-3 rounded-xl border transition-all ${
+      className={`flex items-center gap-3 p-3 rounded-lg border transition-all ${
         isMe
           ? 'bg-primary/10 border-primary/30 ring-1 ring-primary/20'
           : rank <= 3
@@ -270,12 +240,14 @@ export default function Leaderboard() {
           </div>
 
           {/* Tab toggle */}
-          <div className="flex rounded-lg bg-secondary p-1">
+          <div role="tablist" aria-label={t('leaderboard.title')} className="grid grid-cols-3 rounded-lg bg-secondary p-1">
             {tabs.map((tb) => (
               <button
                 key={tb.key}
+                role="tab"
+                aria-selected={tab === tb.key}
                 onClick={() => setTab(tb.key)}
-                className={`flex-1 py-2 text-sm font-medium rounded-md transition-all ${
+                className={`min-h-11 px-2 py-2 text-xs sm:text-sm font-medium rounded-md transition-all ${
                   tab === tb.key
                     ? 'bg-card text-foreground shadow-sm'
                     : 'text-muted-foreground hover:text-foreground'
@@ -288,12 +260,13 @@ export default function Leaderboard() {
 
           {/* Topic picker */}
           {tab === 'topics' && (
-            <div className="flex flex-wrap gap-1.5">
+            <div className="flex gap-2 overflow-x-auto pb-2" aria-label={t('leaderboard.topics')}>
               {(topicsWithData.length > 0 ? topicsWithData : TOPICS.slice(0, 10)).map((tp) => (
                 <button
                   key={tp.slug}
                   onClick={() => setSelectedTopic(tp.slug)}
-                  className={`px-2.5 py-1 text-xs rounded-full border transition-all ${
+                  aria-pressed={selectedTopic === tp.slug}
+                  className={`min-h-11 shrink-0 px-3 py-2 text-xs rounded-full border transition-all ${
                     selectedTopic === tp.slug
                       ? 'bg-primary text-primary-foreground border-primary'
                       : 'bg-card border-border text-muted-foreground hover:text-foreground hover:border-foreground/30'
@@ -309,7 +282,7 @@ export default function Leaderboard() {
           {loading ? (
             <div className="space-y-2">
               {[1, 2, 3, 4, 5].map((i) => (
-                <div key={i} className="h-20 rounded-xl bg-secondary animate-pulse" />
+                <div key={i} className="h-20 rounded-lg bg-secondary animate-pulse" />
               ))}
             </div>
           ) : tab === 'all-time' && allTime.length === 0 ? (

@@ -8,7 +8,7 @@ import { MatrixQuoteBoard } from "./MatrixQuoteBoard";
 import { SearchFilter } from "./SearchFilter";
 import { StatsShowcase } from "./StatsShowcase";
 import { Button } from "./ui/button";
-import { type Difficulty, DIFFICULTIES, TOPIC_MAP, TOPICS } from "@/config/constants";
+import { type Difficulty, DIFFICULTIES, TOPIC_MAP, TOPICS, toDifficulty } from "@/config/constants";
 import { FIELD_MAP } from "@/config/fields";
 import { allQuestions } from "@/content";
 import { allGlossaryTerms } from "@/content/glossary";
@@ -52,7 +52,7 @@ export function HomeScreen({ selectedTopics, onToggleTopic, selectedDifficulties
     const relevant = selectedTopics.length > 0
       ? allQuestions.filter((question) => selectedTopics.includes(question.topic))
       : allQuestions.filter((question) => fieldTopics === undefined || fieldTopics.includes(question.topic));
-    return relevant.filter((question) => selectedDifficulties.includes(question.difficulty)).length;
+    return relevant.filter((question) => selectedDifficulties.includes(toDifficulty(question.difficulty))).length;
   }, [selectedTopics, selectedDifficulties, fieldTopics]);
 
   const summaryTopics = selectedTopics.length > 0
