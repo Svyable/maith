@@ -3,7 +3,10 @@ import { allQuestions } from '../src/content/index';
 import { allBonafideQuestions } from '../src/content/bonafides/index';
 import { allThinkerQuestions } from '../src/content/thinkers/index';
 import { CONTENT_COUNTS, QUESTION_COUNTS } from '../src/config/content-stats';
-import { CONTENT_TOPICS, LEGACY_TOPIC_ALIASES, QUESTION_PACKS } from '../src/config/content-registry';
+import { CONTENT_TOPICS as STANDARD_CONTENT_TOPICS, LEGACY_TOPIC_ALIASES } from '../src/config/content-registry';
+import { BONAFIDE_TOPICS, QUESTION_PACKS } from '../src/config/content-registry-tooling';
+
+const CONTENT_TOPICS = [...STANDARD_CONTENT_TOPICS, ...BONAFIDE_TOPICS];
 import { FIELDS } from '../src/config/fields';
 
 type QuestionLike = (typeof allQuestions)[number];
