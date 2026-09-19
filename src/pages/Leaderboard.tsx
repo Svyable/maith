@@ -3,9 +3,7 @@ import { motion } from 'framer-motion';
 import { supabase } from '@/integrations/supabase/client';
 import { useAuth } from '@/hooks/useAuth';
 
-import { QuizHeader } from '@/components/QuizHeader';
-import { FloatingBackground } from '@/components/FloatingBackground';
-import { Footer } from '@/components/Footer';
+import { SiteShell } from '@/components/layout/SiteShell';
 import { TOPICS } from '@/config/constants';
 import { t } from '@/i18n';
 import { LEVELS, getLevel } from '@/config/levels';
@@ -213,10 +211,7 @@ export default function Leaderboard() {
   ];
 
   return (
-    <div className="min-h-screen bg-background flex flex-col relative">
-      <FloatingBackground />
-      <QuizHeader streak={0} showStreak={false} />
-
+    <SiteShell>
       <main className="relative z-10 flex-1 px-4 py-6 max-w-lg md:max-w-3xl lg:max-w-5xl mx-auto w-full space-y-6">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="space-y-6">
           {/* Hero */}
@@ -345,8 +340,7 @@ export default function Leaderboard() {
           )}
         </motion.div>
       </main>
-      <div className="relative z-10"><Footer /></div>
-    </div>
+    </SiteShell>
   );
 }
 
