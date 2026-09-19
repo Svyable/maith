@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { useTopics, type TopicRecord } from '@/hooks/useTopics';
 import { TopicCard } from './TopicCard';
+import { type Difficulty } from '@/config/constants';
 import { t } from '@/i18n';
 
 interface TopicSelectorProps {
@@ -10,9 +11,11 @@ interface TopicSelectorProps {
   fieldFilter?: string[];
   /** Free-text search filter */
   searchFilter?: string;
+  selectedDifficulties: Difficulty[];
+  onUseAll: () => void;
 }
 
-export function TopicSelector({ selected, onToggle, fieldFilter, searchFilter }: TopicSelectorProps) {
+export function TopicSelector({ selected, onToggle, fieldFilter, searchFilter, selectedDifficulties, onUseAll }: TopicSelectorProps) {
   const { topics: allTopics, loading } = useTopics();
 
   let topics = fieldFilter
@@ -43,14 +46,16 @@ export function TopicSelector({ selected, onToggle, fieldFilter, searchFilter }:
 
   return (
     <div className="space-y-3">
-      <div className="flex items-center justify-between">
+      <div className="flex items-center justify-between gap-3">
         <h3 className="text-sm font-bold text-muted-foreground">{t('home.selectTopics')}</h3>
-        {!allSelected && (
+        {allSelected ? (
+          <span className="rounded-full bg-primary/10 px-2.5 py-1 text-[11px] font-semibold text-primary">
+            {t('home.allTopics')}
+          </span>
+        ) : (
           <button
-            onClick={() => {
-              selected.forEach((slug) => onToggle(slug));
-            }}
-            className="text-xs text-primary hover:underline"
+            onClick={onUseAll}
+            className="text-xs font-semibold text-primary hover:underline"
           >
             {t('home.clearTopics')}
           </button>
@@ -77,6 +82,7 @@ export function TopicSelector({ selected, onToggle, fieldFilter, searchFilter }:
               topic={topic}
               isSelected={allSelected || selected.includes(topic.slug)}
               onToggle={() => onToggle(topic.slug)}
+              selectedDifficulties={selectedDifficulties}
             />
           </motion.div>
         ))}
