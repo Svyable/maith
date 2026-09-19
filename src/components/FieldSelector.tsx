@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { FIELDS, type FieldMeta } from '@/config/fields';
+import { QUIZ_FIELDS, type FieldMeta } from '@/config/fields';
 import { cn } from '@/lib/utils';
 import { t } from '@/i18n';
 
@@ -13,7 +13,7 @@ export function FieldSelector({ selectedField, onSelectField }: FieldSelectorPro
     <div className="space-y-2">
       <h3 className="text-xs font-bold text-muted-foreground tracking-widest uppercase">{t('home.fieldLabel')}</h3>
       <div className="flex flex-wrap gap-2">
-        {FIELDS.map((field, i) => (
+        {QUIZ_FIELDS.map((field, i) => (
           <FieldPill
             key={field.slug}
             field={field}
