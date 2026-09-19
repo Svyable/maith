@@ -31,6 +31,18 @@ const topicMap = new Map(REGISTERED_TOPICS.map((topic) => [topic.slug, topic]));
 const unknownTopics = [...new Set(allQuestions.map(({ topic }) => topic).filter((topic) => !topicMap.has(topic)))];
 if (unknownTopics.length) fail(`Unknown standard question topics: ${unknownTopics.join(', ')}`);
 
+const invalidStandardPoolTopics = [...new Set(
+  allQuestions
+    .filter((question) => {
+      const meta = topicMap.get(question.topic);
+      return meta && meta.kind !== 'standard-quiz' && meta.kind !== 'special';
+    })
+    .map(({ topic }) => topic),
+)];
+if (invalidStandardPoolTopics.length) {
+  fail(`Non-standard content leaked into standard question pool: ${invalidStandardPoolTopics.join(', ')}`);
+}
+
 const nonStandardEntries = STANDARD_TOPICS.filter((topic) => topic.kind !== 'standard-quiz');
 if (nonStandardEntries.length) fail(`STANDARD_TOPICS contains non-standard content: ${nonStandardEntries.map(({ slug }) => slug).join(', ')}`);
 
