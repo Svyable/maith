@@ -41,6 +41,15 @@ import {
   INDEXABLE_REFERENCE_SEO_ROUTES,
   REFERENCE_SEO_ROUTES,
 } from './reference-seo-routes';
+import {
+  MAX_TOPIC_FORMULA_LINKS,
+  MAX_TOPIC_GLOSSARY_LINKS,
+  MAX_TOPIC_THINKER_LINKS,
+  MIN_FORMULA_CLUSTER_SCORE,
+  MIN_GLOSSARY_CLUSTER_SCORE,
+  MIN_THINKER_CLUSTER_SCORE,
+  buildAllTopicReferenceClusters,
+} from '../src/config/topic-reference-clusters';
 
 const errors: string[] = [];
 
@@ -112,6 +121,109 @@ for (const topicPage of LEARNING_TOPIC_PAGES) {
   if (!topicPage.seoTitle.includes(topicPage.topic.label)) {
     fail(topicPage.path + ': SEO title does not identify the topic');
   }
+}
+
+const topicReferenceClusters = buildAllTopicReferenceClusters();
+
+if (topicReferenceClusters.length !== LEARNING_TOPIC_PAGES.length) {
+  fail(
+    'Topic reference cluster count '
+      + topicReferenceClusters.length
+      + ' must match learning topic count '
+      + LEARNING_TOPIC_PAGES.length,
+  );
+}
+
+const learningTopicPathSet = new Set(LEARNING_TOPIC_PAGES.map((page) => page.path));
+const indexableTopicPathSet = new Set(
+  LEARNING_TOPIC_PAGES.filter((page) => page.indexable).map((page) => page.path),
+);
+const indexableFormulaPathSet = new Set(
+  FORMULA_REFERENCE_PAGES.filter((page) => page.seo.indexable).map((page) => page.path),
+);
+const indexableGlossaryPathSet = new Set(
+  GLOSSARY_REFERENCE_PAGES.filter((page) => page.seo.indexable).map((page) => page.path),
+);
+const indexableThinkerPathSet = new Set(
+  THINKER_REFERENCE_PAGES.filter((page) => page.seo.indexable).map((page) => page.path),
+);
+
+let indexableClustersWithAny = 0;
+let indexableClustersWithFormula = 0;
+let indexableClustersWithGlossary = 0;
+let indexableClustersWithThinker = 0;
+
+for (const cluster of topicReferenceClusters) {
+  if (!learningTopicPathSet.has(cluster.topicPath)) {
+    fail(cluster.topicPath + ': topic reference cluster has no canonical learning page');
+  }
+
+  if (cluster.formulas.length > MAX_TOPIC_FORMULA_LINKS) {
+    fail(cluster.topicPath + ': formula cluster exceeds configured cap');
+  }
+  if (cluster.glossary.length > MAX_TOPIC_GLOSSARY_LINKS) {
+    fail(cluster.topicPath + ': glossary cluster exceeds configured cap');
+  }
+  if (cluster.thinkers.length > MAX_TOPIC_THINKER_LINKS) {
+    fail(cluster.topicPath + ': thinker cluster exceeds configured cap');
+  }
+
+  const allClusterLinks = [
+    ...cluster.formulas,
+    ...cluster.glossary,
+    ...cluster.thinkers,
+  ];
+  assertUnique(
+    cluster.topicPath + ' reference paths',
+    allClusterLinks.map((link) => link.path),
+  );
+
+  for (const link of cluster.formulas) {
+    if (link.score < MIN_FORMULA_CLUSTER_SCORE) {
+      fail(cluster.topicPath + ': formula link below score floor: ' + link.label);
+    }
+    if (!indexableFormulaPathSet.has(link.path)) {
+      fail(cluster.topicPath + ': formula cluster targets non-indexable or missing page ' + link.path);
+    }
+  }
+
+  for (const link of cluster.glossary) {
+    if (link.score < MIN_GLOSSARY_CLUSTER_SCORE) {
+      fail(cluster.topicPath + ': glossary link below score floor: ' + link.label);
+    }
+    if (!indexableGlossaryPathSet.has(link.path)) {
+      fail(cluster.topicPath + ': glossary cluster targets non-indexable or missing page ' + link.path);
+    }
+  }
+
+  for (const link of cluster.thinkers) {
+    if (link.score < MIN_THINKER_CLUSTER_SCORE) {
+      fail(cluster.topicPath + ': thinker link below score floor: ' + link.label);
+    }
+    if (!indexableThinkerPathSet.has(link.path)) {
+      fail(cluster.topicPath + ': thinker cluster targets non-indexable or missing page ' + link.path);
+    }
+  }
+
+  if (indexableTopicPathSet.has(cluster.topicPath)) {
+    if (allClusterLinks.length > 0) indexableClustersWithAny += 1;
+    if (cluster.formulas.length > 0) indexableClustersWithFormula += 1;
+    if (cluster.glossary.length > 0) indexableClustersWithGlossary += 1;
+    if (cluster.thinkers.length > 0) indexableClustersWithThinker += 1;
+  }
+}
+
+const indexableTopicCount = indexableTopicPathSet.size;
+const topicClusterCoverage = indexableTopicCount === 0
+  ? 1
+  : indexableClustersWithAny / indexableTopicCount;
+
+if (topicClusterCoverage < 0.35) {
+  fail(
+    'Topic reference cluster coverage '
+      + Math.round(topicClusterCoverage * 100)
+      + '% is below the 35% quality floor',
+  );
 }
 
 assertUnique(
@@ -376,5 +488,17 @@ console.log(
     + THINKER_REFERENCE_PAGES.length
     + ' thinker references, '
     + indexableRoutes.length
-    + ' total indexable routes.',
+    + ' total indexable routes. Topic clusters: '
+    + indexableClustersWithAny
+    + '/'
+    + indexableTopicCount
+    + ' with references ('
+    + Math.round(topicClusterCoverage * 100)
+    + '%), '
+    + indexableClustersWithFormula
+    + ' with formulas, '
+    + indexableClustersWithGlossary
+    + ' with glossary terms, '
+    + indexableClustersWithThinker
+    + ' with thinkers.',
 );

@@ -209,22 +209,29 @@ export function buildSeoSchemaData(
   seo: RouteSeo,
   breadcrumbs: BreadcrumbItem[],
   locale = 'en',
+  relatedLinks: string[] = [],
 ) {
   const normalized = normalizeSeoPath(pathname);
   if (!seo.indexable) return null;
 
   const canonical = canonicalUrl(normalized);
-  const graph: Record<string, unknown>[] = [
-    {
-      '@type': seo.schemaType ?? 'WebPage',
-      '@id': `${canonical}#webpage`,
-      url: canonical,
-      name: seo.title,
-      description: seo.description,
-      inLanguage: locale,
-      isPartOf: { '@id': `${SITE_URL}/#website` },
-    },
-  ];
+  const webpage: Record<string, unknown> = {
+    '@type': seo.schemaType ?? 'WebPage',
+    '@id': `${canonical}#webpage`,
+    url: canonical,
+    name: seo.title,
+    description: seo.description,
+    inLanguage: locale,
+    isPartOf: { '@id': `${SITE_URL}/#website` },
+  };
+
+  if (relatedLinks.length > 0) {
+    webpage.relatedLink = Array.from(
+      new Set(relatedLinks.map((path) => canonicalUrl(path))),
+    );
+  }
+
+  const graph: Record<string, unknown>[] = [webpage];
 
   if (breadcrumbs.length > 1) {
     graph.push({

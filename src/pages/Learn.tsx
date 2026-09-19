@@ -1,3 +1,4 @@
+import { lazy, Suspense } from 'react';
 import { Link, Navigate, useParams } from 'react-router-dom';
 import { ArrowRight, BookOpen, ChevronRight } from 'lucide-react';
 import { SiteShell } from '@/components/layout/SiteShell';
@@ -18,6 +19,10 @@ import {
   buildTopicQuizHref,
 } from '@/config/site-navigation';
 import NotFound from './NotFound';
+
+const TopicReferenceClusterSection = lazy(
+  () => import('@/components/learn/TopicReferenceClusterSection'),
+);
 
 function Breadcrumbs({
   fieldLabel,
@@ -244,6 +249,13 @@ function TopicLanding({ fieldSlug, topicSlug }: { fieldSlug: string; topicSlug: 
             </div>
           </div>
         </section>
+
+        <Suspense fallback={null}>
+          <TopicReferenceClusterSection
+            topicPath={page.path}
+            topicLabel={page.topic.label}
+          />
+        </Suspense>
 
         {related.length > 0 && (
           <section aria-labelledby="related-heading">

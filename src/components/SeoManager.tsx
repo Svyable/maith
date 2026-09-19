@@ -8,6 +8,7 @@ import {
   buildRouteSchemaData,
   buildSeoSchemaData,
   canonicalUrl,
+  getBreadcrumbsForPath,
   getSeoForPath,
   type RouteSeo,
 } from '@/config/seo';
@@ -85,7 +86,7 @@ function applySeo(
   upsertRouteSchema(schema);
 }
 
-async function resolveReferenceSeo(pathname: string, locale: string) {
+async function resolveEnhancedSeo(pathname: string, locale: string) {
   if (pathname.startsWith(APP_PATHS.formulas + '/')) {
     const slug = pathname.slice(APP_PATHS.formulas.length + 1);
     const { getFormulaReferencePage } = await import('@/config/formula-pages');
@@ -122,6 +123,31 @@ async function resolveReferenceSeo(pathname: string, locale: string) {
     }
   }
 
+  const learnSegments = pathname.split('/').filter(Boolean);
+  if (learnSegments[0] === APP_PATHS.learn.slice(1) && learnSegments.length === 3) {
+    const { getTopicReferenceCluster } = await import('@/config/topic-reference-clusters');
+    const cluster = getTopicReferenceCluster(pathname);
+    if (cluster) {
+      const seo = getSeoForPath(pathname);
+      const relatedLinks = [
+        ...cluster.formulas,
+        ...cluster.glossary,
+        ...cluster.thinkers,
+      ].map((link) => link.path);
+
+      return {
+        seo,
+        schema: buildSeoSchemaData(
+          pathname,
+          seo,
+          getBreadcrumbsForPath(pathname),
+          locale,
+          relatedLinks,
+        ),
+      };
+    }
+  }
+
   return null;
 }
 
@@ -137,7 +163,7 @@ export function SeoManager() {
     const staticSeo = getSeoForPath(pathname);
     applySeo(pathname, locale, staticSeo, buildRouteSchemaData(pathname, locale));
 
-    void resolveReferenceSeo(pathname, locale).then((resolved) => {
+    void resolveEnhancedSeo(pathname, locale).then((resolved) => {
       if (cancelled || !resolved) return;
       applySeo(pathname, locale, resolved.seo, resolved.schema);
     });
