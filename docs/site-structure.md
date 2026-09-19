@@ -20,7 +20,7 @@ Authentication and onboarding routes are registered in `APP_PATHS` even though t
 
 `src/components/layout/SiteShell.tsx` owns the global page chrome: floating background, primary header, and optional footer. Top-level pages keep ownership of their own `<main>` sizing, content, overlays, and state.
 
-Standard top-level surfaces use `SiteShell`. Onboarding and NotFound intentionally remain outside it because they have specialized boundary behavior.
+Every page in `src/pages` is expected to use `SiteShell` by default. Onboarding and NotFound are the only explicit exemptions because they have specialized boundary behavior; the structural test discovers page files automatically so newly added pages cannot bypass the shell guard by omission.
 
 The quiz, MasterMinds, and Bonafides flows pass their active streak/header state into the shell and can suppress the footer while a session is active. This keeps gameplay behavior local while removing duplicated chrome composition.
 
@@ -38,8 +38,9 @@ This means adding or moving a standard topic requires changing its canonical top
 
 - visible navigation items point to registered application paths;
 - canonical destination paths are unique;
+- dynamic learning/reference route patterns are unique and rooted under canonical application paths;
 - top-level pages do not hard-code internal navigation paths;
-- standard page chrome stays behind the shared `SiteShell` boundary;
+- every non-exempt page stays behind the shared `SiteShell` boundary, with exemptions verified explicitly;
 - field slugs are unique;
 - every selectable standard topic resolves into exactly one declared field;
 - unavailable compatibility aliases do not leak into field selection;
