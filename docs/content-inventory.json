@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "totals": {
-    "questions": 1036,
+    "questions": 1082,
     "glossaryTerms": 488,
     "thinkers": 621,
     "vaultEntries": 74,
@@ -498,10 +498,10 @@
         "quant"
       ],
       "counts": {
-        "easy": 1,
-        "hard": 1,
-        "sota": 1,
-        "total": 3
+        "easy": 3,
+        "hard": 3,
+        "sota": 3,
+        "total": 9
       }
     },
     {
@@ -832,10 +832,10 @@
         "development-economics"
       ],
       "counts": {
-        "easy": 2,
+        "easy": 3,
         "hard": 3,
         "sota": 3,
-        "total": 8
+        "total": 9
       }
     },
     {
@@ -923,10 +923,10 @@
         "economics"
       ],
       "counts": {
-        "easy": 1,
-        "hard": 1,
-        "sota": 1,
-        "total": 3
+        "easy": 3,
+        "hard": 3,
+        "sota": 3,
+        "total": 9
       }
     },
     {
@@ -998,10 +998,10 @@
         "quant"
       ],
       "counts": {
-        "easy": 1,
-        "hard": 1,
-        "sota": 1,
-        "total": 3
+        "easy": 3,
+        "hard": 3,
+        "sota": 3,
+        "total": 9
       }
     },
     {
@@ -1059,10 +1059,10 @@
         "game-theory"
       ],
       "counts": {
-        "easy": 2,
-        "hard": 2,
-        "sota": 2,
-        "total": 6
+        "easy": 3,
+        "hard": 3,
+        "sota": 3,
+        "total": 9
       }
     },
     {
@@ -1195,10 +1195,10 @@
         "economics"
       ],
       "counts": {
-        "easy": 1,
-        "hard": 1,
-        "sota": 1,
-        "total": 3
+        "easy": 3,
+        "hard": 3,
+        "sota": 3,
+        "total": 9
       }
     },
     {
@@ -1285,10 +1285,10 @@
         "economics"
       ],
       "counts": {
-        "easy": 1,
-        "hard": 1,
-        "sota": 1,
-        "total": 3
+        "easy": 3,
+        "hard": 3,
+        "sota": 3,
+        "total": 9
       }
     },
     {
@@ -1559,10 +1559,10 @@
         "quant"
       ],
       "counts": {
-        "easy": 1,
-        "hard": 1,
-        "sota": 1,
-        "total": 3
+        "easy": 3,
+        "hard": 3,
+        "sota": 3,
+        "total": 9
       }
     },
     {
@@ -1758,10 +1758,10 @@
         "new-topics"
       ],
       "counts": {
-        "easy": 1,
-        "hard": 1,
-        "sota": 1,
-        "total": 3
+        "easy": 3,
+        "hard": 3,
+        "sota": 3,
+        "total": 9
       }
     },
     {
