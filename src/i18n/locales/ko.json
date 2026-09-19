@@ -259,5 +259,10 @@
   "leaderboard.monthsAgo": "{{count}}개월 전",
   "glossary.clearSearch": "검색 지우기",
   "glossary.resetFilters": "필터 초기화",
-  "nav.menu": "메뉴"
+  "nav.menu": "메뉴",
+  "common.saving": "저장 중…",
+  "glossary.showing": "결과 {{count}}개",
+  "glossary.unknownField": "알 수 없는 분야",
+  "nav.primary": "주 탐색",
+  "nav.mobilePrimary": "모바일 탐색"
 }

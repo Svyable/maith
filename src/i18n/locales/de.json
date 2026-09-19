@@ -259,5 +259,10 @@
   "leaderboard.monthsAgo": "vor {{count}} Mon.",
   "glossary.clearSearch": "Suche löschen",
   "glossary.resetFilters": "Filter zurücksetzen",
-  "nav.menu": "Menü"
+  "nav.menu": "Menü",
+  "common.saving": "Wird gespeichert…",
+  "glossary.showing": "{{count}} Ergebnisse",
+  "glossary.unknownField": "Unbekanntes Fachgebiet",
+  "nav.primary": "Hauptnavigation",
+  "nav.mobilePrimary": "Mobile Navigation"
 }

@@ -259,5 +259,10 @@
   "leaderboard.monthsAgo": "{{count}} 个月前",
   "glossary.clearSearch": "清除搜索",
   "glossary.resetFilters": "重置筛选",
-  "nav.menu": "菜单"
+  "nav.menu": "菜单",
+  "common.saving": "正在保存…",
+  "glossary.showing": "显示 {{count}} 个结果",
+  "glossary.unknownField": "未知领域",
+  "nav.primary": "主导航",
+  "nav.mobilePrimary": "移动端导航"
 }

@@ -259,5 +259,10 @@
   "leaderboard.monthsAgo": "{{count}} माह पहले",
   "glossary.clearSearch": "खोज साफ़ करें",
   "glossary.resetFilters": "फ़िल्टर रीसेट करें",
-  "nav.menu": "मेन्यू"
+  "nav.menu": "मेन्यू",
+  "common.saving": "सहेजा जा रहा है…",
+  "glossary.showing": "{{count}} परिणाम",
+  "glossary.unknownField": "अज्ञात क्षेत्र",
+  "nav.primary": "मुख्य नेविगेशन",
+  "nav.mobilePrimary": "मोबाइल नेविगेशन"
 }

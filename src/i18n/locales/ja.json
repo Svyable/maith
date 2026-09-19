@@ -259,5 +259,10 @@
   "leaderboard.monthsAgo": "{{count}}か月前",
   "glossary.clearSearch": "検索をクリア",
   "glossary.resetFilters": "フィルターをリセット",
-  "nav.menu": "メニュー"
+  "nav.menu": "メニュー",
+  "common.saving": "保存中…",
+  "glossary.showing": "{{count}}件の結果",
+  "glossary.unknownField": "不明な分野",
+  "nav.primary": "メインナビゲーション",
+  "nav.mobilePrimary": "モバイルナビゲーション"
 }
