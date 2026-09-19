@@ -4,17 +4,27 @@
 
 Canonical site: https://maith.lovable.app/
 
-mAIth organizes technical learning into topic-based quizzes and supporting reference material. Public collections include formulas, glossary terms, influential thinkers, professional credential practice, and a progressive knowledge vault.
+mAIth organizes technical learning into topic-based quizzes and supporting reference material. Public collections include formulas, glossary terms, influential thinkers, professional credential practice, a progressive knowledge vault, and a structured practice library.
 
 ## Canonical public pages
 
 - [Home](https://maith.lovable.app/): Choose fields, topics, and difficulty levels and start a quiz.
+- [Practice Library](https://maith.lovable.app/learn): Browse canonical field and topic practice pages with question coverage and direct quiz links.
 - [Glossary](https://maith.lovable.app/glossary): Search technical terms and study definitions with mathematical notation and code where relevant.
 - [Formulas](https://maith.lovable.app/formulas): Browse important equations with discoverers, history, domains, applications, and explanatory context.
 - [Master Minds](https://maith.lovable.app/thinkers): Explore influential mathematicians, scientists, economists, computer scientists, and AI pioneers.
 - [Bonafides](https://maith.lovable.app/bonafides): Practice quantitative professional certification and credential topics.
 - [Vault](https://maith.lovable.app/vault): Explore progressively unlocked STEM and AI knowledge challenges.
 - [Leaderboard](https://maith.lovable.app/leaderboard): View public quiz rankings and scores.
+
+## Learning page hierarchy
+
+Canonical standard-practice routes use:
+
+- `/learn/{field-slug}` for field landing pages.
+- `/learn/{field-slug}/{topic-slug}` for focused topic practice pages.
+
+Topic and field pages are generated from the canonical content registry. Thin topic pages remain accessible but are excluded from indexing until their question coverage reaches the configured SEO quality floor.
 
 ## Content organization
 
