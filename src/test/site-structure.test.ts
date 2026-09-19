@@ -23,10 +23,13 @@ const SITE_SHELL_PAGES = [
   'Auth.tsx',
   'Bonafides.tsx',
   'Formulas.tsx',
+  'FormulaDetail.tsx',
   'Glossary.tsx',
+  'GlossaryDetail.tsx',
   'Leaderboard.tsx',
   'Profile.tsx',
   'Thinkers.tsx',
+  'ThinkerDetail.tsx',
   'Vault.tsx',
 ] as const;
 
