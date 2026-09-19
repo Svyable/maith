@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "totals": {
-    "questions": 998,
+    "questions": 1011,
     "glossaryTerms": 488,
     "thinkers": 621,
     "vaultEntries": 74,
@@ -513,10 +513,10 @@
         "computer-science"
       ],
       "counts": {
-        "easy": 1,
-        "hard": 1,
-        "sota": 1,
-        "total": 3
+        "easy": 3,
+        "hard": 3,
+        "sota": 3,
+        "total": 9
       }
     },
     {
@@ -1180,10 +1180,10 @@
         "computer-science"
       ],
       "counts": {
-        "easy": 1,
-        "hard": 1,
-        "sota": 1,
-        "total": 3
+        "easy": 3,
+        "hard": 3,
+        "sota": 3,
+        "total": 9
       }
     },
     {
@@ -1650,10 +1650,10 @@
         "vault"
       ],
       "counts": {
-        "easy": 2,
+        "easy": 3,
         "hard": 3,
         "sota": 3,
-        "total": 8
+        "total": 9
       }
     },
     {
