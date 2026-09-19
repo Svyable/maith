@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { LatexRenderer } from './LatexRenderer';
 import { motion } from 'framer-motion';
 import { getDifficultyMeta, DIFFICULTIES, type Difficulty, TOPIC_MAP, toDifficulty } from '@/config/constants';
-import { THINKER_MAP, type ThinkerMeta } from '@/config/thinkers';
+import type { ThinkerMeta } from '@/config/thinkers';
 import { t } from '@/i18n';
 import { ReviewMistakes } from './ReviewMistakes';
 import { FieldStatsBar } from './FieldStatsBar';
@@ -187,7 +187,7 @@ export function QuizResults({
               if (total === 0) return null;
               const topicPct = Math.round((correct / total) * 100);
               const meta = TOPIC_MAP[slug];
-              const thinkerM = !meta ? THINKER_MAP[slug] : null;
+              const thinkerM = !meta && thinkerMeta?.slug === slug ? thinkerMeta : null;
               const label = meta?.label ?? (thinkerM ? `${thinkerM.emoji} ${thinkerM.name}` : slug);
               const emoji = meta?.emoji ?? (thinkerM ? '' : '📐');
               return (
@@ -242,7 +242,7 @@ export function QuizResults({
           </h3>
           {skippedQuestions.map((skipped, idx) => {
             const topicMeta = TOPIC_MAP[skipped.question.topic];
-            const skipThinkerMeta = !topicMeta ? THINKER_MAP[skipped.question.topic] : null;
+            const skipThinkerMeta = !topicMeta && thinkerMeta?.slug === skipped.question.topic ? thinkerMeta : null;
             const label = topicMeta?.label ?? skipThinkerMeta?.name ?? skipped.question.topic;
             const emoji = topicMeta?.emoji ?? skipThinkerMeta?.emoji ?? '📐';
             return (
