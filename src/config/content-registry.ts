@@ -14,7 +14,7 @@ export interface ContentTopicMeta extends TopicMeta {
   kind: ContentKind;
   available: boolean;
   loaderGroups: readonly string[];
-  legacyAliases?: readonly string[];
+  canonicalSlug?: string;
 }
 
 export interface QuestionPackMeta {
@@ -533,7 +533,7 @@ export const STANDARD_TOPICS: ContentTopicMeta[] = LEGACY_TOPIC_DEFINITIONS.map(
   kind: LEGACY_PROFESSIONAL_FIELDS.has(topic.field) ? 'bonafide' : 'standard-quiz',
   available: Boolean(TOPIC_LOADER_GROUPS[topic.slug]),
   loaderGroups: TOPIC_LOADER_GROUPS[topic.slug] ?? [],
-  ...(LEGACY_ALIAS_TARGETS[topic.slug] ? { legacyAliases: [LEGACY_ALIAS_TARGETS[topic.slug]] } : {}),
+  ...(LEGACY_ALIAS_TARGETS[topic.slug] ? { canonicalSlug: LEGACY_ALIAS_TARGETS[topic.slug] } : {}),
 }));
 
 // Question-bearing slugs retained in the standard pool but intentionally hidden from selectors.
@@ -546,7 +546,7 @@ export const CONTENT_TOPICS: ContentTopicMeta[] = [...STANDARD_TOPICS, ...HIDDEN
 export const CONTENT_TOPIC_MAP: Record<string, ContentTopicMeta> = Object.fromEntries(CONTENT_TOPICS.map((topic) => [topic.slug, topic]));
 
 /** Selector-compatible topics. Unavailable legacy/special entries remain addressable through CONTENT_TOPIC_MAP. */
-export const TOPICS: TopicMeta[] = STANDARD_TOPICS;
+export const TOPICS: TopicMeta[] = STANDARD_TOPICS.filter((topic) => topic.available && topic.kind === 'standard-quiz');
 export const TOPIC_MAP: Record<string, TopicMeta> = Object.fromEntries(TOPICS.map((topic) => [topic.slug, topic]));
 
 export const LEGACY_TOPIC_ALIASES = LEGACY_ALIAS_TARGETS;

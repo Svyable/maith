@@ -141,6 +141,15 @@ const FIELD_DEFINITIONS: FieldMeta[] = [
     available: true,
   },
   {
+    slug: 'human-sciences',
+    label: 'Human Sciences',
+    emoji: '🧠',
+    description: 'Psychology, linguistics, and philosophy of science',
+    topics: [],
+    color: 'primary',
+    available: true,
+  },
+  {
     slug: 'finance',
     label: 'Finance',
     emoji: '📈',

@@ -1,0 +1,2021 @@
+{
+  "schemaVersion": 1,
+  "totals": {
+    "questions": 929,
+    "glossaryTerms": 488,
+    "thinkers": 621,
+    "vaultEntries": 74,
+    "equations": 480
+  },
+  "topics": [
+    {
+      "slug": "actuarial-exam-altam",
+      "field": "bonafide",
+      "kind": "bonafide",
+      "available": true,
+      "loaderGroups": [
+        "bonafides"
+      ],
+      "counts": {
+        "easy": 2,
+        "hard": 2,
+        "sota": 1,
+        "total": 5
+      }
+    },
+    {
+      "slug": "actuarial-exam-astam",
+      "field": "bonafide",
+      "kind": "bonafide",
+      "available": true,
+      "loaderGroups": [
+        "bonafides"
+      ],
+      "counts": {
+        "easy": 2,
+        "hard": 2,
+        "sota": 1,
+        "total": 5
+      }
+    },
+    {
+      "slug": "actuarial-exam-fam",
+      "field": "bonafide",
+      "kind": "bonafide",
+      "available": true,
+      "loaderGroups": [
+        "bonafides"
+      ],
+      "counts": {
+        "easy": 2,
+        "hard": 2,
+        "sota": 1,
+        "total": 5
+      }
+    },
+    {
+      "slug": "actuarial-exam-fm",
+      "field": "bonafide",
+      "kind": "bonafide",
+      "available": true,
+      "loaderGroups": [
+        "bonafides"
+      ],
+      "counts": {
+        "easy": 2,
+        "hard": 2,
+        "sota": 1,
+        "total": 5
+      }
+    },
+    {
+      "slug": "actuarial-exam-p",
+      "field": "bonafide",
+      "kind": "bonafide",
+      "available": true,
+      "loaderGroups": [
+        "bonafides"
+      ],
+      "counts": {
+        "easy": 2,
+        "hard": 2,
+        "sota": 1,
+        "total": 5
+      }
+    },
+    {
+      "slug": "actuarial-exam-pa",
+      "field": "bonafide",
+      "kind": "bonafide",
+      "available": true,
+      "loaderGroups": [
+        "bonafides"
+      ],
+      "counts": {
+        "easy": 2,
+        "hard": 2,
+        "sota": 1,
+        "total": 5
+      }
+    },
+    {
+      "slug": "actuarial-exam-srm",
+      "field": "bonafide",
+      "kind": "bonafide",
+      "available": true,
+      "loaderGroups": [
+        "bonafides"
+      ],
+      "counts": {
+        "easy": 2,
+        "hard": 2,
+        "sota": 1,
+        "total": 5
+      }
+    },
+    {
+      "slug": "actuarial-mas-i",
+      "field": "bonafide",
+      "kind": "bonafide",
+      "available": true,
+      "loaderGroups": [
+        "bonafides"
+      ],
+      "counts": {
+        "easy": 2,
+        "hard": 2,
+        "sota": 1,
+        "total": 5
+      }
+    },
+    {
+      "slug": "actuarial-mas-ii",
+      "field": "bonafide",
+      "kind": "bonafide",
+      "available": true,
+      "loaderGroups": [
+        "bonafides"
+      ],
+      "counts": {
+        "easy": 2,
+        "hard": 2,
+        "sota": 1,
+        "total": 5
+      }
+    },
+    {
+      "slug": "caia",
+      "field": "bonafide",
+      "kind": "bonafide",
+      "available": true,
+      "loaderGroups": [
+        "bonafides"
+      ],
+      "counts": {
+        "easy": 2,
+        "hard": 2,
+        "sota": 1,
+        "total": 5
+      }
+    },
+    {
+      "slug": "cfa-level-1",
+      "field": "bonafide",
+      "kind": "bonafide",
+      "available": true,
+      "loaderGroups": [
+        "bonafides"
+      ],
+      "counts": {
+        "easy": 2,
+        "hard": 2,
+        "sota": 1,
+        "total": 5
+      }
+    },
+    {
+      "slug": "cfa-level-2",
+      "field": "bonafide",
+      "kind": "bonafide",
+      "available": true,
+      "loaderGroups": [
+        "bonafides"
+      ],
+      "counts": {
+        "easy": 2,
+        "hard": 2,
+        "sota": 1,
+        "total": 5
+      }
+    },
+    {
+      "slug": "cfa-level-3",
+      "field": "bonafide",
+      "kind": "bonafide",
+      "available": true,
+      "loaderGroups": [
+        "bonafides"
+      ],
+      "counts": {
+        "easy": 1,
+        "hard": 2,
+        "sota": 2,
+        "total": 5
+      }
+    },
+    {
+      "slug": "cqf",
+      "field": "bonafide",
+      "kind": "bonafide",
+      "available": true,
+      "loaderGroups": [
+        "bonafides"
+      ],
+      "counts": {
+        "easy": 2,
+        "hard": 2,
+        "sota": 1,
+        "total": 5
+      }
+    },
+    {
+      "slug": "cs50",
+      "field": "bonafide",
+      "kind": "bonafide",
+      "available": true,
+      "loaderGroups": [
+        "bonafides"
+      ],
+      "counts": {
+        "easy": 3,
+        "hard": 5,
+        "sota": 2,
+        "total": 10
+      }
+    },
+    {
+      "slug": "frm",
+      "field": "bonafide",
+      "kind": "bonafide",
+      "available": true,
+      "loaderGroups": [
+        "bonafides"
+      ],
+      "counts": {
+        "easy": 2,
+        "hard": 2,
+        "sota": 1,
+        "total": 5
+      }
+    },
+    {
+      "slug": "series-24",
+      "field": "bonafide",
+      "kind": "bonafide",
+      "available": true,
+      "loaderGroups": [
+        "bonafides"
+      ],
+      "counts": {
+        "easy": 2,
+        "hard": 2,
+        "sota": 1,
+        "total": 5
+      }
+    },
+    {
+      "slug": "series-3",
+      "field": "bonafide",
+      "kind": "bonafide",
+      "available": true,
+      "loaderGroups": [
+        "bonafides"
+      ],
+      "counts": {
+        "easy": 2,
+        "hard": 2,
+        "sota": 1,
+        "total": 5
+      }
+    },
+    {
+      "slug": "series-52",
+      "field": "bonafide",
+      "kind": "bonafide",
+      "available": true,
+      "loaderGroups": [
+        "bonafides"
+      ],
+      "counts": {
+        "easy": 2,
+        "hard": 2,
+        "sota": 1,
+        "total": 5
+      }
+    },
+    {
+      "slug": "series-63",
+      "field": "bonafide",
+      "kind": "bonafide",
+      "available": true,
+      "loaderGroups": [
+        "bonafides"
+      ],
+      "counts": {
+        "easy": 2,
+        "hard": 2,
+        "sota": 1,
+        "total": 5
+      }
+    },
+    {
+      "slug": "series-65",
+      "field": "bonafide",
+      "kind": "bonafide",
+      "available": true,
+      "loaderGroups": [
+        "bonafides"
+      ],
+      "counts": {
+        "easy": 2,
+        "hard": 2,
+        "sota": 1,
+        "total": 5
+      }
+    },
+    {
+      "slug": "series-66",
+      "field": "bonafide",
+      "kind": "bonafide",
+      "available": true,
+      "loaderGroups": [
+        "bonafides"
+      ],
+      "counts": {
+        "easy": 2,
+        "hard": 2,
+        "sota": 1,
+        "total": 5
+      }
+    },
+    {
+      "slug": "series-7",
+      "field": "bonafide",
+      "kind": "bonafide",
+      "available": true,
+      "loaderGroups": [
+        "bonafides"
+      ],
+      "counts": {
+        "easy": 2,
+        "hard": 2,
+        "sota": 1,
+        "total": 5
+      }
+    },
+    {
+      "slug": "sie",
+      "field": "bonafide",
+      "kind": "bonafide",
+      "available": true,
+      "loaderGroups": [
+        "bonafides"
+      ],
+      "counts": {
+        "easy": 2,
+        "hard": 2,
+        "sota": 1,
+        "total": 5
+      }
+    },
+    {
+      "slug": "ucb-eecs126",
+      "field": "bonafide",
+      "kind": "bonafide",
+      "available": true,
+      "loaderGroups": [
+        "bonafides"
+      ],
+      "counts": {
+        "easy": 3,
+        "hard": 4,
+        "sota": 3,
+        "total": 10
+      }
+    },
+    {
+      "slug": "engineering",
+      "field": "engineering",
+      "kind": "special",
+      "available": false,
+      "loaderGroups": [
+        "vault"
+      ],
+      "counts": {
+        "easy": 0,
+        "hard": 5,
+        "sota": 0,
+        "total": 5
+      }
+    },
+    {
+      "slug": "string-theory",
+      "field": "physics",
+      "kind": "special",
+      "available": false,
+      "loaderGroups": [
+        "vault"
+      ],
+      "counts": {
+        "easy": 0,
+        "hard": 0,
+        "sota": 1,
+        "total": 1
+      }
+    },
+    {
+      "slug": "abstract-algebra",
+      "field": "math",
+      "kind": "standard-quiz",
+      "available": true,
+      "loaderGroups": [
+        "abstract-algebra"
+      ],
+      "counts": {
+        "easy": 3,
+        "hard": 3,
+        "sota": 3,
+        "total": 9
+      }
+    },
+    {
+      "slug": "aerodynamics",
+      "field": "engineering",
+      "kind": "standard-quiz",
+      "available": true,
+      "loaderGroups": [
+        "engineering"
+      ],
+      "counts": {
+        "easy": 2,
+        "hard": 2,
+        "sota": 1,
+        "total": 5
+      }
+    },
+    {
+      "slug": "aerospace",
+      "field": "engineering",
+      "kind": "standard-quiz",
+      "available": true,
+      "loaderGroups": [
+        "aerospace"
+      ],
+      "counts": {
+        "easy": 2,
+        "hard": 2,
+        "sota": 2,
+        "total": 6
+      }
+    },
+    {
+      "slug": "ai-models",
+      "field": "cs",
+      "kind": "standard-quiz",
+      "available": true,
+      "loaderGroups": [
+        "computer-science"
+      ],
+      "counts": {
+        "easy": 2,
+        "hard": 4,
+        "sota": 3,
+        "total": 9
+      }
+    },
+    {
+      "slug": "ai-substrates",
+      "field": "cs",
+      "kind": "standard-quiz",
+      "available": true,
+      "loaderGroups": [
+        "ai-substrates"
+      ],
+      "counts": {
+        "easy": 6,
+        "hard": 8,
+        "sota": 14,
+        "total": 28
+      }
+    },
+    {
+      "slug": "algebraic-geometry",
+      "field": "math",
+      "kind": "standard-quiz",
+      "available": true,
+      "loaderGroups": [
+        "algebraic-geometry"
+      ],
+      "counts": {
+        "easy": 5,
+        "hard": 5,
+        "sota": 5,
+        "total": 15
+      }
+    },
+    {
+      "slug": "algo-trading",
+      "field": "finance",
+      "kind": "standard-quiz",
+      "available": true,
+      "loaderGroups": [
+        "quant"
+      ],
+      "counts": {
+        "easy": 1,
+        "hard": 1,
+        "sota": 1,
+        "total": 3
+      }
+    },
+    {
+      "slug": "algorithms",
+      "field": "cs",
+      "kind": "standard-quiz",
+      "available": true,
+      "loaderGroups": [
+        "computer-science"
+      ],
+      "counts": {
+        "easy": 1,
+        "hard": 1,
+        "sota": 1,
+        "total": 3
+      }
+    },
+    {
+      "slug": "astronomy",
+      "field": "earth-space",
+      "kind": "standard-quiz",
+      "available": true,
+      "loaderGroups": [
+        "earth-space"
+      ],
+      "counts": {
+        "easy": 1,
+        "hard": 1,
+        "sota": 1,
+        "total": 3
+      }
+    },
+    {
+      "slug": "astrophysics",
+      "field": "earth-space",
+      "kind": "standard-quiz",
+      "available": true,
+      "loaderGroups": [
+        "astrophysics"
+      ],
+      "counts": {
+        "easy": 3,
+        "hard": 3,
+        "sota": 3,
+        "total": 9
+      }
+    },
+    {
+      "slug": "audio-engineering",
+      "field": "engineering",
+      "kind": "standard-quiz",
+      "available": true,
+      "loaderGroups": [
+        "engineering",
+        "audio-engineering"
+      ],
+      "counts": {
+        "easy": 3,
+        "hard": 3,
+        "sota": 2,
+        "total": 8
+      }
+    },
+    {
+      "slug": "behavioral-economics",
+      "field": "finance",
+      "kind": "standard-quiz",
+      "available": true,
+      "loaderGroups": [
+        "behavioral-economics"
+      ],
+      "counts": {
+        "easy": 3,
+        "hard": 3,
+        "sota": 3,
+        "total": 9
+      }
+    },
+    {
+      "slug": "biomedical-engineering",
+      "field": "engineering",
+      "kind": "standard-quiz",
+      "available": true,
+      "loaderGroups": [
+        "engineering"
+      ],
+      "counts": {
+        "easy": 1,
+        "hard": 1,
+        "sota": 1,
+        "total": 3
+      }
+    },
+    {
+      "slug": "calculus",
+      "field": "math",
+      "kind": "standard-quiz",
+      "available": true,
+      "loaderGroups": [
+        "calculus"
+      ],
+      "counts": {
+        "easy": 8,
+        "hard": 8,
+        "sota": 8,
+        "total": 24
+      }
+    },
+    {
+      "slug": "category-theory",
+      "field": "math",
+      "kind": "standard-quiz",
+      "available": true,
+      "loaderGroups": [
+        "category-theory"
+      ],
+      "counts": {
+        "easy": 5,
+        "hard": 5,
+        "sota": 5,
+        "total": 15
+      }
+    },
+    {
+      "slug": "circuits-electronics",
+      "field": "engineering",
+      "kind": "standard-quiz",
+      "available": true,
+      "loaderGroups": [
+        "engineering"
+      ],
+      "counts": {
+        "easy": 2,
+        "hard": 2,
+        "sota": 1,
+        "total": 5
+      }
+    },
+    {
+      "slug": "classical-mechanics",
+      "field": "physics",
+      "kind": "standard-quiz",
+      "available": true,
+      "loaderGroups": [
+        "physics"
+      ],
+      "counts": {
+        "easy": 5,
+        "hard": 5,
+        "sota": 2,
+        "total": 12
+      }
+    },
+    {
+      "slug": "climate-science",
+      "field": "earth-space",
+      "kind": "standard-quiz",
+      "available": true,
+      "loaderGroups": [
+        "earth-space"
+      ],
+      "counts": {
+        "easy": 1,
+        "hard": 1,
+        "sota": 1,
+        "total": 3
+      }
+    },
+    {
+      "slug": "combinatorics",
+      "field": "math",
+      "kind": "standard-quiz",
+      "available": true,
+      "loaderGroups": [
+        "combinatorics"
+      ],
+      "counts": {
+        "easy": 5,
+        "hard": 5,
+        "sota": 5,
+        "total": 15
+      }
+    },
+    {
+      "slug": "communications-coding",
+      "field": "engineering",
+      "kind": "standard-quiz",
+      "available": true,
+      "loaderGroups": [
+        "engineering"
+      ],
+      "counts": {
+        "easy": 2,
+        "hard": 2,
+        "sota": 1,
+        "total": 5
+      }
+    },
+    {
+      "slug": "compiler-theory",
+      "field": "cs",
+      "kind": "standard-quiz",
+      "available": true,
+      "loaderGroups": [
+        "compiler-theory"
+      ],
+      "counts": {
+        "easy": 5,
+        "hard": 5,
+        "sota": 5,
+        "total": 15
+      }
+    },
+    {
+      "slug": "complex-analysis",
+      "field": "math",
+      "kind": "standard-quiz",
+      "available": true,
+      "loaderGroups": [
+        "complex-analysis"
+      ],
+      "counts": {
+        "easy": 3,
+        "hard": 3,
+        "sota": 3,
+        "total": 9
+      }
+    },
+    {
+      "slug": "condensed-matter",
+      "field": "physics",
+      "kind": "standard-quiz",
+      "available": true,
+      "loaderGroups": [
+        "condensed-matter"
+      ],
+      "counts": {
+        "easy": 3,
+        "hard": 3,
+        "sota": 3,
+        "total": 9
+      }
+    },
+    {
+      "slug": "control-systems",
+      "field": "engineering",
+      "kind": "standard-quiz",
+      "available": true,
+      "loaderGroups": [
+        "engineering"
+      ],
+      "counts": {
+        "easy": 1,
+        "hard": 2,
+        "sota": 2,
+        "total": 5
+      }
+    },
+    {
+      "slug": "control-theory",
+      "field": "engineering",
+      "kind": "standard-quiz",
+      "available": true,
+      "loaderGroups": [
+        "control-theory"
+      ],
+      "counts": {
+        "easy": 3,
+        "hard": 3,
+        "sota": 3,
+        "total": 9
+      }
+    },
+    {
+      "slug": "credit-risk",
+      "field": "finance",
+      "kind": "standard-quiz",
+      "available": true,
+      "loaderGroups": [
+        "credit-risk"
+      ],
+      "counts": {
+        "easy": 3,
+        "hard": 3,
+        "sota": 3,
+        "total": 9
+      }
+    },
+    {
+      "slug": "cryptography",
+      "field": "cs",
+      "kind": "standard-quiz",
+      "available": true,
+      "loaderGroups": [
+        "computer-science",
+        "vault"
+      ],
+      "counts": {
+        "easy": 1,
+        "hard": 11,
+        "sota": 6,
+        "total": 18
+      }
+    },
+    {
+      "slug": "cybersecurity",
+      "field": "cs",
+      "kind": "standard-quiz",
+      "available": true,
+      "loaderGroups": [
+        "cybersecurity",
+        "vault"
+      ],
+      "counts": {
+        "easy": 5,
+        "hard": 10,
+        "sota": 8,
+        "total": 23
+      }
+    },
+    {
+      "slug": "derivatives-pricing",
+      "field": "finance",
+      "kind": "standard-quiz",
+      "available": true,
+      "loaderGroups": [
+        "quant"
+      ],
+      "counts": {
+        "easy": 5,
+        "hard": 5,
+        "sota": 3,
+        "total": 13
+      }
+    },
+    {
+      "slug": "development-economics",
+      "field": "finance",
+      "kind": "standard-quiz",
+      "available": true,
+      "loaderGroups": [
+        "development-economics"
+      ],
+      "counts": {
+        "easy": 2,
+        "hard": 3,
+        "sota": 3,
+        "total": 8
+      }
+    },
+    {
+      "slug": "differential-equations",
+      "field": "math",
+      "kind": "standard-quiz",
+      "available": true,
+      "loaderGroups": [
+        "differential-equations",
+        "vault"
+      ],
+      "counts": {
+        "easy": 3,
+        "hard": 3,
+        "sota": 4,
+        "total": 10
+      }
+    },
+    {
+      "slug": "differential-geometry",
+      "field": "math",
+      "kind": "standard-quiz",
+      "available": true,
+      "loaderGroups": [
+        "differential-geometry"
+      ],
+      "counts": {
+        "easy": 3,
+        "hard": 3,
+        "sota": 3,
+        "total": 9
+      }
+    },
+    {
+      "slug": "discrete-math",
+      "field": "math",
+      "kind": "standard-quiz",
+      "available": true,
+      "loaderGroups": [
+        "discrete-math"
+      ],
+      "counts": {
+        "easy": 8,
+        "hard": 8,
+        "sota": 8,
+        "total": 24
+      }
+    },
+    {
+      "slug": "distributed-systems",
+      "field": "cs",
+      "kind": "standard-quiz",
+      "available": true,
+      "loaderGroups": [
+        "distributed-systems"
+      ],
+      "counts": {
+        "easy": 3,
+        "hard": 3,
+        "sota": 3,
+        "total": 9
+      }
+    },
+    {
+      "slug": "ecology",
+      "field": "biology",
+      "kind": "standard-quiz",
+      "available": true,
+      "loaderGroups": [
+        "biology"
+      ],
+      "counts": {
+        "easy": 1,
+        "hard": 1,
+        "sota": 1,
+        "total": 3
+      }
+    },
+    {
+      "slug": "econometrics",
+      "field": "finance",
+      "kind": "standard-quiz",
+      "available": true,
+      "loaderGroups": [
+        "economics"
+      ],
+      "counts": {
+        "easy": 1,
+        "hard": 1,
+        "sota": 1,
+        "total": 3
+      }
+    },
+    {
+      "slug": "electromagnetism",
+      "field": "physics",
+      "kind": "standard-quiz",
+      "available": true,
+      "loaderGroups": [
+        "new-topics"
+      ],
+      "counts": {
+        "easy": 1,
+        "hard": 1,
+        "sota": 1,
+        "total": 3
+      }
+    },
+    {
+      "slug": "environmental-engineering",
+      "field": "engineering",
+      "kind": "standard-quiz",
+      "available": true,
+      "loaderGroups": [
+        "engineering"
+      ],
+      "counts": {
+        "easy": 1,
+        "hard": 1,
+        "sota": 1,
+        "total": 3
+      }
+    },
+    {
+      "slug": "environmental-science",
+      "field": "earth-space",
+      "kind": "standard-quiz",
+      "available": true,
+      "loaderGroups": [
+        "environmental-science"
+      ],
+      "counts": {
+        "easy": 2,
+        "hard": 2,
+        "sota": 2,
+        "total": 6
+      }
+    },
+    {
+      "slug": "ergodic-theory",
+      "field": "math",
+      "kind": "standard-quiz",
+      "available": true,
+      "loaderGroups": [
+        "ergodic-theory"
+      ],
+      "counts": {
+        "easy": 5,
+        "hard": 5,
+        "sota": 5,
+        "total": 15
+      }
+    },
+    {
+      "slug": "fixed-income",
+      "field": "finance",
+      "kind": "standard-quiz",
+      "available": true,
+      "loaderGroups": [
+        "quant"
+      ],
+      "counts": {
+        "easy": 1,
+        "hard": 1,
+        "sota": 1,
+        "total": 3
+      }
+    },
+    {
+      "slug": "fluid-dynamics",
+      "field": "physics",
+      "kind": "standard-quiz",
+      "available": true,
+      "loaderGroups": [
+        "fluid-dynamics",
+        "vault"
+      ],
+      "counts": {
+        "easy": 2,
+        "hard": 2,
+        "sota": 3,
+        "total": 7
+      }
+    },
+    {
+      "slug": "formal-verification",
+      "field": "cs",
+      "kind": "standard-quiz",
+      "available": true,
+      "loaderGroups": [
+        "formal-verification"
+      ],
+      "counts": {
+        "easy": 3,
+        "hard": 3,
+        "sota": 3,
+        "total": 9
+      }
+    },
+    {
+      "slug": "functional-analysis",
+      "field": "math",
+      "kind": "standard-quiz",
+      "available": true,
+      "loaderGroups": [
+        "functional-analysis"
+      ],
+      "counts": {
+        "easy": 3,
+        "hard": 3,
+        "sota": 3,
+        "total": 9
+      }
+    },
+    {
+      "slug": "game-theory",
+      "field": "finance",
+      "kind": "standard-quiz",
+      "available": true,
+      "loaderGroups": [
+        "game-theory"
+      ],
+      "counts": {
+        "easy": 2,
+        "hard": 2,
+        "sota": 2,
+        "total": 6
+      }
+    },
+    {
+      "slug": "genetics",
+      "field": "biology",
+      "kind": "standard-quiz",
+      "available": true,
+      "loaderGroups": [
+        "biology"
+      ],
+      "counts": {
+        "easy": 1,
+        "hard": 1,
+        "sota": 1,
+        "total": 3
+      }
+    },
+    {
+      "slug": "geology",
+      "field": "earth-space",
+      "kind": "standard-quiz",
+      "available": true,
+      "loaderGroups": [
+        "earth-space"
+      ],
+      "counts": {
+        "easy": 1,
+        "hard": 1,
+        "sota": 1,
+        "total": 3
+      }
+    },
+    {
+      "slug": "graph-theory",
+      "field": "math",
+      "kind": "standard-quiz",
+      "available": true,
+      "loaderGroups": [
+        "graph-theory"
+      ],
+      "counts": {
+        "easy": 3,
+        "hard": 3,
+        "sota": 3,
+        "total": 9
+      }
+    },
+    {
+      "slug": "information-theory",
+      "field": "cs",
+      "kind": "standard-quiz",
+      "available": true,
+      "loaderGroups": [
+        "information-theory",
+        "vault"
+      ],
+      "counts": {
+        "easy": 3,
+        "hard": 4,
+        "sota": 5,
+        "total": 12
+      }
+    },
+    {
+      "slug": "inorganic-chemistry",
+      "field": "chemistry",
+      "kind": "standard-quiz",
+      "available": true,
+      "loaderGroups": [
+        "chemistry"
+      ],
+      "counts": {
+        "easy": 1,
+        "hard": 1,
+        "sota": 1,
+        "total": 3
+      }
+    },
+    {
+      "slug": "linear-algebra",
+      "field": "math",
+      "kind": "standard-quiz",
+      "available": true,
+      "loaderGroups": [
+        "linear-algebra"
+      ],
+      "counts": {
+        "easy": 8,
+        "hard": 8,
+        "sota": 8,
+        "total": 24
+      }
+    },
+    {
+      "slug": "linguistics",
+      "field": "human-sciences",
+      "kind": "standard-quiz",
+      "available": true,
+      "loaderGroups": [
+        "linguistics"
+      ],
+      "counts": {
+        "easy": 2,
+        "hard": 2,
+        "sota": 2,
+        "total": 6
+      }
+    },
+    {
+      "slug": "machine-learning",
+      "field": "cs",
+      "kind": "standard-quiz",
+      "available": true,
+      "loaderGroups": [
+        "computer-science"
+      ],
+      "counts": {
+        "easy": 1,
+        "hard": 1,
+        "sota": 1,
+        "total": 3
+      }
+    },
+    {
+      "slug": "macroeconomics",
+      "field": "finance",
+      "kind": "standard-quiz",
+      "available": true,
+      "loaderGroups": [
+        "economics"
+      ],
+      "counts": {
+        "easy": 1,
+        "hard": 1,
+        "sota": 1,
+        "total": 3
+      }
+    },
+    {
+      "slug": "many-body-physics",
+      "field": "physics",
+      "kind": "standard-quiz",
+      "available": true,
+      "loaderGroups": [
+        "many-body-physics"
+      ],
+      "counts": {
+        "easy": 3,
+        "hard": 3,
+        "sota": 3,
+        "total": 9
+      }
+    },
+    {
+      "slug": "market-microstructure",
+      "field": "finance",
+      "kind": "standard-quiz",
+      "available": true,
+      "loaderGroups": [
+        "market-microstructure"
+      ],
+      "counts": {
+        "easy": 3,
+        "hard": 3,
+        "sota": 3,
+        "total": 9
+      }
+    },
+    {
+      "slug": "materials-science",
+      "field": "engineering",
+      "kind": "standard-quiz",
+      "available": true,
+      "loaderGroups": [
+        "engineering"
+      ],
+      "counts": {
+        "easy": 1,
+        "hard": 1,
+        "sota": 1,
+        "total": 3
+      }
+    },
+    {
+      "slug": "measure-theory",
+      "field": "math",
+      "kind": "standard-quiz",
+      "available": true,
+      "loaderGroups": [
+        "measure-theory"
+      ],
+      "counts": {
+        "easy": 5,
+        "hard": 5,
+        "sota": 5,
+        "total": 15
+      }
+    },
+    {
+      "slug": "meteorology",
+      "field": "earth-space",
+      "kind": "standard-quiz",
+      "available": true,
+      "loaderGroups": [
+        "meteorology"
+      ],
+      "counts": {
+        "easy": 2,
+        "hard": 2,
+        "sota": 1,
+        "total": 5
+      }
+    },
+    {
+      "slug": "microeconomics",
+      "field": "finance",
+      "kind": "standard-quiz",
+      "available": true,
+      "loaderGroups": [
+        "economics"
+      ],
+      "counts": {
+        "easy": 1,
+        "hard": 1,
+        "sota": 1,
+        "total": 3
+      }
+    },
+    {
+      "slug": "molecular-biology",
+      "field": "biology",
+      "kind": "standard-quiz",
+      "available": true,
+      "loaderGroups": [
+        "biology"
+      ],
+      "counts": {
+        "easy": 1,
+        "hard": 1,
+        "sota": 1,
+        "total": 3
+      }
+    },
+    {
+      "slug": "neuroscience",
+      "field": "biology",
+      "kind": "standard-quiz",
+      "available": true,
+      "loaderGroups": [
+        "neuroscience",
+        "vault"
+      ],
+      "counts": {
+        "easy": 2,
+        "hard": 3,
+        "sota": 2,
+        "total": 7
+      }
+    },
+    {
+      "slug": "nonlinear-dynamics",
+      "field": "physics",
+      "kind": "standard-quiz",
+      "available": true,
+      "loaderGroups": [
+        "nonlinear-dynamics"
+      ],
+      "counts": {
+        "easy": 3,
+        "hard": 3,
+        "sota": 3,
+        "total": 9
+      }
+    },
+    {
+      "slug": "nuclear-engineering",
+      "field": "engineering",
+      "kind": "standard-quiz",
+      "available": true,
+      "loaderGroups": [
+        "engineering"
+      ],
+      "counts": {
+        "easy": 2,
+        "hard": 2,
+        "sota": 1,
+        "total": 5
+      }
+    },
+    {
+      "slug": "nuclear-physics",
+      "field": "physics",
+      "kind": "standard-quiz",
+      "available": true,
+      "loaderGroups": [
+        "nuclear-physics",
+        "vault"
+      ],
+      "counts": {
+        "easy": 2,
+        "hard": 3,
+        "sota": 3,
+        "total": 8
+      }
+    },
+    {
+      "slug": "number-theory",
+      "field": "math",
+      "kind": "standard-quiz",
+      "available": true,
+      "loaderGroups": [
+        "new-topics",
+        "vault"
+      ],
+      "counts": {
+        "easy": 1,
+        "hard": 2,
+        "sota": 1,
+        "total": 4
+      }
+    },
+    {
+      "slug": "numerical-methods",
+      "field": "math",
+      "kind": "standard-quiz",
+      "available": true,
+      "loaderGroups": [
+        "numerical-methods"
+      ],
+      "counts": {
+        "easy": 3,
+        "hard": 3,
+        "sota": 3,
+        "total": 9
+      }
+    },
+    {
+      "slug": "oceanography",
+      "field": "earth-space",
+      "kind": "standard-quiz",
+      "available": true,
+      "loaderGroups": [
+        "oceanography"
+      ],
+      "counts": {
+        "easy": 2,
+        "hard": 2,
+        "sota": 2,
+        "total": 6
+      }
+    },
+    {
+      "slug": "operating-systems",
+      "field": "cs",
+      "kind": "standard-quiz",
+      "available": true,
+      "loaderGroups": [
+        "operating-systems"
+      ],
+      "counts": {
+        "easy": 3,
+        "hard": 3,
+        "sota": 3,
+        "total": 9
+      }
+    },
+    {
+      "slug": "optics",
+      "field": "physics",
+      "kind": "standard-quiz",
+      "available": true,
+      "loaderGroups": [
+        "optics"
+      ],
+      "counts": {
+        "easy": 3,
+        "hard": 3,
+        "sota": 3,
+        "total": 9
+      }
+    },
+    {
+      "slug": "optimization",
+      "field": "math",
+      "kind": "standard-quiz",
+      "available": true,
+      "loaderGroups": [
+        "optimization"
+      ],
+      "counts": {
+        "easy": 8,
+        "hard": 8,
+        "sota": 8,
+        "total": 24
+      }
+    },
+    {
+      "slug": "orbital-mechanics",
+      "field": "engineering",
+      "kind": "standard-quiz",
+      "available": true,
+      "loaderGroups": [
+        "engineering"
+      ],
+      "counts": {
+        "easy": 1,
+        "hard": 2,
+        "sota": 1,
+        "total": 4
+      }
+    },
+    {
+      "slug": "organic-chemistry",
+      "field": "chemistry",
+      "kind": "standard-quiz",
+      "available": true,
+      "loaderGroups": [
+        "chemistry"
+      ],
+      "counts": {
+        "easy": 1,
+        "hard": 1,
+        "sota": 1,
+        "total": 3
+      }
+    },
+    {
+      "slug": "pharmacology",
+      "field": "biology",
+      "kind": "standard-quiz",
+      "available": true,
+      "loaderGroups": [
+        "pharmacology"
+      ],
+      "counts": {
+        "easy": 2,
+        "hard": 2,
+        "sota": 2,
+        "total": 6
+      }
+    },
+    {
+      "slug": "philosophy-of-science",
+      "field": "human-sciences",
+      "kind": "standard-quiz",
+      "available": true,
+      "loaderGroups": [
+        "philosophy-of-science"
+      ],
+      "counts": {
+        "easy": 2,
+        "hard": 2,
+        "sota": 2,
+        "total": 6
+      }
+    },
+    {
+      "slug": "physical-chemistry",
+      "field": "chemistry",
+      "kind": "standard-quiz",
+      "available": true,
+      "loaderGroups": [
+        "chemistry"
+      ],
+      "counts": {
+        "easy": 1,
+        "hard": 1,
+        "sota": 1,
+        "total": 3
+      }
+    },
+    {
+      "slug": "plasma-physics",
+      "field": "physics",
+      "kind": "standard-quiz",
+      "available": true,
+      "loaderGroups": [
+        "plasma-physics"
+      ],
+      "counts": {
+        "easy": 3,
+        "hard": 3,
+        "sota": 3,
+        "total": 9
+      }
+    },
+    {
+      "slug": "portfolio-theory",
+      "field": "finance",
+      "kind": "standard-quiz",
+      "available": true,
+      "loaderGroups": [
+        "quant"
+      ],
+      "counts": {
+        "easy": 1,
+        "hard": 1,
+        "sota": 1,
+        "total": 3
+      }
+    },
+    {
+      "slug": "power-systems",
+      "field": "engineering",
+      "kind": "standard-quiz",
+      "available": true,
+      "loaderGroups": [
+        "engineering"
+      ],
+      "counts": {
+        "easy": 1,
+        "hard": 1,
+        "sota": 1,
+        "total": 3
+      }
+    },
+    {
+      "slug": "prediction-markets",
+      "field": "finance",
+      "kind": "standard-quiz",
+      "available": true,
+      "loaderGroups": [
+        "prediction-markets"
+      ],
+      "counts": {
+        "easy": 7,
+        "hard": 8,
+        "sota": 9,
+        "total": 24
+      }
+    },
+    {
+      "slug": "probability-stats",
+      "field": "math",
+      "kind": "standard-quiz",
+      "available": true,
+      "loaderGroups": [
+        "probability-stats"
+      ],
+      "counts": {
+        "easy": 8,
+        "hard": 8,
+        "sota": 8,
+        "total": 24
+      }
+    },
+    {
+      "slug": "process-design",
+      "field": "engineering",
+      "kind": "standard-quiz",
+      "available": true,
+      "loaderGroups": [
+        "engineering"
+      ],
+      "counts": {
+        "easy": 1,
+        "hard": 1,
+        "sota": 1,
+        "total": 3
+      }
+    },
+    {
+      "slug": "psychology",
+      "field": "human-sciences",
+      "kind": "standard-quiz",
+      "available": true,
+      "loaderGroups": [
+        "psychology"
+      ],
+      "counts": {
+        "easy": 2,
+        "hard": 2,
+        "sota": 2,
+        "total": 6
+      }
+    },
+    {
+      "slug": "quantum-computing",
+      "field": "cs",
+      "kind": "standard-quiz",
+      "available": true,
+      "loaderGroups": [
+        "quantum-computing",
+        "vault"
+      ],
+      "counts": {
+        "easy": 2,
+        "hard": 3,
+        "sota": 3,
+        "total": 8
+      }
+    },
+    {
+      "slug": "quantum-field-theory",
+      "field": "physics",
+      "kind": "standard-quiz",
+      "available": true,
+      "loaderGroups": [
+        "quantum-field-theory"
+      ],
+      "counts": {
+        "easy": 3,
+        "hard": 3,
+        "sota": 3,
+        "total": 9
+      }
+    },
+    {
+      "slug": "quantum-gravity",
+      "field": "physics",
+      "kind": "standard-quiz",
+      "available": true,
+      "loaderGroups": [
+        "quantum-gravity",
+        "vault"
+      ],
+      "counts": {
+        "easy": 3,
+        "hard": 3,
+        "sota": 4,
+        "total": 10
+      }
+    },
+    {
+      "slug": "quantum-mechanics",
+      "field": "physics",
+      "kind": "standard-quiz",
+      "available": true,
+      "loaderGroups": [
+        "physics",
+        "vault"
+      ],
+      "counts": {
+        "easy": 5,
+        "hard": 11,
+        "sota": 4,
+        "total": 20
+      }
+    },
+    {
+      "slug": "reaction-engineering",
+      "field": "engineering",
+      "kind": "standard-quiz",
+      "available": true,
+      "loaderGroups": [
+        "engineering"
+      ],
+      "counts": {
+        "easy": 1,
+        "hard": 2,
+        "sota": 1,
+        "total": 4
+      }
+    },
+    {
+      "slug": "real-analysis",
+      "field": "math",
+      "kind": "standard-quiz",
+      "available": true,
+      "loaderGroups": [
+        "new-topics"
+      ],
+      "counts": {
+        "easy": 1,
+        "hard": 1,
+        "sota": 1,
+        "total": 3
+      }
+    },
+    {
+      "slug": "relativity",
+      "field": "physics",
+      "kind": "standard-quiz",
+      "available": true,
+      "loaderGroups": [
+        "relativity",
+        "vault"
+      ],
+      "counts": {
+        "easy": 3,
+        "hard": 5,
+        "sota": 8,
+        "total": 16
+      }
+    },
+    {
+      "slug": "risk-management",
+      "field": "finance",
+      "kind": "standard-quiz",
+      "available": true,
+      "loaderGroups": [
+        "new-topics"
+      ],
+      "counts": {
+        "easy": 1,
+        "hard": 1,
+        "sota": 1,
+        "total": 3
+      }
+    },
+    {
+      "slug": "robotics",
+      "field": "engineering",
+      "kind": "standard-quiz",
+      "available": true,
+      "loaderGroups": [
+        "robotics"
+      ],
+      "counts": {
+        "easy": 2,
+        "hard": 2,
+        "sota": 2,
+        "total": 6
+      }
+    },
+    {
+      "slug": "robotics-mechatronics",
+      "field": "engineering",
+      "kind": "standard-quiz",
+      "available": true,
+      "loaderGroups": [
+        "engineering"
+      ],
+      "counts": {
+        "easy": 1,
+        "hard": 2,
+        "sota": 2,
+        "total": 5
+      }
+    },
+    {
+      "slug": "semiconductor-engineering",
+      "field": "engineering",
+      "kind": "standard-quiz",
+      "available": true,
+      "loaderGroups": [
+        "engineering"
+      ],
+      "counts": {
+        "easy": 1,
+        "hard": 1,
+        "sota": 1,
+        "total": 3
+      }
+    },
+    {
+      "slug": "signal-processing",
+      "field": "engineering",
+      "kind": "standard-quiz",
+      "available": true,
+      "loaderGroups": [
+        "engineering",
+        "signal-processing"
+      ],
+      "counts": {
+        "easy": 5,
+        "hard": 5,
+        "sota": 4,
+        "total": 14
+      }
+    },
+    {
+      "slug": "solid-mechanics",
+      "field": "engineering",
+      "kind": "standard-quiz",
+      "available": true,
+      "loaderGroups": [
+        "engineering"
+      ],
+      "counts": {
+        "easy": 2,
+        "hard": 2,
+        "sota": 2,
+        "total": 6
+      }
+    },
+    {
+      "slug": "sota-2024",
+      "field": "sota-2024",
+      "kind": "standard-quiz",
+      "available": true,
+      "loaderGroups": [
+        "sota-2024"
+      ],
+      "counts": {
+        "easy": 5,
+        "hard": 6,
+        "sota": 4,
+        "total": 15
+      }
+    },
+    {
+      "slug": "sota-2025",
+      "field": "sota-2025",
+      "kind": "standard-quiz",
+      "available": true,
+      "loaderGroups": [
+        "sota-2025"
+      ],
+      "counts": {
+        "easy": 0,
+        "hard": 0,
+        "sota": 11,
+        "total": 11
+      }
+    },
+    {
+      "slug": "sota-2026",
+      "field": "sota-2026",
+      "kind": "standard-quiz",
+      "available": true,
+      "loaderGroups": [
+        "sota-2026"
+      ],
+      "counts": {
+        "easy": 0,
+        "hard": 0,
+        "sota": 20,
+        "total": 20
+      }
+    },
+    {
+      "slug": "statistical-physics",
+      "field": "physics",
+      "kind": "standard-quiz",
+      "available": true,
+      "loaderGroups": [
+        "statistical-physics"
+      ],
+      "counts": {
+        "easy": 3,
+        "hard": 3,
+        "sota": 3,
+        "total": 9
+      }
+    },
+    {
+      "slug": "stochastic-calculus",
+      "field": "finance",
+      "kind": "standard-quiz",
+      "available": true,
+      "loaderGroups": [
+        "quant"
+      ],
+      "counts": {
+        "easy": 5,
+        "hard": 5,
+        "sota": 2,
+        "total": 12
+      }
+    },
+    {
+      "slug": "structural-engineering",
+      "field": "engineering",
+      "kind": "standard-quiz",
+      "available": true,
+      "loaderGroups": [
+        "engineering"
+      ],
+      "counts": {
+        "easy": 1,
+        "hard": 1,
+        "sota": 0,
+        "total": 2
+      }
+    },
+    {
+      "slug": "thermodynamics",
+      "field": "physics",
+      "kind": "standard-quiz",
+      "available": true,
+      "loaderGroups": [
+        "thermodynamics"
+      ],
+      "counts": {
+        "easy": 3,
+        "hard": 3,
+        "sota": 3,
+        "total": 9
+      }
+    },
+    {
+      "slug": "thermofluids",
+      "field": "engineering",
+      "kind": "standard-quiz",
+      "available": true,
+      "loaderGroups": [
+        "engineering"
+      ],
+      "counts": {
+        "easy": 2,
+        "hard": 2,
+        "sota": 1,
+        "total": 5
+      }
+    },
+    {
+      "slug": "topology",
+      "field": "math",
+      "kind": "standard-quiz",
+      "available": true,
+      "loaderGroups": [
+        "topology"
+      ],
+      "counts": {
+        "easy": 2,
+        "hard": 2,
+        "sota": 2,
+        "total": 6
+      }
+    },
+    {
+      "slug": "transport-phenomena",
+      "field": "engineering",
+      "kind": "standard-quiz",
+      "available": true,
+      "loaderGroups": [
+        "engineering"
+      ],
+      "counts": {
+        "easy": 1,
+        "hard": 2,
+        "sota": 1,
+        "total": 4
+      }
+    }
+  ]
+}
