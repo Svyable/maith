@@ -54,6 +54,8 @@ export function buildInitialState(): QuizState {
     isFinished: false,
     currentQuestions: [],
     loading: true,
+    loadingProgress: null,
+    loadError: false,
     lastCheckResult: null,
     missedQuestions: [],
     skippedQuestions: [],

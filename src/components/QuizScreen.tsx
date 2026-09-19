@@ -263,13 +263,13 @@ export function QuizScreen({
           <div className="flex items-center gap-2">
             <button
               onClick={handleSkip}
-              className="flex-1 text-center text-sm text-muted-foreground hover:text-foreground transition-colors py-2"
+              className="min-h-11 flex-1 text-center text-sm text-muted-foreground hover:text-foreground transition-colors py-2"
             >
               {t('quiz.skip')}
             </button>
             <button
               onClick={onEndQuiz}
-              className="text-center text-sm text-destructive/70 hover:text-destructive transition-colors py-2 px-3 rounded-lg border border-destructive/20 hover:border-destructive/40"
+              className="min-h-11 text-center text-sm text-destructive/80 hover:text-destructive transition-colors py-2 px-3 rounded-lg border border-destructive/30 hover:border-destructive/50"
             >
               {t('quiz.endQuiz')}
             </button>

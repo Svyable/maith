@@ -14,30 +14,37 @@ import {
   type CheckResult,
 } from '@/domain/quiz';
 import { fetchQuestions, checkAnswer } from '@/domain/quiz/service';
-import type { Question } from '@/content/types';
+import { loadQuestionsForTopics } from '@/content/question-loaders';
+import type { QuestionLoadProgress } from '@/content/question-loaders';
 
 export type { PublicQuestion, CheckResult, QuizState } from '@/domain/quiz';
 
-let questionPoolPromise: Promise<Question[]> | undefined;
-
-function loadQuestionPool(): Promise<Question[]> {
-  questionPoolPromise ??= import('@/content').then(({ allQuestions }) => allQuestions);
-  return questionPoolPromise;
-}
-
 export function useQuiz(selectedTopics: string[] = [], difficulties: Difficulty[] = ['HARD']) {
   const [state, setState] = useState<QuizState>(() => buildInitialState());
-  const questionPoolRef = useRef<Question[]>([]);
+  const questionPoolRef = useRef<import('@/content/types').Question[]>([]);
+  const requestIdRef = useRef(0);
 
   const currentQuestion: PublicQuestion | null =
     state.currentQuestions[state.currentIndex] ?? null;
 
   const initQuiz = useCallback(async (topics: string[], diffs: Difficulty[]) => {
+    const requestId = ++requestIdRef.current;
     setState(buildInitialState());
-    const pool = await loadQuestionPool();
-    questionPoolRef.current = pool;
-    const questions = fetchQuestions(pool, topics, diffs.map(toQuestionDifficulty), DEFAULT_QUIZ_CAP);
-    setState((prev) => ({ ...prev, currentQuestions: questions, loading: false }));
+    try {
+      const handleProgress = (loadingProgress: QuestionLoadProgress) => {
+        if (requestId === requestIdRef.current) {
+          setState((prev) => ({ ...prev, loadingProgress }));
+        }
+      };
+      const pool = await loadQuestionsForTopics(topics, handleProgress);
+      if (requestId !== requestIdRef.current) return;
+      questionPoolRef.current = pool;
+      const questions = fetchQuestions(pool, topics, diffs.map(toQuestionDifficulty), DEFAULT_QUIZ_CAP);
+      setState((prev) => ({ ...prev, currentQuestions: questions, loading: false, loadingProgress: null }));
+    } catch {
+      if (requestId !== requestIdRef.current) return;
+      setState((prev) => ({ ...prev, loading: false, loadingProgress: null, loadError: true }));
+    }
   }, []);
 
   const answer = useCallback(

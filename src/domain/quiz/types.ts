@@ -54,6 +54,8 @@ export interface QuizState {
   isFinished: boolean;
   currentQuestions: PublicQuestion[];
   loading: boolean;
+  loadingProgress: { loaded: number; total: number } | null;
+  loadError: boolean;
   lastCheckResult: CheckResult | null;
   missedQuestions: MissedQuestion[];
   skippedQuestions: SkippedQuestion[];
