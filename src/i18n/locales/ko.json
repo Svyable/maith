@@ -41,6 +41,7 @@
   "difficulty.pts": "+{{pts}}점",
   "quiz.question": "Q {{current}}/{{total}}",
   "quiz.points": "{{score}}점",
+  "quiz.pointsAwarded": "+{{points}}점",
   "quiz.skip": "건너뛰기 →",
   "quiz.streak": "🔥 {{count}}연속!",
   "quiz.checking": "확인 중...",
