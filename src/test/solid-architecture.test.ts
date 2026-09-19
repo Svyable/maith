@@ -11,11 +11,27 @@ function sourceFiles(root: string): string[] {
   });
 }
 
+const SUPABASE_HOOK_EXEMPTIONS = new Set([
+  'useAuth.ts',
+  'useProfile.ts',
+  'useThinkerAchievements.ts',
+]);
+
 describe('SOLID architecture boundaries', () => {
   it('keeps page components independent of Supabase adapters', () => {
     const pagesDir = resolve(process.cwd(), 'src/pages');
     const offenders = sourceFiles(pagesDir)
       .filter((path) => readFileSync(path, 'utf8').includes('@/integrations/supabase'))
+      .map((path) => path.replace(process.cwd() + '/', ''));
+
+    expect(offenders).toEqual([]);
+  });
+
+  it('prevents new hooks from coupling directly to the Supabase client', () => {
+    const hooksDir = resolve(process.cwd(), 'src/hooks');
+    const offenders = sourceFiles(hooksDir)
+      .filter((path) => readFileSync(path, 'utf8').includes('@/integrations/supabase/client'))
+      .filter((path) => !SUPABASE_HOOK_EXEMPTIONS.has(path.split('/').pop() ?? ''))
       .map((path) => path.replace(process.cwd() + '/', ''));
 
     expect(offenders).toEqual([]);
