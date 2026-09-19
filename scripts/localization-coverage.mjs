@@ -2,6 +2,7 @@ import { readFileSync, readdirSync } from 'node:fs';
 
 export const LOCALES_DIRECTORY = new URL('../src/i18n/locales/', import.meta.url);
 export const QUESTION_DIRECTORY = new URL('../src/i18n/locales/questions/', import.meta.url);
+export const COVERAGE_BASELINE_URL = new URL('./localization-baseline.json', import.meta.url);
 const CONTENT_DIRECTORY = new URL('../src/content/', import.meta.url);
 
 export const QUESTION_FIELDS = [
@@ -15,12 +16,26 @@ export const QUESTION_FIELDS = [
   'hint',
 ];
 
+export const LOCALIZATION_BASELINE = JSON.parse(
+  readFileSync(COVERAGE_BASELINE_URL, 'utf8'),
+);
+
+const {
+  coreQuestionStart,
+  coreQuestionEnd,
+  additionalQuestionIds,
+} = LOCALIZATION_BASELINE.sharedFoundation;
+
 export const FOUNDATION_QUESTION_IDS = [
-  ...Array.from({ length: 22 }, (_, index) => String(index + 1)),
-  '82100',
-  '82101',
-  '82102',
+  ...Array.from(
+    { length: coreQuestionEnd - coreQuestionStart + 1 },
+    (_, index) => String(coreQuestionStart + index),
+  ),
+  ...additionalQuestionIds.map(String),
 ];
+
+export const QUESTION_COVERAGE_FLOORS =
+  LOCALIZATION_BASELINE.minimumTranslatedQuestions;
 
 export function getCoreLocaleCodes() {
   return readdirSync(LOCALES_DIRECTORY)
@@ -91,9 +106,12 @@ export function buildQuestionCoverage(locale, sourceQuestionIndex = getSourceQue
     byTopic.set(topic, (byTopic.get(topic) || 0) + 1);
   }
 
+  const floor = QUESTION_COVERAGE_FLOORS[locale] ?? 0;
   return {
     locale,
     translated: inspection.complete.length,
+    floor,
+    deltaFromFloor: inspection.complete.length - floor,
     totalSource: sourceQuestionIndex.size,
     percent: sourceQuestionIndex.size
       ? (inspection.complete.length / sourceQuestionIndex.size) * 100
