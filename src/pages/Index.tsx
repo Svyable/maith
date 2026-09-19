@@ -1,8 +1,6 @@
 import { useState, useCallback, useEffect, useRef, lazy, Suspense } from 'react';
 import { AnimatePresence } from 'framer-motion';
-import { QuizHeader } from '@/components/QuizHeader';
-import { Footer } from '@/components/Footer';
-import { FloatingBackground } from '@/components/FloatingBackground';
+import { SiteShell } from '@/components/layout/SiteShell';
 import { HomeScreen } from '@/components/HomeScreen';
 import { useQuiz } from '@/hooks/useQuiz';
 import { useQuizSession } from '@/hooks/useQuizSession';
@@ -102,13 +100,7 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-background flex flex-col relative">
-      <FloatingBackground />
-      <QuizHeader
-        streak={state.streak}
-        showStreak={screen === 'quiz'}
-      />
-
+    <SiteShell streak={state.streak} showStreak={screen === 'quiz'} showFooter={screen === 'home'}>
       <main className="relative z-10 flex-1 px-4 py-6 max-w-lg md:max-w-3xl lg:max-w-5xl mx-auto w-full">
         <Suspense fallback={<div className="min-h-48" aria-hidden="true" />}>
         <AnimatePresence mode="wait">
@@ -199,8 +191,7 @@ const Index = () => {
         </Suspense>
       </main>
 
-      {screen === 'home' && <Footer />}
-    </div>
+    </SiteShell>
   );
 };
 
