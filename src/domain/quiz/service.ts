@@ -1,12 +1,11 @@
-// ── Quiz Service — I/O layer, zero React ──────────────────────────────
-// All server calls and local fallback logic live here.
-// Hooks remain thin React wrappers that call this layer.
+// ── Quiz question service — zero React, zero infrastructure ───────────
+// Question selection, translation, answer checking, and assists live here.
+// Session persistence is provided through the QuizSessionRepository port.
 
-import { supabase } from '@/integrations/supabase/client';
 import { tQuestion, tQuestionOptions } from '@/i18n/tQuestion';
 import { DEFAULT_QUIZ_CAP, type QuestionDifficulty } from '@/config/constants';
 import { fisherYatesShuffle, getSafeEliminationIndices, stripAnswers } from './engine';
-import type { PublicQuestion, CheckResult, SessionSubmitParams } from './types';
+import type { PublicQuestion, CheckResult } from './types';
 import type { Question } from '@/content/types';
 
 // ── Local helpers ────────────────────────────────────────────────────
