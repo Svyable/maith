@@ -13,7 +13,7 @@ export interface TopicMeta {
 export interface ContentTopicMeta extends TopicMeta {
   kind: ContentKind;
   available: boolean;
-  loaderGroups: readonly string[];
+  loaderGroups?: readonly string[];
   canonicalSlug?: string;
 }
 
@@ -185,14 +185,13 @@ export const STANDARD_TOPICS: ContentTopicMeta[] = LEGACY_TOPIC_DEFINITIONS.map(
   ...topic,
   kind: LEGACY_PROFESSIONAL_FIELDS.has(topic.field) ? 'bonafide' : 'standard-quiz',
   available: AVAILABLE_STANDARD_TOPIC_SLUGS.has(topic.slug),
-  loaderGroups: [],
   ...(LEGACY_ALIAS_TARGETS[topic.slug] ? { canonicalSlug: LEGACY_ALIAS_TARGETS[topic.slug] } : {}),
 }));
 
 // Question-bearing slugs retained in the standard pool but intentionally hidden from selectors.
 export const HIDDEN_STANDARD_TOPICS: ContentTopicMeta[] = [
-  { slug: 'engineering', label: 'Engineering', emoji: '⚙️', description: 'Cross-disciplinary engineering questions', field: 'engineering', kind: 'special', available: false, loaderGroups: ['vault'] },
-  { slug: 'string-theory', label: 'String Theory', emoji: '🧵', description: 'String theory and holographic physics', field: 'physics', kind: 'special', available: false, loaderGroups: ['vault'] },
+  { slug: 'engineering', label: 'Engineering', emoji: '⚙️', description: 'Cross-disciplinary engineering questions', field: 'engineering', kind: 'special', available: false },
+  { slug: 'string-theory', label: 'String Theory', emoji: '🧵', description: 'String theory and holographic physics', field: 'physics', kind: 'special', available: false },
 ];
 
 export const CONTENT_TOPICS: ContentTopicMeta[] = [...STANDARD_TOPICS, ...HIDDEN_STANDARD_TOPICS];
