@@ -7,7 +7,9 @@ import {
   APP_PATHS,
   DISCOVERY_NAV_ITEMS,
   FOOTER_NAV_ITEMS,
+  LEARN_ROUTE_PATTERNS,
   PRIMARY_NAV_ITEMS,
+  REFERENCE_ROUTE_PATTERNS,
   SITE_DESTINATIONS,
 } from '@/config/site-navigation';
 
@@ -18,20 +20,10 @@ const PAGE_SOURCES = Object.fromEntries(
     .map((file) => [file, readFileSync(resolve(PAGES_DIR, file), 'utf8')]),
 );
 
-const SITE_SHELL_PAGES = [
-  'Index.tsx',
-  'Auth.tsx',
-  'Bonafides.tsx',
-  'Formulas.tsx',
-  'FormulaDetail.tsx',
-  'Glossary.tsx',
-  'GlossaryDetail.tsx',
-  'Leaderboard.tsx',
-  'Profile.tsx',
-  'Thinkers.tsx',
-  'ThinkerDetail.tsx',
-  'Vault.tsx',
-] as const;
+const SITE_SHELL_EXEMPT_PAGES = new Set([
+  'NotFound.tsx',
+  'Onboarding.tsx',
+]);
 
 const HARDCODED_ROUTE_PATTERNS = [
   /\bnavigate\s*\(\s*['"`]\/(?!\/)/,
@@ -54,6 +46,23 @@ describe('site structure', () => {
     expect(new Set(paths).size).toBe(paths.length);
   });
 
+  it('keeps dynamic route patterns unique and rooted under canonical app paths', () => {
+    const patterns = [
+      ...Object.values(LEARN_ROUTE_PATTERNS),
+      ...Object.values(REFERENCE_ROUTE_PATTERNS),
+    ];
+
+    expect(new Set(patterns).size).toBe(patterns.length);
+
+    for (const pattern of patterns) {
+      const canonicalRoot = pattern.split('/:')[0];
+      expect(
+        registeredPaths.has(canonicalRoot as (typeof APP_PATHS)[keyof typeof APP_PATHS]),
+        `Dynamic route ${pattern} is not rooted under a canonical APP_PATHS entry`,
+      ).toBe(true);
+    }
+  });
+
   it('keeps top-level page navigation on APP_PATHS instead of route literals', () => {
     const offenders = Object.entries(PAGE_SOURCES)
       .filter(([, source]) => HARDCODED_ROUTE_PATTERNS.some((pattern) => pattern.test(source)))
@@ -62,12 +71,23 @@ describe('site structure', () => {
     expect(offenders).toEqual([]);
   });
 
-  it('keeps global page chrome behind the shared SiteShell boundary', () => {
-    const offenders = SITE_SHELL_PAGES.filter(
-      (file) => !PAGE_SOURCES[file]?.includes("@/components/layout/SiteShell"),
-    );
+  it('keeps every standard page behind SiteShell unless explicitly exempt', () => {
+    const offenders = Object.entries(PAGE_SOURCES)
+      .filter(([file]) => !SITE_SHELL_EXEMPT_PAGES.has(file))
+      .filter(([, source]) => !source.includes("@/components/layout/SiteShell"))
+      .map(([file]) => file);
 
     expect(offenders).toEqual([]);
+  });
+
+  it('keeps SiteShell exemptions explicit and shell-free', () => {
+    for (const file of SITE_SHELL_EXEMPT_PAGES) {
+      expect(PAGE_SOURCES[file], `Unknown SiteShell exemption: ${file}`).toBeDefined();
+      expect(
+        PAGE_SOURCES[file].includes("@/components/layout/SiteShell"),
+        `${file} now uses SiteShell and should be removed from the exemption list`,
+      ).toBe(false);
+    }
   });
 
   it('keeps field slugs unique', () => {
@@ -93,7 +113,10 @@ describe('site structure', () => {
     }
 
     for (const topic of STANDARD_TOPICS.filter((entry) => !entry.available)) {
-      expect(topicMembership.get(topic.slug), `Unavailable compatibility topic ${topic.slug} leaked into field selection`).toBeUndefined();
+      expect(
+        topicMembership.get(topic.slug),
+        `Unavailable compatibility topic ${topic.slug} leaked into field selection`,
+      ).toBeUndefined();
     }
   });
 
