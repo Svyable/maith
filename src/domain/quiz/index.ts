@@ -4,6 +4,7 @@ export {
   fisherYatesShuffle,
   getSafeEliminationIndices,
   getVisibleOptionIndex,
+  toVisibleCheckResult,
   reshufflePublicQuestion,
   stripAnswers,
   buildInitialState,
