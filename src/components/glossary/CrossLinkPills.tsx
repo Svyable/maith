@@ -1,4 +1,6 @@
 import { useNavigate } from 'react-router-dom';
+import { buildFormulaPath, buildGlossaryTermPath, buildThinkerPath } from '@/config/site-navigation';
+import { toSeoSlug } from '@/config/reference-utils';
 
 const GEEKTOME_BASE = 'https://geektome.lovable.app/letter';
 
@@ -96,7 +98,7 @@ export function CrossLinkPills({
           key={`formula-${f}`}
           emoji="📐"
           label={slugToLabel(f)}
-          onClick={() => navigate(`/formulas?q=${encodeURIComponent(f)}`)}
+          onClick={() => navigate(buildFormulaPath(toSeoSlug(f)))}
         />
       ))}
 
@@ -106,7 +108,7 @@ export function CrossLinkPills({
           key={`thinker-${t}`}
           emoji="🧠"
           label={slugToLabel(t)}
-          onClick={() => navigate(`/masterminds?q=${encodeURIComponent(t)}`)}
+          onClick={() => navigate(buildThinkerPath(t))}
         />
       ))}
 
@@ -116,7 +118,7 @@ export function CrossLinkPills({
           key={`gloss-${g}`}
           emoji="📖"
           label={slugToLabel(g)}
-          onClick={() => navigate(`/glossary?term=${encodeURIComponent(g)}`)}
+          onClick={() => navigate(buildGlossaryTermPath(g))}
         />
       ))}
     </div>
