@@ -4,12 +4,12 @@
 
 `src/config/content-registry.ts` and its tooling-only companion `content-registry-tooling.ts` form the lightweight canonical registry layer for quiz topics and content collections. It records each topic slug, presentation metadata, owning field, content kind, availability, loader group, and supported legacy alias. Full questions remain in `src/content/**`; the registry never duplicates question text.
 
-`src/config/fields.ts` owns field presentation and ordering. Its topic arrays are derived from the canonical registry. `src/config/bonafides.ts` owns credential presentation; its topic records are incorporated into the canonical registry. MasterMinds, Vault entries, glossary terms, formulas, and editorial quotes remain isolated in their existing feature registries and are declared as separate collection kinds.
+`src/config/fields.ts` owns standard-quiz field presentation and ordering. Its topic arrays are derived only from selectable canonical standard topics. `src/config/bonafides.ts` owns credential/course presentation; its canonical topic records are incorporated by the tooling registry and never appear in the standard field selector. Historical CFA/CPA/actuarial/MBA/law/medical/data-science topic records remain unavailable compatibility metadata only. MasterMinds, Vault entries, glossary terms, formulas, and editorial quotes remain isolated in their existing feature registries and are declared as separate collection kinds.
 
 ## Content kinds and boundaries
 
 - `standard-quiz`: the normal quiz pool and topic selectors.
-- `bonafide`: professional and course collections served only by `/bonafides`.
+- `bonafide`: professional and course collections served only by `/bonafides`; legacy professional slugs may remain addressable as unavailable compatibility metadata but are never standard topics.
 - `thinker`: MasterMinds questions served only by `/thinkers`.
 - `vault`: Vault entries and questions served by `/vault`.
 - `glossary`, `formula`, `editorial`: reference or editorial collections, never quiz packs.
@@ -44,7 +44,7 @@ Unavailable legacy or planned topics remain represented in the registry but are 
 - `bun run validate:content` checks IDs, topic registration, field/loader alignment, empty packs, aliases, special-pool boundaries, generated count drift, and inventory drift. Single-difficulty coverage is reported as a warning.
 - `bun run check:locales` validates locale keys and interpolation placeholders.
 
-`docs/content-inventory.json` is the machine-readable inventory. Every topic record includes its field, content kind, availability, loader group, and easy/hard/SOTA/total counts.
+`docs/content-inventory.json` is the machine-readable inventory. Every question-bearing topic record includes its field, content kind, availability, loader group, and easy/hard/SOTA/total counts. Validation also fails if an available standard field is empty, an available Bonafide topic has no questions, a professional compatibility field leaks into the standard selector, pack module metadata drifts, or the generated topic-to-loader mapping no longer matches source packs.
 
 ## Editorial quality
 
