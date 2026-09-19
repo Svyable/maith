@@ -9,6 +9,7 @@ import { useQuizSession } from '@/hooks/useQuizSession';
 import { useAuth } from '@/hooks/useAuth';
 import { useProfile } from '@/hooks/useProfile';
 import { type Difficulty, DEFAULT_DIFFICULTIES, TOPIC_MAP } from '@/config/constants';
+import { resolveTopicSlug } from '@/config/content-registry';
 import { QUIZ_FIELD_MAP } from '@/config/fields';
 import { resolveQuizTopics } from '@/domain/quiz';
 import { t } from '@/i18n';
@@ -28,7 +29,10 @@ const Index = () => {
   const [searchParams] = useSearchParams();
   const requestedTopic = searchParams.get('topic');
   const requestedField = searchParams.get('field');
-  const validRequestedTopic = requestedTopic && TOPIC_MAP[requestedTopic] ? requestedTopic : null;
+  const canonicalRequestedTopic = requestedTopic ? resolveTopicSlug(requestedTopic) : null;
+  const validRequestedTopic = canonicalRequestedTopic && TOPIC_MAP[canonicalRequestedTopic]
+    ? canonicalRequestedTopic
+    : null;
   const initialField = validRequestedTopic
     ? TOPIC_MAP[validRequestedTopic].field
     : isStandardField(requestedField)
