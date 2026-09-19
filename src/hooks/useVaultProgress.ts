@@ -18,6 +18,8 @@ import { browserVaultProgressStore } from '@/integrations/browser/vault-progress
 
 export { getClearanceLevel } from '@/domain/vault/progress';
 
+const VAULT_ENTRY_IDS = VAULT_ENTRIES.map((entry) => entry.id);
+
 /** Map each vault entry to its designated quiz question (by index). */
 function getQuestionForEntry(entryIndex: number): Question | null {
   return vaultQuestions[entryIndex] ?? null;
@@ -39,7 +41,7 @@ export function useVaultProgress(
     const localIds = localStore.load();
 
     if (!user) {
-      const merged = mergeUnlockedIds([], localIds, initialEntryId);
+      const merged = mergeUnlockedIds([], localIds, initialEntryId, VAULT_ENTRY_IDS);
       setUnlockedIds(new Set(merged));
       localStore.save(merged);
       setLoaded(true);
@@ -63,7 +65,7 @@ export function useVaultProgress(
         );
       }
 
-      const merged = mergeUnlockedIds(remoteIds, localIds, initialEntryId);
+      const merged = mergeUnlockedIds(remoteIds, localIds, initialEntryId, VAULT_ENTRY_IDS);
       const missingRemote = missingUnlockedIds(remoteIds, merged);
 
       if (missingRemote.length > 0) {
