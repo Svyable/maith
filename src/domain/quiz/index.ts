@@ -14,3 +14,5 @@ export {
   skipCurrentQuestion,
   endQuiz,
 } from './engine';
+
+export { resolveQuizTopics, countAvailableQuizQuestions, getQuizSetupStats } from './setup';
