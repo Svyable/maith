@@ -87,11 +87,27 @@ const FIELD_DEFINITIONS: FieldDefinition[] = [
     available: true,
   },
   {
+    slug: 'medical',
+    label: 'Medical',
+    emoji: '🩺',
+    description: 'Anatomy & physiology, pathology, and biostatistics',
+    color: 'success',
+    available: true,
+  },
+  {
     slug: 'cs',
     label: 'Computer Science',
     emoji: '💻',
     description: 'Algorithms, Machine Learning, Cryptography, AI Models, Quantum Computing, Cybersecurity',
     color: 'accent',
+    available: true,
+  },
+  {
+    slug: 'data-science',
+    label: 'Data Science',
+    emoji: '📊',
+    description: 'Data wrangling, visualization, and production MLOps',
+    color: 'primary',
     available: true,
   },
   {
@@ -126,7 +142,57 @@ const FIELD_DEFINITIONS: FieldDefinition[] = [
     color: 'destructive',
     available: true,
   },
+  {
+    slug: 'cfa',
+    label: 'CFA',
+    emoji: '📈',
+    description: 'Ethics, equity valuation, and portfolio management',
+    color: 'destructive',
+    available: true,
+  },
+  {
+    slug: 'cpa',
+    label: 'CPA',
+    emoji: '🧾',
+    description: 'Auditing, financial accounting, regulation, and tax',
+    color: 'primary',
+    available: true,
+  },
+  {
+    slug: 'actuarial',
+    label: 'Actuarial',
+    emoji: '🎲',
+    description: 'Probability, financial mathematics, and loss models',
+    color: 'accent',
+    available: true,
+  },
+  {
+    slug: 'mba',
+    label: 'MBA',
+    emoji: '💼',
+    description: 'Corporate strategy, marketing analytics, and operations management',
+    color: 'primary',
+    available: true,
+  },
+  {
+    slug: 'law',
+    label: 'Law',
+    emoji: '⚖️',
+    description: 'Contract law, intellectual property, and regulatory compliance',
+    color: 'accent',
+    available: true,
+  },
 ];
+
+const DEFINED_FIELD_SLUGS = new Set(FIELD_DEFINITIONS.map((field) => field.slug));
+
+export const UNMAPPED_STANDARD_FIELDS = Array.from(
+  new Set(
+    STANDARD_TOPICS
+      .map((topic) => topic.field)
+      .filter((field) => !DEFINED_FIELD_SLUGS.has(field)),
+  ),
+);
 
 export const FIELDS: FieldMeta[] = FIELD_DEFINITIONS.map((field) => ({
   ...field,
