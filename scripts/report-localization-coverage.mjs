@@ -9,11 +9,14 @@ const locales = getCoreLocaleCodes().filter((locale) => locale !== 'en');
 const coverage = locales.map((locale) => buildQuestionCoverage(locale, sourceQuestionIndex));
 
 console.log('Question localization coverage');
-console.log('locale | translated | source | coverage');
-console.log('-------|------------|--------|---------');
+console.log('locale | translated | floor | delta | source | coverage');
+console.log('-------|------------|-------|-------|--------|---------');
 for (const item of coverage) {
+  const delta = item.deltaFromFloor >= 0
+    ? `+${item.deltaFromFloor}`
+    : String(item.deltaFromFloor);
   console.log(
-    `${item.locale.padEnd(6)} | ${String(item.translated).padStart(10)} | ${String(item.totalSource).padStart(6)} | ${item.percent.toFixed(1).padStart(7)}%`,
+    `${item.locale.padEnd(6)} | ${String(item.translated).padStart(10)} | ${String(item.floor).padStart(5)} | ${delta.padStart(5)} | ${String(item.totalSource).padStart(6)} | ${item.percent.toFixed(1).padStart(7)}%`,
   );
 }
 
@@ -41,6 +44,10 @@ const incomplete = coverage.flatMap((item) =>
 const unknown = coverage.flatMap((item) =>
   item.unknown.map((id) => `${item.locale}:q.${id}`),
 );
+const regressions = coverage
+  .filter((item) => item.deltaFromFloor < 0)
+  .map((item) => `${item.locale}:${item.translated}/${item.floor}`);
 
 if (incomplete.length) console.log(`\nIncomplete: ${incomplete.join(', ')}`);
 if (unknown.length) console.log(`\nUnknown IDs: ${unknown.join(', ')}`);
+if (regressions.length) console.log(`\nBelow baseline: ${regressions.join(', ')}`);
