@@ -7,6 +7,7 @@ import { lazy, Suspense } from "react";
 import { useProfile } from "@/hooks/useProfile";
 import { useAuth } from "@/hooks/useAuth";
 import { LocaleProvider } from "@/contexts/LocaleContext";
+import { APP_PATHS } from "@/config/site-navigation";
 import Index from "./pages/Index";
 
 const Auth = lazy(() => import("./pages/Auth"));
@@ -29,9 +30,13 @@ function OnboardingGuard({ children }: { children: React.ReactNode }) {
 
   if (authLoading || profileLoading) return <div className="min-h-screen bg-background" />;
 
-  // Redirect logged-in users who need onboarding (except if already on /onboarding or /auth)
-  if (user && needsOnboarding && location.pathname !== '/onboarding' && location.pathname !== '/auth') {
-    return <Navigate to="/onboarding" replace />;
+  if (
+    user
+    && needsOnboarding
+    && location.pathname !== APP_PATHS.onboarding
+    && location.pathname !== APP_PATHS.auth
+  ) {
+    return <Navigate to={APP_PATHS.onboarding} replace />;
   }
 
   return <>{children}</>;
@@ -40,30 +45,29 @@ function OnboardingGuard({ children }: { children: React.ReactNode }) {
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <LocaleProvider>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <Suspense fallback={<div className="min-h-screen bg-background" />}>
-          <OnboardingGuard>
-            <Routes>
-              <Route path="/" element={<Index />} />
-              <Route path="/auth" element={<Auth />} />
-              <Route path="/onboarding" element={<Onboarding />} />
-              <Route path="/profile" element={<Profile />} />
-              <Route path="/leaderboard" element={<Leaderboard />} />
-              <Route path="/thinkers" element={<Thinkers />} />
-              <Route path="/glossary" element={<Glossary />} />
-              <Route path="/formulas" element={<Formulas />} />
-              <Route path="/vault" element={<Vault />} />
-              <Route path="/bonafides" element={<Bonafides />} />
-              {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-          </OnboardingGuard>
-        </Suspense>
-      </BrowserRouter>
-    </TooltipProvider>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <Suspense fallback={<div className="min-h-screen bg-background" />}>
+            <OnboardingGuard>
+              <Routes>
+                <Route path={APP_PATHS.home} element={<Index />} />
+                <Route path={APP_PATHS.auth} element={<Auth />} />
+                <Route path={APP_PATHS.onboarding} element={<Onboarding />} />
+                <Route path={APP_PATHS.profile} element={<Profile />} />
+                <Route path={APP_PATHS.leaderboard} element={<Leaderboard />} />
+                <Route path={APP_PATHS.thinkers} element={<Thinkers />} />
+                <Route path={APP_PATHS.glossary} element={<Glossary />} />
+                <Route path={APP_PATHS.formulas} element={<Formulas />} />
+                <Route path={APP_PATHS.vault} element={<Vault />} />
+                <Route path={APP_PATHS.bonafides} element={<Bonafides />} />
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </OnboardingGuard>
+          </Suspense>
+        </BrowserRouter>
+      </TooltipProvider>
     </LocaleProvider>
   </QueryClientProvider>
 );
