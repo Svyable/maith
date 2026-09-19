@@ -41,7 +41,7 @@ export const hardQuestions: Question[] = [
     question: 'L\'Hôpital\'s rule applies when the limit has the form:',
     options: ['$\\infty - \\infty$', '$0/0$ or $\\infty/\\infty$', '$0 \\cdot \\infty$', '$1^\\infty$'],
     correctIndex: 1,
-    explanation: 'L\'Hôpital\'s rule: if $\\lim \\frac{f}{g}$ gives $0/0$ or $\\infty/\\infty$, then $\\lim \\frac{f}{g} = \\lim \\frac{f\'}{g\'}$.',
+    explanation: 'L\'Hôpital\'s rule applies to quotient limits with indeterminate form $0/0$ or $\\infty/\\infty$ when the numerator and denominator are differentiable near the limit point, the denominator derivative is nonzero there, and the derivative quotient has a limit (possibly infinite). Under those conditions, $\\lim \\frac{f}{g} = \\lim \\frac{f\'}{g\'}$.',
     realWorld: 'Used to analyze convergence rates of loss functions and regularization terms.',
     hint: 'When both numerator and denominator go to the same extreme, differentiate them both.',
   },
