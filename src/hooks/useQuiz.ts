@@ -14,7 +14,6 @@ import {
   type CheckResult,
 } from '@/domain/quiz';
 import { fetchQuestions, checkAnswer } from '@/domain/quiz/service';
-import { loadQuestionsForTopics } from '@/content/question-loaders';
 import type { QuestionLoadProgress } from '@/content/question-loaders';
 
 export type { PublicQuestion, CheckResult, QuizState } from '@/domain/quiz';
@@ -36,6 +35,7 @@ export function useQuiz(selectedTopics: string[] = [], difficulties: Difficulty[
           setState((prev) => ({ ...prev, loadingProgress }));
         }
       };
+      const { loadQuestionsForTopics } = await import('@/content/question-loaders');
       const pool = await loadQuestionsForTopics(topics, handleProgress);
       if (requestId !== requestIdRef.current) return;
       questionPoolRef.current = pool;
