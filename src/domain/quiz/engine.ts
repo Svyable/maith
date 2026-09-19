@@ -39,6 +39,52 @@ export function getSafeEliminationIndices(
   );
 }
 
+/** Resolve a canonical option index back to the currently visible position. */
+export function getVisibleOptionIndex(
+  originalIndex: number,
+  originalIndices: number[],
+): number {
+  return originalIndices.indexOf(originalIndex);
+}
+
+/** Convert a canonical answer-check result for review against visible options. */
+export function toVisibleCheckResult(
+  result: CheckResult,
+  originalIndices: number[],
+): CheckResult {
+  return {
+    ...result,
+    correctIndex: getVisibleOptionIndex(result.correctIndex, originalIndices),
+  };
+}
+
+/**
+ * Re-shuffle a public question without needing access to its private answer.
+ * The originalIndices map lets us reconstruct canonical option order first.
+ */
+export function reshufflePublicQuestion(question: PublicQuestion): PublicQuestion {
+  const optionCount = question.options.length;
+  const expectedIndices = Array.from({ length: optionCount }, (_, index) => index);
+  const validMapping =
+    question.originalIndices.length === optionCount &&
+    new Set(question.originalIndices).size === optionCount &&
+    question.originalIndices.every((index) => expectedIndices.includes(index));
+
+  if (!validMapping) return question;
+
+  const canonicalOptions = new Array<string>(optionCount);
+  question.originalIndices.forEach((originalIndex, visibleIndex) => {
+    canonicalOptions[originalIndex] = question.options[visibleIndex];
+  });
+
+  const nextOriginalIndices = fisherYatesShuffle(expectedIndices);
+  return {
+    ...question,
+    originalIndices: nextOriginalIndices,
+    options: nextOriginalIndices.map((originalIndex) => canonicalOptions[originalIndex]),
+  };
+}
+
 /**
  * Strip private fields from a full Question, producing a PublicQuestion
  * safe to expose to the client without leaking the correct answer.
@@ -152,6 +198,30 @@ export function skipCurrentQuestion(prev: QuizState): QuizState {
     : prev.skippedQuestions;
   const next: QuizState = { ...prev, streak: 0, skippedQuestions };
   return advanceQuestion(next);
+}
+
+/**
+ * Start a focused practice round using every wrong or skipped question once.
+ * Session scoring/progress is reset, while the already-loaded source pool remains
+ * available to the hook for answer checking.
+ */
+export function buildRemediationState(prev: QuizState): QuizState {
+  const unresolved = [
+    ...prev.missedQuestions.map(({ question }) => question),
+    ...prev.skippedQuestions.map(({ question }) => question),
+  ];
+
+  const uniqueQuestions = Array.from(
+    new Map(unresolved.map((question) => [question.id, question])).values(),
+  );
+
+  if (uniqueQuestions.length === 0) return prev;
+
+  return {
+    ...buildInitialState(),
+    currentQuestions: fisherYatesShuffle(uniqueQuestions).map(reshufflePublicQuestion),
+    loading: false,
+  };
 }
 
 /** End the quiz immediately */
