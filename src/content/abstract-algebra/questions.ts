@@ -28,7 +28,7 @@ export const abstractAlgebraQuestions: Question[] = [
     topic: 'abstract-algebra',
     difficulty: 'easy',
     question: 'A ring differs from a group by having:',
-    options: ['A second operation linked to the first by distributive laws', 'A commutative multiplication operation in every case', 'An inverse under multiplication for every nonzero element', 'A finite number of elements by definition'],
+    options: ['Two operations linked by distributive laws', 'A commutative multiplication operation in every case', 'An inverse under multiplication for every nonzero element', 'A finite number of elements by definition'],
     correctIndex: 0,
     explanation: 'A ring $(R, +, \\cdot)$ has addition (forming an abelian group) and multiplication (associative with distribution over addition).',
     realWorld: 'Polynomial rings are the foundation of error-correcting codes (Reed-Solomon) used in QR codes and CDs.',
