@@ -13,6 +13,7 @@ import {
   SITE_DESTINATIONS,
 } from '@/config/site-navigation';
 
+const APP_SOURCE = readFileSync(resolve(process.cwd(), 'src/App.tsx'), 'utf8');
 const PAGES_DIR = resolve(process.cwd(), 'src/pages');
 const PAGE_SOURCES = Object.fromEntries(
   readdirSync(PAGES_DIR)
@@ -71,6 +72,39 @@ describe('site structure', () => {
         `Dynamic route ${pattern} is not rooted under a canonical APP_PATHS entry`,
       ).toBe(true);
     }
+  });
+
+  it('binds every canonical route registry entry in App.tsx', () => {
+    for (const key of Object.keys(APP_PATHS)) {
+      expect(
+        APP_SOURCE.includes(`path={APP_PATHS.${key}}`),
+        `APP_PATHS.${key} is registered but not mounted in App.tsx`,
+      ).toBe(true);
+    }
+
+    for (const key of Object.keys(LEARN_ROUTE_PATTERNS)) {
+      expect(
+        APP_SOURCE.includes(`path={LEARN_ROUTE_PATTERNS.${key}}`),
+        `LEARN_ROUTE_PATTERNS.${key} is registered but not mounted in App.tsx`,
+      ).toBe(true);
+    }
+
+    for (const key of Object.keys(REFERENCE_ROUTE_PATTERNS)) {
+      expect(
+        APP_SOURCE.includes(`path={REFERENCE_ROUTE_PATTERNS.${key}}`),
+        `REFERENCE_ROUTE_PATTERNS.${key} is registered but not mounted in App.tsx`,
+      ).toBe(true);
+    }
+
+    expect(APP_SOURCE.includes('<Route path="*"'), 'App.tsx is missing its wildcard NotFound route').toBe(true);
+  });
+
+  it('does not mount non-wildcard route string literals in App.tsx', () => {
+    const literalRoutes = [...APP_SOURCE.matchAll(/<Route\s+path=["']([^"']+)["']/g)]
+      .map((match) => match[1])
+      .filter((path) => path !== '*');
+
+    expect(literalRoutes).toEqual([]);
   });
 
   it('keeps top-level page navigation on APP_PATHS instead of route literals', () => {
