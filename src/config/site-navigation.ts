@@ -29,6 +29,12 @@ export const LEARN_ROUTE_PATTERNS = {
   topic: `${APP_PATHS.learn}/:fieldSlug/:topicSlug`,
 } as const;
 
+export const REFERENCE_ROUTE_PATTERNS = {
+  formula: `${APP_PATHS.formulas}/:formulaSlug`,
+  glossary: `${APP_PATHS.glossary}/:termId`,
+  thinker: `${APP_PATHS.thinkers}/:thinkerSlug`,
+} as const;
+
 export function buildLearnFieldPath(fieldSlug: string): string {
   return `${APP_PATHS.learn}/${encodeURIComponent(fieldSlug)}`;
 }
@@ -43,6 +49,18 @@ export function buildTopicQuizHref(topicSlug: string): string {
 
 export function buildFieldQuizHref(fieldSlug: string): string {
   return `${APP_PATHS.home}?field=${encodeURIComponent(fieldSlug)}${QUIZ_SETUP_HASH}`;
+}
+
+export function buildFormulaPath(formulaSlug: string): string {
+  return `${APP_PATHS.formulas}/${encodeURIComponent(formulaSlug)}`;
+}
+
+export function buildGlossaryTermPath(termId: string): string {
+  return `${APP_PATHS.glossary}/${encodeURIComponent(termId)}`;
+}
+
+export function buildThinkerPath(thinkerSlug: string): string {
+  return `${APP_PATHS.thinkers}/${encodeURIComponent(thinkerSlug)}`;
 }
 
 export const SITE_DESTINATIONS = {
