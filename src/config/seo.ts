@@ -204,9 +204,13 @@ export function getBreadcrumbsForPath(pathname: string): BreadcrumbItem[] {
   ];
 }
 
-export function buildRouteSchemaData(pathname: string, locale = 'en') {
+export function buildSeoSchemaData(
+  pathname: string,
+  seo: RouteSeo,
+  breadcrumbs: BreadcrumbItem[],
+  locale = 'en',
+) {
   const normalized = normalizeSeoPath(pathname);
-  const seo = getSeoForPath(normalized);
   if (!seo.indexable) return null;
 
   const canonical = canonicalUrl(normalized);
@@ -222,7 +226,6 @@ export function buildRouteSchemaData(pathname: string, locale = 'en') {
     },
   ];
 
-  const breadcrumbs = getBreadcrumbsForPath(normalized);
   if (breadcrumbs.length > 1) {
     graph.push({
       '@type': 'BreadcrumbList',
@@ -240,4 +243,10 @@ export function buildRouteSchemaData(pathname: string, locale = 'en') {
     '@context': 'https://schema.org',
     '@graph': graph,
   };
+}
+
+export function buildRouteSchemaData(pathname: string, locale = 'en') {
+  const normalized = normalizeSeoPath(pathname);
+  const seo = getSeoForPath(normalized);
+  return buildSeoSchemaData(normalized, seo, getBreadcrumbsForPath(normalized), locale);
 }
