@@ -17,6 +17,27 @@ export function fisherYatesShuffle<T>(arr: T[]): T[] {
 }
 
 /**
+ * Pick visible option indices that are guaranteed to be wrong.
+ * This powers 50/50 without exposing the correct answer to the UI.
+ */
+export function getSafeEliminationIndices(
+  correctIndex: number,
+  originalIndices: number[],
+  remainingChoices = 2,
+): number[] {
+  const wrongVisibleIndices = originalIndices
+    .map((originalIndex, visibleIndex) => ({ originalIndex, visibleIndex }))
+    .filter(({ originalIndex }) => originalIndex !== correctIndex)
+    .map(({ visibleIndex }) => visibleIndex);
+
+  const eliminateCount = Math.max(0, originalIndices.length - remainingChoices);
+  return fisherYatesShuffle(wrongVisibleIndices).slice(
+    0,
+    Math.min(eliminateCount, wrongVisibleIndices.length),
+  );
+}
+
+/**
  * Strip private fields from a full Question, producing a PublicQuestion
  * safe to expose to the client without leaking the correct answer.
  */
