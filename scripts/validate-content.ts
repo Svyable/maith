@@ -61,9 +61,18 @@ for (const topic of BONAFIDE_TOPICS.filter((entry) => entry.available)) {
 }
 
 for (const [alias, target] of Object.entries(LEGACY_TOPIC_ALIASES)) {
-  if (!topicMap.has(alias)) fail(`Legacy alias is not registered: ${alias}`);
-  if (!topicMap.has(target)) fail(`Legacy alias ${alias} targets unknown topic ${target}`);
+  const aliasMeta = topicMap.get(alias);
+  const targetMeta = topicMap.get(target);
+  if (!aliasMeta) fail(`Legacy alias is not registered: ${alias}`);
+  if (!targetMeta) fail(`Legacy alias ${alias} targets unknown topic ${target}`);
   if (alias === target) fail(`Legacy alias ${alias} targets itself`);
+  if (aliasMeta?.available) fail(`Legacy alias ${alias} must not remain selectable`);
+  if (targetMeta && (targetMeta.kind !== 'standard-quiz' || !targetMeta.available)) {
+    fail(`Legacy alias ${alias} must target an available standard topic: ${target}`);
+  }
+  if (allQuestions.some((question) => question.topic === alias)) {
+    fail(`Legacy alias ${alias} still owns questions; migrate them to ${target}`);
+  }
 }
 
 const fieldMap = new Map(FIELDS.map((field) => [field.slug, field]));
