@@ -267,7 +267,7 @@ export const earthSpaceQuestions: Question[] = [
   {
     id: 70009, topic: "climate-science", difficulty: "sota",
     question: "What did IPCC AR6 conclude about the Atlantic Meridional Overturning Circulation (AMOC) during the 21st century?",
-    options: ["It is very likely to strengthen in every scenario","It has already permanently collapsed","Its future cannot be assessed at all","Likely weakening without an expected pre-2100 abrupt collapse"],
+    options: ["It is very likely to strengthen in every scenario","It has already permanently collapsed","Its future cannot be assessed at all","Likely weakening; abrupt pre-2100 collapse not expected"],
     correctIndex: 3,
     explanation: "AR6 assesses that the AMOC is very likely to weaken during the 21st century across considered scenarios, while an abrupt collapse before 2100 is not expected, though low-probability high-impact outcomes remain important.",
     realWorld: "AMOC changes influence regional sea level, heat transport, rainfall patterns, and marine ecosystems.",
@@ -279,7 +279,7 @@ export const earthSpaceQuestions: Question[] = [
   {
     id: 70027, topic: "climate-science", difficulty: "sota",
     question: "Modern detection-and-attribution studies distinguish human influence from natural variability primarily by:",
-    options: ["Observed fingerprints versus responses to different forcings","Assuming every warm year has the same cause","Using only one thermometer record","Ignoring volcanic and solar forcing"],
+    options: ["Observed fingerprints compared with forcing models","Assuming every warm year has the same cause","Using only one thermometer record","Ignoring volcanic and solar forcing"],
     correctIndex: 0,
     explanation: "Attribution combines observations, physical understanding, and climate-model experiments driven by greenhouse gases, aerosols, solar variability, volcanic forcing, and internal variability.",
     realWorld: "This fingerprint approach underpins the IPCC conclusion that human influence has unequivocally warmed the atmosphere, ocean, and land.",
