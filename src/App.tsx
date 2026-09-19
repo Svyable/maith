@@ -8,7 +8,7 @@ import { lazy, Suspense } from "react";
 import { useProfile } from "@/hooks/useProfile";
 import { useAuth } from "@/hooks/useAuth";
 import { LocaleProvider } from "@/contexts/LocaleContext";
-import { APP_PATHS } from "@/config/site-navigation";
+import { APP_PATHS, LEARN_ROUTE_PATTERNS } from "@/config/site-navigation";
 import Index from "./pages/Index";
 
 const Auth = lazy(() => import("./pages/Auth"));
@@ -19,6 +19,7 @@ const Glossary = lazy(() => import("./pages/Glossary"));
 const Formulas = lazy(() => import("./pages/Formulas"));
 const Vault = lazy(() => import("./pages/Vault"));
 const Bonafides = lazy(() => import("./pages/Bonafides"));
+const Learn = lazy(() => import("./pages/Learn"));
 const Onboarding = lazy(() => import("./pages/Onboarding"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
@@ -64,6 +65,9 @@ const App = () => (
                 <Route path={APP_PATHS.formulas} element={<Formulas />} />
                 <Route path={APP_PATHS.vault} element={<Vault />} />
                 <Route path={APP_PATHS.bonafides} element={<Bonafides />} />
+                <Route path={APP_PATHS.learn} element={<Learn />} />
+                <Route path={LEARN_ROUTE_PATTERNS.field} element={<Learn />} />
+                <Route path={LEARN_ROUTE_PATTERNS.topic} element={<Learn />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </OnboardingGuard>
