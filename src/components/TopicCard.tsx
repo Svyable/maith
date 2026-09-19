@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion';
-import { useMemo } from 'react';
 import type { TopicRecord } from '@/hooks/useTopics';
-import { allQuestions } from '@/content';
+import { QUESTION_COUNTS } from '@/config/content-stats';
 import { tTopic } from '@/i18n/tTopics';
 
 interface TopicCardProps {
@@ -11,14 +10,7 @@ interface TopicCardProps {
 }
 
 export function TopicCard({ topic, isSelected, onToggle }: TopicCardProps) {
-  const counts = useMemo(() => {
-    const topicQs = allQuestions.filter((q) => q.topic === topic.slug);
-    return {
-      easy: topicQs.filter((q) => q.difficulty === 'easy').length,
-      hard: topicQs.filter((q) => q.difficulty === 'hard').length,
-      sota: topicQs.filter((q) => q.difficulty === 'sota').length,
-    };
-  }, [topic.slug]);
+  const counts = QUESTION_COUNTS[topic.slug as keyof typeof QUESTION_COUNTS] ?? { easy: 0, hard: 0, sota: 0, total: 0 };
 
   const total = counts.easy + counts.hard + counts.sota;
 

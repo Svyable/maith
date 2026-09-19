@@ -3,7 +3,6 @@
 // Hooks remain thin React wrappers that call this layer.
 
 import { supabase } from '@/integrations/supabase/client';
-import { allThinkerQuestions } from '@/content/thinkers';
 import { tQuestion, tQuestionOptions } from '@/i18n/tQuestion';
 import { DEFAULT_QUIZ_CAP, type QuestionDifficulty } from '@/config/constants';
 import { fisherYatesShuffle, stripAnswers } from './engine';
@@ -99,56 +98,3 @@ export async function submitSession(
   });
 }
 
-// ── Thinker-mode helpers (uses thinker pool instead of main pool) ────
-
-export function fetchThinkerQuestions(
-  slug: string,
-  difficulties: QuestionDifficulty[],
-  cap: number = DEFAULT_QUIZ_CAP,
-): PublicQuestion[] {
-  let pool = allThinkerQuestions.filter((q) => q.topic === slug);
-
-  if (difficulties.length > 0 && difficulties.length < 3) {
-    pool = pool.filter((q) => difficulties.includes(q.difficulty));
-  }
-
-  return fisherYatesShuffle(pool)
-    .slice(0, cap)
-    .map(stripAnswers);
-}
-
-export function checkThinkerAnswer(
-  questionId: number,
-  selectedIndex: number,
-): CheckResult | null {
-  return localFallbackCheck(questionId, selectedIndex, allThinkerQuestions);
-}
-
-// ── Bonafide-mode helpers (uses bonafide pool) ──────────────────────
-
-import { allBonafideQuestions } from '@/content/bonafides';
-
-export function fetchBonafideQuestions(
-  topics: string[],
-  difficulties: QuestionDifficulty[],
-  cap: number = DEFAULT_QUIZ_CAP,
-): PublicQuestion[] {
-  let pool = topics.length === 0
-    ? allBonafideQuestions
-    : allBonafideQuestions.filter((q) => topics.includes(q.topic));
-
-  if (difficulties.length > 0 && difficulties.length < 3) {
-    pool = pool.filter((q) => difficulties.includes(q.difficulty));
-  }
-
-  return fisherYatesShuffle(pool)
-    .slice(0, cap)
-    .map(stripAnswers);
-}
-
-export function checkBonafideAnswer(
-  questionId: number,
-  selectedIndex: number,
-): CheckResult | null {
-  return localFallbackCheck(questionId, selectedIndex, allBonafideQuestions);
-}

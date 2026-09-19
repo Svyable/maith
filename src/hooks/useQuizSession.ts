@@ -6,7 +6,7 @@ import { useState, useCallback, useEffect, useRef } from 'react';
 import confetti from 'canvas-confetti';
 import { useTimer } from '@/hooks/useTimer';
 import { useAuth } from '@/hooks/useAuth';
-import { submitSession } from '@/domain/quiz';
+import { submitSession } from '@/domain/quiz/service';
 import {
   highestDifficulty,
   CONTENT_VERSION,

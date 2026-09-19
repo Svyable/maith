@@ -11,7 +11,8 @@
     "preview": "vite preview",
     "test": "vitest run",
     "test:watch": "vitest",
-    "check:locales": "node scripts/check-locales.mjs"
+    "check:locales": "node scripts/check-locales.mjs",
+    "generate:content-stats": "bun scripts/generate-content-stats.ts"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",

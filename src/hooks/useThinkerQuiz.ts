@@ -9,12 +9,11 @@ import {
   advanceQuestion,
   skipCurrentQuestion,
   endQuiz as endQuizEngine,
-  fetchThinkerQuestions,
-  checkThinkerAnswer,
   type QuizState,
   type PublicQuestion,
   type CheckResult,
 } from '@/domain/quiz';
+import { fetchThinkerQuestions, checkThinkerAnswer } from '@/domain/quiz/thinker-service';
 
 export type { PublicQuestion, CheckResult };
 
