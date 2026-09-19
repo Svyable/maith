@@ -8,7 +8,7 @@ import { lazy, Suspense } from "react";
 import { useProfile } from "@/hooks/useProfile";
 import { useAuth } from "@/hooks/useAuth";
 import { LocaleProvider } from "@/contexts/LocaleContext";
-import { APP_PATHS, LEARN_ROUTE_PATTERNS } from "@/config/site-navigation";
+import { APP_PATHS, LEARN_ROUTE_PATTERNS, REFERENCE_ROUTE_PATTERNS } from "@/config/site-navigation";
 import Index from "./pages/Index";
 
 const Auth = lazy(() => import("./pages/Auth"));
@@ -17,6 +17,9 @@ const Leaderboard = lazy(() => import("./pages/Leaderboard"));
 const Thinkers = lazy(() => import("./pages/Thinkers"));
 const Glossary = lazy(() => import("./pages/Glossary"));
 const Formulas = lazy(() => import("./pages/Formulas"));
+const FormulaDetail = lazy(() => import("./pages/FormulaDetail"));
+const GlossaryDetail = lazy(() => import("./pages/GlossaryDetail"));
+const ThinkerDetail = lazy(() => import("./pages/ThinkerDetail"));
 const Vault = lazy(() => import("./pages/Vault"));
 const Bonafides = lazy(() => import("./pages/Bonafides"));
 const Learn = lazy(() => import("./pages/Learn"));
@@ -61,8 +64,11 @@ const App = () => (
                 <Route path={APP_PATHS.profile} element={<Profile />} />
                 <Route path={APP_PATHS.leaderboard} element={<Leaderboard />} />
                 <Route path={APP_PATHS.thinkers} element={<Thinkers />} />
+                <Route path={REFERENCE_ROUTE_PATTERNS.thinker} element={<ThinkerDetail />} />
                 <Route path={APP_PATHS.glossary} element={<Glossary />} />
+                <Route path={REFERENCE_ROUTE_PATTERNS.glossary} element={<GlossaryDetail />} />
                 <Route path={APP_PATHS.formulas} element={<Formulas />} />
+                <Route path={REFERENCE_ROUTE_PATTERNS.formula} element={<FormulaDetail />} />
                 <Route path={APP_PATHS.vault} element={<Vault />} />
                 <Route path={APP_PATHS.bonafides} element={<Bonafides />} />
                 <Route path={APP_PATHS.learn} element={<Learn />} />
