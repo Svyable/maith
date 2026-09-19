@@ -26,6 +26,16 @@ Canonical standard-practice routes use:
 
 Topic and field pages are generated from the canonical content registry. Thin topic pages remain accessible but are excluded from indexing until their question coverage reaches the configured SEO quality floor.
 
+## Reference page hierarchy
+
+Canonical long-form reference routes use:
+
+- `/formulas/{formula-slug}` for individual equations with history, meaning, variables, and applications.
+- `/glossary/{term-id}` for individual technical terms with definitions, examples, notation, code, and cross-links when available.
+- `/thinkers/{thinker-slug}` for individual mathematician, scientist, engineer, economist, and AI-pioneer profiles.
+
+Reference detail pages are generated from the existing canonical formula, glossary, and thinker registries. Pages that do not meet the configured content-depth thresholds remain accessible but are excluded from search indexing.
+
 ## Content organization
 
 Quiz content is grouped by field, topic, and difficulty. Reference content is kept in dedicated collections rather than mixed into ordinary quiz taxonomy. Search query parameters on glossary and formula pages are filters; the canonical pages are the clean URLs listed above.
