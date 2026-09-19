@@ -73,7 +73,7 @@ export const chemistryQuestions: Question[] = [
   {
     id: 40013, topic: 'physical-chemistry', difficulty: 'hard',
     question: 'In the canonical ensemble, the probability of a microstate with energy $E_i$ is proportional to:',
-    options: ['$E_i/k_BT$', '$e^{-E_i/(k_BT)}$', '$e^{+E_i/(k_BT)}$', '$1/E_i^2$'],
+    options: ['$E_i/k_BT$', '$e^{-E_i/(k_BT)}$', '$e^{-k_BT/E_i}$', '$1 + E_i/(k_BT)$'],
     correctIndex: 1,
     explanation: 'A canonical ensemble assigns each microstate a Boltzmann weight $e^{-E_i/(k_BT)}$; dividing by the partition function normalizes these weights into probabilities.',
     realWorld: 'Boltzmann weighting connects molecular energy landscapes to measurable averages such as heat capacities, populations, and equilibrium observables.',
