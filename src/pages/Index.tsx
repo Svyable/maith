@@ -1,4 +1,5 @@
 import { useState, useCallback, useEffect, useRef, lazy, Suspense } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import { QuizHeader } from '@/components/QuizHeader';
 import { Footer } from '@/components/Footer';
@@ -9,7 +10,7 @@ import { useQuizSession } from '@/hooks/useQuizSession';
 
 import { useAuth } from '@/hooks/useAuth';
 import { useProfile } from '@/hooks/useProfile';
-import { type Difficulty, DEFAULT_DIFFICULTIES } from '@/config/constants';
+import { type Difficulty, DEFAULT_DIFFICULTIES, TOPIC_MAP } from '@/config/constants';
 import { FIELD_MAP } from '@/config/fields';
 import { t } from '@/i18n';
 import { Button } from '@/components/ui/button';
@@ -19,10 +20,25 @@ type Screen = 'home' | 'quiz' | 'results';
 const QuizScreen = lazy(() => import('@/components/QuizScreen').then((module) => ({ default: module.QuizScreen })));
 const QuizResults = lazy(() => import('@/components/QuizResults').then((module) => ({ default: module.QuizResults })));
 
+function isStandardField(slug: string | null): slug is string {
+  if (!slug) return false;
+  return Boolean(FIELD_MAP[slug]?.topics.some((topic) => TOPIC_MAP[topic]));
+}
+
 const Index = () => {
+  const [searchParams] = useSearchParams();
+  const requestedTopic = searchParams.get('topic');
+  const requestedField = searchParams.get('field');
+  const validRequestedTopic = requestedTopic && TOPIC_MAP[requestedTopic] ? requestedTopic : null;
+  const initialField = validRequestedTopic
+    ? TOPIC_MAP[validRequestedTopic].field
+    : isStandardField(requestedField)
+      ? requestedField
+      : 'all';
+
   const [screen, setScreen] = useState<Screen>('home');
-  const [selectedTopics, setSelectedTopics] = useState<string[]>([]);
-  const [selectedField, setSelectedField] = useState<string>('all');
+  const [selectedTopics, setSelectedTopics] = useState<string[]>(() => validRequestedTopic ? [validRequestedTopic] : []);
+  const [selectedField, setSelectedField] = useState<string>(initialField);
   const [selectedDifficulties, setSelectedDifficulties] = useState<Difficulty[]>(DEFAULT_DIFFICULTIES);
   
   const { user, signOut } = useAuth();
@@ -31,7 +47,6 @@ const Index = () => {
   const { state, currentQuestion, answer, eliminateOptions, nextQuestion, skipQuestion, endQuiz, restartQuiz, totalQuestions } =
     useQuiz(selectedTopics, selectedDifficulties);
 
-  // Ref to trigger timeout auto-answer from within QuizScreen
   const timeoutRef = useRef<(() => void) | null>(null);
 
   const handleTimeout = useCallback(() => {
@@ -55,8 +70,20 @@ const Index = () => {
     onTimeout: handleTimeout,
   });
 
+  useEffect(() => {
+    if (validRequestedTopic) {
+      setSelectedTopics([validRequestedTopic]);
+      setSelectedField(TOPIC_MAP[validRequestedTopic].field);
+      setScreen('home');
+      return;
+    }
 
-
+    if (isStandardField(requestedField)) {
+      setSelectedTopics([]);
+      setSelectedField(requestedField);
+      setScreen('home');
+    }
+  }, [validRequestedTopic, requestedField]);
 
   const handleNext = useCallback(() => {
     nextQuestion();
@@ -82,7 +109,7 @@ const Index = () => {
     const effectiveTopics = selectedTopics.length > 0
       ? selectedTopics
       : selectedField !== 'all'
-        ? (FIELD_MAP[selectedField]?.topics ?? [])
+        ? (FIELD_MAP[selectedField]?.topics.filter((topic) => TOPIC_MAP[topic]) ?? [])
         : [];
     resetSession();
     setScreen('quiz');
@@ -98,7 +125,7 @@ const Index = () => {
   const toggleDifficulty = useCallback((d: Difficulty) => {
     setSelectedDifficulties((prev) => {
       if (prev.includes(d)) {
-        if (prev.length <= 1) return prev; // Must keep at least one
+        if (prev.length <= 1) return prev;
         return prev.filter((x) => x !== d);
       }
       return [...prev, d];
