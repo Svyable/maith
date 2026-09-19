@@ -47,6 +47,17 @@ export function getVisibleOptionIndex(
   return originalIndices.indexOf(originalIndex);
 }
 
+/** Convert a canonical answer-check result for review against visible options. */
+export function toVisibleCheckResult(
+  result: CheckResult,
+  originalIndices: number[],
+): CheckResult {
+  return {
+    ...result,
+    correctIndex: getVisibleOptionIndex(result.correctIndex, originalIndices),
+  };
+}
+
 /**
  * Re-shuffle a public question without needing access to its private answer.
  * The originalIndices map lets us reconstruct canonical option order first.
