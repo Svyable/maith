@@ -3,7 +3,7 @@ import type { Question } from '../types';
 export const controlTheoryQuestions: Question[] = [
   // ── Easy ──────────────────────────────────────────────
   {
-    id: 180001, topic: 'control-theory', difficulty: 'easy',
+    id: 180001, topic: 'control-systems', difficulty: 'easy',
     question: 'A PID controller combines which three terms?',
     options: ['Proportional, Integral, Derivative', 'Power, Impedance, Damping', 'Phase, Inductance, Delay', 'Pressure, Inertia, Drag'],
     correctIndex: 0,
@@ -12,7 +12,7 @@ export const controlTheoryQuestions: Question[] = [
     hint: 'Each term addresses a different aspect of the error signal over time.',
   },
   {
-    id: 180002, topic: 'control-theory', difficulty: 'easy',
+    id: 180002, topic: 'control-systems', difficulty: 'easy',
     question: 'A system is "stable" in the BIBO sense if:',
     options: ['Every bounded input produces a bounded output', 'The output always decreases', 'There is no feedback', 'The gain is less than 1'],
     correctIndex: 0,
@@ -21,7 +21,7 @@ export const controlTheoryQuestions: Question[] = [
     hint: 'BIBO = Bounded Input, Bounded Output.',
   },
   {
-    id: 180003, topic: 'control-theory', difficulty: 'easy',
+    id: 180003, topic: 'control-systems', difficulty: 'easy',
     question: 'The transfer function $H(s)$ of a linear time-invariant system is defined as:',
     options: ['The Laplace transform of the output over the input: $H(s) = Y(s)/X(s)$', 'The Fourier transform of the impulse response', 'The ratio of input to output energy', 'The derivative of the step response'],
     correctIndex: 0,
@@ -31,7 +31,7 @@ export const controlTheoryQuestions: Question[] = [
   },
   // ── Hard ──────────────────────────────────────────────
   {
-    id: 180004, topic: 'control-theory', difficulty: 'hard',
+    id: 180004, topic: 'control-systems', difficulty: 'hard',
     question: 'The Nyquist stability criterion determines closed-loop stability by:',
     options: ['Counting encirclements of the $-1$ point by the open-loop frequency response', 'Checking if all poles are negative', 'Computing the step response overshoot', 'Measuring the DC gain'],
     correctIndex: 0,
@@ -40,7 +40,7 @@ export const controlTheoryQuestions: Question[] = [
     hint: 'It uses the argument principle from complex analysis applied to $L(j\\omega)$.',
   },
   {
-    id: 180005, topic: 'control-theory', difficulty: 'hard',
+    id: 180005, topic: 'control-systems', difficulty: 'hard',
     question: 'In state-space representation $\\dot{x} = Ax + Bu$, the system is controllable if:',
     options: ['The controllability matrix $[B, AB, A^2B, \\ldots, A^{n-1}B]$ has full rank', 'The matrix $A$ is invertible', 'All eigenvalues of $A$ are real', 'The system has more inputs than states'],
     correctIndex: 0,
@@ -49,7 +49,7 @@ export const controlTheoryQuestions: Question[] = [
     hint: 'Kalman\'s rank condition — can the input reach every state?',
   },
   {
-    id: 180006, topic: 'control-theory', difficulty: 'hard',
+    id: 180006, topic: 'control-systems', difficulty: 'hard',
     question: 'The Linear Quadratic Regulator (LQR) minimizes which cost function?',
     options: ['$J = \\int_0^\\infty (x^T Q x + u^T R u)\\,dt$', '$J = \\max |x(t)|$', '$J = \\sum |u_k|$', '$J = \\int |\\dot{x}|\\,dt$'],
     correctIndex: 0,
@@ -59,7 +59,7 @@ export const controlTheoryQuestions: Question[] = [
   },
   // ── SOTA ──────────────────────────────────────────────
   {
-    id: 180007, topic: 'control-theory', difficulty: 'sota',
+    id: 180007, topic: 'control-systems', difficulty: 'sota',
     question: 'Model Predictive Control (MPC) differs from LQR primarily by:',
     options: ['Solving a finite-horizon optimization online at each step with constraints', 'Using a fixed pre-computed gain matrix', 'Being limited to linear systems', 'Ignoring future predictions'],
     correctIndex: 0,
@@ -68,7 +68,7 @@ export const controlTheoryQuestions: Question[] = [
     hint: 'MPC = online optimization with a sliding prediction window.',
   },
   {
-    id: 180008, topic: 'control-theory', difficulty: 'sota',
+    id: 180008, topic: 'control-systems', difficulty: 'sota',
     question: 'The $\\mathcal{H}_\\infty$ control framework minimizes the worst-case gain from:',
     options: ['Disturbance to regulated output (the $\\infty$-norm of the transfer matrix)', 'Input to state energy', 'Tracking error variance', 'Steady-state error magnitude'],
     correctIndex: 0,
@@ -77,7 +77,7 @@ export const controlTheoryQuestions: Question[] = [
     hint: 'The $\\infty$ refers to the $L^\\infty$ norm — worst-case over all frequencies.',
   },
   {
-    id: 180009, topic: 'control-theory', difficulty: 'sota',
+    id: 180009, topic: 'control-systems', difficulty: 'sota',
     question: 'In reinforcement learning for control, the key advantage over classical MPC is:',
     options: ['No explicit dynamics model is required — it learns directly from interaction', 'It always finds the global optimum', 'It requires less computation', 'It guarantees stability'],
     correctIndex: 0,
