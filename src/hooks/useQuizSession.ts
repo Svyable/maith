@@ -7,7 +7,6 @@ import { useReducedMotion } from 'framer-motion';
 import confetti from 'canvas-confetti';
 import { useTimer } from '@/hooks/useTimer';
 import { useAuth } from '@/hooks/useAuth';
-import type { QuizSessionRepository } from '@/domain/quiz/session-repository';
 import { supabaseQuizSessionRepository } from '@/integrations/supabase/quiz-session-repository';
 import {
   highestDifficulty,
@@ -15,7 +14,7 @@ import {
   QUESTION_TIME_SECONDS,
   type Difficulty,
 } from '@/config/constants';
-import type { QuizState } from '@/domain/quiz';
+import type { QuizSessionRepository, QuizState } from '@/domain/quiz';
 
 interface UseQuizSessionOptions {
   difficulties: Difficulty[];
@@ -115,7 +114,7 @@ export function useQuizSession(
     }
     if (!quizState.isFinished) submittedRef.current = false;
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [quizState.isFinished, user]);
+  }, [quizState.isFinished, sessionRepository, user]);
 
   return {
     sessionCorrect,
