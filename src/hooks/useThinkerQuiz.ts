@@ -7,6 +7,7 @@ import {
   buildInitialState,
   applyAnswer,
   getVisibleOptionIndex,
+  toVisibleCheckResult,
   advanceQuestion,
   skipCurrentQuestion,
   endQuiz as endQuizEngine,
@@ -48,7 +49,8 @@ export function useThinkerQuiz(difficulties: Difficulty[] = ['HARD']) {
       const result = checkThinkerAnswer(currentQuestion.id, optionIndex);
       if (!result) return null;
       const visibleIndex = getVisibleOptionIndex(optionIndex, currentQuestion.originalIndices);
-      setState((prev) => applyAnswer(prev, result, currentQuestion, visibleIndex));
+      const reviewResult = toVisibleCheckResult(result, currentQuestion.originalIndices);
+      setState((prev) => applyAnswer(prev, reviewResult, currentQuestion, visibleIndex));
       return result;
     },
     [currentQuestion],
