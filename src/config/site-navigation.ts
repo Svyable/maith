@@ -3,7 +3,7 @@
 // ============================================================
 //
 // Keep paths and navigation metadata here so the router, header, footer,
-// and home discovery surface cannot silently drift apart.
+// home discovery surface, and SEO landing pages cannot silently drift apart.
 
 export const APP_PATHS = {
   home: '/',
@@ -16,12 +16,34 @@ export const APP_PATHS = {
   formulas: '/formulas',
   vault: '/vault',
   bonafides: '/bonafides',
+  learn: '/learn',
 } as const;
 
 export type AppRouteKey = keyof typeof APP_PATHS;
 export type AppPath = (typeof APP_PATHS)[AppRouteKey];
 
 export const QUIZ_SETUP_HASH = '#quiz-setup';
+
+export const LEARN_ROUTE_PATTERNS = {
+  field: `${APP_PATHS.learn}/:fieldSlug`,
+  topic: `${APP_PATHS.learn}/:fieldSlug/:topicSlug`,
+} as const;
+
+export function buildLearnFieldPath(fieldSlug: string): string {
+  return `${APP_PATHS.learn}/${encodeURIComponent(fieldSlug)}`;
+}
+
+export function buildLearnTopicPath(fieldSlug: string, topicSlug: string): string {
+  return `${buildLearnFieldPath(fieldSlug)}/${encodeURIComponent(topicSlug)}`;
+}
+
+export function buildTopicQuizHref(topicSlug: string): string {
+  return `${APP_PATHS.home}?topic=${encodeURIComponent(topicSlug)}${QUIZ_SETUP_HASH}`;
+}
+
+export function buildFieldQuizHref(fieldSlug: string): string {
+  return `${APP_PATHS.home}?field=${encodeURIComponent(fieldSlug)}${QUIZ_SETUP_HASH}`;
+}
 
 export const SITE_DESTINATIONS = {
   quiz: {
@@ -76,6 +98,11 @@ export const SITE_DESTINATIONS = {
     primaryLabelKey: 'nav.leaderboard',
     footerLabelKey: 'footer.leaderboard',
   },
+  learn: {
+    path: APP_PATHS.learn,
+    emoji: '🧭',
+    footerLabelKey: 'home.discover',
+  },
 } as const;
 
 export const PRIMARY_NAV_ITEMS = [
@@ -90,6 +117,7 @@ export const PRIMARY_NAV_ITEMS = [
 
 export const FOOTER_NAV_ITEMS = [
   { id: 'quiz', ...SITE_DESTINATIONS.quiz, labelKey: SITE_DESTINATIONS.quiz.footerLabelKey },
+  { id: 'learn', ...SITE_DESTINATIONS.learn, labelKey: SITE_DESTINATIONS.learn.footerLabelKey },
   { id: 'thinkers', ...SITE_DESTINATIONS.thinkers, labelKey: SITE_DESTINATIONS.thinkers.footerLabelKey },
   { id: 'formulas', ...SITE_DESTINATIONS.formulas, labelKey: SITE_DESTINATIONS.formulas.footerLabelKey },
   { id: 'bonafides', ...SITE_DESTINATIONS.bonafides, labelKey: SITE_DESTINATIONS.bonafides.footerLabelKey },
