@@ -1,6 +1,7 @@
 import { APP_PATHS } from './site-navigation';
 import {
   LEARNING_INDEXABLE_PAGES,
+  LEARNING_PAGES,
   getLearningPage,
 } from './learning-pages';
 
@@ -156,6 +157,14 @@ export const INDEXABLE_SEO_ROUTES: SeoRouteEntry[] = [
     .filter(([, seo]) => seo.indexable)
     .map(([path, seo]) => ({ path, seo })),
   ...LEARNING_INDEXABLE_PAGES.map((page) => ({
+    path: page.path,
+    seo: getSeoForPath(page.path),
+  })),
+];
+
+export const PRERENDER_SEO_ROUTES: SeoRouteEntry[] = [
+  ...Object.entries(ROUTE_SEO).map(([path, seo]) => ({ path, seo })),
+  ...LEARNING_PAGES.map((page) => ({
     path: page.path,
     seo: getSeoForPath(page.path),
   })),
