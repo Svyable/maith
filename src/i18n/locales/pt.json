@@ -3,7 +3,6 @@
   "app.tagline": "Resolva mAIth = Resolva tudo.",
   "app.footerTagline": "Resolva mAIth = Resolva tudo.",
   "app.copyright": "© {{year}} mAIth = resolver matemática == resolver tudo",
-
   "home.greeting": "Olá, {{name}} 👋",
   "home.selectDifficulty": "SELECIONAR DIFICULDADE",
   "home.selectTopics": "SELECIONAR DOMÍNIOS",
@@ -24,7 +23,6 @@
   "home.vault": "O Cofre",
   "home.vaultSub": "Segredos classificados — desclassificados, classificados e explorados",
   "home.searchTopics": "Buscar tópicos…",
-
   "stats.questions": "Perguntas",
   "stats.terms": "Termos",
   "stats.thinkers": "Pensadores",
@@ -32,7 +30,6 @@
   "stats.secrets": "Segredos",
   "stats.equations": "Equações",
   "stats.formulas": "Fórmulas",
-
   "difficulty.selectHint": "Selecione um ou mais níveis",
   "difficulty.easy": "FÁCIL",
   "difficulty.hard": "DIFÍCIL",
@@ -41,7 +38,6 @@
   "difficulty.hardDesc": "Competitivo — pontos duplos",
   "difficulty.sotaDesc": "Fronteira — recompensa máxima",
   "difficulty.pts": "+{{pts}}pts",
-
   "quiz.question": "P {{current}}/{{total}}",
   "quiz.points": "{{score}} pts",
   "quiz.skip": "Pular →",
@@ -60,7 +56,6 @@
   "quiz.keys": "Teclas: 1-4 resposta · H dica · S pular · Enter próxima",
   "quiz.score": "Pontuação",
   "quiz.endQuiz": "Encerrar Quiz",
-
   "results.title": "Quiz concluído!",
   "results.score": "Pontuação",
   "results.accuracy": "Precisão",
@@ -75,7 +70,6 @@
   "results.skipped": "Puladas",
   "results.reviewSkipped": "Revisar puladas ⏭️",
   "results.skippedTitle": "PERGUNTAS PULADAS",
-
   "profile.title": "Perfil",
   "profile.score": "Pontuação",
   "profile.answered": "Respondidas",
@@ -99,7 +93,6 @@
   "profile.levelGrandmaster": "Grão-Mestre",
   "profile.levelLegend": "Lenda",
   "profile.levelMythic": "Mítico",
-
   "leaderboard.title": "Classificação",
   "leaderboard.subtitle": "Compita, suba no ranking e ganhe XP",
   "leaderboard.allTime": "🌍 Todos os tempos",
@@ -121,7 +114,6 @@
   "leaderboard.levelGrandmaster": "Grão-Mestre",
   "leaderboard.levelLegend": "Lenda",
   "leaderboard.xpRequired": "{{min}}+",
-
   "auth.login": "Entrar",
   "auth.signup": "Cadastrar-se",
   "auth.welcome": "Bem-vindo de volta!",
@@ -131,14 +123,12 @@
   "auth.password": "Senha",
   "auth.createAccount": "Criar conta",
   "auth.checkEmail": "Verifique seu e-mail para confirmar sua conta!",
-
   "onboarding.title": "Escolha seu nome",
   "onboarding.subtitle": "É assim que você aparecerá na classificação",
   "onboarding.placeholder": "Digite o nome de exibição…",
   "onboarding.minChars": "Mín. 2 caracteres",
   "onboarding.nameError": "O nome deve ter entre 2 e 20 caracteres",
   "onboarding.save": "Salvar e continuar",
-
   "nav.home": "Início",
   "nav.quiz": "Quiz",
   "nav.masterMinds": "Mentes Mestras",
@@ -151,7 +141,6 @@
   "nav.darkMode": "Modo escuro",
   "nav.lightMode": "Modo claro",
   "nav.changeLanguage": "Alterar idioma",
-
   "heatmap.mastered": "Dominado",
   "heatmap.strong": "Forte",
   "heatmap.good": "Bom",
@@ -159,9 +148,7 @@
   "heatmap.weak": "Fraco",
   "heatmap.notStarted": "Não iniciado",
   "heatmap.legend": "fraco → forte",
-
   "language.title": "IDIOMA",
-
   "thinkers.backToHome": "← Voltar ao mAIth",
   "thinkers.galleryTitle": "Mentes Mestras",
   "thinkers.gallerySubtitle": "Escolha um pensador lendário. Domine seu campo. Prove que conhece os ombros sobre os quais você se apoia.",
@@ -169,7 +156,6 @@
   "thinkers.modernPioneers": "Pioneiros Modernos",
   "thinkers.contemporary": "Contemporâneo",
   "thinkers.prodigies": "Prodígios",
-
   "field.all": "Todos os campos",
   "field.math": "Matemática",
   "field.physics": "Física",
@@ -185,7 +171,6 @@
   "field.soon": "EM BREVE",
   "field.filterByField": "FILTRAR POR CAMPO",
   "field.exploreByEra": "EXPLORAR POR ERA",
-
   "vault.title": "O Cofre",
   "vault.subtitle": "Os maiores segredos classificados da humanidade — desbloqueie-os nível por nível.",
   "vault.declassifiedProgress": "{{count}}/{{total}} DESCLASSIFICADO",
@@ -217,7 +202,6 @@
   "vault.challengeSuccess": "DESCLASSIFICADO! Desbloqueando…",
   "vault.challengeFail": "ACESSO NEGADO — Resposta incorreta",
   "vault.tryAgain": "Tentar novamente",
-
   "formulas.title": "Fórmulas",
   "formulas.subtitle": "As maiores equações da humanidade — classificadas, marcadas e exploradas.",
   "formulas.count": "{{count}} equações em {{domains}} domínios",
@@ -237,7 +221,6 @@
   "formulas.noResults": "Nenhuma equação corresponde à sua busca.",
   "formulas.collapse": "▲ recolher",
   "formulas.tapToExplore": "▼ toque para explorar",
-
   "glossary.title": "Glossário",
   "glossary.subtitle": "Explore termos-chave em todos os campos. Toque em um cartão para revelar a definição.",
   "glossary.count": "{{terms}} termos · {{fields}} campos",
@@ -250,10 +233,8 @@
   "glossary.tabDefinition": "📖 Definição",
   "glossary.tabLatex": "𝕃 LaTeX",
   "glossary.tabCode": "⌨ Código",
-
   "nav.bonafides": "Bonafides",
   "nav.alphabet": "Alfabeto",
-
   "footer.quiz": "Quiz",
   "footer.masterMinds": "Mentes Mestras",
   "footer.formulas": "Fórmulas",
@@ -262,9 +243,20 @@
   "footer.glossary": "Glossário",
   "footer.leaderboard": "Classificação",
   "footer.alphabet": "Alfabeto",
-
   "home.bonafides": "Bonafides",
   "home.bonafidesSub": "Certificações profissionais e exames de credenciamento",
   "home.alphabet": "Alfabeto",
-  "home.alphabetSub": "Letras gregas, símbolos e notação — dominados"
+  "home.alphabetSub": "Letras gregas, símbolos e notação — dominados",
+  "home.discover": "Explore a biblioteca",
+  "home.discoverSub": "Aprofunde-se com pensadores, fórmulas, certificações e referências",
+  "profile.saveName": "Salvar nome",
+  "profile.cancelEdit": "Cancelar edição",
+  "profile.editName": "Editar nome de exibição",
+  "profile.appearance": "Aparência",
+  "leaderboard.today": "hoje",
+  "leaderboard.yesterday": "ontem",
+  "leaderboard.daysAgo": "há {{count}} d",
+  "leaderboard.monthsAgo": "há {{count}} meses",
+  "glossary.clearSearch": "Limpar busca",
+  "glossary.resetFilters": "Redefinir filtros"
 }

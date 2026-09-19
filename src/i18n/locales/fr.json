@@ -3,7 +3,6 @@
   "app.tagline": "Résous mAIth = Résous tout.",
   "app.footerTagline": "Résous mAIth = Résous tout.",
   "app.copyright": "© {{year}} mAIth = résoudre les maths == tout résoudre",
-
   "home.greeting": "Salut, {{name}} 👋",
   "home.selectDifficulty": "CHOISIR LA DIFFICULTÉ",
   "home.selectTopics": "SÉLECTIONNER LES DOMAINES",
@@ -24,7 +23,6 @@
   "home.vault": "Le Coffre",
   "home.vaultSub": "Secrets classifiés — déclassifiés, classés et explorés",
   "home.searchTopics": "Rechercher des thèmes…",
-
   "stats.questions": "Questions",
   "stats.terms": "Termes",
   "stats.thinkers": "Penseurs",
@@ -32,7 +30,6 @@
   "stats.secrets": "Secrets",
   "stats.equations": "Équations",
   "stats.formulas": "Formules",
-
   "difficulty.selectHint": "Sélectionnez un ou plusieurs niveaux",
   "difficulty.easy": "FACILE",
   "difficulty.hard": "DIFFICILE",
@@ -41,7 +38,6 @@
   "difficulty.hardDesc": "Compétitif — points doubles",
   "difficulty.sotaDesc": "Frontière — récompense max",
   "difficulty.pts": "+{{pts}}pts",
-
   "quiz.question": "Q {{current}}/{{total}}",
   "quiz.points": "{{score}} pts",
   "quiz.skip": "Passer →",
@@ -60,7 +56,6 @@
   "quiz.keys": "Touches : 1-4 réponse · H indice · S passer · Entrée suivante",
   "quiz.score": "Score",
   "quiz.endQuiz": "Terminer le Quiz",
-
   "results.title": "Quiz terminé !",
   "results.score": "Score",
   "results.accuracy": "Précision",
@@ -75,7 +70,6 @@
   "results.skipped": "Passées",
   "results.reviewSkipped": "Revoir les passées ⏭️",
   "results.skippedTitle": "QUESTIONS PASSÉES",
-
   "profile.title": "Profil",
   "profile.score": "Score",
   "profile.answered": "Répondues",
@@ -99,7 +93,6 @@
   "profile.levelGrandmaster": "Grand Maître",
   "profile.levelLegend": "Légende",
   "profile.levelMythic": "Mythique",
-
   "leaderboard.title": "Classement",
   "leaderboard.subtitle": "Affrontez les autres, grimpez dans le classement et gagnez de l’XP",
   "leaderboard.allTime": "🌍 Depuis toujours",
@@ -121,7 +114,6 @@
   "leaderboard.levelGrandmaster": "Grand Maître",
   "leaderboard.levelLegend": "Légende",
   "leaderboard.xpRequired": "{{min}}+",
-
   "auth.login": "Se connecter",
   "auth.signup": "S’inscrire",
   "auth.welcome": "Bon retour !",
@@ -131,14 +123,12 @@
   "auth.password": "Mot de passe",
   "auth.createAccount": "Créer un compte",
   "auth.checkEmail": "Vérifiez votre e-mail pour confirmer votre compte !",
-
   "onboarding.title": "Choisissez votre nom",
   "onboarding.subtitle": "C’est ainsi que vous apparaîtrez dans le classement",
   "onboarding.placeholder": "Entrez un nom d’affichage…",
   "onboarding.minChars": "Min. 2 caractères",
   "onboarding.nameError": "Le nom doit contenir entre 2 et 20 caractères",
   "onboarding.save": "Enregistrer et continuer",
-
   "nav.home": "Accueil",
   "nav.quiz": "Quiz",
   "nav.masterMinds": "Esprits Maîtres",
@@ -151,7 +141,6 @@
   "nav.darkMode": "Mode sombre",
   "nav.lightMode": "Mode clair",
   "nav.changeLanguage": "Changer de langue",
-
   "heatmap.mastered": "Maîtrisé",
   "heatmap.strong": "Fort",
   "heatmap.good": "Bon",
@@ -159,9 +148,7 @@
   "heatmap.weak": "Faible",
   "heatmap.notStarted": "Non commencé",
   "heatmap.legend": "faible → fort",
-
   "language.title": "LANGUE",
-
   "thinkers.backToHome": "← Retour à mAIth",
   "thinkers.galleryTitle": "Esprits Maîtres",
   "thinkers.gallerySubtitle": "Choisissez un penseur légendaire. Maîtrisez son domaine. Prouvez que vous connaissez les épaules sur lesquelles vous vous tenez.",
@@ -169,7 +156,6 @@
   "thinkers.modernPioneers": "Pionniers modernes",
   "thinkers.contemporary": "Contemporain",
   "thinkers.prodigies": "Prodiges",
-
   "field.all": "Tous les domaines",
   "field.math": "Mathématiques",
   "field.physics": "Physique",
@@ -185,7 +171,6 @@
   "field.soon": "BIENTÔT",
   "field.filterByField": "FILTRER PAR DOMAINE",
   "field.exploreByEra": "EXPLORER PAR ÈRE",
-
   "vault.title": "Le Coffre",
   "vault.subtitle": "Les plus grands secrets classifiés de l’humanité — débloquez-les niveau par niveau.",
   "vault.declassifiedProgress": "{{count}}/{{total}} DÉCLASSIFIÉ",
@@ -217,7 +202,6 @@
   "vault.challengeSuccess": "DÉCLASSIFIÉ ! Déverrouillage…",
   "vault.challengeFail": "ACCÈS REFUSÉ — Mauvaise réponse",
   "vault.tryAgain": "Réessayer",
-
   "formulas.title": "Formules",
   "formulas.subtitle": "Les plus grandes équations de l’humanité — classées, étiquetées et explorées.",
   "formulas.count": "{{count}} équations dans {{domains}} domaines",
@@ -237,7 +221,6 @@
   "formulas.noResults": "Aucune équation ne correspond à votre recherche.",
   "formulas.collapse": "▲ réduire",
   "formulas.tapToExplore": "▼ appuyer pour explorer",
-
   "glossary.title": "Glossaire",
   "glossary.subtitle": "Parcourez les termes clés de chaque domaine. Appuyez sur une carte pour afficher sa définition.",
   "glossary.count": "{{terms}} termes · {{fields}} domaines",
@@ -250,10 +233,8 @@
   "glossary.tabDefinition": "📖 Définition",
   "glossary.tabLatex": "𝕃 LaTeX",
   "glossary.tabCode": "⌨ Code",
-
   "nav.bonafides": "Bonafides",
   "nav.alphabet": "Alphabet",
-
   "footer.quiz": "Quiz",
   "footer.masterMinds": "Esprits Maîtres",
   "footer.formulas": "Formules",
@@ -262,9 +243,20 @@
   "footer.glossary": "Glossaire",
   "footer.leaderboard": "Classement",
   "footer.alphabet": "Alphabet",
-
   "home.bonafides": "Bonafides",
   "home.bonafidesSub": "Certifications professionnelles et examens d'accréditation",
   "home.alphabet": "Alphabet",
-  "home.alphabetSub": "Lettres grecques, symboles et notation — maîtrisés"
+  "home.alphabetSub": "Lettres grecques, symboles et notation — maîtrisés",
+  "home.discover": "Explorer la bibliothèque",
+  "home.discoverSub": "Approfondissez avec des penseurs, formules, diplômes et références",
+  "profile.saveName": "Enregistrer le nom",
+  "profile.cancelEdit": "Annuler la modification",
+  "profile.editName": "Modifier le nom affiché",
+  "profile.appearance": "Apparence",
+  "leaderboard.today": "aujourd’hui",
+  "leaderboard.yesterday": "hier",
+  "leaderboard.daysAgo": "il y a {{count}} j",
+  "leaderboard.monthsAgo": "il y a {{count}} mois",
+  "glossary.clearSearch": "Effacer la recherche",
+  "glossary.resetFilters": "Réinitialiser les filtres"
 }

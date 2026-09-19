@@ -3,7 +3,6 @@
   "app.tagline": "Solve mAIth = Solve everything.",
   "app.footerTagline": "Solve mAIth = Solve everything.",
   "app.copyright": "© {{year}} mAIth",
-
   "home.greeting": "Hey, {{name}} 👋",
   "home.selectDifficulty": "SELECT DIFFICULTY",
   "home.selectTopics": "SELECT DOMAINS",
@@ -24,7 +23,6 @@
   "home.vault": "The Vault",
   "home.vaultSub": "Classified secrets — declassified, ranked & explored",
   "home.searchTopics": "Search topics…",
-
   "stats.questions": "Questions",
   "stats.terms": "Terms",
   "stats.thinkers": "Thinkers",
@@ -32,7 +30,6 @@
   "stats.secrets": "Secrets",
   "stats.equations": "Equations",
   "stats.formulas": "Formulas",
-
   "difficulty.selectHint": "Select one or more levels",
   "difficulty.easy": "EASY",
   "difficulty.hard": "HARD",
@@ -41,7 +38,6 @@
   "difficulty.hardDesc": "Competitive — double points",
   "difficulty.sotaDesc": "Frontier — max reward",
   "difficulty.pts": "+{{pts}}pts",
-
   "quiz.question": "Q {{current}}/{{total}}",
   "quiz.points": "{{score}} pts",
   "quiz.skip": "Skip →",
@@ -60,7 +56,6 @@
   "quiz.keys": "Keys: 1-4 answer · H hint · S skip · Enter next",
   "quiz.score": "Score",
   "quiz.endQuiz": "End Test",
-
   "results.title": "Test Complete!",
   "results.score": "Score",
   "results.accuracy": "Accuracy",
@@ -75,7 +70,6 @@
   "results.skipped": "Skipped",
   "results.reviewSkipped": "Review Skipped ⏭️",
   "results.skippedTitle": "SKIPPED QUESTIONS",
-
   "profile.title": "Profile",
   "profile.score": "Score",
   "profile.answered": "Answered",
@@ -99,7 +93,6 @@
   "profile.levelGrandmaster": "Grandmaster",
   "profile.levelLegend": "Legend",
   "profile.levelMythic": "Mythic",
-
   "leaderboard.title": "Leaderboard",
   "leaderboard.subtitle": "Compete, climb ranks, and earn XP",
   "leaderboard.allTime": "🌍 All Time",
@@ -121,7 +114,6 @@
   "leaderboard.levelGrandmaster": "Grandmaster",
   "leaderboard.levelLegend": "Legend",
   "leaderboard.xpRequired": "{{min}}+",
-
   "auth.login": "Log In",
   "auth.signup": "Sign Up",
   "auth.welcome": "Welcome back!",
@@ -131,14 +123,12 @@
   "auth.password": "Password",
   "auth.createAccount": "Create Account",
   "auth.checkEmail": "Check your email to confirm your account!",
-
   "onboarding.title": "Choose your name",
   "onboarding.subtitle": "This is how you'll appear on the leaderboard",
   "onboarding.placeholder": "Enter display name…",
   "onboarding.minChars": "Min 2 characters",
   "onboarding.nameError": "Name must be 2–20 characters",
   "onboarding.save": "Save & Continue",
-
   "nav.home": "Home",
   "nav.quiz": "Test Time",
   "nav.masterMinds": "Master Minds",
@@ -151,7 +141,6 @@
   "nav.darkMode": "Dark mode",
   "nav.lightMode": "Light mode",
   "nav.changeLanguage": "Change language",
-
   "heatmap.mastered": "Mastered",
   "heatmap.strong": "Strong",
   "heatmap.good": "Good",
@@ -159,9 +148,7 @@
   "heatmap.weak": "Weak",
   "heatmap.notStarted": "Not started",
   "heatmap.legend": "weak → strong",
-
   "language.title": "LANGUAGE",
-
   "thinkers.backToHome": "← Back to mAIth",
   "thinkers.galleryTitle": "Master Minds",
   "thinkers.gallerySubtitle": "Choose a legendary thinker. Master their domain. Prove you know the shoulders you stand on.",
@@ -169,7 +156,6 @@
   "thinkers.modernPioneers": "Modern Pioneers",
   "thinkers.contemporary": "Contemporary",
   "thinkers.prodigies": "Prodigies",
-
   "field.all": "All Fields",
   "field.math": "Mathematics",
   "field.physics": "Physics",
@@ -185,7 +171,6 @@
   "field.soon": "SOON",
   "field.filterByField": "FILTER BY FIELD",
   "field.exploreByEra": "EXPLORE BY ERA",
-
   "vault.title": "The Vault",
   "vault.subtitle": "Humanity's greatest classified secrets — unlock them level by level.",
   "vault.declassifiedProgress": "{{count}}/{{total}} DECLASSIFIED",
@@ -217,7 +202,6 @@
   "vault.challengeSuccess": "DECLASSIFIED! Unlocking…",
   "vault.challengeFail": "ACCESS DENIED — Wrong answer",
   "vault.tryAgain": "Try Again",
-
   "formulas.title": "Formulas",
   "formulas.subtitle": "Humanity's greatest equations — ranked, tagged & explored.",
   "formulas.count": "{{count}} equations across {{domains}} domains",
@@ -237,7 +221,6 @@
   "formulas.noResults": "No equations match your search.",
   "formulas.collapse": "▲ collapse",
   "formulas.tapToExplore": "▼ tap to explore",
-
   "glossary.title": "Glossary",
   "glossary.subtitle": "Flip through key terms across every field. Tap a card to reveal its definition.",
   "glossary.count": "{{terms}} terms · {{fields}} fields",
@@ -250,10 +233,8 @@
   "glossary.tabDefinition": "📖 Definition",
   "glossary.tabLatex": "𝕃 LaTeX",
   "glossary.tabCode": "⌨ Code",
-
   "nav.bonafides": "Bonafides",
   "nav.alphabet": "Alphabet",
-
   "footer.quiz": "Test",
   "footer.masterMinds": "Master Minds",
   "footer.formulas": "Formulas",
@@ -262,9 +243,20 @@
   "footer.glossary": "Glossary",
   "footer.leaderboard": "Leaderboard",
   "footer.alphabet": "Alphabet",
-
   "home.bonafides": "Bonafides",
   "home.bonafidesSub": "Professional certifications & credentialing exams",
   "home.alphabet": "Alphabet",
-  "home.alphabetSub": "Greek letters, symbols & notation — mastered"
+  "home.alphabetSub": "Greek letters, symbols & notation — mastered",
+  "home.discover": "Explore the library",
+  "home.discoverSub": "Go deeper with thinkers, formulas, credentials, and references",
+  "profile.saveName": "Save name",
+  "profile.cancelEdit": "Cancel editing",
+  "profile.editName": "Edit display name",
+  "profile.appearance": "Appearance",
+  "leaderboard.today": "today",
+  "leaderboard.yesterday": "yesterday",
+  "leaderboard.daysAgo": "{{count}}d ago",
+  "leaderboard.monthsAgo": "{{count}}mo ago",
+  "glossary.clearSearch": "Clear search",
+  "glossary.resetFilters": "Reset filters"
 }

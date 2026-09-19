@@ -3,7 +3,6 @@
   "app.tagline": "mAIth를 풀면 = 모든 것을 푼다.",
   "app.footerTagline": "mAIth를 풀면 = 모든 것을 푼다.",
   "app.copyright": "© {{year}} mAIth = 수학을 풀다 == 모든 것을 풀다",
-
   "home.greeting": "안녕, {{name}} 👋",
   "home.selectDifficulty": "난이도 선택",
   "home.selectTopics": "도메인 선택",
@@ -24,7 +23,6 @@
   "home.vault": "볼트",
   "home.vaultSub": "기밀 비밀 — 해제, 순위 & 탐구",
   "home.searchTopics": "주제 검색…",
-
   "stats.questions": "문항",
   "stats.terms": "용어",
   "stats.thinkers": "사상가",
@@ -32,7 +30,6 @@
   "stats.secrets": "비밀",
   "stats.equations": "방정식",
   "stats.formulas": "공식",
-
   "difficulty.selectHint": "하나 이상의 레벨을 선택하세요",
   "difficulty.easy": "쉽게",
   "difficulty.hard": "어려움",
@@ -41,7 +38,6 @@
   "difficulty.hardDesc": "경쟁 — 두 배 점수",
   "difficulty.sotaDesc": "최첨단 — 최대 보상",
   "difficulty.pts": "+{{pts}}점",
-
   "quiz.question": "Q {{current}}/{{total}}",
   "quiz.points": "{{score}}점",
   "quiz.skip": "건너뛰기 →",
@@ -60,7 +56,6 @@
   "quiz.keys": "키: 1-4 답 · H 힌트 · S 건너뛰기 · Enter 다음",
   "quiz.score": "점수",
   "quiz.endQuiz": "퀴즈 종료",
-
   "results.title": "퀴즈 완료!",
   "results.score": "점수",
   "results.accuracy": "정확도",
@@ -75,7 +70,6 @@
   "results.skipped": "건너뜀",
   "results.reviewSkipped": "건너뜀 복습 ⏭️",
   "results.skippedTitle": "건너뛴 문항",
-
   "profile.title": "프로필",
   "profile.score": "점수",
   "profile.answered": "응답",
@@ -99,7 +93,6 @@
   "profile.levelGrandmaster": "그랜드마스터",
   "profile.levelLegend": "전설",
   "profile.levelMythic": "신화",
-
   "leaderboard.title": "리더보드",
   "leaderboard.subtitle": "경쟁하고, 순위를 올리고, XP를 획득하세요",
   "leaderboard.allTime": "🌍 전체 기간",
@@ -121,7 +114,6 @@
   "leaderboard.levelGrandmaster": "그랜드마스터",
   "leaderboard.levelLegend": "전설",
   "leaderboard.xpRequired": "{{min}}+",
-
   "auth.login": "로그인",
   "auth.signup": "회원가입",
   "auth.welcome": "다시 오신 것을 환영합니다!",
@@ -131,14 +123,12 @@
   "auth.password": "비밀번호",
   "auth.createAccount": "계정 생성",
   "auth.checkEmail": "이메일을 확인해 계정을 인증하세요!",
-
   "onboarding.title": "이름을 선택하세요",
   "onboarding.subtitle": "리더보드에 이 이름으로 표시됩니다",
   "onboarding.placeholder": "표시 이름 입력…",
   "onboarding.minChars": "최소 2자",
   "onboarding.nameError": "이름은 2–20자여야 합니다",
   "onboarding.save": "저장하고 계속",
-
   "nav.home": "홈",
   "nav.quiz": "퀴즈",
   "nav.masterMinds": "마스터마인드",
@@ -151,7 +141,6 @@
   "nav.darkMode": "다크 모드",
   "nav.lightMode": "라이트 모드",
   "nav.changeLanguage": "언어 변경",
-
   "heatmap.mastered": "마스터함",
   "heatmap.strong": "강함",
   "heatmap.good": "좋음",
@@ -159,9 +148,7 @@
   "heatmap.weak": "약함",
   "heatmap.notStarted": "미시작",
   "heatmap.legend": "약함 → 강함",
-
   "language.title": "언어",
-
   "thinkers.backToHome": "← mAIth로 돌아가기",
   "thinkers.galleryTitle": "마스터마인드",
   "thinkers.gallerySubtitle": "전설적인 사상가를 선택하세요. 그들의 분야를 마스터하세요. 당신이 서 있는 거인의 어깨를 알고 있음을 증명하세요.",
@@ -169,7 +156,6 @@
   "thinkers.modernPioneers": "현대의 개척자",
   "thinkers.contemporary": "현대",
   "thinkers.prodigies": "영재",
-
   "field.all": "모든 분야",
   "field.math": "수학",
   "field.physics": "물리학",
@@ -185,7 +171,6 @@
   "field.soon": "곧 공개",
   "field.filterByField": "분야별 필터",
   "field.exploreByEra": "시대별 탐색",
-
   "vault.title": "볼트",
   "vault.subtitle": "인류의 가장 위대한 기밀 비밀 — 레벨별로 잠금을 해제하세요.",
   "vault.declassifiedProgress": "{{count}}/{{total}} 해제됨",
@@ -217,7 +202,6 @@
   "vault.challengeSuccess": "해제됨! 잠금 해제 중…",
   "vault.challengeFail": "접근 거부 — 오답",
   "vault.tryAgain": "다시 시도",
-
   "formulas.title": "공식",
   "formulas.subtitle": "인류 최고의 방정식 — 순위, 태그 & 탐구.",
   "formulas.count": "{{domains}}개 도메인에 걸친 {{count}}개 방정식",
@@ -237,7 +221,6 @@
   "formulas.noResults": "검색과 일치하는 방정식이 없습니다.",
   "formulas.collapse": "▲ 접기",
   "formulas.tapToExplore": "▼ 탭하여 탐색",
-
   "glossary.title": "용어집",
   "glossary.subtitle": "모든 분야의 핵심 용어를 살펴보세요. 카드를 탭하면 정의가 표시됩니다.",
   "glossary.count": "{{terms}}개 용어 · {{fields}}개 분야",
@@ -250,10 +233,8 @@
   "glossary.tabDefinition": "📖 정의",
   "glossary.tabLatex": "𝕃 LaTeX",
   "glossary.tabCode": "⌨ 코드",
-
   "nav.bonafides": "보나피데스",
   "nav.alphabet": "알파벳",
-
   "footer.quiz": "퀴즈",
   "footer.masterMinds": "마스터마인드",
   "footer.formulas": "공식",
@@ -262,9 +243,20 @@
   "footer.glossary": "용어집",
   "footer.leaderboard": "리더보드",
   "footer.alphabet": "알파벳",
-
   "home.bonafides": "보나피데스",
   "home.bonafidesSub": "전문 자격증 및 인증 시험",
   "home.alphabet": "알파벳",
-  "home.alphabetSub": "그리스 문자, 기호 및 표기법 — 마스터"
+  "home.alphabetSub": "그리스 문자, 기호 및 표기법 — 마스터",
+  "home.discover": "라이브러리 탐색",
+  "home.discoverSub": "사상가, 공식, 자격, 참고 자료로 더 깊이 학습하세요",
+  "profile.saveName": "이름 저장",
+  "profile.cancelEdit": "편집 취소",
+  "profile.editName": "표시 이름 편집",
+  "profile.appearance": "화면 설정",
+  "leaderboard.today": "오늘",
+  "leaderboard.yesterday": "어제",
+  "leaderboard.daysAgo": "{{count}}일 전",
+  "leaderboard.monthsAgo": "{{count}}개월 전",
+  "glossary.clearSearch": "검색 지우기",
+  "glossary.resetFilters": "필터 초기화"
 }

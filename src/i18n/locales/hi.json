@@ -3,7 +3,6 @@
   "app.tagline": "mAIth हल करो = सब कुछ हल करो।",
   "app.footerTagline": "mAIth हल करो = सब कुछ हल करो।",
   "app.copyright": "© {{year}} mAIth = गणित हल करना == सब कुछ हल करना",
-
   "home.greeting": "नमस्ते, {{name}} 👋",
   "home.selectDifficulty": "कठिनाई चुनें",
   "home.selectTopics": "डोमेन चुनें",
@@ -24,7 +23,6 @@
   "home.vault": "वॉल्ट",
   "home.vaultSub": "वर्गीकृत रहस्य — अवर्गीकृत, रैंक किए गए और खोजे गए",
   "home.searchTopics": "विषय खोजें…",
-
   "stats.questions": "प्रश्न",
   "stats.terms": "शब्द",
   "stats.thinkers": "विचारक",
@@ -32,7 +30,6 @@
   "stats.secrets": "रहस्य",
   "stats.equations": "समीकरण",
   "stats.formulas": "सूत्र",
-
   "difficulty.selectHint": "एक या अधिक स्तर चुनें",
   "difficulty.easy": "आसान",
   "difficulty.hard": "कठिन",
@@ -41,7 +38,6 @@
   "difficulty.hardDesc": "प्रतिस्पर्धी — दोहरे अंक",
   "difficulty.sotaDesc": "अग्रणी — अधिकतम इनाम",
   "difficulty.pts": "+{{pts}}अंक",
-
   "quiz.question": "प्र {{current}}/{{total}}",
   "quiz.points": "{{score}} अंक",
   "quiz.skip": "छोड़ें →",
@@ -60,7 +56,6 @@
   "quiz.keys": "कुंजियाँ: 1-4 उत्तर · H संकेत · S छोड़ें · Enter अगला",
   "quiz.score": "स्कोर",
   "quiz.endQuiz": "क्विज़ समाप्त करें",
-
   "results.title": "क्विज़ पूर्ण!",
   "results.score": "स्कोर",
   "results.accuracy": "सटीकता",
@@ -75,7 +70,6 @@
   "results.skipped": "छोड़े गए",
   "results.reviewSkipped": "छोड़े गए प्रश्न देखें ⏭️",
   "results.skippedTitle": "छोड़े गए प्रश्न",
-
   "profile.title": "प्रोफ़ाइल",
   "profile.score": "स्कोर",
   "profile.answered": "उत्तर दिए गए",
@@ -99,7 +93,6 @@
   "profile.levelGrandmaster": "ग्रैंड मास्टर",
   "profile.levelLegend": "दंतकथा",
   "profile.levelMythic": "पौराणिक",
-
   "leaderboard.title": "लीडरबोर्ड",
   "leaderboard.subtitle": "मुकाबला करें, रैंकिंग में ऊपर जाएँ और XP कमाएँ",
   "leaderboard.allTime": "🌍 सर्वकालिक",
@@ -121,7 +114,6 @@
   "leaderboard.levelGrandmaster": "ग्रैंड मास्टर",
   "leaderboard.levelLegend": "दंतकथा",
   "leaderboard.xpRequired": "{{min}}+",
-
   "auth.login": "लॉग इन",
   "auth.signup": "साइन अप",
   "auth.welcome": "वापसी पर स्वागत है!",
@@ -131,14 +123,12 @@
   "auth.password": "पासवर्ड",
   "auth.createAccount": "खाता बनाएँ",
   "auth.checkEmail": "अपने खाते की पुष्टि के लिए ईमेल जाँचें!",
-
   "onboarding.title": "अपना नाम चुनें",
   "onboarding.subtitle": "आप लीडरबोर्ड पर इसी नाम से दिखेंगे",
   "onboarding.placeholder": "प्रदर्शित नाम दर्ज करें…",
   "onboarding.minChars": "कम से कम 2 अक्षर",
   "onboarding.nameError": "नाम 2–20 अक्षरों का होना चाहिए",
   "onboarding.save": "सहेजें और जारी रखें",
-
   "nav.home": "होम",
   "nav.quiz": "क्विज़",
   "nav.masterMinds": "महान मस्तिष्क",
@@ -151,7 +141,6 @@
   "nav.darkMode": "डार्क मोड",
   "nav.lightMode": "लाइट मोड",
   "nav.changeLanguage": "भाषा बदलें",
-
   "heatmap.mastered": "महारत हासिल",
   "heatmap.strong": "मजबूत",
   "heatmap.good": "अच्छा",
@@ -159,9 +148,7 @@
   "heatmap.weak": "कमज़ोर",
   "heatmap.notStarted": "शुरू नहीं किया",
   "heatmap.legend": "कमज़ोर → मजबूत",
-
   "language.title": "भाषा",
-
   "thinkers.backToHome": "← mAIth पर वापस",
   "thinkers.galleryTitle": "महान मस्तिष्क",
   "thinkers.gallerySubtitle": "एक महान विचारक चुनें। उनके क्षेत्र में महारत हासिल करें। साबित करें कि आप उन कंधों को जानते हैं जिन पर आप खड़े हैं।",
@@ -169,7 +156,6 @@
   "thinkers.modernPioneers": "आधुनिक अग्रदूत",
   "thinkers.contemporary": "समकालीन",
   "thinkers.prodigies": "प्रतिभाशाली",
-
   "field.all": "सभी क्षेत्र",
   "field.math": "गणित",
   "field.physics": "भौतिकी",
@@ -185,7 +171,6 @@
   "field.soon": "जल्द आ रहा है",
   "field.filterByField": "क्षेत्र के अनुसार फ़िल्टर करें",
   "field.exploreByEra": "युग के अनुसार खोजें",
-
   "vault.title": "वॉल्ट",
   "vault.subtitle": "मानवता के महानतम वर्गीकृत रहस्य — उन्हें स्तर दर स्तर अनलॉक करें।",
   "vault.declassifiedProgress": "{{count}}/{{total}} अवर्गीकृत",
@@ -217,7 +202,6 @@
   "vault.challengeSuccess": "अवर्गीकृत! अनलॉक हो रहा है…",
   "vault.challengeFail": "प्रवेश अस्वीकृत — गलत उत्तर",
   "vault.tryAgain": "फिर से प्रयास करें",
-
   "formulas.title": "सूत्र",
   "formulas.subtitle": "मानवता के महानतम समीकरण — रैंक किए गए, टैग किए गए और खोजे गए।",
   "formulas.count": "{{count}} समीकरण {{domains}} क्षेत्रों में",
@@ -237,7 +221,6 @@
   "formulas.noResults": "कोई समीकरण आपकी खोज से मेल नहीं खाता।",
   "formulas.collapse": "▲ बंद करें",
   "formulas.tapToExplore": "▼ खोजने के लिए टैप करें",
-
   "glossary.title": "शब्दावली",
   "glossary.subtitle": "हर क्षेत्र के प्रमुख शब्दों को देखें। परिभाषा देखने के लिए कार्ड पर टैप करें।",
   "glossary.count": "{{terms}} शब्द · {{fields}} क्षेत्र",
@@ -250,10 +233,8 @@
   "glossary.tabDefinition": "📖 परिभाषा",
   "glossary.tabLatex": "𝕃 LaTeX",
   "glossary.tabCode": "⌨ कोड",
-
   "nav.bonafides": "बोनाफ़ाइड्स",
   "nav.alphabet": "वर्णमाला",
-
   "footer.quiz": "क्विज़",
   "footer.masterMinds": "महान मस्तिष्क",
   "footer.formulas": "सूत्र",
@@ -262,9 +243,20 @@
   "footer.glossary": "शब्दावली",
   "footer.leaderboard": "लीडरबोर्ड",
   "footer.alphabet": "वर्णमाला",
-
   "home.bonafides": "बोनाफ़ाइड्स",
   "home.bonafidesSub": "पेशेवर प्रमाणपत्र और मान्यता परीक्षाएँ",
   "home.alphabet": "वर्णमाला",
-  "home.alphabetSub": "ग्रीक अक्षर, प्रतीक और संकेतन — महारत हासिल"
+  "home.alphabetSub": "ग्रीक अक्षर, प्रतीक और संकेतन — महारत हासिल",
+  "home.discover": "लाइब्रेरी देखें",
+  "home.discoverSub": "विचारकों, सूत्रों, प्रमाणपत्रों और संदर्भों के साथ गहराई से सीखें",
+  "profile.saveName": "नाम सहेजें",
+  "profile.cancelEdit": "संपादन रद्द करें",
+  "profile.editName": "प्रदर्शित नाम बदलें",
+  "profile.appearance": "दिखावट",
+  "leaderboard.today": "आज",
+  "leaderboard.yesterday": "कल",
+  "leaderboard.daysAgo": "{{count}} दिन पहले",
+  "leaderboard.monthsAgo": "{{count}} माह पहले",
+  "glossary.clearSearch": "खोज साफ़ करें",
+  "glossary.resetFilters": "फ़िल्टर रीसेट करें"
 }

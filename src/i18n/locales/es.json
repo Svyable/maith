@@ -3,7 +3,6 @@
   "app.tagline": "Resuelve mAIth = Resuélvelo todo.",
   "app.footerTagline": "Resuelve mAIth = Resuélvelo todo.",
   "app.copyright": "© {{year}} mAIth = resolver matemáticas == resolverlo todo",
-
   "home.greeting": "Hola, {{name}} 👋",
   "home.selectDifficulty": "ELEGIR DIFICULTAD",
   "home.selectTopics": "SELECCIONAR DOMINIOS",
@@ -24,7 +23,6 @@
   "home.vault": "La Bóveda",
   "home.vaultSub": "Secretos clasificados — desclasificados, clasificados y explorados",
   "home.searchTopics": "Buscar temas…",
-
   "stats.questions": "Preguntas",
   "stats.terms": "Términos",
   "stats.thinkers": "Pensadores",
@@ -32,7 +30,6 @@
   "stats.secrets": "Secretos",
   "stats.equations": "Ecuaciones",
   "stats.formulas": "Fórmulas",
-
   "difficulty.selectHint": "Selecciona uno o más niveles",
   "difficulty.easy": "FÁCIL",
   "difficulty.hard": "DIFÍCIL",
@@ -41,7 +38,6 @@
   "difficulty.hardDesc": "Competitivo — puntos dobles",
   "difficulty.sotaDesc": "Frontera — recompensa máxima",
   "difficulty.pts": "+{{pts}}pts",
-
   "quiz.question": "P {{current}}/{{total}}",
   "quiz.points": "{{score}} pts",
   "quiz.skip": "Saltar →",
@@ -60,7 +56,6 @@
   "quiz.keys": "Teclas: 1-4 respuesta · H pista · S saltar · Enter siguiente",
   "quiz.score": "Puntuación",
   "quiz.endQuiz": "Terminar Quiz",
-
   "results.title": "¡Quiz completado!",
   "results.score": "Puntuación",
   "results.accuracy": "Precisión",
@@ -75,7 +70,6 @@
   "results.skipped": "Saltadas",
   "results.reviewSkipped": "Revisar saltadas ⏭️",
   "results.skippedTitle": "PREGUNTAS SALTADAS",
-
   "profile.title": "Perfil",
   "profile.score": "Puntuación",
   "profile.answered": "Respondidas",
@@ -99,7 +93,6 @@
   "profile.levelGrandmaster": "Gran maestro",
   "profile.levelLegend": "Leyenda",
   "profile.levelMythic": "Mítico",
-
   "leaderboard.title": "Clasificación",
   "leaderboard.subtitle": "Compite, sube en el ranking y gana XP",
   "leaderboard.allTime": "🌍 Histórico",
@@ -121,7 +114,6 @@
   "leaderboard.levelGrandmaster": "Gran maestro",
   "leaderboard.levelLegend": "Leyenda",
   "leaderboard.xpRequired": "{{min}}+",
-
   "auth.login": "Iniciar sesión",
   "auth.signup": "Registrarse",
   "auth.welcome": "¡Bienvenido de nuevo!",
@@ -131,14 +123,12 @@
   "auth.password": "Contraseña",
   "auth.createAccount": "Crear cuenta",
   "auth.checkEmail": "¡Revisa tu correo para confirmar tu cuenta!",
-
   "onboarding.title": "Elige tu nombre",
   "onboarding.subtitle": "Así aparecerás en la clasificación",
   "onboarding.placeholder": "Introduce tu nombre…",
   "onboarding.minChars": "Mín 2 caracteres",
   "onboarding.nameError": "El nombre debe tener 2–20 caracteres",
   "onboarding.save": "Guardar y continuar",
-
   "nav.home": "Inicio",
   "nav.quiz": "Quiz",
   "nav.masterMinds": "Mentes Maestras",
@@ -151,7 +141,6 @@
   "nav.darkMode": "Modo oscuro",
   "nav.lightMode": "Modo claro",
   "nav.changeLanguage": "Cambiar idioma",
-
   "heatmap.mastered": "Dominado",
   "heatmap.strong": "Fuerte",
   "heatmap.good": "Bien",
@@ -159,9 +148,7 @@
   "heatmap.weak": "Débil",
   "heatmap.notStarted": "Sin empezar",
   "heatmap.legend": "débil → fuerte",
-
   "language.title": "IDIOMA",
-
   "thinkers.backToHome": "← Volver a mAIth",
   "thinkers.galleryTitle": "Mentes Maestras",
   "thinkers.gallerySubtitle": "Elige a un pensador legendario. Domina su campo. Demuestra que conoces los hombros sobre los que te apoyas.",
@@ -169,7 +156,6 @@
   "thinkers.modernPioneers": "Pioneros modernos",
   "thinkers.contemporary": "Contemporáneo",
   "thinkers.prodigies": "Prodigios",
-
   "field.all": "Todos los campos",
   "field.math": "Matemáticas",
   "field.physics": "Física",
@@ -185,7 +171,6 @@
   "field.soon": "PRONTO",
   "field.filterByField": "FILTRAR POR CAMPO",
   "field.exploreByEra": "EXPLORAR POR ERA",
-
   "vault.title": "La Bóveda",
   "vault.subtitle": "Los mayores secretos clasificados de la humanidad — desbloquéalos nivel a nivel.",
   "vault.declassifiedProgress": "{{count}}/{{total}} DESCLASIFICADO",
@@ -217,7 +202,6 @@
   "vault.challengeSuccess": "¡DESCLASIFICADO! Desbloqueando…",
   "vault.challengeFail": "ACCESO DENEGADO — Respuesta incorrecta",
   "vault.tryAgain": "Intentar de nuevo",
-
   "formulas.title": "Fórmulas",
   "formulas.subtitle": "Las mejores ecuaciones de la humanidad — clasificadas, etiquetadas y exploradas.",
   "formulas.count": "{{count}} ecuaciones en {{domains}} dominios",
@@ -237,7 +221,6 @@
   "formulas.noResults": "Ninguna ecuación coincide con tu búsqueda.",
   "formulas.collapse": "▲ contraer",
   "formulas.tapToExplore": "▼ toca para explorar",
-
   "glossary.title": "Glosario",
   "glossary.subtitle": "Repasa términos clave en cada campo. Toca una tarjeta para ver su definición.",
   "glossary.count": "{{terms}} términos · {{fields}} campos",
@@ -250,10 +233,8 @@
   "glossary.tabDefinition": "📖 Definición",
   "glossary.tabLatex": "𝕃 LaTeX",
   "glossary.tabCode": "⌨ Código",
-
   "nav.bonafides": "Bonafides",
   "nav.alphabet": "Alfabeto",
-
   "footer.quiz": "Quiz",
   "footer.masterMinds": "Mentes Maestras",
   "footer.formulas": "Fórmulas",
@@ -262,9 +243,20 @@
   "footer.glossary": "Glosario",
   "footer.leaderboard": "Clasificación",
   "footer.alphabet": "Alfabeto",
-
   "home.bonafides": "Bonafides",
   "home.bonafidesSub": "Certificaciones profesionales y exámenes de acreditación",
   "home.alphabet": "Alfabeto",
-  "home.alphabetSub": "Letras griegas, símbolos y notación — dominados"
+  "home.alphabetSub": "Letras griegas, símbolos y notación — dominados",
+  "home.discover": "Explora la biblioteca",
+  "home.discoverSub": "Profundiza con pensadores, fórmulas, credenciales y referencias",
+  "profile.saveName": "Guardar nombre",
+  "profile.cancelEdit": "Cancelar edición",
+  "profile.editName": "Editar nombre visible",
+  "profile.appearance": "Apariencia",
+  "leaderboard.today": "hoy",
+  "leaderboard.yesterday": "ayer",
+  "leaderboard.daysAgo": "hace {{count}} d",
+  "leaderboard.monthsAgo": "hace {{count}} mes.",
+  "glossary.clearSearch": "Borrar búsqueda",
+  "glossary.resetFilters": "Restablecer filtros"
 }
