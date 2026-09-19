@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { LatexRenderer } from './LatexRenderer';
 import { t } from '@/i18n';
