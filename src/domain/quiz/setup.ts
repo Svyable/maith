@@ -27,7 +27,10 @@ export function resolveQuizTopics(
   if (explicitTopics.length > 0) return explicitTopics;
 
   if (selectedField !== 'all') {
-    return (QUIZ_FIELD_MAP[selectedField]?.topics ?? []).filter((topic) => Boolean(TOPIC_MAP[topic]));
+    const field = QUIZ_FIELD_MAP[selectedField];
+    if (field) {
+      return field.topics.filter((topic) => Boolean(TOPIC_MAP[topic]));
+    }
   }
 
   return TOPICS.map((topic) => topic.slug);
