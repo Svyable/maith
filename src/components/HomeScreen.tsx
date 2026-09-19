@@ -8,15 +8,11 @@ import { MatrixQuoteBoard } from "./MatrixQuoteBoard";
 import { SearchFilter } from "./SearchFilter";
 import { StatsShowcase } from "./StatsShowcase";
 import { Button } from "./ui/button";
-import { type Difficulty, DIFFICULTIES, TOPIC_MAP, TOPICS, toDifficulty } from "@/config/constants";
+import { type Difficulty, DIFFICULTIES, TOPIC_MAP, TOPICS } from "@/config/constants";
 import { FIELD_MAP } from "@/config/fields";
-import { allQuestions } from "@/content";
-import { allGlossaryTerms } from "@/content/glossary";
-import { VAULT_ENTRIES } from "@/config/vault";
-import { EQUATIONS } from "@/config/equations";
+import { CONTENT_COUNTS, QUESTION_COUNTS } from "@/config/content-stats";
 import { t } from "@/i18n";
 import { useMemo, useState } from "react";
-import { THINKERS } from "@/config/thinkers";
 
 interface HomeScreenProps {
   selectedTopics: string[];
@@ -49,10 +45,15 @@ export function HomeScreen({ selectedTopics, onToggleTopic, selectedDifficulties
 
   const fieldTopics = useMemo<string[] | undefined>(() => selectedField === "all" ? undefined : FIELD_MAP[selectedField]?.topics, [selectedField]);
   const questionCount = useMemo(() => {
-    const relevant = selectedTopics.length > 0
-      ? allQuestions.filter((question) => selectedTopics.includes(question.topic))
-      : allQuestions.filter((question) => fieldTopics === undefined || fieldTopics.includes(question.topic));
-    return relevant.filter((question) => selectedDifficulties.includes(toDifficulty(question.difficulty))).length;
+    const topics = selectedTopics.length > 0
+      ? selectedTopics
+      : fieldTopics ?? Object.keys(QUESTION_COUNTS);
+    return topics.reduce((total, topic) => {
+      const counts = QUESTION_COUNTS[topic as keyof typeof QUESTION_COUNTS];
+      if (!counts) return total;
+      return total + selectedDifficulties.reduce((sum, difficulty) =>
+        sum + counts[difficulty.toLowerCase() as 'easy' | 'hard' | 'sota'], 0);
+    }, 0);
   }, [selectedTopics, selectedDifficulties, fieldTopics]);
 
   const summaryTopics = selectedTopics.length > 0
@@ -111,7 +112,7 @@ export function HomeScreen({ selectedTopics, onToggleTopic, selectedDifficulties
           {DISCOVERY_ITEMS.map((item) => (
             <Button key={item.path} variant="outline" onClick={() => navigate(item.path)} className="h-auto min-h-20 justify-start whitespace-normal p-3 text-left">
               <span className="text-2xl" aria-hidden="true">{item.emoji}</span>
-              <span className="min-w-0 flex-1"><span className="block font-bold">{t(item.title)}</span><span className="line-clamp-1 text-xs font-normal text-muted-foreground">{t(item.subtitle, item.title === "home.masterMinds" ? { count: THINKERS.length } : undefined)}</span></span>
+              <span className="min-w-0 flex-1"><span className="block font-bold">{t(item.title)}</span><span className="line-clamp-1 text-xs font-normal text-muted-foreground">{t(item.subtitle, item.title === "home.masterMinds" ? { count: CONTENT_COUNTS.thinkers } : undefined)}</span></span>
               <span aria-hidden="true">→</span>
             </Button>
           ))}
@@ -126,12 +127,12 @@ export function HomeScreen({ selectedTopics, onToggleTopic, selectedDifficulties
       </section>
 
       <StatsShowcase stats={[
-        { value: allQuestions.length, label: t("stats.questions"), emoji: "❓" },
-        { value: allGlossaryTerms.length, label: t("stats.terms"), emoji: "📖" },
-        { value: THINKERS.length, label: t("stats.thinkers"), emoji: "🗿" },
+        { value: CONTENT_COUNTS.questions, label: t("stats.questions"), emoji: "❓" },
+        { value: CONTENT_COUNTS.glossaryTerms, label: t("stats.terms"), emoji: "📖" },
+        { value: CONTENT_COUNTS.thinkers, label: t("stats.thinkers"), emoji: "🗿" },
         { value: TOPICS.length, label: t("stats.topics"), emoji: "🧩" },
-        { value: VAULT_ENTRIES.length, label: t("stats.secrets"), emoji: "🔐" },
-        { value: EQUATIONS.length, label: t("stats.formulas"), emoji: "📐" },
+        { value: CONTENT_COUNTS.vaultEntries, label: t("stats.secrets"), emoji: "🔐" },
+        { value: CONTENT_COUNTS.equations, label: t("stats.formulas"), emoji: "📐" },
       ]} />
     </motion.div>
   );

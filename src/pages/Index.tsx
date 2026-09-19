@@ -1,11 +1,9 @@
-import { useState, useCallback, useEffect, useRef } from 'react';
+import { useState, useCallback, useEffect, useRef, lazy, Suspense } from 'react';
 import { AnimatePresence } from 'framer-motion';
 import { QuizHeader } from '@/components/QuizHeader';
 import { Footer } from '@/components/Footer';
 import { FloatingBackground } from '@/components/FloatingBackground';
 import { HomeScreen } from '@/components/HomeScreen';
-import { QuizScreen } from '@/components/QuizScreen';
-import { QuizResults } from '@/components/QuizResults';
 import { useQuiz } from '@/hooks/useQuiz';
 import { useQuizSession } from '@/hooks/useQuizSession';
 
@@ -16,6 +14,9 @@ import { FIELD_MAP } from '@/config/fields';
 import { t } from '@/i18n';
 
 type Screen = 'home' | 'quiz' | 'results';
+
+const QuizScreen = lazy(() => import('@/components/QuizScreen').then((module) => ({ default: module.QuizScreen })));
+const QuizResults = lazy(() => import('@/components/QuizResults').then((module) => ({ default: module.QuizResults })));
 
 const Index = () => {
   const [screen, setScreen] = useState<Screen>('home');
@@ -108,6 +109,7 @@ const Index = () => {
       />
 
       <main className="relative z-10 flex-1 px-4 py-6 max-w-lg md:max-w-3xl lg:max-w-5xl mx-auto w-full">
+        <Suspense fallback={<div className="min-h-48" aria-hidden="true" />}>
         <AnimatePresence mode="wait">
           {screen === 'home' && (
             <HomeScreen
@@ -171,6 +173,7 @@ const Index = () => {
             </div>
           )}
         </AnimatePresence>
+        </Suspense>
       </main>
 
       {screen === 'home' && <Footer />}

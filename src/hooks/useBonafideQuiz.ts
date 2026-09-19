@@ -13,7 +13,7 @@ import {
   type PublicQuestion,
   type CheckResult,
 } from '@/domain/quiz';
-import { fetchBonafideQuestions, checkBonafideAnswer } from '@/domain/quiz/service';
+import { fetchBonafideQuestions, checkBonafideAnswer } from '@/domain/quiz/bonafide-service';
 
 export function useBonafideQuiz(difficulties: Difficulty[] = ['HARD']) {
   const [state, setState] = useState<QuizState>(() => buildInitialState());
