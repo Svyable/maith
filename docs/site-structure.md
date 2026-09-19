@@ -14,7 +14,15 @@ External products remain explicit in `EXTERNAL_LINKS`; they are never treated as
 
 `src/App.tsx` binds page components to `APP_PATHS`. The router still owns component loading and guards; the navigation registry owns information architecture metadata. This separation avoids importing React page modules into configuration code.
 
-Authentication and onboarding routes are registered in `APP_PATHS` even though they are not part of primary navigation. This lets redirects and profile/auth controls use canonical paths too.
+Authentication and onboarding routes are registered in `APP_PATHS` even though they are not part of primary navigation. Page-to-page redirects and controls must use these canonical paths rather than repeating route literals.
+
+## Shared page shell
+
+`src/components/layout/SiteShell.tsx` owns the global page chrome: floating background, primary header, and optional footer. Top-level pages keep ownership of their own `<main>` sizing, content, overlays, and state.
+
+Standard top-level surfaces use `SiteShell`. Onboarding and NotFound intentionally remain outside it because they have specialized boundary behavior.
+
+The quiz, MasterMinds, and Bonafides flows pass their active streak/header state into the shell and can suppress the footer while a session is active. This keeps gameplay behavior local while removing duplicated chrome composition.
 
 ## Field hierarchy
 
@@ -30,10 +38,12 @@ This means adding or moving a topic requires changing its canonical topic metada
 
 - visible navigation items point to registered application paths;
 - canonical destination paths are unique;
+- top-level pages do not hard-code internal navigation paths;
+- standard page chrome stays behind the shared `SiteShell` boundary;
 - field slugs are unique;
 - every standard topic resolves into exactly one declared field.
 
-`.github/workflows/site-integrity.yml` runs the structural test and a production build whenever the routing/navigation/field structure changes.
+`.github/workflows/site-integrity.yml` runs the structural test and a production build whenever pages, shared chrome, routing, navigation, or field structure change.
 
 ## Adding a destination
 
