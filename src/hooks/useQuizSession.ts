@@ -3,6 +3,7 @@
 // submission logic that was copy-pasted between Index.tsx and Thinkers.tsx.
 
 import { useState, useCallback, useEffect, useRef } from 'react';
+import { useReducedMotion } from 'framer-motion';
 import confetti from 'canvas-confetti';
 import { useTimer } from '@/hooks/useTimer';
 import { useAuth } from '@/hooks/useAuth';
@@ -38,6 +39,7 @@ export function useQuizSession({
   onTimeout,
 }: UseQuizSessionOptions) {
   const { user } = useAuth();
+  const prefersReducedMotion = useReducedMotion();
   const [sessionCorrect, setSessionCorrect] = useState(0);
   const [sessionTotal, setSessionTotal] = useState(0);
   const submittedRef = useRef(false);
@@ -65,6 +67,7 @@ export function useQuizSession({
     setSessionTotal((t) => t + 1);
     if (correct) {
       setSessionCorrect((c) => c + 1);
+      if (prefersReducedMotion) return;
       confetti({
         particleCount: 60,
         spread: 50,
@@ -72,7 +75,7 @@ export function useQuizSession({
         colors: ['#22d3ee', '#f59e0b', '#22c55e'],
       });
     }
-  }, []);
+  }, [prefersReducedMotion]);
 
   // Reset counters for a new session
   const resetSession = useCallback(() => {
