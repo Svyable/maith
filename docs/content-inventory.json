@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "totals": {
-    "questions": 947,
+    "questions": 970,
     "glossaryTerms": 488,
     "thinkers": 621,
     "vaultEntries": 74,
@@ -936,10 +936,10 @@
         "biology"
       ],
       "counts": {
-        "easy": 1,
-        "hard": 1,
-        "sota": 1,
-        "total": 3
+        "easy": 3,
+        "hard": 3,
+        "sota": 3,
+        "total": 9
       }
     },
     {
@@ -1102,10 +1102,10 @@
         "biology"
       ],
       "counts": {
-        "easy": 1,
-        "hard": 1,
-        "sota": 1,
-        "total": 3
+        "easy": 3,
+        "hard": 3,
+        "sota": 3,
+        "total": 9
       }
     },
     {
@@ -1328,10 +1328,10 @@
         "biology"
       ],
       "counts": {
-        "easy": 1,
-        "hard": 1,
-        "sota": 1,
-        "total": 3
+        "easy": 3,
+        "hard": 3,
+        "sota": 3,
+        "total": 9
       }
     },
     {
@@ -1344,10 +1344,10 @@
         "vault"
       ],
       "counts": {
-        "easy": 2,
+        "easy": 3,
         "hard": 3,
-        "sota": 2,
-        "total": 7
+        "sota": 3,
+        "total": 9
       }
     },
     {
@@ -1526,10 +1526,10 @@
         "pharmacology"
       ],
       "counts": {
-        "easy": 2,
-        "hard": 2,
-        "sota": 2,
-        "total": 6
+        "easy": 3,
+        "hard": 3,
+        "sota": 3,
+        "total": 9
       }
     },
     {

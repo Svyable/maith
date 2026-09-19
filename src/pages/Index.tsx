@@ -26,7 +26,7 @@ const Index = () => {
   const { user, signOut } = useAuth();
   const { profile } = useProfile();
 
-  const { state, currentQuestion, answer, eliminateOptions, nextQuestion, skipQuestion, endQuiz, restartQuiz, totalQuestions } =
+  const { state, currentQuestion, answer, eliminateOptions, nextQuestion, skipQuestion, endQuiz, restartQuiz, practiceUnresolved, totalQuestions } =
     useQuiz(selectedTopics, selectedDifficulties);
 
   // Ref to trigger timeout auto-answer from within QuizScreen
@@ -69,6 +69,13 @@ const Index = () => {
   const handleEndQuiz = useCallback(() => {
     endQuiz();
   }, [endQuiz]);
+
+  const handlePracticeUnresolved = useCallback(() => {
+    if (state.missedQuestions.length === 0 && state.skippedQuestions.length === 0) return;
+    resetSession();
+    practiceUnresolved();
+    setScreen('quiz');
+  }, [practiceUnresolved, resetSession, state.missedQuestions.length, state.skippedQuestions.length]);
 
   useEffect(() => {
     if (state.isFinished && screen === 'quiz') {
@@ -188,6 +195,7 @@ const Index = () => {
                 missedQuestions={state.missedQuestions}
                 skippedQuestions={state.skippedQuestions}
                 onRestart={startQuiz}
+                onPracticeUnresolved={handlePracticeUnresolved}
                 onNewTopics={() => setScreen('home')}
               />
             </div>

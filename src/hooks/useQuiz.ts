@@ -5,7 +5,10 @@ import { useState, useCallback, useRef } from 'react';
 import { type Difficulty, DEFAULT_QUIZ_CAP, toQuestionDifficulty } from '@/config/constants';
 import {
   buildInitialState,
+  buildRemediationState,
   applyAnswer,
+  getVisibleOptionIndex,
+  toVisibleCheckResult,
   advanceQuestion,
   skipCurrentQuestion,
   endQuiz as endQuizEngine,
@@ -54,7 +57,9 @@ export function useQuiz(selectedTopics: string[] = [], difficulties: Difficulty[
       const result = await checkAnswer(currentQuestion.id, optionIndex, questionPoolRef.current);
       if (!result) return null;
 
-      setState((prev) => applyAnswer(prev, result, currentQuestion, optionIndex));
+      const visibleIndex = getVisibleOptionIndex(optionIndex, currentQuestion.originalIndices);
+      const reviewResult = toVisibleCheckResult(result, currentQuestion.originalIndices);
+      setState((prev) => applyAnswer(prev, reviewResult, currentQuestion, visibleIndex));
       return result;
     },
     [currentQuestion],
@@ -88,6 +93,10 @@ export function useQuiz(selectedTopics: string[] = [], difficulties: Difficulty[
     [difficulties, initQuiz],
   );
 
+  const practiceUnresolved = useCallback(() => {
+    setState(buildRemediationState);
+  }, []);
+
   return {
     state,
     currentQuestion,
@@ -97,6 +106,7 @@ export function useQuiz(selectedTopics: string[] = [], difficulties: Difficulty[
     skipQuestion,
     endQuiz,
     restartQuiz,
+    practiceUnresolved,
     totalQuestions: state.currentQuestions.length,
   };
 }

@@ -1,5 +1,30 @@
 import { describe, expect, it } from 'vitest';
-import { getSafeEliminationIndices } from '@/domain/quiz/engine';
+import {
+  buildInitialState,
+  buildRemediationState,
+  getSafeEliminationIndices,
+  getVisibleOptionIndex,
+  reshufflePublicQuestion,
+  toVisibleCheckResult,
+  type CheckResult,
+  type PublicQuestion,
+} from '@/domain/quiz';
+
+function makeQuestion(
+  id: number,
+  options = ['C', 'A', 'D', 'B'],
+  originalIndices = [2, 0, 3, 1],
+): PublicQuestion {
+  return {
+    id,
+    topic: 'algebra',
+    difficulty: 'hard',
+    question: `Question ${id}`,
+    options,
+    hint: 'hint',
+    originalIndices,
+  };
+}
 
 describe('getSafeEliminationIndices', () => {
   it('never eliminates the correct visible option', () => {
@@ -17,5 +42,92 @@ describe('getSafeEliminationIndices', () => {
 
   it('fails closed when the correct answer is missing from the visible mapping', () => {
     expect(getSafeEliminationIndices(3, [0, 1, 2])).toEqual([]);
+  });
+});
+
+describe('review index normalization', () => {
+  it('maps canonical selected and correct indices to visible positions', () => {
+    const originalIndices = [2, 0, 3, 1];
+    const result: CheckResult = {
+      correct: false,
+      correctIndex: 3,
+      explanation: 'explanation',
+      realWorld: 'application',
+    };
+
+    expect(getVisibleOptionIndex(0, originalIndices)).toBe(1);
+    expect(getVisibleOptionIndex(-1, originalIndices)).toBe(-1);
+    expect(toVisibleCheckResult(result, originalIndices).correctIndex).toBe(2);
+    expect(result.correctIndex).toBe(3);
+  });
+});
+
+describe('reshufflePublicQuestion', () => {
+  it('preserves canonical option mapping while changing only public ordering', () => {
+    const question = makeQuestion(1);
+    const canonicalOptions = ['A', 'B', 'C', 'D'];
+    const reshuffled = reshufflePublicQuestion(question);
+
+    expect(reshuffled.id).toBe(question.id);
+    expect(reshuffled.options).toHaveLength(question.options.length);
+    expect(new Set(reshuffled.originalIndices)).toEqual(new Set([0, 1, 2, 3]));
+
+    reshuffled.originalIndices.forEach((originalIndex, visibleIndex) => {
+      expect(reshuffled.options[visibleIndex]).toBe(canonicalOptions[originalIndex]);
+    });
+  });
+
+  it('fails closed for a malformed option mapping', () => {
+    const question = makeQuestion(1, ['A', 'B', 'C', 'D'], [0, 0, 2, 3]);
+    expect(reshufflePublicQuestion(question)).toBe(question);
+  });
+});
+
+describe('buildRemediationState', () => {
+  it('creates a fresh round from unique wrong and skipped questions', () => {
+    const missed = makeQuestion(1);
+    const skipped = makeQuestion(2, ['B', 'D', 'A', 'C'], [1, 3, 0, 2]);
+    const checkResult: CheckResult = {
+      correct: false,
+      correctIndex: 2,
+      explanation: 'explanation',
+      realWorld: 'application',
+    };
+
+    const previous = {
+      ...buildInitialState(),
+      loading: false,
+      isFinished: true,
+      score: 80,
+      streak: 4,
+      bestStreak: 4,
+      totalAnswered: 6,
+      correctAnswered: 4,
+      answeredIds: [1],
+      currentQuestions: [missed, skipped],
+      missedQuestions: [{ question: missed, selectedIndex: 1, checkResult }],
+      skippedQuestions: [{ question: skipped }, { question: missed }],
+    };
+
+    const next = buildRemediationState(previous);
+
+    expect(next).not.toBe(previous);
+    expect(next.loading).toBe(false);
+    expect(next.isFinished).toBe(false);
+    expect(next.score).toBe(0);
+    expect(next.streak).toBe(0);
+    expect(next.bestStreak).toBe(0);
+    expect(next.totalAnswered).toBe(0);
+    expect(next.correctAnswered).toBe(0);
+    expect(next.answeredIds).toEqual([]);
+    expect(next.missedQuestions).toEqual([]);
+    expect(next.skippedQuestions).toEqual([]);
+    expect(next.currentQuestions).toHaveLength(2);
+    expect(new Set(next.currentQuestions.map((question) => question.id))).toEqual(new Set([1, 2]));
+  });
+
+  it('leaves a completed state unchanged when nothing needs remediation', () => {
+    const previous = { ...buildInitialState(), loading: false, isFinished: true };
+    expect(buildRemediationState(previous)).toBe(previous);
   });
 });

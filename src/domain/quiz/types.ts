@@ -33,6 +33,7 @@ export interface CheckResult {
 
 export interface MissedQuestion {
   question: PublicQuestion;
+  /** Visible option index from the shuffled UI; -1 for a timeout. */
   selectedIndex: number;
   checkResult: CheckResult;
 }
