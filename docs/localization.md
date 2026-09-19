@@ -82,11 +82,13 @@ bun run validate:all-content
 
 `report:locales` is diagnostic. It prints translated totals, required floors, deltas from those floors, overall source coverage, and a topic-by-topic matrix so the next batch can target weak areas.
 
-`validate:all-content` includes localization validation before the general content-integrity and editorial-quality audits.
+`validate:all-content` remains the strict local/full audit and fails while any hard quality defects remain.
+
+CI uses `validate:ci`, which applies the same locale and content-integrity checks plus a checked-in quality-debt ceiling from `scripts/content-quality-baseline.json`. The current 212 historical hard defects are explicitly budgeted; any increase fails CI. When defects are fixed, the baseline must be lowered so improvements cannot regress.
 
 ## Continuous integration
 
-`.github/workflows/content-integrity.yml` runs `bun run validate:all-content` on relevant pull requests and pushes to `main`.
+`.github/workflows/content-integrity.yml` runs `bun run validate:ci` on relevant pull requests and pushes to `main`.
 
 The workflow uses the committed Bun lockfile with a frozen install. Localization changes therefore have the same validation gate in GitHub as they do locally.
 
