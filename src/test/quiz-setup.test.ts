@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { DEFAULT_QUIZ_CAP, TOPICS } from '@/config/constants';
+import { resolveTopicSlug } from '@/config/content-registry';
 import { QUIZ_FIELDS } from '@/config/fields';
 import {
   countAvailableQuizQuestions,
@@ -17,6 +18,13 @@ describe('quiz setup scope', () => {
     expect(resolved).not.toContain('engineering');
     expect(resolved).not.toContain('string-theory');
     expect(resolved).not.toContain('cfa-ethics');
+  });
+
+  it('resolves legacy engineering topic slugs to canonical granular topics', () => {
+    expect(resolveTopicSlug('control-theory')).toBe('control-systems');
+    expect(resolveTopicSlug('robotics')).toBe('robotics-mechatronics');
+    expect(TOPICS.map((topic) => topic.slug)).not.toContain('control-theory');
+    expect(TOPICS.map((topic) => topic.slug)).not.toContain('robotics');
   });
 
   it('lets an explicit topic selection override the field scope', () => {
