@@ -1,5 +1,6 @@
 import {
   buildQuestionCoverage,
+  getAmbiguousSourceQuestionIds,
   getCoreLocaleCodes,
   getSourceQuestionIndex,
 } from './localization-coverage.mjs';
@@ -7,6 +8,7 @@ import {
 const sourceQuestionIndex = getSourceQuestionIndex();
 const locales = getCoreLocaleCodes().filter((locale) => locale !== 'en');
 const coverage = locales.map((locale) => buildQuestionCoverage(locale, sourceQuestionIndex));
+const ambiguousSourceQuestionIds = getAmbiguousSourceQuestionIds(sourceQuestionIndex);
 
 console.log('Question localization coverage');
 console.log('locale | translated | floor | delta | source | coverage');
@@ -51,3 +53,10 @@ const regressions = coverage
 if (incomplete.length) console.log(`\nIncomplete: ${incomplete.join(', ')}`);
 if (unknown.length) console.log(`\nUnknown IDs: ${unknown.join(', ')}`);
 if (regressions.length) console.log(`\nBelow baseline: ${regressions.join(', ')}`);
+
+
+if (ambiguousSourceQuestionIds.length) {
+  console.log(
+    `\nReused source question IDs (counted once for localization): ${ambiguousSourceQuestionIds.join(', ')}`,
+  );
+}
