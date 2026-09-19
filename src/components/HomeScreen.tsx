@@ -1,21 +1,20 @@
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
+import { ExternalLink } from "lucide-react";
 import { TopicSelector } from "./TopicSelector";
 import { FieldSelector } from "./FieldSelector";
 import { DifficultyPicker } from "./DifficultyPicker";
 import { MatrixQuoteBoard } from "./MatrixQuoteBoard";
-import { LanguageSelector } from "./LanguageSelector";
 import { SearchFilter } from "./SearchFilter";
 import { StatsShowcase } from "./StatsShowcase";
+import { Button } from "./ui/button";
 import { type Difficulty, DIFFICULTIES, TOPIC_MAP, TOPICS } from "@/config/constants";
-import { FIELD_MAP, FIELDS } from "@/config/fields";
+import { FIELD_MAP } from "@/config/fields";
 import { allQuestions } from "@/content";
 import { allGlossaryTerms } from "@/content/glossary";
 import { VAULT_ENTRIES } from "@/config/vault";
-import { vaultQuestions } from "@/content/vault";
 import { EQUATIONS } from "@/config/equations";
 import { t } from "@/i18n";
-import { useLocale } from "@/hooks/useLocale";
 import { useMemo, useState } from "react";
 import { THINKERS } from "@/config/thinkers";
 
@@ -31,269 +30,109 @@ interface HomeScreenProps {
   onSignOut?: () => void;
 }
 
-export function HomeScreen({
-  selectedTopics,
-  onToggleTopic,
-  selectedDifficulties,
-  onToggleDifficulty,
-  selectedField,
-  onSelectField,
-  onStart,
-  displayName,
-  onSignOut,
-}: HomeScreenProps) {
+const DISCOVERY_ITEMS = [
+  { path: "/thinkers", title: "home.masterMinds", subtitle: "home.masterMindsSub", emoji: "🗿" },
+  { path: "/formulas", title: "home.formulas", subtitle: "home.formulasSub", emoji: "📜" },
+  { path: "/glossary", title: "home.glossary", subtitle: "home.glossarySub", emoji: "📖" },
+  { path: "/bonafides", title: "home.bonafides", subtitle: "home.bonafidesSub", emoji: "🪪" },
+  { path: "/vault", title: "home.vault", subtitle: "home.vaultSub", emoji: "🔐" },
+] as const;
+
+export function HomeScreen({ selectedTopics, onToggleTopic, selectedDifficulties, onToggleDifficulty, selectedField, onSelectField, onStart, displayName, onSignOut }: HomeScreenProps) {
   const navigate = useNavigate();
-  const { locale, changeLocale } = useLocale();
   const [topicSearch, setTopicSearch] = useState("");
 
   const handleSelectField = (slug: string) => {
     onSelectField(slug);
-    selectedTopics.forEach((t) => onToggleTopic(t));
+    selectedTopics.forEach((topic) => onToggleTopic(topic));
   };
 
-  const fieldTopics = useMemo<string[] | undefined>(() => {
-    if (selectedField === "all") return undefined;
-    return FIELD_MAP[selectedField]?.topics ?? undefined;
-  }, [selectedField]);
-
+  const fieldTopics = useMemo<string[] | undefined>(() => selectedField === "all" ? undefined : FIELD_MAP[selectedField]?.topics, [selectedField]);
   const questionCount = useMemo(() => {
-    const pool =
-      selectedTopics.length === 0
-        ? allQuestions.filter((q) => fieldTopics === undefined || fieldTopics.includes(q.topic))
-        : allQuestions.filter((q) => selectedTopics.includes(q.topic));
-    return pool.length;
-  }, [selectedTopics, fieldTopics]);
+    const relevant = selectedTopics.length > 0
+      ? allQuestions.filter((question) => selectedTopics.includes(question.topic))
+      : allQuestions.filter((question) => fieldTopics === undefined || fieldTopics.includes(question.topic));
+    return relevant.filter((question) => selectedDifficulties.includes(question.difficulty)).length;
+  }, [selectedTopics, selectedDifficulties, fieldTopics]);
 
-  const summaryTopicsLabel = useMemo(() => {
-    if (selectedTopics.length > 0) {
-      return selectedTopics.map((tp) => TOPIC_MAP[tp]?.label ?? tp).join(", ");
-    }
-    if (selectedField !== "all") {
-      return FIELD_MAP[selectedField]?.label ?? t("home.allTopics");
-    }
-    return t("home.allTopics");
-  }, [selectedTopics, selectedField]);
-
-  const diffLabels = selectedDifficulties.map((d) => DIFFICULTIES.find((m) => m.slug === d)?.tag ?? d).join(" + ");
+  const summaryTopics = selectedTopics.length > 0
+    ? selectedTopics.map((topic) => TOPIC_MAP[topic]?.label ?? topic).join(", ")
+    : selectedField !== "all" ? FIELD_MAP[selectedField]?.label ?? t("home.allTopics") : t("home.allTopics");
+  const summaryDifficulty = selectedDifficulties.map((difficulty) => t(DIFFICULTIES.find((item) => item.slug === difficulty)?.tagKey ?? difficulty)).join(" + ");
 
   return (
-    <motion.div
-      key="home"
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -20 }}
-      className="flex flex-col items-center gap-6 pt-6"
-    >
-      {/* User greeting */}
+    <motion.div key="home" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} className="flex flex-col gap-8 pb-8">
       {displayName && (
-        <div className="w-full flex items-center justify-between">
+        <div className="flex min-h-11 items-center justify-between">
           <p className="text-sm text-muted-foreground">{t("home.greeting", { name: displayName })}</p>
-          {onSignOut && (
-            <button
-              onClick={onSignOut}
-              className="text-xs text-muted-foreground hover:text-foreground transition-colors"
-            >
-              {t("home.signOut")}
-            </button>
-          )}
+          {onSignOut && <Button variant="ghost" size="sm" onClick={onSignOut}>{t("home.signOut")}</Button>}
         </div>
       )}
 
-      {/* Brand header */}
-      <div className="text-center space-y-3">
-        <motion.div
-          animate={{ rotate: [0, -5, 5, 0] }}
-          transition={{ duration: 2, repeat: Infinity, repeatDelay: 3 }}
-          className="text-7xl"
-        >
-          🧠
-        </motion.div>
-        <h2 className="text-4xl md:text-5xl font-display font-bold text-foreground">
-          m<span className="text-gradient-primary">AI</span>th
-        </h2>
-        <p className="text-muted-foreground max-w-xs md:max-w-md mx-auto">{t("app.tagline")}</p>
-      </div>
+      <section className="text-center" aria-labelledby="home-title">
+        <motion.div aria-hidden="true" animate={{ rotate: [0, -5, 5, 0] }} transition={{ duration: 2, repeat: Infinity, repeatDelay: 3 }} className="text-6xl">🧠</motion.div>
+        <h1 id="home-title" className="mt-2 text-4xl font-display font-bold text-foreground md:text-5xl">m<span className="text-gradient-primary">AI</span>th</h1>
+        <p className="mx-auto mt-2 max-w-md text-muted-foreground">{t("app.tagline")}</p>
+      </section>
 
-      {/* Motivational Quote — Matrix cycling */}
       <MatrixQuoteBoard />
 
-      {/* ─── Top Action Zone: Desktop 2-col, Mobile stack ─── */}
-      <div className="w-full max-w-xl space-y-4">
-        {/* Difficulty Picker */}
+      <section id="quiz-setup" aria-labelledby="quiz-setup-title" className="scroll-mt-24 space-y-6">
+        <div>
+          <p className="text-xs font-bold uppercase text-primary">01 · {t("nav.quiz")}</p>
+          <h2 id="quiz-setup-title" className="mt-1 text-2xl font-display font-bold text-foreground">{t("home.selectDifficulty")}</h2>
+        </div>
         <DifficultyPicker selected={selectedDifficulties} onToggle={onToggleDifficulty} />
 
-        {/* Start Quiz */}
-        <motion.button
-          whileHover={{ scale: 1.03 }}
-          whileTap={{ scale: 0.97 }}
-          onClick={onStart}
-          className="w-full py-5 rounded-2xl bg-primary text-primary-foreground font-bold text-2xl glow-primary animate-pulse-glow tracking-wide"
-        >
-          {t("home.startQuiz")} 🚀
-        </motion.button>
+        <div className="border-t border-border pt-6">
+          <p className="mb-3 text-xs font-bold uppercase text-primary">02 · {t("home.selectTopics")}</p>
+          <FieldSelector selectedField={selectedField} onSelectField={handleSelectField} />
+        </div>
 
-        {/* Master Minds */}
-        <motion.button
-          whileHover={{ scale: 1.03 }}
-          whileTap={{ scale: 0.97 }}
-          onClick={() => navigate("/thinkers")}
-          className="w-full py-4 rounded-2xl border-2 border-accent/60 bg-accent/10 hover:bg-accent/20 hover:border-accent transition-all flex items-center gap-4 px-5 glow-accent"
-        >
-          <span className="text-3xl">🗿</span>
-          <div className="text-left flex-1">
-            <p className="font-bold text-lg text-foreground">{t("home.masterMinds")}</p>
-            <p className="text-xs text-muted-foreground">{t("home.masterMindsSub", { count: THINKERS.length })}</p>
-          </div>
-          <span className="text-accent font-bold text-lg">→</span>
-        </motion.button>
+        <SearchFilter value={topicSearch} onChange={setTopicSearch} placeholder={t("home.searchTopics")} resultLabel={t("stats.topics")} />
+        <TopicSelector selected={selectedTopics} onToggle={onToggleTopic} fieldFilter={fieldTopics} searchFilter={topicSearch} />
 
-        {/* Glossary */}
-        <motion.button
-          whileHover={{ scale: 1.03 }}
-          whileTap={{ scale: 0.97 }}
-          onClick={() => navigate("/glossary")}
-          className="w-full py-4 rounded-2xl border-2 border-primary/60 bg-primary/10 hover:bg-primary/20 hover:border-primary transition-all flex items-center gap-4 px-5 glow-primary"
-        >
-          <span className="text-3xl">📖</span>
-          <div className="text-left flex-1">
-            <p className="font-bold text-lg text-foreground">{t("home.glossary")}</p>
-            <p className="text-xs text-muted-foreground">{t("home.glossarySub")}</p>
-          </div>
-          <span className="text-primary font-bold text-lg">→</span>
-        </motion.button>
+        <div className="sticky bottom-3 z-20 rounded-lg border border-primary/30 bg-card/95 p-3 shadow-lg backdrop-blur">
+          <p className="mb-3 line-clamp-2 text-center text-xs text-muted-foreground">
+            {t("home.summary", { topics: summaryTopics, diff: summaryDifficulty, count: questionCount, time: 30 })}
+          </p>
+          <Button size="lg" onClick={onStart} className="h-14 w-full text-lg font-bold glow-primary">
+            {t("home.startQuiz")}
+          </Button>
+        </div>
+      </section>
 
-        {/* Formulas — Greatest Equations */}
-        <motion.button
-          whileHover={{ scale: 1.03 }}
-          whileTap={{ scale: 0.97 }}
-          onClick={() => navigate("/formulas")}
-          className="w-full py-4 rounded-2xl border-2 border-primary/60 bg-primary/10 hover:bg-primary/20 hover:border-primary transition-all flex items-center gap-4 px-5 glow-primary"
-        >
-          <span className="text-3xl">📜</span>
-          <div className="text-left flex-1">
-            <p className="font-bold text-lg text-foreground">{t("home.formulas")}</p>
-            <p className="text-xs text-muted-foreground">{t("home.formulasSub")}</p>
-          </div>
-          <span className="text-primary font-bold text-lg">→</span>
-        </motion.button>
+      <section aria-labelledby="discover-title" className="space-y-3 border-t border-border pt-7">
+        <div>
+          <h2 id="discover-title" className="text-xl font-display font-bold text-foreground">{t("home.discover")}</h2>
+          <p className="text-sm text-muted-foreground">{t("home.discoverSub")}</p>
+        </div>
+        <div className="grid gap-2 sm:grid-cols-2">
+          {DISCOVERY_ITEMS.map((item) => (
+            <Button key={item.path} variant="outline" onClick={() => navigate(item.path)} className="h-auto min-h-20 justify-start whitespace-normal p-3 text-left">
+              <span className="text-2xl" aria-hidden="true">{item.emoji}</span>
+              <span className="min-w-0 flex-1"><span className="block font-bold">{t(item.title)}</span><span className="line-clamp-1 text-xs font-normal text-muted-foreground">{t(item.subtitle, item.title === "home.masterMinds" ? { count: THINKERS.length } : undefined)}</span></span>
+              <span aria-hidden="true">→</span>
+            </Button>
+          ))}
+          <Button variant="outline" asChild className="h-auto min-h-20 justify-start whitespace-normal p-3 text-left">
+            <a href="https://geektome.lovable.app" target="_blank" rel="noopener noreferrer">
+              <span className="text-2xl" aria-hidden="true">🔤</span>
+              <span className="min-w-0 flex-1"><span className="block font-bold">{t("home.alphabet")}</span><span className="line-clamp-1 text-xs font-normal text-muted-foreground">{t("home.alphabetSub")}</span></span>
+              <ExternalLink className="h-4 w-4" aria-hidden="true" />
+            </a>
+          </Button>
+        </div>
+      </section>
 
-        {/* Bonafides — Professional Certifications */}
-        <motion.button
-          whileHover={{ scale: 1.03 }}
-          whileTap={{ scale: 0.97 }}
-          onClick={() => navigate("/bonafides")}
-          className="w-full py-4 rounded-2xl border-2 border-accent/60 bg-accent/10 hover:bg-accent/20 hover:border-accent transition-all flex items-center gap-4 px-5 glow-accent"
-        >
-          <span className="text-3xl">🪪</span>
-          <div className="text-left flex-1">
-            <p className="font-bold text-lg text-foreground">{t('home.bonafides')}</p>
-            <p className="text-xs text-muted-foreground">{t('home.bonafidesSub')}</p>
-          </div>
-          <span className="text-accent font-bold text-lg">→</span>
-        </motion.button>
-
-        {/* Alphabet — Greek Letters (external) */}
-        <motion.a
-          href="https://geektome.lovable.app"
-          target="_blank"
-          rel="noopener noreferrer"
-          whileHover={{ scale: 1.03 }}
-          whileTap={{ scale: 0.97 }}
-          className="w-full py-4 rounded-2xl border-2 border-primary/60 bg-primary/10 hover:bg-primary/20 hover:border-primary transition-all flex items-center gap-4 px-5 glow-primary"
-        >
-          <span className="text-3xl">🔤</span>
-          <div className="text-left flex-1">
-            <p className="font-bold text-lg text-foreground">{t("home.alphabet")}</p>
-            <p className="text-xs text-muted-foreground">{t("home.alphabetSub")}</p>
-          </div>
-          <span className="text-primary font-bold text-lg">→</span>
-        </motion.a>
-
-        {/* Vault — Classified Secrets */}
-        <motion.button
-          whileHover={{ scale: 1.03 }}
-          whileTap={{ scale: 0.97 }}
-          onClick={() => navigate("/vault")}
-          className="w-full py-4 rounded-2xl border-2 border-destructive/60 bg-destructive/10 hover:bg-destructive/20 hover:border-destructive transition-all flex items-center gap-4 px-5"
-        >
-          <span className="text-3xl">🔐</span>
-          <div className="text-left flex-1">
-            <p className="font-bold text-lg text-foreground">{t("home.vault")}</p>
-            <p className="text-xs text-muted-foreground">{t("home.vaultSub")}</p>
-          </div>
-          <span className="text-destructive font-bold text-lg">→</span>
-        </motion.button>
-      </div>
-
-      {/* Stats showcase — 2 rows of 3 */}
-      <StatsShowcase
-        stats={[
-          { value: allQuestions.length, label: t("stats.questions"), emoji: "❓" },
-          { value: allGlossaryTerms.length, label: t("stats.terms"), emoji: "📖" },
-          { value: THINKERS.length, label: t("stats.thinkers"), emoji: "🗿" },
-          { value: TOPICS.length, label: t("stats.topics"), emoji: "🧩" },
-          { value: VAULT_ENTRIES.length, label: t("stats.secrets"), emoji: "🔐" },
-          { value: EQUATIONS.length, label: t("stats.formulas"), emoji: "📐" },
-        ]}
-      />
-
-      {/* Language Selector */}
-      <div className="w-full max-w-xl space-y-2">
-        <h3 className="text-xs font-bold text-muted-foreground text-center">{t("language.title")}</h3>
-        <LanguageSelector locale={locale} onChangeLocale={changeLocale} />
-      </div>
-
-
-      {/* Field Selector */}
-      <div className="w-full">
-        <FieldSelector selectedField={selectedField} onSelectField={handleSelectField} />
-      </div>
-
-      {/* Start Quiz */}
-      <motion.button
-        whileHover={{ scale: 1.03 }}
-        whileTap={{ scale: 0.97 }}
-        onClick={onStart}
-        className="w-full py-5 rounded-2xl bg-primary text-primary-foreground font-bold text-2xl glow-primary animate-pulse-glow tracking-wide"
-      >
-        {t("home.startQuiz")} 🚀
-      </motion.button>
-
-      {/* Topic Search */}
-      <div className="w-full max-w-xl">
-        <SearchFilter
-          value={topicSearch}
-          onChange={setTopicSearch}
-          placeholder={t("home.searchTopics")}
-          resultLabel="topics"
-        />
-      </div>
-
-      {/* Topic Selector */}
-      <div className="w-full">
-        <TopicSelector
-          selected={selectedTopics}
-          onToggle={onToggleTopic}
-          fieldFilter={fieldTopics}
-          searchFilter={topicSearch}
-        />
-      </div>
-
-      {/* Duplicate Start Quiz under Topics */}
-      <div className="w-full max-w-xl">
-        <motion.button
-          whileHover={{ scale: 1.03 }}
-          whileTap={{ scale: 0.97 }}
-          onClick={onStart}
-          className="w-full py-5 rounded-2xl bg-primary text-primary-foreground font-bold text-2xl glow-primary animate-pulse-glow tracking-wide"
-        >
-          {t("home.startQuiz")} 🚀
-        </motion.button>
-      </div>
-
-      <p className="text-xs font-medium text-accent text-center">{t("quiz.questionCount", { count: questionCount })}</p>
-
-      <div className="pb-6" />
+      <StatsShowcase stats={[
+        { value: allQuestions.length, label: t("stats.questions"), emoji: "❓" },
+        { value: allGlossaryTerms.length, label: t("stats.terms"), emoji: "📖" },
+        { value: THINKERS.length, label: t("stats.thinkers"), emoji: "🗿" },
+        { value: TOPICS.length, label: t("stats.topics"), emoji: "🧩" },
+        { value: VAULT_ENTRIES.length, label: t("stats.secrets"), emoji: "🔐" },
+        { value: EQUATIONS.length, label: t("stats.formulas"), emoji: "📐" },
+      ]} />
     </motion.div>
   );
 }
