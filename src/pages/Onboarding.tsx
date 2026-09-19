@@ -56,7 +56,7 @@ export default function Onboarding() {
     setSigningOut(true);
     await signOut();
     setSigningOut(false);
-    navigate('/auth', { replace: true });
+    navigate(APP_PATHS.auth, { replace: true });
   };
 
   if (loading) {
