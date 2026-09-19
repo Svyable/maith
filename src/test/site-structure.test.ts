@@ -2,7 +2,7 @@ import { readdirSync, readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { FIELD_MAP, FIELDS } from '@/config/fields';
-import { STANDARD_TOPICS } from '@/config/content-registry';
+import { CONTENT_COLLECTIONS, STANDARD_TOPICS } from '@/config/content-registry';
 import {
   APP_PATHS,
   DISCOVERY_NAV_ITEMS,
@@ -44,6 +44,16 @@ describe('site structure', () => {
   it('keeps canonical destination paths unique', () => {
     const paths = Object.values(SITE_DESTINATIONS).map((destination) => destination.path);
     expect(new Set(paths).size).toBe(paths.length);
+  });
+
+  it('keeps routed content collections on canonical application paths', () => {
+    for (const collection of CONTENT_COLLECTIONS) {
+      if (collection.route === null) continue;
+      expect(
+        registeredPaths.has(collection.route),
+        `Content collection ${collection.kind} uses an unknown route ${collection.route}`,
+      ).toBe(true);
+    }
   });
 
   it('keeps dynamic route patterns unique and rooted under canonical app paths', () => {
