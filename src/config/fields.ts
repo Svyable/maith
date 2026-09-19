@@ -1,9 +1,10 @@
 import { STANDARD_TOPICS } from './content-registry';
 
-// ── Field Registry — single source of truth for field presentation ────
+// ── Standard quiz field registry — presentation + ordering ───────────
 //
 // Field topic membership is derived exclusively from the canonical topic
-// registry. Never hand-maintain topic arrays here.
+// registry. Professional/course collections belong to Bonafides and must not
+// appear here. Never hand-maintain topic arrays.
 
 export interface FieldMeta {
   /** Unique slug, matches the `field` property on TopicMeta */
@@ -87,27 +88,11 @@ const FIELD_DEFINITIONS: FieldDefinition[] = [
     available: true,
   },
   {
-    slug: 'medical',
-    label: 'Medical',
-    emoji: '🩺',
-    description: 'Anatomy & physiology, pathology, and biostatistics',
-    color: 'success',
-    available: true,
-  },
-  {
     slug: 'cs',
     label: 'Computer Science',
     emoji: '💻',
     description: 'Algorithms, Machine Learning, Cryptography, AI Models, Quantum Computing, Cybersecurity',
     color: 'accent',
-    available: true,
-  },
-  {
-    slug: 'data-science',
-    label: 'Data Science',
-    emoji: '📊',
-    description: 'Data wrangling, visualization, and production MLOps',
-    color: 'primary',
     available: true,
   },
   {
@@ -140,46 +125,6 @@ const FIELD_DEFINITIONS: FieldDefinition[] = [
     emoji: '📈',
     description: 'Micro/Macroeconomics, Econometrics, Game Theory, Stochastic Calculus, Derivatives, Risk, Portfolio Theory, Algo Trading',
     color: 'destructive',
-    available: true,
-  },
-  {
-    slug: 'cfa',
-    label: 'CFA',
-    emoji: '📈',
-    description: 'Ethics, equity valuation, and portfolio management',
-    color: 'destructive',
-    available: true,
-  },
-  {
-    slug: 'cpa',
-    label: 'CPA',
-    emoji: '🧾',
-    description: 'Auditing, financial accounting, regulation, and tax',
-    color: 'primary',
-    available: true,
-  },
-  {
-    slug: 'actuarial',
-    label: 'Actuarial',
-    emoji: '🎲',
-    description: 'Probability, financial mathematics, and loss models',
-    color: 'accent',
-    available: true,
-  },
-  {
-    slug: 'mba',
-    label: 'MBA',
-    emoji: '💼',
-    description: 'Corporate strategy, marketing analytics, and operations management',
-    color: 'primary',
-    available: true,
-  },
-  {
-    slug: 'law',
-    label: 'Law',
-    emoji: '⚖️',
-    description: 'Contract law, intellectual property, and regulatory compliance',
-    color: 'accent',
     available: true,
   },
 ];
