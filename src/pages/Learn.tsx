@@ -4,7 +4,7 @@ import { SiteShell } from '@/components/layout/SiteShell';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { TOPIC_MAP } from '@/config/constants';
-import { resolveTopicSlug } from '@/config/content-registry';
+import { resolveTopicSlugs } from '@/config/content-registry';
 import {
   LEARNING_FIELD_PAGES,
   getLearningFieldPage,
@@ -274,10 +274,16 @@ export default function Learn() {
   const { fieldSlug, topicSlug } = useParams<{ fieldSlug?: string; topicSlug?: string }>();
 
   if (fieldSlug && topicSlug) {
-    const canonicalSlug = resolveTopicSlug(topicSlug);
-    const canonicalTopic = TOPIC_MAP[canonicalSlug];
-    if (canonicalTopic && canonicalSlug !== topicSlug) {
-      return <Navigate to={buildLearnTopicPath(canonicalTopic.field, canonicalSlug)} replace />;
+    const resolvedSlugs = resolveTopicSlugs(topicSlug).filter((slug) => Boolean(TOPIC_MAP[slug]));
+    if (resolvedSlugs.length > 1) {
+      const canonicalField = TOPIC_MAP[resolvedSlugs[0]].field;
+      if (resolvedSlugs.every((slug) => TOPIC_MAP[slug].field === canonicalField)) {
+        return <Navigate to={buildLearnFieldPath(canonicalField)} replace />;
+      }
+    }
+    if (resolvedSlugs.length === 1 && resolvedSlugs[0] !== topicSlug) {
+      const canonicalTopic = TOPIC_MAP[resolvedSlugs[0]];
+      return <Navigate to={buildLearnTopicPath(canonicalTopic.field, canonicalTopic.slug)} replace />;
     }
   }
 
