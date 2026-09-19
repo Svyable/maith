@@ -1,4 +1,5 @@
 // Canonical lightweight content registry. Full content stays in source packs.
+import { BONAFIDES } from './bonafides';
 
 export type ContentKind = 'standard-quiz' | 'bonafide' | 'thinker' | 'vault' | 'glossary' | 'formula' | 'editorial' | 'special';
 
@@ -542,7 +543,20 @@ export const HIDDEN_STANDARD_TOPICS: ContentTopicMeta[] = [
   { slug: 'string-theory', label: 'String Theory', emoji: '🧵', description: 'String theory and holographic physics', field: 'physics', kind: 'special', available: false, loaderGroups: TOPIC_LOADER_GROUPS['string-theory'] ?? [] },
 ];
 
-export const CONTENT_TOPICS: ContentTopicMeta[] = [...STANDARD_TOPICS, ...HIDDEN_STANDARD_TOPICS];
+export const BONAFIDE_TOPICS: ContentTopicMeta[] = BONAFIDES.flatMap((credential) =>
+  credential.topics.map((slug) => ({
+    slug,
+    label: credential.label,
+    emoji: credential.emoji,
+    description: credential.description,
+    field: 'bonafide',
+    kind: 'bonafide' as const,
+    available: credential.available,
+    loaderGroups: ['bonafides'],
+  })),
+);
+
+export const CONTENT_TOPICS: ContentTopicMeta[] = [...STANDARD_TOPICS, ...HIDDEN_STANDARD_TOPICS, ...BONAFIDE_TOPICS];
 export const CONTENT_TOPIC_MAP: Record<string, ContentTopicMeta> = Object.fromEntries(CONTENT_TOPICS.map((topic) => [topic.slug, topic]));
 
 /** Selector-compatible topics. Unavailable legacy/special entries remain addressable through CONTENT_TOPIC_MAP. */
