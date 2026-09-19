@@ -25,6 +25,8 @@ export function getSafeEliminationIndices(
   originalIndices: number[],
   remainingChoices = 2,
 ): number[] {
+  if (!originalIndices.includes(correctIndex)) return [];
+
   const wrongVisibleIndices = originalIndices
     .map((originalIndex, visibleIndex) => ({ originalIndex, visibleIndex }))
     .filter(({ originalIndex }) => originalIndex !== correctIndex)
