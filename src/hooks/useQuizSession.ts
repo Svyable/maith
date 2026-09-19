@@ -48,7 +48,8 @@ export function useQuizSession({
   // Timer
   const handleTimeout = useCallback(() => {
     if (isQuizActive) {
-      setSessionTotal((t) => t + 1);
+      // QuizScreen records the timed-out attempt through handleSessionUpdate.
+      // Keeping the counter in one place prevents timeout attempts from counting twice.
       onTimeout?.();
     }
   }, [isQuizActive, onTimeout]);

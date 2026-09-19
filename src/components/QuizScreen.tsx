@@ -10,6 +10,7 @@ import type { PublicQuestion, CheckResult } from '@/domain/quiz';
 import { type Difficulty, getDifficultyMeta, TOPIC_MAP, toDifficulty } from '@/config/constants';
 import { useKeyboard } from '@/hooks/useKeyboard';
 import { t } from '@/i18n';
+import { streakBonusLabel } from '@/domain/scoring';
 
 interface QuizScreenProps {
   question: PublicQuestion;
@@ -21,6 +22,7 @@ interface QuizScreenProps {
   timerFraction: number;
   timeLeft: number;
   onAnswer: (index: number) => Promise<CheckResult | null>;
+  onEliminate: () => number[];
   onNext: () => void;
   onSkip: () => void;
   onEndQuiz: () => void;
@@ -44,6 +46,7 @@ export function QuizScreen({
   timerFraction,
   timeLeft,
   onAnswer,
+  onEliminate,
   onNext,
   onSkip,
   onEndQuiz,
@@ -124,16 +127,14 @@ export function QuizScreen({
 
   const handleEliminate = useCallback(() => {
     if (eliminateUsed || answerState !== 'pending') return;
+    const indices = onEliminate();
+    if (indices.length === 0) return;
     setEliminateUsed(true);
-    const indices = [0, 1, 2, 3];
-    for (let i = indices.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [indices[i], indices[j]] = [indices[j], indices[i]];
-    }
-    setEliminatedOptions(indices.slice(0, 2));
-  }, [eliminateUsed, answerState]);
+    setEliminatedOptions(indices);
+  }, [eliminateUsed, answerState, onEliminate]);
 
   const isAnswered = answerState === 'correct' || answerState === 'wrong';
+  const nextStreakBonus = streakBonusLabel(streak + 1);
 
   useKeyboard({
     onOption: answerState === 'pending' ? handleSelect : undefined,
@@ -173,7 +174,7 @@ export function QuizScreen({
       </div>
 
       {/* Timer */}
-      <TimerBar fraction={timerFraction} timeLeft={timeLeft} />
+      <TimerBar fraction={timerFraction} timeLeft={timeLeft} paused={answerState !== 'pending'} />
 
       {/* Topic + difficulty badges */}
       <div className="flex items-center gap-2 flex-wrap">
@@ -182,9 +183,15 @@ export function QuizScreen({
         <span className={`text-[10px] px-1.5 py-0.5 rounded font-mono font-bold ${diffBadge.text}`}>
           {t('difficulty.pts', { pts: qDiffMeta.pointsPerCorrect })}
         </span>
-        {streak >= 3 && (
-          <span className="ml-auto text-xs font-bold text-accent">
-            {t('quiz.streak', { count: streak })}
+        {streak > 0 && (
+          <span
+            className="ml-auto inline-flex items-center gap-1 rounded-full border border-accent/20 bg-accent/10 px-2 py-1 text-xs font-bold text-accent"
+            aria-label={t('quiz.streak', { count: streak })}
+          >
+            <span aria-hidden="true">🔥</span>
+            <span className="font-mono">{streak}</span>
+            <span className="text-accent/60" aria-hidden="true">·</span>
+            <span className="font-mono">{nextStreakBonus}</span>
           </span>
         )}
       </div>
@@ -224,6 +231,7 @@ export function QuizScreen({
               disabled={answerState !== 'pending' || isEliminated}
               state={state}
               eliminated={showEliminated}
+              selected={answerState === 'checking' && i === selectedOption}
             />
           );
         })}

@@ -13,7 +13,7 @@ import {
   type PublicQuestion,
   type CheckResult,
 } from '@/domain/quiz';
-import { fetchThinkerQuestions, checkThinkerAnswer } from '@/domain/quiz/thinker-service';
+import { fetchThinkerQuestions, checkThinkerAnswer, getThinkerEliminatedOptions } from '@/domain/quiz/thinker-service';
 
 export type { PublicQuestion, CheckResult };
 
@@ -52,6 +52,11 @@ export function useThinkerQuiz(difficulties: Difficulty[] = ['HARD']) {
     [currentQuestion],
   );
 
+  const eliminateOptions = useCallback((): number[] => {
+    if (!currentQuestion) return [];
+    return getThinkerEliminatedOptions(currentQuestion.id, currentQuestion.originalIndices);
+  }, [currentQuestion]);
+
   const nextQuestion = useCallback(() => {
     setState(advanceQuestion);
   }, []);
@@ -73,6 +78,7 @@ export function useThinkerQuiz(difficulties: Difficulty[] = ['HARD']) {
     currentQuestion,
     startThinker,
     answer,
+    eliminateOptions,
     nextQuestion,
     skipQuestion,
     endQuiz,

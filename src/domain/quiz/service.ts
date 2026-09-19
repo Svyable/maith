@@ -5,7 +5,7 @@
 import { supabase } from '@/integrations/supabase/client';
 import { tQuestion, tQuestionOptions } from '@/i18n/tQuestion';
 import { DEFAULT_QUIZ_CAP, type QuestionDifficulty } from '@/config/constants';
-import { fisherYatesShuffle, stripAnswers } from './engine';
+import { fisherYatesShuffle, getSafeEliminationIndices, stripAnswers } from './engine';
 import type { PublicQuestion, CheckResult, SessionSubmitParams } from './types';
 import type { Question } from '@/content/types';
 
@@ -63,6 +63,19 @@ export function localFallbackCheck(
   };
 }
 
+/**
+ * Return visible option indices that can be safely removed by a 50/50 assist.
+ */
+export function localFallbackEliminate(
+  questionId: number,
+  originalIndices: number[],
+  pool: Question[],
+): number[] {
+  const q = pool.find((x) => x.id === questionId);
+  if (!q) return [];
+  return getSafeEliminationIndices(q.correctIndex, originalIndices);
+}
+
 // ── Server calls ─────────────────────────────────────────────────────
 
 /**
@@ -74,6 +87,17 @@ export async function checkAnswer(
   pool: Question[],
 ): Promise<CheckResult | null> {
   return localFallbackCheck(questionId, selectedIndex, pool);
+}
+
+/**
+ * Resolve a 50/50 assist locally without leaking the correct index.
+ */
+export function getEliminatedOptions(
+  questionId: number,
+  originalIndices: number[],
+  pool: Question[],
+): number[] {
+  return localFallbackEliminate(questionId, originalIndices, pool);
 }
 
 /**

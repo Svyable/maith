@@ -1,7 +1,7 @@
 import { allThinkerQuestions } from '@/content/thinkers';
 import { DEFAULT_QUIZ_CAP, type QuestionDifficulty } from '@/config/constants';
 import { fisherYatesShuffle, stripAnswers } from './engine';
-import { localFallbackCheck } from './service';
+import { localFallbackCheck, localFallbackEliminate } from './service';
 import type { CheckResult, PublicQuestion } from './types';
 
 export function fetchThinkerQuestions(slug: string, difficulties: QuestionDifficulty[], cap = DEFAULT_QUIZ_CAP): PublicQuestion[] {
@@ -14,4 +14,8 @@ export function fetchThinkerQuestions(slug: string, difficulties: QuestionDiffic
 
 export function checkThinkerAnswer(questionId: number, selectedIndex: number): CheckResult | null {
   return localFallbackCheck(questionId, selectedIndex, allThinkerQuestions);
+}
+
+export function getThinkerEliminatedOptions(questionId: number, originalIndices: number[]): number[] {
+  return localFallbackEliminate(questionId, originalIndices, allThinkerQuestions);
 }

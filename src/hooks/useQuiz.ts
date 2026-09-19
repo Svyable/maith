@@ -13,7 +13,7 @@ import {
   type PublicQuestion,
   type CheckResult,
 } from '@/domain/quiz';
-import { fetchQuestions, checkAnswer } from '@/domain/quiz/service';
+import { fetchQuestions, checkAnswer, getEliminatedOptions } from '@/domain/quiz/service';
 import type { QuestionLoadProgress } from '@/content/question-loaders';
 
 export type { PublicQuestion, CheckResult, QuizState } from '@/domain/quiz';
@@ -60,6 +60,15 @@ export function useQuiz(selectedTopics: string[] = [], difficulties: Difficulty[
     [currentQuestion],
   );
 
+  const eliminateOptions = useCallback((): number[] => {
+    if (!currentQuestion) return [];
+    return getEliminatedOptions(
+      currentQuestion.id,
+      currentQuestion.originalIndices,
+      questionPoolRef.current,
+    );
+  }, [currentQuestion]);
+
   const nextQuestion = useCallback(() => {
     setState(advanceQuestion);
   }, []);
@@ -83,6 +92,7 @@ export function useQuiz(selectedTopics: string[] = [], difficulties: Difficulty[
     state,
     currentQuestion,
     answer,
+    eliminateOptions,
     nextQuestion,
     skipQuestion,
     endQuiz,
