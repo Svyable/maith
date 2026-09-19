@@ -108,6 +108,7 @@ const LEGACY_TOPIC_DEFINITIONS: TopicMeta[] = [
   { slug: 'process-design',         label: 'Process Design',          emoji: '🏭', description: 'Pinch analysis, PFD/P&ID, Aspen Plus, safety', field: 'engineering' },
   { slug: 'aerodynamics',           label: 'Aerodynamics',            emoji: '✈️', description: 'Lift/drag, Prandtl, CFD, supersonic flow',      field: 'engineering' },
   { slug: 'orbital-mechanics',      label: 'Orbital Mechanics',       emoji: '🛰️', description: 'Hohmann, Lambert, restricted 3-body, TLE',    field: 'engineering' },
+  { slug: 'spaceflight-systems',    label: 'Spaceflight Systems',     emoji: '🚀', description: 'Propulsion, launch vehicles, staging, reusability', field: 'engineering' },
   { slug: 'nuclear-engineering',    label: 'Nuclear Engineering',     emoji: '☢️', description: 'Neutron transport, criticality, Lawson criterion', field: 'engineering' },
   { slug: 'materials-science',      label: 'Materials Science',       emoji: '🔩', description: 'Crystallography, dislocations, alloys, nanomaterials', field: 'engineering' },
   { slug: 'biomedical-engineering',  label: 'Biomedical Engineering', emoji: '🫀', description: 'Biomechanics, imaging, tissue engineering, prosthetics', field: 'engineering' },
@@ -177,6 +178,7 @@ const LEGACY_ALIAS_TARGETS: Record<string, string> = {
   'mechanical-engineering': 'solid-mechanics',
   'robotics': 'robotics-mechatronics',
   'control-theory': 'control-systems',
+  'aerospace': 'spaceflight-systems',
 };
 
 const LEGACY_PROFESSIONAL_FIELDS = new Set(["actuarial", "cfa", "cpa", "data-science", "law", "mba", "medical"]);
