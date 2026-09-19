@@ -2,6 +2,7 @@ import { mkdirSync, writeFileSync } from 'node:fs';
 import { dirname } from 'node:path';
 import { APP_PATHS } from '../src/config/site-navigation';
 import { INDEXABLE_SEO_ROUTES, canonicalUrl } from '../src/config/seo';
+import { INDEXABLE_REFERENCE_SEO_ROUTES } from './reference-seo-routes';
 
 function xmlEscape(value: string): string {
   return value
@@ -26,6 +27,13 @@ function routePolicy(path: string): { changefreq: string; priority: string } {
   if (path === APP_PATHS.formulas || path === APP_PATHS.thinkers) {
     return { changefreq: 'monthly', priority: '0.8' };
   }
+  if (
+    path.startsWith(APP_PATHS.formulas + '/')
+    || path.startsWith(APP_PATHS.glossary + '/')
+    || path.startsWith(APP_PATHS.thinkers + '/')
+  ) {
+    return { changefreq: 'monthly', priority: '0.65' };
+  }
   if (path === APP_PATHS.vault || path === APP_PATHS.bonafides) {
     return { changefreq: 'monthly', priority: '0.7' };
   }
@@ -33,8 +41,13 @@ function routePolicy(path: string): { changefreq: string; priority: string } {
   return { changefreq: 'monthly', priority: '0.6' };
 }
 
+const allIndexableRoutes = [
+  ...INDEXABLE_SEO_ROUTES,
+  ...INDEXABLE_REFERENCE_SEO_ROUTES,
+];
+
 const uniqueRoutes = Array.from(
-  new Map(INDEXABLE_SEO_ROUTES.map((entry) => [entry.path, entry])).values(),
+  new Map(allIndexableRoutes.map((entry) => [entry.path, entry])).values(),
 ).sort((a, b) => {
   if (a.path === '/') return -1;
   if (b.path === '/') return 1;
@@ -66,4 +79,10 @@ const output = 'public/sitemap.xml';
 mkdirSync(dirname(output), { recursive: true });
 writeFileSync(output, sitemap);
 
-console.log('Generated sitemap with ' + uniqueRoutes.length + ' indexable routes.');
+console.log(
+  'Generated sitemap with '
+    + uniqueRoutes.length
+    + ' indexable routes ('
+    + INDEXABLE_REFERENCE_SEO_ROUTES.length
+    + ' reference detail pages).',
+);
