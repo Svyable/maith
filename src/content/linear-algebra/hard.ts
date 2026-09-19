@@ -61,7 +61,7 @@ export const hardQuestions: Question[] = [
     topic: 'linear-algebra',
     difficulty: 'hard',
     question: 'The column space of $\\mathbf{A}$ is:',
-    options: ['All vectors $\\mathbf{x}$ mapped to zero by $\\mathbf{A}$', 'All linear combinations of the rows of $\\mathbf{A}$', 'The span of eigenvectors associated with nonzero eigenvalues', 'All vectors $\\mathbf{A}\\mathbf{x}$ obtainable as $\\mathbf{x}$ varies'],
+    options: ['The kernel of $\\mathbf{A}$: all $\\mathbf{x}$ with $\\mathbf{A}\\mathbf{x}=\\mathbf{0}$', 'The row space: all linear combinations of rows', 'The eigenspace spanned by nonzero-eigenvalue vectors', 'The image of $\\mathbf{A}$: all vectors $\\mathbf{A}\\mathbf{x}$'],
     correctIndex: 3,
     explanation: 'The column space is the span of all columns of $\\mathbf{A}$ — the set of all linear combinations $\\mathbf{A}\\mathbf{x}$.',
     realWorld: 'Least-squares projects $\\mathbf{b}$ onto the column space of $\\mathbf{A}$ when exact solutions don\'t exist.',
