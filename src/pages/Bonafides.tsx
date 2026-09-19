@@ -1,9 +1,7 @@
 import { useState, useCallback, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
-import { QuizHeader } from '@/components/QuizHeader';
-import { FloatingBackground } from '@/components/FloatingBackground';
-import { Footer } from '@/components/Footer';
+import { SiteShell } from '@/components/layout/SiteShell';
 import { QuizScreen } from '@/components/QuizScreen';
 import { QuizResults } from '@/components/QuizResults';
 import { BonafideGallery } from '@/components/bonafides/BonafideGallery';
@@ -12,6 +10,7 @@ import { useBonafideQuiz } from '@/hooks/useBonafideQuiz';
 import { useQuizSession } from '@/hooks/useQuizSession';
 import { BONAFIDES } from '@/config/bonafides';
 import { DEFAULT_DIFFICULTIES } from '@/config/constants';
+import { APP_PATHS } from '@/config/site-navigation';
 import type { Difficulty } from '@/config/constants';
 
 type Screen = 'gallery' | 'quiz' | 'results';
@@ -94,13 +93,7 @@ export default function Bonafides() {
   const bonafideMeta = selectedSlug ? BONAFIDES.find((b) => b.slug === selectedSlug) : null;
 
   return (
-    <div className="min-h-screen bg-background flex flex-col relative">
-      <FloatingBackground />
-      <QuizHeader
-        streak={state.streak}
-        showStreak={screen === 'quiz'}
-      />
-
+    <SiteShell streak={state.streak} showStreak={screen === 'quiz'} showFooter={screen === 'gallery'}>
       <main className="relative z-10 flex-1 px-4 py-6 max-w-lg md:max-w-3xl lg:max-w-5xl mx-auto w-full">
         <AnimatePresence mode="wait">
 
@@ -109,7 +102,7 @@ export default function Bonafides() {
               selectedDifficulties={selectedDifficulties}
               onToggleDifficulty={toggleDifficulty}
               onStartBonafide={handleStartBonafide}
-              onBack={() => navigate('/')}
+              onBack={() => navigate(APP_PATHS.home)}
             />
           )}
 
@@ -166,7 +159,6 @@ export default function Bonafides() {
 
         </AnimatePresence>
       </main>
-      {screen === 'gallery' && <div className="relative z-10"><Footer /></div>}
-    </div>
+    </SiteShell>
   );
 }

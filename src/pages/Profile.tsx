@@ -12,13 +12,13 @@ import { ProfileGamescapeStats } from '@/components/ProfileGamescapeStats';
 import { ThinkerBadgeWall } from '@/components/profile/ThinkerBadgeWall';
 import { useTheme } from '@/hooks/useTheme';
 import { useVaultProgress } from '@/hooks/useVaultProgress';
-import { QuizHeader } from '@/components/QuizHeader';
-import { FloatingBackground } from '@/components/FloatingBackground';
+import { SiteShell } from '@/components/layout/SiteShell';
 import { Pencil, Check, X, Shield } from 'lucide-react';
 import { t } from '@/i18n';
 import { DIFFICULTIES } from '@/config/constants';
 import { Button } from '@/components/ui/button';
 import { getLevel } from '@/config/levels';
+import { APP_PATHS } from '@/config/site-navigation';
 
 interface UserStats {
   score_total: number;
@@ -69,7 +69,7 @@ export default function Profile() {
 
   useEffect(() => {
     if (authLoading) return;
-    if (!user) { navigate('/auth'); return; }
+    if (!user) { navigate(APP_PATHS.auth); return; }
 
     async function fetchData() {
       setLoading(true);
@@ -94,13 +94,11 @@ export default function Profile() {
 
   if (authLoading || loading) {
     return (
-      <div className="min-h-screen bg-background flex flex-col relative">
-        <FloatingBackground />
-        <QuizHeader streak={0} showStreak={false} />
+      <SiteShell showFooter={false}>
         <div className="flex-1 flex items-center justify-center">
           <div className="text-muted-foreground animate-pulse">{t('profile.loading')}</div>
         </div>
-      </div>
+      </SiteShell>
     );
   }
 
@@ -109,10 +107,7 @@ export default function Profile() {
   const avatarEmoji = (!avatarUrl || isImageUrl) ? level.emoji : avatarUrl;
 
   return (
-    <div className="min-h-screen bg-background flex flex-col relative">
-      <FloatingBackground />
-      <QuizHeader streak={0} showStreak={false} />
-
+    <SiteShell showFooter={false}>
       <main className="relative z-10 flex-1 px-4 py-6 max-w-lg mx-auto w-full space-y-6">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="space-y-6">
           {/* Profile header */}
@@ -334,6 +329,6 @@ export default function Profile() {
           </Button>
         </motion.div>
       </main>
-    </div>
+    </SiteShell>
   );
 }

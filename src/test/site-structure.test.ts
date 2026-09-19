@@ -1,3 +1,5 @@
+import { readdirSync, readFileSync } from 'node:fs';
+import { resolve } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { FIELD_MAP, FIELDS } from '@/config/fields';
 import { STANDARD_TOPICS } from '@/config/content-registry';
@@ -8,6 +10,32 @@ import {
   PRIMARY_NAV_ITEMS,
   SITE_DESTINATIONS,
 } from '@/config/site-navigation';
+
+const PAGES_DIR = resolve(process.cwd(), 'src/pages');
+const PAGE_SOURCES = Object.fromEntries(
+  readdirSync(PAGES_DIR)
+    .filter((file) => file.endsWith('.tsx'))
+    .map((file) => [file, readFileSync(resolve(PAGES_DIR, file), 'utf8')]),
+);
+
+const SITE_SHELL_PAGES = [
+  'Index.tsx',
+  'Auth.tsx',
+  'Bonafides.tsx',
+  'Formulas.tsx',
+  'Glossary.tsx',
+  'Leaderboard.tsx',
+  'Profile.tsx',
+  'Thinkers.tsx',
+  'Vault.tsx',
+] as const;
+
+const HARDCODED_ROUTE_PATTERNS = [
+  /\bnavigate\s*\(\s*['"`]\/(?!\/)/,
+  /\bto\s*=\s*['"`]\/(?!\/)/,
+  /\bhref\s*=\s*['"`]\/(?!\/)/,
+  /<Navigate\b[^>]*\bto\s*=\s*['"`]\/(?!\/)/,
+];
 
 describe('site structure', () => {
   const registeredPaths = new Set(Object.values(APP_PATHS));
@@ -21,6 +49,22 @@ describe('site structure', () => {
   it('keeps canonical destination paths unique', () => {
     const paths = Object.values(SITE_DESTINATIONS).map((destination) => destination.path);
     expect(new Set(paths).size).toBe(paths.length);
+  });
+
+  it('keeps top-level page navigation on APP_PATHS instead of route literals', () => {
+    const offenders = Object.entries(PAGE_SOURCES)
+      .filter(([, source]) => HARDCODED_ROUTE_PATTERNS.some((pattern) => pattern.test(source)))
+      .map(([file]) => file);
+
+    expect(offenders).toEqual([]);
+  });
+
+  it('keeps global page chrome behind the shared SiteShell boundary', () => {
+    const offenders = SITE_SHELL_PAGES.filter(
+      (file) => !PAGE_SOURCES[file]?.includes("@/components/layout/SiteShell"),
+    );
+
+    expect(offenders).toEqual([]);
   });
 
   it('keeps field slugs unique', () => {
