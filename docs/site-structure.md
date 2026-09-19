@@ -4,7 +4,7 @@ mAIth keeps route paths, primary navigation, footer navigation, and home discove
 
 ## Canonical navigation
 
-`APP_PATHS` owns internal application paths. Components should import those paths instead of repeating string literals.
+`APP_PATHS` owns internal application paths. Components and content-collection metadata should import those paths instead of repeating string literals.
 
 `SITE_DESTINATIONS` owns the metadata shared by visible destinations: path, emoji, translation keys, and discovery labels. The header, footer, and home discovery grid consume derived arrays from this registry, preserving their intentional ordering while sharing canonical destination metadata.
 
@@ -38,6 +38,7 @@ This means adding or moving a standard topic requires changing its canonical top
 
 - visible navigation items point to registered application paths;
 - canonical destination paths are unique;
+- routed content collections resolve through registered `APP_PATHS` entries;
 - dynamic learning/reference route patterns are unique and rooted under canonical application paths;
 - top-level pages do not hard-code internal navigation paths;
 - every non-exempt page stays behind the shared `SiteShell` boundary, with exemptions verified explicitly;
