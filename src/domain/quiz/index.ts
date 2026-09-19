@@ -1,5 +1,6 @@
 // ── Quiz Domain — public API ──────────────────────────────────────────
 export type { PublicQuestion, CheckResult, QuizState, QuizConfig, SessionSubmitParams, MissedQuestion, SkippedQuestion } from './types';
+export type { QuizSessionRepository } from './session-repository';
 export {
   fisherYatesShuffle,
   getSafeEliminationIndices,
