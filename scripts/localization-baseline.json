@@ -1,8 +1,8 @@
 {
-  "version": 6,
+  "version": 7,
   "sharedFoundation": {
     "coreQuestionStart": 1,
-    "coreQuestionEnd": 97,
+    "coreQuestionEnd": 112,
     "additionalQuestionIds": [
       82100,
       82101,
@@ -11,13 +11,13 @@
   },
   "minimumTranslatedQuestions": {
     "de": 123,
-    "es": 101,
-    "fr": 100,
-    "hi": 100,
-    "it": 100,
-    "ja": 100,
-    "ko": 100,
-    "pt": 100,
-    "zh": 100
+    "es": 115,
+    "fr": 115,
+    "hi": 115,
+    "it": 115,
+    "ja": 115,
+    "ko": 115,
+    "pt": 115,
+    "zh": 115
   }
 }
