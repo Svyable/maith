@@ -1,4 +1,4 @@
-import { STANDARD_TOPICS } from './content-registry';
+import { STANDARD_TOPICS, TOPICS } from './content-registry';
 
 // ── Field Registry — single source of truth for field presentation ────
 //
@@ -203,6 +203,22 @@ export const FIELDS: FieldMeta[] = FIELD_DEFINITIONS.map((field) => ({
 
 export const FIELD_MAP: Record<string, FieldMeta> = Object.fromEntries(
   FIELDS.map((field) => [field.slug, field]),
+);
+
+const QUIZ_TOPIC_SLUGS = new Set(TOPICS.map((topic) => topic.slug));
+
+/**
+ * Fields available inside the ordinary Test Time setup.
+ * Professional credentials and other isolated collections stay on their own routes.
+ */
+export const QUIZ_FIELDS: FieldMeta[] = FIELDS.filter(
+  (field) =>
+    field.slug === 'all' ||
+    field.topics.some((topic) => QUIZ_TOPIC_SLUGS.has(topic)),
+);
+
+export const QUIZ_FIELD_MAP: Record<string, FieldMeta> = Object.fromEntries(
+  QUIZ_FIELDS.map((field) => [field.slug, field]),
 );
 
 export function getField(slug: string): FieldMeta | undefined {
