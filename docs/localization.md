@@ -31,10 +31,10 @@ English question text remains in the canonical question packs and translated que
 
 Every translated locale must fully cover the shared foundation:
 
-- Core question IDs `1-67`
+- Core question IDs `1-82`
 - Actuarial foundation IDs `82100-82102`
 
-That produces a 70-question shared floor spanning linear algebra, calculus, probability/statistics, optimization, discrete math, and the actuarial foundation.
+That produces an 85-question shared floor spanning linear algebra, calculus, probability/statistics, optimization, discrete math, and the actuarial foundation.
 
 Every translated question must provide all eight fields:
 
@@ -57,14 +57,14 @@ The shared foundation prevents common coverage from shrinking. Locale-specific f
 Current minimum translated-question counts:
 
 - German: 123
-- Spanish: 76
-- French: 70
-- Hindi: 70
-- Italian: 70
-- Japanese: 70
-- Korean: 70
-- Portuguese: 70
-- Chinese: 70
+- Spanish: 87
+- French: 85
+- Hindi: 85
+- Italian: 85
+- Japanese: 85
+- Korean: 85
+- Portuguese: 85
+- Chinese: 85
 
 When a synchronized expansion lands, update the baseline in the same pull request only after every affected locale passes validation.
 
@@ -119,6 +119,6 @@ This prevents the language selector from advertising nominal support while large
 
 ## Current baseline
 
-After the core-70 expansion, every non-English locale contains the same 70-question canonical foundation. German and Spanish retain broader translated coverage above that baseline.
+After the core-85 expansion, every non-English locale contains the same 85-question canonical foundation. German and Spanish retain broader translated coverage above that baseline.
 
 Future batches should use `bun run report:locales` as the source of truth for selecting the next synchronized cohort.
