@@ -49,7 +49,14 @@ export const supabaseVaultProgressRepository: VaultProgressRepository = {
     throwIfError(deleteError);
 
     if (initialEntryId) {
-      await this.unlock(userId, initialEntryId);
+      const { error: insertError } = await supabase
+        .from('user_vault_progress')
+        .upsert(
+          { user_id: userId, entry_id: initialEntryId },
+          { onConflict: 'user_id,entry_id' },
+        );
+
+      throwIfError(insertError);
     }
   },
 };
