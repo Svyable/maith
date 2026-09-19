@@ -765,28 +765,14 @@
       "kind": "standard-quiz",
       "available": true,
       "loaderGroups": [
-        "engineering"
-      ],
-      "counts": {
-        "easy": 1,
-        "hard": 2,
-        "sota": 2,
-        "total": 5
-      }
-    },
-    {
-      "slug": "control-theory",
-      "field": "engineering",
-      "kind": "standard-quiz",
-      "available": true,
-      "loaderGroups": [
+        "engineering",
         "control-theory"
       ],
       "counts": {
-        "easy": 3,
-        "hard": 3,
-        "sota": 3,
-        "total": 9
+        "easy": 4,
+        "hard": 5,
+        "sota": 5,
+        "total": 14
       }
     },
     {
@@ -1792,33 +1778,19 @@
       }
     },
     {
-      "slug": "robotics",
-      "field": "engineering",
-      "kind": "standard-quiz",
-      "available": true,
-      "loaderGroups": [
-        "robotics"
-      ],
-      "counts": {
-        "easy": 2,
-        "hard": 2,
-        "sota": 2,
-        "total": 6
-      }
-    },
-    {
       "slug": "robotics-mechatronics",
       "field": "engineering",
       "kind": "standard-quiz",
       "available": true,
       "loaderGroups": [
-        "engineering"
+        "engineering",
+        "robotics"
       ],
       "counts": {
-        "easy": 1,
-        "hard": 2,
-        "sota": 2,
-        "total": 5
+        "easy": 3,
+        "hard": 4,
+        "sota": 4,
+        "total": 11
       }
     },
     {
