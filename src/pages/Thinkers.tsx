@@ -1,5 +1,5 @@
 import { useState, useCallback, useEffect, useRef } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import { SiteShell } from '@/components/layout/SiteShell';
 import { QuizScreen } from '@/components/QuizScreen';
@@ -20,6 +20,9 @@ type Screen = 'gallery' | 'quiz' | 'results';
 
 export default function Thinkers() {
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+  const thinkerParam = searchParams.get('thinker');
+  const lastDeepLinkRef = useRef<string | null>(null);
   
   const [screen, setScreen] = useState<Screen>('gallery');
   const [selectedSlug, setSelectedSlug] = useState<string | null>(null);
@@ -74,6 +77,14 @@ export default function Thinkers() {
     },
     [startThinker, resetSession],
   );
+
+  useEffect(() => {
+    if (!thinkerParam || screen !== 'gallery' || lastDeepLinkRef.current === thinkerParam) return;
+    if (!THINKERS.some((thinker) => thinker.slug === thinkerParam)) return;
+
+    lastDeepLinkRef.current = thinkerParam;
+    handleStartThinker(thinkerParam);
+  }, [thinkerParam, screen, handleStartThinker]);
 
   const handleNext = useCallback(() => {
     nextQuestion();
