@@ -8,6 +8,13 @@ export interface QuestionPaper {
   year?: number;
 }
 
+export interface QuestionSource {
+  title: string;
+  url: string;
+  publisher?: string;
+  year?: number;
+}
+
 export interface Question {
   id: number;
   topic: string;
@@ -22,8 +29,14 @@ export interface Question {
   symbolLinks?: Record<string, string>;
   /** Source paper metadata for SOTA questions */
   paper?: QuestionPaper;
+  /** General-purpose references for factual, historical, or time-sensitive claims. */
+  sources?: QuestionSource[];
+  /** ISO date of the most recent substantive content review. */
+  reviewedAt?: string;
+  /** ISO date or YYYY year describing when a time-sensitive claim is factual as of. */
+  factualAsOf?: string;
   /** Glossary term IDs for cross-linking (e.g. ['big-o', 'transformer']) */
   glossaryLinks?: string[];
-  /** Formula names for cross-linking to the Formulas page */
+  /** Formula names or formula slugs for cross-linking to the Formulas page */
   formulaLinks?: string[];
 }
