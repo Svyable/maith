@@ -7,12 +7,31 @@ import {
   MIN_INDEXABLE_TOPIC_QUESTIONS,
 } from '../src/config/learning-pages';
 import {
+  FORMULA_REFERENCE_PAGES,
+  MIN_INDEXABLE_FORMULA_TEXT,
+  resolveFormulaReference,
+} from '../src/config/formula-pages';
+import {
+  GLOSSARY_REFERENCE_PAGE_MAP,
+  GLOSSARY_REFERENCE_PAGES,
+  MIN_INDEXABLE_GLOSSARY_CONTENT,
+  MIN_INDEXABLE_GLOSSARY_DEFINITION,
+} from '../src/config/glossary-pages';
+import {
+  MIN_INDEXABLE_THINKER_CONTENT,
+  THINKER_REFERENCE_PAGE_MAP,
+  THINKER_REFERENCE_PAGES,
+} from '../src/config/thinker-pages';
+import {
   INDEXABLE_SEO_ROUTES,
   ROUTE_SEO,
   SITE_URL,
   canonicalUrl,
-  getSeoForPath,
 } from '../src/config/seo';
+import {
+  INDEXABLE_REFERENCE_SEO_ROUTES,
+  REFERENCE_SEO_ROUTES,
+} from './reference-seo-routes';
 
 const errors: string[] = [];
 
@@ -27,6 +46,20 @@ function fail(message: string) {
 function normalizePath(pathname: string) {
   if (pathname === '/') return '/';
   return pathname.replace(/\/+$/, '') || '/';
+}
+
+function assertUnique(label: string, values: string[]) {
+  const seen = new Set<string>();
+  const duplicates = new Set<string>();
+
+  for (const value of values) {
+    if (seen.has(value)) duplicates.add(value);
+    seen.add(value);
+  }
+
+  if (duplicates.size > 0) {
+    fail(label + ' contain duplicates: ' + [...duplicates].join(', '));
+  }
 }
 
 const sitemap = read('public/sitemap.xml');
@@ -50,9 +83,7 @@ if (orphanedConfig.length > 0) {
 }
 
 const learningPaths = LEARNING_PAGES.map((page) => page.path);
-if (new Set(learningPaths).size !== learningPaths.length) {
-  fail('Learning landing paths must be unique');
-}
+assertUnique('Learning landing paths', learningPaths);
 
 for (const fieldPage of LEARNING_FIELD_PAGES) {
   if (fieldPage.topics.length === 0) {
@@ -74,8 +105,91 @@ for (const topicPage of LEARNING_TOPIC_PAGES) {
   }
 }
 
+assertUnique(
+  'Formula reference slugs',
+  FORMULA_REFERENCE_PAGES.map((page) => page.slug),
+);
+assertUnique(
+  'Glossary reference IDs',
+  GLOSSARY_REFERENCE_PAGES.map((page) => page.term.id),
+);
+assertUnique(
+  'Thinker reference slugs',
+  THINKER_REFERENCE_PAGES.map((page) => page.thinker.slug),
+);
+assertUnique(
+  'Reference paths',
+  REFERENCE_SEO_ROUTES.map((entry) => entry.path),
+);
+
+for (const page of FORMULA_REFERENCE_PAGES) {
+  const textLength =
+    page.equation.significance.length
+    + page.equation.constants.length
+    + page.equation.applications.length;
+
+  if (page.seo.indexable && textLength < MIN_INDEXABLE_FORMULA_TEXT) {
+    fail(page.path + ': thin formula page is incorrectly indexable');
+  }
+}
+
+for (const page of GLOSSARY_REFERENCE_PAGES) {
+  const term = page.term;
+  const supportingText = [
+    term.definition,
+    term.example ?? '',
+    term.formula ?? '',
+    term.latex ?? '',
+    term.code ?? '',
+  ].join(' ');
+
+  if (
+    page.seo.indexable
+    && (
+      term.definition.length < MIN_INDEXABLE_GLOSSARY_DEFINITION
+      || supportingText.length < MIN_INDEXABLE_GLOSSARY_CONTENT
+    )
+  ) {
+    fail(page.path + ': thin glossary page is incorrectly indexable');
+  }
+
+  for (const relatedId of term.related ?? []) {
+    if (!GLOSSARY_REFERENCE_PAGE_MAP[relatedId]) {
+      fail(page.path + ': unknown related glossary ID ' + relatedId);
+    }
+  }
+
+  for (const formulaReference of term.formulaLinks ?? []) {
+    if (!resolveFormulaReference(formulaReference)) {
+      fail(page.path + ': unknown formula reference ' + formulaReference);
+    }
+  }
+
+  for (const thinkerSlug of term.thinkerLinks ?? []) {
+    if (!THINKER_REFERENCE_PAGE_MAP[thinkerSlug]) {
+      fail(page.path + ': unknown thinker reference ' + thinkerSlug);
+    }
+  }
+}
+
+for (const page of THINKER_REFERENCE_PAGES) {
+  const thinker = page.thinker;
+  const contentLength =
+    thinker.description.length
+    + thinker.tagline.length
+    + (thinker.funFact?.length ?? 0);
+
+  if (page.seo.indexable && contentLength < MIN_INDEXABLE_THINKER_CONTENT) {
+    fail(page.path + ': thin thinker page is incorrectly indexable');
+  }
+}
+
+const allIndexableEntries = [
+  ...INDEXABLE_SEO_ROUTES,
+  ...INDEXABLE_REFERENCE_SEO_ROUTES,
+];
 const uniqueIndexableRoutes = Array.from(
-  new Map(INDEXABLE_SEO_ROUTES.map((entry) => [normalizePath(entry.path), entry])).values(),
+  new Map(allIndexableEntries.map((entry) => [normalizePath(entry.path), entry])).values(),
 );
 const indexableRoutes = uniqueIndexableRoutes.map((entry) => normalizePath(entry.path)).sort();
 
@@ -113,9 +227,7 @@ if (extraInSitemap.length > 0) {
 const seenTitles = new Map<string, string>();
 const seenDescriptions = new Map<string, string>();
 
-for (const { path } of uniqueIndexableRoutes) {
-  const seo = getSeoForPath(path);
-
+for (const { path, seo } of uniqueIndexableRoutes) {
   if (!seo.indexable) {
     fail(path + ': listed as indexable but resolves to noindex');
     continue;
@@ -154,6 +266,15 @@ for (const [path, seo] of Object.entries(ROUTE_SEO)) {
 
 if (!llms.includes('https://maith.lovable.app/learn')) {
   fail('public/llms.txt must advertise the practice library');
+}
+if (!llms.includes('/formulas/{formula-slug}')) {
+  fail('public/llms.txt must document canonical formula detail routes');
+}
+if (!llms.includes('/glossary/{term-id}')) {
+  fail('public/llms.txt must document canonical glossary detail routes');
+}
+if (!llms.includes('/thinkers/{thinker-slug}')) {
+  fail('public/llms.txt must document canonical thinker detail routes');
 }
 
 const requiredIndexSignals = [
@@ -201,11 +322,17 @@ if (errors.length > 0) {
 console.log(
   'SEO validation passed: '
     + appRoutes.length
-    + ' static routes configured, '
+    + ' static routes, '
     + LEARNING_FIELD_PAGES.length
     + ' learning fields, '
     + LEARNING_TOPIC_PAGES.length
     + ' topic landings, '
+    + FORMULA_REFERENCE_PAGES.length
+    + ' formula references, '
+    + GLOSSARY_REFERENCE_PAGES.length
+    + ' glossary references, '
+    + THINKER_REFERENCE_PAGES.length
+    + ' thinker references, '
     + indexableRoutes.length
     + ' total indexable routes.',
 );
