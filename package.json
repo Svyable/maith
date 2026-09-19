@@ -20,7 +20,8 @@
     "validate:all-content": "bun run check:locales && bun run validate:content && bun run audit:quality",
     "report:locales": "node scripts/report-localization-coverage.mjs",
     "audit:quality:baseline": "bun scripts/audit-question-quality.ts --allow-baseline",
-    "validate:ci": "bun run check:locales && bun run validate:content && bun run audit:quality:baseline"
+    "validate:ci": "bun run check:locales && bun run validate:content && bun run audit:quality:baseline",
+    "validate:site": "vitest run src/test/site-structure.test.ts"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
