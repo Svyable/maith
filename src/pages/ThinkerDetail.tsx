@@ -1,3 +1,4 @@
+import { lazy, Suspense } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { ArrowLeft, Brain } from 'lucide-react';
 import { SiteShell } from '@/components/layout/SiteShell';
@@ -8,6 +9,10 @@ import {
   buildLearnFieldPath,
 } from '@/config/site-navigation';
 import NotFound from './NotFound';
+
+const ReferencePracticeBacklinks = lazy(
+  () => import('@/components/learn/ReferencePracticeBacklinks'),
+);
 
 export default function ThinkerDetail() {
   const { thinkerSlug = '' } = useParams<{ thinkerSlug: string }>();
@@ -72,6 +77,10 @@ export default function ThinkerDetail() {
               </div>
             </section>
           )}
+
+          <Suspense fallback={null}>
+            <ReferencePracticeBacklinks referencePath={page.path} referenceLabel={thinker.name} />
+          </Suspense>
 
           <div className="flex flex-wrap gap-3">
             <Link

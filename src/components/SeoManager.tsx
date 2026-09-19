@@ -92,9 +92,11 @@ async function resolveEnhancedSeo(pathname: string, locale: string) {
     const { getFormulaReferencePage } = await import('@/config/formula-pages');
     const page = getFormulaReferencePage(slug);
     if (page) {
+      const { getReferenceTopicBacklinks } = await import('@/config/topic-reference-clusters');
+      const relatedLinks = getReferenceTopicBacklinks(page.path).map((link) => link.path);
       return {
         seo: page.seo,
-        schema: buildSeoSchemaData(pathname, page.seo, page.seo.breadcrumbs, locale),
+        schema: buildSeoSchemaData(pathname, page.seo, page.seo.breadcrumbs, locale, relatedLinks),
       };
     }
   }
@@ -104,9 +106,11 @@ async function resolveEnhancedSeo(pathname: string, locale: string) {
     const { getGlossaryReferencePage } = await import('@/config/glossary-pages');
     const page = getGlossaryReferencePage(termId);
     if (page) {
+      const { getReferenceTopicBacklinks } = await import('@/config/topic-reference-clusters');
+      const relatedLinks = getReferenceTopicBacklinks(page.path).map((link) => link.path);
       return {
         seo: page.seo,
-        schema: buildSeoSchemaData(pathname, page.seo, page.seo.breadcrumbs, locale),
+        schema: buildSeoSchemaData(pathname, page.seo, page.seo.breadcrumbs, locale, relatedLinks),
       };
     }
   }
@@ -116,9 +120,11 @@ async function resolveEnhancedSeo(pathname: string, locale: string) {
     const { getThinkerReferencePage } = await import('@/config/thinker-pages');
     const page = getThinkerReferencePage(thinkerSlug);
     if (page) {
+      const { getReferenceTopicBacklinks } = await import('@/config/topic-reference-clusters');
+      const relatedLinks = getReferenceTopicBacklinks(page.path).map((link) => link.path);
       return {
         seo: page.seo,
-        schema: buildSeoSchemaData(pathname, page.seo, page.seo.breadcrumbs, locale),
+        schema: buildSeoSchemaData(pathname, page.seo, page.seo.breadcrumbs, locale, relatedLinks),
       };
     }
   }

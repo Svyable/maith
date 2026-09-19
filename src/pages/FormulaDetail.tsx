@@ -1,3 +1,4 @@
+import { lazy, Suspense } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { ArrowLeft, ExternalLink } from 'lucide-react';
 import { SiteShell } from '@/components/layout/SiteShell';
@@ -6,6 +7,10 @@ import { Badge } from '@/components/ui/badge';
 import { getFormulaReferencePage } from '@/config/formula-pages';
 import { APP_PATHS } from '@/config/site-navigation';
 import NotFound from './NotFound';
+
+const ReferencePracticeBacklinks = lazy(
+  () => import('@/components/learn/ReferencePracticeBacklinks'),
+);
 
 export default function FormulaDetail() {
   const { formulaSlug = '' } = useParams<{ formulaSlug: string }>();
@@ -88,6 +93,10 @@ export default function FormulaDetail() {
               </div>
             </section>
           )}
+
+          <Suspense fallback={null}>
+            <ReferencePracticeBacklinks referencePath={page.path} referenceLabel={eq.name} />
+          </Suspense>
 
           <div className="flex flex-wrap gap-3">
             <Link
