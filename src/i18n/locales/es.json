@@ -95,9 +95,9 @@
   "profile.levelMythic": "Mítico",
   "leaderboard.title": "Clasificación",
   "leaderboard.subtitle": "Compite, sube en el ranking y gana XP",
-  "leaderboard.allTime": "🌍 Histórico",
-  "leaderboard.weekly": "📅 Esta semana",
-  "leaderboard.topics": "📊 Temas",
+  "leaderboard.allTime": "Histórico",
+  "leaderboard.weekly": "Esta semana",
+  "leaderboard.topics": "Temas",
   "leaderboard.empty": "Aún no hay puntuaciones. ¡Sé el primero!",
   "leaderboard.emptyWeekly": "Todavía no se ha jugado ninguna partida esta semana. ¡Empieza un quiz para quedarte con el #1! 🚀",
   "leaderboard.emptyTopic": "Aún no hay datos para este tema.",
@@ -258,5 +258,6 @@
   "leaderboard.daysAgo": "hace {{count}} d",
   "leaderboard.monthsAgo": "hace {{count}} mes.",
   "glossary.clearSearch": "Borrar búsqueda",
-  "glossary.resetFilters": "Restablecer filtros"
+  "glossary.resetFilters": "Restablecer filtros",
+  "nav.menu": "Menú"
 }

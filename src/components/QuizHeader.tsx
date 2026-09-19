@@ -107,7 +107,7 @@ export function QuizHeader({ streak, showStreak }: QuizHeaderProps) {
           {showStreak ? null : utilityControls}
           <Sheet>
             <SheetTrigger asChild>
-              <Button variant="secondary" size="icon" className="h-11 w-11" aria-label="Menu"><Menu /></Button>
+              <Button variant="secondary" size="icon" className="h-11 w-11" aria-label={t('nav.menu')}><Menu /></Button>
             </SheetTrigger>
             <SheetContent className="w-[min(88vw,22rem)] p-5">
               <SheetTitle className="mb-6 font-display">m<span className="text-primary">AI</span>th</SheetTitle>

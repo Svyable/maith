@@ -95,9 +95,9 @@
   "profile.levelMythic": "Mythique",
   "leaderboard.title": "Classement",
   "leaderboard.subtitle": "Affrontez les autres, grimpez dans le classement et gagnez de l’XP",
-  "leaderboard.allTime": "🌍 Depuis toujours",
-  "leaderboard.weekly": "📅 Cette semaine",
-  "leaderboard.topics": "📊 Thèmes",
+  "leaderboard.allTime": "Depuis toujours",
+  "leaderboard.weekly": "Cette semaine",
+  "leaderboard.topics": "Thèmes",
   "leaderboard.empty": "Aucun score pour le moment. Soyez le premier !",
   "leaderboard.emptyWeekly": "Aucune partie jouée cette semaine. Lancez un quiz pour prendre la 1re place ! 🚀",
   "leaderboard.emptyTopic": "Aucune donnée pour ce thème pour le moment.",
@@ -258,5 +258,6 @@
   "leaderboard.daysAgo": "il y a {{count}} j",
   "leaderboard.monthsAgo": "il y a {{count}} mois",
   "glossary.clearSearch": "Effacer la recherche",
-  "glossary.resetFilters": "Réinitialiser les filtres"
+  "glossary.resetFilters": "Réinitialiser les filtres",
+  "nav.menu": "Menu"
 }

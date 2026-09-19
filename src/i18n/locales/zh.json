@@ -95,9 +95,9 @@
   "profile.levelMythic": "神话",
   "leaderboard.title": "排行榜",
   "leaderboard.subtitle": "参与竞争，提升排名，赢取 XP",
-  "leaderboard.allTime": "🌍 全部时间",
-  "leaderboard.weekly": "📅 本周",
-  "leaderboard.topics": "📊 主题",
+  "leaderboard.allTime": "全部时间",
+  "leaderboard.weekly": "本周",
+  "leaderboard.topics": "主题",
   "leaderboard.empty": "还没有成绩。成为第一个吧！",
   "leaderboard.emptyWeekly": "本周还没有人参与。开始测验，冲击第 #1 名！ 🚀",
   "leaderboard.emptyTopic": "该主题暂无数据。",
@@ -258,5 +258,6 @@
   "leaderboard.daysAgo": "{{count}} 天前",
   "leaderboard.monthsAgo": "{{count}} 个月前",
   "glossary.clearSearch": "清除搜索",
-  "glossary.resetFilters": "重置筛选"
+  "glossary.resetFilters": "重置筛选",
+  "nav.menu": "菜单"
 }

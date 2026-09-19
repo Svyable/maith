@@ -11,7 +11,7 @@ import { FieldStatsBar } from '@/components/FieldStatsBar';
 import { ProfileGamescapeStats } from '@/components/ProfileGamescapeStats';
 import { ThinkerBadgeWall } from '@/components/profile/ThinkerBadgeWall';
 import { useTheme } from '@/hooks/useTheme';
-import { useVaultProgress, getClearanceLevel } from '@/hooks/useVaultProgress';
+import { useVaultProgress } from '@/hooks/useVaultProgress';
 import { QuizHeader } from '@/components/QuizHeader';
 import { FloatingBackground } from '@/components/FloatingBackground';
 import { Pencil, Check, X, Shield } from 'lucide-react';
@@ -175,9 +175,9 @@ export default function Profile() {
                 </div>
               ) : (
                 <>
-                  <h2 className="text-2xl font-display font-bold text-foreground">
+                   <h1 className="text-2xl font-display font-bold text-foreground">
                     {profile?.display_name || t('profile.defaultName')}
-                  </h2>
+                   </h1>
                    <Button
                     variant="ghost"
                     size="icon"

@@ -95,9 +95,9 @@
   "profile.levelMythic": "신화",
   "leaderboard.title": "리더보드",
   "leaderboard.subtitle": "경쟁하고, 순위를 올리고, XP를 획득하세요",
-  "leaderboard.allTime": "🌍 전체 기간",
-  "leaderboard.weekly": "📅 이번 주",
-  "leaderboard.topics": "📊 주제",
+  "leaderboard.allTime": "전체 기간",
+  "leaderboard.weekly": "이번 주",
+  "leaderboard.topics": "주제",
   "leaderboard.empty": "아직 점수가 없습니다. 첫 번째가 되어보세요!",
   "leaderboard.emptyWeekly": "이번 주에는 아직 플레이 기록이 없어요. 퀴즈를 시작해서 #1 자리를 차지하세요! 🚀",
   "leaderboard.emptyTopic": "이 주제에 대한 데이터가 아직 없습니다.",
@@ -258,5 +258,6 @@
   "leaderboard.daysAgo": "{{count}}일 전",
   "leaderboard.monthsAgo": "{{count}}개월 전",
   "glossary.clearSearch": "검색 지우기",
-  "glossary.resetFilters": "필터 초기화"
+  "glossary.resetFilters": "필터 초기화",
+  "nav.menu": "메뉴"
 }

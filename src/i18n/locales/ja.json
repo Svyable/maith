@@ -95,9 +95,9 @@
   "profile.levelMythic": "ミシック",
   "leaderboard.title": "ランキング",
   "leaderboard.subtitle": "競い合って順位を上げ、XPを獲得しよう",
-  "leaderboard.allTime": "🌍 全期間",
-  "leaderboard.weekly": "📅 今週",
-  "leaderboard.topics": "📊 トピック",
+  "leaderboard.allTime": "全期間",
+  "leaderboard.weekly": "今週",
+  "leaderboard.topics": "トピック",
   "leaderboard.empty": "まだスコアがありません。最初の1人になろう！",
   "leaderboard.emptyWeekly": "今週はまだプレイされていません。クイズを始めて #1 を狙おう！ 🚀",
   "leaderboard.emptyTopic": "このトピックのデータはまだありません。",
@@ -258,5 +258,6 @@
   "leaderboard.daysAgo": "{{count}}日前",
   "leaderboard.monthsAgo": "{{count}}か月前",
   "glossary.clearSearch": "検索をクリア",
-  "glossary.resetFilters": "フィルターをリセット"
+  "glossary.resetFilters": "フィルターをリセット",
+  "nav.menu": "メニュー"
 }

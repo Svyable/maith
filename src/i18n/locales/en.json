@@ -95,9 +95,9 @@
   "profile.levelMythic": "Mythic",
   "leaderboard.title": "Leaderboard",
   "leaderboard.subtitle": "Compete, climb ranks, and earn XP",
-  "leaderboard.allTime": "🌍 All Time",
-  "leaderboard.weekly": "📅 This Week",
-  "leaderboard.topics": "📊 Topics",
+  "leaderboard.allTime": "All Time",
+  "leaderboard.weekly": "This Week",
+  "leaderboard.topics": "Topics",
   "leaderboard.empty": "No scores yet. Be the first!",
   "leaderboard.emptyWeekly": "No games played this week yet. Begin Test Time to claim the #1 spot! 🚀",
   "leaderboard.emptyTopic": "No data for this topic yet.",
@@ -258,5 +258,6 @@
   "leaderboard.daysAgo": "{{count}}d ago",
   "leaderboard.monthsAgo": "{{count}}mo ago",
   "glossary.clearSearch": "Clear search",
-  "glossary.resetFilters": "Reset filters"
+  "glossary.resetFilters": "Reset filters",
+  "nav.menu": "Menu"
 }

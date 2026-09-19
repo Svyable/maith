@@ -95,9 +95,9 @@
   "profile.levelMythic": "पौराणिक",
   "leaderboard.title": "लीडरबोर्ड",
   "leaderboard.subtitle": "मुकाबला करें, रैंकिंग में ऊपर जाएँ और XP कमाएँ",
-  "leaderboard.allTime": "🌍 सर्वकालिक",
-  "leaderboard.weekly": "📅 इस सप्ताह",
-  "leaderboard.topics": "📊 विषय",
+  "leaderboard.allTime": "सर्वकालिक",
+  "leaderboard.weekly": "इस सप्ताह",
+  "leaderboard.topics": "विषय",
   "leaderboard.empty": "अभी तक कोई स्कोर नहीं। पहले बनें!",
   "leaderboard.emptyWeekly": "इस सप्ताह अभी तक कोई गेम नहीं खेला गया। #1 स्थान पाने के लिए क्विज़ शुरू करें! 🚀",
   "leaderboard.emptyTopic": "इस विषय के लिए अभी कोई डेटा नहीं है।",
@@ -258,5 +258,6 @@
   "leaderboard.daysAgo": "{{count}} दिन पहले",
   "leaderboard.monthsAgo": "{{count}} माह पहले",
   "glossary.clearSearch": "खोज साफ़ करें",
-  "glossary.resetFilters": "फ़िल्टर रीसेट करें"
+  "glossary.resetFilters": "फ़िल्टर रीसेट करें",
+  "nav.menu": "मेन्यू"
 }

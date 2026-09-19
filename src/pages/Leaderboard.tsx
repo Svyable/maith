@@ -253,7 +253,7 @@ export default function Leaderboard() {
                     : 'text-muted-foreground hover:text-foreground'
                 }`}
               >
-                {tb.emoji} {tb.label}
+                <span aria-hidden="true">{tb.emoji}</span> {tb.label}
               </button>
             ))}
           </div>

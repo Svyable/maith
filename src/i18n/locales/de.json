@@ -95,9 +95,9 @@
   "profile.levelMythic": "Mythos",
   "leaderboard.title": "Bestenliste",
   "leaderboard.subtitle": "Wetteifere, steige im Ranking auf und verdiene XP",
-  "leaderboard.allTime": "🌍 Alle Zeiten",
-  "leaderboard.weekly": "📅 Diese Woche",
-  "leaderboard.topics": "📊 Themen",
+  "leaderboard.allTime": "Alle Zeiten",
+  "leaderboard.weekly": "Diese Woche",
+  "leaderboard.topics": "Themen",
   "leaderboard.empty": "Noch keine Punkte. Sei der Erste!",
   "leaderboard.emptyWeekly": "Diese Woche wurde noch kein Quiz gespielt. Starte ein Quiz und hol dir Platz #1! 🚀",
   "leaderboard.emptyTopic": "Für dieses Thema gibt es noch keine Daten.",
@@ -258,5 +258,6 @@
   "leaderboard.daysAgo": "vor {{count}} T.",
   "leaderboard.monthsAgo": "vor {{count}} Mon.",
   "glossary.clearSearch": "Suche löschen",
-  "glossary.resetFilters": "Filter zurücksetzen"
+  "glossary.resetFilters": "Filter zurücksetzen",
+  "nav.menu": "Menü"
 }
