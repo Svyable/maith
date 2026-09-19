@@ -9,8 +9,6 @@ import {
   advanceQuestion,
   skipCurrentQuestion,
   endQuiz as endQuizEngine,
-  fetchQuestions,
-  checkAnswer,
   type QuizState,
   type PublicQuestion,
   type CheckResult,
