@@ -4,7 +4,7 @@ This is the structural baseline for the next content pass. The detailed question
 
 ## Coverage baseline
 
-The standard library currently contains 929 questions. Coverage is highly uneven.
+The standard library currently contains 947 questions. Coverage is highly uneven.
 
 | Field | Visible topics | Questions | Topics below 9 | Topics below 6 |
 | --- | ---: | ---: | ---: | ---: |
@@ -15,11 +15,15 @@ The standard library currently contains 929 questions. Coverage is highly uneven
 | Finance | 15 | 111 | 9 | 7 |
 | Earth & Space | 7 | 35 | 6 | 4 |
 | Biology | 5 | 22 | 5 | 3 |
-| Chemistry | 3 | 9 | 3 | 3 |
+| Chemistry | 3 | 27 | 0 | 0 |
 | Human Sciences | 3 | 18 | 3 | 0 |
 | 2024 SOTA | 1 | 15 | 0 | 0 |
 | 2025 SOTA | 1 | 11 | 0 | 0 |
 | 2026 SOTA | 1 | 20 | 0 | 0 |
+
+## Completed augmentation waves
+
+- **Chemistry wave 1:** Physical, Organic, and Inorganic Chemistry each moved from 3 questions (1/1/1) to 9 questions (3 EASY / 3 HARD / 3 SOTA), with provenance added to all new SOTA questions.
 
 ## Highest-priority thin topics
 
@@ -29,9 +33,6 @@ The most structurally under-covered visible topics are:
 - Molecular Biology: 3 total
 - Genetics: 3 total
 - Ecology: 3 total
-- Physical Chemistry: 3 total
-- Organic Chemistry: 3 total
-- Inorganic Chemistry: 3 total
 - Algorithms: 3 total
 - Machine Learning: 3 total
 - Astronomy: 3 total
@@ -75,13 +76,12 @@ The Question schema now supports optional `sources`, `reviewedAt`, and `factualA
 
 Augmentation should proceed field by field after the quality gate is clean:
 
-1. **Chemistry** — only 9 questions across the entire field. Raise Physical, Organic, and Inorganic Chemistry to at least 9 each.
-2. **Biology** — all five topics are below the minimum viable target; strengthen Molecular Biology, Genetics, and Ecology first.
-3. **Earth & Space** — strengthen Astronomy, Geology, Climate Science, then Meteorology.
-4. **Computer Science foundations** — Algorithms and Machine Learning before adding new CS subfields.
-5. **Finance foundations** — Microeconomics, Macroeconomics, Econometrics, Fixed Income, Portfolio Theory, and Algo Trading.
-6. **Engineering** — a larger dedicated wave because 21 of 23 topics are thin.
-7. **Human Sciences** — bring the three existing topics from 6 toward 9+ before adding new disciplines.
-8. Mathematics and Physics expansion only after the thinner fields are healthier.
+1. **Biology** — all five topics are below the minimum viable target; strengthen Molecular Biology, Genetics, and Ecology first.
+2. **Earth & Space** — strengthen Astronomy, Geology, Climate Science, then Meteorology.
+3. **Computer Science foundations** — Algorithms and Machine Learning before adding new CS subfields.
+4. **Finance foundations** — Microeconomics, Macroeconomics, Econometrics, Fixed Income, Portfolio Theory, and Algo Trading.
+5. **Engineering** — a larger dedicated wave because 21 of 23 topics are thin.
+6. **Human Sciences** — bring the three existing topics from 6 toward 9+ before adding new disciplines.
+7. Mathematics and Physics expansion only after the thinner fields are healthier.
 
 The goal is not equal question counts everywhere. It is enough independent material that a quiz can vary meaningfully and still represent the subject honestly.
