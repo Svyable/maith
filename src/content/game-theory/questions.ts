@@ -4,12 +4,7 @@ export const gameTheoryQuestions: Question[] = [
   {
     id: 40101, topic: 'game-theory', difficulty: 'easy',
     question: 'In the Prisoner\'s Dilemma, both players defecting is a Nash equilibrium because:',
-    options: [
-      'Neither player can improve their outcome by unilaterally changing strategy — even though mutual cooperation would be better for both',
-      'Both players always cooperate in equilibrium',
-      'The game has no equilibrium',
-      'Players can communicate and coordinate freely',
-    ],
+    options: ["No profitable unilateral deviation","Both players always cooperate in equilibrium","The game has no equilibrium","Players can communicate and coordinate freely"],
     correctIndex: 0,
     explanation: 'A Nash equilibrium is a strategy profile where no player benefits from deviating alone. In the Prisoner\'s Dilemma, (Defect, Defect) is the unique Nash equilibrium despite (Cooperate, Cooperate) being Pareto superior.',
     realWorld: 'Arms races, climate agreements, and price wars are all Prisoner\'s Dilemmas — individually rational behavior leads to collectively suboptimal outcomes.',
@@ -18,7 +13,7 @@ export const gameTheoryQuestions: Question[] = [
   {
     id: 40104, topic: 'game-theory', difficulty: 'easy',
     question: 'A dominant strategy is one that:',
-    options: ["Is only best when the opponent cooperates","Yields the best payoff regardless of what the other players do — it's optimal no matter their choices","Guarantees the highest possible payoff in the game","Requires knowing the opponent's strategy in advance"],
+    options: ["Is only best when the opponent cooperates","Best response to every opponent action","Guarantees the highest possible payoff in the game","Requires knowing the opponent's strategy in advance"],
     correctIndex: 1,
     explanation: 'A strictly dominant strategy beats all alternatives for every opponent action. In the Prisoner\'s Dilemma, "Defect" dominates "Cooperate" — it\'s better whether the opponent cooperates or defects.',
     realWorld: 'In auction theory, bidding your true value in a Vickrey (second-price) auction is a dominant strategy — you can\'t do better by bidding higher or lower regardless of other bids.',
@@ -27,7 +22,7 @@ export const gameTheoryQuestions: Question[] = [
   {
     id: 40102, topic: 'game-theory', difficulty: 'hard',
     question: 'The minimax theorem (von Neumann, 1928) proves that in two-player zero-sum games:',
-    options: ["One player always has a pure strategy that wins","The game must end in a draw","There always exists a mixed strategy equilibrium where max-min equals min-max — both players can guarantee a specific value regardless of the opponent's play","Players should always randomize uniformly"],
+    options: ["One player always has a pure strategy that wins","The game must end in a draw","Maximin equals minimax","Players should always randomize uniformly"],
     correctIndex: 2,
     explanation: 'The minimax theorem shows $\\max_x \\min_y x^T A y = \\min_y \\max_x x^T A y$. This "value" of the game can be achieved by both players through optimal mixed strategies.',
     realWorld: 'Minimax drives poker AI (Libratus, Pluribus), chess engines, adversarial ML (GANs are minimax games), and military strategy optimization.',
@@ -36,7 +31,7 @@ export const gameTheoryQuestions: Question[] = [
   {
     id: 40105, topic: 'game-theory', difficulty: 'hard',
     question: 'In repeated games, cooperation can emerge through strategies like tit-for-tat because:',
-    options: ["Players are forced to cooperate by external rules","Repeated games have the same equilibria as one-shot games","Memory of past actions is irrelevant in repeated play","The shadow of the future makes defection costly — retaliation in future rounds outweighs short-term gains from defecting now (Folk theorem)"],
+    options: ["Players are forced to cooperate by external rules","Repeated games have the same equilibria as one-shot games","Memory of past actions is irrelevant in repeated play","Future punishment can sustain cooperation"],
     correctIndex: 3,
     explanation: 'The Folk theorem shows that with sufficient patience (high discount factor δ), any individually rational payoff can be sustained as a Nash equilibrium of the repeated game. Tit-for-tat (cooperate first, then mirror opponent) won Axelrod\'s tournaments.',
     realWorld: 'International trade agreements, OPEC oil production quotas, and business relationships all rely on repeated interaction to sustain cooperation — the threat of future punishment keeps everyone honest.',
@@ -45,7 +40,7 @@ export const gameTheoryQuestions: Question[] = [
   {
     id: 40103, topic: 'game-theory', difficulty: 'sota',
     question: 'Mechanism design ("reverse game theory") asks:',
-    options: ["How to find Nash equilibria in existing games faster","How to design the rules of a game so that self-interested agents' equilibrium behavior achieves a desired social outcome — incentive compatibility by construction","How to eliminate all strategic behavior from markets","How to prove that all games have pure strategy equilibria"],
+    options: ["How to find Nash equilibria in existing games faster","Design rules for incentive-compatible outcomes","How to eliminate all strategic behavior from markets","How to prove that all games have pure strategy equilibria"],
     correctIndex: 1,
     explanation: 'Mechanism design inverts game theory: instead of analyzing given games, design the game rules so the desired outcome IS the equilibrium. The VCG mechanism achieves truthful revelation in auctions.',
     realWorld: 'Google\'s ad auction ($200B+ revenue), kidney exchange programs, spectrum auctions ($100B+), and matching markets (school choice, medical residencies) all use mechanism design.',
@@ -57,12 +52,7 @@ export const gameTheoryQuestions: Question[] = [
   {
     id: 40106, topic: 'game-theory', difficulty: 'sota',
     question: 'Algorithmic game theory asks whether Nash equilibria can be computed efficiently. The answer is:',
-    options: [
-      'Finding a Nash equilibrium is PPAD-complete — guaranteed to exist but no known polynomial-time algorithm can find one in general, even for two players',
-      'Nash equilibria can always be found in linear time',
-      'Nash equilibria don\'t exist in most games',
-      'Quantum computers can find Nash equilibria instantly',
-    ],
+    options: ["PPAD-complete","Nash equilibria can always be found in linear time","Nash equilibria don't exist in most games","Quantum computers can find Nash equilibria instantly"],
     correctIndex: 0,
     explanation: 'Daskalakis, Goldberg & Papadimitriou (2009) proved that computing a Nash equilibrium of a two-player game is PPAD-complete. This means Nash\'s existence theorem guarantees one exists, but finding it is computationally hard.',
     realWorld: 'This has profound implications for AI: if computing equilibria is hard, game-playing AI (poker, auctions) must use approximations. Regret minimization (CFR) finds approximate equilibria and powered Pluribus (superhuman poker AI).',

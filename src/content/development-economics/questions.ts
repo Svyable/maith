@@ -4,7 +4,7 @@ export const developmentEconomicsQuestions: Question[] = [
   {
     id: 183001, topic: 'development-economics', difficulty: 'easy',
     question: 'The Human Development Index (HDI) measures:',
-    options: ['Life expectancy, education, and per capita income', 'GDP only', 'Military spending and population', 'Stock market performance'],
+    options: ["Health, education, and income","GDP only","Military spending and population","Stock market performance"],
     correctIndex: 0,
     explanation: 'HDI combines health (life expectancy), education (mean/expected years of schooling), and living standards (GNI per capita PPP) into a single composite index.',
     realWorld: 'Norway consistently ranks #1 on HDI; the index was created by Amartya Sen and Mahbub ul Haq.',
@@ -13,7 +13,7 @@ export const developmentEconomicsQuestions: Question[] = [
   {
     id: 183002, topic: 'development-economics', difficulty: 'easy',
     question: 'The poverty trap hypothesis suggests that:',
-    options: ["Poverty always decreases over time","Below a certain income threshold, poor countries cannot grow without external intervention","Free markets eliminate poverty automatically","Aid always causes dependency"],
+    options: ["Poverty always decreases over time","Self-reinforcing low-income dynamics","Free markets eliminate poverty automatically","Aid always causes dependency"],
     correctIndex: 1,
     explanation: 'Poverty traps occur when low income → low savings → low investment → low growth → low income. Jeffrey Sachs argues "big push" aid can break this cycle.',
     realWorld: 'Many sub-Saharan African countries have experienced persistent poverty consistent with trap dynamics.',
@@ -22,7 +22,7 @@ export const developmentEconomicsQuestions: Question[] = [
   {
     id: 183003, topic: 'development-economics', difficulty: 'hard',
     question: 'Randomized Controlled Trials (RCTs) in development economics, pioneered by Banerjee, Duflo, and Kremer, are valued because:',
-    options: ["They are the cheapest method","They always have external validity","They establish causal effects of interventions by randomly assigning treatment","They replace all other methods"],
+    options: ["They are the cheapest method","They always have external validity","Random treatment assignment","They replace all other methods"],
     correctIndex: 2,
     explanation: 'RCTs eliminate selection bias through random assignment, providing credible causal estimates. This "credibility revolution" earned the 2019 Nobel Prize in Economics.',
     realWorld: 'RCTs showed that deworming pills ($0.50/child) dramatically increased school attendance in Kenya.',
@@ -31,7 +31,7 @@ export const developmentEconomicsQuestions: Question[] = [
   {
     id: 183004, topic: 'development-economics', difficulty: 'hard',
     question: 'Amartya Sen\'s "capability approach" argues that development should be measured by:',
-    options: ["GDP per capita alone","Industrial output","Trade balance","People's substantive freedoms to achieve lives they value"],
+    options: ["GDP per capita alone","Industrial output","Trade balance","Human capabilities"],
     correctIndex: 3,
     explanation: 'Sen argues development is about expanding capabilities (what people can do and be), not just income. Poverty is "capability deprivation" — lack of freedom to live well.',
     realWorld: 'This framework inspired the HDI and shifted global development policy from pure GDP focus to human welfare.',
@@ -40,7 +40,7 @@ export const developmentEconomicsQuestions: Question[] = [
   {
     id: 183005, topic: 'development-economics', difficulty: 'hard',
     question: 'The "middle income trap" refers to:',
-    options: ["Countries achieving high income easily","Countries stalling at middle income — too expensive for low-cost manufacturing but lacking innovation for high-value industries","A temporary recession","Currency depreciation cycles"],
+    options: ["Countries achieving high income easily","Stalling after middle-income catch-up","A temporary recession","Currency depreciation cycles"],
     correctIndex: 1,
     explanation: 'Countries like Brazil and South Africa grew rapidly from low income but stalled. They lose cost competitiveness vs. poorer nations but can\'t compete on innovation with rich ones.',
     realWorld: 'South Korea and Taiwan escaped the trap via heavy R&D investment; many Latin American countries remain stuck.',
@@ -49,7 +49,7 @@ export const developmentEconomicsQuestions: Question[] = [
   {
     id: 183006, topic: 'development-economics', difficulty: 'sota',
     question: 'Acemoglu and Robinson\'s "Why Nations Fail" thesis attributes divergent development to:',
-    options: ["Geography and climate","Cultural differences","Inclusive vs. extractive political and economic institutions","Resource endowments"],
+    options: ["Geography and climate","Cultural differences","Institutional inclusiveness","Resource endowments"],
     correctIndex: 2,
     explanation: 'Inclusive institutions (property rights, rule of law, creative destruction) drive sustained growth; extractive institutions (elite capture, rent-seeking) cause stagnation or decline.',
     realWorld: 'North vs. South Korea — same geography, culture, resources — dramatically different outcomes driven by institutional differences.',
@@ -61,7 +61,7 @@ export const developmentEconomicsQuestions: Question[] = [
   {
     id: 183007, topic: 'development-economics', difficulty: 'sota',
     question: 'GiveDirectly\'s unconditional cash transfer experiments in Kenya showed that:',
-    options: ["Cash was mostly wasted on alcohol","In-kind aid was always superior","Cash transfers caused inflation","Direct cash transfers to the poor increased consumption, assets, and wellbeing with no increase in spending on temptation goods"],
+    options: ["Cash was mostly wasted on alcohol","In-kind aid was always superior","Cash transfers caused inflation","Higher welfare, not more temptation spending"],
     correctIndex: 3,
     explanation: 'Rigorous RCTs by Haushofer & Shapiro (2016) found that unconditional cash transfers increased consumption by 23%, assets by 58%, and psychological wellbeing significantly.',
     realWorld: 'This evidence has shifted global aid policy toward cash-first approaches — "just give money."',
@@ -73,7 +73,7 @@ export const developmentEconomicsQuestions: Question[] = [
   {
     id: 183008, topic: 'development-economics', difficulty: 'sota',
     question: 'Convergence in growth economics — where poor countries grow faster than rich ones — is:',
-    options: ['Conditional on similar institutions and policies (conditional convergence), not unconditional', 'Always observed in the data', 'Impossible according to theory', 'Only true for large countries'],
+    options: ["Conditional convergence","Always observed in the data","Impossible according to theory","Only true for large countries"],
     correctIndex: 0,
     explanation: 'Unconditional convergence fails empirically. Conditional convergence (controlling for institutions, education, policy) is supported by cross-country regressions (Barro, 1991).',
     realWorld: 'China and India converging toward rich-country incomes, while many African nations diverge — institutions matter.',

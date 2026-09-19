@@ -131,7 +131,7 @@ export const riskManagementQuestions: Question[] = [
   {
     id: 30050, topic: 'risk-management', difficulty: 'easy',
     question: 'Value at Risk (VaR) at the 95% confidence level estimates:',
-    options: ['The maximum expected loss over a period that won\'t be exceeded 95% of the time', 'The average daily return', 'The total portfolio value', 'The maximum possible loss'],
+    options: ["A model loss quantile","The average daily return","The total portfolio value","The maximum possible loss"],
     correctIndex: 0,
     explanation: 'VaR is a quantile-based risk measure: "We are 95% confident the loss will not exceed $X over the next day."',
     realWorld: 'Banks are required by Basel III regulations to report VaR daily for capital adequacy.',
@@ -140,7 +140,7 @@ export const riskManagementQuestions: Question[] = [
   {
     id: 30051, topic: 'risk-management', difficulty: 'hard',
     question: 'Expected Shortfall (CVaR) differs from VaR by:',
-    options: ['Averaging losses beyond the VaR threshold (coherent risk measure)', 'Only considering gains', 'Ignoring tail risk', 'Using standard deviation instead of quantiles'],
+    options: ["Average loss beyond VaR","Only considering gains","Ignoring tail risk","Using standard deviation instead of quantiles"],
     correctIndex: 0,
     explanation: 'ES (or CVaR) = $E[L | L > \\text{VaR}_\\alpha]$. Unlike VaR, it captures the severity of tail losses and is a coherent risk measure (satisfies subadditivity).',
     realWorld: 'Basel III shifted from VaR to Expected Shortfall as the primary market risk measure in 2019.',
@@ -149,7 +149,7 @@ export const riskManagementQuestions: Question[] = [
   {
     id: 30052, topic: 'risk-management', difficulty: 'sota',
     question: 'The Fundamental Review of the Trading Book (FRTB) replaced the standardized approach with:',
-    options: ['Sensitivity-based approach (SBA) using risk factor sensitivities (delta, vega, curvature)', 'Simple historical VaR', 'Monte Carlo simulation only', 'Parametric VaR with normal distribution'],
+    options: ["Sensitivity-based approach","Simple historical VaR","Monte Carlo simulation only","Parametric VaR with normal distribution"],
     correctIndex: 0,
     explanation: 'FRTB\'s SBA computes capital charges using portfolio sensitivities to risk factors (delta, vega, curvature) with prescribed correlation scenarios, replacing the simplistic standardized method.',
     realWorld: 'FRTB modernizes market-risk capital with a risk-sensitive standardized approach and an internal-models approach centered on stressed Expected Shortfall.',
