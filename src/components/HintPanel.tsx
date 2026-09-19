@@ -42,7 +42,6 @@ export function HintPanel({ hint, onEliminate, hintShown, onShowHint, eliminateU
           }`}
         >
           ✂️ <span className="truncate">{eliminateUsed ? t('quiz.eliminateUsed') : t('quiz.eliminate')}</span>
-          {!eliminateUsed && <span className="text-xs opacity-70 flex-shrink-0">(0.5x)</span>}
         </motion.button>
       </div>
 
