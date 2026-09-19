@@ -324,7 +324,7 @@ Do not merge similarly named topics by label alone. Consolidate only when the un
 
 ## Provenance
 
-The Question schema supports optional `sources`, `reviewedAt`, and `factualAsOf`. Existing content is not backfilled automatically: provenance should be added during substantive review so citations are real rather than synthetic.
+The Question schema supports optional \`sources\`, \`reviewedAt\`, and \`factualAsOf\`. Existing content is not backfilled automatically: provenance should be added during substantive review so citations are real rather than synthetic.
 `;
 
 await writeFile(new URL('../docs/content-enhancement-report.md', import.meta.url), markdown);
