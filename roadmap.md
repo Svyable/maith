@@ -1,11 +1,8 @@
-# Content architecture pass
+# Phase 2 — Content enhancement
 
-- [x] Audit current registries, taxonomy, loaders, stats, and special boundaries
-- [x] Establish canonical lightweight content registry
-- [x] Derive fields, loaders, stats, and inventory safely
-- [x] Add unified content integrity validation
-- [x] Document contributor workflow and architecture
-- [x] Run locale, content, tests, TypeScript, and production build
-- [x] Browser-test a selected-topic quiz plus Bonafides, Thinkers, Vault, Glossary, and Formulas
-- [x] Confirm first-load and selective topic payloads remain at or below prior baselines
-- [x] Record taxonomy findings, payloads, and judgment calls
+- [ ] Deep QA validator and machine-readable quality report
+- [ ] Taxonomy cluster audit and safe normalization
+- [ ] Vault boundary audit and correction
+- [ ] Editorial content standards and provenance-ready schema
+- [ ] Prioritized enhancement report
+- [ ] Full validation, bundle measurement, and route smoke tests
