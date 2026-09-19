@@ -329,6 +329,6 @@ export default function Profile() {
           </Button>
         </motion.div>
       </main>
-    </div>
+    </SiteShell>
   );
 }
