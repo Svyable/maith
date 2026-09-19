@@ -1,11 +1,11 @@
 import { useAuth } from "@/hooks/useAuth";
-import { useNavigate, useLocation } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { t } from "@/i18n";
-import { useIsMobile } from "@/hooks/use-mobile";
 import { useTheme } from "@/hooks/useTheme";
 import { LanguageFlags } from "@/components/LanguageFlags";
-import { ChevronLeft, ChevronRight } from "lucide-react";
-
+import { Button } from "@/components/ui/button";
+import { Sheet, SheetClose, SheetContent, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
+import { Brain, Menu, Moon, Sun, UserRound } from "lucide-react";
 
 interface QuizHeaderProps {
   streak: number;
@@ -13,7 +13,7 @@ interface QuizHeaderProps {
 }
 
 const NAV_ITEMS = [
-  { path: "/", labelKey: "nav.quiz", emoji: "🧠" },
+  { path: "/", hash: "#quiz-setup", labelKey: "nav.quiz", emoji: "🧠" },
   { path: "/thinkers", labelKey: "nav.masterMinds", emoji: "🗿" },
   { path: "/formulas", labelKey: "nav.formulas", emoji: "📜" },
   { path: "/bonafides", labelKey: "nav.bonafides", emoji: "🪪" },
@@ -28,130 +28,114 @@ export function QuizHeader({ streak, showStreak }: QuizHeaderProps) {
   const { user } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
-  const isMobile = useIsMobile();
   const { isDark, toggle: toggleTheme } = useTheme();
+
+  const goToQuiz = () => {
+    if (location.pathname === "/") {
+      document.querySelector("#quiz-setup")?.scrollIntoView({ behavior: "smooth" });
+      return;
+    }
+    navigate("/#quiz-setup");
+  };
+
+  const isItemActive = (path: string, hash?: string) =>
+    location.pathname === path && (hash ? location.hash === hash : true);
+
+  const utilityControls = (
+    <>
+      <LanguageFlags />
+      <Button
+        variant="secondary"
+        size="icon"
+        onClick={toggleTheme}
+        aria-label={isDark ? t("nav.lightMode") : t("nav.darkMode")}
+        title={isDark ? t("nav.lightMode") : t("nav.darkMode")}
+        className="h-11 w-11"
+      >
+        {isDark ? <Sun /> : <Moon />}
+      </Button>
+    </>
+  );
 
   return (
     <header
-      className="flex items-center justify-between px-2 py-2.5 border-b border-border bg-card sticky top-0 z-50"
-      style={{ paddingTop: "calc(0.5rem + env(safe-area-inset-top))" }}
+      className="sticky top-0 z-50 border-b border-border bg-card/95 backdrop-blur"
+      style={{ paddingTop: "env(safe-area-inset-top)" }}
     >
-      {/* Back button */}
-      <button
-        onClick={() => window.history.back()}
-        title={t('nav.back') ?? 'Back'}
-        className="w-9 h-9 rounded-lg flex items-center justify-center text-sm transition-colors bg-secondary text-foreground hover:bg-secondary/80 flex-shrink-0"
-      >
-        <ChevronLeft className="w-4 h-4" />
-      </button>
+      <div className="mx-auto flex h-16 max-w-7xl items-center gap-3 px-3 sm:px-4">
+        <NavLink
+          to="/"
+          aria-label={`${t("nav.home")} — mAIth`}
+          className="flex min-h-11 items-center gap-2 rounded-lg px-2 font-display font-bold text-foreground"
+        >
+          <Brain className="h-5 w-5 text-primary" />
+          <span>m<span className="text-primary">AI</span>th</span>
+        </NavLink>
 
-      <div className="flex items-center gap-1 flex-wrap justify-center">
         {showStreak && (
-          <div className="flex items-center gap-1 mr-1">
-            <span className="text-accent animate-streak-fire">🔥</span>
-            <span className="font-mono font-bold text-accent text-sm">{streak}</span>
+          <div className="mr-auto flex items-center gap-1 rounded-full bg-accent/10 px-2 py-1 text-sm font-bold text-accent" aria-label={`${streak} streak`}>
+            <span aria-hidden="true">🔥</span><span className="font-mono">{streak}</span>
           </div>
         )}
 
-        {/* Desktop: text nav links */}
-        {!isMobile && (
-          <nav className="flex items-center gap-1">
-            {NAV_ITEMS.map((item) => {
-              const isActive = location.pathname === item.path;
+        <nav aria-label="Primary" className={`${showStreak ? "" : "ml-auto"} hidden items-center gap-1 xl:flex`}>
+          {NAV_ITEMS.map((item) => {
+            const active = isItemActive(item.path, item.hash);
+            if (item.hash) {
               return (
-                <button
-                  key={item.path}
-                  onClick={() => navigate(item.path)}
-                  className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-colors ${
-                    isActive
-                      ? "bg-primary/15 text-primary"
-                      : "text-muted-foreground hover:text-foreground hover:bg-secondary/60"
-                  }`}
-                >
-                  {item.emoji} {t(item.labelKey)}
-                </button>
+                <Button key={item.labelKey} variant="ghost" size="sm" onClick={goToQuiz} aria-current={active ? "page" : undefined} className={active ? "bg-primary/15 text-primary" : "text-muted-foreground"}>
+                  <span aria-hidden="true">{item.emoji}</span>{t(item.labelKey)}
+                </Button>
               );
-            })}
-            <a
-              href={EXTERNAL_NAV.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-3 py-1.5 rounded-lg text-xs font-medium transition-colors text-muted-foreground hover:text-foreground hover:bg-secondary/60"
-            >
-              {EXTERNAL_NAV.emoji} {t(EXTERNAL_NAV.labelKey)}
-            </a>
-          </nav>
-        )}
+            }
+            return (
+              <Button key={item.path} variant="ghost" size="sm" asChild className={active ? "bg-primary/15 text-primary" : "text-muted-foreground"}>
+                <NavLink to={item.path} aria-current={active ? "page" : undefined}><span aria-hidden="true">{item.emoji}</span>{t(item.labelKey)}</NavLink>
+              </Button>
+            );
+          })}
+        </nav>
 
-        {/* Mobile: icon-only nav */}
-        {isMobile && (
-          <>
-            {NAV_ITEMS.map((item) => (
-              <button
-                key={item.path}
-                onClick={() => navigate(item.path)}
-                title={t(item.labelKey)}
-                className={`w-9 h-9 rounded-lg flex items-center justify-center text-sm transition-colors ${
-                  location.pathname === item.path
-                    ? "bg-primary/15 text-primary"
-                    : "bg-secondary text-foreground hover:bg-secondary/80"
-                }`}
-              >
-                {item.emoji}
-              </button>
-            ))}
-            <a
-              href={EXTERNAL_NAV.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              title={t(EXTERNAL_NAV.labelKey)}
-              className="w-9 h-9 rounded-lg flex items-center justify-center text-sm transition-colors bg-secondary text-foreground hover:bg-secondary/80"
-            >
-              {EXTERNAL_NAV.emoji}
-            </a>
-          </>
-        )}
+        <div className="hidden items-center gap-2 xl:flex">
+          {utilityControls}
+          <Button variant={user ? "secondary" : "default"} size={user ? "icon" : "sm"} onClick={() => navigate(user ? "/profile" : "/auth")} aria-label={user ? t("nav.profile") : undefined} className={user ? "h-11 w-11" : "h-11"}>
+            {user ? <UserRound /> : t("nav.signIn")}
+          </Button>
+        </div>
 
-        <LanguageFlags />
-
-        <button
-          onClick={toggleTheme}
-          title={isDark ? t('nav.lightMode') : t('nav.darkMode')}
-          className="w-9 h-9 rounded-lg flex items-center justify-center text-sm transition-colors bg-secondary text-foreground hover:bg-secondary/80"
-        >
-          {isDark ? '☀️' : '🌙'}
-        </button>
-
-        {user ? (
-          <button
-            onClick={() => navigate("/profile")}
-            title={t("nav.profile")}
-            className={`w-9 h-9 rounded-lg flex items-center justify-center text-sm transition-colors ${
-              location.pathname === "/profile"
-                ? "bg-primary/15 text-primary"
-                : "bg-secondary text-foreground hover:bg-secondary/80"
-            }`}
-          >
-            👤
-          </button>
-        ) : (
-          <button
-            onClick={() => navigate("/auth")}
-            className="px-3 py-1.5 rounded-lg bg-primary text-primary-foreground text-xs font-semibold whitespace-nowrap"
-          >
-            {t("nav.signIn")}
-          </button>
-        )}
+        <div className="ml-auto flex items-center gap-2 xl:hidden">
+          {showStreak ? null : utilityControls}
+          <Sheet>
+            <SheetTrigger asChild>
+              <Button variant="secondary" size="icon" className="h-11 w-11" aria-label="Menu"><Menu /></Button>
+            </SheetTrigger>
+            <SheetContent className="w-[min(88vw,22rem)] p-5">
+              <SheetTitle className="mb-6 font-display">m<span className="text-primary">AI</span>th</SheetTitle>
+              <nav aria-label="Mobile primary" className="grid gap-1">
+                <SheetClose asChild><NavLink to="/" className="flex min-h-11 items-center gap-3 rounded-lg px-3 text-sm font-semibold hover:bg-secondary"><span aria-hidden="true">⌂</span>{t("nav.home")}</NavLink></SheetClose>
+                {NAV_ITEMS.map((item) => (
+                  <SheetClose asChild key={item.labelKey}>
+                    {item.hash ? (
+                      <button onClick={goToQuiz} className="flex min-h-11 w-full items-center gap-3 rounded-lg px-3 text-left text-sm font-semibold hover:bg-secondary"><span aria-hidden="true">{item.emoji}</span>{t(item.labelKey)}</button>
+                    ) : (
+                      <NavLink to={item.path} aria-current={isItemActive(item.path) ? "page" : undefined} className={({ isActive }) => `flex min-h-11 items-center gap-3 rounded-lg px-3 text-sm font-semibold ${isActive ? "bg-primary/15 text-primary" : "hover:bg-secondary"}`}><span aria-hidden="true">{item.emoji}</span>{t(item.labelKey)}</NavLink>
+                    )}
+                  </SheetClose>
+                ))}
+                <a href={EXTERNAL_NAV.url} target="_blank" rel="noopener noreferrer" className="flex min-h-11 items-center gap-3 rounded-lg px-3 text-sm font-semibold hover:bg-secondary"><span aria-hidden="true">{EXTERNAL_NAV.emoji}</span>{t(EXTERNAL_NAV.labelKey)} ↗</a>
+              </nav>
+              <div className="mt-6 flex items-center gap-2 border-t border-border pt-5">
+                {showStreak ? utilityControls : null}
+                <SheetClose asChild>
+                  <Button className="min-h-11 flex-1" variant={user ? "secondary" : "default"} onClick={() => navigate(user ? "/profile" : "/auth")}>
+                    {user ? <><UserRound />{t("nav.profile")}</> : t("nav.signIn")}
+                  </Button>
+                </SheetClose>
+              </div>
+            </SheetContent>
+          </Sheet>
+        </div>
       </div>
-
-      {/* Forward button */}
-      <button
-        onClick={() => window.history.forward()}
-        title={t('nav.forward') ?? 'Forward'}
-        className="w-9 h-9 rounded-lg flex items-center justify-center text-sm transition-colors bg-secondary text-foreground hover:bg-secondary/80 flex-shrink-0"
-      >
-        <ChevronRight className="w-4 h-4" />
-      </button>
     </header>
   );
 }
