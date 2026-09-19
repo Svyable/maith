@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { DEFAULT_QUIZ_CAP, TOPICS } from '@/config/constants';
-import { resolveTopicSlug } from '@/config/content-registry';
+import { resolveTopicSlug, resolveTopicSlugs } from '@/config/content-registry';
 import { QUIZ_FIELDS } from '@/config/fields';
 import {
   countAvailableQuizQuestions,
@@ -20,11 +20,24 @@ describe('quiz setup scope', () => {
     expect(resolved).not.toContain('cfa-ethics');
   });
 
-  it('resolves legacy engineering topic slugs to canonical granular topics', () => {
+  it('resolves renamed and umbrella engineering slugs to canonical granular topics', () => {
     expect(resolveTopicSlug('control-theory')).toBe('control-systems');
     expect(resolveTopicSlug('robotics')).toBe('robotics-mechatronics');
-    expect(TOPICS.map((topic) => topic.slug)).not.toContain('control-theory');
-    expect(TOPICS.map((topic) => topic.slug)).not.toContain('robotics');
+    expect(resolveTopicSlugs('aerospace')).toEqual([
+      'aerodynamics',
+      'orbital-mechanics',
+      'spaceflight-systems',
+    ]);
+    expect(resolveTopicSlugs('electrical-engineering')).toContain('circuits-electronics');
+    expect(resolveTopicSlugs('mechanical-engineering')).toContain('solid-mechanics');
+
+    const selectable = TOPICS.map((topic) => topic.slug);
+    expect(selectable).not.toContain('control-theory');
+    expect(selectable).not.toContain('robotics');
+    expect(selectable).not.toContain('aerospace');
+    expect(selectable).not.toContain('electrical-engineering');
+    expect(selectable).not.toContain('mechanical-engineering');
+    expect(selectable).toContain('spaceflight-systems');
   });
 
   it('lets an explicit topic selection override the field scope', () => {
