@@ -8,6 +8,7 @@ import {
   buildRemediationState,
   applyAnswer,
   getVisibleOptionIndex,
+  toVisibleCheckResult,
   advanceQuestion,
   skipCurrentQuestion,
   endQuiz as endQuizEngine,
@@ -57,7 +58,8 @@ export function useQuiz(selectedTopics: string[] = [], difficulties: Difficulty[
       if (!result) return null;
 
       const visibleIndex = getVisibleOptionIndex(optionIndex, currentQuestion.originalIndices);
-      setState((prev) => applyAnswer(prev, result, currentQuestion, visibleIndex));
+      const reviewResult = toVisibleCheckResult(result, currentQuestion.originalIndices);
+      setState((prev) => applyAnswer(prev, reviewResult, currentQuestion, visibleIndex));
       return result;
     },
     [currentQuestion],
