@@ -45,3 +45,20 @@ Unavailable legacy or planned topics remain represented in the registry but are 
 - `bun run check:locales` validates locale keys and interpolation placeholders.
 
 `docs/content-inventory.json` is the machine-readable inventory. Every topic record includes its field, content kind, availability, loader group, and easy/hard/SOTA/total counts.
+
+## Editorial quality
+
+Structural integrity and editorial quality are separate gates.
+
+- `docs/content-standards.md` defines difficulty, explanation, hint, provenance, and coverage expectations.
+- `bun run audit:quality` performs question-level QA and writes `docs/content-quality.json` plus a refreshed `docs/content-enhancement-report.md`.
+- Run the structural validator before the quality audit. A clean registry does not guarantee good questions, and good questions do not excuse broken ownership or loaders.
+
+Recommended release gate for content changes:
+
+```bash
+bun run validate:all-content
+bun run check:locales
+bun test
+bun run build
+```
