@@ -1,8 +1,10 @@
-import { Link, useParams } from 'react-router-dom';
+import { Link, Navigate, useParams } from 'react-router-dom';
 import { ArrowRight, BookOpen, ChevronRight } from 'lucide-react';
 import { SiteShell } from '@/components/layout/SiteShell';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
+import { TOPIC_MAP } from '@/config/constants';
+import { resolveTopicSlug } from '@/config/content-registry';
 import {
   LEARNING_FIELD_PAGES,
   getLearningFieldPage,
@@ -12,6 +14,7 @@ import {
   APP_PATHS,
   buildFieldQuizHref,
   buildLearnFieldPath,
+  buildLearnTopicPath,
   buildTopicQuizHref,
 } from '@/config/site-navigation';
 import NotFound from './NotFound';
@@ -269,6 +272,14 @@ function TopicLanding({ fieldSlug, topicSlug }: { fieldSlug: string; topicSlug: 
 
 export default function Learn() {
   const { fieldSlug, topicSlug } = useParams<{ fieldSlug?: string; topicSlug?: string }>();
+
+  if (fieldSlug && topicSlug) {
+    const canonicalSlug = resolveTopicSlug(topicSlug);
+    const canonicalTopic = TOPIC_MAP[canonicalSlug];
+    if (canonicalTopic && canonicalSlug !== topicSlug) {
+      return <Navigate to={buildLearnTopicPath(canonicalTopic.field, canonicalSlug)} replace />;
+    }
+  }
 
   let content;
   if (fieldSlug && topicSlug) {

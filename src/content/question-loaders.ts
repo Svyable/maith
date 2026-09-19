@@ -247,7 +247,8 @@ export const TOPIC_TO_GROUPS: Readonly<Record<string, readonly string[]>> = {
     "engineering"
   ],
   "control-systems": [
-    "engineering"
+    "engineering",
+    "control-theory"
   ],
   "environmental-engineering": [
     "engineering"
@@ -271,7 +272,8 @@ export const TOPIC_TO_GROUPS: Readonly<Record<string, readonly string[]>> = {
     "engineering"
   ],
   "robotics-mechatronics": [
-    "engineering"
+    "engineering",
+    "robotics"
   ],
   "semiconductor-engineering": [
     "engineering"
@@ -323,9 +325,6 @@ export const TOPIC_TO_GROUPS: Readonly<Record<string, readonly string[]>> = {
   ],
   "game-theory": [
     "game-theory"
-  ],
-  "robotics": [
-    "robotics"
   ],
   "meteorology": [
     "meteorology"
@@ -438,9 +437,6 @@ export const TOPIC_TO_GROUPS: Readonly<Record<string, readonly string[]>> = {
   ],
   "compiler-theory": [
     "compiler-theory"
-  ],
-  "control-theory": [
-    "control-theory"
   ],
   "behavioral-economics": [
     "behavioral-economics"
