@@ -143,7 +143,7 @@ export const FIELDS: FieldMeta[] = FIELD_DEFINITIONS.map((field) => ({
   ...field,
   topics: field.slug === 'all'
     ? []
-    : STANDARD_TOPICS.filter((topic) => topic.field === field.slug).map((topic) => topic.slug),
+    : STANDARD_TOPICS.filter((topic) => topic.available && topic.field === field.slug).map((topic) => topic.slug),
 }));
 
 export const FIELD_MAP: Record<string, FieldMeta> = Object.fromEntries(
