@@ -19,6 +19,7 @@ interface QuizResultsProps {
   difficultyBreakdown: Record<string, { correct: number; total: number }>;
   difficulties: Difficulty[];
   onRestart: () => void;
+  onPracticeUnresolved?: () => void;
   onNewTopics?: () => void;
   missedQuestions: MissedQuestion[];
   skippedQuestions: SkippedQuestion[];
@@ -35,6 +36,7 @@ export function QuizResults({
   difficultyBreakdown,
   difficulties,
   onRestart,
+  onPracticeUnresolved,
   onNewTopics,
   missedQuestions,
   skippedQuestions,
@@ -46,11 +48,10 @@ export function QuizResults({
   const [showReview, setShowReview] = useState(false);
   const [showSkipped, setShowSkipped] = useState(false);
 
-  const primaryCta =
-    pct >= 90 ? '⚡ Run It Back' :
-    pct >= 70 ? '🚀 Play Again' :
-    pct >= 50 ? '🎯 Try Again' :
-    '💪 One More Round';
+  const unresolvedCount = new Set([
+    ...missedQuestions.map(({ question }) => question.id),
+    ...skippedQuestions.map(({ question }) => question.id),
+  ]).size;
 
   return (
     <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} className="max-w-md mx-auto text-center space-y-6">
@@ -109,7 +110,7 @@ export function QuizResults({
       )}
 
       {/* Core stats */}
-      <div className="grid grid-cols-4 gap-3">
+      <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
         <div className="bg-card rounded-xl p-4 border border-border">
           <div className="text-2xl font-bold text-primary">{Math.round(score)}</div>
           <div className="text-xs text-muted-foreground">{t('results.score')}</div>
@@ -128,26 +129,39 @@ export function QuizResults({
         </div>
       </div>
 
-      {/* Quick action row */}
-      <div className="flex gap-2">
-        <motion.button
-          whileHover={{ scale: 1.03 }}
-          whileTap={{ scale: 0.97 }}
-          onClick={onRestart}
-          className="flex-1 py-3 rounded-2xl bg-primary text-primary-foreground font-bold text-sm"
-        >
-          {primaryCta}
-        </motion.button>
-        {onNewTopics && (
+      {/* Next-step actions */}
+      <div className="space-y-2">
+        {onPracticeUnresolved && unresolvedCount > 0 && (
           <motion.button
-            whileHover={{ scale: 1.03 }}
-            whileTap={{ scale: 0.97 }}
-            onClick={onNewTopics}
-            className="py-3 px-4 rounded-2xl border border-border text-muted-foreground font-semibold text-sm hover:text-foreground hover:border-foreground/20 transition-all"
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+            onClick={onPracticeUnresolved}
+            className="flex min-h-12 w-full items-center justify-center gap-2 rounded-2xl border border-accent/30 bg-accent/10 px-4 py-3 text-sm font-bold text-accent transition-colors hover:bg-accent/15"
           >
-            {t('results.newTopics')}
+            <span>{t('results.practiceWeakSpots')}</span>
+            <span className="rounded-full bg-accent/15 px-2 py-0.5 font-mono text-xs">{unresolvedCount}</span>
           </motion.button>
         )}
+        <div className={onNewTopics ? 'grid grid-cols-2 gap-2' : 'grid grid-cols-1 gap-2'}>
+          <motion.button
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+            onClick={onRestart}
+            className="min-h-12 rounded-2xl bg-primary px-4 py-3 text-sm font-bold text-primary-foreground"
+          >
+            {t('results.playAgain')}
+          </motion.button>
+          {onNewTopics && (
+            <motion.button
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              onClick={onNewTopics}
+              className="min-h-12 rounded-2xl border border-border px-4 py-3 text-sm font-semibold text-muted-foreground transition-all hover:border-foreground/20 hover:text-foreground"
+            >
+              {t('results.newTopics')}
+            </motion.button>
+          )}
+        </div>
       </div>
 
       {/* Difficulty breakdown */}
@@ -215,9 +229,10 @@ export function QuizResults({
           whileHover={{ scale: 1.03 }}
           whileTap={{ scale: 0.97 }}
           onClick={() => setShowReview(!showReview)}
+          aria-expanded={showReview}
           className="w-full py-3 rounded-2xl border border-destructive/30 bg-destructive/5 text-destructive font-semibold text-sm"
         >
-          {showReview ? '▲ Hide Review' : t('results.reviewMistakes')} ({missedQuestions.length})
+          {showReview ? '▲ ' : ''}{t('results.reviewMistakes')} ({missedQuestions.length})
         </motion.button>
       )}
 
@@ -229,9 +244,10 @@ export function QuizResults({
           whileHover={{ scale: 1.03 }}
           whileTap={{ scale: 0.97 }}
           onClick={() => setShowSkipped(!showSkipped)}
+          aria-expanded={showSkipped}
           className="w-full py-3 rounded-2xl border border-muted-foreground/30 bg-muted/5 text-muted-foreground font-semibold text-sm"
         >
-          {showSkipped ? '▲ Hide Skipped' : t('results.reviewSkipped')} ({skippedQuestions.length})
+          {showSkipped ? '▲ ' : ''}{t('results.reviewSkipped')} ({skippedQuestions.length})
         </motion.button>
       )}
 
@@ -250,7 +266,7 @@ export function QuizResults({
                 <div className="flex items-center gap-2 text-xs text-muted-foreground">
                   <span>{emoji}</span>
                   <span>{label}</span>
-                  <span className="ml-auto text-muted-foreground/50 italic">Skipped</span>
+                  <span className="ml-auto text-muted-foreground/50 italic">{t('results.skipped')}</span>
                 </div>
                 <LatexRenderer
                   text={skipped.question.question}
@@ -269,17 +285,6 @@ export function QuizResults({
         </motion.div>
       )}
 
-      {/* Bottom action */}
-      <div className="space-y-2">
-        <motion.button
-          whileHover={{ scale: 1.03 }}
-          whileTap={{ scale: 0.97 }}
-          onClick={onRestart}
-          className="w-full py-4 rounded-2xl bg-primary text-primary-foreground font-bold text-lg"
-        >
-          {t('results.playAgain')}
-        </motion.button>
-      </div>
     </motion.div>
   );
 }
