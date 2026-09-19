@@ -36,7 +36,6 @@ for (const topic of CONTENT_TOPICS.filter((entry) => entry.kind === 'standard-qu
   const field = fieldMap.get(topic.field);
   if (!field) fail(`Available topic ${topic.slug} has unknown field ${topic.field}`);
   else if (!field.topics.includes(topic.slug)) fail(`Field ${topic.field} does not include ${topic.slug}`);
-  if (!topic.loaderGroups.length) fail(`Available topic ${topic.slug} has no question loader group`);
 }
 for (const field of FIELDS.filter((entry) => entry.slug !== 'all')) {
   for (const slug of field.topics) {
@@ -61,9 +60,8 @@ for (const pack of QUESTION_PACKS) {
   groupTopics.set(pack.group, new Set(questions.map(({ topic }) => topic)));
 }
 for (const topic of CONTENT_TOPICS.filter((entry) => entry.kind === 'standard-quiz' && entry.available)) {
-  for (const group of topic.loaderGroups) {
-    if (!groupTopics.get(group)?.has(topic.slug)) fail(`Loader group ${group} does not contain topic ${topic.slug}`);
-  }
+  const matchingGroups = [...groupTopics].filter(([, topics]) => topics.has(topic.slug)).map(([group]) => group);
+  if (matchingGroups.length === 0) fail(`Available topic ${topic.slug} has no question loader group`);
 }
 
 // Vault questions intentionally remain in the historical standard pool. No other special pool may leak into it.
