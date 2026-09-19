@@ -11,7 +11,7 @@ The standard library currently contains 998 questions. Coverage is highly uneven
 | Mathematics | 20 | 272 | 3 | 2 |
 | Physics | 15 | 148 | 3 | 1 |
 | Computer Science | 12 | 146 | 3 | 2 |
-| Engineering | 23 | 116 | 21 | 17 |
+| Engineering | 21 | 116 | 18 | 14 |
 | Finance | 15 | 111 | 9 | 7 |
 | Earth & Space | 7 | 63 | 0 | 0 |
 | Biology | 5 | 45 | 0 | 0 |
@@ -35,11 +35,11 @@ The most structurally under-covered visible topics are:
 
 Do not collapse near-duplicate labels automatically.
 
-- `control-theory` and `control-systems` require question-level scope review before consolidation.
-- `robotics` and `robotics-mechatronics` require the same review.
-- `aerospace`, `aerodynamics`, and `orbital-mechanics` should remain distinct if their questions actually test different levels of abstraction.
-- `electrical-engineering` and `mechanical-engineering` remain compatibility aliases rather than duplicate selectable topics.
-- `engineering` and `string-theory` remain hidden compatibility topics until their historical content is explicitly re-homed.
+- `control-theory` has been consolidated into canonical `control-systems`; the old slug is now a rename alias.
+- `robotics` has been consolidated into canonical `robotics-mechatronics`; the old slug is now a rename alias.
+- The historical `aerospace` pack has been split by question scope into `aerodynamics`, `orbital-mechanics`, and new `spaceflight-systems`; the old broad slug is an umbrella expansion rather than a selectable topic.
+- `electrical-engineering` and `mechanical-engineering` are broad umbrella compatibility expansions across their granular Engineering topics.
+- `engineering` and `string-theory` remain hidden special compatibility topics until their historical Vault content is explicitly re-homed.
 
 ## Vault boundary
 
@@ -68,7 +68,7 @@ Augmentation should proceed field by field after the quality gate is clean:
 
 1. **Computer Science foundations** — Algorithms and Machine Learning before adding new CS subfields.
 2. **Finance foundations** — Microeconomics, Macroeconomics, Econometrics, Fixed Income, Portfolio Theory, and Algo Trading.
-3. **Engineering** — a larger dedicated wave because 21 of 23 topics are thin.
+3. **Engineering** — a larger dedicated wave because 18 of 21 canonical topics are still below 9 questions.
 4. **Human Sciences** — bring the three existing topics from 6 toward 9+ before adding new disciplines.
 5. Mathematics and Physics expansion only after the thinner fields are healthier.
 
