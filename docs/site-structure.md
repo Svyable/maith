@@ -43,7 +43,7 @@ This means adding or moving a topic requires changing its canonical topic metada
 - field slugs are unique;
 - every standard topic resolves into exactly one declared field.
 
-`.github/workflows/site-integrity.yml` runs the structural test and a production build whenever pages, shared chrome, routing, navigation, or field structure change.
+`.github/workflows/site-integrity.yml` runs the focused `bun run validate:site` structural gate whenever pages, shared chrome, routing, navigation, or field structure change. `.github/workflows/app-ci.yml` owns the full test suite and production build for application code, including `src/App.tsx` and build configuration, so structural changes are compiled once rather than by overlapping workflows.
 
 ## Adding a destination
 
@@ -51,10 +51,10 @@ This means adding or moving a topic requires changing its canonical topic metada
 2. Add shared presentation metadata to `SITE_DESTINATIONS` when the destination is user-visible.
 3. Add it to the appropriate derived navigation arrays.
 4. Bind the page component to the path in `src/App.tsx`.
-5. Run `bun test src/test/site-structure.test.ts` and `bun run build`.
+5. Run `bun run validate:site`, `bun run test`, and `bun run build`.
 
 ## Adding or moving a field topic
 
 1. Update the topic's `field` in `src/config/content-registry.ts`.
 2. Add field presentation metadata to `src/config/fields.ts` only if the field itself is new.
-3. Run the content validation suite and the site-structure test.
+3. Run the content validation suite and `bun run validate:site`.
