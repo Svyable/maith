@@ -1,12 +1,15 @@
 import { useContext, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { LocaleContext } from '@/contexts/LocaleContext';
+import { APP_PATHS } from '@/config/site-navigation';
 import {
   OG_LOCALES,
   SOCIAL_IMAGE,
   buildRouteSchemaData,
+  buildSeoSchemaData,
   canonicalUrl,
   getSeoForPath,
+  type RouteSeo,
 } from '@/config/seo';
 
 function upsertMeta(attribute: 'name' | 'property', key: string, content: string) {
@@ -29,9 +32,8 @@ function upsertCanonical(href: string) {
   element.href = href;
 }
 
-function upsertRouteSchema(pathname: string, locale: string) {
+function upsertRouteSchema(payload: ReturnType<typeof buildRouteSchemaData>) {
   const existing = document.getElementById('route-seo-schema');
-  const payload = buildRouteSchemaData(pathname, locale);
 
   if (!payload) {
     existing?.remove();
@@ -46,42 +48,103 @@ function upsertRouteSchema(pathname: string, locale: string) {
   if (!existing) document.head.appendChild(script);
 }
 
+function applySeo(
+  pathname: string,
+  locale: string,
+  seo: RouteSeo,
+  schema: ReturnType<typeof buildRouteSchemaData>,
+) {
+  const canonical = canonicalUrl(pathname);
+  const robots = seo.indexable
+    ? 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'
+    : 'noindex, nofollow';
+
+  document.title = seo.title;
+  document.documentElement.lang = locale;
+
+  upsertMeta('name', 'description', seo.description);
+  upsertMeta('name', 'robots', robots);
+  upsertMeta('name', 'googlebot', robots);
+
+  upsertMeta('property', 'og:type', 'website');
+  upsertMeta('property', 'og:site_name', 'mAIth');
+  upsertMeta('property', 'og:title', seo.title);
+  upsertMeta('property', 'og:description', seo.description);
+  upsertMeta('property', 'og:url', canonical);
+  upsertMeta('property', 'og:image', SOCIAL_IMAGE);
+  upsertMeta('property', 'og:image:alt', 'mAIth interactive STEM learning platform');
+  upsertMeta('property', 'og:locale', OG_LOCALES[locale] ?? 'en_US');
+
+  upsertMeta('name', 'twitter:card', 'summary_large_image');
+  upsertMeta('name', 'twitter:title', seo.title);
+  upsertMeta('name', 'twitter:description', seo.description);
+  upsertMeta('name', 'twitter:image', SOCIAL_IMAGE);
+  upsertMeta('name', 'twitter:image:alt', 'mAIth interactive STEM learning platform');
+
+  upsertCanonical(canonical);
+  upsertRouteSchema(schema);
+}
+
+async function resolveReferenceSeo(pathname: string, locale: string) {
+  if (pathname.startsWith(APP_PATHS.formulas + '/')) {
+    const slug = pathname.slice(APP_PATHS.formulas.length + 1);
+    const { getFormulaReferencePage } = await import('@/config/formula-pages');
+    const page = getFormulaReferencePage(slug);
+    if (page) {
+      return {
+        seo: page.seo,
+        schema: buildSeoSchemaData(pathname, page.seo, page.seo.breadcrumbs, locale),
+      };
+    }
+  }
+
+  if (pathname.startsWith(APP_PATHS.glossary + '/')) {
+    const termId = pathname.slice(APP_PATHS.glossary.length + 1);
+    const { getGlossaryReferencePage } = await import('@/config/glossary-pages');
+    const page = getGlossaryReferencePage(termId);
+    if (page) {
+      return {
+        seo: page.seo,
+        schema: buildSeoSchemaData(pathname, page.seo, page.seo.breadcrumbs, locale),
+      };
+    }
+  }
+
+  if (pathname.startsWith(APP_PATHS.thinkers + '/')) {
+    const thinkerSlug = pathname.slice(APP_PATHS.thinkers.length + 1);
+    const { getThinkerReferencePage } = await import('@/config/thinker-pages');
+    const page = getThinkerReferencePage(thinkerSlug);
+    if (page) {
+      return {
+        seo: page.seo,
+        schema: buildSeoSchemaData(pathname, page.seo, page.seo.breadcrumbs, locale),
+      };
+    }
+  }
+
+  return null;
+}
+
 export function SeoManager() {
   const location = useLocation();
   const localeContext = useContext(LocaleContext);
   const locale = localeContext?.locale ?? 'en';
 
   useEffect(() => {
-    const seo = getSeoForPath(location.pathname);
-    const canonical = canonicalUrl(location.pathname);
-    const robots = seo.indexable
-      ? 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'
-      : 'noindex, nofollow';
+    let cancelled = false;
+    const pathname = location.pathname;
 
-    document.title = seo.title;
-    document.documentElement.lang = locale;
+    const staticSeo = getSeoForPath(pathname);
+    applySeo(pathname, locale, staticSeo, buildRouteSchemaData(pathname, locale));
 
-    upsertMeta('name', 'description', seo.description);
-    upsertMeta('name', 'robots', robots);
-    upsertMeta('name', 'googlebot', robots);
+    void resolveReferenceSeo(pathname, locale).then((resolved) => {
+      if (cancelled || !resolved) return;
+      applySeo(pathname, locale, resolved.seo, resolved.schema);
+    });
 
-    upsertMeta('property', 'og:type', 'website');
-    upsertMeta('property', 'og:site_name', 'mAIth');
-    upsertMeta('property', 'og:title', seo.title);
-    upsertMeta('property', 'og:description', seo.description);
-    upsertMeta('property', 'og:url', canonical);
-    upsertMeta('property', 'og:image', SOCIAL_IMAGE);
-    upsertMeta('property', 'og:image:alt', 'mAIth interactive STEM learning platform');
-    upsertMeta('property', 'og:locale', OG_LOCALES[locale] ?? 'en_US');
-
-    upsertMeta('name', 'twitter:card', 'summary_large_image');
-    upsertMeta('name', 'twitter:title', seo.title);
-    upsertMeta('name', 'twitter:description', seo.description);
-    upsertMeta('name', 'twitter:image', SOCIAL_IMAGE);
-    upsertMeta('name', 'twitter:image:alt', 'mAIth interactive STEM learning platform');
-
-    upsertCanonical(canonical);
-    upsertRouteSchema(location.pathname, locale);
+    return () => {
+      cancelled = true;
+    };
   }, [location.pathname, locale]);
 
   return null;
