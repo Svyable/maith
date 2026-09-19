@@ -2,7 +2,7 @@ import type { Question } from '../types';
 
 export const roboticsQuestions: Question[] = [
   {
-    id: 40201, topic: 'robotics', difficulty: 'easy',
+    id: 40201, topic: 'robotics-mechatronics', difficulty: 'easy',
     question: 'A PID controller in robotics adjusts motor output based on:',
     options: [
       'Proportional error, Integral of past errors, and Derivative of error change — $u(t) = K_p e + K_i \\int e\\,dt + K_d \\frac{de}{dt}$',
@@ -16,7 +16,7 @@ export const roboticsQuestions: Question[] = [
     hint: 'Three letters, three jobs: fix NOW, fix PAST accumulation, anticipate FUTURE change.',
   },
   {
-    id: 40204, topic: 'robotics', difficulty: 'easy',
+    id: 40204, topic: 'robotics-mechatronics', difficulty: 'easy',
     question: 'Forward kinematics computes:',
     options: [
       'The end-effector position given joint angles — using the chain of transformation matrices along the kinematic chain',
@@ -30,7 +30,7 @@ export const roboticsQuestions: Question[] = [
     hint: 'Given the angles of all joints, where is the hand? Matrix multiplication along the chain.',
   },
   {
-    id: 40202, topic: 'robotics', difficulty: 'hard',
+    id: 40202, topic: 'robotics-mechatronics', difficulty: 'hard',
     question: 'SLAM (Simultaneous Localization and Mapping) is challenging because:',
     options: [
       'The robot must build a map of an unknown environment while simultaneously tracking its own position within that map — a chicken-and-egg problem',
@@ -44,7 +44,7 @@ export const roboticsQuestions: Question[] = [
     hint: 'You need a map to know where you are, but you need to know where you are to build a map.',
   },
   {
-    id: 40205, topic: 'robotics', difficulty: 'hard',
+    id: 40205, topic: 'robotics-mechatronics', difficulty: 'hard',
     question: 'Sim-to-real transfer in robotics is difficult because:',
     options: [
       'Physics simulators don\'t perfectly match reality — the "reality gap" in friction, contact dynamics, and sensor noise causes policies trained in simulation to fail on real hardware',
@@ -58,7 +58,7 @@ export const roboticsQuestions: Question[] = [
     hint: 'The simulator is never perfect — the robot needs to be robust enough to handle the differences.',
   },
   {
-    id: 40203, topic: 'robotics', difficulty: 'sota',
+    id: 40203, topic: 'robotics-mechatronics', difficulty: 'sota',
     question: 'Foundation models for robotics (RT-2, π₀) aim to solve:',
     options: [
       'The generalization gap — training a single vision-language-action model that transfers manipulation skills to novel objects and environments without task-specific fine-tuning',
@@ -72,7 +72,7 @@ export const roboticsQuestions: Question[] = [
     hint: 'The same idea as LLMs — pre-train on massive data, then generalize to new tasks without retraining.',
   },
   {
-    id: 40206, topic: 'robotics', difficulty: 'sota',
+    id: 40206, topic: 'robotics-mechatronics', difficulty: 'sota',
     question: 'Humanoid robots (Tesla Optimus, Figure 02) use whole-body control by:',
     options: [
       'Solving a hierarchical optimization problem that balances multiple objectives (balance, manipulation, locomotion) subject to joint torque limits and contact constraints in real-time',
