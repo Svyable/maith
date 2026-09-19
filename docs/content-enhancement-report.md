@@ -4,7 +4,7 @@ This is the structural baseline for the next content pass. The detailed question
 
 ## Coverage baseline
 
-The standard library currently contains 970 questions. Coverage is highly uneven.
+The standard library currently contains 998 questions. Coverage is highly uneven.
 
 | Field | Visible topics | Questions | Topics below 9 | Topics below 6 |
 | --- | ---: | ---: | ---: | ---: |
@@ -13,7 +13,7 @@ The standard library currently contains 970 questions. Coverage is highly uneven
 | Computer Science | 12 | 146 | 3 | 2 |
 | Engineering | 23 | 116 | 21 | 17 |
 | Finance | 15 | 111 | 9 | 7 |
-| Earth & Space | 7 | 35 | 6 | 4 |
+| Earth & Space | 7 | 63 | 0 | 0 |
 | Biology | 5 | 45 | 0 | 0 |
 | Chemistry | 3 | 27 | 0 | 0 |
 | Human Sciences | 3 | 18 | 3 | 0 |
@@ -28,9 +28,6 @@ The most structurally under-covered visible topics are:
 - Structural Engineering: 2 total (1 EASY / 1 HARD / 0 SOTA)
 - Algorithms: 3 total
 - Machine Learning: 3 total
-- Astronomy: 3 total
-- Geology: 3 total
-- Climate Science: 3 total
 - several Engineering subfields: 3–5 total
 - several Finance foundations: 3 total
 
@@ -69,15 +66,16 @@ The Question schema now supports optional `sources`, `reviewedAt`, and `factualA
 
 Augmentation should proceed field by field after the quality gate is clean:
 
-1. **Earth & Space** — strengthen Astronomy, Geology, Climate Science, then Meteorology.
-2. **Computer Science foundations** — Algorithms and Machine Learning before adding new CS subfields.
-3. **Finance foundations** — Microeconomics, Macroeconomics, Econometrics, Fixed Income, Portfolio Theory, and Algo Trading.
-4. **Engineering** — a larger dedicated wave because 21 of 23 topics are thin.
-5. **Human Sciences** — bring the three existing topics from 6 toward 9+ before adding new disciplines.
-6. Mathematics and Physics expansion only after the thinner fields are healthier.
+1. **Computer Science foundations** — Algorithms and Machine Learning before adding new CS subfields.
+2. **Finance foundations** — Microeconomics, Macroeconomics, Econometrics, Fixed Income, Portfolio Theory, and Algo Trading.
+3. **Engineering** — a larger dedicated wave because 21 of 23 topics are thin.
+4. **Human Sciences** — bring the three existing topics from 6 toward 9+ before adding new disciplines.
+5. Mathematics and Physics expansion only after the thinner fields are healthier.
 
 Chemistry has completed its first foundation pass: Physical, Organic, and Inorganic Chemistry now each have 3 EASY / 3 HARD / 3 SOTA questions, with varied answer positions and sourced advanced material.
 
 Biology has completed its first foundation pass: Molecular Biology, Genetics, Ecology, Neuroscience, and Pharmacology now each have 3 EASY / 3 HARD / 3 SOTA questions. Legacy Biology items were also rebalanced away from first-slot answers, and advanced/time-sensitive claims were tightened and sourced.
+
+Earth & Space has completed its first foundation pass: Astronomy, Astrophysics, Geology, Climate Science, Meteorology, Oceanography, and Environmental Science now each have 3 EASY / 3 HARD / 3 SOTA questions. Legacy first-slot answer bias and several overbroad frontier claims were corrected, with SOTA material tied to primary or assessment sources.
 
 The goal is not equal question counts everywhere. It is enough independent material that a quiz can vary meaningfully and still represent the subject honestly.
