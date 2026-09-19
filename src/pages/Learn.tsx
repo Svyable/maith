@@ -1,8 +1,6 @@
 import { Link, useParams } from 'react-router-dom';
 import { ArrowRight, BookOpen, ChevronRight } from 'lucide-react';
-import { QuizHeader } from '@/components/QuizHeader';
-import { Footer } from '@/components/Footer';
-import { FloatingBackground } from '@/components/FloatingBackground';
+import { SiteShell } from '@/components/layout/SiteShell';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import {
@@ -285,13 +283,10 @@ export default function Learn() {
   if (fieldSlug && !topicSlug && !getLearningFieldPage(fieldSlug)) return <NotFound />;
 
   return (
-    <div className="min-h-screen bg-background flex flex-col relative">
-      <FloatingBackground />
-      <QuizHeader streak={0} showStreak={false} />
+    <SiteShell>
       <main className="relative z-10 flex-1 px-4 py-6 max-w-5xl mx-auto w-full">
         {content}
       </main>
-      <div className="relative z-10"><Footer /></div>
-    </div>
+    </SiteShell>
   );
 }
