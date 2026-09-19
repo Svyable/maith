@@ -1,11 +1,13 @@
 import { useContext, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { LocaleContext } from '@/contexts/LocaleContext';
-import { OG_LOCALES, ROUTE_SEO, SITE_URL, SOCIAL_IMAGE, type RouteSeo } from '@/config/seo';
-
-function canonicalUrl(pathname: string) {
-  return pathname === '/' ? `${SITE_URL}/` : `${SITE_URL}${pathname.replace(/\/+$/, '')}`;
-}
+import {
+  OG_LOCALES,
+  SOCIAL_IMAGE,
+  buildRouteSchemaData,
+  canonicalUrl,
+  getSeoForPath,
+} from '@/config/seo';
 
 function upsertMeta(attribute: 'name' | 'property', key: string, content: string) {
   let element = document.head.querySelector<HTMLMetaElement>(`meta[${attribute}="${key}"]`);
@@ -27,55 +29,19 @@ function upsertCanonical(href: string) {
   element.href = href;
 }
 
-function upsertRouteSchema(seo: RouteSeo, pathname: string, locale: string) {
+function upsertRouteSchema(pathname: string, locale: string) {
   const existing = document.getElementById('route-seo-schema');
+  const payload = buildRouteSchemaData(pathname, locale);
 
-  if (!seo.indexable) {
+  if (!payload) {
     existing?.remove();
     return;
-  }
-
-  const canonical = canonicalUrl(pathname);
-  const graph: Record<string, unknown>[] = [
-    {
-      '@type': seo.schemaType ?? 'WebPage',
-      '@id': `${canonical}#webpage`,
-      url: canonical,
-      name: seo.title,
-      description: seo.description,
-      inLanguage: locale,
-      isPartOf: { '@id': `${SITE_URL}/#website` },
-    },
-  ];
-
-  if (pathname !== '/') {
-    graph.push({
-      '@type': 'BreadcrumbList',
-      '@id': `${canonical}#breadcrumb`,
-      itemListElement: [
-        {
-          '@type': 'ListItem',
-          position: 1,
-          name: 'mAIth',
-          item: `${SITE_URL}/`,
-        },
-        {
-          '@type': 'ListItem',
-          position: 2,
-          name: seo.title.replace(/ \| mAIth$/, ''),
-          item: canonical,
-        },
-      ],
-    });
   }
 
   const script = existing ?? document.createElement('script');
   script.id = 'route-seo-schema';
   script.setAttribute('type', 'application/ld+json');
-  script.textContent = JSON.stringify({
-    '@context': 'https://schema.org',
-    '@graph': graph,
-  });
+  script.textContent = JSON.stringify(payload);
 
   if (!existing) document.head.appendChild(script);
 }
@@ -86,11 +52,7 @@ export function SeoManager() {
   const locale = localeContext?.locale ?? 'en';
 
   useEffect(() => {
-    const seo = ROUTE_SEO[location.pathname] ?? {
-      title: 'Page Not Found | mAIth',
-      description: 'The requested mAIth page could not be found.',
-      indexable: false,
-    };
+    const seo = getSeoForPath(location.pathname);
     const canonical = canonicalUrl(location.pathname);
     const robots = seo.indexable
       ? 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'
@@ -119,7 +81,7 @@ export function SeoManager() {
     upsertMeta('name', 'twitter:image:alt', 'mAIth interactive STEM learning platform');
 
     upsertCanonical(canonical);
-    upsertRouteSchema(seo, location.pathname, locale);
+    upsertRouteSchema(location.pathname, locale);
   }, [location.pathname, locale]);
 
   return null;

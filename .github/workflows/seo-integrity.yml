@@ -10,7 +10,15 @@ on:
       - 'src/App.tsx'
       - 'src/components/SeoManager.tsx'
       - 'src/config/seo.ts'
+      - 'src/config/learning-pages.ts'
       - 'src/config/site-navigation.ts'
+      - 'src/pages/Learn.tsx'
+      - 'src/pages/Index.tsx'
+      - 'src/config/content-registry.ts'
+      - 'src/config/content-stats.ts'
+      - 'scripts/generate-seo-artifacts.ts'
+      - 'scripts/prerender-seo.ts'
+      - 'scripts/validate-prerender.ts'
       - 'scripts/validate-seo.ts'
       - 'package.json'
       - '.github/workflows/seo-integrity.yml'
@@ -25,7 +33,15 @@ on:
       - 'src/App.tsx'
       - 'src/components/SeoManager.tsx'
       - 'src/config/seo.ts'
+      - 'src/config/learning-pages.ts'
       - 'src/config/site-navigation.ts'
+      - 'src/pages/Learn.tsx'
+      - 'src/pages/Index.tsx'
+      - 'src/config/content-registry.ts'
+      - 'src/config/content-stats.ts'
+      - 'scripts/generate-seo-artifacts.ts'
+      - 'scripts/prerender-seo.ts'
+      - 'scripts/validate-prerender.ts'
       - 'scripts/validate-seo.ts'
       - 'package.json'
       - '.github/workflows/seo-integrity.yml'
@@ -53,5 +69,8 @@ jobs:
       - name: Validate SEO route and discovery integrity
         run: bun run validate:seo
 
-      - name: Build production app
+      - name: Build production app with prerendered heads
         run: bun run build
+
+      - name: Validate prerendered route output
+        run: bun run validate:prerender
