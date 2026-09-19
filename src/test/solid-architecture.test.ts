@@ -37,14 +37,13 @@ describe('SOLID architecture boundaries', () => {
     expect(offenders).toEqual([]);
   });
 
-  it('keeps repository contracts independent of infrastructure implementations', () => {
+  it('keeps the entire domain layer independent of infrastructure and React', () => {
     const domainDir = resolve(process.cwd(), 'src/domain');
-    const contractFiles = sourceFiles(domainDir).filter((path) => path.endsWith('/repository.ts'));
-    const offenders = contractFiles
+    const offenders = sourceFiles(domainDir)
       .filter((path) => {
         const source = readFileSync(path, 'utf8');
         return source.includes('@/integrations/')
-          || source.includes('react')
+          || /from ['"]react/.test(source)
           || source.includes('@/hooks/');
       })
       .map((path) => path.replace(process.cwd() + '/', ''));
