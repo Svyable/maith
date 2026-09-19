@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 
 interface TimerBarProps {
   fraction: number;
@@ -7,6 +7,7 @@ interface TimerBarProps {
 }
 
 export function TimerBar({ fraction, timeLeft, paused = false }: TimerBarProps) {
+  const prefersReducedMotion = useReducedMotion();
   const isUrgent = timeLeft <= 5 && !paused;
 
   return (
@@ -22,7 +23,7 @@ export function TimerBar({ fraction, timeLeft, paused = false }: TimerBarProps) 
           className={`h-full rounded-full ${isUrgent ? 'bg-destructive' : paused ? 'bg-success' : 'bg-primary'}`}
           initial={{ width: '100%' }}
           animate={{ width: `${fraction * 100}%` }}
-          transition={{ duration: 0.3 }}
+          transition={{ duration: prefersReducedMotion ? 0 : 0.3 }}
         />
       </div>
     </div>

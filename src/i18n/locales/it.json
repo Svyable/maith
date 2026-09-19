@@ -41,6 +41,7 @@
   "difficulty.pts": "+{{pts}}pt",
   "quiz.question": "D {{current}}/{{total}}",
   "quiz.points": "{{score}} pt",
+  "quiz.pointsAwarded": "+{{points}} pt",
   "quiz.skip": "Salta →",
   "quiz.streak": "🔥 Serie di {{count}}!",
   "quiz.checking": "Controllo...",

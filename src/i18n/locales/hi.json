@@ -41,6 +41,7 @@
   "difficulty.pts": "+{{pts}}अंक",
   "quiz.question": "प्र {{current}}/{{total}}",
   "quiz.points": "{{score}} अंक",
+  "quiz.pointsAwarded": "+{{points}} अंक",
   "quiz.skip": "छोड़ें →",
   "quiz.streak": "🔥 {{count}} की लगातार श्रृंखला!",
   "quiz.checking": "जाँच हो रही है...",

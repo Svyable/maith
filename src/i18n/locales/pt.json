@@ -41,6 +41,7 @@
   "difficulty.pts": "+{{pts}}pts",
   "quiz.question": "P {{current}}/{{total}}",
   "quiz.points": "{{score}} pts",
+  "quiz.pointsAwarded": "+{{points}} pts",
   "quiz.skip": "Pular →",
   "quiz.streak": "🔥 {{count}} em sequência!",
   "quiz.checking": "Verificando...",
