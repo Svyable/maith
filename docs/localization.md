@@ -31,14 +31,42 @@ English question text remains in the canonical question packs and translated que
 
 Every translated locale must fully cover the shared foundation:
 
-- Question IDs `1-22`
+- Core question IDs `1-37`
 - Actuarial foundation IDs `82100-82102`
+
+That produces a 40-question shared floor spanning linear algebra, calculus, probability/statistics, optimization, discrete math, and the actuarial foundation.
 
 Every translated question must provide all eight fields:
 
 `question`, `options.0`, `options.1`, `options.2`, `options.3`, `explanation`, `realWorld`, and `hint`.
 
 The validator also rejects translated question IDs that do not exist in canonical source content.
+
+## Coverage baseline
+
+`scripts/localization-baseline.json` is the checked-in regression contract.
+
+It defines:
+
+- the shared foundation range;
+- any additional foundation IDs;
+- a minimum translated-question count for every supported non-English locale.
+
+The shared foundation prevents common coverage from shrinking. Locale-specific floors separately protect languages that are already ahead of the shared baseline, so German or Spanish cannot silently regress to the common minimum.
+
+Current minimum translated-question counts:
+
+- German: 123
+- Spanish: 64
+- French: 40
+- Hindi: 40
+- Italian: 40
+- Japanese: 40
+- Korean: 40
+- Portuguese: 40
+- Chinese: 40
+
+When a synchronized expansion lands, update the baseline in the same pull request only after every affected locale passes validation.
 
 ## Required checks
 
@@ -50,24 +78,31 @@ bun run report:locales
 bun run validate:all-content
 ```
 
-`check:locales` is a hard gate. It validates UI key parity and interpolation placeholders, checks translated question completeness, checks source IDs, and enforces the canonical foundation.
+`check:locales` is a hard gate. It validates UI key parity and interpolation placeholders, translated-question completeness, canonical source IDs, the shared foundation, baseline configuration, and locale-specific coverage floors.
 
-`report:locales` is diagnostic. It prints total translated-question coverage for every locale plus a topic-by-topic matrix so the next translation batch can target the weakest areas.
+`report:locales` is diagnostic. It prints translated totals, required floors, deltas from those floors, overall source coverage, and a topic-by-topic matrix so the next batch can target weak areas.
 
 `validate:all-content` includes localization validation before the general content-integrity and editorial-quality audits.
+
+## Continuous integration
+
+`.github/workflows/content-integrity.yml` runs `bun run validate:all-content` on relevant pull requests and pushes to `main`.
+
+The workflow uses the committed Bun lockfile with a frozen install. Localization changes therefore have the same validation gate in GitHub as they do locally.
 
 ## Expansion method
 
 Grow coverage in synchronized batches rather than translating isolated questions.
 
 1. Keep the canonical foundation complete in every language.
-2. Choose the next question band by topic and difficulty so Easy, Hard, and SOTA coverage grow together.
-3. Translate the same selected IDs across every lagging locale before raising the validation floor.
-4. Add missing coverage to higher-count locales when needed to preserve the common foundation.
-5. Run the coverage report and use its locale/topic matrix to select the next batch.
-6. Raise hard validation requirements only after all supported locales meet them.
+2. Use `bun run report:locales` to identify the weakest locale/topic cells.
+3. Choose the next question band so Easy, Hard, and SOTA coverage grow together where practical.
+4. Translate the same selected IDs across every lagging locale before raising the shared foundation.
+5. Preserve any higher per-locale floor already recorded in `localization-baseline.json`.
+6. Run locale checks and the full content validation suite.
+7. Raise the shared foundation and locale floors only after the complete batch passes.
 
-This prevents a language selector from advertising nominal support while large parts of the quiz silently fall back to English.
+This prevents the language selector from advertising nominal support while large parts of the quiz silently fall back to English.
 
 ## Translation invariants
 
@@ -82,6 +117,6 @@ This prevents a language selector from advertising nominal support while large p
 
 ## Current baseline
 
-After the core-25 expansion, every non-English locale contains the same 25-question canonical foundation. German and Spanish additionally contain broader translated coverage beyond that baseline.
+After the core-40 expansion, every non-English locale contains the same 40-question canonical foundation. German and Spanish retain broader translated coverage above that baseline.
 
-Future batches should use `bun run report:locales` as the source of truth for deciding what to translate next.
+Future batches should use `bun run report:locales` as the source of truth for selecting the next synchronized cohort.
