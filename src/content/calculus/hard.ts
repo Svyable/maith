@@ -85,8 +85,8 @@ export const hardQuestions: Question[] = [
     question: 'A critical point of $f(x)$ occurs where:',
     options: ['$f(x) = 0$', "$f'(x) = 0$ or $f'(x)$ is undefined", '$f(x)$ is maximum', "$f''(x) = 0$"],
     correctIndex: 1,
-    explanation: 'Critical points are where the derivative is zero or undefined — candidates for local extrema.',
-    realWorld: 'Finding critical points is how optimization algorithms locate minima of loss functions.',
-    hint: 'The slope must be zero or not exist at these special points.',
+    explanation: 'At an interior point of the domain, a critical point occurs where $f\'(x)=0$ or where $f\'$ does not exist. Critical points are candidates for local extrema, but they need not be extrema; for example, $f(x)=x^3$ has a critical point at $x=0$ without a local maximum or minimum.',
+    realWorld: 'Finding critical points identifies candidates that optimization methods can classify as minima, maxima, or other stationary behavior.',
+    hint: 'Find domain points where the derivative is zero or fails to exist; classification comes afterward.',
   },
 ];
