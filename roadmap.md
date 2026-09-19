@@ -2,3 +2,4 @@
 - [ ] Remove safe eager heavy-content imports without changing behavior
 - [ ] Verify lazy routes, stable loading, and PWA behavior
 - [ ] Run locales, tests, TypeScript, build, and compare output
+- [ ] Report measured before/after bundle results
