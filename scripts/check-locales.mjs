@@ -19,5 +19,45 @@ for (const [locale, dictionary] of Object.entries(dictionaries)) {
   }
 }
 
+const questionDirectory = new URL('../src/i18n/locales/questions/', import.meta.url);
+const questionFields = ['question', 'options.0', 'options.1', 'options.2', 'options.3', 'explanation', 'realWorld', 'hint'];
+const minQuestionCoverage = 17;
+const questionCoverage = [];
+
+for (const locale of Object.keys(dictionaries).filter((locale) => locale !== 'en').sort()) {
+  const fileUrl = new URL(`${locale}.json`, questionDirectory);
+  let dictionary;
+  try {
+    dictionary = JSON.parse(readFileSync(fileUrl, 'utf8'));
+  } catch (error) {
+    failed = true;
+    console.error(`${locale}: missing or invalid question locale file`);
+    continue;
+  }
+
+  const questionIds = [...new Set(
+    Object.keys(dictionary)
+      .map((key) => key.match(/^q\.(\d+)\./)?.[1])
+      .filter(Boolean),
+  )].sort((a, b) => Number(a) - Number(b));
+
+  const incomplete = questionIds.filter((id) =>
+    questionFields.some((field) => !(`q.${id}.${field}` in dictionary)),
+  );
+
+  if (incomplete.length) {
+    failed = true;
+    console.error(`${locale}: incomplete translated questions=${incomplete.join(',')}`);
+  }
+
+  if (questionIds.length < minQuestionCoverage) {
+    failed = true;
+    console.error(`${locale}: translated questions=${questionIds.length}, required>=${minQuestionCoverage}`);
+  }
+
+  questionCoverage.push(`${locale}:${questionIds.length}`);
+}
+
 if (failed) process.exit(1);
 console.log(`Locale integrity passed: ${files.length} locales, ${baselineKeys.length} matching keys, placeholders preserved.`);
+console.log(`Question localization coverage passed: ${questionCoverage.join(' · ')} (minimum ${minQuestionCoverage} per translated locale).`);
