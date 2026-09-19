@@ -7,7 +7,8 @@ import { useReducedMotion } from 'framer-motion';
 import confetti from 'canvas-confetti';
 import { useTimer } from '@/hooks/useTimer';
 import { useAuth } from '@/hooks/useAuth';
-import { submitSession } from '@/domain/quiz/service';
+import type { QuizSessionRepository } from '@/domain/quiz/session-repository';
+import { supabaseQuizSessionRepository } from '@/integrations/supabase/quiz-session-repository';
 import {
   highestDifficulty,
   CONTENT_VERSION,
@@ -30,14 +31,17 @@ interface UseQuizSessionOptions {
   onTimeout?: () => void;
 }
 
-export function useQuizSession({
-  difficulties,
-  isQuizActive,
-  quizState,
-  sessionTag,
-  topics,
-  onTimeout,
-}: UseQuizSessionOptions) {
+export function useQuizSession(
+  {
+    difficulties,
+    isQuizActive,
+    quizState,
+    sessionTag,
+    topics,
+    onTimeout,
+  }: UseQuizSessionOptions,
+  sessionRepository: QuizSessionRepository = supabaseQuizSessionRepository,
+) {
   const { user } = useAuth();
   const prefersReducedMotion = useReducedMotion();
   const [sessionCorrect, setSessionCorrect] = useState(0);
@@ -93,7 +97,7 @@ export function useQuizSession({
   useEffect(() => {
     if (quizState.isFinished && user && !submittedRef.current) {
       submittedRef.current = true;
-      submitSession(user.id, sessionTag, {
+      void sessionRepository.submit(user.id, sessionTag, {
         topics: topics.length > 0 ? topics : Object.keys(quizState.topicBreakdown),
         difficulty: highestDifficulty(difficulties),
         score: quizState.score,
@@ -102,6 +106,11 @@ export function useQuizSession({
         bestStreak: quizState.bestStreak,
         topicBreakdown: quizState.topicBreakdown,
         contentVersion: CONTENT_VERSION,
+      }).catch((error: unknown) => {
+        console.error(
+          '[quiz] Failed to submit session:',
+          error instanceof Error ? error.message : error,
+        );
       });
     }
     if (!quizState.isFinished) submittedRef.current = false;
