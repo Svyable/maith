@@ -1,7 +1,7 @@
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import {
-  INDEXABLE_SEO_ROUTES,
+  PRERENDER_SEO_ROUTES,
   OG_LOCALES,
   SOCIAL_IMAGE,
   buildRouteSchemaData,
@@ -73,12 +73,14 @@ if (!existsSync(sourcePath)) {
 
 const baseHtml = readFileSync(sourcePath, 'utf8');
 const uniqueRoutes = Array.from(
-  new Map(INDEXABLE_SEO_ROUTES.map((entry) => [entry.path, entry])).values(),
+  new Map(PRERENDER_SEO_ROUTES.map((entry) => [entry.path, entry])).values(),
 );
 
 for (const { path, seo } of uniqueRoutes) {
   const canonical = canonicalUrl(path);
-  const robots = 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1';
+  const robots = seo.indexable
+    ? 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'
+    : 'noindex, nofollow';
 
   let html = baseHtml;
   html = html.replace(/<html\s+lang=["'][^"']+["']/i, '<html lang="en"');
@@ -108,4 +110,4 @@ for (const { path, seo } of uniqueRoutes) {
   writeFileSync(destination, html);
 }
 
-console.log('Prerendered route-specific HTML heads for ' + uniqueRoutes.length + ' indexable routes.');
+console.log('Prerendered route-specific HTML heads for ' + uniqueRoutes.length + ' known routes.');
