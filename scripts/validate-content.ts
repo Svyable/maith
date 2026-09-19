@@ -103,6 +103,7 @@ for (const topic of STANDARD_TOPICS.filter((entry) => entry.available)) {
 }
 
 const expectedGroups = QUESTION_PACKS.filter((pack) => pack.includeInStandardQuiz).map((pack) => pack.group);
+const expectedGroupSet = new Set<string>(expectedGroups);
 if (JSON.stringify([...QUESTION_GROUPS].sort()) !== JSON.stringify([...expectedGroups].sort())) {
   fail('Generated question loader groups have drifted; run generate:question-loaders');
 }
@@ -112,7 +113,7 @@ const expectedTopicGroups = Object.fromEntries(
     .map((topic) => [
       topic.slug,
       [...groupTopics]
-        .filter(([group, topics]) => expectedGroups.includes(group) && topics.has(topic.slug))
+        .filter(([group, topics]) => expectedGroupSet.has(group) && topics.has(topic.slug))
         .map(([group]) => group)
         .sort(),
     ]),
