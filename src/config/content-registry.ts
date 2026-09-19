@@ -179,12 +179,28 @@ const LEGACY_ALIAS_TARGETS: Record<string, string> = {
 
 const LEGACY_PROFESSIONAL_FIELDS = new Set(["actuarial", "cfa", "cpa", "data-science", "law", "mba", "medical"]);
 
-export const STANDARD_TOPICS: ContentTopicMeta[] = LEGACY_TOPIC_DEFINITIONS.map((topic) => ({
-  ...topic,
-  kind: LEGACY_PROFESSIONAL_FIELDS.has(topic.field) ? 'bonafide' : 'standard-quiz',
-  available: !LEGACY_PROFESSIONAL_FIELDS.has(topic.field) && !LEGACY_ALIAS_TARGETS[topic.slug],
-  ...(LEGACY_ALIAS_TARGETS[topic.slug] ? { canonicalSlug: LEGACY_ALIAS_TARGETS[topic.slug] } : {}),
-}));
+/**
+ * Historical professional/course topic records kept only so old slugs remain
+ * addressable. Canonical Bonafide topics live in src/config/bonafides.ts and
+ * are incorporated by the tooling registry.
+ */
+export const LEGACY_PROFESSIONAL_TOPICS: ContentTopicMeta[] = LEGACY_TOPIC_DEFINITIONS
+  .filter((topic) => LEGACY_PROFESSIONAL_FIELDS.has(topic.field))
+  .map((topic) => ({
+    ...topic,
+    kind: 'bonafide',
+    available: false,
+  }));
+
+/** Canonical standard-quiz topics only. Special and Bonafide content are excluded. */
+export const STANDARD_TOPICS: ContentTopicMeta[] = LEGACY_TOPIC_DEFINITIONS
+  .filter((topic) => !LEGACY_PROFESSIONAL_FIELDS.has(topic.field))
+  .map((topic) => ({
+    ...topic,
+    kind: 'standard-quiz',
+    available: !LEGACY_ALIAS_TARGETS[topic.slug],
+    ...(LEGACY_ALIAS_TARGETS[topic.slug] ? { canonicalSlug: LEGACY_ALIAS_TARGETS[topic.slug] } : {}),
+  }));
 
 // Question-bearing slugs retained in the standard pool but intentionally hidden from selectors.
 export const HIDDEN_STANDARD_TOPICS: ContentTopicMeta[] = [
@@ -192,7 +208,11 @@ export const HIDDEN_STANDARD_TOPICS: ContentTopicMeta[] = [
   { slug: 'string-theory', label: 'String Theory', emoji: '🧵', description: 'String theory and holographic physics', field: 'physics', kind: 'special', available: false },
 ];
 
-export const CONTENT_TOPICS: ContentTopicMeta[] = [...STANDARD_TOPICS, ...HIDDEN_STANDARD_TOPICS];
+export const CONTENT_TOPICS: ContentTopicMeta[] = [
+  ...STANDARD_TOPICS,
+  ...LEGACY_PROFESSIONAL_TOPICS,
+  ...HIDDEN_STANDARD_TOPICS,
+];
 export const CONTENT_TOPIC_MAP: Record<string, ContentTopicMeta> = Object.fromEntries(CONTENT_TOPICS.map((topic) => [topic.slug, topic]));
 
 /** Selector-compatible topics. Unavailable legacy/special entries remain addressable through CONTENT_TOPIC_MAP. */
