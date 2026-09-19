@@ -1,6 +1,6 @@
 import { useState, useMemo, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useSearchParams } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import { SiteShell } from '@/components/layout/SiteShell';
 import { SearchFilter } from '@/components/SearchFilter';
 import { LatexRenderer } from '@/components/LatexRenderer';
@@ -8,6 +8,7 @@ import { LatexRenderer } from '@/components/LatexRenderer';
 import { EQUATIONS, EQUATION_DOMAINS, type Equation, type Domain } from '@/config/equations';
 import { Badge } from '@/components/ui/badge';
 import { t } from '@/i18n';
+import { getFormulaReferencePageForEquation } from '@/config/formula-pages';
 
 type SortKey = 'rank' | 'beauty' | 'year' | 'name';
 
@@ -183,11 +184,17 @@ function EquationCard({ eq, index }: { eq: Equation; index: number }) {
           )}
         </AnimatePresence>
 
-        {/* Expand hint */}
-        <div className="mt-2 text-center">
+        <div className="mt-3 flex items-center justify-between gap-3">
           <span className="text-[10px] text-muted-foreground/50">
             {expanded ? t('formulas.collapse') : t('formulas.tapToExplore')}
           </span>
+          <Link
+            to={getFormulaReferencePageForEquation(eq)?.path ?? '/formulas'}
+            onClick={(event) => event.stopPropagation()}
+            className="text-[11px] font-semibold text-primary hover:underline"
+          >
+            Open reference →
+          </Link>
         </div>
       </div>
     </motion.div>

@@ -1,4 +1,9 @@
 import { APP_PATHS } from './site-navigation';
+import {
+  LEARNING_INDEXABLE_PAGES,
+  LEARNING_PAGES,
+  getLearningPage,
+} from './learning-pages';
 
 export const SITE_URL = 'https://maith.lovable.app';
 
@@ -14,12 +19,28 @@ export interface RouteSeo {
   schemaType?: SeoSchemaType;
 }
 
+export interface SeoRouteEntry {
+  path: string;
+  seo: RouteSeo;
+}
+
+export interface BreadcrumbItem {
+  name: string;
+  path: string;
+}
+
 export const DEFAULT_SEO: RouteSeo = {
   title: 'mAIth — Interactive Math, Physics & AI Quizzes',
   description:
     'Learn math, physics, computer science, and AI with gamified quizzes, formulas, glossary flash cards, and knowledge challenges.',
   indexable: true,
   schemaType: 'WebPage',
+};
+
+export const NOT_FOUND_SEO: RouteSeo = {
+  title: 'Page Not Found | mAIth',
+  description: 'The requested mAIth page could not be found.',
+  indexable: false,
 };
 
 export const ROUTE_SEO: Record<string, RouteSeo> = {
@@ -66,6 +87,13 @@ export const ROUTE_SEO: Record<string, RouteSeo> = {
     indexable: true,
     schemaType: 'WebPage',
   },
+  [APP_PATHS.learn]: {
+    title: 'Math, Science & AI Practice Topics | mAIth',
+    description:
+      'Browse structured practice topics across mathematics, physics, computer science, engineering, finance, and AI with interactive questions by difficulty.',
+    indexable: true,
+    schemaType: 'CollectionPage',
+  },
   [APP_PATHS.auth]: {
     title: 'Sign In | mAIth',
     description: 'Sign in to mAIth.',
@@ -95,3 +123,130 @@ export const OG_LOCALES: Record<string, string> = {
   hi: 'hi_IN',
   pt: 'pt_BR',
 };
+
+export function normalizeSeoPath(pathname: string): string {
+  if (pathname === '/') return '/';
+  return pathname.replace(/\/+$/, '') || '/';
+}
+
+export function canonicalUrl(pathname: string): string {
+  const normalized = normalizeSeoPath(pathname);
+  return normalized === '/' ? `${SITE_URL}/` : `${SITE_URL}${normalized}`;
+}
+
+export function getSeoForPath(pathname: string): RouteSeo {
+  const normalized = normalizeSeoPath(pathname);
+  const staticSeo = ROUTE_SEO[normalized];
+  if (staticSeo) return staticSeo;
+
+  const learningPage = getLearningPage(normalized);
+  if (learningPage) {
+    return {
+      title: learningPage.seoTitle,
+      description: learningPage.seoDescription,
+      indexable: learningPage.indexable,
+      schemaType: learningPage.kind === 'field' ? 'CollectionPage' : 'WebPage',
+    };
+  }
+
+  return NOT_FOUND_SEO;
+}
+
+export const INDEXABLE_SEO_ROUTES: SeoRouteEntry[] = [
+  ...Object.entries(ROUTE_SEO)
+    .filter(([, seo]) => seo.indexable)
+    .map(([path, seo]) => ({ path, seo })),
+  ...LEARNING_INDEXABLE_PAGES.map((page) => ({
+    path: page.path,
+    seo: getSeoForPath(page.path),
+  })),
+];
+
+export const PRERENDER_SEO_ROUTES: SeoRouteEntry[] = [
+  ...Object.entries(ROUTE_SEO).map(([path, seo]) => ({ path, seo })),
+  ...LEARNING_PAGES.map((page) => ({
+    path: page.path,
+    seo: getSeoForPath(page.path),
+  })),
+];
+
+export function getBreadcrumbsForPath(pathname: string): BreadcrumbItem[] {
+  const normalized = normalizeSeoPath(pathname);
+  if (normalized === APP_PATHS.home) return [{ name: 'mAIth', path: APP_PATHS.home }];
+
+  const learningPage = getLearningPage(normalized);
+  if (learningPage?.kind === 'field') {
+    return [
+      { name: 'mAIth', path: APP_PATHS.home },
+      { name: 'Practice Library', path: APP_PATHS.learn },
+      { name: learningPage.field.label, path: learningPage.path },
+    ];
+  }
+
+  if (learningPage?.kind === 'topic') {
+    return [
+      { name: 'mAIth', path: APP_PATHS.home },
+      { name: 'Practice Library', path: APP_PATHS.learn },
+      { name: learningPage.field.label, path: `${APP_PATHS.learn}/${learningPage.field.slug}` },
+      { name: learningPage.topic.label, path: learningPage.path },
+    ];
+  }
+
+  const seo = getSeoForPath(normalized);
+  return [
+    { name: 'mAIth', path: APP_PATHS.home },
+    {
+      name: normalized === APP_PATHS.learn
+        ? 'Practice Library'
+        : seo.title.replace(/ \| mAIth$/, ''),
+      path: normalized,
+    },
+  ];
+}
+
+export function buildSeoSchemaData(
+  pathname: string,
+  seo: RouteSeo,
+  breadcrumbs: BreadcrumbItem[],
+  locale = 'en',
+) {
+  const normalized = normalizeSeoPath(pathname);
+  if (!seo.indexable) return null;
+
+  const canonical = canonicalUrl(normalized);
+  const graph: Record<string, unknown>[] = [
+    {
+      '@type': seo.schemaType ?? 'WebPage',
+      '@id': `${canonical}#webpage`,
+      url: canonical,
+      name: seo.title,
+      description: seo.description,
+      inLanguage: locale,
+      isPartOf: { '@id': `${SITE_URL}/#website` },
+    },
+  ];
+
+  if (breadcrumbs.length > 1) {
+    graph.push({
+      '@type': 'BreadcrumbList',
+      '@id': `${canonical}#breadcrumb`,
+      itemListElement: breadcrumbs.map((item, index) => ({
+        '@type': 'ListItem',
+        position: index + 1,
+        name: item.name,
+        item: canonicalUrl(item.path),
+      })),
+    });
+  }
+
+  return {
+    '@context': 'https://schema.org',
+    '@graph': graph,
+  };
+}
+
+export function buildRouteSchemaData(pathname: string, locale = 'en') {
+  const normalized = normalizeSeoPath(pathname);
+  const seo = getSeoForPath(normalized);
+  return buildSeoSchemaData(normalized, seo, getBreadcrumbsForPath(normalized), locale);
+}

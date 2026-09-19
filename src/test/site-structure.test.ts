@@ -23,10 +23,13 @@ const SITE_SHELL_PAGES = [
   'Auth.tsx',
   'Bonafides.tsx',
   'Formulas.tsx',
+  'FormulaDetail.tsx',
   'Glossary.tsx',
+  'GlossaryDetail.tsx',
   'Leaderboard.tsx',
   'Profile.tsx',
   'Thinkers.tsx',
+  'ThinkerDetail.tsx',
   'Vault.tsx',
 ] as const;
 
@@ -72,7 +75,7 @@ describe('site structure', () => {
     expect(new Set(slugs).size).toBe(slugs.length);
   });
 
-  it('derives every standard topic into exactly one declared field', () => {
+  it('derives every selectable standard topic into exactly one declared field', () => {
     const topicMembership = new Map<string, string[]>();
 
     for (const field of FIELDS) {
@@ -84,9 +87,19 @@ describe('site structure', () => {
       }
     }
 
-    for (const topic of STANDARD_TOPICS) {
+    for (const topic of STANDARD_TOPICS.filter((entry) => entry.available)) {
       expect(FIELD_MAP[topic.field], `Missing field definition for ${topic.field}`).toBeDefined();
       expect(topicMembership.get(topic.slug), `Bad field ownership for ${topic.slug}`).toEqual([topic.field]);
+    }
+
+    for (const topic of STANDARD_TOPICS.filter((entry) => !entry.available)) {
+      expect(topicMembership.get(topic.slug), `Unavailable compatibility topic ${topic.slug} leaked into field selection`).toBeUndefined();
+    }
+  });
+
+  it('never exposes an available empty standard field', () => {
+    for (const field of FIELDS.filter((entry) => entry.slug !== 'all' && entry.available)) {
+      expect(field.topics.length, `Available field ${field.slug} has no selectable topics`).toBeGreaterThan(0);
     }
   });
 });

@@ -1,9 +1,10 @@
-import { STANDARD_TOPICS } from './content-registry';
+import { STANDARD_TOPICS, TOPICS } from './content-registry';
 
-// ── Field Registry — single source of truth for field presentation ────
+// ── Standard quiz field registry — presentation + ordering ───────────
 //
 // Field topic membership is derived exclusively from the canonical topic
-// registry. Never hand-maintain topic arrays here.
+// registry. Professional/course collections belong to Bonafides and must not
+// appear here. Never hand-maintain topic arrays.
 
 export interface FieldMeta {
   /** Unique slug, matches the `field` property on TopicMeta */
@@ -87,27 +88,11 @@ const FIELD_DEFINITIONS: FieldDefinition[] = [
     available: true,
   },
   {
-    slug: 'medical',
-    label: 'Medical',
-    emoji: '🩺',
-    description: 'Anatomy & physiology, pathology, and biostatistics',
-    color: 'success',
-    available: true,
-  },
-  {
     slug: 'cs',
     label: 'Computer Science',
     emoji: '💻',
     description: 'Algorithms, Machine Learning, Cryptography, AI Models, Quantum Computing, Cybersecurity',
     color: 'accent',
-    available: true,
-  },
-  {
-    slug: 'data-science',
-    label: 'Data Science',
-    emoji: '📊',
-    description: 'Data wrangling, visualization, and production MLOps',
-    color: 'primary',
     available: true,
   },
   {
@@ -122,7 +107,7 @@ const FIELD_DEFINITIONS: FieldDefinition[] = [
     slug: 'engineering',
     label: 'Engineering',
     emoji: '⚙️',
-    description: 'Electrical, Mechanical, Materials, Robotics, Aerospace, Chemical, Nuclear, Biomedical, Environmental Engineering',
+    description: 'Circuits, controls, robotics, spaceflight, materials, chemical, nuclear, biomedical, and environmental engineering',
     color: 'accent',
     available: true,
   },
@@ -142,46 +127,6 @@ const FIELD_DEFINITIONS: FieldDefinition[] = [
     color: 'destructive',
     available: true,
   },
-  {
-    slug: 'cfa',
-    label: 'CFA',
-    emoji: '📈',
-    description: 'Ethics, equity valuation, and portfolio management',
-    color: 'destructive',
-    available: true,
-  },
-  {
-    slug: 'cpa',
-    label: 'CPA',
-    emoji: '🧾',
-    description: 'Auditing, financial accounting, regulation, and tax',
-    color: 'primary',
-    available: true,
-  },
-  {
-    slug: 'actuarial',
-    label: 'Actuarial',
-    emoji: '🎲',
-    description: 'Probability, financial mathematics, and loss models',
-    color: 'accent',
-    available: true,
-  },
-  {
-    slug: 'mba',
-    label: 'MBA',
-    emoji: '💼',
-    description: 'Corporate strategy, marketing analytics, and operations management',
-    color: 'primary',
-    available: true,
-  },
-  {
-    slug: 'law',
-    label: 'Law',
-    emoji: '⚖️',
-    description: 'Contract law, intellectual property, and regulatory compliance',
-    color: 'accent',
-    available: true,
-  },
 ];
 
 const DEFINED_FIELD_SLUGS = new Set(FIELD_DEFINITIONS.map((field) => field.slug));
@@ -198,11 +143,27 @@ export const FIELDS: FieldMeta[] = FIELD_DEFINITIONS.map((field) => ({
   ...field,
   topics: field.slug === 'all'
     ? []
-    : STANDARD_TOPICS.filter((topic) => topic.field === field.slug).map((topic) => topic.slug),
+    : STANDARD_TOPICS.filter((topic) => topic.available && topic.field === field.slug).map((topic) => topic.slug),
 }));
 
 export const FIELD_MAP: Record<string, FieldMeta> = Object.fromEntries(
   FIELDS.map((field) => [field.slug, field]),
+);
+
+const QUIZ_TOPIC_SLUGS = new Set(TOPICS.map((topic) => topic.slug));
+
+/**
+ * Fields available inside the ordinary Test Time setup.
+ * Professional credentials and other isolated collections stay on their own routes.
+ */
+export const QUIZ_FIELDS: FieldMeta[] = FIELDS.filter(
+  (field) =>
+    field.slug === 'all' ||
+    field.topics.some((topic) => QUIZ_TOPIC_SLUGS.has(topic)),
+);
+
+export const QUIZ_FIELD_MAP: Record<string, FieldMeta> = Object.fromEntries(
+  QUIZ_FIELDS.map((field) => [field.slug, field]),
 );
 
 export function getField(slug: string): FieldMeta | undefined {
