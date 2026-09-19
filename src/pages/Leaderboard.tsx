@@ -1,7 +1,7 @@
-import { useEffect, useState, useMemo } from 'react';
+import { useState, useMemo } from 'react';
 import { motion } from 'framer-motion';
-import { supabase } from '@/integrations/supabase/client';
 import { useAuth } from '@/hooks/useAuth';
+import { useLeaderboardData } from '@/hooks/useLeaderboardData';
 
 import { SiteShell } from '@/components/layout/SiteShell';
 import { TOPICS } from '@/config/constants';
@@ -19,46 +19,6 @@ function timeAgo(dateStr: string | null) {
   if (days < 30) return t('leaderboard.daysAgo', { count: days });
   const months = Math.floor(days / 30);
   return t('leaderboard.monthsAgo', { count: months });
-}
-
-/* ── Types ── */
-interface AllTimeRow {
-  user_id: string;
-  username: string;
-  display_name: string;
-  avatar_url: string | null;
-  score_total: number;
-  total_answered: number;
-  correct_answered: number;
-  accuracy_percent: number;
-  best_streak: number;
-  updated_at: string;
-  games_played: number;
-  member_since: string;
-}
-
-interface WeeklyRow {
-  user_id: string;
-  username: string;
-  display_name: string;
-  avatar_url: string | null;
-  score_total_week: number;
-  total_answered_week: number;
-  correct_answered_week: number;
-  accuracy_percent_week: number;
-  best_streak_week: number;
-  games_played_week: number;
-}
-
-interface TopicRow {
-  user_id: string;
-  username: string;
-  display_name: string;
-  avatar_url: string | null;
-  topic: string;
-  total_answered: number;
-  correct_answered: number;
-  accuracy_percent: number;
 }
 
 /* ── XP Progress Bar ── */
@@ -169,27 +129,8 @@ function LeaderRow({
 export default function Leaderboard() {
   const { user } = useAuth();
   const [tab, setTab] = useState<Tab>('all-time');
-  const [allTime, setAllTime] = useState<AllTimeRow[]>([]);
-  const [weekly, setWeekly] = useState<WeeklyRow[]>([]);
-  const [topicData, setTopicData] = useState<TopicRow[]>([]);
   const [selectedTopic, setSelectedTopic] = useState<string>(TOPICS[0]?.slug ?? '');
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    async function load() {
-      setLoading(true);
-      const [atRes, wRes, tRes] = await Promise.all([
-        supabase.from('leaderboard_all_time').select('*').limit(50),
-        supabase.from('leaderboard_weekly').select('*').limit(50),
-        supabase.from('leaderboard_by_topic' as any).select('*').limit(500),
-      ]);
-      if (atRes.data) setAllTime(atRes.data as unknown as AllTimeRow[]);
-      if (wRes.data) setWeekly(wRes.data as unknown as WeeklyRow[]);
-      if (tRes.data) setTopicData(tRes.data as unknown as TopicRow[]);
-      setLoading(false);
-    }
-    load();
-  }, []);
+  const { allTime, weekly, topicData, loading } = useLeaderboardData();
 
   const filteredTopicRows = useMemo(() =>
     topicData
