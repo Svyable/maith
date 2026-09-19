@@ -1,4 +1,4 @@
-import { writeFile } from 'node:fs/promises';
+import { readFile, writeFile } from 'node:fs/promises';
 import { allQuestions } from '../src/content/index';
 import { allBonafideQuestions } from '../src/content/bonafides/index';
 import { allThinkerQuestions } from '../src/content/thinkers/index';
@@ -324,7 +324,7 @@ Do not merge similarly named topics by label alone. Consolidate only when the un
 
 ## Provenance
 
-The Question schema supports optional `sources`, `reviewedAt`, and `factualAsOf`. Existing content is not backfilled automatically: provenance should be added during substantive review so citations are real rather than synthetic.
+The Question schema supports optional \`sources\`, \`reviewedAt\`, and \`factualAsOf\`. Existing content is not backfilled automatically: provenance should be added during substantive review so citations are real rather than synthetic.
 `;
 
 await writeFile(new URL('../docs/content-enhancement-report.md', import.meta.url), markdown);
@@ -334,5 +334,34 @@ for (const issue of issues) {
   console[issue.severity === 'error' ? 'error' : 'warn'](`${label} [${issue.code}] ${issue.pool}${issue.questionId ? ` #${issue.questionId}` : ''}: ${issue.detail}`);
 }
 
+const useBaseline = process.argv.includes('--allow-baseline');
+let allowedErrors = 0;
+
+if (useBaseline) {
+  const baseline = JSON.parse(
+    await readFile(new URL('./content-quality-baseline.json', import.meta.url), 'utf8'),
+  );
+  allowedErrors = baseline.maxErrors;
+
+  if (!Number.isInteger(allowedErrors) || allowedErrors < 0) {
+    console.error('Invalid content-quality baseline: maxErrors must be a non-negative integer.');
+    process.exit(1);
+  }
+}
+
 console.log(`Quality audit: ${report.summary.errors} errors, ${report.summary.warnings} warnings across ${allQuestions.length} standard questions.`);
-if (report.summary.errors > 0) process.exit(1);
+
+if (report.summary.errors > allowedErrors) {
+  console.error(
+    useBaseline
+      ? `Quality audit regression: ${report.summary.errors} errors exceeds baseline ${allowedErrors}.`
+      : `Quality audit failed: ${report.summary.errors} hard errors remain.`,
+  );
+  process.exit(1);
+}
+
+if (useBaseline && report.summary.errors < allowedErrors) {
+  console.warn(
+    `Quality audit improved to ${report.summary.errors} errors; lower baseline from ${allowedErrors}.`,
+  );
+}

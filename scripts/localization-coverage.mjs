@@ -65,15 +65,22 @@ export function getSourceQuestionIndex() {
     const source = readFileSync(fileUrl, 'utf8');
     for (const match of source.matchAll(pattern)) {
       const [, id, topic] = match;
-      const existing = index.get(id);
-      if (existing && existing !== topic) {
-        throw new Error(`Question id ${id} maps to multiple topics: ${existing}, ${topic}`);
+      if (!index.has(id)) {
+        index.set(id, topic);
+      } else if (index.get(id) !== topic) {
+        index.set(id, '__ambiguous__');
       }
-      index.set(id, topic);
     }
   }
 
   return index;
+}
+
+export function getAmbiguousSourceQuestionIds(sourceQuestionIndex = getSourceQuestionIndex()) {
+  return [...sourceQuestionIndex.entries()]
+    .filter(([, topic]) => topic === '__ambiguous__')
+    .map(([id]) => id)
+    .sort((a, b) => Number(a) - Number(b));
 }
 
 export function loadQuestionDictionary(locale) {

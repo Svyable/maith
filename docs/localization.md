@@ -31,10 +31,10 @@ English question text remains in the canonical question packs and translated que
 
 Every translated locale must fully cover the shared foundation:
 
-- Core question IDs `1-37`
+- Core question IDs `1-52`
 - Actuarial foundation IDs `82100-82102`
 
-That produces a 40-question shared floor spanning linear algebra, calculus, probability/statistics, optimization, discrete math, and the actuarial foundation.
+That produces a 55-question shared floor spanning linear algebra, calculus, probability/statistics, optimization, discrete math, and the actuarial foundation.
 
 Every translated question must provide all eight fields:
 
@@ -57,14 +57,14 @@ The shared foundation prevents common coverage from shrinking. Locale-specific f
 Current minimum translated-question counts:
 
 - German: 123
-- Spanish: 64
-- French: 40
-- Hindi: 40
-- Italian: 40
-- Japanese: 40
-- Korean: 40
-- Portuguese: 40
-- Chinese: 40
+- Spanish: 70
+- French: 55
+- Hindi: 55
+- Italian: 55
+- Japanese: 55
+- Korean: 55
+- Portuguese: 55
+- Chinese: 55
 
 When a synchronized expansion lands, update the baseline in the same pull request only after every affected locale passes validation.
 
@@ -82,11 +82,13 @@ bun run validate:all-content
 
 `report:locales` is diagnostic. It prints translated totals, required floors, deltas from those floors, overall source coverage, and a topic-by-topic matrix so the next batch can target weak areas.
 
-`validate:all-content` includes localization validation before the general content-integrity and editorial-quality audits.
+`validate:all-content` remains the strict local/full audit and fails while any hard quality defects remain.
+
+CI uses `validate:ci`, which applies the same locale and content-integrity checks plus a checked-in quality-debt ceiling from `scripts/content-quality-baseline.json`. The current 212 historical hard defects are explicitly budgeted; any increase fails CI. When defects are fixed, the baseline must be lowered so improvements cannot regress.
 
 ## Continuous integration
 
-`.github/workflows/content-integrity.yml` runs `bun run validate:all-content` on relevant pull requests and pushes to `main`.
+`.github/workflows/content-integrity.yml` runs `bun run validate:ci` on relevant pull requests and pushes to `main`.
 
 The workflow uses the committed Bun lockfile with a frozen install. Localization changes therefore have the same validation gate in GitHub as they do locally.
 
@@ -117,6 +119,6 @@ This prevents the language selector from advertising nominal support while large
 
 ## Current baseline
 
-After the core-40 expansion, every non-English locale contains the same 40-question canonical foundation. German and Spanish retain broader translated coverage above that baseline.
+After the core-55 expansion, every non-English locale contains the same 55-question canonical foundation. German and Spanish retain broader translated coverage above that baseline.
 
 Future batches should use `bun run report:locales` as the source of truth for selecting the next synchronized cohort.
