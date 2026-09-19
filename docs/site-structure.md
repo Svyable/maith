@@ -12,7 +12,7 @@ External products remain explicit in `EXTERNAL_LINKS`; they are never treated as
 
 ## Routing
 
-`src/App.tsx` binds page components to `APP_PATHS`. The router still owns component loading and guards; the navigation registry owns information architecture metadata. This separation avoids importing React page modules into configuration code.
+`src/App.tsx` binds page components to `APP_PATHS`. The router still owns component loading and guards; the navigation registry owns information architecture metadata. This separation avoids importing React page modules into configuration code. The structural suite verifies that every static and dynamic registry entry is actually mounted in `src/App.tsx`, and rejects non-wildcard route string literals there.
 
 Authentication and onboarding routes are registered in `APP_PATHS` even though they are not part of primary navigation. Page-to-page redirects and controls must use these canonical paths rather than repeating route literals.
 
@@ -40,6 +40,8 @@ This means adding or moving a standard topic requires changing its canonical top
 - canonical destination paths are unique;
 - routed content collections resolve through registered `APP_PATHS` entries;
 - dynamic learning/reference route patterns are unique and rooted under canonical application paths;
+- every static and dynamic route registry entry is mounted in `src/App.tsx`;
+- `src/App.tsx` does not introduce non-wildcard route string literals;
 - top-level pages do not hard-code internal navigation paths;
 - every non-exempt page stays behind the shared `SiteShell` boundary, with exemptions verified explicitly;
 - field slugs are unique;
