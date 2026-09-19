@@ -1,6 +1,6 @@
 import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { INDEXABLE_SEO_ROUTES, canonicalUrl } from '../src/config/seo';
+import { INDEXABLE_SEO_ROUTES, PRERENDER_SEO_ROUTES, canonicalUrl } from '../src/config/seo';
 
 const errors: string[] = [];
 
@@ -18,7 +18,7 @@ function outputPath(pathname: string): string {
 }
 
 const uniqueRoutes = Array.from(
-  new Map(INDEXABLE_SEO_ROUTES.map((entry) => [entry.path, entry])).values(),
+  new Map(PRERENDER_SEO_ROUTES.map((entry) => [entry.path, entry])).values(),
 );
 
 for (const { path, seo } of uniqueRoutes) {
@@ -34,11 +34,15 @@ for (const { path, seo } of uniqueRoutes) {
 
   if (!html.includes(expectedTitle)) errors.push(path + ': prerendered title mismatch');
   if (!html.includes(expectedCanonical)) errors.push(path + ': prerendered canonical mismatch');
-  if (!html.includes('name="robots" content="index, follow')) {
-    errors.push(path + ': missing indexable robots metadata');
+  const expectedRobots = seo.indexable ? 'index, follow' : 'noindex, nofollow';
+  if (!html.includes('name="robots" content="' + expectedRobots)) {
+    errors.push(path + ': prerendered robots metadata mismatch');
   }
-  if (!html.includes('id="route-seo-schema"')) {
+  if (seo.indexable && !html.includes('id="route-seo-schema"')) {
     errors.push(path + ': missing prerendered route schema');
+  }
+  if (!seo.indexable && html.includes('id="route-seo-schema"')) {
+    errors.push(path + ': noindex route should not expose indexable route schema');
   }
   if (!html.includes('<!-- seo-prerender:' + escapeHtml(path) + ' -->')) {
     errors.push(path + ': missing prerender marker');
@@ -50,9 +54,14 @@ if (!existsSync(sitemapPath)) {
   errors.push('dist/sitemap.xml is missing');
 } else {
   const sitemap = readFileSync(sitemapPath, 'utf8');
-  for (const { path } of uniqueRoutes) {
+  for (const { path } of INDEXABLE_SEO_ROUTES) {
     if (!sitemap.includes('<loc>' + canonicalUrl(path) + '</loc>')) {
       errors.push(path + ': missing from built sitemap');
+    }
+  }
+  for (const { path, seo } of uniqueRoutes) {
+    if (!seo.indexable && sitemap.includes('<loc>' + canonicalUrl(path) + '</loc>')) {
+      errors.push(path + ': noindex route leaked into built sitemap');
     }
   }
 }
@@ -63,4 +72,4 @@ if (errors.length > 0) {
   process.exit(1);
 }
 
-console.log('Prerender SEO validation passed for ' + uniqueRoutes.length + ' routes.');
+console.log('Prerender SEO validation passed for ' + uniqueRoutes.length + ' known routes.');
