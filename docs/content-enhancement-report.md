@@ -4,13 +4,13 @@ This is the structural baseline for the next content pass. The detailed question
 
 ## Coverage baseline
 
-The standard library currently contains 998 questions. Coverage is highly uneven.
+The standard library currently contains 1011 questions. Coverage is highly uneven.
 
 | Field | Visible topics | Questions | Topics below 9 | Topics below 6 |
 | --- | ---: | ---: | ---: | ---: |
 | Mathematics | 20 | 272 | 3 | 2 |
 | Physics | 15 | 148 | 3 | 1 |
-| Computer Science | 12 | 146 | 3 | 2 |
+| Computer Science | 12 | 159 | 0 | 0 |
 | Engineering | 21 | 116 | 18 | 14 |
 | Finance | 15 | 111 | 9 | 7 |
 | Earth & Space | 7 | 63 | 0 | 0 |
@@ -26,8 +26,6 @@ The standard library currently contains 998 questions. Coverage is highly uneven
 The most structurally under-covered visible topics are:
 
 - Structural Engineering: 2 total (1 EASY / 1 HARD / 0 SOTA)
-- Algorithms: 3 total
-- Machine Learning: 3 total
 - several Engineering subfields: 3–5 total
 - several Finance foundations: 3 total
 
@@ -77,5 +75,7 @@ Chemistry has completed its first foundation pass: Physical, Organic, and Inorga
 Biology has completed its first foundation pass: Molecular Biology, Genetics, Ecology, Neuroscience, and Pharmacology now each have 3 EASY / 3 HARD / 3 SOTA questions. Legacy Biology items were also rebalanced away from first-slot answers, and advanced/time-sensitive claims were tightened and sourced.
 
 Earth & Space has completed its first foundation pass: Astronomy, Astrophysics, Geology, Climate Science, Meteorology, Oceanography, and Environmental Science now each have 3 EASY / 3 HARD / 3 SOTA questions. Legacy first-slot answer bias and several overbroad frontier claims were corrected, with SOTA material tied to primary or assessment sources.
+
+Computer Science foundations have completed their thin-topic pass: Algorithms and Machine Learning now each have 3 EASY / 3 HARD / 3 SOTA questions, and Quantum Computing has been lifted to the 9-question floor. The pass updates the matrix-multiplication frontier through September 2026, balances answer positions, hardens distractors, and sources advanced algorithm, ML, and quantum-computing claims.
 
 The goal is not equal question counts everywhere. It is enough independent material that a quiz can vary meaningfully and still represent the subject honestly.
