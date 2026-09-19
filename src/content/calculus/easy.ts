@@ -8,9 +8,9 @@ export const easyQuestions: Question[] = [
     question: 'What does $\\nabla f(\\mathbf{x})$ represent?',
     options: ['The Hessian matrix', 'The gradient vector', 'The Jacobian matrix', 'The Laplacian'],
     correctIndex: 1,
-    explanation: 'The gradient $\\nabla f$ is the vector of all partial derivatives — it points in the direction of steepest ascent.',
-    realWorld: 'Gradient is the core of backpropagation in neural networks (PyTorch, TensorFlow).',
-    hint: 'It collects all partial derivatives into one vector pointing uphill.',
+    explanation: 'The gradient $\\nabla f(\\mathbf{x})$ is the vector of partial derivatives. When the gradient is nonzero, it points in the direction of greatest local increase, and its magnitude gives that maximum directional rate of change.',
+    realWorld: 'Gradient-based optimization uses this local first-order information to choose parameter-update directions in models such as neural networks.',
+    hint: 'It collects the partial derivatives into one vector; its direction and magnitude describe the steepest local increase.',
   },
   {
     id: 7,
