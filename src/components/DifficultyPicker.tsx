@@ -51,7 +51,8 @@ function DifficultyCard({ meta, isSelected, onSelect }: { meta: DifficultyMeta; 
       whileHover={{ scale: 1.03 }}
       whileTap={{ scale: 0.97 }}
       onClick={onSelect}
-      className={`relative p-3 rounded-xl border-2 text-center transition-all ${
+      aria-pressed={isSelected}
+      className={`relative min-h-24 p-3 rounded-lg border-2 text-center transition-all focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background ${
         isSelected
           ? colors.selected
           : 'bg-card border-border hover:border-muted-foreground/30'
@@ -59,8 +60,8 @@ function DifficultyCard({ meta, isSelected, onSelect }: { meta: DifficultyMeta; 
     >
       {/* Multi-select indicator */}
       {isSelected && (
-        <div className="absolute top-1.5 right-1.5 w-3 h-3 rounded-full bg-current opacity-60 flex items-center justify-center">
-          <span className="text-[8px] text-card font-bold">✓</span>
+        <div className="absolute top-1.5 right-1.5 w-4 h-4 rounded-full bg-current flex items-center justify-center">
+          <span className="text-[9px] text-primary-foreground font-bold">✓</span>
         </div>
       )}
       <div className="text-2xl mb-1">{meta.emoji}</div>

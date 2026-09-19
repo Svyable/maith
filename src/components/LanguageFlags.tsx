@@ -1,10 +1,9 @@
 import { useState, useRef, useEffect } from 'react';
 import { useLocale } from '@/hooks/useLocale';
-import { useIsMobile } from '@/hooks/use-mobile';
+import { t } from '@/i18n';
 
 export function LanguageFlags() {
   const { locale, changeLocale, SUPPORTED_LOCALES } = useLocale();
-  const isMobile = useIsMobile();
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
@@ -20,46 +19,21 @@ export function LanguageFlags() {
     return () => document.removeEventListener('mousedown', handler);
   }, [open]);
 
-  if (!isMobile) {
-    // Desktop: inline flags
-    return (
-      <div className="flex items-center gap-1">
-        {SUPPORTED_LOCALES.map((l) => {
-          const active = locale === l.code;
-          return (
-            <button
-              key={l.code}
-              onClick={() => changeLocale(l.code)}
-              className={`w-8 h-8 rounded-lg flex items-center justify-center text-sm transition-all ${
-                active
-                  ? 'bg-primary/15 ring-1 ring-primary/40 scale-110'
-                  : 'bg-secondary hover:bg-secondary/80'
-              }`}
-              title={l.label}
-              aria-label={l.label}
-            >
-              {l.flag}
-            </button>
-          );
-        })}
-      </div>
-    );
-  }
-
-  // Mobile: single flag button + dropdown
   return (
     <div className="relative" ref={ref}>
       <button
         onClick={() => setOpen((o) => !o)}
-        className="w-9 h-9 rounded-lg bg-secondary flex items-center justify-center text-sm hover:bg-secondary/80 transition-colors"
-        title="Change language"
-        aria-label="Change language"
+        className="w-11 h-11 rounded-lg bg-secondary flex items-center justify-center text-base hover:bg-secondary/80 transition-colors"
+        title={t('nav.changeLanguage')}
+        aria-label={t('nav.changeLanguage')}
+        aria-expanded={open}
+        aria-haspopup="menu"
       >
         {activeLocale.flag}
       </button>
 
       {open && (
-        <div className="absolute right-0 top-full mt-1 bg-popover border border-border rounded-xl shadow-lg p-2 grid grid-cols-5 gap-1 z-50 min-w-[200px]">
+        <div role="menu" className="absolute right-0 top-full mt-1 bg-popover border border-border rounded-lg shadow-lg p-2 grid grid-cols-5 gap-1 z-50 min-w-[236px]">
           {SUPPORTED_LOCALES.map((l) => {
             const active = locale === l.code;
             return (
@@ -69,7 +43,9 @@ export function LanguageFlags() {
                   changeLocale(l.code);
                   setOpen(false);
                 }}
-                className={`w-9 h-9 rounded-lg flex items-center justify-center text-sm transition-all ${
+                role="menuitemradio"
+                aria-checked={active}
+                className={`w-11 h-11 rounded-lg flex items-center justify-center text-base transition-all ${
                   active
                     ? 'bg-primary/15 ring-1 ring-primary/40 scale-110'
                     : 'hover:bg-secondary/80'
