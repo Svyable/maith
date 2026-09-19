@@ -3,7 +3,6 @@
   "app.tagline": "mAIthを解く = すべてを解く。",
   "app.footerTagline": "mAIthを解く = すべてを解く。",
   "app.copyright": "© {{year}} mAIth = 数学を解く == すべてを解く",
-
   "home.greeting": "やあ、{{name}} 👋",
   "home.selectDifficulty": "難易度を選択",
   "home.selectTopics": "ドメインを選択",
@@ -24,7 +23,6 @@
   "home.vault": "ヴォールト",
   "home.vaultSub": "機密の秘密 — 解除・ランク付け＆探究",
   "home.searchTopics": "トピックを検索…",
-
   "stats.questions": "問題",
   "stats.terms": "用語",
   "stats.thinkers": "思想家",
@@ -32,7 +30,6 @@
   "stats.secrets": "秘密",
   "stats.equations": "方程式",
   "stats.formulas": "公式",
-
   "difficulty.selectHint": "1つ以上のレベルを選択",
   "difficulty.easy": "簡単",
   "difficulty.hard": "難しい",
@@ -41,7 +38,6 @@
   "difficulty.hardDesc": "競争 — ダブルポイント",
   "difficulty.sotaDesc": "最先端 — 最大報酬",
   "difficulty.pts": "+{{pts}}ポイント",
-
   "quiz.question": "Q {{current}}/{{total}}",
   "quiz.points": "{{score}}点",
   "quiz.skip": "スキップ →",
@@ -60,7 +56,6 @@
   "quiz.keys": "キー: 1-4 回答 · H ヒント · S スキップ · Enter 次へ",
   "quiz.score": "スコア",
   "quiz.endQuiz": "クイズ終了",
-
   "results.title": "クイズ完了！",
   "results.score": "スコア",
   "results.accuracy": "正答率",
@@ -75,7 +70,6 @@
   "results.skipped": "スキップ",
   "results.reviewSkipped": "スキップを確認 ⏭️",
   "results.skippedTitle": "スキップした問題",
-
   "profile.title": "プロフィール",
   "profile.score": "スコア",
   "profile.answered": "回答数",
@@ -99,12 +93,11 @@
   "profile.levelGrandmaster": "グランドマスター",
   "profile.levelLegend": "レジェンド",
   "profile.levelMythic": "ミシック",
-
   "leaderboard.title": "ランキング",
   "leaderboard.subtitle": "競い合って順位を上げ、XPを獲得しよう",
-  "leaderboard.allTime": "🌍 全期間",
-  "leaderboard.weekly": "📅 今週",
-  "leaderboard.topics": "📊 トピック",
+  "leaderboard.allTime": "全期間",
+  "leaderboard.weekly": "今週",
+  "leaderboard.topics": "トピック",
   "leaderboard.empty": "まだスコアがありません。最初の1人になろう！",
   "leaderboard.emptyWeekly": "今週はまだプレイされていません。クイズを始めて #1 を狙おう！ 🚀",
   "leaderboard.emptyTopic": "このトピックのデータはまだありません。",
@@ -121,7 +114,6 @@
   "leaderboard.levelGrandmaster": "グランドマスター",
   "leaderboard.levelLegend": "レジェンド",
   "leaderboard.xpRequired": "{{min}}+",
-
   "auth.login": "ログイン",
   "auth.signup": "新規登録",
   "auth.welcome": "おかえりなさい！",
@@ -131,14 +123,12 @@
   "auth.password": "パスワード",
   "auth.createAccount": "アカウント作成",
   "auth.checkEmail": "メールを確認してアカウントを認証してください！",
-
   "onboarding.title": "名前を選んでください",
   "onboarding.subtitle": "ランキングにはこの名前で表示されます",
   "onboarding.placeholder": "表示名を入力…",
   "onboarding.minChars": "最小2文字",
   "onboarding.nameError": "名前は2〜20文字で入力してください",
   "onboarding.save": "保存して続行",
-
   "nav.home": "ホーム",
   "nav.quiz": "クイズ",
   "nav.masterMinds": "マスターマインド",
@@ -151,7 +141,6 @@
   "nav.darkMode": "ダークモード",
   "nav.lightMode": "ライトモード",
   "nav.changeLanguage": "言語を変更",
-
   "heatmap.mastered": "習得済み",
   "heatmap.strong": "強い",
   "heatmap.good": "良い",
@@ -159,9 +148,7 @@
   "heatmap.weak": "弱い",
   "heatmap.notStarted": "未開始",
   "heatmap.legend": "弱い → 強い",
-
   "language.title": "言語",
-
   "thinkers.backToHome": "← mAIthに戻る",
   "thinkers.galleryTitle": "マスターマインド",
   "thinkers.gallerySubtitle": "伝説の思想家を選ぼう。分野を極めよう。自分が立つ“巨人の肩”を知っていることを証明しよう。",
@@ -169,7 +156,6 @@
   "thinkers.modernPioneers": "近代の先駆者",
   "thinkers.contemporary": "現代",
   "thinkers.prodigies": "神童",
-
   "field.all": "すべての分野",
   "field.math": "数学",
   "field.physics": "物理学",
@@ -185,7 +171,6 @@
   "field.soon": "近日公開",
   "field.filterByField": "分野で絞り込む",
   "field.exploreByEra": "時代で探る",
-
   "vault.title": "ヴォールト",
   "vault.subtitle": "人類最大級の機密の秘密 — レベルごとに解除しよう。",
   "vault.declassifiedProgress": "{{count}}/{{total}} 解除済み",
@@ -217,7 +202,6 @@
   "vault.challengeSuccess": "解除済み！解除中…",
   "vault.challengeFail": "アクセス拒否 — 不正解",
   "vault.tryAgain": "もう一度",
-
   "formulas.title": "公式",
   "formulas.subtitle": "人類最高の方程式 — ランク付け、タグ付け＆探究。",
   "formulas.count": "{{domains}}分野で{{count}}個の方程式",
@@ -237,7 +221,6 @@
   "formulas.noResults": "検索に一致する方程式がありません。",
   "formulas.collapse": "▲ 折りたたむ",
   "formulas.tapToExplore": "▼ タップして探究",
-
   "glossary.title": "用語集",
   "glossary.subtitle": "すべての分野の重要用語をチェック。カードをタップすると定義が表示されます。",
   "glossary.count": "{{terms}}個の用語 · {{fields}}分野",
@@ -250,10 +233,8 @@
   "glossary.tabDefinition": "📖 定義",
   "glossary.tabLatex": "𝕃 LaTeX",
   "glossary.tabCode": "⌨ コード",
-
   "nav.bonafides": "ボナファイド",
   "nav.alphabet": "アルファベット",
-
   "footer.quiz": "クイズ",
   "footer.masterMinds": "マスターマインド",
   "footer.formulas": "数式",
@@ -262,9 +243,26 @@
   "footer.glossary": "用語集",
   "footer.leaderboard": "ランキング",
   "footer.alphabet": "アルファベット",
-
   "home.bonafides": "ボナファイド",
   "home.bonafidesSub": "専門資格と認定試験",
   "home.alphabet": "アルファベット",
-  "home.alphabetSub": "ギリシャ文字、記号、表記法 — マスター済み"
+  "home.alphabetSub": "ギリシャ文字、記号、表記法 — マスター済み",
+  "home.discover": "ライブラリを探索",
+  "home.discoverSub": "思想家、公式、資格、参考資料で理解を深めよう",
+  "profile.saveName": "名前を保存",
+  "profile.cancelEdit": "編集をキャンセル",
+  "profile.editName": "表示名を編集",
+  "profile.appearance": "外観",
+  "leaderboard.today": "今日",
+  "leaderboard.yesterday": "昨日",
+  "leaderboard.daysAgo": "{{count}}日前",
+  "leaderboard.monthsAgo": "{{count}}か月前",
+  "glossary.clearSearch": "検索をクリア",
+  "glossary.resetFilters": "フィルターをリセット",
+  "nav.menu": "メニュー",
+  "common.saving": "保存中…",
+  "glossary.showing": "{{count}}件の結果",
+  "glossary.unknownField": "不明な分野",
+  "nav.primary": "メインナビゲーション",
+  "nav.mobilePrimary": "モバイルナビゲーション"
 }

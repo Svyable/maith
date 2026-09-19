@@ -27,7 +27,8 @@ export function TopicCard({ topic, isSelected, onToggle }: TopicCardProps) {
       whileHover={{ scale: 1.02 }}
       whileTap={{ scale: 0.97 }}
       onClick={onToggle}
-      className={`relative w-full p-4 rounded-xl border text-left transition-all ${
+      aria-pressed={isSelected}
+      className={`relative w-full min-h-20 p-4 rounded-lg border text-left transition-all focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background ${
         isSelected
           ? 'bg-primary/10 border-primary shadow-sm glow-primary'
           : 'bg-card border-border hover:border-muted-foreground/30'
@@ -42,17 +43,17 @@ export function TopicCard({ topic, isSelected, onToggle }: TopicCardProps) {
           )}
           <div className="flex items-center gap-2 mt-1.5">
             {counts.easy > 0 && (
-              <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-emerald-500/15 text-emerald-500">
+              <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-success/15 text-success">
                 E:{counts.easy}
               </span>
             )}
             {counts.hard > 0 && (
-              <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-amber-500/15 text-amber-500">
+              <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-accent/15 text-accent">
                 H:{counts.hard}
               </span>
             )}
             {counts.sota > 0 && (
-              <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-rose-500/15 text-rose-500">
+              <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-destructive/15 text-destructive">
                 S:{counts.sota}
               </span>
             )}

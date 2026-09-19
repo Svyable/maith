@@ -3,7 +3,6 @@
   "app.tagline": "解开 mAIth = 解开一切。",
   "app.footerTagline": "解开 mAIth = 解开一切。",
   "app.copyright": "© {{year}} mAIth = 解数学 == 解开一切",
-
   "home.greeting": "你好，{{name}} 👋",
   "home.selectDifficulty": "选择难度",
   "home.selectTopics": "选择领域",
@@ -24,7 +23,6 @@
   "home.vault": "档案库",
   "home.vaultSub": "机密档案 —— 解密、排名与探索",
   "home.searchTopics": "搜索主题…",
-
   "stats.questions": "题目",
   "stats.terms": "术语",
   "stats.thinkers": "思想家",
@@ -32,7 +30,6 @@
   "stats.secrets": "秘密",
   "stats.equations": "方程",
   "stats.formulas": "公式",
-
   "difficulty.selectHint": "选择一个或多个等级",
   "difficulty.easy": "简单",
   "difficulty.hard": "困难",
@@ -41,7 +38,6 @@
   "difficulty.hardDesc": "竞争 — 双倍分数",
   "difficulty.sotaDesc": "前沿 — 最高奖励",
   "difficulty.pts": "+{{pts}}分",
-
   "quiz.question": "第 {{current}}/{{total}} 题",
   "quiz.points": "{{score}} 分",
   "quiz.skip": "跳过 →",
@@ -60,7 +56,6 @@
   "quiz.keys": "按键：1-4 选择 · H 提示 · S 跳过 · Enter 下一题",
   "quiz.score": "得分",
   "quiz.endQuiz": "结束测验",
-
   "results.title": "测验完成！",
   "results.score": "得分",
   "results.accuracy": "准确率",
@@ -75,7 +70,6 @@
   "results.skipped": "已跳过",
   "results.reviewSkipped": "查看跳过题 ⏭️",
   "results.skippedTitle": "跳过的题目",
-
   "profile.title": "个人资料",
   "profile.score": "得分",
   "profile.answered": "已答题数",
@@ -99,12 +93,11 @@
   "profile.levelGrandmaster": "宗师",
   "profile.levelLegend": "传奇",
   "profile.levelMythic": "神话",
-
   "leaderboard.title": "排行榜",
   "leaderboard.subtitle": "参与竞争，提升排名，赢取 XP",
-  "leaderboard.allTime": "🌍 全部时间",
-  "leaderboard.weekly": "📅 本周",
-  "leaderboard.topics": "📊 主题",
+  "leaderboard.allTime": "全部时间",
+  "leaderboard.weekly": "本周",
+  "leaderboard.topics": "主题",
   "leaderboard.empty": "还没有成绩。成为第一个吧！",
   "leaderboard.emptyWeekly": "本周还没有人参与。开始测验，冲击第 #1 名！ 🚀",
   "leaderboard.emptyTopic": "该主题暂无数据。",
@@ -121,7 +114,6 @@
   "leaderboard.levelGrandmaster": "宗师",
   "leaderboard.levelLegend": "传奇",
   "leaderboard.xpRequired": "{{min}}+",
-
   "auth.login": "登录",
   "auth.signup": "注册",
   "auth.welcome": "欢迎回来！",
@@ -131,14 +123,12 @@
   "auth.password": "密码",
   "auth.createAccount": "创建账户",
   "auth.checkEmail": "请检查邮箱以确认你的账户！",
-
   "onboarding.title": "选择你的名称",
   "onboarding.subtitle": "你将在排行榜中以此名称显示",
   "onboarding.placeholder": "输入显示名称…",
   "onboarding.minChars": "至少 2 个字符",
   "onboarding.nameError": "名称必须为 2–20 个字符",
   "onboarding.save": "保存并继续",
-
   "nav.home": "首页",
   "nav.quiz": "测验",
   "nav.masterMinds": "大师思想家",
@@ -151,7 +141,6 @@
   "nav.darkMode": "深色模式",
   "nav.lightMode": "浅色模式",
   "nav.changeLanguage": "切换语言",
-
   "heatmap.mastered": "已掌握",
   "heatmap.strong": "强",
   "heatmap.good": "良好",
@@ -159,9 +148,7 @@
   "heatmap.weak": "较弱",
   "heatmap.notStarted": "未开始",
   "heatmap.legend": "弱 → 强",
-
   "language.title": "语言",
-
   "thinkers.backToHome": "← 返回 mAIth",
   "thinkers.galleryTitle": "大师思想家",
   "thinkers.gallerySubtitle": "选择一位传奇思想家。掌握他们的领域。证明你了解自己所站立的“巨人肩膀”。",
@@ -169,7 +156,6 @@
   "thinkers.modernPioneers": "现代先锋",
   "thinkers.contemporary": "当代",
   "thinkers.prodigies": "天才",
-
   "field.all": "所有领域",
   "field.math": "数学",
   "field.physics": "物理学",
@@ -185,7 +171,6 @@
   "field.soon": "即将推出",
   "field.filterByField": "按领域筛选",
   "field.exploreByEra": "按时代探索",
-
   "vault.title": "档案库",
   "vault.subtitle": "人类最伟大的机密档案 —— 逐级解锁。",
   "vault.declassifiedProgress": "{{count}}/{{total}} 已解密",
@@ -217,7 +202,6 @@
   "vault.challengeSuccess": "已解密！正在解锁…",
   "vault.challengeFail": "访问被拒绝 —— 回答错误",
   "vault.tryAgain": "再试一次",
-
   "formulas.title": "公式",
   "formulas.subtitle": "人类最伟大的方程式 —— 排名、标记与探索。",
   "formulas.count": "{{domains}} 个领域中的 {{count}} 个方程",
@@ -237,7 +221,6 @@
   "formulas.noResults": "没有匹配的方程。",
   "formulas.collapse": "▲ 收起",
   "formulas.tapToExplore": "▼ 点击探索",
-
   "glossary.title": "术语表",
   "glossary.subtitle": "浏览各领域的关键术语。点击卡片查看定义。",
   "glossary.count": "{{terms}} 个术语 · {{fields}} 个领域",
@@ -250,10 +233,8 @@
   "glossary.tabDefinition": "📖 定义",
   "glossary.tabLatex": "𝕃 LaTeX",
   "glossary.tabCode": "⌨ 代码",
-
   "nav.bonafides": "资质认证",
   "nav.alphabet": "字母表",
-
   "footer.quiz": "测验",
   "footer.masterMinds": "大师思想家",
   "footer.formulas": "公式",
@@ -262,9 +243,26 @@
   "footer.glossary": "术语表",
   "footer.leaderboard": "排行榜",
   "footer.alphabet": "字母表",
-
   "home.bonafides": "资质认证",
   "home.bonafidesSub": "专业认证与资格考试",
   "home.alphabet": "字母表",
-  "home.alphabetSub": "希腊字母、符号与符号体系 — 已掌握"
+  "home.alphabetSub": "希腊字母、符号与符号体系 — 已掌握",
+  "home.discover": "探索知识库",
+  "home.discoverSub": "通过思想家、公式、认证与参考资料深入学习",
+  "profile.saveName": "保存名称",
+  "profile.cancelEdit": "取消编辑",
+  "profile.editName": "编辑显示名称",
+  "profile.appearance": "外观",
+  "leaderboard.today": "今天",
+  "leaderboard.yesterday": "昨天",
+  "leaderboard.daysAgo": "{{count}} 天前",
+  "leaderboard.monthsAgo": "{{count}} 个月前",
+  "glossary.clearSearch": "清除搜索",
+  "glossary.resetFilters": "重置筛选",
+  "nav.menu": "菜单",
+  "common.saving": "正在保存…",
+  "glossary.showing": "显示 {{count}} 个结果",
+  "glossary.unknownField": "未知领域",
+  "nav.primary": "主导航",
+  "nav.mobilePrimary": "移动端导航"
 }

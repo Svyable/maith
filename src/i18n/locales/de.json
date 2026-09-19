@@ -3,7 +3,6 @@
   "app.tagline": "Löse mAIth = Löse alles.",
   "app.footerTagline": "Löse mAIth = Löse alles.",
   "app.copyright": "© {{year}} mAIth = Mathematik lösen == alles lösen",
-
   "home.greeting": "Hey, {{name}} 👋",
   "home.selectDifficulty": "SCHWIERIGKEIT WÄHLEN",
   "home.selectTopics": "DOMÄNEN WÄHLEN",
@@ -24,7 +23,6 @@
   "home.vault": "Der Tresor",
   "home.vaultSub": "Verschlusssache Geheimnisse — deklassifiziert, rangiert & erkundet",
   "home.searchTopics": "Themen suchen…",
-
   "stats.questions": "Fragen",
   "stats.terms": "Begriffe",
   "stats.thinkers": "Denker",
@@ -32,7 +30,6 @@
   "stats.secrets": "Geheimnisse",
   "stats.equations": "Gleichungen",
   "stats.formulas": "Formeln",
-
   "difficulty.selectHint": "Wähle eine oder mehrere Stufen",
   "difficulty.easy": "LEICHT",
   "difficulty.hard": "SCHWER",
@@ -41,7 +38,6 @@
   "difficulty.hardDesc": "Wettbewerb – doppelte Punkte",
   "difficulty.sotaDesc": "Grenze – maximale Belohnung",
   "difficulty.pts": "+{{pts}}Pkt",
-
   "quiz.question": "F {{current}}/{{total}}",
   "quiz.points": "{{score}} Pkt",
   "quiz.skip": "Überspringen →",
@@ -60,7 +56,6 @@
   "quiz.keys": "Tasten: 1-4 Antwort · H Hinweis · S überspringen · Enter weiter",
   "quiz.score": "Punktzahl",
   "quiz.endQuiz": "Quiz beenden",
-
   "results.title": "Quiz Abgeschlossen!",
   "results.score": "Punktzahl",
   "results.accuracy": "Genauigkeit",
@@ -75,7 +70,6 @@
   "results.skipped": "Übersprungen",
   "results.reviewSkipped": "Übersprungene überprüfen ⏭️",
   "results.skippedTitle": "ÜBERSPRUNGENE FRAGEN",
-
   "profile.title": "Profil",
   "profile.score": "Punktzahl",
   "profile.answered": "Beantwortet",
@@ -99,12 +93,11 @@
   "profile.levelGrandmaster": "Großmeister",
   "profile.levelLegend": "Legende",
   "profile.levelMythic": "Mythos",
-
   "leaderboard.title": "Bestenliste",
   "leaderboard.subtitle": "Wetteifere, steige im Ranking auf und verdiene XP",
-  "leaderboard.allTime": "🌍 Alle Zeiten",
-  "leaderboard.weekly": "📅 Diese Woche",
-  "leaderboard.topics": "📊 Themen",
+  "leaderboard.allTime": "Alle Zeiten",
+  "leaderboard.weekly": "Diese Woche",
+  "leaderboard.topics": "Themen",
   "leaderboard.empty": "Noch keine Punkte. Sei der Erste!",
   "leaderboard.emptyWeekly": "Diese Woche wurde noch kein Quiz gespielt. Starte ein Quiz und hol dir Platz #1! 🚀",
   "leaderboard.emptyTopic": "Für dieses Thema gibt es noch keine Daten.",
@@ -121,7 +114,6 @@
   "leaderboard.levelGrandmaster": "Großmeister",
   "leaderboard.levelLegend": "Legende",
   "leaderboard.xpRequired": "{{min}}+",
-
   "auth.login": "Anmelden",
   "auth.signup": "Registrieren",
   "auth.welcome": "Willkommen zurück!",
@@ -131,14 +123,12 @@
   "auth.password": "Passwort",
   "auth.createAccount": "Konto erstellen",
   "auth.checkEmail": "Überprüfe deine E-Mail zur Bestätigung!",
-
   "onboarding.title": "Wähle deinen Namen",
   "onboarding.subtitle": "So erscheinst du in der Bestenliste",
   "onboarding.placeholder": "Anzeigename eingeben…",
   "onboarding.minChars": "Min 2 Zeichen",
   "onboarding.nameError": "Name muss 2–20 Zeichen haben",
   "onboarding.save": "Speichern & Weiter",
-
   "nav.home": "Start",
   "nav.quiz": "Quiz",
   "nav.masterMinds": "MeisterGeister",
@@ -151,7 +141,6 @@
   "nav.darkMode": "Dunkelmodus",
   "nav.lightMode": "Hellmodus",
   "nav.changeLanguage": "Sprache ändern",
-
   "heatmap.mastered": "Gemeistert",
   "heatmap.strong": "Stark",
   "heatmap.good": "Gut",
@@ -159,9 +148,7 @@
   "heatmap.weak": "Schwach",
   "heatmap.notStarted": "Nicht begonnen",
   "heatmap.legend": "schwach → stark",
-
   "language.title": "SPRACHE",
-
   "thinkers.backToHome": "← Zurück zu mAIth",
   "thinkers.galleryTitle": "MeisterGeister",
   "thinkers.gallerySubtitle": "Wähle einen legendären Denker. Meistere sein Gebiet. Beweise, dass du die Schultern kennst, auf denen du stehst.",
@@ -169,7 +156,6 @@
   "thinkers.modernPioneers": "Moderne Pioniere",
   "thinkers.contemporary": "Zeitgenössisch",
   "thinkers.prodigies": "Wunderkinder",
-
   "field.all": "Alle Bereiche",
   "field.math": "Mathematik",
   "field.physics": "Physik",
@@ -185,7 +171,6 @@
   "field.soon": "BALD",
   "field.filterByField": "NACH BEREICH FILTERN",
   "field.exploreByEra": "NACH ÄRA ERKUNDEN",
-
   "vault.title": "Der Tresor",
   "vault.subtitle": "Die größten Verschlusssachen der Menschheit — schalte sie Level für Level frei.",
   "vault.declassifiedProgress": "{{count}}/{{total}} DEKLASSIFIZIERT",
@@ -217,7 +202,6 @@
   "vault.challengeSuccess": "DEKLASSIFIZIERT! Wird freigeschaltet…",
   "vault.challengeFail": "ZUGANG VERWEIGERT — Falsche Antwort",
   "vault.tryAgain": "Erneut versuchen",
-
   "formulas.title": "Formeln",
   "formulas.subtitle": "Die größten Gleichungen der Menschheit — rangiert, getaggt & erkundet.",
   "formulas.count": "{{count}} Gleichungen in {{domains}} Bereichen",
@@ -237,7 +221,6 @@
   "formulas.noResults": "Keine Gleichungen entsprechen deiner Suche.",
   "formulas.collapse": "▲ einklappen",
   "formulas.tapToExplore": "▼ tippen zum Erkunden",
-
   "glossary.title": "Glossar",
   "glossary.subtitle": "Arbeite dich durch Schlüsselbegriffe aller Bereiche. Tippe eine Karte an, um die Definition zu enthüllen.",
   "glossary.count": "{{terms}} Begriffe · {{fields}} Bereiche",
@@ -250,10 +233,8 @@
   "glossary.tabDefinition": "📖 Definition",
   "glossary.tabLatex": "𝕃 LaTeX",
   "glossary.tabCode": "⌨ Code",
-
   "nav.bonafides": "Bonafides",
   "nav.alphabet": "Alphabet",
-
   "footer.quiz": "Quiz",
   "footer.masterMinds": "MeisterGeister",
   "footer.formulas": "Formeln",
@@ -262,9 +243,26 @@
   "footer.glossary": "Glossar",
   "footer.leaderboard": "Bestenliste",
   "footer.alphabet": "Alphabet",
-
   "home.bonafides": "Bonafides",
   "home.bonafidesSub": "Berufliche Zertifizierungen & Prüfungen",
   "home.alphabet": "Alphabet",
-  "home.alphabetSub": "Griechische Buchstaben, Symbole & Notation — gemeistert"
+  "home.alphabetSub": "Griechische Buchstaben, Symbole & Notation — gemeistert",
+  "home.discover": "Bibliothek entdecken",
+  "home.discoverSub": "Vertiefe dein Wissen mit Denkern, Formeln, Abschlüssen und Nachschlagewerken",
+  "profile.saveName": "Namen speichern",
+  "profile.cancelEdit": "Bearbeiten abbrechen",
+  "profile.editName": "Anzeigenamen bearbeiten",
+  "profile.appearance": "Darstellung",
+  "leaderboard.today": "heute",
+  "leaderboard.yesterday": "gestern",
+  "leaderboard.daysAgo": "vor {{count}} T.",
+  "leaderboard.monthsAgo": "vor {{count}} Mon.",
+  "glossary.clearSearch": "Suche löschen",
+  "glossary.resetFilters": "Filter zurücksetzen",
+  "nav.menu": "Menü",
+  "common.saving": "Wird gespeichert…",
+  "glossary.showing": "{{count}} Ergebnisse",
+  "glossary.unknownField": "Unbekanntes Fachgebiet",
+  "nav.primary": "Hauptnavigation",
+  "nav.mobilePrimary": "Mobile Navigation"
 }
