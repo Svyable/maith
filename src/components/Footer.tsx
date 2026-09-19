@@ -36,7 +36,7 @@ export function Footer() {
           </div>
 
           {/* Nav links */}
-          <div className="flex items-center gap-2 flex-wrap justify-center">
+          <nav aria-label={t('nav.primary')} className="flex items-center gap-2 flex-wrap justify-center">
             {FOOTER_LINKS.map((link) => (
               <motion.button
                 key={link.path}
@@ -60,7 +60,7 @@ export function Footer() {
               <span className="text-xs">{EXTERNAL_FOOTER.emoji}</span>
               {t(EXTERNAL_FOOTER.key)}
             </motion.a>
-          </div>
+          </nav>
         </div>
 
         {/* Divider */}

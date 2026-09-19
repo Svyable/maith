@@ -73,12 +73,12 @@ export function QuizHeader({ streak, showStreak }: QuizHeaderProps) {
         </NavLink>
 
         {showStreak && (
-          <div className="mr-auto flex items-center gap-1 rounded-full bg-accent/10 px-2 py-1 text-sm font-bold text-accent" aria-label={`${streak} streak`}>
+          <div className="mr-auto flex items-center gap-1 rounded-full bg-accent/10 px-2 py-1 text-sm font-bold text-accent" aria-label={t("quiz.streak", { count: streak })}>
             <span aria-hidden="true">🔥</span><span className="font-mono">{streak}</span>
           </div>
         )}
 
-        <nav aria-label="Primary" className={`${showStreak ? "" : "ml-auto"} hidden items-center gap-1 xl:flex`}>
+        <nav aria-label={t("nav.primary")} className={`${showStreak ? "" : "ml-auto"} hidden items-center gap-1 xl:flex`}>
           {NAV_ITEMS.map((item) => {
             const active = isItemActive(item.path, item.hash);
             if (item.hash) {
@@ -111,7 +111,7 @@ export function QuizHeader({ streak, showStreak }: QuizHeaderProps) {
             </SheetTrigger>
             <SheetContent className="w-[min(88vw,22rem)] p-5">
               <SheetTitle className="mb-6 font-display">m<span className="text-primary">AI</span>th</SheetTitle>
-              <nav aria-label="Mobile primary" className="grid gap-1">
+              <nav aria-label={t("nav.mobilePrimary")} className="grid gap-1">
                 <SheetClose asChild><NavLink to="/" className="flex min-h-11 items-center gap-3 rounded-lg px-3 text-sm font-semibold hover:bg-secondary"><span aria-hidden="true">⌂</span>{t("nav.home")}</NavLink></SheetClose>
                 {NAV_ITEMS.map((item) => (
                   <SheetClose asChild key={item.labelKey}>
