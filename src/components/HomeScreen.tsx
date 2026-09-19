@@ -11,6 +11,7 @@ import { Button } from "./ui/button";
 import { type Difficulty, DIFFICULTIES, TOPIC_MAP, TOPICS } from "@/config/constants";
 import { FIELD_MAP } from "@/config/fields";
 import { CONTENT_COUNTS, QUESTION_COUNTS } from "@/config/content-stats";
+import { DISCOVERY_NAV_ITEMS, EXTERNAL_LINKS } from "@/config/site-navigation";
 import { t } from "@/i18n";
 import { useMemo, useState } from "react";
 
@@ -26,17 +27,10 @@ interface HomeScreenProps {
   onSignOut?: () => void;
 }
 
-const DISCOVERY_ITEMS = [
-  { path: "/thinkers", title: "home.masterMinds", subtitle: "home.masterMindsSub", emoji: "🗿" },
-  { path: "/formulas", title: "home.formulas", subtitle: "home.formulasSub", emoji: "📜" },
-  { path: "/glossary", title: "home.glossary", subtitle: "home.glossarySub", emoji: "📖" },
-  { path: "/bonafides", title: "home.bonafides", subtitle: "home.bonafidesSub", emoji: "🪪" },
-  { path: "/vault", title: "home.vault", subtitle: "home.vaultSub", emoji: "🔐" },
-] as const;
-
 export function HomeScreen({ selectedTopics, onToggleTopic, selectedDifficulties, onToggleDifficulty, selectedField, onSelectField, onStart, displayName, onSignOut }: HomeScreenProps) {
   const navigate = useNavigate();
   const [topicSearch, setTopicSearch] = useState("");
+  const alphabet = EXTERNAL_LINKS.alphabet;
 
   const handleSelectField = (slug: string) => {
     onSelectField(slug);
@@ -109,17 +103,17 @@ export function HomeScreen({ selectedTopics, onToggleTopic, selectedDifficulties
           <p className="text-sm text-muted-foreground">{t("home.discoverSub")}</p>
         </div>
         <div className="grid gap-2 sm:grid-cols-2">
-          {DISCOVERY_ITEMS.map((item) => (
-            <Button key={item.path} variant="outline" onClick={() => navigate(item.path)} className="h-auto min-h-20 justify-start whitespace-normal p-3 text-left">
+          {DISCOVERY_NAV_ITEMS.map((item) => (
+            <Button key={item.id} variant="outline" onClick={() => navigate(item.path)} className="h-auto min-h-20 justify-start whitespace-normal p-3 text-left">
               <span className="text-2xl" aria-hidden="true">{item.emoji}</span>
-              <span className="min-w-0 flex-1"><span className="block font-bold">{t(item.title)}</span><span className="line-clamp-1 text-xs font-normal text-muted-foreground">{t(item.subtitle, item.title === "home.masterMinds" ? { count: CONTENT_COUNTS.thinkers } : undefined)}</span></span>
+              <span className="min-w-0 flex-1"><span className="block font-bold">{t(item.titleKey)}</span><span className="line-clamp-1 text-xs font-normal text-muted-foreground">{t(item.subtitleKey, item.id === "thinkers" ? { count: CONTENT_COUNTS.thinkers } : undefined)}</span></span>
               <span aria-hidden="true">→</span>
             </Button>
           ))}
           <Button variant="outline" asChild className="h-auto min-h-20 justify-start whitespace-normal p-3 text-left">
-            <a href="https://geektome.lovable.app" target="_blank" rel="noopener noreferrer">
-              <span className="text-2xl" aria-hidden="true">🔤</span>
-              <span className="min-w-0 flex-1"><span className="block font-bold">{t("home.alphabet")}</span><span className="line-clamp-1 text-xs font-normal text-muted-foreground">{t("home.alphabetSub")}</span></span>
+            <a href={alphabet.url} target="_blank" rel="noopener noreferrer">
+              <span className="text-2xl" aria-hidden="true">{alphabet.emoji}</span>
+              <span className="min-w-0 flex-1"><span className="block font-bold">{t(alphabet.discoveryTitleKey)}</span><span className="line-clamp-1 text-xs font-normal text-muted-foreground">{t(alphabet.discoverySubtitleKey)}</span></span>
               <ExternalLink className="h-4 w-4" aria-hidden="true" />
             </a>
           </Button>
