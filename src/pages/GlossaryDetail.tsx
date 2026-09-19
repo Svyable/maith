@@ -1,3 +1,4 @@
+import { lazy, Suspense } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 import { SiteShell } from '@/components/layout/SiteShell';
@@ -17,6 +18,10 @@ import {
   buildThinkerPath,
 } from '@/config/site-navigation';
 import NotFound from './NotFound';
+
+const ReferencePracticeBacklinks = lazy(
+  () => import('@/components/learn/ReferencePracticeBacklinks'),
+);
 
 export default function GlossaryDetail() {
   const { termId = '' } = useParams<{ termId: string }>();
@@ -136,6 +141,10 @@ export default function GlossaryDetail() {
               </div>
             </section>
           )}
+
+          <Suspense fallback={null}>
+            <ReferencePracticeBacklinks referencePath={page.path} referenceLabel={term.term} />
+          </Suspense>
 
           <Link
             to={APP_PATHS.glossary}

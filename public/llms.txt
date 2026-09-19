@@ -24,7 +24,7 @@ Canonical standard-practice routes use:
 - `/learn/{field-slug}` for field landing pages.
 - `/learn/{field-slug}/{topic-slug}` for focused topic practice pages.
 
-Topic and field pages are generated from the canonical content registry. Thin topic pages remain accessible but are excluded from indexing until their question coverage reaches the configured SEO quality floor.\n\nTopic practice pages also connect to high-confidence formula, glossary, and MasterMinds references. These knowledge-cluster links are derived from canonical topic ownership plus field-aware semantic matching, and only point to indexable reference pages.
+Topic and field pages are generated from the canonical content registry. Thin topic pages remain accessible but are excluded from indexing until their question coverage reaches the configured SEO quality floor.\n\nTopic practice pages also connect to high-confidence formula, glossary, and MasterMinds references. These knowledge-cluster links are derived from canonical topic ownership plus field-aware semantic matching, and only point to indexable reference pages. Reference detail pages reciprocate the strongest of those relationships back to canonical indexable practice topics, forming a bidirectional internal-link graph.
 
 ## Reference page hierarchy
 

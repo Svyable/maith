@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "totals": {
-    "questions": 1057,
+    "questions": 1036,
     "glossaryTerms": 488,
     "thinkers": 621,
     "vaultEntries": 74,
@@ -498,10 +498,10 @@
         "quant"
       ],
       "counts": {
-        "easy": 3,
-        "hard": 3,
-        "sota": 3,
-        "total": 9
+        "easy": 1,
+        "hard": 1,
+        "sota": 1,
+        "total": 3
       }
     },
     {
@@ -832,10 +832,10 @@
         "development-economics"
       ],
       "counts": {
-        "easy": 3,
+        "easy": 2,
         "hard": 3,
         "sota": 3,
-        "total": 9
+        "total": 8
       }
     },
     {
@@ -923,10 +923,10 @@
         "economics"
       ],
       "counts": {
-        "easy": 3,
-        "hard": 3,
-        "sota": 3,
-        "total": 9
+        "easy": 1,
+        "hard": 1,
+        "sota": 1,
+        "total": 3
       }
     },
     {
@@ -998,10 +998,10 @@
         "quant"
       ],
       "counts": {
-        "easy": 3,
-        "hard": 3,
-        "sota": 3,
-        "total": 9
+        "easy": 1,
+        "hard": 1,
+        "sota": 1,
+        "total": 3
       }
     },
     {
@@ -1059,10 +1059,10 @@
         "game-theory"
       ],
       "counts": {
-        "easy": 3,
-        "hard": 3,
-        "sota": 3,
-        "total": 9
+        "easy": 2,
+        "hard": 2,
+        "sota": 2,
+        "total": 6
       }
     },
     {
@@ -1195,10 +1195,10 @@
         "economics"
       ],
       "counts": {
-        "easy": 3,
-        "hard": 3,
-        "sota": 3,
-        "total": 9
+        "easy": 1,
+        "hard": 1,
+        "sota": 1,
+        "total": 3
       }
     },
     {
@@ -1240,10 +1240,10 @@
         "engineering"
       ],
       "counts": {
-        "easy": 1,
-        "hard": 1,
-        "sota": 1,
-        "total": 3
+        "easy": 3,
+        "hard": 3,
+        "sota": 3,
+        "total": 9
       }
     },
     {
@@ -1285,10 +1285,10 @@
         "economics"
       ],
       "counts": {
-        "easy": 3,
-        "hard": 3,
-        "sota": 3,
-        "total": 9
+        "easy": 1,
+        "hard": 1,
+        "sota": 1,
+        "total": 3
       }
     },
     {
@@ -1559,10 +1559,10 @@
         "quant"
       ],
       "counts": {
-        "easy": 3,
-        "hard": 3,
-        "sota": 3,
-        "total": 9
+        "easy": 1,
+        "hard": 1,
+        "sota": 1,
+        "total": 3
       }
     },
     {
@@ -1574,10 +1574,10 @@
         "engineering"
       ],
       "counts": {
-        "easy": 1,
-        "hard": 1,
-        "sota": 1,
-        "total": 3
+        "easy": 3,
+        "hard": 3,
+        "sota": 3,
+        "total": 9
       }
     },
     {
@@ -1758,10 +1758,10 @@
         "new-topics"
       ],
       "counts": {
-        "easy": 3,
-        "hard": 3,
-        "sota": 3,
-        "total": 9
+        "easy": 1,
+        "hard": 1,
+        "sota": 1,
+        "total": 3
       }
     },
     {
@@ -1789,10 +1789,10 @@
         "engineering"
       ],
       "counts": {
-        "easy": 1,
-        "hard": 1,
-        "sota": 1,
-        "total": 3
+        "easy": 3,
+        "hard": 3,
+        "sota": 3,
+        "total": 9
       }
     },
     {
@@ -1925,10 +1925,10 @@
         "engineering"
       ],
       "counts": {
-        "easy": 1,
-        "hard": 1,
-        "sota": 0,
-        "total": 2
+        "easy": 3,
+        "hard": 3,
+        "sota": 3,
+        "total": 9
       }
     },
     {
