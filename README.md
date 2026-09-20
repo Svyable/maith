@@ -84,6 +84,7 @@ bun run generate:question-loaders
 bun run generate:content-stats
 bun run check:locales
 bun run report:locales
+bun run report:concepts
 bun run audit:quality
 ```
 
