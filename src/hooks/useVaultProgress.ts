@@ -141,6 +141,7 @@ export function useVaultProgress(
 
   const totalUnlocked = unlockedIds.size;
   const totalEntries = VAULT_ENTRIES.length;
+  const totalChallenges = vaultQuestions.length;
   const clearance = getClearanceLevel(totalUnlocked);
 
   return {
@@ -150,6 +151,7 @@ export function useVaultProgress(
     resetProgress,
     totalUnlocked,
     totalEntries,
+    totalChallenges,
     clearance,
     getQuestionForEntry,
   };
