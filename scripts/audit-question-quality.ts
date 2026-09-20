@@ -44,8 +44,8 @@ function normalizeText(value: string): string {
     .toLowerCase()
     .replace(/\\([a-zA-Z]+)/g, ' $1 ')
     .replace(/[{}$]/g, ' ')
-    .replace(/[“”"'\`]/g, '')
-    .replace(/[.,;:!?]/g, ' ')
+    .replace(/[“”"\`]/g, '')
+    .replace(/[.,;:?]/g, ' ')
     .trim()
     .replace(/\s+/g, ' ');
 }
