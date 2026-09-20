@@ -1,91 +1,101 @@
 // ── useThinkerAchievements — Q.E.D. badges for perfect thinker scores ──
 // "Quod Erat Demonstrandum" — you proved mastery, now wear the badge.
 
-import { useState, useEffect, useCallback } from 'react';
-import { supabase } from '@/integrations/supabase/client';
+import { useState, useEffect, useCallback, useMemo } from 'react';
 import { useAuth } from '@/hooks/useAuth';
+import {
+  isPerfectThinkerScore,
+  type ThinkerAchievement,
+} from '@/domain/thinker/achievement';
+import type { ThinkerAchievementRepository } from '@/domain/thinker/achievement-repository';
+import { supabaseThinkerAchievementRepository } from '@/integrations/supabase/thinker-achievement-repository';
 
-export interface ThinkerAchievement {
-  thinker_slug: string;
-  achieved_at: string;
-  score: number;
-  total_questions: number;
-}
+export type { ThinkerAchievement } from '@/domain/thinker/achievement';
 
 /**
  * Fetches and manages thinker achievements (perfect score badges).
  * A perfect score means correctAnswered === totalQuestions for a thinker quiz.
  */
-export function useThinkerAchievements() {
+export function useThinkerAchievements(
+  repository: ThinkerAchievementRepository = supabaseThinkerAchievementRepository,
+) {
   const { user } = useAuth();
   const [achievements, setAchievements] = useState<ThinkerAchievement[]>([]);
-  const [achievedSlugs, setAchievedSlugs] = useState<Set<string>>(new Set());
   const [loading, setLoading] = useState(true);
 
-  // Fetch achievements on mount / user change
   useEffect(() => {
-    if (!user) {
-      setAchievements([]);
-      setAchievedSlugs(new Set());
-      setLoading(false);
-      return;
-    }
-
     let active = true;
 
-    async function fetch() {
-      const { data } = await supabase
-        .from('user_thinker_achievements' as any)
-        .select('thinker_slug, achieved_at, score, total_questions')
-        .eq('user_id', user!.id);
-
-      if (!active) return;
-
-      const rows = (data ?? []) as unknown as ThinkerAchievement[];
-      setAchievements(rows);
-      setAchievedSlugs(new Set(rows.map((r) => r.thinker_slug)));
+    if (!user) {
+      setAchievements([]);
       setLoading(false);
+      return () => {
+        active = false;
+      };
     }
 
-    fetch();
-    return () => { active = false; };
-  }, [user]);
+    setLoading(true);
 
-  /**
-   * Award achievement if the user got a perfect score.
-   * Idempotent — re-inserting the same slug is a no-op (PK conflict).
-   * Returns true if newly awarded, false otherwise.
-   */
-  const awardIfPerfect = useCallback(
-    async (slug: string, correctAnswered: number, totalQuestions: number, score: number): Promise<boolean> => {
-      if (!user) return false;
-      if (correctAnswered < totalQuestions || totalQuestions === 0) return false;
-      if (achievedSlugs.has(slug)) return false; // already earned
+    void repository.load(user.id)
+      .then((rows) => {
+        if (active) setAchievements(rows);
+      })
+      .catch(() => {
+        if (active) setAchievements([]);
+      })
+      .finally(() => {
+        if (active) setLoading(false);
+      });
 
-      const { error } = await supabase
-        .from('user_thinker_achievements' as any)
-        .insert({
-          user_id: user.id,
-          thinker_slug: slug,
-          score,
-          total_questions: totalQuestions,
-        } as any);
+    return () => {
+      active = false;
+    };
+  }, [repository, user]);
 
-      if (error) return false;
-
-      const newAchievement: ThinkerAchievement = {
-        thinker_slug: slug,
-        achieved_at: new Date().toISOString(),
-        score,
-        total_questions: totalQuestions,
-      };
-
-      setAchievements((prev) => [...prev, newAchievement]);
-      setAchievedSlugs((prev) => new Set(prev).add(slug));
-      return true;
-    },
-    [user, achievedSlugs],
+  const achievedSlugs = useMemo(
+    () => new Set(achievements.map((achievement) => achievement.thinker_slug)),
+    [achievements],
   );
 
-  return { achievements, achievedSlugs, loading, awardIfPerfect };
+  /**
+   * Award an achievement only for a perfect score.
+   * Returns true when a new badge is persisted, false otherwise.
+   */
+  const awardIfPerfect = useCallback(
+    async (
+      slug: string,
+      correctAnswered: number,
+      totalQuestions: number,
+      score: number,
+    ): Promise<boolean> => {
+      if (!user) return false;
+      if (!isPerfectThinkerScore(correctAnswered, totalQuestions)) return false;
+      if (achievedSlugs.has(slug)) return false;
+
+      try {
+        const achievement = await repository.award(user.id, {
+          thinkerSlug: slug,
+          score,
+          totalQuestions,
+        });
+
+        setAchievements((previous) => (
+          previous.some((item) => item.thinker_slug === achievement.thinker_slug)
+            ? previous
+            : [...previous, achievement]
+        ));
+        return true;
+      } catch {
+        return false;
+      }
+    },
+    [achievedSlugs, repository, user],
+  );
+
+  return {
+    achievements,
+    achievedSlugs,
+    loading,
+    awardIfPerfect,
+  };
 }
