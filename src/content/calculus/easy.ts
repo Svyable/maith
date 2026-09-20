@@ -30,9 +30,9 @@ export const easyQuestions: Question[] = [
     question: 'What is $\\frac{d}{dx}[e^x]$?',
     options: ['$xe^{x-1}$', '$e^x$', '$\\ln(x)$', '$e^{x+1}$'],
     correctIndex: 1,
-    explanation: 'The exponential function is its own derivative: $\\frac{d}{dx}e^x = e^x$. This unique property makes it central to calculus.',
-    realWorld: 'The exponential function appears in softmax, logistic regression, and growth/decay models.',
-    hint: 'This function is famously unchanged by differentiation.',
+    explanation: 'The exponential function satisfies $\\frac{d}{dx}e^x=e^x$. More generally, the differentiable solutions of $f\'=f$ are $f(x)=Ce^x$; the condition $f(0)=1$ selects $e^x$ itself.',
+    realWorld: 'This self-reproducing derivative makes exponentials natural solutions of continuous growth and decay equations, from compound growth to first-order dynamical models.',
+    hint: 'Differentiating this exponential leaves the same function.',
   },
   {
     id: 62,
