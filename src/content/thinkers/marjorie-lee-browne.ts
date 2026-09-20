@@ -23,9 +23,9 @@ export const marjorieLeeBrowneQuestions: Question[] = [
     difficulty: 'hard',
     question: 'What mathematical structures were central to Browne’s doctoral thesis?',
     options: [
-      'Markov chains and martingales',
-      'Prime numbers and zeta functions',
-      'One-parameter subgroups in topological and matrix groups',
+      'Markov chains and stochastic processes',
+      'Prime ideals in algebraic number fields',
+      'One-parameter subgroups of matrix groups',
       'Spline bases and wavelet transforms',
     ],
     correctIndex: 2,
