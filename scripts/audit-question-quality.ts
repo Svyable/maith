@@ -398,6 +398,8 @@ for (const issue of issues) {
 const useBaseline = process.argv.includes('--allow-baseline');
 let allowedErrors = 0;
 let allowedWarnings = 0;
+let allowedErrorsByPool: Record<string, number> = {};
+let allowedWarningsByPool: Record<string, number> = {};
 
 if (useBaseline) {
   const baseline = JSON.parse(
@@ -405,6 +407,8 @@ if (useBaseline) {
   );
   allowedErrors = baseline.maxErrors;
   allowedWarnings = baseline.maxWarnings;
+  allowedErrorsByPool = baseline.maxErrorsByPool ?? {};
+  allowedWarningsByPool = baseline.maxWarningsByPool ?? {};
 
   if (!Number.isInteger(allowedErrors) || allowedErrors < 0) {
     console.error('Invalid content-quality baseline: maxErrors must be a non-negative integer.');
@@ -413,6 +417,16 @@ if (useBaseline) {
   if (!Number.isInteger(allowedWarnings) || allowedWarnings < 0) {
     console.error('Invalid content-quality baseline: maxWarnings must be a non-negative integer.');
     process.exit(1);
+  }
+  for (const poolName of Object.keys(pools)) {
+    if (!Number.isInteger(allowedErrorsByPool[poolName]) || allowedErrorsByPool[poolName] < 0) {
+      console.error(`Invalid content-quality baseline: maxErrorsByPool.${poolName} must be a non-negative integer.`);
+      process.exit(1);
+    }
+    if (!Number.isInteger(allowedWarningsByPool[poolName]) || allowedWarningsByPool[poolName] < 0) {
+      console.error(`Invalid content-quality baseline: maxWarningsByPool.${poolName} must be a non-negative integer.`);
+      process.exit(1);
+    }
   }
 }
 
@@ -431,6 +445,19 @@ if (useBaseline && report.summary.warnings > allowedWarnings) {
     `Quality audit warning regression: ${report.summary.warnings} warnings exceeds baseline ${allowedWarnings}.`,
   );
   process.exit(1);
+}
+
+if (useBaseline) {
+  for (const [poolName, summary] of Object.entries(report.summary.pools)) {
+    if (summary.errors > allowedErrorsByPool[poolName]) {
+      console.error(`Quality audit pool regression: ${poolName} has ${summary.errors} errors, baseline allows ${allowedErrorsByPool[poolName]}.`);
+      process.exit(1);
+    }
+    if (summary.warnings > allowedWarningsByPool[poolName]) {
+      console.error(`Quality audit pool warning regression: ${poolName} has ${summary.warnings} warnings, baseline allows ${allowedWarningsByPool[poolName]}.`);
+      process.exit(1);
+    }
+  }
 }
 
 if (useBaseline && report.summary.errors < allowedErrors) {
