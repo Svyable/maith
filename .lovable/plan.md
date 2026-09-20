@@ -1,17 +1,23 @@
-# Focused first-load performance pass
+# Fix the two backend findings from the audit
 
-## Scope
-- Preserve the completed UI, all visible content, routes, scoring, authentication, database behavior, and offline support.
-- Optimize only proven first-load costs; avoid architectural rewrites and cosmetic chunk shuffling.
+Nothing in the repository needs changing, and no credential needs rotating. Both fixes are backend settings/rules.
 
-## Implementation
-1. Record the current production entry size, total JavaScript, and PWA precache size.
-2. Replace landing-page reads of full question, thinker, equation, vault, and glossary datasets with one generated lightweight count map, including per-domain/per-difficulty counts.
-3. Load the full standard quiz question pool only when a quiz starts, with a stable existing loading state and cached in-session data for answer checks/restarts.
-4. Remove root-route imports of thinker/bonafide datasets through shared barrels, and defer quiz/result UI that is not needed on the home screen where safe.
-5. Confirm Thinkers, Formulas, Vault, Glossary, Leaderboard, Profile, and Bonafides remain route-lazy and that the service worker still precaches the complete production output.
+## 1. Restrict who can read achievement records
 
-## Validation
-- Verify generated counts against source datasets.
-- Run all locale checks, tests, TypeScript checks, and a production build.
-- Compare entry chunk, total JavaScript, and PWA precache measurements before and after; revert changes that do not produce a clear first-load win.
+Right now any signed-in person can read every achievement record in the system. The app only ever shows a person their own badge wall.
+
+Change: replace the read rule so a signed-in person can read their own achievement rows only. Recording new achievements, and the existing blocks on editing and deleting, stay exactly as they are.
+
+If you'd rather other people's achievements stay visible on public profiles later, say so and I'll scope reads to publicly visible profiles instead.
+
+## 2. Turn on leaked-password checking
+
+Enable the breach-password check so new sign-ups and password changes reject passwords that already appear on known leak lists. Existing accounts keep working; the check applies the next time a password is set.
+
+## Not changing
+
+Content, quiz behaviour, scoring, routes, sign-in methods, the published client keys, or performance.
+
+## Verification
+
+Re-run the security scan, then sign in and confirm the profile badge wall and achievement recording still work.
