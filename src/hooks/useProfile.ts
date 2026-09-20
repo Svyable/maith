@@ -16,7 +16,7 @@ function toProfileIdentity(
 ): ProfileIdentity {
   return {
     id: user.id,
-    metadata: (user.user_metadata ?? {}) as Record<string, unknown>,
+    metadata: user.metadata,
   };
 }
 

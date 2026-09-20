@@ -8,6 +8,7 @@ import { lazy, Suspense } from "react";
 import { useProfile } from "@/hooks/useProfile";
 import { useAuth } from "@/hooks/useAuth";
 import { LocaleProvider } from "@/contexts/LocaleContext";
+import { AuthProvider } from "@/contexts/AuthContext";
 import { APP_PATHS, LEARN_ROUTE_PATTERNS, REFERENCE_ROUTE_PATTERNS } from "@/config/site-navigation";
 import Index from "./pages/Index";
 
@@ -49,8 +50,9 @@ function OnboardingGuard({ children }: { children: React.ReactNode }) {
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
-    <LocaleProvider>
-      <TooltipProvider>
+    <AuthProvider>
+      <LocaleProvider>
+        <TooltipProvider>
         <Toaster />
         <Sonner />
         <BrowserRouter>
@@ -79,8 +81,9 @@ const App = () => (
             </OnboardingGuard>
           </Suspense>
         </BrowserRouter>
-      </TooltipProvider>
-    </LocaleProvider>
+        </TooltipProvider>
+      </LocaleProvider>
+    </AuthProvider>
   </QueryClientProvider>
 );
 

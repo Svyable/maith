@@ -11,10 +11,6 @@ function sourceFiles(root: string): string[] {
   });
 }
 
-const SUPABASE_HOOK_EXEMPTIONS = new Set([
-  'useAuth.ts',
-]);
-
 describe('SOLID architecture boundaries', () => {
   it('keeps page components independent of Supabase adapters', () => {
     const pagesDir = resolve(process.cwd(), 'src/pages');
@@ -25,11 +21,16 @@ describe('SOLID architecture boundaries', () => {
     expect(offenders).toEqual([]);
   });
 
-  it('prevents new hooks from coupling directly to the Supabase client', () => {
-    const hooksDir = resolve(process.cwd(), 'src/hooks');
-    const offenders = sourceFiles(hooksDir)
+  it('keeps presentation orchestration independent of the Supabase client', () => {
+    const presentationRoots = [
+      resolve(process.cwd(), 'src/hooks'),
+      resolve(process.cwd(), 'src/pages'),
+      resolve(process.cwd(), 'src/contexts'),
+    ];
+
+    const offenders = presentationRoots
+      .flatMap(sourceFiles)
       .filter((path) => readFileSync(path, 'utf8').includes('@/integrations/supabase/client'))
-      .filter((path) => !SUPABASE_HOOK_EXEMPTIONS.has(path.split('/').pop() ?? ''))
       .map((path) => path.replace(process.cwd() + '/', ''));
 
     expect(offenders).toEqual([]);
