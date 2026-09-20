@@ -384,15 +384,21 @@ for (const issue of issues) {
 
 const useBaseline = process.argv.includes('--allow-baseline');
 let allowedErrors = 0;
+let allowedWarnings = 0;
 
 if (useBaseline) {
   const baseline = JSON.parse(
     await readFile(new URL('./content-quality-baseline.json', import.meta.url), 'utf8'),
   );
   allowedErrors = baseline.maxErrors;
+  allowedWarnings = baseline.maxWarnings;
 
   if (!Number.isInteger(allowedErrors) || allowedErrors < 0) {
     console.error('Invalid content-quality baseline: maxErrors must be a non-negative integer.');
+    process.exit(1);
+  }
+  if (!Number.isInteger(allowedWarnings) || allowedWarnings < 0) {
+    console.error('Invalid content-quality baseline: maxWarnings must be a non-negative integer.');
     process.exit(1);
   }
 }
@@ -407,9 +413,20 @@ if (report.summary.errors > allowedErrors) {
   );
   process.exit(1);
 }
+if (useBaseline && report.summary.warnings > allowedWarnings) {
+  console.error(
+    `Quality audit warning regression: ${report.summary.warnings} warnings exceeds baseline ${allowedWarnings}.`,
+  );
+  process.exit(1);
+}
 
 if (useBaseline && report.summary.errors < allowedErrors) {
   console.warn(
     `Quality audit improved to ${report.summary.errors} errors; lower baseline from ${allowedErrors}.`,
+  );
+}
+if (useBaseline && report.summary.warnings < allowedWarnings) {
+  console.warn(
+    `Quality warning debt improved to ${report.summary.warnings}; lower warning baseline from ${allowedWarnings}.`,
   );
 }
