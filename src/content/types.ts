@@ -39,4 +39,6 @@ export interface Question {
   glossaryLinks?: string[];
   /** Formula names or formula slugs for cross-linking to the Formulas page */
   formulaLinks?: string[];
+  /** Stable concept IDs used by the mastery graph; first entry is primary. */
+  conceptIds?: string[];
 }
