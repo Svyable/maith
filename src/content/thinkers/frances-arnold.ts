@@ -40,7 +40,7 @@ export const francesArnoldQuestions: Question[] = [
     question: 'Why can directed evolution outperform purely rational protein design?',
     options: [
       'It guarantees the globally optimal protein in one round',
-      'It experimentally searches useful sequence changes without needing a complete predictive model',
+      'It experimentally searches sequence space under selection',
       'It removes the need to measure protein function',
       'It restricts mutations to residues already understood',
     ],
