@@ -39,6 +39,16 @@ Compatibility comes in two explicit forms. A rename alias maps one historical sl
 
 Pack/directory names may remain historical when changing them would add churn; topic ownership is determined by question metadata and the generated loader map. In Engineering, `control-theory` → `control-systems` and `robotics` → `robotics-mechatronics` are rename aliases. `electrical-engineering`, `mechanical-engineering`, and `aerospace` are umbrella expansions. The historical `aerospace` questions are now classified into `aerodynamics`, `orbital-mechanics`, and `spaceflight-systems`. `engineering` and `string-theory` remain hidden special compatibility topics originating in the historical Vault mix.
 
+## Mastery semantic layer
+
+`src/config/concepts.ts` is the first semantic layer below the topic registry. Topics continue to own routing, selection, loader membership, and public compatibility. Concepts represent smaller pedagogical units with stable IDs, prerequisite relationships, related ideas, applications, and explicit topic/field ownership.
+
+Questions may opt into the graph with `conceptIds`. The first ID is the primary concept and later IDs are supporting concepts. This mapping is intentionally incremental: unmapped questions remain valid while the pilot expands field by field.
+
+`bun run validate:content` now rejects duplicate concept IDs, unknown or non-selectable topic references, field mismatches, missing prerequisites, self-dependencies, prerequisite cycles, duplicate per-question concept IDs, unknown question concept references, cross-topic mappings, and deprecated primary concepts. Active concepts without mapped standard questions are reported as warnings.
+
+`bun run report:concepts` prints the current mapping rate plus per-concept EASY/HARD/SOTA and primary-question coverage. The first pilot covers foundational Linear Algebra and Calculus concepts without changing quiz behavior.
+
 ## Generated data and validation
 
 - `bun run generate:question-loaders` builds the topic-to-pack dynamic loader from `QUESTION_PACKS`.
