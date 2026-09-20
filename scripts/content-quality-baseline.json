@@ -1,6 +1,18 @@
 {
-  "version": 2,
-  "maxErrors": 205,
-  "maxWarnings": 4260,
-  "note": "Historical quality-debt ceilings. CI must not increase hard errors or warnings; lower either ceiling whenever debt is reduced."
+  "version": 3,
+  "maxErrors": 118,
+  "maxWarnings": 4257,
+  "maxErrorsByPool": {
+    "standard": 0,
+    "bonafide": 0,
+    "thinker": 118,
+    "vault": 0
+  },
+  "maxWarningsByPool": {
+    "standard": 889,
+    "bonafide": 185,
+    "thinker": 3088,
+    "vault": 95
+  },
+  "note": "Historical quality-debt ceilings. CI must not increase total or per-pool errors/warnings; lower ceilings whenever debt is reduced."
 }
