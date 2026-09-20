@@ -4,6 +4,7 @@ export const easyQuestions: Question[] = [
   {
     id: 6,
     topic: 'calculus',
+    conceptIds: ['gradient', 'derivatives'],
     difficulty: 'easy',
     question: 'What does $\\nabla f(\\mathbf{x})$ represent?',
     options: ['The Hessian matrix', 'The gradient vector', 'The Jacobian matrix', 'The Laplacian'],
@@ -15,6 +16,7 @@ export const easyQuestions: Question[] = [
   {
     id: 7,
     topic: 'calculus',
+    conceptIds: ['derivatives'],
     difficulty: 'easy',
     question: 'What is $\\frac{d}{dx}[x^n]$?',
     options: ['$x^{n+1}/(n+1)$', '$nx^{n-1}$', '$n!$', '$\\ln(x^n)$'],
@@ -26,6 +28,7 @@ export const easyQuestions: Question[] = [
   {
     id: 31,
     topic: 'calculus',
+    conceptIds: ['elementary-derivatives', 'derivatives'],
     difficulty: 'easy',
     question: 'What is $\\frac{d}{dx}[e^x]$?',
     options: ['$xe^{x-1}$', '$e^x$', '$\\ln(x)$', '$e^{x+1}$'],
@@ -37,6 +40,7 @@ export const easyQuestions: Question[] = [
   {
     id: 62,
     topic: 'calculus',
+    conceptIds: ['elementary-derivatives', 'derivatives'],
     difficulty: 'easy',
     question: 'What is $\\frac{d}{dx}[\\sin(x)]$?',
     options: ['$-\\cos(x)$', '$\\cos(x)$', '$\\sin(x)$', '$\\tan(x)$'],
@@ -48,6 +52,7 @@ export const easyQuestions: Question[] = [
   {
     id: 63,
     topic: 'calculus',
+    conceptIds: ['elementary-derivatives', 'derivatives'],
     difficulty: 'easy',
     question: 'What is $\\frac{d}{dx}[\\ln(x)]$?',
     options: ['$e^x$', '$\\frac{1}{x}$', '$x\\ln(x)$', '$\\ln(x)/x$'],
@@ -59,6 +64,7 @@ export const easyQuestions: Question[] = [
   {
     id: 64,
     topic: 'calculus',
+    conceptIds: ['antiderivatives', 'derivatives'],
     difficulty: 'easy',
     question: 'The antiderivative (indefinite integral) of $2x$ is:',
     options: ['$2$', '$x^2 + C$', '$x^2$', '$2x^2 + C$'],
@@ -70,6 +76,7 @@ export const easyQuestions: Question[] = [
   {
     id: 65,
     topic: 'calculus',
+    conceptIds: ['continuity'],
     difficulty: 'easy',
     question: 'A function is continuous at $x = a$ if:',
     options: ['It has a derivative at $a$', '$\\lim_{x \\to a} f(x) = f(a)$', 'It is differentiable everywhere', '$f(a) = 0$'],
@@ -81,6 +88,7 @@ export const easyQuestions: Question[] = [
   {
     id: 66,
     topic: 'calculus',
+    conceptIds: ['product-rule', 'derivatives'],
     difficulty: 'easy',
     question: 'The product rule states $\\frac{d}{dx}[f(x)g(x)] = $?',
     options: ["$f'(x)g'(x)$", "$f'(x)g(x) + f(x)g'(x)$", "$f(x)g'(x)$", "$[f(x)g(x)]'$"],
