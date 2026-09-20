@@ -42,7 +42,7 @@ function normalizeText(value: string): string {
   return value
     .normalize('NFKC')
     .toLowerCase()
-    .replace(/\\[a-zA-Z]+/g, ' ')
+    .replace(/\\([a-zA-Z]+)/g, ' $1 ')
     .replace(/[^a-z0-9]+/g, ' ')
     .trim()
     .replace(/\s+/g, ' ');
