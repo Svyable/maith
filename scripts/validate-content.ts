@@ -12,6 +12,7 @@ import {
 } from '../src/config/content-registry';
 import { BONAFIDE_TOPICS, QUESTION_PACKS } from '../src/config/content-registry-tooling';
 import { FIELDS } from '../src/config/fields';
+import { CONCEPTS, CONCEPT_MAP } from '../src/config/concepts';
 import { QUESTION_GROUPS, TOPIC_TO_GROUPS } from '../src/content/question-loaders';
 
 const REGISTERED_TOPICS = [...CONTENT_TOPICS, ...BONAFIDE_TOPICS];
@@ -29,6 +30,82 @@ const duplicateSlugs = duplicates(REGISTERED_TOPICS.map(({ slug }) => slug));
 if (duplicateSlugs.length) fail(`Duplicate canonical topic slugs: ${duplicateSlugs.join(', ')}`);
 
 const topicMap = new Map(REGISTERED_TOPICS.map((topic) => [topic.slug, topic]));
+
+const duplicateConceptIds = duplicates(CONCEPTS.map(({ id }) => id));
+if (duplicateConceptIds.length) fail(`Duplicate concept IDs: ${duplicateConceptIds.join(', ')}`);
+
+for (const concept of CONCEPTS) {
+  if (concept.topics.length === 0) fail(`Concept ${concept.id} must reference at least one topic`);
+  if (concept.prerequisites.includes(concept.id)) fail(`Concept ${concept.id} cannot depend on itself`);
+
+  for (const topicSlug of concept.topics) {
+    const topic = topicMap.get(topicSlug);
+    if (!topic) {
+      fail(`Concept ${concept.id} references unknown topic ${topicSlug}`);
+      continue;
+    }
+    if (topic.kind !== 'standard-quiz' || !topic.available) {
+      fail(`Concept ${concept.id} must reference selectable standard topics: ${topicSlug}`);
+    }
+    if (topic.field !== concept.field) {
+      fail(`Concept ${concept.id} field mismatch: ${concept.field} vs ${topic.field}`);
+    }
+  }
+
+  for (const prerequisite of concept.prerequisites) {
+    if (!CONCEPT_MAP[prerequisite]) fail(`Concept ${concept.id} has unknown prerequisite ${prerequisite}`);
+  }
+}
+
+const visitingConcepts = new Set<string>();
+const visitedConcepts = new Set<string>();
+const conceptPath: string[] = [];
+const visitConcept = (id: string) => {
+  if (visitedConcepts.has(id)) return;
+  if (visitingConcepts.has(id)) {
+    const cycleStart = conceptPath.indexOf(id);
+    fail(`Concept prerequisite cycle: ${[...conceptPath.slice(cycleStart), id].join(' -> ')}`);
+    return;
+  }
+
+  const concept = CONCEPT_MAP[id];
+  if (!concept) return;
+  visitingConcepts.add(id);
+  conceptPath.push(id);
+  for (const prerequisite of concept.prerequisites) visitConcept(prerequisite);
+  conceptPath.pop();
+  visitingConcepts.delete(id);
+  visitedConcepts.add(id);
+};
+CONCEPTS.forEach(({ id }) => visitConcept(id));
+
+const mappedConceptIds = new Set<string>();
+for (const question of allQuestions) {
+  const conceptIds = question.conceptIds ?? [];
+  const duplicatesForQuestion = duplicates(conceptIds);
+  if (duplicatesForQuestion.length) {
+    fail(`Question ${question.id} repeats concept IDs: ${duplicatesForQuestion.join(', ')}`);
+  }
+
+  conceptIds.forEach((conceptId, index) => {
+    const concept = CONCEPT_MAP[conceptId];
+    if (!concept) {
+      fail(`Question ${question.id} references unknown concept ${conceptId}`);
+      return;
+    }
+    mappedConceptIds.add(conceptId);
+    if (!concept.topics.includes(question.topic)) {
+      fail(`Question ${question.id} maps ${conceptId} outside its topic ${question.topic}`);
+    }
+    if (index === 0 && concept.status === 'deprecated') {
+      fail(`Question ${question.id} uses deprecated primary concept ${conceptId}`);
+    }
+  });
+}
+for (const concept of CONCEPTS.filter(({ status }) => status === 'active')) {
+  if (!mappedConceptIds.has(concept.id)) warnings.push(`Active concept ${concept.id} has no mapped standard questions`);
+}
+
 const unknownTopics = [...new Set(allQuestions.map(({ topic }) => topic).filter((topic) => !topicMap.has(topic)))];
 if (unknownTopics.length) fail(`Unknown standard question topics: ${unknownTopics.join(', ')}`);
 
@@ -210,4 +287,4 @@ if (errors.length) {
   errors.forEach((error) => console.error(`ERROR: ${error}`));
   process.exit(1);
 }
-console.log(`Content integrity passed: ${allQuestions.length} standard questions, ${REGISTERED_TOPICS.length} registered topics, ${QUESTION_PACKS.length} loader groups.`);
+console.log(`Content integrity passed: ${allQuestions.length} standard questions, ${REGISTERED_TOPICS.length} registered topics, ${CONCEPTS.length} mastery concepts, ${QUESTION_PACKS.length} loader groups.`);

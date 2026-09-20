@@ -4,6 +4,7 @@ export const hardQuestions: Question[] = [
   {
     id: 3,
     topic: 'linear-algebra',
+    conceptIds: ['eigenvalues-eigenvectors'],
     difficulty: 'hard',
     question: 'If $\\mathbf{A}\\mathbf{v} = \\lambda \\mathbf{v}$, what is $\\lambda$?',
     options: ['A singular value', 'The determinant', 'An eigenvalue', 'The trace'],
@@ -15,6 +16,7 @@ export const hardQuestions: Question[] = [
   {
     id: 5,
     topic: 'linear-algebra',
+    conceptIds: ['matrix-singularity', 'null-space'],
     difficulty: 'hard',
     question: 'What does the determinant $\\det(\\mathbf{A}) = 0$ imply?',
     options: ['$\\mathbf{A}$ has orthonormal columns, so $\\mathbf{A}^T\\mathbf{A}=\\mathbf{I}$', '$\\mathbf{A}$ has only real eigenvalues and an orthogonal eigenbasis', '$\\mathbf{A}$ has full rank and therefore is invertible', '$\\mathbf{A}$ has a nontrivial null space'],
@@ -26,6 +28,7 @@ export const hardQuestions: Question[] = [
   {
     id: 27,
     topic: 'linear-algebra',
+    conceptIds: ['matrix-trace'],
     difficulty: 'hard',
     question: 'The trace $\\text{tr}(\\mathbf{A})$ equals:',
     options: ['The product of the diagonal elements', 'The sum of diagonal elements', 'The number of linearly independent columns', 'The largest-magnitude eigenvalue'],
@@ -37,6 +40,7 @@ export const hardQuestions: Question[] = [
   {
     id: 52,
     topic: 'linear-algebra',
+    conceptIds: ['null-space'],
     difficulty: 'hard',
     question: 'The null space of $\\mathbf{A}$ is the set of vectors $\\mathbf{x}$ where:',
     options: ['$\\mathbf{A}\\mathbf{x} = \\mathbf{0}$', '$\\mathbf{A}\\mathbf{x} = \\mathbf{x}$', '$\\|\\mathbf{x}\\| = 0$', '$\\mathbf{x}^T\\mathbf{A} = \\mathbf{x}^T$'],
@@ -48,6 +52,7 @@ export const hardQuestions: Question[] = [
   {
     id: 53,
     topic: 'linear-algebra',
+    conceptIds: ['orthogonal-matrices', 'dot-product-orthogonality'],
     difficulty: 'hard',
     question: 'An orthogonal matrix $\\mathbf{Q}$ satisfies $\\mathbf{Q}^T\\mathbf{Q} = $?',
     options: ['$\\mathbf{0}$', '$\\mathbf{Q}$', '$\\mathbf{I}$', '$\\mathbf{Q}^2$'],
@@ -59,6 +64,7 @@ export const hardQuestions: Question[] = [
   {
     id: 54,
     topic: 'linear-algebra',
+    conceptIds: ['column-space'],
     difficulty: 'hard',
     question: 'The column space of $\\mathbf{A}$ is:',
     options: ['The kernel of $\\mathbf{A}$: all $\\mathbf{x}$ with $\\mathbf{A}\\mathbf{x}=\\mathbf{0}$', 'The row space: all linear combinations of rows', 'The eigenspace spanned by nonzero-eigenvalue vectors', 'The image of $\\mathbf{A}$: all vectors $\\mathbf{A}\\mathbf{x}$'],
@@ -70,6 +76,7 @@ export const hardQuestions: Question[] = [
   {
     id: 55,
     topic: 'linear-algebra',
+    conceptIds: ['diagonalization', 'eigenvalues-eigenvectors'],
     difficulty: 'hard',
     question: 'If $\\mathbf{A}$ is $n \\times n$ with $n$ distinct eigenvalues, then $\\mathbf{A}$ is:',
     options: ['Always singular', 'Diagonalizable', 'Always symmetric', 'Always orthogonal'],
@@ -81,6 +88,7 @@ export const hardQuestions: Question[] = [
   {
     id: 56,
     topic: 'linear-algebra',
+    conceptIds: ['frobenius-norm', 'vector-norms'],
     difficulty: 'hard',
     question: 'The Frobenius norm $\\|\\mathbf{A}\\|_F$ is:',
     options: ['$\\sqrt{\\sum_{i,j} |A_{ij}|^2}$', '$\\max_{\\|\\mathbf{x}\\|_2=1} \\|\\mathbf{A}\\mathbf{x}\\|_2$', '$\\max_i \\sum_j |A_{ij}|$', '$\\sum_i |\\lambda_i(\\mathbf{A})|$'],
