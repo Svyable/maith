@@ -2,6 +2,7 @@ import { readFile, writeFile } from 'node:fs/promises';
 import { allQuestions } from '../src/content/index';
 import { allBonafideQuestions } from '../src/content/bonafides/index';
 import { allThinkerQuestions } from '../src/content/thinkers/index';
+import { vaultQuestions } from '../src/content/vault/index';
 import { allGlossaryTerms } from '../src/content/glossary/index';
 import { EQUATIONS } from '../src/config/equations';
 import { CONTENT_TOPICS } from '../src/config/content-registry';
@@ -31,6 +32,7 @@ const pools: Record<string, Question[]> = {
   standard: allQuestions,
   bonafide: allBonafideQuestions,
   thinker: allThinkerQuestions,
+  vault: vaultQuestions,
 };
 
 const issues: QualityIssue[] = [];
@@ -395,7 +397,7 @@ if (useBaseline) {
   }
 }
 
-console.log(`Quality audit: ${report.summary.errors} errors, ${report.summary.warnings} warnings across ${allQuestions.length} standard questions.`);
+console.log(`Quality audit: ${report.summary.errors} errors, ${report.summary.warnings} warnings across ${allQuestions.length} standard questions and ${vaultQuestions.length} Vault questions.`);
 
 if (report.summary.errors > allowedErrors) {
   console.error(
