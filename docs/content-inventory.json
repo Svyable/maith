@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "totals": {
-    "questions": 1132,
+    "questions": 1142,
     "glossaryTerms": 488,
     "thinkers": 621,
     "vaultEntries": 74,
@@ -439,9 +439,9 @@
       ],
       "counts": {
         "easy": 3,
-        "hard": 2,
-        "sota": 1,
-        "total": 6
+        "hard": 3,
+        "sota": 3,
+        "total": 9
       }
     },
     {
@@ -561,8 +561,8 @@
       "counts": {
         "easy": 3,
         "hard": 3,
-        "sota": 2,
-        "total": 8
+        "sota": 3,
+        "total": 9
       }
     },
     {
@@ -1469,10 +1469,10 @@
         "aerospace"
       ],
       "counts": {
-        "easy": 2,
+        "easy": 3,
         "hard": 3,
-        "sota": 1,
-        "total": 6
+        "sota": 3,
+        "total": 9
       }
     },
     {
@@ -1820,10 +1820,10 @@
         "engineering"
       ],
       "counts": {
-        "easy": 2,
-        "hard": 2,
-        "sota": 2,
-        "total": 6
+        "easy": 3,
+        "hard": 3,
+        "sota": 3,
+        "total": 9
       }
     },
     {
