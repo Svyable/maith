@@ -73,6 +73,13 @@ import { davidBohmQuestions } from "./david-bohm";
 import { yakirAharonovQuestions } from "./yakir-aharonov";
 import { alfredTarskiQuestions } from "./alfred-tarski";
 import type { Question } from "../types";
+// Expanded MasterMinds batch — global mathematics, computation, and engineering
+import { liuHuiQuestions } from "./liu-hui";
+import { aryabhataQuestions } from "./aryabhata";
+import { rozsaPeterQuestions } from "./rozsa-peter";
+import { maryJacksonQuestions } from "./mary-jackson";
+import { euphemiaLoftonHaynesQuestions } from "./euphemia-lofton-haynes";
+
 
 // Chemistry Legends
 import { gilbertLewisQuestions } from "./gilbert-lewis";
@@ -1497,6 +1504,12 @@ export const allThinkerQuestions: Question[] = [
   ...jacobDevlinQuestions,
   ...albertGuQuestions,
   ...triDaoQuestions,
+  // Expanded MasterMinds batch
+  ...liuHuiQuestions,
+  ...aryabhataQuestions,
+  ...rozsaPeterQuestions,
+  ...maryJacksonQuestions,
+  ...euphemiaLoftonHaynesQuestions,
 ];
 export function getThinkerQuestions(slug: string): Question[] {
   return allThinkerQuestions.filter((q) => q.topic === slug);
