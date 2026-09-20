@@ -4,14 +4,14 @@ This is the structural baseline for the next content pass. The detailed question
 
 ## Coverage baseline
 
-The standard library currently contains 1132 questions. Coverage is highly uneven.
+The standard library currently contains 1142 questions. Coverage is highly uneven.
 
 | Field | Visible topics | Questions | Topics below 9 | Topics below 6 |
 | --- | ---: | ---: | ---: | ---: |
 | Mathematics | 20 | 272 | 3 | 2 |
 | Physics | 15 | 148 | 3 | 1 |
 | Computer Science | 12 | 159 | 0 | 0 |
-| Engineering | 21 | 191 | 4 | 0 |
+| Engineering | 21 | 201 | 0 | 0 |
 | Finance | 15 | 157 | 0 | 0 |
 | Earth & Space | 7 | 63 | 0 | 0 |
 | Biology | 5 | 45 | 0 | 0 |
@@ -25,7 +25,7 @@ The standard library currently contains 1132 questions. Coverage is highly uneve
 
 The most structurally under-covered visible topics are:
 
-- four Engineering subfields remain below the 9-question foundation floor; none remain below 6
+- all 21 canonical Engineering topics now meet or exceed the 9-question foundation floor
 - Structural Engineering, Materials Science, Power Systems, and Semiconductor Engineering have reached 3 EASY / 3 HARD / 3 SOTA
 
 ## Taxonomy decisions
@@ -63,9 +63,9 @@ The Question schema now supports optional `sources`, `reviewedAt`, and `factualA
 
 Augmentation should proceed field by field after the quality gate is clean:
 
-1. **Engineering** — continue the dedicated wave because 4 of 21 canonical topics are still below 9 questions, with no canonical Engineering topic below 6.
-2. **Human Sciences** — bring the three existing topics from 6 toward 9+ before adding new disciplines.
-3. Mathematics and Physics expansion only after the thinner fields are healthier.
+1. **Human Sciences** — bring the three existing topics from 6 toward 9+ before adding new disciplines.
+2. **Mathematics and Physics** — close their remaining thin-topic gaps before broadening taxonomy.
+3. **Engineering** — foundation-floor work is complete; future additions should be driven by quality, topical depth, and evidence rather than minimum-count debt.
 
 Chemistry has completed its first foundation pass: Physical, Organic, and Inorganic Chemistry now each have 3 EASY / 3 HARD / 3 SOTA questions, with varied answer positions and sourced advanced material.
 
@@ -86,5 +86,7 @@ Engineering foundation wave 3 is complete: Biomedical Engineering, Environmental
 Engineering foundation wave 4 is complete: Reaction Engineering, Transport Phenomena, Circuits & Electronics, and Communications & Coding now each have 3 EASY / 3 HARD / 3 SOTA questions. Legacy first-slot concentration and several overbroad claims were replaced with balanced fundamentals and sourced advanced material spanning intensified reactors, nanoscale thermal metrology, wide-bandgap power electronics, chiplet integration, 5G channel coding, massive MIMO, and NextG channel sounding.
 
 Engineering foundation wave 5 is complete: Nuclear Engineering and Thermofluids now each have 3 EASY / 3 HARD / 3 SOTA questions, eliminating all sub-6 canonical Engineering topics. The pass also fixes the wave-4 Damköhler answer-key regression, replaces the obsolete ITER 2025 schedule with the current 2036 full-magnetic-energy / 2039 deuterium-tritium baseline, balances legacy answer positions, and adds current provenance for HALEU, accident-tolerant fuel, fluid property models, and refrigerant equations of state.
+
+Engineering foundation wave 6 is complete: Aerodynamics, Orbital Mechanics, Solid Mechanics, and Audio Engineering now each have 3 EASY / 3 HARD / 3 SOTA questions, bringing every canonical Engineering topic to at least the 9-question floor. Each of the four completed topics has a balanced 3/2/2/2 correct-answer-position distribution. The pass also removes an overbroad Hohmann-optimality claim, replaces marketing-style neural-audio assertions with paper-grounded descriptions, and adds sourced current material on X-59 low-boom aerodynamics, cislunar NRHO/CAPSTONE operations, digital image correlation, and immersive audio rendering.
 
 The goal is not equal question counts everywhere. It is enough independent material that a quiz can vary meaningfully and still represent the subject honestly.
