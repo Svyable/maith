@@ -29,7 +29,7 @@ export const narayanaPanditQuestions: Question[] = [
     difficulty: 'sota',
     question: 'What condition defines the magic constant of a normal magic square?',
     options: [
-      'Every row, column, and main diagonal has the same sum',
+      'Rows, columns, and main diagonals share one sum',
       'Every entry is a prime number',
       'All neighboring entries differ by one',
       'The determinant of the square is zero',
