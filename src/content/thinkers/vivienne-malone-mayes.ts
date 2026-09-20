@@ -6,7 +6,7 @@ export const vivienneMaloneMayesQuestions: Question[] = [
     topic: 'vivienne-malone-mayes',
     difficulty: 'easy',
     question: 'Where did Vivienne Malone-Mayes earn her PhD in mathematics?',
-    options: ['Fisk University', 'University of Texas at Austin', 'Baylor University', 'Howard University'],
+    options: ['Fisk University in Nashville', 'University of Texas at Austin', 'Baylor University in Waco', 'Howard University in Washington'],
     correctIndex: 1,
     explanation: 'Malone-Mayes earned her doctorate from the University of Texas at Austin in 1966 with work in asymptotic analysis.',
     realWorld: 'She later joined Baylor University and became an important mathematician, educator, and advocate within the profession.',
