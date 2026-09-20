@@ -5,15 +5,17 @@ on:
     branches: [main]
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   generate:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      - name: Checkout
+      - name: Checkout PR branch
         uses: actions/checkout@v5
+        with:
+          ref: ${{ github.head_ref }}
 
       - name: Set up Bun
         uses: oven-sh/setup-bun@v2
@@ -28,18 +30,15 @@ jobs:
           bun run generate:question-loaders
           bun run generate:content-stats
 
-      - name: Emit generated artifacts
+      - name: Commit generated artifacts
         shell: bash
         run: |
-          echo "BEGIN_CONTENT_STATS"
-          base64 -w0 src/config/content-stats.ts
-          echo
-          echo "END_CONTENT_STATS"
-          echo "BEGIN_QUESTION_LOADERS"
-          base64 -w0 src/content/question-loaders.ts
-          echo
-          echo "END_QUESTION_LOADERS"
-          echo "BEGIN_CONTENT_INVENTORY"
-          base64 -w0 docs/content-inventory.json
-          echo
-          echo "END_CONTENT_INVENTORY"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/config/content-stats.ts src/content/question-loaders.ts docs/content-inventory.json
+          if git diff --cached --quiet; then
+            echo "Generated artifacts are already current."
+            exit 0
+          fi
+          git commit -m "Regenerate content artifacts"
+          git push origin HEAD:${{ github.head_ref }}
