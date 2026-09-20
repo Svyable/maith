@@ -53,7 +53,7 @@ export const topologyQuestions: Question[] = [
       'The curvature at every point',
     ],
     correctIndex: 0,
-    explanation: 'π₁(X) classifies loops up to homotopy. For a circle: π₁(S¹) = ℤ (loops counted by winding number). For a sphere: π₁(S²) = 0 (all loops can shrink to a point). For a torus: π₁(T²) = ℤ×ℤ.',
+    explanation: 'More precisely, $\\pi_1(X,x_0)$ consists of loops based at $x_0$, modulo homotopies that keep the basepoint fixed, with loop concatenation as the group operation. For a circle, $\\pi_1(S^1) \\cong \\mathbb{Z}$ via winding number; for a sphere, $\\pi_1(S^2)$ is trivial; and for a torus, $\\pi_1(T^2) \\cong \\mathbb{Z} \\times \\mathbb{Z}$.',
     realWorld: 'The fundamental group detects holes: a robot path planner uses π₁ to determine if two paths are topologically equivalent (can one be deformed into the other without crossing an obstacle?).',
     hint: 'Draw loops on the surface — which ones can shrink to a point, and which ones can\'t?',
   },
