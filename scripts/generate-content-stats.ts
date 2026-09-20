@@ -1,5 +1,5 @@
 import { writeFile } from 'node:fs/promises';
-import { allQuestions } from '../src/content/index';
+import type { Question } from '../src/content/types';
 import { allBonafideQuestions } from '../src/content/bonafides/index';
 import { vaultQuestions } from '../src/content/vault/index';
 import { allGlossaryTerms } from '../src/content/glossary/index';
@@ -10,7 +10,7 @@ import { CONTENT_TOPIC_MAP } from '../src/config/content-registry';
 import { QUESTION_PACKS } from '../src/config/content-registry-tooling';
 import { BONAFIDES } from '../src/config/bonafides';
 
-const countQuestions = (questions: typeof allQuestions) => Object.fromEntries(
+const countQuestions = (questions: Question[]) => Object.fromEntries(
   [...new Set(questions.map(({ topic }) => topic))].sort().map((topic) => {
     const matching = questions.filter((question) => question.topic === topic);
     return [topic, {
@@ -21,21 +21,24 @@ const countQuestions = (questions: typeof allQuestions) => Object.fromEntries(
     }];
   }),
 );
-const questionCounts = countQuestions(allQuestions);
 const bonafideCounts = countQuestions(allBonafideQuestions);
+const standardQuestions: Question[] = [];
 const groupByTopic = new Map<string, string[]>();
 for (const pack of QUESTION_PACKS.filter((entry) => entry.includeInStandardQuiz)) {
   const module = await import(`../src/content/${pack.group}/index.ts`) as Record<string, unknown>;
-  const topics = new Set(pack.exports.flatMap((name) => (module[name] as typeof allQuestions).map((question) => question.topic)));
+  const questions = pack.exports.flatMap((name) => module[name] as Question[]);
+  standardQuestions.push(...questions);
+  const topics = new Set(questions.map((question) => question.topic));
   for (const topic of topics) groupByTopic.set(topic, [...(groupByTopic.get(topic) ?? []), pack.group]);
 }
+const questionCounts = countQuestions(standardQuestions);
 const inventory = [
   ...Object.entries(questionCounts).map(([slug, counts]) => ({ slug, field: CONTENT_TOPIC_MAP[slug]?.field ?? null, kind: CONTENT_TOPIC_MAP[slug]?.kind ?? 'special', available: CONTENT_TOPIC_MAP[slug]?.available ?? false, loaderGroups: groupByTopic.get(slug) ?? [], counts })),
   ...Object.entries(bonafideCounts).map(([slug, counts]) => ({ slug, field: 'bonafide', kind: 'bonafide', available: BONAFIDES.some((entry) => entry.topics.includes(slug) && entry.available), loaderGroups: ['bonafides'], counts })),
 ].sort((a, b) => a.kind.localeCompare(b.kind) || a.slug.localeCompare(b.slug));
 const totals = {
-  questions: allQuestions.length,
-  standardQuestions: allQuestions.length,
+  questions: standardQuestions.length,
+  standardQuestions: standardQuestions.length,
   vaultQuestions: vaultQuestions.length,
   glossaryTerms: allGlossaryTerms.length,
   thinkers: THINKERS.length,
