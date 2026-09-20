@@ -42,10 +42,23 @@ function normalizeText(value: string): string {
   return value
     .normalize('NFKC')
     .toLowerCase()
+    .replace(/\\([a-zA-Z]+)/g, ' $1 ')
+    .replace(/[{}$]/g, ' ')
+    .replace(/[“”"\`]/g, '')
+    .replace(/[.,;:?]/g, ' ')
+    .trim()
+    .replace(/\s+/g, ' ');
+}
+
+function normalizedDisplayLength(value: string): number {
+  return value
+    .normalize('NFKC')
+    .toLowerCase()
     .replace(/\\[a-zA-Z]+/g, ' ')
     .replace(/[^a-z0-9]+/g, ' ')
     .trim()
-    .replace(/\s+/g, ' ');
+    .replace(/\s+/g, ' ')
+    .length;
 }
 
 function slugify(value: string): string {
@@ -109,10 +122,10 @@ for (const [poolName, questions] of Object.entries(pools)) {
     const normalizedOptions = q.options.map(normalizeText);
     const uniqueOptions = new Set(normalizedOptions);
 
-    const correctOptionLength = normalizedOptions[q.correctIndex]?.length ?? 0;
-    const distractorLengths = normalizedOptions
+    const optionDisplayLengths = q.options.map(normalizedDisplayLength);
+    const correctOptionLength = optionDisplayLengths[q.correctIndex] ?? 0;
+    const distractorLengths = optionDisplayLengths
       .filter((_, index) => index !== q.correctIndex)
-      .map((option) => option.length)
       .sort((a, b) => a - b);
     const medianDistractorLength = distractorLengths.length
       ? distractorLengths[Math.floor(distractorLengths.length / 2)]
