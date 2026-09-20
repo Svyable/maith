@@ -33,7 +33,7 @@ export const pingalaQuestions: Question[] = [
     topic: 'pingala',
     difficulty: 'sota',
     question: 'How many long-short patterns exist for a meter with n syllable positions?',
-    options: ['n²', 'n!', '2ⁿ', '2n'],
+    options: ['n squared', 'n factorial', '2 to the nth power', 'two times n'],
     correctIndex: 2,
     explanation: 'Each syllable position has two choices, so the multiplication principle gives 2ⁿ possible patterns.',
     realWorld: 'The same counting rule appears in bit strings, Boolean assignments, binary codes, and exhaustive search spaces.',
