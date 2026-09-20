@@ -2,8 +2,8 @@
 // To add a new topic pack:
 // 1. Create src/content/<topic-slug>/ directory with a questions.ts + index.ts
 // 2. Import and spread into allQuestions below
-// 3. Register the topic in src/config/constants.ts TOPICS array with field: '<field-slug>'
-// 4. Register the field in src/config/fields.ts FIELDS array
+// 3. Register the canonical topic/field ownership in src/config/content-registry.ts and src/config/fields.ts
+// 4. Register the pack in src/config/content-registry-tooling.ts, then regenerate loaders/stats
 //
 // NOTE: allQuestions is the canonical standard-quiz pool. Thinker, Bonafide, and Vault
 // questions are served through their dedicated collections and must not be mixed here.
