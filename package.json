@@ -21,6 +21,7 @@
     "audit:quality": "bun scripts/audit-question-quality.ts",
     "validate:all-content": "bun run check:locales && bun run validate:content && bun run audit:quality",
     "report:locales": "node scripts/report-localization-coverage.mjs",
+    "report:concepts": "bun scripts/report-concept-coverage.ts",
     "audit:quality:baseline": "bun scripts/audit-question-quality.ts --allow-baseline",
     "validate:ci": "bun run check:locales && bun run validate:content && bun run audit:quality:baseline",
     "validate:site": "vitest run src/test/site-structure.test.ts"
