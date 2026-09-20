@@ -33,7 +33,7 @@ export const mahaviraQuestions: Question[] = [
     topic: 'mahavira',
     difficulty: 'sota',
     question: 'Which topic received explicit rules in Mahāvīra’s mathematics?',
-    options: ['Permutations and combinations', 'Fourier transforms', 'Matrix eigenvalues', 'Non-Euclidean metrics'],
+    options: ['Permutations and combinations', 'Fourier transforms and spectra', 'Matrix eigenvalues and vectors', 'Non-Euclidean metric spaces'],
     correctIndex: 0,
     explanation: 'Mahāvīra gave rules for permutations and combinations, reflecting a substantial combinatorial tradition in Indian mathematics.',
     realWorld: 'Counting arrangements and selections is foundational to probability, algorithms, experimental design, and information theory.',
