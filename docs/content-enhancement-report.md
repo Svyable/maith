@@ -4,14 +4,14 @@ This is the structural baseline for the next content pass. The detailed question
 
 ## Coverage baseline
 
-The standard library currently contains 1106 questions. Coverage is highly uneven.
+The standard library currently contains 1116 questions. Coverage is highly uneven.
 
 | Field | Visible topics | Questions | Topics below 9 | Topics below 6 |
 | --- | ---: | ---: | ---: | ---: |
 | Mathematics | 20 | 272 | 3 | 2 |
 | Physics | 15 | 148 | 3 | 1 |
 | Computer Science | 12 | 159 | 0 | 0 |
-| Engineering | 21 | 165 | 10 | 6 |
+| Engineering | 21 | 175 | 8 | 4 |
 | Finance | 15 | 157 | 0 | 0 |
 | Earth & Space | 7 | 63 | 0 | 0 |
 | Biology | 5 | 45 | 0 | 0 |
@@ -25,7 +25,7 @@ The standard library currently contains 1106 questions. Coverage is highly uneve
 
 The most structurally under-covered visible topics are:
 
-- several Engineering subfields remain at 3–6 total
+- eight Engineering subfields remain below the 9-question foundation floor
 - Structural Engineering, Materials Science, Power Systems, and Semiconductor Engineering have reached 3 EASY / 3 HARD / 3 SOTA
 
 ## Taxonomy decisions
@@ -63,7 +63,7 @@ The Question schema now supports optional `sources`, `reviewedAt`, and `factualA
 
 Augmentation should proceed field by field after the quality gate is clean:
 
-1. **Engineering** — continue the dedicated wave because 10 of 21 canonical topics are still below 9 questions.
+1. **Engineering** — continue the dedicated wave because 8 of 21 canonical topics are still below 9 questions.
 2. **Human Sciences** — bring the three existing topics from 6 toward 9+ before adding new disciplines.
 3. Mathematics and Physics expansion only after the thinner fields are healthier.
 
@@ -82,5 +82,7 @@ Engineering foundation wave 1 is complete: Structural Engineering and Materials 
 Engineering foundation wave 2 is complete: Power Systems and Semiconductor Engineering now each have 3 EASY / 3 HARD / 3 SOTA questions. The pass adds transformer and reactive-power fundamentals, symmetrical components, transient stability, synchrophasors, inverter-based-resource dynamics, semiconductor doping, threshold behavior, subthreshold swing, interconnect delay, GAA metrology, and nanoscale thermal transport. Advanced material is sourced to NIST or DOE and legacy SOTA wording was tightened.
 
 Engineering foundation wave 3 is complete: Biomedical Engineering, Environmental Engineering, Process Design, and Spaceflight Systems now each have 3 EASY / 3 HARD / 3 SOTA questions. The pass hardens legacy wording and answer balance, adds biomedical sensing and organoid fabrication, wastewater and PFAS treatment, process safety and digital-twin design, and modern electric, nuclear, and cryogenic spaceflight systems. Advanced material is tied to FDA, NIH/PubMed, EPA, DOE/NIST, and NASA sources.
+
+Engineering foundation wave 4 is complete: Reaction Engineering and Transport Phenomena now each have 3 EASY / 3 HARD / 3 SOTA questions. The pass corrects the legacy Damköhler interpretation, rebalances first-slot answer bias, adds catalyst-pellet diffusion, process intensification, microreactor residence-time control, heat/mass-transfer analogies, Biot scaling, cryogenic microchannel two-phase transfer, and compact sCO2 recuperator tradeoffs. Advanced claims are tied to DOE and NIST sources.
 
 The goal is not equal question counts everywhere. It is enough independent material that a quiz can vary meaningfully and still represent the subject honestly.
