@@ -13,8 +13,6 @@ function sourceFiles(root: string): string[] {
 
 const SUPABASE_HOOK_EXEMPTIONS = new Set([
   'useAuth.ts',
-  'useProfile.ts',
-  'useThinkerAchievements.ts',
 ]);
 
 describe('SOLID architecture boundaries', () => {
