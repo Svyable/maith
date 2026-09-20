@@ -37,6 +37,7 @@ Key documents:
 - [Content enhancement report](./docs/content-enhancement-report.md)
 - [Localization](./docs/localization.md)
 - [Mastery architecture](./docs/mastery-architecture.md)
+- [Development operations](./docs/development-operations.md)
 
 Standard quiz questions remain in `src/content/**`. Lightweight canonical metadata, loader ownership, compatibility aliases, and field relationships live in configuration registries. Special collections such as Bonafides, MasterMinds, Vault, formulas, glossary, and editorial material retain explicit content boundaries.
 
@@ -73,6 +74,16 @@ mAIth is optimized for **safe throughput**, not serial ceremony. Agents and main
 - **Do not manufacture work.** If there is no meaningful safe improvement, skip the change rather than producing churn.
 
 Repository-specific agent instructions live in [AGENTS.md](./AGENTS.md).
+
+## Development operating model
+
+GitHub is the source of truth and the only development/mutation surface for mAIth.
+
+All enhancements should be made directly through GitHub branches, commits, pull requests, CI, and merges. Lovable is retained only as passive hosting/deployment infrastructure for as long as the current site still depends on it. Do not use Lovable agents, chat, planning mode, code editing, or credits for development work.
+
+Database changes belong in reviewable migrations under `supabase/migrations/**`; application changes belong in the repository. The stable `merge-gate` workflow is the objective PR gate, and GitHub auto-merge should be used whenever repository protections and checks permit it.
+
+See [docs/development-operations.md](./docs/development-operations.md) for the full operating contract.
 
 ## Development
 
