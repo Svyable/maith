@@ -43,14 +43,14 @@ export function AuthProvider({
     let active = true;
     let authEventVersion = 0;
 
+    const initialVersion = authEventVersion;
+
     const unsubscribe = repository.subscribe((nextUser) => {
       authEventVersion += 1;
       if (!active) return;
       setUser(nextUser);
       setLoading(false);
     });
-
-    const initialVersion = authEventVersion;
 
     void repository.getCurrentUser()
       .then((currentUser) => {
