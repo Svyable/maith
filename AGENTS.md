@@ -4,6 +4,18 @@
 
 Increase mAIth's rate of **correct, validated, mergeable improvement**. Optimize for end-to-end throughput, not visible activity.
 
+## Execution boundary
+
+GitHub is the sole development and mutation surface for mAIth.
+
+- Use the connected GitHub repository `Svyable/maith` for all source reads/writes, branches, commits, pull requests, reviews, CI inspection, and merges.
+- Do **not** use Lovable agents, Lovable chat, Lovable planning mode, Lovable code editing, or Lovable credits for enhancements.
+- Lovable may remain passive hosting/deployment infrastructure until it is replaced. Do not invoke Lovable to author, plan, refactor, audit-and-fix, or mutate the application.
+- Track database/schema changes as reviewable SQL migrations under `supabase/migrations/**`. Do not use Lovable as an ad hoc database-mutation surface.
+- Do not commit Lovable planning artifacts such as `.lovable/plan*`.
+- Keep credentials out of Git. Browser-public configuration may remain client-visible by design; server secrets belong in provider/GitHub secret stores.
+- Prefer GitHub auto-merge when the repository settings, `merge-gate`, mergeability, and review state objectively allow it.
+
 ## 10x operating rules
 
 1. **Start from current reality.**
@@ -48,7 +60,7 @@ Increase mAIth's rate of **correct, validated, mergeable improvement**. Optimize
 
 ## CI/CD contract
 
-`.github/workflows/merge-gate.yml` is the single PR orchestration layer. It always emits the stable `merge-gate` status and calls the content, site, SEO, and app workflows only when their file surfaces changed. The specialized workflows are reusable/manual workflows rather than separately path-filtered PR gates.
+`.github/workflows/merge-gate.yml` is the single PR orchestration layer. It always emits the stable `merge-gate` status, enforces the GitHub-only source policy, and calls the content, site, SEO, and app workflows only when their file surfaces changed. The specialized workflows are reusable/manual workflows rather than separately path-filtered PR gates.
 
 For repository protection, require only `merge-gate` on `main`. This keeps required checks deterministic for docs-only and narrowly scoped PRs while still running all relevant validation in parallel.
 
