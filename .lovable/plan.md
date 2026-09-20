@@ -1,26 +1,17 @@
-# Backend hardening follow-up (optional)
+# Focused first-load performance pass
 
-Two issues found in the read-only audit. No repository or credential changes needed.
+## Scope
+- Preserve the completed UI, all visible content, routes, scoring, authentication, database behavior, and offline support.
+- Optimize only proven first-load costs; avoid architectural rewrites and cosmetic chunk shuffling.
 
-## 1. Narrow achievement-table reads
+## Implementation
+1. Record the current production entry size, total JavaScript, and PWA precache size.
+2. Replace landing-page reads of full question, thinker, equation, vault, and glossary datasets with one generated lightweight count map, including per-domain/per-difficulty counts.
+3. Load the full standard quiz question pool only when a quiz starts, with a stable existing loading state and cached in-session data for answer checks/restarts.
+4. Remove root-route imports of thinker/bonafide datasets through shared barrels, and defer quiz/result UI that is not needed on the home screen where safe.
+5. Confirm Thinkers, Formulas, Vault, Glossary, Leaderboard, Profile, and Bonafides remain route-lazy and that the service worker still precaches the complete production output.
 
-Today any signed-in user can read every row of the thinker-achievements table.
-
-Options (pick one):
-- **Self-only:** replace the read rule so a user sees only their own achievement rows. Profile badge walls keep working; other users' achievement rows stop being readable.
-- **Public-profile-scoped:** allow reading rows only when the owning profile is marked public, matching how profiles and leaderboards already behave.
-
-Implementation: one migration replacing the `achievements_select_public` policy. Insert/update/delete rules stay unchanged.
-
-## 2. Turn on leaked-password protection
-
-Enable breach-password checking in auth settings so sign-ups and password changes reject passwords found in known leak lists. Existing accounts are unaffected until their next password change.
-
-## Out of scope
-
-- No secret rotation (none exposed).
-- No changes to gameplay, content, routes, or the publishable client keys.
-
-## Verification
-
-Re-run the security scan and confirm profile and achievement views still render for a signed-in user.
+## Validation
+- Verify generated counts against source datasets.
+- Run all locale checks, tests, TypeScript checks, and a production build.
+- Compare entry chunk, total JavaScript, and PWA precache measurements before and after; revert changes that do not produce a clear first-load win.
