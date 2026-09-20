@@ -9,7 +9,7 @@ import {
   INDEXABLE_REFERENCE_SEO_ROUTES,
   REFERENCE_SEO_ROUTES,
 } from './reference-seo-routes';
-import { getReferenceTopicBacklinks, getTopicReferenceCluster } from '../src/config/topic-reference-clusters';
+import { getFieldReferenceCluster, getReferenceTopicBacklinks, getTopicReferenceCluster } from '../src/config/topic-reference-clusters';
 
 const errors: string[] = [];
 
@@ -70,10 +70,13 @@ for (const { path, seo } of uniqueRoutes) {
   }
 
   if (seo.indexable) {
-    const cluster = getTopicReferenceCluster(path);
-    const relatedLinks = cluster
-      ? [...cluster.formulas, ...cluster.glossary, ...cluster.thinkers]
-      : getReferenceTopicBacklinks(path);
+    const topicCluster = getTopicReferenceCluster(path);
+    const fieldCluster = getFieldReferenceCluster(path);
+    const relatedLinks = topicCluster
+      ? [...topicCluster.formulas, ...topicCluster.glossary, ...topicCluster.thinkers]
+      : fieldCluster
+        ? [...fieldCluster.formulas, ...fieldCluster.glossary, ...fieldCluster.thinkers]
+        : getReferenceTopicBacklinks(path);
 
     for (const link of relatedLinks) {
       if (!html.includes(canonicalUrl(link.path))) {

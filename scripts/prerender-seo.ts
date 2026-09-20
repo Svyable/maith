@@ -11,7 +11,7 @@ import {
   type RouteSeo,
 } from '../src/config/seo';
 import { REFERENCE_SEO_ROUTES } from './reference-seo-routes';
-import { getReferenceTopicBacklinks, getTopicReferenceCluster } from '../src/config/topic-reference-clusters';
+import { getFieldReferenceCluster, getReferenceTopicBacklinks, getTopicReferenceCluster } from '../src/config/topic-reference-clusters';
 
 function escapeHtml(value: string): string {
   return value
@@ -59,10 +59,13 @@ function replaceRouteSchema(
   seo: RouteSeo,
   breadcrumbs: BreadcrumbItem[],
 ): string {
-  const cluster = getTopicReferenceCluster(pathname);
-  const relatedLinks = cluster
-    ? [...cluster.formulas, ...cluster.glossary, ...cluster.thinkers].map((link) => link.path)
-    : getReferenceTopicBacklinks(pathname).map((link) => link.path);
+  const topicCluster = getTopicReferenceCluster(pathname);
+  const fieldCluster = getFieldReferenceCluster(pathname);
+  const relatedLinks = topicCluster
+    ? [...topicCluster.formulas, ...topicCluster.glossary, ...topicCluster.thinkers].map((link) => link.path)
+    : fieldCluster
+      ? [...fieldCluster.formulas, ...fieldCluster.glossary, ...fieldCluster.thinkers].map((link) => link.path)
+      : getReferenceTopicBacklinks(pathname).map((link) => link.path);
   const schema = buildSeoSchemaData(pathname, seo, breadcrumbs, 'en', relatedLinks);
   const existing = /\s*<script[^>]*id=["']route-seo-schema["'][^>]*>[\s\S]*?<\/script>/i;
   if (!schema) return html.replace(existing, '');
