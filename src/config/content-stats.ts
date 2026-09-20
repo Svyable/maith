@@ -4,7 +4,7 @@ export const CONTENT_COUNTS = {
   "standardQuestions": 1078,
   "vaultQuestions": 64,
   "glossaryTerms": 488,
-  "thinkers": 631,
+  "thinkers": 641,
   "vaultEntries": 74,
   "equations": 480
 } as const;
