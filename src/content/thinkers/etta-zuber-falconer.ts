@@ -34,7 +34,7 @@ export const ettaZuberFalconerQuestions: Question[] = [
     difficulty: 'sota',
     question: 'What best captures Falconer’s long-term institutional impact at Spelman College?',
     options: [
-      'She strengthened mathematics and computing pathways while mentoring generations of Black women in STEM',
+      'She expanded mathematics and computing while mentoring Black women in STEM',
       'She replaced mathematics courses with engineering workshops',
       'She moved the college away from scientific research',
       'She limited advanced mathematics to graduate students',
