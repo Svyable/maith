@@ -1,0 +1,26 @@
+name: Automation generate content stats
+
+on:
+  push:
+    branches:
+      - automation/question-expansion-2
+
+permissions:
+  contents: read
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: 1.4.2
+      - run: bun install --frozen-lockfile
+      - run: bun run generate:content-stats
+      - uses: actions/upload-artifact@v4
+        with:
+          name: generated-content-stats
+          path: |
+            src/config/content-stats.ts
+            docs/content-inventory.json
