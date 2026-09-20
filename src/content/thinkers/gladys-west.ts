@@ -32,7 +32,7 @@ export const gladysWestQuestions: Question[] = [
       'It makes radio waves travel faster',
       'It removes the need for atomic clocks',
       'It forces satellites into circular orbits',
-      'It provides a realistic gravity-based reference for Earth’s shape',
+      'It provides a gravity-based reference surface',
     ],
     correctIndex: 3,
     explanation: 'The geoid represents an equipotential surface of Earth’s gravity field, giving positioning systems a physically meaningful reference for height and shape.',
