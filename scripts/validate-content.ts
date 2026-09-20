@@ -222,6 +222,7 @@ if (misconfiguredPackBoundaries.length) {
   fail(`Question-pack boundary mismatch: ${misconfiguredPackBoundaries.map(({ group }) => group).join(', ')}`);
 }
 
+const registeredStandardQuestions: QuestionLike[] = [];
 const groupTopics = new Map<string, Set<string>>();
 for (const pack of QUESTION_PACKS) {
   const module = await import(`../src/content/${pack.group}/index.ts`) as Record<string, unknown>;
@@ -234,8 +235,19 @@ for (const pack of QUESTION_PACKS) {
     return value as QuestionLike[];
   });
   if (pack.includeInStandardQuiz && questions.length === 0) fail(`Standard question pack ${pack.group} is empty`);
+  if (pack.includeInStandardQuiz) registeredStandardQuestions.push(...questions);
   groupTopics.set(pack.group, new Set(questions.map(({ topic }) => topic)));
 }
+const registeredPackDuplicateIds = duplicates(registeredStandardQuestions.map(({ id }) => id));
+if (registeredPackDuplicateIds.length) {
+  fail(`Duplicate IDs across registered standard packs: ${registeredPackDuplicateIds.join(', ')}`);
+}
+const aggregatorSignatures = allQuestions.map(({ id, topic, difficulty }) => `${id}:${topic}:${difficulty}`).sort();
+const registrySignatures = registeredStandardQuestions.map(({ id, topic, difficulty }) => `${id}:${topic}:${difficulty}`).sort();
+if (JSON.stringify(aggregatorSignatures) !== JSON.stringify(registrySignatures)) {
+  fail('Canonical allQuestions aggregator does not match registered standard packs');
+}
+
 const expectedGroups = QUESTION_PACKS.filter((pack) => pack.includeInStandardQuiz).map((pack) => pack.group);
 const expectedGroupSet = new Set<string>(expectedGroups);
 for (const topic of STANDARD_TOPICS.filter((entry) => entry.available)) {
