@@ -1,0 +1,66 @@
+# Site structure
+
+mAIth keeps route paths, primary navigation, footer navigation, and home discovery destinations in one lightweight registry: `src/config/site-navigation.ts`.
+
+## Canonical navigation
+
+`APP_PATHS` owns internal application paths. Components and content-collection metadata should import those paths instead of repeating string literals.
+
+`SITE_DESTINATIONS` owns the metadata shared by visible destinations: path, emoji, translation keys, and discovery labels. The header, footer, and home discovery grid consume derived arrays from this registry, preserving their intentional ordering while sharing canonical destination metadata.
+
+External products remain explicit in `EXTERNAL_LINKS`; they are never treated as application routes.
+
+## Routing
+
+`src/App.tsx` binds page components to `APP_PATHS`. The router still owns component loading and guards; the navigation registry owns information architecture metadata. This separation avoids importing React page modules into configuration code. The structural suite verifies that every static and dynamic registry entry is actually mounted in `src/App.tsx`, and rejects non-wildcard route string literals there.
+
+Authentication and onboarding routes are registered in `APP_PATHS` even though they are not part of primary navigation. Page-to-page redirects and controls must use these canonical paths rather than repeating route literals.
+
+## Shared page shell
+
+`src/components/layout/SiteShell.tsx` owns the global page chrome: floating background, primary header, and optional footer. Top-level pages keep ownership of their own `<main>` sizing, content, overlays, and state.
+
+Every page in `src/pages` is expected to use `SiteShell` by default. Onboarding and NotFound are the only explicit exemptions because they have specialized boundary behavior; the structural test discovers page files automatically so newly added pages cannot bypass the shell guard by omission.
+
+The quiz, MasterMinds, and Bonafides flows pass their active streak/header state into the shell and can suppress the footer while a session is active. This keeps gameplay behavior local while removing duplicated chrome composition.
+
+## Field hierarchy
+
+`src/config/content-registry.ts` owns topic-to-field membership.
+
+`src/config/fields.ts` owns standard-quiz field presentation only: label, emoji, description, color, availability, and ordering. Its `topics` arrays are derived from selectable entries in `STANDARD_TOPICS`; unavailable aliases, compatibility topics, and Bonafide/professional collections are excluded by construction. No hand-maintained topic membership belongs in the field file.
+
+This means adding or moving a standard topic requires changing its canonical topic metadata once, rather than synchronizing a second list. Professional credentials and course collections belong to the Bonafides surface instead of appearing as empty quiz fields.
+
+## Integrity guard
+
+`src/test/site-structure.test.ts` verifies that:
+
+- visible navigation items point to registered application paths;
+- canonical destination paths are unique;
+- routed content collections resolve through registered `APP_PATHS` entries;
+- dynamic learning/reference route patterns are unique and rooted under canonical application paths;
+- every static and dynamic route registry entry is mounted in `src/App.tsx`;
+- `src/App.tsx` does not introduce non-wildcard route string literals;
+- top-level pages do not hard-code internal navigation paths;
+- every non-exempt page stays behind the shared `SiteShell` boundary, with exemptions verified explicitly;
+- field slugs are unique;
+- every selectable standard topic resolves into exactly one declared field;
+- unavailable compatibility aliases do not leak into field selection;
+- no available standard field is empty.
+
+`.github/workflows/site-integrity.yml` runs the focused `bun run validate:site` structural gate whenever pages, shared chrome, routing, navigation, or field structure change. `.github/workflows/app-ci.yml` owns the full test suite and production build for application code, including `src/App.tsx` and build configuration, so structural changes are compiled once rather than by overlapping workflows.
+
+## Adding a destination
+
+1. Add the route path to `APP_PATHS`.
+2. Add shared presentation metadata to `SITE_DESTINATIONS` when the destination is user-visible.
+3. Add it to the appropriate derived navigation arrays.
+4. Bind the page component to the path in `src/App.tsx`.
+5. Run `bun run validate:site`, `bun run test`, and `bun run build`.
+
+## Adding or moving a field topic
+
+1. Update the topic's `field` in `src/config/content-registry.ts`.
+2. Add field presentation metadata to `src/config/fields.ts` only if the field itself is new.
+3. Run the content validation suite and `bun run validate:site`.

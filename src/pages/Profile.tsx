@@ -3,8 +3,8 @@ import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '@/hooks/useAuth';
 import { useProfile } from '@/hooks/useProfile';
-import { supabase } from '@/integrations/supabase/client';
 import { useThinkerAchievements } from '@/hooks/useThinkerAchievements';
+import { useProfileStats } from '@/hooks/useProfileStats';
 import { TOPIC_MAP } from '@/config/constants';
 import { TopicHeatmap } from '@/components/TopicHeatmap';
 import { FieldStatsBar } from '@/components/FieldStatsBar';
@@ -12,45 +12,13 @@ import { ProfileGamescapeStats } from '@/components/ProfileGamescapeStats';
 import { ThinkerBadgeWall } from '@/components/profile/ThinkerBadgeWall';
 import { useTheme } from '@/hooks/useTheme';
 import { useVaultProgress } from '@/hooks/useVaultProgress';
-import { QuizHeader } from '@/components/QuizHeader';
-import { FloatingBackground } from '@/components/FloatingBackground';
+import { SiteShell } from '@/components/layout/SiteShell';
 import { Pencil, Check, X, Shield } from 'lucide-react';
 import { t } from '@/i18n';
 import { DIFFICULTIES } from '@/config/constants';
 import { Button } from '@/components/ui/button';
 import { getLevel } from '@/config/levels';
-
-interface UserStats {
-  score_total: number;
-  total_answered: number;
-  correct_answered: number;
-  best_streak: number;
-}
-
-interface TopicStat {
-  topic: string;
-  total_answered: number;
-  correct_answered: number;
-}
-
-interface DifficultyStat {
-  difficulty: string;
-  score_total: number;
-  total_answered: number;
-  correct_answered: number;
-  best_streak: number;
-}
-
-interface RecentSession {
-  id: string;
-  created_at: string;
-  difficulty: string;
-  score: number;
-  total_answered: number;
-  correct_answered: number;
-  best_streak: number;
-  topics: string[];
-}
+import { APP_PATHS } from '@/config/site-navigation';
 
 export default function Profile() {
   const { user, loading: authLoading, signOut } = useAuth();
@@ -59,48 +27,23 @@ export default function Profile() {
   const { isDark, toggle: toggleTheme } = useTheme();
   const { totalUnlocked, totalEntries, clearance } = useVaultProgress();
   const { achievements } = useThinkerAchievements();
-  const [stats, setStats] = useState<UserStats | null>(null);
-  const [topicStats, setTopicStats] = useState<TopicStat[]>([]);
-  const [difficultyStats, setDifficultyStats] = useState<DifficultyStat[]>([]);
-  const [recentSessions, setRecentSessions] = useState<RecentSession[]>([]);
-  const [loading, setLoading] = useState(true);
+  const { stats, topicStats, difficultyStats, recentSessions, loading } = useProfileStats(user?.id);
   const [editingName, setEditingName] = useState(false);
   const [editName, setEditName] = useState('');
 
   useEffect(() => {
-    if (authLoading) return;
-    if (!user) { navigate('/auth'); return; }
-
-    async function fetchData() {
-      setLoading(true);
-      const [statsRes, topicRes, diffRes, sessionsRes] = await Promise.all([
-        supabase.from('user_stats').select('*').eq('user_id', user.id).maybeSingle(),
-        supabase.from('user_topic_stats').select('*').eq('user_id', user.id),
-        supabase.from('user_difficulty_stats' as any).select('*').eq('user_id', user.id),
-        supabase.from('quiz_sessions').select('*').eq('user_id', user.id).order('created_at', { ascending: false }).limit(10),
-      ]);
-
-      if (statsRes.data) setStats(statsRes.data as UserStats);
-      if (topicRes.data) setTopicStats(topicRes.data as TopicStat[]);
-      if (diffRes.data) setDifficultyStats(diffRes.data as unknown as DifficultyStat[]);
-      if (sessionsRes.data) setRecentSessions(sessionsRes.data as RecentSession[]);
-      setLoading(false);
-    }
-
-    fetchData();
+    if (!authLoading && !user) navigate(APP_PATHS.auth);
   }, [user, authLoading, navigate]);
 
   const level = useMemo(() => getLevel(stats?.score_total ?? 0), [stats]);
 
-  if (authLoading || loading) {
+  if (authLoading || !user || loading) {
     return (
-      <div className="min-h-screen bg-background flex flex-col relative">
-        <FloatingBackground />
-        <QuizHeader streak={0} showStreak={false} />
+      <SiteShell showFooter={false}>
         <div className="flex-1 flex items-center justify-center">
           <div className="text-muted-foreground animate-pulse">{t('profile.loading')}</div>
         </div>
-      </div>
+      </SiteShell>
     );
   }
 
@@ -109,10 +52,7 @@ export default function Profile() {
   const avatarEmoji = (!avatarUrl || isImageUrl) ? level.emoji : avatarUrl;
 
   return (
-    <div className="min-h-screen bg-background flex flex-col relative">
-      <FloatingBackground />
-      <QuizHeader streak={0} showStreak={false} />
-
+    <SiteShell showFooter={false}>
       <main className="relative z-10 flex-1 px-4 py-6 max-w-lg mx-auto w-full space-y-6">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="space-y-6">
           {/* Profile header */}
@@ -334,6 +274,6 @@ export default function Profile() {
           </Button>
         </motion.div>
       </main>
-    </div>
+    </SiteShell>
   );
 }

@@ -1,4 +1,4 @@
-import { writeFile } from 'node:fs/promises';
+import { readFile, writeFile } from 'node:fs/promises';
 import { allQuestions } from '../src/content/index';
 import { allBonafideQuestions } from '../src/content/bonafides/index';
 import { allThinkerQuestions } from '../src/content/thinkers/index';
@@ -106,6 +106,31 @@ for (const [poolName, questions] of Object.entries(pools)) {
 
     const normalizedOptions = q.options.map(normalizeText);
     const uniqueOptions = new Set(normalizedOptions);
+
+    const correctOptionLength = normalizedOptions[q.correctIndex]?.length ?? 0;
+    const distractorLengths = normalizedOptions
+      .filter((_, index) => index !== q.correctIndex)
+      .map((option) => option.length)
+      .sort((a, b) => a - b);
+    const medianDistractorLength = distractorLengths.length
+      ? distractorLengths[Math.floor(distractorLengths.length / 2)]
+      : 0;
+    if (
+      correctOptionLength >= 16 &&
+      medianDistractorLength > 0 &&
+      correctOptionLength - medianDistractorLength >= 10 &&
+      correctOptionLength >= medianDistractorLength * 1.6
+    ) {
+      add({
+        severity: 'warning',
+        code: 'CORRECT_OPTION_LENGTH_OUTLIER',
+        pool: poolName,
+        questionId: q.id,
+        topic: q.topic,
+        detail: `Correct option length ${correctOptionLength} is conspicuously above distractor median ${medianDistractorLength}`,
+      });
+    }
+
     if (uniqueOptions.size !== normalizedOptions.length) {
       add({ severity: 'error', code: 'DUPLICATE_OPTIONS', pool: poolName, questionId: q.id, topic: q.topic, detail: 'Two or more answer options are identical after normalization' });
     }
@@ -196,6 +221,27 @@ for (const [poolName, questions] of Object.entries(pools)) {
 // Same-topic near duplicates in the standard pool.
 const byTopic = new Map<string, Question[]>();
 for (const q of allQuestions) byTopic.set(q.topic, [...(byTopic.get(q.topic) ?? []), q]);
+
+for (const [topic, questions] of byTopic) {
+  if (questions.length < 8) continue;
+  const positionCounts = [0, 0, 0, 0];
+  for (const question of questions) {
+    if (question.correctIndex >= 0 && question.correctIndex < positionCounts.length) {
+      positionCounts[question.correctIndex] += 1;
+    }
+  }
+  const maxPositionCount = Math.max(...positionCounts);
+  if (maxPositionCount / questions.length >= 0.55) {
+    add({
+      severity: 'warning',
+      code: 'ANSWER_POSITION_BIAS',
+      pool: 'standard',
+      topic,
+      detail: `Correct-answer positions are concentrated: [${positionCounts.join(', ')}] across ${questions.length} questions`,
+    });
+  }
+}
+
 for (const [topic, questions] of byTopic) {
   for (let i = 0; i < questions.length; i += 1) {
     const aTokens = tokens(questions[i].question);
@@ -324,7 +370,7 @@ Do not merge similarly named topics by label alone. Consolidate only when the un
 
 ## Provenance
 
-The Question schema supports optional sources, reviewedAt, and factualAsOf metadata. Existing content is not backfilled automatically: provenance should be added during substantive review so citations are real rather than synthetic.
+The Question schema supports optional \`sources\`, \`reviewedAt\`, and \`factualAsOf\`. Existing content is not backfilled automatically: provenance should be added during substantive review so citations are real rather than synthetic.
 `;
 
 await writeFile(new URL('../docs/content-enhancement-report.md', import.meta.url), markdown);
@@ -334,5 +380,34 @@ for (const issue of issues) {
   console[issue.severity === 'error' ? 'error' : 'warn'](`${label} [${issue.code}] ${issue.pool}${issue.questionId ? ` #${issue.questionId}` : ''}: ${issue.detail}`);
 }
 
+const useBaseline = process.argv.includes('--allow-baseline');
+let allowedErrors = 0;
+
+if (useBaseline) {
+  const baseline = JSON.parse(
+    await readFile(new URL('./content-quality-baseline.json', import.meta.url), 'utf8'),
+  );
+  allowedErrors = baseline.maxErrors;
+
+  if (!Number.isInteger(allowedErrors) || allowedErrors < 0) {
+    console.error('Invalid content-quality baseline: maxErrors must be a non-negative integer.');
+    process.exit(1);
+  }
+}
+
 console.log(`Quality audit: ${report.summary.errors} errors, ${report.summary.warnings} warnings across ${allQuestions.length} standard questions.`);
-if (report.summary.errors > 0) process.exit(1);
+
+if (report.summary.errors > allowedErrors) {
+  console.error(
+    useBaseline
+      ? `Quality audit regression: ${report.summary.errors} errors exceeds baseline ${allowedErrors}.`
+      : `Quality audit failed: ${report.summary.errors} hard errors remain.`,
+  );
+  process.exit(1);
+}
+
+if (useBaseline && report.summary.errors < allowedErrors) {
+  console.warn(
+    `Quality audit improved to ${report.summary.errors} errors; lower baseline from ${allowedErrors}.`,
+  );
+}

@@ -1,3 +1,19 @@
 // ── Quiz Domain — public API ──────────────────────────────────────────
 export type { PublicQuestion, CheckResult, QuizState, QuizConfig, SessionSubmitParams, MissedQuestion, SkippedQuestion } from './types';
-export { fisherYatesShuffle, stripAnswers, buildInitialState, applyAnswer, advanceQuestion, skipCurrentQuestion, endQuiz } from './engine';
+export type { QuizSessionRepository } from './session-repository';
+export {
+  fisherYatesShuffle,
+  getSafeEliminationIndices,
+  getVisibleOptionIndex,
+  toVisibleCheckResult,
+  reshufflePublicQuestion,
+  stripAnswers,
+  buildInitialState,
+  buildRemediationState,
+  applyAnswer,
+  advanceQuestion,
+  skipCurrentQuestion,
+  endQuiz,
+} from './engine';
+
+export { resolveQuizTopics, countAvailableQuizQuestions, getQuizSetupStats } from './setup';

@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "totals": {
-    "questions": 947,
+    "questions": 1106,
     "glossaryTerms": 488,
     "thinkers": 621,
     "vaultEntries": 74,
@@ -434,27 +434,13 @@
       "kind": "standard-quiz",
       "available": true,
       "loaderGroups": [
-        "engineering"
-      ],
-      "counts": {
-        "easy": 2,
-        "hard": 2,
-        "sota": 1,
-        "total": 5
-      }
-    },
-    {
-      "slug": "aerospace",
-      "field": "engineering",
-      "kind": "standard-quiz",
-      "available": true,
-      "loaderGroups": [
+        "engineering",
         "aerospace"
       ],
       "counts": {
-        "easy": 2,
+        "easy": 3,
         "hard": 2,
-        "sota": 2,
+        "sota": 1,
         "total": 6
       }
     },
@@ -512,10 +498,10 @@
         "quant"
       ],
       "counts": {
-        "easy": 1,
-        "hard": 1,
-        "sota": 1,
-        "total": 3
+        "easy": 3,
+        "hard": 3,
+        "sota": 3,
+        "total": 9
       }
     },
     {
@@ -527,10 +513,10 @@
         "computer-science"
       ],
       "counts": {
-        "easy": 1,
-        "hard": 1,
-        "sota": 1,
-        "total": 3
+        "easy": 3,
+        "hard": 3,
+        "sota": 3,
+        "total": 9
       }
     },
     {
@@ -542,10 +528,10 @@
         "earth-space"
       ],
       "counts": {
-        "easy": 1,
-        "hard": 1,
-        "sota": 1,
-        "total": 3
+        "easy": 3,
+        "hard": 3,
+        "sota": 3,
+        "total": 9
       }
     },
     {
@@ -603,10 +589,10 @@
         "engineering"
       ],
       "counts": {
-        "easy": 1,
-        "hard": 1,
-        "sota": 1,
-        "total": 3
+        "easy": 3,
+        "hard": 3,
+        "sota": 3,
+        "total": 9
       }
     },
     {
@@ -678,10 +664,10 @@
         "earth-space"
       ],
       "counts": {
-        "easy": 1,
-        "hard": 1,
-        "sota": 1,
-        "total": 3
+        "easy": 3,
+        "hard": 3,
+        "sota": 3,
+        "total": 9
       }
     },
     {
@@ -765,28 +751,14 @@
       "kind": "standard-quiz",
       "available": true,
       "loaderGroups": [
-        "engineering"
-      ],
-      "counts": {
-        "easy": 1,
-        "hard": 2,
-        "sota": 2,
-        "total": 5
-      }
-    },
-    {
-      "slug": "control-theory",
-      "field": "engineering",
-      "kind": "standard-quiz",
-      "available": true,
-      "loaderGroups": [
+        "engineering",
         "control-theory"
       ],
       "counts": {
-        "easy": 3,
-        "hard": 3,
-        "sota": 3,
-        "total": 9
+        "easy": 4,
+        "hard": 5,
+        "sota": 5,
+        "total": 14
       }
     },
     {
@@ -860,10 +832,10 @@
         "development-economics"
       ],
       "counts": {
-        "easy": 2,
+        "easy": 3,
         "hard": 3,
         "sota": 3,
-        "total": 8
+        "total": 9
       }
     },
     {
@@ -936,10 +908,10 @@
         "biology"
       ],
       "counts": {
-        "easy": 1,
-        "hard": 1,
-        "sota": 1,
-        "total": 3
+        "easy": 3,
+        "hard": 3,
+        "sota": 3,
+        "total": 9
       }
     },
     {
@@ -951,10 +923,10 @@
         "economics"
       ],
       "counts": {
-        "easy": 1,
-        "hard": 1,
-        "sota": 1,
-        "total": 3
+        "easy": 3,
+        "hard": 3,
+        "sota": 3,
+        "total": 9
       }
     },
     {
@@ -981,10 +953,10 @@
         "engineering"
       ],
       "counts": {
-        "easy": 1,
-        "hard": 1,
-        "sota": 1,
-        "total": 3
+        "easy": 3,
+        "hard": 3,
+        "sota": 3,
+        "total": 9
       }
     },
     {
@@ -996,10 +968,10 @@
         "environmental-science"
       ],
       "counts": {
-        "easy": 2,
-        "hard": 2,
-        "sota": 2,
-        "total": 6
+        "easy": 3,
+        "hard": 3,
+        "sota": 3,
+        "total": 9
       }
     },
     {
@@ -1026,10 +998,10 @@
         "quant"
       ],
       "counts": {
-        "easy": 1,
-        "hard": 1,
-        "sota": 1,
-        "total": 3
+        "easy": 3,
+        "hard": 3,
+        "sota": 3,
+        "total": 9
       }
     },
     {
@@ -1087,10 +1059,10 @@
         "game-theory"
       ],
       "counts": {
-        "easy": 2,
-        "hard": 2,
-        "sota": 2,
-        "total": 6
+        "easy": 3,
+        "hard": 3,
+        "sota": 3,
+        "total": 9
       }
     },
     {
@@ -1102,10 +1074,10 @@
         "biology"
       ],
       "counts": {
-        "easy": 1,
-        "hard": 1,
-        "sota": 1,
-        "total": 3
+        "easy": 3,
+        "hard": 3,
+        "sota": 3,
+        "total": 9
       }
     },
     {
@@ -1117,10 +1089,10 @@
         "earth-space"
       ],
       "counts": {
-        "easy": 1,
-        "hard": 1,
-        "sota": 1,
-        "total": 3
+        "easy": 3,
+        "hard": 3,
+        "sota": 3,
+        "total": 9
       }
     },
     {
@@ -1208,10 +1180,10 @@
         "computer-science"
       ],
       "counts": {
-        "easy": 1,
-        "hard": 1,
-        "sota": 1,
-        "total": 3
+        "easy": 3,
+        "hard": 3,
+        "sota": 3,
+        "total": 9
       }
     },
     {
@@ -1223,10 +1195,10 @@
         "economics"
       ],
       "counts": {
-        "easy": 1,
-        "hard": 1,
-        "sota": 1,
-        "total": 3
+        "easy": 3,
+        "hard": 3,
+        "sota": 3,
+        "total": 9
       }
     },
     {
@@ -1268,10 +1240,10 @@
         "engineering"
       ],
       "counts": {
-        "easy": 1,
-        "hard": 1,
-        "sota": 1,
-        "total": 3
+        "easy": 3,
+        "hard": 3,
+        "sota": 3,
+        "total": 9
       }
     },
     {
@@ -1298,10 +1270,10 @@
         "meteorology"
       ],
       "counts": {
-        "easy": 2,
-        "hard": 2,
-        "sota": 1,
-        "total": 5
+        "easy": 3,
+        "hard": 3,
+        "sota": 3,
+        "total": 9
       }
     },
     {
@@ -1313,10 +1285,10 @@
         "economics"
       ],
       "counts": {
-        "easy": 1,
-        "hard": 1,
-        "sota": 1,
-        "total": 3
+        "easy": 3,
+        "hard": 3,
+        "sota": 3,
+        "total": 9
       }
     },
     {
@@ -1328,10 +1300,10 @@
         "biology"
       ],
       "counts": {
-        "easy": 1,
-        "hard": 1,
-        "sota": 1,
-        "total": 3
+        "easy": 3,
+        "hard": 3,
+        "sota": 3,
+        "total": 9
       }
     },
     {
@@ -1344,10 +1316,10 @@
         "vault"
       ],
       "counts": {
-        "easy": 2,
+        "easy": 3,
         "hard": 3,
-        "sota": 2,
-        "total": 7
+        "sota": 3,
+        "total": 9
       }
     },
     {
@@ -1436,10 +1408,10 @@
         "oceanography"
       ],
       "counts": {
-        "easy": 2,
-        "hard": 2,
-        "sota": 2,
-        "total": 6
+        "easy": 3,
+        "hard": 3,
+        "sota": 3,
+        "total": 9
       }
     },
     {
@@ -1493,13 +1465,14 @@
       "kind": "standard-quiz",
       "available": true,
       "loaderGroups": [
-        "engineering"
+        "engineering",
+        "aerospace"
       ],
       "counts": {
-        "easy": 1,
-        "hard": 2,
+        "easy": 2,
+        "hard": 3,
         "sota": 1,
-        "total": 4
+        "total": 6
       }
     },
     {
@@ -1526,10 +1499,10 @@
         "pharmacology"
       ],
       "counts": {
-        "easy": 2,
-        "hard": 2,
-        "sota": 2,
-        "total": 6
+        "easy": 3,
+        "hard": 3,
+        "sota": 3,
+        "total": 9
       }
     },
     {
@@ -1586,10 +1559,10 @@
         "quant"
       ],
       "counts": {
-        "easy": 1,
-        "hard": 1,
-        "sota": 1,
-        "total": 3
+        "easy": 3,
+        "hard": 3,
+        "sota": 3,
+        "total": 9
       }
     },
     {
@@ -1601,10 +1574,10 @@
         "engineering"
       ],
       "counts": {
-        "easy": 1,
-        "hard": 1,
-        "sota": 1,
-        "total": 3
+        "easy": 3,
+        "hard": 3,
+        "sota": 3,
+        "total": 9
       }
     },
     {
@@ -1646,10 +1619,10 @@
         "engineering"
       ],
       "counts": {
-        "easy": 1,
-        "hard": 1,
-        "sota": 1,
-        "total": 3
+        "easy": 3,
+        "hard": 3,
+        "sota": 3,
+        "total": 9
       }
     },
     {
@@ -1677,10 +1650,10 @@
         "vault"
       ],
       "counts": {
-        "easy": 2,
+        "easy": 3,
         "hard": 3,
         "sota": 3,
-        "total": 8
+        "total": 9
       }
     },
     {
@@ -1785,25 +1758,10 @@
         "new-topics"
       ],
       "counts": {
-        "easy": 1,
-        "hard": 1,
-        "sota": 1,
-        "total": 3
-      }
-    },
-    {
-      "slug": "robotics",
-      "field": "engineering",
-      "kind": "standard-quiz",
-      "available": true,
-      "loaderGroups": [
-        "robotics"
-      ],
-      "counts": {
-        "easy": 2,
-        "hard": 2,
-        "sota": 2,
-        "total": 6
+        "easy": 3,
+        "hard": 3,
+        "sota": 3,
+        "total": 9
       }
     },
     {
@@ -1812,13 +1770,14 @@
       "kind": "standard-quiz",
       "available": true,
       "loaderGroups": [
-        "engineering"
+        "engineering",
+        "robotics"
       ],
       "counts": {
-        "easy": 1,
-        "hard": 2,
-        "sota": 2,
-        "total": 5
+        "easy": 3,
+        "hard": 4,
+        "sota": 4,
+        "total": 11
       }
     },
     {
@@ -1830,10 +1789,10 @@
         "engineering"
       ],
       "counts": {
-        "easy": 1,
-        "hard": 1,
-        "sota": 1,
-        "total": 3
+        "easy": 3,
+        "hard": 3,
+        "sota": 3,
+        "total": 9
       }
     },
     {
@@ -1913,6 +1872,21 @@
       }
     },
     {
+      "slug": "spaceflight-systems",
+      "field": "engineering",
+      "kind": "standard-quiz",
+      "available": true,
+      "loaderGroups": [
+        "aerospace"
+      ],
+      "counts": {
+        "easy": 3,
+        "hard": 3,
+        "sota": 3,
+        "total": 9
+      }
+    },
+    {
       "slug": "statistical-physics",
       "field": "physics",
       "kind": "standard-quiz",
@@ -1951,10 +1925,10 @@
         "engineering"
       ],
       "counts": {
-        "easy": 1,
-        "hard": 1,
-        "sota": 0,
-        "total": 2
+        "easy": 3,
+        "hard": 3,
+        "sota": 3,
+        "total": 9
       }
     },
     {

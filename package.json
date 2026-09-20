@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "bun run generate:seo && vite build && bun scripts/prerender-seo.ts",
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
     "preview": "vite preview",
@@ -14,9 +14,16 @@
     "check:locales": "node scripts/check-locales.mjs",
     "generate:content-stats": "bun scripts/generate-content-stats.ts",
     "generate:question-loaders": "bun scripts/generate-question-loaders.ts",
+    "generate:seo": "bun scripts/generate-seo-artifacts.ts",
     "validate:content": "bun scripts/validate-content.ts",
+    "validate:seo": "bun run generate:seo && bun scripts/validate-seo.ts",
+    "validate:prerender": "bun scripts/validate-prerender.ts",
     "audit:quality": "bun scripts/audit-question-quality.ts",
-    "validate:all-content": "bun run validate:content && bun run audit:quality"
+    "validate:all-content": "bun run check:locales && bun run validate:content && bun run audit:quality",
+    "report:locales": "node scripts/report-localization-coverage.mjs",
+    "audit:quality:baseline": "bun scripts/audit-question-quality.ts --allow-baseline",
+    "validate:ci": "bun run check:locales && bun run validate:content && bun run audit:quality:baseline",
+    "validate:site": "vitest run src/test/site-structure.test.ts"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",

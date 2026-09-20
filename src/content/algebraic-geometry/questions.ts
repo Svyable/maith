@@ -89,7 +89,7 @@ export const algebraicGeometryQuestions: Question[] = [
     question: 'A blowup of a surface at a point replaces that point with:',
     options: ['A projective line (exceptional divisor)', 'A circle', 'A point at infinity', 'Nothing — it removes the point'],
     correctIndex: 0,
-    explanation: 'Blowing up replaces a point with $\\mathbb{P}^1$ (or $\\mathbb{P}^{n-1}$ in $n$ dimensions), resolving singularities.',
+    explanation: 'Blowing up a smooth surface at a point replaces that point by an exceptional divisor isomorphic to $\\mathbb{P}^1$, whose points record tangent directions through the original point. Blowups are also a basic operation used in birational geometry and in sequences that resolve singularities.',
     realWorld: 'Resolution of singularities (Hironaka) is fundamental to birational geometry and string theory compactifications.',
     hint: 'Think about replacing a point with all the directions through it.',
   },

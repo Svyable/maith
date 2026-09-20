@@ -4,9 +4,8 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from '@/hooks/useAuth';
 import { t } from '@/i18n';
 import { lovable } from '@/integrations/lovable/index';
-import { QuizHeader } from '@/components/QuizHeader';
-import { FloatingBackground } from '@/components/FloatingBackground';
-import { Footer } from '@/components/Footer';
+import { SiteShell } from '@/components/layout/SiteShell';
+import { APP_PATHS } from '@/config/site-navigation';
 
 export default function Auth() {
   const [mode, setMode] = useState<'login' | 'signup'>('login');
@@ -53,10 +52,7 @@ export default function Auth() {
   };
 
   return (
-    <div className="min-h-screen bg-background flex flex-col relative">
-      <FloatingBackground />
-      <QuizHeader streak={0} showStreak={false} />
-
+    <SiteShell>
       {/* Centered auth card */}
       <div className="relative z-10 flex-1 flex items-center justify-center px-4 py-8">
         <motion.div
@@ -165,16 +161,13 @@ export default function Auth() {
           </form>
 
           <div className="mt-6 text-center">
-            <button onClick={() => navigate('/')} className="text-xs text-muted-foreground hover:text-primary transition-colors font-mono-code">
+            <button onClick={() => navigate(APP_PATHS.home)} className="text-xs text-muted-foreground hover:text-primary transition-colors font-mono-code">
               {'>'} play without account ↩
             </button>
           </div>
         </motion.div>
       </div>
 
-      <div className="relative z-10">
-        <Footer />
-      </div>
-    </div>
+    </SiteShell>
   );
 }

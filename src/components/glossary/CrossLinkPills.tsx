@@ -1,4 +1,14 @@
 import { useNavigate } from 'react-router-dom';
+import {
+  resolveFormulaRouteSlug,
+  resolveThinkerRouteSlug,
+  shouldLinkGlossaryRelatedId,
+} from '@/config/reference-aliases';
+import {
+  buildFormulaPath,
+  buildGlossaryTermPath,
+  buildThinkerPath,
+} from '@/config/site-navigation';
 
 const GEEKTOME_BASE = 'https://geektome.lovable.app/letter';
 
@@ -69,54 +79,60 @@ export function CrossLinkPills({
 }: CrossLinkPillsProps) {
   const navigate = useNavigate();
 
+  const resolvedFormulaLinks = (formulaLinks ?? []).flatMap((reference) => {
+    const slug = resolveFormulaRouteSlug(reference);
+    return slug ? [{ reference, slug }] : [];
+  });
+  const resolvedThinkerLinks = (thinkerLinks ?? []).flatMap((reference) => {
+    const slug = resolveThinkerRouteSlug(reference);
+    return slug ? [{ reference, slug }] : [];
+  });
+  const resolvedGlossaryLinks = (glossaryLinks ?? []).filter(shouldLinkGlossaryRelatedId);
+
   const hasAny =
     (symbolLinks && Object.keys(symbolLinks).length > 0) ||
-    (formulaLinks && formulaLinks.length > 0) ||
-    (thinkerLinks && thinkerLinks.length > 0) ||
-    (glossaryLinks && glossaryLinks.length > 0);
+    resolvedFormulaLinks.length > 0 ||
+    resolvedThinkerLinks.length > 0 ||
+    resolvedGlossaryLinks.length > 0;
 
   if (!hasAny) return null;
 
   return (
     <div className="flex flex-wrap gap-1.5 mt-3">
-      {/* Symbol links → GeekToMe */}
       {symbolLinks &&
         Object.entries(symbolLinks).map(([symbol, slug]) => (
           <Pill
-            key={`sym-${symbol}`}
+            key={'sym-' + symbol}
             emoji="🔤"
             label={symbol}
-            href={`${GEEKTOME_BASE}/${slug}`}
+            href={GEEKTOME_BASE + '/' + slug}
           />
         ))}
 
-      {/* Formula links → /formulas?q= */}
-      {formulaLinks?.map((f) => (
+      {resolvedFormulaLinks.map(({ reference, slug }) => (
         <Pill
-          key={`formula-${f}`}
+          key={'formula-' + reference}
           emoji="📐"
-          label={slugToLabel(f)}
-          onClick={() => navigate(`/formulas?q=${encodeURIComponent(f)}`)}
+          label={slugToLabel(reference)}
+          onClick={() => navigate(buildFormulaPath(slug))}
         />
       ))}
 
-      {/* Thinker links → /masterminds?q= */}
-      {thinkerLinks?.map((t) => (
+      {resolvedThinkerLinks.map(({ reference, slug }) => (
         <Pill
-          key={`thinker-${t}`}
+          key={'thinker-' + reference}
           emoji="🧠"
-          label={slugToLabel(t)}
-          onClick={() => navigate(`/masterminds?q=${encodeURIComponent(t)}`)}
+          label={slugToLabel(reference)}
+          onClick={() => navigate(buildThinkerPath(slug))}
         />
       ))}
 
-      {/* Glossary cross-links → /glossary?term= */}
-      {glossaryLinks?.map((g) => (
+      {resolvedGlossaryLinks.map((reference) => (
         <Pill
-          key={`gloss-${g}`}
+          key={'gloss-' + reference}
           emoji="📖"
-          label={slugToLabel(g)}
-          onClick={() => navigate(`/glossary?term=${encodeURIComponent(g)}`)}
+          label={slugToLabel(reference)}
+          onClick={() => navigate(buildGlossaryTermPath(reference))}
         />
       ))}
     </div>

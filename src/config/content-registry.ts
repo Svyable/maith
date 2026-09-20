@@ -1,5 +1,7 @@
 // Canonical lightweight content registry. Full content stays in source packs.
 
+import { APP_PATHS } from './site-navigation';
+
 export type ContentKind = 'standard-quiz' | 'bonafide' | 'thinker' | 'vault' | 'glossary' | 'formula' | 'editorial' | 'special';
 
 export interface TopicMeta {
@@ -15,6 +17,7 @@ export interface ContentTopicMeta extends TopicMeta {
   available: boolean;
   loaderGroups?: readonly string[];
   canonicalSlug?: string;
+  canonicalSlugs?: readonly string[];
 }
 
 const LEGACY_TOPIC_DEFINITIONS: TopicMeta[] = [
@@ -108,6 +111,7 @@ const LEGACY_TOPIC_DEFINITIONS: TopicMeta[] = [
   { slug: 'process-design',         label: 'Process Design',          emoji: '🏭', description: 'Pinch analysis, PFD/P&ID, Aspen Plus, safety', field: 'engineering' },
   { slug: 'aerodynamics',           label: 'Aerodynamics',            emoji: '✈️', description: 'Lift/drag, Prandtl, CFD, supersonic flow',      field: 'engineering' },
   { slug: 'orbital-mechanics',      label: 'Orbital Mechanics',       emoji: '🛰️', description: 'Hohmann, Lambert, restricted 3-body, TLE',    field: 'engineering' },
+  { slug: 'spaceflight-systems',    label: 'Spaceflight Systems',     emoji: '🚀', description: 'Propulsion, launch vehicles, staging, reusability', field: 'engineering' },
   { slug: 'nuclear-engineering',    label: 'Nuclear Engineering',     emoji: '☢️', description: 'Neutron transport, criticality, Lawson criterion', field: 'engineering' },
   { slug: 'materials-science',      label: 'Materials Science',       emoji: '🔩', description: 'Crystallography, dislocations, alloys, nanomaterials', field: 'engineering' },
   { slug: 'biomedical-engineering',  label: 'Biomedical Engineering', emoji: '🫀', description: 'Biomechanics, imaging, tissue engineering, prosthetics', field: 'engineering' },
@@ -173,18 +177,58 @@ const LEGACY_TOPIC_DEFINITIONS: TopicMeta[] = [
 
 
 const LEGACY_ALIAS_TARGETS: Record<string, string> = {
-  'electrical-engineering': 'circuits-electronics',
-  'mechanical-engineering': 'solid-mechanics',
+  'robotics': 'robotics-mechatronics',
+  'control-theory': 'control-systems',
+};
+
+export const LEGACY_TOPIC_EXPANSIONS: Record<string, readonly string[]> = {
+  'electrical-engineering': [
+    'circuits-electronics',
+    'signal-processing',
+    'control-systems',
+    'communications-coding',
+    'power-systems',
+    'semiconductor-engineering',
+  ],
+  'mechanical-engineering': [
+    'solid-mechanics',
+    'thermofluids',
+    'robotics-mechatronics',
+    'materials-science',
+    'structural-engineering',
+  ],
+  'aerospace': [
+    'aerodynamics',
+    'orbital-mechanics',
+    'spaceflight-systems',
+  ],
 };
 
 const LEGACY_PROFESSIONAL_FIELDS = new Set(["actuarial", "cfa", "cpa", "data-science", "law", "mba", "medical"]);
 
-export const STANDARD_TOPICS: ContentTopicMeta[] = LEGACY_TOPIC_DEFINITIONS.map((topic) => ({
-  ...topic,
-  kind: LEGACY_PROFESSIONAL_FIELDS.has(topic.field) ? 'bonafide' : 'standard-quiz',
-  available: !LEGACY_PROFESSIONAL_FIELDS.has(topic.field) && !LEGACY_ALIAS_TARGETS[topic.slug],
-  ...(LEGACY_ALIAS_TARGETS[topic.slug] ? { canonicalSlug: LEGACY_ALIAS_TARGETS[topic.slug] } : {}),
-}));
+/**
+ * Historical professional/course topic records kept only so old slugs remain
+ * addressable. Canonical Bonafide topics live in src/config/bonafides.ts and
+ * are incorporated by the tooling registry.
+ */
+export const LEGACY_PROFESSIONAL_TOPICS: ContentTopicMeta[] = LEGACY_TOPIC_DEFINITIONS
+  .filter((topic) => LEGACY_PROFESSIONAL_FIELDS.has(topic.field))
+  .map((topic) => ({
+    ...topic,
+    kind: 'bonafide',
+    available: false,
+  }));
+
+/** Canonical standard-quiz topics only. Special and Bonafide content are excluded. */
+export const STANDARD_TOPICS: ContentTopicMeta[] = LEGACY_TOPIC_DEFINITIONS
+  .filter((topic) => !LEGACY_PROFESSIONAL_FIELDS.has(topic.field))
+  .map((topic) => ({
+    ...topic,
+    kind: 'standard-quiz',
+    available: !LEGACY_ALIAS_TARGETS[topic.slug] && !LEGACY_TOPIC_EXPANSIONS[topic.slug],
+    ...(LEGACY_ALIAS_TARGETS[topic.slug] ? { canonicalSlug: LEGACY_ALIAS_TARGETS[topic.slug] } : {}),
+    ...(LEGACY_TOPIC_EXPANSIONS[topic.slug] ? { canonicalSlugs: LEGACY_TOPIC_EXPANSIONS[topic.slug] } : {}),
+  }));
 
 // Question-bearing slugs retained in the standard pool but intentionally hidden from selectors.
 export const HIDDEN_STANDARD_TOPICS: ContentTopicMeta[] = [
@@ -192,7 +236,11 @@ export const HIDDEN_STANDARD_TOPICS: ContentTopicMeta[] = [
   { slug: 'string-theory', label: 'String Theory', emoji: '🧵', description: 'String theory and holographic physics', field: 'physics', kind: 'special', available: false },
 ];
 
-export const CONTENT_TOPICS: ContentTopicMeta[] = [...STANDARD_TOPICS, ...HIDDEN_STANDARD_TOPICS];
+export const CONTENT_TOPICS: ContentTopicMeta[] = [
+  ...STANDARD_TOPICS,
+  ...LEGACY_PROFESSIONAL_TOPICS,
+  ...HIDDEN_STANDARD_TOPICS,
+];
 export const CONTENT_TOPIC_MAP: Record<string, ContentTopicMeta> = Object.fromEntries(CONTENT_TOPICS.map((topic) => [topic.slug, topic]));
 
 /** Selector-compatible topics. Unavailable legacy/special entries remain addressable through CONTENT_TOPIC_MAP. */
@@ -202,15 +250,21 @@ export const TOPIC_MAP: Record<string, TopicMeta> = Object.fromEntries(TOPICS.ma
 export const LEGACY_TOPIC_ALIASES = LEGACY_ALIAS_TARGETS;
 
 export const CONTENT_COLLECTIONS = [
-  { kind: 'standard-quiz', route: '/', isolated: false },
-  { kind: 'bonafide', route: '/bonafides', isolated: true },
-  { kind: 'thinker', route: '/thinkers', isolated: true },
-  { kind: 'vault', route: '/vault', isolated: true },
-  { kind: 'glossary', route: '/glossary', isolated: true },
-  { kind: 'formula', route: '/formulas', isolated: true },
+  { kind: 'standard-quiz', route: APP_PATHS.home, isolated: false },
+  { kind: 'bonafide', route: APP_PATHS.bonafides, isolated: true },
+  { kind: 'thinker', route: APP_PATHS.thinkers, isolated: true },
+  { kind: 'vault', route: APP_PATHS.vault, isolated: true },
+  { kind: 'glossary', route: APP_PATHS.glossary, isolated: true },
+  { kind: 'formula', route: APP_PATHS.formulas, isolated: true },
   { kind: 'editorial', route: null, isolated: true },
 ] as const;
 
 export function resolveTopicSlug(slug: string): string {
   return LEGACY_TOPIC_ALIASES[slug] ?? slug;
+}
+
+export function resolveTopicSlugs(slug: string): string[] {
+  return LEGACY_TOPIC_EXPANSIONS[slug]
+    ? [...LEGACY_TOPIC_EXPANSIONS[slug]]
+    : [resolveTopicSlug(slug)];
 }

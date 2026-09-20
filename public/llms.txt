@@ -1,19 +1,45 @@
 # mAIth
 
-> Interactive learning platform for math, physics, computer science, and AI/ML — gamified quizzes, a curated formula library, glossary flash cards, master-mind profiles, and leaderboards.
+> mAIth is an interactive learning platform for mathematics, physics, computer science, finance, and AI/ML, combining gamified quizzes with reference collections.
 
-mAIth helps learners master technical knowledge through bite-sized quizzes across dozens of fields (mathematics, physics, chemistry, biology, CS, finance, frontier AI). Content is organized by domain and difficulty, cross-linked between formulas, glossary terms, and the thinkers who discovered them.
+Canonical site: https://maith.lovable.app/
 
-## Pages
+mAIth organizes technical learning into topic-based quizzes and supporting reference material. Public collections include formulas, glossary terms, influential thinkers, professional credential practice, a progressive knowledge vault, and a structured practice library.
 
-- [Home](/): Pick topics, difficulty, and start a quiz session.
-- [Master Minds](/thinkers): Legendary thinkers (ancient to contemporary) with question sets per thinker.
-- [Formulas](/formulas): Humanity's greatest equations — ranked, tagged, and explored.
-- [Glossary](/glossary): Flash cards for key terms across every field, with LaTeX and code.
-- [Vault](/vault): Classified secrets — declassified level by level via challenge questions.
-- [Bonafides](/bonafides): Professional certification and credentialing prep (CFA, FRM, CPA, etc.).
-- [Leaderboard](/leaderboard): All-time, weekly, and per-topic rankings.
+## Canonical public pages
 
-## Optional
+- [Home](https://maith.lovable.app/): Choose fields, topics, and difficulty levels and start a quiz.
+- [Practice Library](https://maith.lovable.app/learn): Browse canonical field and topic practice pages with question coverage and direct quiz links.
+- [Glossary](https://maith.lovable.app/glossary): Search technical terms and study definitions with mathematical notation and code where relevant.
+- [Formulas](https://maith.lovable.app/formulas): Browse important equations with discoverers, history, domains, applications, and explanatory context.
+- [Master Minds](https://maith.lovable.app/thinkers): Explore influential mathematicians, scientists, economists, computer scientists, and AI pioneers.
+- [Bonafides](https://maith.lovable.app/bonafides): Practice quantitative professional certification and credential topics.
+- [Vault](https://maith.lovable.app/vault): Explore progressively unlocked STEM and AI knowledge challenges.
+- [Leaderboard](https://maith.lovable.app/leaderboard): View public quiz rankings and scores.
 
-- [Profile](/profile): Personal stats, accuracy heatmap, and recent sessions (requires sign-in).
+## Learning page hierarchy
+
+Canonical standard-practice routes use:
+
+- `/learn/{field-slug}` for field landing pages.
+- `/learn/{field-slug}/{topic-slug}` for focused topic practice pages.
+
+Topic and field pages are generated from the canonical content registry. Thin topic pages remain accessible but are excluded from indexing until their question coverage reaches the configured SEO quality floor.\n\nTopic practice pages also connect to high-confidence formula, glossary, and MasterMinds references. These knowledge-cluster links are derived from canonical topic ownership plus field-aware semantic matching, and only point to indexable reference pages. Reference detail pages reciprocate the strongest of those relationships back to canonical indexable practice topics, forming a bidirectional internal-link graph.
+
+## Reference page hierarchy
+
+Canonical long-form reference routes use:
+
+- `/formulas/{formula-slug}` for individual equations with history, meaning, variables, and applications.
+- `/glossary/{term-id}` for individual technical terms with definitions, examples, notation, code, and cross-links when available.
+- `/thinkers/{thinker-slug}` for individual mathematician, scientist, engineer, economist, and AI-pioneer profiles.
+
+Reference detail pages are generated from the existing canonical formula, glossary, and thinker registries. Pages that do not meet the configured content-depth thresholds remain accessible but are excluded from search indexing.
+
+## Content organization
+
+Quiz content is grouped by field, topic, and difficulty. Reference content is kept in dedicated collections rather than mixed into ordinary quiz taxonomy. Search query parameters on glossary and formula pages are filters; the canonical pages are the clean URLs listed above.
+
+## Non-canonical utility pages
+
+Authentication, onboarding, personal profile, and unknown routes are utility pages and are not intended for search indexing.

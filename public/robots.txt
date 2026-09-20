@@ -1,18 +1,4 @@
 User-agent: *
 Allow: /
-Disallow: /auth
-Disallow: /onboarding
-
-User-agent: Googlebot
-Allow: /
-
-User-agent: Bingbot
-Allow: /
-
-User-agent: Twitterbot
-Allow: /
-
-User-agent: facebookexternalhit
-Allow: /
 
 Sitemap: https://maith.lovable.app/sitemap.xml

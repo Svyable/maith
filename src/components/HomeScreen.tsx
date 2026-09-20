@@ -9,8 +9,10 @@ import { SearchFilter } from "./SearchFilter";
 import { StatsShowcase } from "./StatsShowcase";
 import { Button } from "./ui/button";
 import { type Difficulty, DIFFICULTIES, TOPIC_MAP, TOPICS } from "@/config/constants";
-import { FIELD_MAP } from "@/config/fields";
-import { CONTENT_COUNTS, QUESTION_COUNTS } from "@/config/content-stats";
+import { QUIZ_FIELD_MAP } from "@/config/fields";
+import { CONTENT_COUNTS } from "@/config/content-stats";
+import { getQuizSetupStats } from "@/domain/quiz";
+import { DISCOVERY_NAV_ITEMS, EXTERNAL_LINKS } from "@/config/site-navigation";
 import { t } from "@/i18n";
 import { useMemo, useState } from "react";
 
@@ -21,44 +23,35 @@ interface HomeScreenProps {
   onToggleDifficulty: (d: Difficulty) => void;
   selectedField: string;
   onSelectField: (slug: string) => void;
+  onUseAllTopics: () => void;
   onStart: () => void;
   displayName?: string | null;
   onSignOut?: () => void;
 }
 
-const DISCOVERY_ITEMS = [
-  { path: "/thinkers", title: "home.masterMinds", subtitle: "home.masterMindsSub", emoji: "🗿" },
-  { path: "/formulas", title: "home.formulas", subtitle: "home.formulasSub", emoji: "📜" },
-  { path: "/glossary", title: "home.glossary", subtitle: "home.glossarySub", emoji: "📖" },
-  { path: "/bonafides", title: "home.bonafides", subtitle: "home.bonafidesSub", emoji: "🪪" },
-  { path: "/vault", title: "home.vault", subtitle: "home.vaultSub", emoji: "🔐" },
-] as const;
-
-export function HomeScreen({ selectedTopics, onToggleTopic, selectedDifficulties, onToggleDifficulty, selectedField, onSelectField, onStart, displayName, onSignOut }: HomeScreenProps) {
+export function HomeScreen({ selectedTopics, onToggleTopic, selectedDifficulties, onToggleDifficulty, selectedField, onSelectField, onUseAllTopics, onStart, displayName, onSignOut }: HomeScreenProps) {
   const navigate = useNavigate();
   const [topicSearch, setTopicSearch] = useState("");
+  const alphabet = EXTERNAL_LINKS.alphabet;
 
   const handleSelectField = (slug: string) => {
     onSelectField(slug);
-    selectedTopics.forEach((topic) => onToggleTopic(topic));
+    onUseAllTopics();
+    setTopicSearch("");
   };
 
-  const fieldTopics = useMemo<string[] | undefined>(() => selectedField === "all" ? undefined : FIELD_MAP[selectedField]?.topics, [selectedField]);
-  const questionCount = useMemo(() => {
-    const topics = selectedTopics.length > 0
-      ? selectedTopics
-      : fieldTopics ?? Object.keys(QUESTION_COUNTS);
-    return topics.reduce((total, topic) => {
-      const counts = QUESTION_COUNTS[topic as keyof typeof QUESTION_COUNTS];
-      if (!counts) return total;
-      return total + selectedDifficulties.reduce((sum, difficulty) =>
-        sum + counts[difficulty.toLowerCase() as 'easy' | 'hard' | 'sota'], 0);
-    }, 0);
-  }, [selectedTopics, selectedDifficulties, fieldTopics]);
+  const fieldTopics = useMemo<string[] | undefined>(
+    () => selectedField === "all" ? undefined : QUIZ_FIELD_MAP[selectedField]?.topics,
+    [selectedField],
+  );
+  const setupStats = useMemo(
+    () => getQuizSetupStats(selectedTopics, selectedField, selectedDifficulties),
+    [selectedTopics, selectedField, selectedDifficulties],
+  );
 
   const summaryTopics = selectedTopics.length > 0
     ? selectedTopics.map((topic) => TOPIC_MAP[topic]?.label ?? topic).join(", ")
-    : selectedField !== "all" ? FIELD_MAP[selectedField]?.label ?? t("home.allTopics") : t("home.allTopics");
+    : selectedField !== "all" ? QUIZ_FIELD_MAP[selectedField]?.label ?? t("home.allTopics") : t("home.allTopics");
   const summaryDifficulty = selectedDifficulties.map((difficulty) => t(DIFFICULTIES.find((item) => item.slug === difficulty)?.tagKey ?? difficulty)).join(" + ");
 
   return (
@@ -91,13 +84,30 @@ export function HomeScreen({ selectedTopics, onToggleTopic, selectedDifficulties
         </div>
 
         <SearchFilter value={topicSearch} onChange={setTopicSearch} placeholder={t("home.searchTopics")} resultLabel={t("stats.topics")} />
-        <TopicSelector selected={selectedTopics} onToggle={onToggleTopic} fieldFilter={fieldTopics} searchFilter={topicSearch} />
+        <TopicSelector
+          selected={selectedTopics}
+          onToggle={onToggleTopic}
+          fieldFilter={fieldTopics}
+          searchFilter={topicSearch}
+          selectedDifficulties={selectedDifficulties}
+          onUseAll={onUseAllTopics}
+        />
 
         <div className="sticky bottom-3 z-20 rounded-lg border border-primary/30 bg-card/95 p-3 shadow-lg backdrop-blur">
-          <p className="mb-3 line-clamp-2 text-center text-xs text-muted-foreground">
-            {t("home.summary", { topics: summaryTopics, diff: summaryDifficulty, count: questionCount, time: 30 })}
+          <p className="line-clamp-2 text-center text-xs text-muted-foreground">
+            {t("home.summary", { topics: summaryTopics, diff: summaryDifficulty, count: setupStats.roundCount, time: 30 })}
           </p>
-          <Button size="lg" onClick={onStart} className="h-14 w-full text-lg font-bold glow-primary">
+          <p className={`mt-1 text-center text-[11px] ${setupStats.canStart ? "text-muted-foreground/70" : "font-semibold text-destructive"}`}>
+            {setupStats.canStart
+              ? t("quiz.questionCount", { count: setupStats.availableCount })
+              : t("home.noQuestions")}
+          </p>
+          <Button
+            size="lg"
+            onClick={onStart}
+            disabled={!setupStats.canStart}
+            className="mt-3 h-14 w-full text-lg font-bold glow-primary"
+          >
             {t("home.startQuiz")}
           </Button>
         </div>
@@ -109,17 +119,17 @@ export function HomeScreen({ selectedTopics, onToggleTopic, selectedDifficulties
           <p className="text-sm text-muted-foreground">{t("home.discoverSub")}</p>
         </div>
         <div className="grid gap-2 sm:grid-cols-2">
-          {DISCOVERY_ITEMS.map((item) => (
-            <Button key={item.path} variant="outline" onClick={() => navigate(item.path)} className="h-auto min-h-20 justify-start whitespace-normal p-3 text-left">
+          {DISCOVERY_NAV_ITEMS.map((item) => (
+            <Button key={item.id} variant="outline" onClick={() => navigate(item.path)} className="h-auto min-h-20 justify-start whitespace-normal p-3 text-left">
               <span className="text-2xl" aria-hidden="true">{item.emoji}</span>
-              <span className="min-w-0 flex-1"><span className="block font-bold">{t(item.title)}</span><span className="line-clamp-1 text-xs font-normal text-muted-foreground">{t(item.subtitle, item.title === "home.masterMinds" ? { count: CONTENT_COUNTS.thinkers } : undefined)}</span></span>
+              <span className="min-w-0 flex-1"><span className="block font-bold">{t(item.titleKey)}</span><span className="line-clamp-1 text-xs font-normal text-muted-foreground">{t(item.subtitleKey, item.id === "thinkers" ? { count: CONTENT_COUNTS.thinkers } : undefined)}</span></span>
               <span aria-hidden="true">→</span>
             </Button>
           ))}
           <Button variant="outline" asChild className="h-auto min-h-20 justify-start whitespace-normal p-3 text-left">
-            <a href="https://geektome.lovable.app" target="_blank" rel="noopener noreferrer">
-              <span className="text-2xl" aria-hidden="true">🔤</span>
-              <span className="min-w-0 flex-1"><span className="block font-bold">{t("home.alphabet")}</span><span className="line-clamp-1 text-xs font-normal text-muted-foreground">{t("home.alphabetSub")}</span></span>
+            <a href={alphabet.url} target="_blank" rel="noopener noreferrer">
+              <span className="text-2xl" aria-hidden="true">{alphabet.emoji}</span>
+              <span className="min-w-0 flex-1"><span className="block font-bold">{t(alphabet.discoveryTitleKey)}</span><span className="line-clamp-1 text-xs font-normal text-muted-foreground">{t(alphabet.discoverySubtitleKey)}</span></span>
               <ExternalLink className="h-4 w-4" aria-hidden="true" />
             </a>
           </Button>

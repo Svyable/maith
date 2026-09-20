@@ -1,151 +1,147 @@
-// ── Vault unlock progress — DB-backed when logged in, localStorage fallback ──
-import { useState, useCallback, useEffect, useRef } from 'react';
+// ── Vault unlock progress — orchestration over injected persistence ports ──
+import { useState, useCallback, useEffect } from 'react';
 import { VAULT_ENTRIES } from '@/config/vault';
 import { vaultQuestions } from '@/content/vault';
-import { supabase } from '@/integrations/supabase/client';
 import { useAuth } from '@/hooks/useAuth';
 import type { Question } from '@/content/types';
+import type {
+  VaultProgressRepository,
+  VaultProgressStore,
+} from '@/domain/vault/repository';
+import {
+  getClearanceLevel,
+  mergeUnlockedIds,
+  missingUnlockedIds,
+} from '@/domain/vault/progress';
+import { supabaseVaultProgressRepository } from '@/integrations/supabase/vault-progress-repository';
+import { browserVaultProgressStore } from '@/integrations/browser/vault-progress-store';
 
-const STORAGE_KEY = 'vault_unlocked_ids';
+export { getClearanceLevel } from '@/domain/vault/progress';
 
-/** Map each vault entry to its designated quiz question (by index) */
+const VAULT_ENTRY_IDS = VAULT_ENTRIES.map((entry) => entry.id);
+
+/** Map each vault entry to its designated quiz question (by index). */
 function getQuestionForEntry(entryIndex: number): Question | null {
   return vaultQuestions[entryIndex] ?? null;
 }
 
-/** Clearance level based on unlocked count */
-const CLEARANCE_LEVELS = [
-  { min: 0, label: 'Uncleared', emoji: '🔒', tier: 0 },
-  { min: 1, label: 'Confidential', emoji: '📋', tier: 1 },
-  { min: 5, label: 'Secret', emoji: '🔑', tier: 2 },
-  { min: 10, label: 'Top Secret', emoji: '🛡️', tier: 3 },
-  { min: 20, label: 'TS/SCI', emoji: '⚡', tier: 4 },
-  { min: 30, label: 'Cosmic Top Secret', emoji: '🌌', tier: 5 },
-  { min: 40, label: 'Ultra', emoji: '👁️', tier: 6 },
-];
-
-export function getClearanceLevel(unlocked: number) {
-  let current = CLEARANCE_LEVELS[0];
-  for (let i = CLEARANCE_LEVELS.length - 1; i >= 0; i--) {
-    if (unlocked >= CLEARANCE_LEVELS[i].min) {
-      current = CLEARANCE_LEVELS[i];
-      break;
-    }
-  }
-  const nextLevel = CLEARANCE_LEVELS.find((l) => l.min > unlocked);
-  return { ...current, next: nextLevel ?? null };
-}
-
-export function useVaultProgress() {
+export function useVaultProgress(
+  remoteRepository: VaultProgressRepository = supabaseVaultProgressRepository,
+  localStore: VaultProgressStore = browserVaultProgressStore,
+) {
   const { user } = useAuth();
-  const [unlockedIds, setUnlockedIds] = useState<Set<string>>(new Set());
-  const [dbLoaded, setDbLoaded] = useState(false);
-  const syncingRef = useRef(false);
+  const initialEntryId = VAULT_ENTRIES[0]?.id ?? '';
+  const [unlockedIds, setUnlockedIds] = useState<Set<string>>(
+    () => new Set(initialEntryId ? [initialEntryId] : []),
+  );
+  const [loaded, setLoaded] = useState(false);
 
-  // Load from DB or localStorage
   useEffect(() => {
-    if (user) {
-      supabase
-        .from('user_vault_progress')
-        .select('entry_id')
-        .eq('user_id', user.id)
-        .then(({ data, error }) => {
-          if (error) {
-            console.error('[vault] Failed to load progress:', error.message);
-          }
-          const ids = new Set<string>((data ?? []).map((r) => r.entry_id));
-          // Always include first entry
-          if (VAULT_ENTRIES[0]) ids.add(VAULT_ENTRIES[0].id);
-          setUnlockedIds(ids);
-          setDbLoaded(true);
-        });
-    } else {
+    let active = true;
+    const localIds = localStore.load();
+
+    if (!user) {
+      const merged = mergeUnlockedIds([], localIds, initialEntryId, VAULT_ENTRY_IDS);
+      setUnlockedIds(new Set(merged));
+      localStore.save(merged);
+      setLoaded(true);
+
+      return () => {
+        active = false;
+      };
+    }
+
+    setLoaded(false);
+
+    async function hydrate() {
+      let remoteIds: string[] = [];
+
       try {
-        const raw = localStorage.getItem(STORAGE_KEY);
-        if (raw) {
-          setUnlockedIds(new Set(JSON.parse(raw) as string[]));
-        } else {
-          setUnlockedIds(new Set([VAULT_ENTRIES[0]?.id ?? '']));
-        }
-      } catch {
-        setUnlockedIds(new Set([VAULT_ENTRIES[0]?.id ?? '']));
+        remoteIds = await remoteRepository.load(user.id);
+      } catch (error) {
+        console.error(
+          '[vault] Failed to load progress:',
+          error instanceof Error ? error.message : error,
+        );
       }
-      setDbLoaded(true);
-    }
-  }, [user]);
 
-  // Persist to localStorage as fallback
-  useEffect(() => {
-    if (dbLoaded) {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify([...unlockedIds]));
-    }
-  }, [unlockedIds, dbLoaded]);
+      const merged = mergeUnlockedIds(remoteIds, localIds, initialEntryId, VAULT_ENTRY_IDS);
+      const missingRemote = missingUnlockedIds(remoteIds, merged);
 
-  // Sync localStorage entries to DB on first login
-  useEffect(() => {
-    if (!user || !dbLoaded || syncingRef.current) return;
-    syncingRef.current = true;
-    try {
-      const raw = localStorage.getItem(STORAGE_KEY);
-      if (raw) {
-        const localIds = JSON.parse(raw) as string[];
-        const newIds = localIds.filter((id) => !unlockedIds.has(id));
-        if (newIds.length > 0) {
-          const rows = newIds.map((entry_id) => ({ user_id: user.id, entry_id }));
-          supabase.from('user_vault_progress').upsert(rows).then(({ error }) => {
-            if (error) console.error('[vault] Sync failed:', error.message);
-            else {
-              setUnlockedIds((prev) => {
-                const next = new Set(prev);
-                newIds.forEach((id) => next.add(id));
-                return next;
-              });
-            }
-          });
+      if (missingRemote.length > 0) {
+        try {
+          await remoteRepository.unlockMany(user.id, missingRemote);
+        } catch (error) {
+          console.error(
+            '[vault] Failed to sync local progress:',
+            error instanceof Error ? error.message : error,
+          );
         }
       }
-    } catch { /* ignore */ }
-  }, [user, dbLoaded]);
+
+      if (!active) return;
+      setUnlockedIds(new Set(merged));
+      localStore.save(merged);
+      setLoaded(true);
+    }
+
+    void hydrate();
+
+    return () => {
+      active = false;
+    };
+  }, [initialEntryId, localStore, remoteRepository, user]);
+
+  useEffect(() => {
+    if (loaded) localStore.save([...unlockedIds]);
+  }, [loaded, localStore, unlockedIds]);
 
   const isUnlocked = useCallback((id: string) => unlockedIds.has(id), [unlockedIds]);
 
   const unlockEntry = useCallback((id: string) => {
+    if (!id) return;
+
     setUnlockedIds((prev) => {
+      if (prev.has(id)) return prev;
       const next = new Set(prev);
       next.add(id);
       return next;
     });
+
     if (user) {
-      supabase
-        .from('user_vault_progress')
-        .upsert({ user_id: user.id, entry_id: id }, { onConflict: 'user_id,entry_id' })
-        .then(({ error }) => {
-          if (error) console.error('[vault] Failed to persist unlock:', error.message);
-        });
+      void remoteRepository.unlock(user.id, id).catch((error: unknown) => {
+        console.error(
+          '[vault] Failed to persist unlock:',
+          error instanceof Error ? error.message : error,
+        );
+      });
     }
-  }, [user]);
+  }, [remoteRepository, user]);
 
   const unlockNext = useCallback((currentId: string) => {
-    const idx = VAULT_ENTRIES.findIndex((e) => e.id === currentId);
-    const next = VAULT_ENTRIES[idx + 1];
+    const index = VAULT_ENTRIES.findIndex((entry) => entry.id === currentId);
+    const next = VAULT_ENTRIES[index + 1];
     if (next) unlockEntry(next.id);
   }, [unlockEntry]);
 
   const resetProgress = useCallback(() => {
-    const initial = new Set([VAULT_ENTRIES[0]?.id ?? '']);
-    setUnlockedIds(initial);
+    const initial = initialEntryId ? [initialEntryId] : [];
+    setUnlockedIds(new Set(initial));
+    localStore.save(initial);
+
     if (user) {
-      supabase
-        .from('user_vault_progress')
-        .delete()
-        .eq('user_id', user.id)
-        .neq('entry_id', VAULT_ENTRIES[0]?.id ?? '')
-        .then(() => {});
+      void remoteRepository.reset(user.id, initialEntryId).catch((error: unknown) => {
+        console.error(
+          '[vault] Failed to reset progress:',
+          error instanceof Error ? error.message : error,
+        );
+      });
     }
-  }, [user]);
+  }, [initialEntryId, localStore, remoteRepository, user]);
 
   const totalUnlocked = unlockedIds.size;
   const totalEntries = VAULT_ENTRIES.length;
+  const totalChallenges = vaultQuestions.length;
   const clearance = getClearanceLevel(totalUnlocked);
 
   return {
@@ -155,6 +151,7 @@ export function useVaultProgress() {
     resetProgress,
     totalUnlocked,
     totalEntries,
+    totalChallenges,
     clearance,
     getQuestionForEntry,
   };

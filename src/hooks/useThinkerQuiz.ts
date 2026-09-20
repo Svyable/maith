@@ -6,6 +6,8 @@ import { toQuestionDifficulty, type Difficulty } from '@/config/constants';
 import {
   buildInitialState,
   applyAnswer,
+  getVisibleOptionIndex,
+  toVisibleCheckResult,
   advanceQuestion,
   skipCurrentQuestion,
   endQuiz as endQuizEngine,
@@ -13,7 +15,7 @@ import {
   type PublicQuestion,
   type CheckResult,
 } from '@/domain/quiz';
-import { fetchThinkerQuestions, checkThinkerAnswer } from '@/domain/quiz/thinker-service';
+import { fetchThinkerQuestions, checkThinkerAnswer, getThinkerEliminatedOptions } from '@/domain/quiz/thinker-service';
 
 export type { PublicQuestion, CheckResult };
 
@@ -46,11 +48,18 @@ export function useThinkerQuiz(difficulties: Difficulty[] = ['HARD']) {
       if (!currentQuestion) return null;
       const result = checkThinkerAnswer(currentQuestion.id, optionIndex);
       if (!result) return null;
-      setState((prev) => applyAnswer(prev, result, currentQuestion, optionIndex));
+      const visibleIndex = getVisibleOptionIndex(optionIndex, currentQuestion.originalIndices);
+      const reviewResult = toVisibleCheckResult(result, currentQuestion.originalIndices);
+      setState((prev) => applyAnswer(prev, reviewResult, currentQuestion, visibleIndex));
       return result;
     },
     [currentQuestion],
   );
+
+  const eliminateOptions = useCallback((): number[] => {
+    if (!currentQuestion) return [];
+    return getThinkerEliminatedOptions(currentQuestion.id, currentQuestion.originalIndices);
+  }, [currentQuestion]);
 
   const nextQuestion = useCallback(() => {
     setState(advanceQuestion);
@@ -73,6 +82,7 @@ export function useThinkerQuiz(difficulties: Difficulty[] = ['HARD']) {
     currentQuestion,
     startThinker,
     answer,
+    eliminateOptions,
     nextQuestion,
     skipQuestion,
     endQuiz,

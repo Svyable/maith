@@ -1,16 +1,17 @@
 import { useState, useCallback, useEffect, useRef, lazy, Suspense } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
-import { QuizHeader } from '@/components/QuizHeader';
-import { Footer } from '@/components/Footer';
-import { FloatingBackground } from '@/components/FloatingBackground';
+import { SiteShell } from '@/components/layout/SiteShell';
 import { HomeScreen } from '@/components/HomeScreen';
 import { useQuiz } from '@/hooks/useQuiz';
 import { useQuizSession } from '@/hooks/useQuizSession';
 
 import { useAuth } from '@/hooks/useAuth';
 import { useProfile } from '@/hooks/useProfile';
-import { type Difficulty, DEFAULT_DIFFICULTIES } from '@/config/constants';
-import { FIELD_MAP } from '@/config/fields';
+import { type Difficulty, DEFAULT_DIFFICULTIES, TOPIC_MAP } from '@/config/constants';
+import { resolveTopicSlugs } from '@/config/content-registry';
+import { QUIZ_FIELD_MAP } from '@/config/fields';
+import { resolveQuizTopics } from '@/domain/quiz';
 import { t } from '@/i18n';
 import { Button } from '@/components/ui/button';
 
@@ -19,16 +20,36 @@ type Screen = 'home' | 'quiz' | 'results';
 const QuizScreen = lazy(() => import('@/components/QuizScreen').then((module) => ({ default: module.QuizScreen })));
 const QuizResults = lazy(() => import('@/components/QuizResults').then((module) => ({ default: module.QuizResults })));
 
+function isStandardField(slug: string | null): slug is string {
+  if (!slug) return false;
+  return Boolean(QUIZ_FIELD_MAP[slug]);
+}
+
+function resolveRequestedTopics(slug: string | null): string[] {
+  if (!slug) return [];
+  return resolveTopicSlugs(slug).filter((topic) => Boolean(TOPIC_MAP[topic]));
+}
+
 const Index = () => {
+  const [searchParams] = useSearchParams();
+  const requestedTopic = searchParams.get('topic');
+  const requestedField = searchParams.get('field');
+  const validRequestedTopics = resolveRequestedTopics(requestedTopic);
+  const requestedTopicField = validRequestedTopics.length > 0
+    ? TOPIC_MAP[validRequestedTopics[0]].field
+    : null;
+  const initialField = requestedTopicField
+    ?? (isStandardField(requestedField) ? requestedField : 'all');
+
   const [screen, setScreen] = useState<Screen>('home');
-  const [selectedTopics, setSelectedTopics] = useState<string[]>([]);
-  const [selectedField, setSelectedField] = useState<string>('all');
+  const [selectedTopics, setSelectedTopics] = useState<string[]>(() => validRequestedTopics);
+  const [selectedField, setSelectedField] = useState<string>(initialField);
   const [selectedDifficulties, setSelectedDifficulties] = useState<Difficulty[]>(DEFAULT_DIFFICULTIES);
   
   const { user, signOut } = useAuth();
   const { profile } = useProfile();
 
-  const { state, currentQuestion, answer, nextQuestion, skipQuestion, endQuiz, restartQuiz, totalQuestions } =
+  const { state, currentQuestion, answer, eliminateOptions, nextQuestion, skipQuestion, endQuiz, restartQuiz, practiceUnresolved, totalQuestions } =
     useQuiz(selectedTopics, selectedDifficulties);
 
   // Ref to trigger timeout auto-answer from within QuizScreen
@@ -38,21 +59,38 @@ const Index = () => {
     timeoutRef.current?.();
   }, []);
 
+  const currentQuestionResolved = currentQuestion
+    ? state.answeredIds.includes(currentQuestion.id)
+    : false;
+
   const {
     timeLeft, fraction,
     resetTimer, resetSession,
     handleSessionUpdate,
   } = useQuizSession({
     difficulties: selectedDifficulties,
-    isQuizActive: screen === 'quiz',
+    isQuizActive: screen === 'quiz' && !currentQuestionResolved,
     quizState: state,
     sessionTag: 'quiz',
     topics: selectedTopics,
     onTimeout: handleTimeout,
   });
 
+  useEffect(() => {
+    const nextTopics = resolveRequestedTopics(requestedTopic);
+    if (nextTopics.length > 0) {
+      setSelectedTopics(nextTopics);
+      setSelectedField(TOPIC_MAP[nextTopics[0]].field);
+      setScreen('home');
+      return;
+    }
 
-
+    if (isStandardField(requestedField)) {
+      setSelectedTopics([]);
+      setSelectedField(requestedField);
+      setScreen('home');
+    }
+  }, [requestedTopic, requestedField]);
 
   const handleNext = useCallback(() => {
     nextQuestion();
@@ -68,6 +106,13 @@ const Index = () => {
     endQuiz();
   }, [endQuiz]);
 
+  const handlePracticeUnresolved = useCallback(() => {
+    if (state.missedQuestions.length === 0 && state.skippedQuestions.length === 0) return;
+    resetSession();
+    practiceUnresolved();
+    setScreen('quiz');
+  }, [practiceUnresolved, resetSession, state.missedQuestions.length, state.skippedQuestions.length]);
+
   useEffect(() => {
     if (state.isFinished && screen === 'quiz') {
       setScreen('results');
@@ -75,11 +120,7 @@ const Index = () => {
   }, [state.isFinished, screen]);
 
   const startQuiz = useCallback(() => {
-    const effectiveTopics = selectedTopics.length > 0
-      ? selectedTopics
-      : selectedField !== 'all'
-        ? (FIELD_MAP[selectedField]?.topics ?? [])
-        : [];
+    const effectiveTopics = resolveQuizTopics(selectedTopics, selectedField);
     resetSession();
     setScreen('quiz');
     restartQuiz(effectiveTopics, selectedDifficulties);
@@ -89,6 +130,10 @@ const Index = () => {
     setSelectedTopics((prev) =>
       prev.includes(topic) ? prev.filter((t) => t !== topic) : [...prev, topic]
     );
+  }, []);
+
+  const useAllTopics = useCallback(() => {
+    setSelectedTopics([]);
   }, []);
 
   const toggleDifficulty = useCallback((d: Difficulty) => {
@@ -102,13 +147,7 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-background flex flex-col relative">
-      <FloatingBackground />
-      <QuizHeader
-        streak={state.streak}
-        showStreak={screen === 'quiz'}
-      />
-
+    <SiteShell streak={state.streak} showStreak={screen === 'quiz'} showFooter={screen === 'home'}>
       <main className="relative z-10 flex-1 px-4 py-6 max-w-lg md:max-w-3xl lg:max-w-5xl mx-auto w-full">
         <Suspense fallback={<div className="min-h-48" aria-hidden="true" />}>
         <AnimatePresence mode="wait">
@@ -120,6 +159,7 @@ const Index = () => {
               onToggleDifficulty={toggleDifficulty}
               selectedField={selectedField}
               onSelectField={setSelectedField}
+              onUseAllTopics={useAllTopics}
               onStart={startQuiz}
               displayName={profile?.display_name ?? null}
               onSignOut={user ? signOut : undefined}
@@ -169,6 +209,7 @@ const Index = () => {
                 timerFraction={fraction}
                 timeLeft={timeLeft}
                 onAnswer={answer}
+                onEliminate={eliminateOptions}
                 onNext={handleNext}
                 onSkip={handleSkip}
                 onEndQuiz={handleEndQuiz}
@@ -191,6 +232,7 @@ const Index = () => {
                 missedQuestions={state.missedQuestions}
                 skippedQuestions={state.skippedQuestions}
                 onRestart={startQuiz}
+                onPracticeUnresolved={handlePracticeUnresolved}
                 onNewTopics={() => setScreen('home')}
               />
             </div>
@@ -199,8 +241,7 @@ const Index = () => {
         </Suspense>
       </main>
 
-      {screen === 'home' && <Footer />}
-    </div>
+    </SiteShell>
   );
 };
 

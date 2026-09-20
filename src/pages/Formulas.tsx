@@ -1,200 +1,38 @@
-import { useState, useMemo, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { useEffect, useMemo, useState } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
 import { useSearchParams } from 'react-router-dom';
-import { QuizHeader } from '@/components/QuizHeader';
-import { FloatingBackground } from '@/components/FloatingBackground';
-import { Footer } from '@/components/Footer';
+import { EquationCard } from '@/components/formulas/EquationCard';
+import {
+  FORMULA_DIFFICULTY_STYLES,
+  getFormulaDifficultyLabel,
+} from '@/components/formulas/formula-display';
 import { SearchFilter } from '@/components/SearchFilter';
-import { LatexRenderer } from '@/components/LatexRenderer';
-
-import { EQUATIONS, EQUATION_DOMAINS, type Equation, type Domain } from '@/config/equations';
-import { Badge } from '@/components/ui/badge';
+import { SiteShell } from '@/components/layout/SiteShell';
+import {
+  EQUATIONS,
+  EQUATION_DOMAINS,
+  type Difficulty,
+} from '@/config/equations';
+import {
+  countFormulaDifficulties,
+  filterAndSortEquations,
+  getFormulaCatalogStats,
+  type FormulaSortKey,
+  type FormulaSpecialFilter,
+} from '@/domain/formulas/catalog';
 import { t } from '@/i18n';
 
-type SortKey = 'rank' | 'beauty' | 'year' | 'name';
+const CATALOG_STATS = getFormulaCatalogStats(EQUATIONS);
 
-const DIFFICULTY_STYLES: Record<string, string> = {
-  easy: 'bg-success/15 text-success border-success/30',
-  hard: 'bg-accent/15 text-accent border-accent/30',
-  sota: 'bg-destructive/15 text-destructive border-destructive/30',
-};
-
-function getDifficultyLabel(d: string): string {
-  const map: Record<string, string> = {
-    easy: 'formulas.accessible',
-    hard: 'formulas.advanced',
-    sota: 'formulas.frontier',
-  };
-  return t(map[d] ?? d);
-}
-
-function parseYear(y: string): number {
-  const m = y.match(/-?\d+/);
-  return m ? parseInt(m[0], 10) : 0;
-}
-
-function BeautyStars({ score }: { score: number }) {
-  return (
-    <div className="flex items-center gap-0.5">
-      {Array.from({ length: 10 }).map((_, i) => (
-        <span
-          key={i}
-          className={`text-xs ${i < score ? 'text-accent' : 'text-muted-foreground/30'}`}
-        >
-          ★
-        </span>
-      ))}
-    </div>
-  );
-}
-
-/* ─── Domain stats computed once ─── */
-const DOMAIN_STATS = (() => {
-  const map = new Map<string, { count: number; emoji: string }>();
-  for (const eq of EQUATIONS) {
-    const existing = map.get(eq.domain);
-    if (existing) {
-      existing.count++;
-    } else {
-      map.set(eq.domain, { count: 1, emoji: eq.domainEmoji });
-    }
-  }
-  return Array.from(map.entries())
-    .map(([domain, { count, emoji }]) => ({ domain, count, emoji }))
-    .sort((a, b) => b.count - a.count);
-})();
-
-const DIFFICULTY_COUNTS = (() => {
-  const counts = { easy: 0, hard: 0, sota: 0 };
-  for (const eq of EQUATIONS) counts[eq.difficulty]++;
-  return counts;
-})();
-
-const SPECIAL_COUNTS = (() => {
-  let millennium = 0, nobel = 0, unsolved = 0;
-  for (const eq of EQUATIONS) {
-    if (eq.millenniumProblem) millennium++;
-    if (eq.nobelPrize) nobel++;
-    if (eq.unsolved) unsolved++;
-  }
-  return { millennium, nobel, unsolved };
-})();
-
-function EquationCard({ eq, index }: { eq: Equation; index: number }) {
-  const [expanded, setExpanded] = useState(false);
-
-  return (
-    <motion.div
-      layout
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -10 }}
-      transition={{ delay: Math.min(index * 0.03, 0.3) }}
-      className="group relative overflow-hidden rounded-2xl border border-border/60 bg-card/80 backdrop-blur-sm hover:border-primary/40 transition-all duration-300 cursor-pointer"
-      onClick={() => setExpanded(!expanded)}
-    >
-      {/* Rank badge */}
-      <div className="absolute top-3 right-3 z-10">
-        <span className="text-xs font-bold font-mono-code text-muted-foreground/60">
-          #{eq.rank}
-        </span>
-      </div>
-
-      {/* Special badges */}
-      <div className="absolute top-3 left-3 z-10 flex gap-1">
-        {eq.millenniumProblem && <span className="text-xs" title="Millennium Prize Problem">🏆</span>}
-        {eq.nobelPrize && <span className="text-xs" title="Nobel Prize">🥇</span>}
-        {eq.unsolved && <span className="text-xs" title="Unsolved">❓</span>}
-      </div>
-
-      {/* Glow overlay on hover */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-
-      <div className="relative p-5">
-        {/* Header */}
-        <div className="flex items-start gap-3 mb-3">
-          <span className="text-2xl flex-shrink-0">{eq.domainEmoji}</span>
-          <div className="min-w-0 flex-1">
-            <h3 className="font-display font-bold text-foreground text-base leading-tight">
-              {eq.name}
-            </h3>
-            <p className="text-xs text-muted-foreground mt-0.5">
-              {eq.discoverer} · {eq.year}
-            </p>
-          </div>
-        </div>
-
-        {/* Equation display */}
-        <div className="rounded-xl bg-background/60 border border-border/40 p-4 mb-3 flex items-center justify-center min-h-[3.5rem]">
-          <LatexRenderer
-            text={`$${eq.equation}$`}
-            className="text-lg font-mono-code text-foreground"
-          />
-        </div>
-
-        {/* Tags row */}
-        <div className="flex flex-wrap gap-1.5 mb-2">
-          <Badge variant="outline" className="text-[10px] px-2 py-0.5 border-primary/30 text-primary">
-            {eq.domain}
-          </Badge>
-          <Badge variant="outline" className="text-[10px] px-2 py-0.5 border-border">
-            {eq.field}
-          </Badge>
-          <span className={`inline-flex items-center rounded-full border px-2 py-0.5 text-[10px] font-semibold ${DIFFICULTY_STYLES[eq.difficulty]}`}>
-            {getDifficultyLabel(eq.difficulty)}
-          </span>
-        </div>
-
-        {/* Beauty */}
-        <BeautyStars score={eq.beauty} />
-
-        {/* Expandable details */}
-        <AnimatePresence>
-          {expanded && (
-            <motion.div
-              initial={{ height: 0, opacity: 0 }}
-              animate={{ height: 'auto', opacity: 1 }}
-              exit={{ height: 0, opacity: 0 }}
-              transition={{ duration: 0.25 }}
-              className="overflow-hidden"
-            >
-              <div className="mt-4 pt-4 border-t border-border/40 space-y-3 text-sm">
-                <div>
-                  <p className="text-xs font-bold text-muted-foreground uppercase tracking-wide mb-1">{t('formulas.significance')}</p>
-                  <p className="text-foreground/90 leading-relaxed">{eq.significance}</p>
-                </div>
-                <div>
-                  <p className="text-xs font-bold text-muted-foreground uppercase tracking-wide mb-1">{t('formulas.constants')}</p>
-                  <p className="text-foreground/80 font-mono-code text-xs">{eq.constants}</p>
-                </div>
-                <div>
-                  <p className="text-xs font-bold text-muted-foreground uppercase tracking-wide mb-1">{t('formulas.applications')}</p>
-                  <p className="text-foreground/80">{eq.applications}</p>
-                </div>
-                {eq.tags.length > 0 && (
-                  <div className="flex flex-wrap gap-1">
-                    {eq.tags.map(tag => (
-                      <span key={tag} className="text-[10px] px-2 py-0.5 rounded-full bg-muted text-muted-foreground">
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                )}
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
-
-        {/* Expand hint */}
-        <div className="mt-2 text-center">
-          <span className="text-[10px] text-muted-foreground/50">
-            {expanded ? t('formulas.collapse') : t('formulas.tapToExplore')}
-          </span>
-        </div>
-      </div>
-    </motion.div>
-  );
-}
+const SORT_OPTIONS: Array<{
+  key: FormulaSortKey;
+  labelKey: string;
+}> = [
+  { key: 'rank', labelKey: 'formulas.sortRank' },
+  { key: 'beauty', labelKey: 'formulas.sortBeauty' },
+  { key: 'year', labelKey: 'formulas.sortEra' },
+  { key: 'name', labelKey: 'formulas.sortName' },
+];
 
 export default function Formulas() {
   const [searchParams] = useSearchParams();
@@ -204,61 +42,37 @@ export default function Formulas() {
   useEffect(() => {
     if (qParam) setSearch(qParam);
   }, [qParam]);
-  const [sortBy, setSortBy] = useState<SortKey>('rank');
+  const [sortBy, setSortBy] = useState<FormulaSortKey>('rank');
   const [domainFilter, setDomainFilter] = useState<string>('all');
-  const [difficultyFilter, setDifficultyFilter] = useState<string>('all');
-  const [specialFilter, setSpecialFilter] = useState<string>('all');
+  const [difficultyFilter, setDifficultyFilter] =
+    useState<'all' | Difficulty>('all');
+  const [specialFilter, setSpecialFilter] =
+    useState<FormulaSpecialFilter>('all');
 
-  const sortOptions: { key: SortKey; labelKey: string }[] = [
-    { key: 'rank', labelKey: 'formulas.sortRank' },
-    { key: 'beauty', labelKey: 'formulas.sortBeauty' },
-    { key: 'year', labelKey: 'formulas.sortEra' },
-    { key: 'name', labelKey: 'formulas.sortName' },
-  ];
+  const filtered = useMemo(
+    () => filterAndSortEquations(EQUATIONS, {
+      search,
+      sortBy,
+      domain: domainFilter,
+      difficulty: difficultyFilter,
+      special: specialFilter,
+    }),
+    [search, sortBy, domainFilter, difficultyFilter, specialFilter],
+  );
 
-  const filtered = useMemo(() => {
-    let pool = [...EQUATIONS];
-    if (domainFilter !== 'all') pool = pool.filter((e) => e.domain === domainFilter);
-    if (difficultyFilter !== 'all') pool = pool.filter((e) => e.difficulty === difficultyFilter);
-    if (specialFilter === 'millennium') pool = pool.filter(e => e.millenniumProblem);
-    else if (specialFilter === 'nobel') pool = pool.filter(e => e.nobelPrize);
-    else if (specialFilter === 'unsolved') pool = pool.filter(e => e.unsolved);
-    if (search.trim()) {
-      const q = search.toLowerCase();
-      pool = pool.filter(
-        (e) =>
-          e.name.toLowerCase().includes(q) ||
-          e.discoverer.toLowerCase().includes(q) ||
-          e.field.toLowerCase().includes(q) ||
-          e.domain.toLowerCase().includes(q) ||
-          e.applications.toLowerCase().includes(q) ||
-          e.tags.some(tag => tag.toLowerCase().includes(q))
-      );
-    }
-    pool.sort((a, b) => {
-      switch (sortBy) {
-        case 'rank': return a.rank - b.rank;
-        case 'beauty': return b.beauty - a.beauty || a.rank - b.rank;
-        case 'year': return parseYear(a.year) - parseYear(b.year);
-        case 'name': return a.name.localeCompare(b.name);
-        default: return 0;
-      }
-    });
-    return pool;
-  }, [search, sortBy, domainFilter, difficultyFilter, specialFilter]);
+  const filteredDiffCounts = useMemo(
+    () => countFormulaDifficulties(filtered),
+    [filtered],
+  );
 
-  // Difficulty breakdown of current filtered results
-  const filteredDiffCounts = useMemo(() => {
-    const c = { easy: 0, hard: 0, sota: 0 };
-    for (const eq of filtered) c[eq.difficulty]++;
-    return c;
-  }, [filtered]);
+  const hasActiveFilters =
+    domainFilter !== 'all'
+    || difficultyFilter !== 'all'
+    || specialFilter !== 'all'
+    || Boolean(search.trim());
 
   return (
-    <div className="min-h-screen bg-background flex flex-col relative">
-      <FloatingBackground />
-      <QuizHeader streak={0} showStreak={false} />
-
+    <SiteShell>
       <main className="relative z-10 flex-1 px-4 py-6 max-w-5xl mx-auto w-full">
         {/* Hero */}
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-center mb-6">
@@ -281,37 +95,37 @@ export default function Formulas() {
         >
           <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-success/10 border border-success/20">
             <span className="text-xs">📗</span>
-            <span className="text-xs font-bold text-success">{DIFFICULTY_COUNTS.easy}</span>
+            <span className="text-xs font-bold text-success">{CATALOG_STATS.difficulties.easy}</span>
             <span className="text-[10px] text-success/70">{t('formulas.accessible')}</span>
           </div>
           <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-accent/10 border border-accent/20">
             <span className="text-xs">📙</span>
-            <span className="text-xs font-bold text-accent">{DIFFICULTY_COUNTS.hard}</span>
+            <span className="text-xs font-bold text-accent">{CATALOG_STATS.difficulties.hard}</span>
             <span className="text-[10px] text-accent/70">{t('formulas.advanced')}</span>
           </div>
           <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-destructive/10 border border-destructive/20">
             <span className="text-xs">📕</span>
-            <span className="text-xs font-bold text-destructive">{DIFFICULTY_COUNTS.sota}</span>
+            <span className="text-xs font-bold text-destructive">{CATALOG_STATS.difficulties.sota}</span>
             <span className="text-[10px] text-destructive/70">{t('formulas.frontier')}</span>
           </div>
-          {SPECIAL_COUNTS.millennium > 0 && (
+          {CATALOG_STATS.specials.millennium > 0 && (
             <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-primary/10 border border-primary/20">
               <span className="text-xs">🏆</span>
-              <span className="text-xs font-bold text-primary">{SPECIAL_COUNTS.millennium}</span>
+              <span className="text-xs font-bold text-primary">{CATALOG_STATS.specials.millennium}</span>
               <span className="text-[10px] text-primary/70">Millennium</span>
             </div>
           )}
-          {SPECIAL_COUNTS.nobel > 0 && (
+          {CATALOG_STATS.specials.nobel > 0 && (
             <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-accent/10 border border-accent/20">
               <span className="text-xs">🥇</span>
-              <span className="text-xs font-bold text-accent">{SPECIAL_COUNTS.nobel}</span>
+              <span className="text-xs font-bold text-accent">{CATALOG_STATS.specials.nobel}</span>
               <span className="text-[10px] text-accent/70">Nobel</span>
             </div>
           )}
-          {SPECIAL_COUNTS.unsolved > 0 && (
+          {CATALOG_STATS.specials.unsolved > 0 && (
             <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-destructive/10 border border-destructive/20">
               <span className="text-xs">❓</span>
-              <span className="text-xs font-bold text-destructive">{SPECIAL_COUNTS.unsolved}</span>
+              <span className="text-xs font-bold text-destructive">{CATALOG_STATS.specials.unsolved}</span>
               <span className="text-[10px] text-destructive/70">Unsolved</span>
             </div>
           )}
@@ -334,7 +148,7 @@ export default function Formulas() {
           >
             🌐 {t('formulas.allDomains')} ({EQUATIONS.length})
           </button>
-          {DOMAIN_STATS.map(({ domain, count, emoji }) => (
+          {CATALOG_STATS.domains.map(({ domain, count, emoji }) => (
             <button
               key={domain}
               onClick={() => setDomainFilter(domainFilter === domain ? 'all' : domain)}
@@ -361,7 +175,7 @@ export default function Formulas() {
 
           {/* Sort buttons */}
           <div className="flex flex-wrap gap-1.5 justify-center">
-            {sortOptions.map((opt) => (
+            {SORT_OPTIONS.map((opt) => (
               <button
                 key={opt.key}
                 onClick={() => setSortBy(opt.key)}
@@ -386,11 +200,11 @@ export default function Formulas() {
                   difficultyFilter === d
                     ? d === 'all'
                       ? 'bg-primary/15 text-primary border border-primary/30'
-                      : DIFFICULTY_STYLES[d] + ' border'
+                      : FORMULA_DIFFICULTY_STYLES[d] + ' border'
                     : 'bg-secondary text-muted-foreground hover:text-foreground border border-transparent'
                 }`}
               >
-                {d === 'all' ? t('formulas.allLevels') : getDifficultyLabel(d)}
+                {d === 'all' ? t('formulas.allLevels') : getFormulaDifficultyLabel(d)}
               </button>
             ))}
             <span className="text-border mx-1">|</span>
@@ -416,7 +230,7 @@ export default function Formulas() {
         </div>
 
         {/* Results breakdown bar */}
-        {(domainFilter !== 'all' || difficultyFilter !== 'all' || specialFilter !== 'all' || search.trim()) && (
+        {hasActiveFilters && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
@@ -444,7 +258,7 @@ export default function Formulas() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <AnimatePresence mode="popLayout">
             {filtered.map((eq, i) => (
-              <EquationCard key={eq.rank} eq={eq} index={i} />
+              <EquationCard key={eq.rank} equation={eq} index={i} />
             ))}
           </AnimatePresence>
         </div>
@@ -459,7 +273,6 @@ export default function Formulas() {
         <div className="pb-8" />
       </main>
 
-      <Footer />
-    </div>
+    </SiteShell>
   );
 }

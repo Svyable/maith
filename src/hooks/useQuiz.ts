@@ -5,7 +5,10 @@ import { useState, useCallback, useRef } from 'react';
 import { type Difficulty, DEFAULT_QUIZ_CAP, toQuestionDifficulty } from '@/config/constants';
 import {
   buildInitialState,
+  buildRemediationState,
   applyAnswer,
+  getVisibleOptionIndex,
+  toVisibleCheckResult,
   advanceQuestion,
   skipCurrentQuestion,
   endQuiz as endQuizEngine,
@@ -13,7 +16,7 @@ import {
   type PublicQuestion,
   type CheckResult,
 } from '@/domain/quiz';
-import { fetchQuestions, checkAnswer } from '@/domain/quiz/service';
+import { fetchQuestions, checkAnswer, getEliminatedOptions } from '@/domain/quiz/service';
 import type { QuestionLoadProgress } from '@/content/question-loaders';
 
 export type { PublicQuestion, CheckResult, QuizState } from '@/domain/quiz';
@@ -54,11 +57,22 @@ export function useQuiz(selectedTopics: string[] = [], difficulties: Difficulty[
       const result = await checkAnswer(currentQuestion.id, optionIndex, questionPoolRef.current);
       if (!result) return null;
 
-      setState((prev) => applyAnswer(prev, result, currentQuestion, optionIndex));
+      const visibleIndex = getVisibleOptionIndex(optionIndex, currentQuestion.originalIndices);
+      const reviewResult = toVisibleCheckResult(result, currentQuestion.originalIndices);
+      setState((prev) => applyAnswer(prev, reviewResult, currentQuestion, visibleIndex));
       return result;
     },
     [currentQuestion],
   );
+
+  const eliminateOptions = useCallback((): number[] => {
+    if (!currentQuestion) return [];
+    return getEliminatedOptions(
+      currentQuestion.id,
+      currentQuestion.originalIndices,
+      questionPoolRef.current,
+    );
+  }, [currentQuestion]);
 
   const nextQuestion = useCallback(() => {
     setState(advanceQuestion);
@@ -79,14 +93,20 @@ export function useQuiz(selectedTopics: string[] = [], difficulties: Difficulty[
     [difficulties, initQuiz],
   );
 
+  const practiceUnresolved = useCallback(() => {
+    setState(buildRemediationState);
+  }, []);
+
   return {
     state,
     currentQuestion,
     answer,
+    eliminateOptions,
     nextQuestion,
     skipQuestion,
     endQuiz,
     restartQuiz,
+    practiceUnresolved,
     totalQuestions: state.currentQuestions.length,
   };
 }

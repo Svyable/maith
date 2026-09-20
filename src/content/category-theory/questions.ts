@@ -51,8 +51,8 @@ export const categoryTheoryQuestions: Question[] = [
   {
     id: 91006, topic: 'category-theory', difficulty: 'hard',
     question: 'The Yoneda Lemma states that natural transformations from $\\text{Hom}(A, -)$ to a functor $F$ are in bijection with:',
-    options: ['$F(A)$', '$\\text{Hom}(F, A)$', 'The set of morphisms in $F$', 'The limit of $F$'],
-    correctIndex: 0,
+    options: ['Natural endomorphisms of $F$', '$\\text{Hom}(F(A),A)$', '$F(A)$', 'The limit of $F$ over the whole category'],
+    correctIndex: 2,
     explanation: '$\\text{Nat}(\\text{Hom}(A,-), F) \\cong F(A)$, one of the most important results in category theory.',
     realWorld: 'Yoneda underpins representable functors and is key to modern algebraic geometry (schemes).',
     hint: 'A natural transformation is completely determined by where it sends the identity on $A$.',
@@ -60,8 +60,8 @@ export const categoryTheoryQuestions: Question[] = [
   {
     id: 91007, topic: 'category-theory', difficulty: 'hard',
     question: 'An adjunction $F \\dashv G$ between categories $\\mathcal{C}$ and $\\mathcal{D}$ means:',
-    options: ['$\\text{Hom}_{\\mathcal{D}}(F(X), Y) \\cong \\text{Hom}_{\\mathcal{C}}(X, G(Y))$ naturally', '$F = G^{-1}$', '$F \\circ G = \\text{Id}$', '$F$ and $G$ are isomorphic functors'],
-    correctIndex: 0,
+    options: ['$F \\circ G$ and $G \\circ F$ are identity functors', '$F$ and $G$ are inverse equivalences of categories', '$F(X)$ and $G(Y)$ are isomorphic for every $X,Y$', '$\\text{Hom}_{\\mathcal{D}}(F(X),Y) \\cong \\text{Hom}_{\\mathcal{C}}(X,G(Y))$ naturally in $X,Y$'],
+    correctIndex: 3,
     explanation: 'Adjunctions give a natural isomorphism of hom-sets, capturing "optimal solutions" to universal problems.',
     realWorld: 'Free-forgetful adjunctions model the relationship between syntax and semantics in type theory.',
     hint: 'The left adjoint $F$ is the "free" construction, and $G$ is the "forgetful" functor.',
@@ -69,8 +69,8 @@ export const categoryTheoryQuestions: Question[] = [
   {
     id: 91008, topic: 'category-theory', difficulty: 'hard',
     question: 'A monad on a category $\\mathcal{C}$ consists of an endofunctor $T$ together with:',
-    options: ['Unit $\\eta: \\text{Id} \\Rightarrow T$ and multiplication $\\mu: T^2 \\Rightarrow T$ satisfying associativity and unit laws', 'A natural isomorphism $T \\cong \\text{Id}$', 'A pair of adjoint functors', 'A faithful functor'],
-    correctIndex: 0,
+    options: ['A counit $T \\Rightarrow \\text{Id}$ and comultiplication $T \\Rightarrow T^2$', 'A unit $\\eta: \\text{Id} \\Rightarrow T$ and multiplication $\\mu: T^2 \\Rightarrow T$ satisfying the monad laws', 'A natural isomorphism $T \\cong \\text{Id}$ and no additional structure', 'A pair of inverse functors whose composite is exactly $T$'],
+    correctIndex: 1,
     explanation: 'A monad $(T, \\eta, \\mu)$ satisfies $\\mu \\circ T\\mu = \\mu \\circ \\mu T$ and unit conditions.',
     realWorld: 'Monads in Haskell (IO, Maybe, List) structure side effects and computational contexts.',
     hint: 'Think of monads as "generalized algebraic theories" on a category.',
@@ -78,7 +78,7 @@ export const categoryTheoryQuestions: Question[] = [
   {
     id: 91009, topic: 'category-theory', difficulty: 'hard',
     question: 'A topos is a category that behaves like the category of sets. Which is NOT a defining property of an elementary topos?',
-    options: ['Every morphism has a kernel', 'It has finite limits', 'It has exponential objects', 'It has a subobject classifier'],
+    options: ['Every morphism has a kernel', 'It has all finite limits', 'It is cartesian closed, hence has exponential objects', 'It has a subobject classifier'],
     correctIndex: 0,
     explanation: 'An elementary topos has finite limits, exponentials, and a subobject classifier. Not every morphism needs a kernel.',
     realWorld: 'Topos theory provides the foundation for constructive logic and sheaf-theoretic approaches in geometry.',
@@ -87,8 +87,8 @@ export const categoryTheoryQuestions: Question[] = [
   {
     id: 91010, topic: 'category-theory', difficulty: 'hard',
     question: 'The nerve of a category $\\mathcal{C}$ is a simplicial set where $n$-simplices correspond to:',
-    options: ['Composable chains of $n$ morphisms', '$n$-fold products of objects', 'Natural transformations of degree $n$', 'Functors from $[n]$ to $\\mathcal{C}$... wait, both are correct'],
-    correctIndex: 0,
+    options: ['Unordered sets of $n$ objects of $\\mathcal{C}$', 'Natural transformations between arbitrary endofunctors', 'Composable chains of $n$ morphisms $X_0 \\to X_1 \\to \\cdots \\to X_n$', 'Isomorphism classes of objects admitting exactly $n$ automorphisms'],
+    correctIndex: 2,
     explanation: 'The nerve $N(\\mathcal{C})_n$ consists of chains $X_0 \\to X_1 \\to \\cdots \\to X_n$ of composable morphisms.',
     realWorld: 'The nerve construction connects category theory to topology and is fundamental to higher category theory and TDA.',
     hint: 'An $n$-simplex in the nerve is a "path" of $n$ consecutive arrows.',

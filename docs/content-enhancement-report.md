@@ -4,52 +4,39 @@ This is the structural baseline for the next content pass. The detailed question
 
 ## Coverage baseline
 
-The standard library currently contains 947 questions. Coverage is highly uneven.
+The standard library currently contains 1106 questions. Coverage is highly uneven.
 
 | Field | Visible topics | Questions | Topics below 9 | Topics below 6 |
 | --- | ---: | ---: | ---: | ---: |
 | Mathematics | 20 | 272 | 3 | 2 |
 | Physics | 15 | 148 | 3 | 1 |
-| Computer Science | 12 | 146 | 3 | 2 |
-| Engineering | 23 | 116 | 21 | 17 |
-| Finance | 15 | 111 | 9 | 7 |
-| Earth & Space | 7 | 35 | 6 | 4 |
-| Biology | 5 | 22 | 5 | 3 |
+| Computer Science | 12 | 159 | 0 | 0 |
+| Engineering | 21 | 165 | 10 | 6 |
+| Finance | 15 | 157 | 0 | 0 |
+| Earth & Space | 7 | 63 | 0 | 0 |
+| Biology | 5 | 45 | 0 | 0 |
 | Chemistry | 3 | 27 | 0 | 0 |
 | Human Sciences | 3 | 18 | 3 | 0 |
 | 2024 SOTA | 1 | 15 | 0 | 0 |
 | 2025 SOTA | 1 | 11 | 0 | 0 |
 | 2026 SOTA | 1 | 20 | 0 | 0 |
 
-## Completed augmentation waves
-
-- **Chemistry wave 1:** Physical, Organic, and Inorganic Chemistry each moved from 3 questions (1/1/1) to 9 questions (3 EASY / 3 HARD / 3 SOTA), with provenance added to all new SOTA questions.
-
 ## Highest-priority thin topics
 
 The most structurally under-covered visible topics are:
 
-- Structural Engineering: 2 total (1 EASY / 1 HARD / 0 SOTA)
-- Molecular Biology: 3 total
-- Genetics: 3 total
-- Ecology: 3 total
-- Algorithms: 3 total
-- Machine Learning: 3 total
-- Astronomy: 3 total
-- Geology: 3 total
-- Climate Science: 3 total
-- several Engineering subfields: 3–5 total
-- several Finance foundations: 3 total
+- several Engineering subfields remain at 3–6 total
+- Structural Engineering, Materials Science, Power Systems, and Semiconductor Engineering have reached 3 EASY / 3 HARD / 3 SOTA
 
 ## Taxonomy decisions
 
 Do not collapse near-duplicate labels automatically.
 
-- `control-theory` and `control-systems` require question-level scope review before consolidation.
-- `robotics` and `robotics-mechatronics` require the same review.
-- `aerospace`, `aerodynamics`, and `orbital-mechanics` should remain distinct if their questions actually test different levels of abstraction.
-- `electrical-engineering` and `mechanical-engineering` remain compatibility aliases rather than duplicate selectable topics.
-- `engineering` and `string-theory` remain hidden compatibility topics until their historical content is explicitly re-homed.
+- `control-theory` has been consolidated into canonical `control-systems`; the old slug is now a rename alias.
+- `robotics` has been consolidated into canonical `robotics-mechatronics`; the old slug is now a rename alias.
+- The historical `aerospace` pack has been split by question scope into `aerodynamics`, `orbital-mechanics`, and new `spaceflight-systems`; the old broad slug is an umbrella expansion rather than a selectable topic.
+- `electrical-engineering` and `mechanical-engineering` are broad umbrella compatibility expansions across their granular Engineering topics.
+- `engineering` and `string-theory` remain hidden special compatibility topics until their historical Vault content is explicitly re-homed.
 
 ## Vault boundary
 
@@ -76,12 +63,24 @@ The Question schema now supports optional `sources`, `reviewedAt`, and `factualA
 
 Augmentation should proceed field by field after the quality gate is clean:
 
-1. **Biology** — all five topics are below the minimum viable target; strengthen Molecular Biology, Genetics, and Ecology first.
-2. **Earth & Space** — strengthen Astronomy, Geology, Climate Science, then Meteorology.
-3. **Computer Science foundations** — Algorithms and Machine Learning before adding new CS subfields.
-4. **Finance foundations** — Microeconomics, Macroeconomics, Econometrics, Fixed Income, Portfolio Theory, and Algo Trading.
-5. **Engineering** — a larger dedicated wave because 21 of 23 topics are thin.
-6. **Human Sciences** — bring the three existing topics from 6 toward 9+ before adding new disciplines.
-7. Mathematics and Physics expansion only after the thinner fields are healthier.
+1. **Engineering** — continue the dedicated wave because 10 of 21 canonical topics are still below 9 questions.
+2. **Human Sciences** — bring the three existing topics from 6 toward 9+ before adding new disciplines.
+3. Mathematics and Physics expansion only after the thinner fields are healthier.
+
+Chemistry has completed its first foundation pass: Physical, Organic, and Inorganic Chemistry now each have 3 EASY / 3 HARD / 3 SOTA questions, with varied answer positions and sourced advanced material.
+
+Biology has completed its first foundation pass: Molecular Biology, Genetics, Ecology, Neuroscience, and Pharmacology now each have 3 EASY / 3 HARD / 3 SOTA questions. Legacy Biology items were also rebalanced away from first-slot answers, and advanced/time-sensitive claims were tightened and sourced.
+
+Earth & Space has completed its first foundation pass: Astronomy, Astrophysics, Geology, Climate Science, Meteorology, Oceanography, and Environmental Science now each have 3 EASY / 3 HARD / 3 SOTA questions. Legacy first-slot answer bias and several overbroad frontier claims were corrected, with SOTA material tied to primary or assessment sources.
+
+Computer Science foundations have completed their thin-topic pass: Algorithms and Machine Learning now each have 3 EASY / 3 HARD / 3 SOTA questions, and Quantum Computing has been lifted to the 9-question floor. The pass updates the matrix-multiplication frontier through September 2026, balances answer positions, hardens distractors, and sources advanced algorithm, ML, and quantum-computing claims.
+
+Finance has completed its first foundation pass: all 15 visible Finance topics are now at or above 9 questions. Microeconomics, Macroeconomics, Econometrics, Fixed Income, Portfolio Theory, Algo Trading, Development Economics, Game Theory, and Risk Management now each have 3 EASY / 3 HARD / 3 SOTA questions. The pass removes legacy first-slot and longest-answer tells, replaces unsupported execution-marketing claims, tightens current regulatory language, and adds primary or institutional provenance for advanced material.
+
+Engineering foundation wave 1 is complete: Structural Engineering and Materials Science now each have 3 EASY / 3 HARD / 3 SOTA questions. New questions cover load paths, beam-force relationships, second-order effects, modal seismic analysis, fracture mechanics, creep, ICME, additive manufacturing, performance-based seismic engineering, and structural health monitoring. Advanced claims are tied to NIST or FHWA sources, and new answer positions are deliberately balanced.
+
+Engineering foundation wave 2 is complete: Power Systems and Semiconductor Engineering now each have 3 EASY / 3 HARD / 3 SOTA questions. The pass adds transformer and reactive-power fundamentals, symmetrical components, transient stability, synchrophasors, inverter-based-resource dynamics, semiconductor doping, threshold behavior, subthreshold swing, interconnect delay, GAA metrology, and nanoscale thermal transport. Advanced material is sourced to NIST or DOE and legacy SOTA wording was tightened.
+
+Engineering foundation wave 3 is complete: Biomedical Engineering, Environmental Engineering, Process Design, and Spaceflight Systems now each have 3 EASY / 3 HARD / 3 SOTA questions. The pass hardens legacy wording and answer balance, adds biomedical sensing and organoid fabrication, wastewater and PFAS treatment, process safety and digital-twin design, and modern electric, nuclear, and cryogenic spaceflight systems. Advanced material is tied to FDA, NIH/PubMed, EPA, DOE/NIST, and NASA sources.
 
 The goal is not equal question counts everywhere. It is enough independent material that a quiz can vary meaningfully and still represent the subject honestly.

@@ -1,5 +1,5 @@
-import { useState, useCallback, useEffect, type MutableRefObject } from 'react';
-import { motion } from 'framer-motion';
+import type { MutableRefObject } from 'react';
+import { motion, useReducedMotion } from 'framer-motion';
 import { LatexRenderer } from './LatexRenderer';
 import { OptionButton } from './OptionButton';
 import { TimerBar } from './TimerBar';
@@ -8,8 +8,9 @@ import { HintPanel } from './HintPanel';
 import { PaperPill } from './PaperPill';
 import type { PublicQuestion, CheckResult } from '@/domain/quiz';
 import { type Difficulty, getDifficultyMeta, TOPIC_MAP, toDifficulty } from '@/config/constants';
-import { useKeyboard } from '@/hooks/useKeyboard';
 import { t } from '@/i18n';
+import { streakBonusLabel } from '@/domain/scoring';
+import { useQuizQuestionInteraction } from '@/hooks/useQuizQuestionInteraction';
 
 interface QuizScreenProps {
   question: PublicQuestion;
@@ -21,6 +22,7 @@ interface QuizScreenProps {
   timerFraction: number;
   timeLeft: number;
   onAnswer: (index: number) => Promise<CheckResult | null>;
+  onEliminate: () => number[];
   onNext: () => void;
   onSkip: () => void;
   onEndQuiz: () => void;
@@ -44,136 +46,91 @@ export function QuizScreen({
   timerFraction,
   timeLeft,
   onAnswer,
+  onEliminate,
   onNext,
   onSkip,
   onEndQuiz,
   onSessionUpdate,
   timeoutRef,
 }: QuizScreenProps) {
-  const [selectedOption, setSelectedOption] = useState<number | null>(null);
-  const [answerState, setAnswerState] = useState<'pending' | 'checking' | 'correct' | 'wrong'>('pending');
-  const [hintShown, setHintShown] = useState(false);
-  const [eliminateUsed, setEliminateUsed] = useState(false);
-  const [eliminatedOptions, setEliminatedOptions] = useState<number[]>([]);
-  const [checkResult, setCheckResult] = useState<CheckResult | null>(null);
+  const prefersReducedMotion = useReducedMotion();
+
+  const {
+    selectedOption,
+    answerState,
+    hintShown,
+    eliminateUsed,
+    eliminatedOptions,
+    checkResult,
+    pointsAwarded,
+    isAnswered,
+    handleSelect,
+    handleNext,
+    handleSkip,
+    handleShowHint,
+    handleEliminate,
+  } = useQuizQuestionInteraction({
+    question,
+    streak,
+    onAnswer,
+    onEliminate,
+    onNext,
+    onSkip,
+    onSessionUpdate,
+    timeoutRef,
+  });
 
   const topicMeta = TOPIC_MAP[question.topic];
-  const qDiffMeta = getDifficultyMeta(toDifficulty(question.difficulty));
-  const diffBadge = DIFF_BADGE[question.difficulty] ?? DIFF_BADGE.hard;
-
-  const handleSelect = useCallback(async (index: number) => {
-    if (answerState !== 'pending') return;
-    if (eliminatedOptions.includes(index)) return;
-    setSelectedOption(index);
-    setAnswerState('checking');
-
-    const originalIndex = question.originalIndices[index];
-    const result = await onAnswer(originalIndex);
-    if (result) {
-      const shuffledCorrectIndex = question.originalIndices.indexOf(result.correctIndex);
-      setCheckResult({ ...result, correctIndex: shuffledCorrectIndex });
-      setAnswerState(result.correct ? 'correct' : 'wrong');
-      onSessionUpdate(result.correct);
-    } else {
-      setAnswerState('pending');
-      setSelectedOption(null);
-    }
-  }, [onAnswer, answerState, onSessionUpdate, eliminatedOptions, question.originalIndices]);
-
-  const handleTimeoutAnswer = useCallback(async () => {
-    if (answerState !== 'pending') return;
-    const originalIndex = -1;
-    const result = await onAnswer(originalIndex);
-    if (result) {
-      const shuffledCorrectIndex = question.originalIndices.indexOf(result.correctIndex);
-      setCheckResult({ ...result, correctIndex: shuffledCorrectIndex });
-      setAnswerState('wrong');
-      setSelectedOption(-1);
-      onSessionUpdate(false);
-    }
-  }, [answerState, onAnswer, onSessionUpdate, question.originalIndices]);
-
-  useEffect(() => {
-    if (timeoutRef) timeoutRef.current = handleTimeoutAnswer;
-    return () => { if (timeoutRef) timeoutRef.current = null; };
-  }, [timeoutRef, handleTimeoutAnswer]);
-
-  const resetQuestionState = useCallback(() => {
-    setSelectedOption(null);
-    setAnswerState('pending');
-    setHintShown(false);
-    setEliminateUsed(false);
-    setEliminatedOptions([]);
-    setCheckResult(null);
-  }, []);
-
-  const handleNext = useCallback(() => {
-    resetQuestionState();
-    onNext();
-  }, [onNext, resetQuestionState]);
-
-  const handleSkip = useCallback(() => {
-    resetQuestionState();
-    onSkip();
-  }, [onSkip, resetQuestionState]);
-
-  const handleShowHint = useCallback(() => {
-    if (hintShown || answerState !== 'pending') return;
-    setHintShown(true);
-  }, [hintShown, answerState]);
-
-  const handleEliminate = useCallback(() => {
-    if (eliminateUsed || answerState !== 'pending') return;
-    setEliminateUsed(true);
-    const indices = [0, 1, 2, 3];
-    for (let i = indices.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [indices[i], indices[j]] = [indices[j], indices[i]];
-    }
-    setEliminatedOptions(indices.slice(0, 2));
-  }, [eliminateUsed, answerState]);
-
-  const isAnswered = answerState === 'correct' || answerState === 'wrong';
-
-  useKeyboard({
-    onOption: answerState === 'pending' ? handleSelect : undefined,
-    onHint: answerState === 'pending' ? handleShowHint : undefined,
-    onNext: isAnswered ? handleNext : undefined,
-    onSkip: answerState === 'pending' ? handleSkip : undefined,
-    enabled: true,
-  });
+  const qDiffMeta = getDifficultyMeta(
+    toDifficulty(question.difficulty),
+  );
+  const diffBadge =
+    DIFF_BADGE[question.difficulty] ?? DIFF_BADGE.hard;
+  const nextStreakBonus = streakBonusLabel(streak + 1);
 
   return (
     <motion.div
       key={`quiz-${question.id}`}
-      initial={{ opacity: 0, x: 30 }}
+      initial={prefersReducedMotion ? { opacity: 0 } : { opacity: 0, x: 30 }}
       animate={{ opacity: 1, x: 0 }}
-      exit={{ opacity: 0, x: -30 }}
+      exit={prefersReducedMotion ? { opacity: 0 } : { opacity: 0, x: -30 }}
       className="space-y-5"
     >
-      {/* Progress */}
-      <div className="flex items-center justify-between text-sm">
-        <span className="text-muted-foreground font-mono">
-          {t('quiz.question', { current: currentIndex + 1, total: totalQuestions })}
-        </span>
-        <span className={`px-2 py-0.5 rounded-full text-xs font-bold border ${diffBadge.bg} ${diffBadge.text}`}>
-          {qDiffMeta.emoji} {qDiffMeta.tag}
-        </span>
-        <span className="font-mono font-bold text-foreground">
-          {t('quiz.points', { score: Math.round(score) })}
-        </span>
-      </div>
+      {/* Compact gameplay HUD — sticky on small screens so progress, score, and time stay visible. */}
+      <div className="sticky top-2 z-20 -mx-1 rounded-xl border border-border/80 bg-background/95 p-2.5 shadow-sm backdrop-blur supports-[backdrop-filter]:bg-background/85 sm:static sm:mx-0 sm:border-0 sm:bg-transparent sm:p-0 sm:shadow-none">
+        <div className="flex items-center justify-between gap-2 text-sm">
+          <span className="text-muted-foreground font-mono">
+            {t('quiz.question', { current: currentIndex + 1, total: totalQuestions })}
+          </span>
+          <span className={`px-2 py-0.5 rounded-full text-xs font-bold border ${diffBadge.bg} ${diffBadge.text}`}>
+            {qDiffMeta.emoji} {qDiffMeta.tag}
+          </span>
+          <span className="relative font-mono font-bold text-foreground" aria-live="polite">
+            {t('quiz.points', { score: Math.round(score) })}
+            {isAnswered && pointsAwarded > 0 && (
+              <motion.span
+                initial={prefersReducedMotion ? { opacity: 1 } : { opacity: 0, y: 6, scale: 0.9 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                className="absolute -bottom-5 right-0 whitespace-nowrap text-[11px] font-bold text-success"
+              >
+                {t('quiz.pointsAwarded', { points: pointsAwarded })}
+              </motion.span>
+            )}
+          </span>
+        </div>
 
-      {/* Progress bar */}
-      <div className="h-1.5 bg-secondary rounded-full overflow-hidden">
-        <motion.div
-          className="h-full bg-primary rounded-full"
-          animate={{ width: `${((currentIndex + 1) / totalQuestions) * 100}%` }}
-        />
-      </div>
+        <div className="mt-2 h-1.5 bg-secondary rounded-full overflow-hidden" role="progressbar" aria-valuemin={1} aria-valuemax={totalQuestions} aria-valuenow={currentIndex + 1}>
+          <motion.div
+            className="h-full bg-primary rounded-full"
+            animate={{ width: `${((currentIndex + 1) / totalQuestions) * 100}%` }}
+            transition={prefersReducedMotion ? { duration: 0 } : undefined}
+          />
+        </div>
 
-      {/* Timer */}
-      <TimerBar fraction={timerFraction} timeLeft={timeLeft} />
+        <div className="mt-2">
+          <TimerBar fraction={timerFraction} timeLeft={timeLeft} paused={answerState !== 'pending'} />
+        </div>
+      </div>
 
       {/* Topic + difficulty badges */}
       <div className="flex items-center gap-2 flex-wrap">
@@ -182,9 +139,15 @@ export function QuizScreen({
         <span className={`text-[10px] px-1.5 py-0.5 rounded font-mono font-bold ${diffBadge.text}`}>
           {t('difficulty.pts', { pts: qDiffMeta.pointsPerCorrect })}
         </span>
-        {streak >= 3 && (
-          <span className="ml-auto text-xs font-bold text-accent">
-            {t('quiz.streak', { count: streak })}
+        {streak > 0 && (
+          <span
+            className="ml-auto inline-flex items-center gap-1 rounded-full border border-accent/20 bg-accent/10 px-2 py-1 text-xs font-bold text-accent"
+            aria-label={t('quiz.streak', { count: streak })}
+          >
+            <span aria-hidden="true">🔥</span>
+            <span className="font-mono">{streak}</span>
+            <span className="text-accent/60" aria-hidden="true">·</span>
+            <span className="font-mono">{nextStreakBonus}</span>
           </span>
         )}
       </div>
@@ -224,6 +187,7 @@ export function QuizScreen({
               disabled={answerState !== 'pending' || isEliminated}
               state={state}
               eliminated={showEliminated}
+              selected={answerState === 'checking' && i === selectedOption}
             />
           );
         })}

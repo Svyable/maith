@@ -1,11 +1,13 @@
 import { useMemo, useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { useNavigate, useSearchParams } from 'react-router-dom';
+import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import { FlashCard } from './FlashCard';
 import { getAllGlossaryTerms, getGlossaryByField, getGlossaryFields } from '@/content/glossary';
 import { FieldFilterBar } from '@/components/FieldFilterBar';
 import { t } from '@/i18n';
 import { useLocale } from '@/hooks/useLocale';
+import { APP_PATHS } from '@/config/site-navigation';
+import { getGlossaryReferencePageForTerm } from '@/config/glossary-pages';
 
 export function GlossaryScreen() {
   const navigate = useNavigate();
@@ -125,11 +127,24 @@ export function GlossaryScreen() {
 
       {/* Masonry cards */}
       <div className="columns-1 lg:columns-2 gap-4 [column-fill:_balance]">
-        {terms.map((term, i) => (
-          <div key={term.id} className="mb-4 break-inside-avoid">
-            <FlashCard term={term} index={i} />
-          </div>
-        ))}
+        {terms.map((term, i) => {
+          const referencePage = getGlossaryReferencePageForTerm(term);
+          return (
+            <div key={referencePage?.slug ?? term.id + '-' + i} className="mb-4 break-inside-avoid">
+              <FlashCard term={term} index={i} />
+              {referencePage && (
+                <div className="mt-2 text-right">
+                  <Link
+                    to={referencePage.path}
+                    className="text-[11px] font-semibold text-primary hover:underline"
+                  >
+                    Open reference →
+                  </Link>
+                </div>
+              )}
+            </div>
+          );
+        })}
 
         {terms.length === 0 && (
           <div className="lg:col-span-2">
@@ -142,7 +157,7 @@ export function GlossaryScreen() {
 
       {/* Back button */}
       <button
-        onClick={() => navigate('/')}
+        onClick={() => navigate(APP_PATHS.home)}
         className="w-full py-3 rounded-2xl border border-border text-sm text-muted-foreground hover:text-foreground hover:border-foreground/30 transition-all"
       >
         {t('glossary.backHome')}

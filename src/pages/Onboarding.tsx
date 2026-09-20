@@ -5,6 +5,7 @@ import { useProfile } from '@/hooks/useProfile';
 import { useAuth } from '@/hooks/useAuth';
 import { FloatingBackground } from '@/components/FloatingBackground';
 import { t } from '@/i18n';
+import { APP_PATHS } from '@/config/site-navigation';
 
 const EMOJI_OPTIONS = ['🧠', '🎓', '⚡', '🔥', '🏆', '👑', '💎', '🌟', '🚀', '🎯', '🦊', '🐱', '🐶'];
 
@@ -20,7 +21,7 @@ export default function Onboarding() {
 
   useEffect(() => {
     if (!loading && !user) {
-      navigate('/auth', { replace: true });
+      navigate(APP_PATHS.auth, { replace: true });
     }
   }, [loading, user, navigate]);
 
@@ -48,14 +49,14 @@ export default function Onboarding() {
       return;
     }
 
-    navigate('/', { replace: true });
+    navigate(APP_PATHS.home, { replace: true });
   };
 
   const handleSignOut = async () => {
     setSigningOut(true);
     await signOut();
     setSigningOut(false);
-    navigate('/auth', { replace: true });
+    navigate(APP_PATHS.auth, { replace: true });
   };
 
   if (loading) {

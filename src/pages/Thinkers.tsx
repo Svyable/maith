@@ -1,9 +1,7 @@
 import { useState, useCallback, useEffect, useRef } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
-import { QuizHeader } from '@/components/QuizHeader';
-import { FloatingBackground } from '@/components/FloatingBackground';
-import { Footer } from '@/components/Footer';
+import { SiteShell } from '@/components/layout/SiteShell';
 import { QuizScreen } from '@/components/QuizScreen';
 import { QuizResults } from '@/components/QuizResults';
 import { ThinkerGallery } from '@/components/thinkers/ThinkerGallery';
@@ -14,6 +12,7 @@ import { useQuizSession } from '@/hooks/useQuizSession';
 import { useThinkerAchievements } from '@/hooks/useThinkerAchievements';
 import { THINKERS } from '@/config/thinkers';
 import { DEFAULT_DIFFICULTIES } from '@/config/constants';
+import { APP_PATHS } from '@/config/site-navigation';
 import type { Difficulty } from '@/config/constants';
 import { t } from '@/i18n';
 
@@ -21,6 +20,9 @@ type Screen = 'gallery' | 'quiz' | 'results';
 
 export default function Thinkers() {
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+  const thinkerParam = searchParams.get('thinker');
+  const lastDeepLinkRef = useRef<string | null>(null);
   
   const [screen, setScreen] = useState<Screen>('gallery');
   const [selectedSlug, setSelectedSlug] = useState<string | null>(null);
@@ -28,7 +30,7 @@ export default function Thinkers() {
   const [showCelebration, setShowCelebration] = useState(false);
   const [newlyAchieved, setNewlyAchieved] = useState(false);
 
-  const { state, questions, currentQuestion, startThinker, answer, nextQuestion, skipQuestion, endQuiz } =
+  const { state, questions, currentQuestion, startThinker, answer, eliminateOptions, nextQuestion, skipQuestion, endQuiz } =
     useThinkerQuiz(selectedDifficulties);
 
   const { achievedSlugs, awardIfPerfect } = useThinkerAchievements();
@@ -39,13 +41,17 @@ export default function Thinkers() {
     timeoutRef.current?.();
   }, []);
 
+  const currentQuestionResolved = currentQuestion
+    ? state.answeredIds.includes(currentQuestion.id)
+    : false;
+
   const {
     timeLeft, fraction,
     resetTimer, resetSession,
     handleSessionUpdate,
   } = useQuizSession({
     difficulties: selectedDifficulties,
-    isQuizActive: screen === 'quiz',
+    isQuizActive: screen === 'quiz' && !currentQuestionResolved,
     quizState: state,
     sessionTag: 'thnk',
     topics: selectedSlug ? [selectedSlug] : [],
@@ -71,6 +77,14 @@ export default function Thinkers() {
     },
     [startThinker, resetSession],
   );
+
+  useEffect(() => {
+    if (!thinkerParam || screen !== 'gallery' || lastDeepLinkRef.current === thinkerParam) return;
+    if (!THINKERS.some((thinker) => thinker.slug === thinkerParam)) return;
+
+    lastDeepLinkRef.current = thinkerParam;
+    handleStartThinker(thinkerParam);
+  }, [thinkerParam, screen, handleStartThinker]);
 
   const handleNext = useCallback(() => {
     nextQuestion();
@@ -107,13 +121,7 @@ export default function Thinkers() {
   const thinkerMeta = selectedSlug ? THINKERS.find((th) => th.slug === selectedSlug) : null;
 
   return (
-    <div className="min-h-screen bg-background flex flex-col relative">
-      <FloatingBackground />
-      <QuizHeader
-        streak={state.streak}
-        showStreak={screen === 'quiz'}
-      />
-
+    <SiteShell streak={state.streak} showStreak={screen === 'quiz'} showFooter={screen === 'gallery'}>
       <main className="relative z-10 flex-1 px-4 py-6 max-w-lg md:max-w-3xl lg:max-w-5xl mx-auto w-full">
         <AnimatePresence mode="wait">
 
@@ -122,7 +130,7 @@ export default function Thinkers() {
               selectedDifficulties={selectedDifficulties}
               onToggleDifficulty={toggleDifficulty}
               onStartThinker={handleStartThinker}
-              onBack={() => navigate('/')}
+              onBack={() => navigate(APP_PATHS.home)}
               achievedSlugs={achievedSlugs}
             />
           )}
@@ -153,6 +161,7 @@ export default function Thinkers() {
                 timerFraction={fraction}
                 timeLeft={timeLeft}
                 onAnswer={answer}
+                onEliminate={eliminateOptions}
                 onNext={handleNext}
                 onSkip={handleSkip}
                 onEndQuiz={handleEndQuiz}
@@ -182,13 +191,11 @@ export default function Thinkers() {
 
         </AnimatePresence>
       </main>
-      {screen === 'gallery' && <div className="relative z-10"><Footer /></div>}
-
       <QEDCelebration
         thinker={thinkerMeta ?? null}
         show={showCelebration}
         onDone={() => setShowCelebration(false)}
       />
-    </div>
+    </SiteShell>
   );
 }

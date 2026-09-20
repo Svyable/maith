@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { FIELDS, type FieldMeta } from '@/config/fields';
+import { QUIZ_FIELDS, type FieldMeta } from '@/config/fields';
 import { cn } from '@/lib/utils';
 import { t } from '@/i18n';
 
@@ -13,7 +13,7 @@ export function FieldSelector({ selectedField, onSelectField }: FieldSelectorPro
     <div className="space-y-2">
       <h3 className="text-xs font-bold text-muted-foreground tracking-widest uppercase">{t('home.fieldLabel')}</h3>
       <div className="flex flex-wrap gap-2">
-        {FIELDS.map((field, i) => (
+        {QUIZ_FIELDS.map((field, i) => (
           <FieldPill
             key={field.slug}
             field={field}
@@ -65,7 +65,7 @@ function FieldPill({
       )}
     >
       <span>{field.emoji}</span>
-      <span>{t(`field.${field.slug}`) || field.label}</span>
+      <span>{translateFieldLabel(field)}</span>
       {!field.available && (
         <span className="ml-1 text-[9px] font-bold text-muted-foreground bg-muted px-1 py-0.5 rounded-full">
           {t('field.soon')}
@@ -73,4 +73,10 @@ function FieldPill({
       )}
     </motion.button>
   );
+}
+
+function translateFieldLabel(field: FieldMeta): string {
+  const key = `field.${field.slug}`;
+  const translated = t(key);
+  return translated === key ? field.label : translated;
 }
