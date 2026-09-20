@@ -71,7 +71,7 @@ export const combinatoricsQuestions: Question[] = [
     question: 'Burnside\'s lemma counts distinct colorings under group action. For a necklace of 4 beads with 2 colors under rotation, the number of distinct necklaces is:',
     options: ['6', '4', '8', '16'],
     correctIndex: 0,
-    explanation: 'Burnside gives $\\frac{1}{4}(2^4 + 2^2 + 2^1 + 2^2) = \\frac{16+4+2+4}{4} = 6$.',
+    explanation: 'The four rotations fix 16, 2, 4, and 2 colorings respectively: the identity fixes all $2^4=16$ colorings, each quarter-turn fixes the 2 monochromatic colorings, and the half-turn fixes $2^2=4$. Burnside therefore gives $\\frac{16+2+4+2}{4}=6$ distinct necklaces.',
     realWorld: 'Symmetry-aware counting is used in molecular chemistry and pattern recognition.',
     hint: 'Average the number of colorings fixed by each rotation.',
   },

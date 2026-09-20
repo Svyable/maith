@@ -8,9 +8,9 @@ export const sotaQuestions: Question[] = [
     question: 'The Hessian $\\mathbf{H}$ of $f$ is:',
     options: ['The vector of first partial derivatives', 'The matrix of second partial derivatives', 'The determinant of the Jacobian', 'The integral of the gradient'],
     correctIndex: 1,
-    explanation: '$H_{ij} = \\frac{\\partial^2 f}{\\partial x_i \\partial x_j}$. The Hessian captures curvature information.',
-    realWorld: "Newton's method uses the Hessian for faster convergence in optimization.",
-    hint: 'Go one derivative deeper than the gradient — what matrix do you get?',
+    explanation: '$H_{ij} = \\frac{\\partial^2 f}{\\partial x_i \\partial x_j}$. The Hessian captures local second-order curvature. At a stationary point, a positive-definite Hessian implies a strict local minimum and a negative-definite Hessian implies a strict local maximum; an indefinite Hessian implies a saddle point.',
+    realWorld: "Newton's method uses the Hessian to build a local quadratic model of the objective, while Hessian eigenvalues diagnose curvature directions and conditioning.",
+    hint: 'Go one derivative deeper than the gradient: collect every second partial derivative into a matrix.',
   },
   {
     id: 23,
