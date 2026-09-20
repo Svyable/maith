@@ -17,7 +17,7 @@ export const gladysWestQuestions: Question[] = [
     topic: 'gladys-west',
     difficulty: 'hard',
     question: 'Which computer did Gladys West program to refine geodetic models of Earth?',
-    options: ['ENIAC', 'Cray-1', 'IBM 7030 Stretch', 'Apollo Guidance Computer'],
+    options: ['UNIVAC 1108 system', 'CDC 6600 system', 'IBM 7030 Stretch', 'IBM 7090 mainframe'],
     correctIndex: 2,
     explanation: 'West programmed the IBM 7030 Stretch to perform increasingly refined calculations of Earth’s shape and gravitational variations.',
     realWorld: 'High-performance computing made it practical to combine large geophysical datasets into useful reference models.',
