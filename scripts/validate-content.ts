@@ -2,6 +2,7 @@ import { readFile } from 'node:fs/promises';
 import { allQuestions } from '../src/content/index';
 import { allBonafideQuestions } from '../src/content/bonafides/index';
 import { allThinkerQuestions } from '../src/content/thinkers/index';
+import { vaultQuestions } from '../src/content/vault/index';
 import { CONTENT_COUNTS, QUESTION_COUNTS } from '../src/config/content-stats';
 import {
   CONTENT_TOPICS,
@@ -25,6 +26,11 @@ const fail = (message: string) => errors.push(message);
 const duplicates = <T>(values: T[]) => [...new Set(values.filter((value, index) => values.indexOf(value) !== index))];
 const duplicateIds = duplicates(allQuestions.map(({ id }) => id));
 if (duplicateIds.length) fail(`Duplicate standard question IDs: ${duplicateIds.join(', ')}`);
+const duplicateVaultIds = duplicates(vaultQuestions.map(({ id }) => id));
+if (duplicateVaultIds.length) fail(`Duplicate Vault question IDs: ${duplicateVaultIds.join(', ')}`);
+const standardIds = new Set(allQuestions.map(({ id }) => id));
+const crossPoolIds = [...new Set(vaultQuestions.map(({ id }) => id).filter((id) => standardIds.has(id)))];
+if (crossPoolIds.length) fail(`Question IDs collide between standard and Vault pools: ${crossPoolIds.join(', ')}`);
 
 const duplicateSlugs = duplicates(REGISTERED_TOPICS.map(({ slug }) => slug));
 if (duplicateSlugs.length) fail(`Duplicate canonical topic slugs: ${duplicateSlugs.join(', ')}`);
@@ -113,7 +119,7 @@ const invalidStandardPoolTopics = [...new Set(
   allQuestions
     .filter((question) => {
       const meta = topicMap.get(question.topic);
-      return meta && meta.kind !== 'standard-quiz' && meta.kind !== 'special';
+      return meta && meta.kind !== 'standard-quiz';
     })
     .map(({ topic }) => topic),
 )];
@@ -209,6 +215,13 @@ for (const pack of QUESTION_PACKS) {
   if (pack.module !== `./${pack.group}`) fail(`Pack ${pack.group} has stale module metadata ${pack.module}`);
 }
 
+const misconfiguredPackBoundaries = QUESTION_PACKS.filter(
+  (pack) => pack.includeInStandardQuiz !== (pack.kind === 'standard-quiz'),
+);
+if (misconfiguredPackBoundaries.length) {
+  fail(`Question-pack boundary mismatch: ${misconfiguredPackBoundaries.map(({ group }) => group).join(', ')}`);
+}
+
 const groupTopics = new Map<string, Set<string>>();
 for (const pack of QUESTION_PACKS) {
   const module = await import(`../src/content/${pack.group}/index.ts`) as Record<string, unknown>;
@@ -223,13 +236,14 @@ for (const pack of QUESTION_PACKS) {
   if (pack.includeInStandardQuiz && questions.length === 0) fail(`Standard question pack ${pack.group} is empty`);
   groupTopics.set(pack.group, new Set(questions.map(({ topic }) => topic)));
 }
-for (const topic of STANDARD_TOPICS.filter((entry) => entry.available)) {
-  const matchingGroups = [...groupTopics].filter(([, topics]) => topics.has(topic.slug)).map(([group]) => group);
-  if (matchingGroups.length === 0) fail(`Available topic ${topic.slug} has no question loader group`);
-}
-
 const expectedGroups = QUESTION_PACKS.filter((pack) => pack.includeInStandardQuiz).map((pack) => pack.group);
 const expectedGroupSet = new Set<string>(expectedGroups);
+for (const topic of STANDARD_TOPICS.filter((entry) => entry.available)) {
+  const matchingGroups = [...groupTopics]
+    .filter(([group, topics]) => expectedGroupSet.has(group) && topics.has(topic.slug))
+    .map(([group]) => group);
+  if (matchingGroups.length === 0) fail(`Available topic ${topic.slug} has no standard question loader group`);
+}
 if (JSON.stringify([...QUESTION_GROUPS].sort()) !== JSON.stringify([...expectedGroups].sort())) {
   fail('Generated question loader groups have drifted; run generate:question-loaders');
 }
@@ -251,14 +265,14 @@ for (const [topic, groups] of Object.entries(expectedTopicGroups)) {
   }
 }
 
-// Vault questions intentionally remain in the historical standard pool. No other special pool may leak into it.
+// Special question collections must remain disjoint from the canonical standard pool.
 const standardObjects = new Set(allQuestions);
 const leakedBonafides = allBonafideQuestions.filter((question) => standardObjects.has(question));
 const leakedThinkers = allThinkerQuestions.filter((question) => standardObjects.has(question));
+const leakedVault = vaultQuestions.filter((question) => standardObjects.has(question));
 if (leakedBonafides.length) fail(`Bonafide questions leaked into standard pool: ${leakedBonafides.length}`);
 if (leakedThinkers.length) fail(`Thinker questions leaked into standard pool: ${leakedThinkers.length}`);
-const unexpectedMixedPacks = QUESTION_PACKS.filter((pack) => pack.kind !== 'standard-quiz' && pack.includeInStandardQuiz && pack.kind !== 'vault');
-if (unexpectedMixedPacks.length) fail(`Unexpected special packs in standard pool: ${unexpectedMixedPacks.map(({ group }) => group).join(', ')}`);
+if (leakedVault.length) fail(`Vault questions leaked into standard pool: ${leakedVault.length}`);
 
 const actualCounts = Object.fromEntries([...new Set(allQuestions.map(({ topic }) => topic))].sort().map((topic) => {
   const questions = allQuestions.filter((question) => question.topic === topic);
@@ -269,7 +283,12 @@ const actualCounts = Object.fromEntries([...new Set(allQuestions.map(({ topic })
     total: questions.length,
   }];
 }));
-if (CONTENT_COUNTS.questions !== allQuestions.length || JSON.stringify(QUESTION_COUNTS) !== JSON.stringify(actualCounts)) {
+if (
+  CONTENT_COUNTS.questions !== allQuestions.length ||
+  CONTENT_COUNTS.standardQuestions !== allQuestions.length ||
+  CONTENT_COUNTS.vaultQuestions !== vaultQuestions.length ||
+  JSON.stringify(QUESTION_COUNTS) !== JSON.stringify(actualCounts)
+) {
   fail('Generated question counts have drifted; run generate:content-stats');
 }
 for (const [topic, counts] of Object.entries(actualCounts)) {
@@ -277,8 +296,18 @@ for (const [topic, counts] of Object.entries(actualCounts)) {
   if (represented === 1) warnings.push(`${topic} has only one difficulty represented`);
 }
 
-const inventory = JSON.parse(await readFile(new URL('../docs/content-inventory.json', import.meta.url), 'utf8')) as { totals?: { questions?: number }; topics?: unknown[] };
-if (inventory.totals?.questions !== allQuestions.length || inventory.topics?.length !== Object.keys(actualCounts).length + new Set(allBonafideQuestions.map(({ topic }) => topic)).size) {
+const inventory = JSON.parse(await readFile(new URL('../docs/content-inventory.json', import.meta.url), 'utf8')) as {
+  schemaVersion?: number;
+  totals?: { questions?: number; standardQuestions?: number; vaultQuestions?: number };
+  topics?: unknown[];
+};
+if (
+  inventory.schemaVersion !== 2 ||
+  inventory.totals?.questions !== allQuestions.length ||
+  inventory.totals?.standardQuestions !== allQuestions.length ||
+  inventory.totals?.vaultQuestions !== vaultQuestions.length ||
+  inventory.topics?.length !== Object.keys(actualCounts).length + new Set(allBonafideQuestions.map(({ topic }) => topic)).size
+) {
   fail('Generated content inventory has drifted; run generate:content-stats');
 }
 
@@ -287,4 +316,4 @@ if (errors.length) {
   errors.forEach((error) => console.error(`ERROR: ${error}`));
   process.exit(1);
 }
-console.log(`Content integrity passed: ${allQuestions.length} standard questions, ${REGISTERED_TOPICS.length} registered topics, ${CONCEPTS.length} mastery concepts, ${QUESTION_PACKS.length} loader groups.`);
+console.log(`Content integrity passed: ${allQuestions.length} standard questions, ${vaultQuestions.length} Vault questions, ${REGISTERED_TOPICS.length} registered topics, ${CONCEPTS.length} mastery concepts, ${expectedGroups.length} standard loader groups.`);
