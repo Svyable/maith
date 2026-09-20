@@ -20,6 +20,10 @@ import {
 } from '@/config/site-navigation';
 import NotFound from './NotFound';
 
+const FieldReferenceClusterSection = lazy(
+  () => import('@/components/learn/FieldReferenceClusterSection'),
+);
+
 const TopicReferenceClusterSection = lazy(
   () => import('@/components/learn/TopicReferenceClusterSection'),
 );
@@ -182,6 +186,13 @@ function FieldLanding({ fieldSlug }: { fieldSlug: string }) {
           ))}
         </div>
       </section>
+
+      <Suspense fallback={null}>
+        <FieldReferenceClusterSection
+          fieldPath={page.path}
+          fieldLabel={page.field.label}
+        />
+      </Suspense>
     </>
   );
 }

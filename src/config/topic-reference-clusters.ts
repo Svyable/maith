@@ -1,7 +1,12 @@
 import { resolveTopicSlugs } from './content-registry';
 import { FORMULA_REFERENCE_PAGES } from './formula-pages';
 import { GLOSSARY_REFERENCE_PAGES } from './glossary-pages';
-import { LEARNING_TOPIC_PAGES, type LearningTopicPage } from './learning-pages';
+import {
+  LEARNING_FIELD_PAGES,
+  LEARNING_TOPIC_PAGES,
+  type LearningFieldPage,
+  type LearningTopicPage,
+} from './learning-pages';
 import { THINKER_REFERENCE_PAGES } from './thinker-pages';
 
 export const MAX_TOPIC_FORMULA_LINKS = 4;
@@ -335,4 +340,114 @@ export function getReferenceTopicBacklinks(referencePath: string): ReferenceTopi
 
 export function buildAllReferenceTopicBacklinks(): Map<string, ReferenceTopicBacklink[]> {
   return buildReferenceTopicBacklinkMap();
+}
+
+
+export const MAX_FIELD_FORMULA_LINKS = 5;
+export const MAX_FIELD_GLOSSARY_LINKS = 5;
+export const MAX_FIELD_THINKER_LINKS = 4;
+
+export interface FieldReferenceLink extends TopicReferenceLink {
+  topicCount: number;
+  topicLabels: string[];
+}
+
+export interface FieldReferenceCluster {
+  fieldPath: string;
+  fieldSlug: string;
+  formulas: FieldReferenceLink[];
+  glossary: FieldReferenceLink[];
+  thinkers: FieldReferenceLink[];
+}
+
+function aggregateFieldLinks(
+  field: LearningFieldPage,
+  kind: TopicReferenceKind,
+  cap: number,
+): FieldReferenceLink[] {
+  const aggregated = new Map<
+    string,
+    {
+      link: TopicReferenceLink;
+      topicLabels: Set<string>;
+      maxScore: number;
+    }
+  >();
+
+  for (const topic of field.topics) {
+    if (!topic.indexable) continue;
+    const cluster = getTopicReferenceCluster(topic.path);
+    if (!cluster) continue;
+
+    const links =
+      kind === 'formula'
+        ? cluster.formulas
+        : kind === 'glossary'
+          ? cluster.glossary
+          : cluster.thinkers;
+
+    for (const link of links) {
+      const current = aggregated.get(link.path);
+      if (!current) {
+        aggregated.set(link.path, {
+          link,
+          topicLabels: new Set([topic.topic.label]),
+          maxScore: link.score,
+        });
+        continue;
+      }
+
+      current.topicLabels.add(topic.topic.label);
+      current.maxScore = Math.max(current.maxScore, link.score);
+    }
+  }
+
+  return [...aggregated.values()]
+    .map(({ link, topicLabels, maxScore }) => ({
+      ...link,
+      score: maxScore,
+      topicCount: topicLabels.size,
+      topicLabels: [...topicLabels].sort((a, b) => a.localeCompare(b)),
+    }))
+    .sort(
+      (a, b) =>
+        b.topicCount - a.topicCount
+        || b.score - a.score
+        || a.label.localeCompare(b.label),
+    )
+    .slice(0, cap);
+}
+
+const fieldClusterCache = new Map<string, FieldReferenceCluster>();
+
+function buildFieldCluster(field: LearningFieldPage): FieldReferenceCluster {
+  return {
+    fieldPath: field.path,
+    fieldSlug: field.field.slug,
+    formulas: aggregateFieldLinks(field, 'formula', MAX_FIELD_FORMULA_LINKS),
+    glossary: aggregateFieldLinks(field, 'glossary', MAX_FIELD_GLOSSARY_LINKS),
+    thinkers: aggregateFieldLinks(field, 'thinker', MAX_FIELD_THINKER_LINKS),
+  };
+}
+
+export function getFieldReferenceCluster(fieldPath: string): FieldReferenceCluster | undefined {
+  const cached = fieldClusterCache.get(fieldPath);
+  if (cached) return cached;
+
+  const field = LEARNING_FIELD_PAGES.find((page) => page.path === fieldPath);
+  if (!field) return undefined;
+
+  const cluster = buildFieldCluster(field);
+  fieldClusterCache.set(fieldPath, cluster);
+  return cluster;
+}
+
+export function buildAllFieldReferenceClusters(): FieldReferenceCluster[] {
+  return LEARNING_FIELD_PAGES.map((field) => {
+    const cluster = getFieldReferenceCluster(field.path);
+    if (!cluster) {
+      throw new Error('Missing field reference cluster for ' + field.path);
+    }
+    return cluster;
+  });
 }

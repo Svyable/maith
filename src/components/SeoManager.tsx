@@ -130,9 +130,19 @@ async function resolveEnhancedSeo(pathname: string, locale: string) {
   }
 
   const learnSegments = pathname.split('/').filter(Boolean);
-  if (learnSegments[0] === APP_PATHS.learn.slice(1) && learnSegments.length === 3) {
-    const { getTopicReferenceCluster } = await import('@/config/topic-reference-clusters');
-    const cluster = getTopicReferenceCluster(pathname);
+  if (learnSegments[0] === APP_PATHS.learn.slice(1)) {
+    const {
+      getFieldReferenceCluster,
+      getTopicReferenceCluster,
+    } = await import('@/config/topic-reference-clusters');
+
+    const cluster =
+      learnSegments.length === 2
+        ? getFieldReferenceCluster(pathname)
+        : learnSegments.length === 3
+          ? getTopicReferenceCluster(pathname)
+          : undefined;
+
     if (cluster) {
       const seo = getSeoForPath(pathname);
       const relatedLinks = [

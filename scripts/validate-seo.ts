@@ -49,6 +49,10 @@ import {
   MIN_GLOSSARY_CLUSTER_SCORE,
   MIN_THINKER_CLUSTER_SCORE,
   MAX_REFERENCE_TOPIC_LINKS,
+  MAX_FIELD_FORMULA_LINKS,
+  MAX_FIELD_GLOSSARY_LINKS,
+  MAX_FIELD_THINKER_LINKS,
+  buildAllFieldReferenceClusters,
   buildAllReferenceTopicBacklinks,
   buildAllTopicReferenceClusters,
   getReferenceTopicBacklinks,
@@ -228,6 +232,107 @@ if (topicClusterCoverage < 0.35) {
       + Math.round(topicClusterCoverage * 100)
       + '% is below the 35% quality floor',
   );
+}
+
+const fieldReferenceClusters = buildAllFieldReferenceClusters();
+if (fieldReferenceClusters.length !== LEARNING_FIELD_PAGES.length) {
+  fail(
+    'Field reference cluster count '
+      + fieldReferenceClusters.length
+      + ' must match learning field count '
+      + LEARNING_FIELD_PAGES.length,
+  );
+}
+
+const learningFieldPathSet = new Set(LEARNING_FIELD_PAGES.map((page) => page.path));
+let indexableFieldsWithReferences = 0;
+let indexableFieldsWithFormula = 0;
+let indexableFieldsWithGlossary = 0;
+let indexableFieldsWithThinker = 0;
+
+for (const fieldCluster of fieldReferenceClusters) {
+  const fieldPage = LEARNING_FIELD_PAGES.find((page) => page.path === fieldCluster.fieldPath);
+  if (!fieldPage || !learningFieldPathSet.has(fieldCluster.fieldPath)) {
+    fail(fieldCluster.fieldPath + ': field reference cluster has no canonical learning field');
+    continue;
+  }
+
+  if (fieldCluster.formulas.length > MAX_FIELD_FORMULA_LINKS) {
+    fail(fieldCluster.fieldPath + ': formula field shelf exceeds configured cap');
+  }
+  if (fieldCluster.glossary.length > MAX_FIELD_GLOSSARY_LINKS) {
+    fail(fieldCluster.fieldPath + ': glossary field shelf exceeds configured cap');
+  }
+  if (fieldCluster.thinkers.length > MAX_FIELD_THINKER_LINKS) {
+    fail(fieldCluster.fieldPath + ': thinker field shelf exceeds configured cap');
+  }
+
+  const allFieldLinks = [
+    ...fieldCluster.formulas,
+    ...fieldCluster.glossary,
+    ...fieldCluster.thinkers,
+  ];
+
+  assertUnique(
+    fieldCluster.fieldPath + ' field reference paths',
+    allFieldLinks.map((link) => link.path),
+  );
+
+  const indexableChildClusters = fieldPage.topics
+    .filter((topic) => topic.indexable)
+    .flatMap((topic) => {
+      const cluster = getTopicReferenceCluster(topic.path);
+      return cluster ? [cluster] : [];
+    });
+
+  for (const link of fieldCluster.formulas) {
+    const inherited = indexableChildClusters.some((cluster) =>
+      cluster.formulas.some((candidate) => candidate.path === link.path),
+    );
+    if (!inherited) {
+      fail(fieldCluster.fieldPath + ': formula field link is not inherited from a child topic: ' + link.path);
+    }
+  }
+
+  for (const link of fieldCluster.glossary) {
+    const inherited = indexableChildClusters.some((cluster) =>
+      cluster.glossary.some((candidate) => candidate.path === link.path),
+    );
+    if (!inherited) {
+      fail(fieldCluster.fieldPath + ': glossary field link is not inherited from a child topic: ' + link.path);
+    }
+  }
+
+  for (const link of fieldCluster.thinkers) {
+    const inherited = indexableChildClusters.some((cluster) =>
+      cluster.thinkers.some((candidate) => candidate.path === link.path),
+    );
+    if (!inherited) {
+      fail(fieldCluster.fieldPath + ': thinker field link is not inherited from a child topic: ' + link.path);
+    }
+  }
+
+  if (fieldPage.indexable) {
+    if (allFieldLinks.length === 0) {
+      fail(fieldCluster.fieldPath + ': indexable field has no knowledge-hub references');
+    } else {
+      indexableFieldsWithReferences += 1;
+    }
+
+    if (fieldCluster.formulas.length === 0) {
+      fail(fieldCluster.fieldPath + ': indexable field must retain at least one formula reference');
+    } else {
+      indexableFieldsWithFormula += 1;
+    }
+
+    if (fieldCluster.glossary.length > 0) indexableFieldsWithGlossary += 1;
+
+    if (fieldCluster.thinkers.length === 0) {
+      fail(fieldCluster.fieldPath + ': indexable field must retain at least one thinker reference');
+    } else {
+      indexableFieldsWithThinker += 1;
+    }
+  }
 }
 
 const allReferenceTopicBacklinks = buildAllReferenceTopicBacklinks();
@@ -548,6 +653,16 @@ console.log(
     + indexableClustersWithGlossary
     + ' with glossary terms, '
     + indexableClustersWithThinker
+    + ' with thinkers. Field hubs: '
+    + indexableFieldsWithReferences
+    + '/'
+    + LEARNING_FIELD_PAGES.filter((page) => page.indexable).length
+    + ' indexable fields with references, '
+    + indexableFieldsWithFormula
+    + ' with formulas, '
+    + indexableFieldsWithGlossary
+    + ' with glossary terms, '
+    + indexableFieldsWithThinker
     + ' with thinkers. Reciprocal graph: '
     + referencesWithPracticeBacklinks
     + ' references with practice backlinks, '
