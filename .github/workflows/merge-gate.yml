@@ -1,0 +1,165 @@
+name: Merge Gate
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: merge-gate-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  changes:
+    name: detect-changes
+    runs-on: ubuntu-latest
+    outputs:
+      app: ${{ steps.filter.outputs.app }}
+      content: ${{ steps.filter.outputs.content }}
+      site: ${{ steps.filter.outputs.site }}
+      seo: ${{ steps.filter.outputs.seo }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - name: Detect validation surfaces
+        id: filter
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
+            {
+              echo "app=true"
+              echo "content=true"
+              echo "site=true"
+              echo "seo=true"
+            } >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          if [[ "${{ github.event_name }}" == "pull_request" ]]; then
+            base="${{ github.event.pull_request.base.sha }}"
+            head="${{ github.event.pull_request.head.sha }}"
+          else
+            base="${{ github.event.before }}"
+            head="${{ github.sha }}"
+          fi
+
+          if [[ -z "$base" || "$base" =~ ^0+$ ]]; then
+            base="$(git rev-parse "$head^" 2>/dev/null || printf '%s' "$head")"
+          fi
+
+          git diff --name-only "$base" "$head" > /tmp/changed-files.txt
+          cat /tmp/changed-files.txt
+
+          changed() {
+            grep -Eq "$1" /tmp/changed-files.txt
+          }
+
+          workflow_changed=false
+          if changed '^\.github/workflows/'; then
+            workflow_changed=true
+          fi
+
+          app=false
+          content=false
+          site=false
+          seo=false
+
+          if [[ "$workflow_changed" == "true" ]] || changed '^(src/(App\.tsx|main\.tsx)$|src/(components|contexts|domain|hooks|integrations|lib|pages|test|types|config)/|src/i18n/[^/]+\.ts$|vite\.config\.ts$|vitest\.config\.ts$|tsconfig.*\.json$|tailwind\.config\.ts$|postcss\.config\.js$|package\.json$|bun\.lock$)'; then
+            app=true
+          fi
+
+          if [[ "$workflow_changed" == "true" ]] || changed '^(src/content/|src/i18n/|scripts/|docs/localization\.md$|package\.json$|bun\.lock$)'; then
+            content=true
+          fi
+
+          if [[ "$workflow_changed" == "true" ]] || changed '^(src/App\.tsx$|src/pages/|src/components/layout/|src/components/QuizHeader\.tsx$|src/components/Footer\.tsx$|src/components/HomeScreen\.tsx$|src/config/fields\.ts$|src/config/site-navigation\.ts$|src/test/site-structure\.test\.ts$|package\.json$|bun\.lock$)'; then
+            site=true
+          fi
+
+          if [[ "$workflow_changed" == "true" ]] || changed '^(index\.html$|public/(robots\.txt|sitemap\.xml|llms\.txt)$|src/App\.tsx$|src/components/(SeoManager\.tsx|learn/|glossary/|thinkers/)|src/config/(seo|learning-pages|topic-reference-clusters|reference-utils|reference-aliases|formula-pages|glossary-pages|thinker-pages|site-navigation|content-registry|content-stats|equations|thinkers)\.ts$|src/pages/(Learn|FormulaDetail|GlossaryDetail|ThinkerDetail|Formulas|Thinkers|Index)\.tsx$|src/content/glossary/|scripts/(generate-seo-artifacts|reference-seo-routes|prerender-seo|validate-prerender|validate-seo)\.ts$|package\.json$|bun\.lock$)'; then
+            seo=true
+          fi
+
+          {
+            echo "app=$app"
+            echo "content=$content"
+            echo "site=$site"
+            echo "seo=$seo"
+          } >> "$GITHUB_OUTPUT"
+
+  content:
+    needs: changes
+    if: needs.changes.outputs.content == 'true'
+    uses: ./.github/workflows/content-integrity.yml
+
+  site:
+    needs: changes
+    if: needs.changes.outputs.site == 'true'
+    uses: ./.github/workflows/site-integrity.yml
+
+  seo:
+    needs: changes
+    if: needs.changes.outputs.seo == 'true'
+    uses: ./.github/workflows/seo-integrity.yml
+
+  app:
+    needs: changes
+    if: needs.changes.outputs.app == 'true'
+    uses: ./.github/workflows/app-ci.yml
+    with:
+      run_build: ${{ needs.changes.outputs.seo != 'true' }}
+
+  merge-gate:
+    name: merge-gate
+    if: always()
+    needs:
+      - changes
+      - content
+      - site
+      - seo
+      - app
+    runs-on: ubuntu-latest
+    steps:
+      - name: Require all selected validations to pass
+        env:
+          CHANGES_RESULT: ${{ needs.changes.result }}
+          CONTENT_RESULT: ${{ needs.content.result }}
+          SITE_RESULT: ${{ needs.site.result }}
+          SEO_RESULT: ${{ needs.seo.result }}
+          APP_RESULT: ${{ needs.app.result }}
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          if [[ "$CHANGES_RESULT" != "success" ]]; then
+            echo "Change detection did not succeed: $CHANGES_RESULT"
+            exit 1
+          fi
+
+          failed=0
+          for result in "$CONTENT_RESULT" "$SITE_RESULT" "$SEO_RESULT" "$APP_RESULT"; do
+            if [[ "$result" != "success" && "$result" != "skipped" ]]; then
+              failed=1
+            fi
+          done
+
+          if [[ "$failed" -ne 0 ]]; then
+            echo "At least one selected validation failed or was cancelled."
+            printf 'content=%s\nsite=%s\nseo=%s\napp=%s\n' \
+              "$CONTENT_RESULT" "$SITE_RESULT" "$SEO_RESULT" "$APP_RESULT"
+            exit 1
+          fi
+
+          printf 'merge gate passed: content=%s site=%s seo=%s app=%s\n' \
+            "$CONTENT_RESULT" "$SITE_RESULT" "$SEO_RESULT" "$APP_RESULT"

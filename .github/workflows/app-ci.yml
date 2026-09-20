@@ -1,61 +1,23 @@
 name: App CI
 
 on:
-  pull_request:
-    paths:
-      - 'src/App.tsx'
-      - 'src/main.tsx'
-      - 'src/components/**'
-      - 'src/contexts/**'
-      - 'src/domain/**'
-      - 'src/hooks/**'
-      - 'src/integrations/**'
-      - 'src/i18n/*.ts'
-      - 'src/lib/**'
-      - 'src/pages/**'
-      - 'src/test/**'
-      - 'src/types/**'
-      - 'src/config/**'
-      - 'vite.config.ts'
-      - 'vitest.config.ts'
-      - 'tsconfig*.json'
-      - 'tailwind.config.ts'
-      - 'postcss.config.js'
-      - 'package.json'
-      - 'bun.lock'
-      - '.github/workflows/app-ci.yml'
-  push:
-    branches:
-      - main
-    paths:
-      - 'src/App.tsx'
-      - 'src/main.tsx'
-      - 'src/components/**'
-      - 'src/contexts/**'
-      - 'src/domain/**'
-      - 'src/hooks/**'
-      - 'src/integrations/**'
-      - 'src/i18n/*.ts'
-      - 'src/lib/**'
-      - 'src/pages/**'
-      - 'src/test/**'
-      - 'src/types/**'
-      - 'src/config/**'
-      - 'vite.config.ts'
-      - 'vitest.config.ts'
-      - 'tsconfig*.json'
-      - 'tailwind.config.ts'
-      - 'postcss.config.js'
-      - 'package.json'
-      - 'bun.lock'
-      - '.github/workflows/app-ci.yml'
+  workflow_call:
+    inputs:
+      run_build:
+        description: Run the production build in this workflow.
+        required: false
+        type: boolean
+        default: true
+  workflow_dispatch:
+    inputs:
+      run_build:
+        description: Run the production build.
+        required: false
+        type: boolean
+        default: true
 
 permissions:
   contents: read
-
-concurrency:
-  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
-  cancel-in-progress: true
 
 jobs:
   test-and-build:
@@ -78,4 +40,5 @@ jobs:
         run: bun run test
 
       - name: Build production app
+        if: inputs.run_build
         run: bun run build
