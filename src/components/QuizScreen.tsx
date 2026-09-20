@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect, type MutableRefObject } from 'react';
+import type { MutableRefObject } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import { LatexRenderer } from './LatexRenderer';
 import { OptionButton } from './OptionButton';
@@ -8,9 +8,9 @@ import { HintPanel } from './HintPanel';
 import { PaperPill } from './PaperPill';
 import type { PublicQuestion, CheckResult } from '@/domain/quiz';
 import { type Difficulty, getDifficultyMeta, TOPIC_MAP, toDifficulty } from '@/config/constants';
-import { useKeyboard } from '@/hooks/useKeyboard';
 import { t } from '@/i18n';
-import { calculatePoints, streakBonusLabel } from '@/domain/scoring';
+import { streakBonusLabel } from '@/domain/scoring';
+import { useQuizQuestionInteraction } from '@/hooks/useQuizQuestionInteraction';
 
 interface QuizScreenProps {
   question: PublicQuestion;
@@ -53,101 +53,40 @@ export function QuizScreen({
   onSessionUpdate,
   timeoutRef,
 }: QuizScreenProps) {
-  const [selectedOption, setSelectedOption] = useState<number | null>(null);
-  const [answerState, setAnswerState] = useState<'pending' | 'checking' | 'correct' | 'wrong'>('pending');
-  const [hintShown, setHintShown] = useState(false);
-  const [eliminateUsed, setEliminateUsed] = useState(false);
-  const [eliminatedOptions, setEliminatedOptions] = useState<number[]>([]);
-  const [checkResult, setCheckResult] = useState<CheckResult | null>(null);
-  const [pointsAwarded, setPointsAwarded] = useState(0);
   const prefersReducedMotion = useReducedMotion();
 
-  const topicMeta = TOPIC_MAP[question.topic];
-  const qDiffMeta = getDifficultyMeta(toDifficulty(question.difficulty));
-  const diffBadge = DIFF_BADGE[question.difficulty] ?? DIFF_BADGE.hard;
-
-  const handleSelect = useCallback(async (index: number) => {
-    if (answerState !== 'pending') return;
-    if (eliminatedOptions.includes(index)) return;
-    setSelectedOption(index);
-    setAnswerState('checking');
-
-    const originalIndex = question.originalIndices[index];
-    const result = await onAnswer(originalIndex);
-    if (result) {
-      const shuffledCorrectIndex = question.originalIndices.indexOf(result.correctIndex);
-      setCheckResult({ ...result, correctIndex: shuffledCorrectIndex });
-      setPointsAwarded(result.correct ? calculatePoints(question.difficulty, streak + 1) : 0);
-      setAnswerState(result.correct ? 'correct' : 'wrong');
-      onSessionUpdate(result.correct);
-    } else {
-      setAnswerState('pending');
-      setSelectedOption(null);
-    }
-  }, [onAnswer, answerState, onSessionUpdate, eliminatedOptions, question.difficulty, question.originalIndices, streak]);
-
-  const handleTimeoutAnswer = useCallback(async () => {
-    if (answerState !== 'pending') return;
-    const originalIndex = -1;
-    const result = await onAnswer(originalIndex);
-    if (result) {
-      const shuffledCorrectIndex = question.originalIndices.indexOf(result.correctIndex);
-      setCheckResult({ ...result, correctIndex: shuffledCorrectIndex });
-      setPointsAwarded(0);
-      setAnswerState('wrong');
-      setSelectedOption(-1);
-      onSessionUpdate(false);
-    }
-  }, [answerState, onAnswer, onSessionUpdate, question.originalIndices]);
-
-  useEffect(() => {
-    if (timeoutRef) timeoutRef.current = handleTimeoutAnswer;
-    return () => { if (timeoutRef) timeoutRef.current = null; };
-  }, [timeoutRef, handleTimeoutAnswer]);
-
-  const resetQuestionState = useCallback(() => {
-    setSelectedOption(null);
-    setAnswerState('pending');
-    setHintShown(false);
-    setEliminateUsed(false);
-    setEliminatedOptions([]);
-    setCheckResult(null);
-    setPointsAwarded(0);
-  }, []);
-
-  const handleNext = useCallback(() => {
-    resetQuestionState();
-    onNext();
-  }, [onNext, resetQuestionState]);
-
-  const handleSkip = useCallback(() => {
-    resetQuestionState();
-    onSkip();
-  }, [onSkip, resetQuestionState]);
-
-  const handleShowHint = useCallback(() => {
-    if (hintShown || answerState !== 'pending') return;
-    setHintShown(true);
-  }, [hintShown, answerState]);
-
-  const handleEliminate = useCallback(() => {
-    if (eliminateUsed || answerState !== 'pending') return;
-    const indices = onEliminate();
-    if (indices.length === 0) return;
-    setEliminateUsed(true);
-    setEliminatedOptions(indices);
-  }, [eliminateUsed, answerState, onEliminate]);
-
-  const isAnswered = answerState === 'correct' || answerState === 'wrong';
-  const nextStreakBonus = streakBonusLabel(streak + 1);
-
-  useKeyboard({
-    onOption: answerState === 'pending' ? handleSelect : undefined,
-    onHint: answerState === 'pending' ? handleShowHint : undefined,
-    onNext: isAnswered ? handleNext : undefined,
-    onSkip: answerState === 'pending' ? handleSkip : undefined,
-    enabled: true,
+  const {
+    selectedOption,
+    answerState,
+    hintShown,
+    eliminateUsed,
+    eliminatedOptions,
+    checkResult,
+    pointsAwarded,
+    isAnswered,
+    handleSelect,
+    handleNext,
+    handleSkip,
+    handleShowHint,
+    handleEliminate,
+  } = useQuizQuestionInteraction({
+    question,
+    streak,
+    onAnswer,
+    onEliminate,
+    onNext,
+    onSkip,
+    onSessionUpdate,
+    timeoutRef,
   });
+
+  const topicMeta = TOPIC_MAP[question.topic];
+  const qDiffMeta = getDifficultyMeta(
+    toDifficulty(question.difficulty),
+  );
+  const diffBadge =
+    DIFF_BADGE[question.difficulty] ?? DIFF_BADGE.hard;
+  const nextStreakBonus = streakBonusLabel(streak + 1);
 
   return (
     <motion.div
