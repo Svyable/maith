@@ -97,7 +97,7 @@ export const economicsQuestions: Question[] = [
 
   // ── Microeconomics foundation expansion ──────────────────────────
   {
-    id: 490010, topic: "microeconomics", difficulty: "easy",
+    id: 490028, topic: "microeconomics", difficulty: "easy",
     question: "Opportunity cost is:",
     options: ["A sunk accounting cost","The best forgone alternative","A tax on consumption","A firm's total revenue"],
     correctIndex: 1,
@@ -107,7 +107,7 @@ export const economicsQuestions: Question[] = [
     reviewedAt: "2026-09-19",
   },
   {
-    id: 490011, topic: "microeconomics", difficulty: "easy",
+    id: 490029, topic: "microeconomics", difficulty: "easy",
     question: "A binding price ceiling below equilibrium tends to create:",
     options: ["A surplus","A demand shift","A shortage","A supply shift"],
     correctIndex: 2,
