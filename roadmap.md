@@ -30,12 +30,12 @@ The roadmap is organized around strategic horizons. Existing content-quality wor
 
 ### Semantic substrate
 
-- [ ] Add a canonical concept registry below the topic layer
-- [ ] Define prerequisite, related, and application relationships
-- [ ] Add optional question-to-concept mappings
-- [ ] Add concept graph integrity validation
-- [ ] Generate concept coverage diagnostics
-- [ ] Map a small, high-quality pilot cohort before broad rollout
+- [x] Add a canonical concept registry below the topic layer
+- [x] Define prerequisite, related, and application relationships
+- [x] Add optional question-to-concept mappings
+- [x] Add concept graph integrity validation
+- [x] Generate concept coverage diagnostics
+- [x] Map a small, high-quality pilot cohort before broad rollout
 
 ### Learner evidence
 
