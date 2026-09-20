@@ -28,7 +28,7 @@ export const complexAnalysisQuestions: Question[] = [
       '$u = v$ everywhere',
     ],
     correctIndex: 0,
-    explanation: 'The Cauchy-Riemann equations are the fundamental test for complex differentiability. They encode the beautiful constraint that holomorphic functions are conformal (angle-preserving) — a fact Riemann and Cauchy independently discovered.',
+    explanation: 'The Cauchy-Riemann equations are necessary for complex differentiability, and together with suitable regularity of the partial derivatives they give a standard criterion for holomorphicity. A holomorphic function is conformal at points where its derivative is nonzero; at critical points with $f\'(z)=0$, local angle preservation can fail.',
     realWorld: 'Conformal mappings satisfying C-R equations are used in aerodynamics to map airfoil shapes to circles for flow analysis.',
     hint: 'The partial derivatives cross-link real and imaginary parts with a sign flip.',
     symbolLinks: { 'u': 'upsilon', 'v': 'upsilon' },
