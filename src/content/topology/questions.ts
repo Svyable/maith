@@ -39,7 +39,7 @@ export const topologyQuestions: Question[] = [
       'It varies depending on the specific polyhedron',
     ],
     correctIndex: 0,
-    explanation: 'Euler\'s formula (1758) is one of topology\'s earliest results. For a sphere (genus 0), χ=2. For a torus (genus 1), χ=0. In general, χ = 2-2g where g is the genus.',
+    explanation: 'The boundary of every convex polyhedron is homeomorphic to a sphere, so its Euler characteristic is $\\chi=V-E+F=2$. More generally, for a connected closed orientable surface of genus $g$, $\\chi=2-2g$; for example, a torus has genus 1 and $\\chi=0$.',
     realWorld: 'The Euler characteristic is used in mesh processing (3D graphics, CAD), computational geometry, and topological data analysis.',
     hint: 'Vertices minus edges plus faces — try it on a cube: 8 - 12 + 6.',
   },
