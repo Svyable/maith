@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "totals": {
-    "questions": 1142,
+    "questions": 1151,
     "glossaryTerms": 488,
     "thinkers": 621,
     "vaultEntries": 74,
@@ -724,10 +724,10 @@
         "complex-analysis"
       ],
       "counts": {
-        "easy": 3,
-        "hard": 3,
-        "sota": 3,
-        "total": 9
+        "easy": 6,
+        "hard": 6,
+        "sota": 6,
+        "total": 18
       }
     },
     {
