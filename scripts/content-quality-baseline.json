@@ -1,6 +1,6 @@
 {
-  "version": 1,
+  "version": 2,
   "maxErrors": 205,
-  "observedWarnings": 2092,
-  "note": "Historical quality debt ceiling. CI must not increase hard errors; lower maxErrors whenever debt is reduced."
+  "maxWarnings": 4260,
+  "note": "Historical quality-debt ceilings. CI must not increase hard errors or warnings; lower either ceiling whenever debt is reduced."
 }
