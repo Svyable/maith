@@ -1,43 +1,11 @@
 name: Site integrity
 
 on:
-  pull_request:
-    paths:
-      - 'src/App.tsx'
-      - 'src/pages/**'
-      - 'src/components/layout/**'
-      - 'src/components/QuizHeader.tsx'
-      - 'src/components/Footer.tsx'
-      - 'src/components/HomeScreen.tsx'
-      - 'src/config/fields.ts'
-      - 'src/config/site-navigation.ts'
-      - 'src/test/site-structure.test.ts'
-      - 'package.json'
-      - 'bun.lock'
-      - '.github/workflows/site-integrity.yml'
-  push:
-    branches:
-      - main
-    paths:
-      - 'src/App.tsx'
-      - 'src/pages/**'
-      - 'src/components/layout/**'
-      - 'src/components/QuizHeader.tsx'
-      - 'src/components/Footer.tsx'
-      - 'src/components/HomeScreen.tsx'
-      - 'src/config/fields.ts'
-      - 'src/config/site-navigation.ts'
-      - 'src/test/site-structure.test.ts'
-      - 'package.json'
-      - 'bun.lock'
-      - '.github/workflows/site-integrity.yml'
+  workflow_call:
+  workflow_dispatch:
 
 permissions:
   contents: read
-
-concurrency:
-  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
-  cancel-in-progress: true
 
 jobs:
   validate-site:

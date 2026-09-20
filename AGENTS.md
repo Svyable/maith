@@ -23,13 +23,14 @@ Increase mAIth's rate of **correct, validated, mergeable improvement**. Optimize
 4. **Use a validation funnel.**
    - During iteration, run the cheapest check that can disprove the change.
    - Before merge, run the repository checks relevant to the changed surface.
+   - GitHub's stable required check is `merge-gate`; do not configure path-filtered subchecks as independently required.
    - Let GitHub Actions provide the final objective gate where local execution is unavailable.
 
 5. **Keep PRs conflict-light and mergeable.**
    - Reuse/update an existing compatible PR when possible.
    - Prefer narrow ownership boundaries and additive/reversible changes.
    - Do not add human-review blockers merely as process; rely on tests, schemas, generated inventories, and CI protections.
-   - Enable auto-merge when repository settings and required checks allow it.
+   - Enable auto-merge when repository settings and the `merge-gate` check allow it.
 
 6. **Treat failures as routing information.**
    - Fix deterministic test/schema/content failures directly.
@@ -44,6 +45,12 @@ Increase mAIth's rate of **correct, validated, mergeable improvement**. Optimize
 8. **Finish or stop.**
    - A run should end in a validated commit/PR, a clean no-op because no meaningful safe change exists, or a precise blocker.
    - Do not create placeholder PRs, speculative TODO files, or filler changes merely to show progress.
+
+## CI/CD contract
+
+`.github/workflows/merge-gate.yml` is the single PR orchestration layer. It always emits the stable `merge-gate` status and calls the content, site, SEO, and app workflows only when their file surfaces changed. The specialized workflows are reusable/manual workflows rather than separately path-filtered PR gates.
+
+For repository protection, require only `merge-gate` on `main`. This keeps required checks deterministic for docs-only and narrowly scoped PRs while still running all relevant validation in parallel.
 
 ## Fast path by change type
 
@@ -65,7 +72,7 @@ Iterate with the relevant Vitest target or:
 bun run validate:site
 ```
 
-Then rely on App CI for the full test/build gate.
+Then rely on the merge gate for the full required PR check.
 
 ### SEO/reference changes
 

@@ -1,33 +1,11 @@
 name: Content integrity
 
 on:
-  pull_request:
-    paths:
-      - 'src/content/**'
-      - 'src/i18n/**'
-      - 'scripts/**'
-      - 'docs/localization.md'
-      - 'package.json'
-      - 'bun.lock'
-      - '.github/workflows/content-integrity.yml'
-  push:
-    branches:
-      - main
-    paths:
-      - 'src/content/**'
-      - 'src/i18n/**'
-      - 'scripts/**'
-      - 'docs/localization.md'
-      - 'package.json'
-      - 'bun.lock'
-      - '.github/workflows/content-integrity.yml'
+  workflow_call:
+  workflow_dispatch:
 
 permissions:
   contents: read
-
-concurrency:
-  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
-  cancel-in-progress: true
 
 jobs:
   validate-content:

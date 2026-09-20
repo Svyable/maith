@@ -1,93 +1,11 @@
 name: SEO integrity
 
 on:
-  pull_request:
-    paths:
-      - 'index.html'
-      - 'public/robots.txt'
-      - 'public/sitemap.xml'
-      - 'public/llms.txt'
-      - 'src/App.tsx'
-      - 'src/components/SeoManager.tsx'
-      - 'src/config/seo.ts'
-      - 'src/config/learning-pages.ts'
-      - 'src/config/topic-reference-clusters.ts'
-      - 'src/config/reference-utils.ts'
-      - 'src/config/reference-aliases.ts'
-      - 'src/config/formula-pages.ts'
-      - 'src/config/glossary-pages.ts'
-      - 'src/config/thinker-pages.ts'
-      - 'src/config/site-navigation.ts'
-      - 'src/pages/Learn.tsx'
-      - 'src/components/learn/**'
-      - 'src/pages/FormulaDetail.tsx'
-      - 'src/pages/GlossaryDetail.tsx'
-      - 'src/pages/ThinkerDetail.tsx'
-      - 'src/pages/Formulas.tsx'
-      - 'src/pages/Thinkers.tsx'
-      - 'src/components/glossary/**'
-      - 'src/components/thinkers/**'
-      - 'src/pages/Index.tsx'
-      - 'src/config/content-registry.ts'
-      - 'src/config/content-stats.ts'
-      - 'src/config/equations.ts'
-      - 'src/config/thinkers.ts'
-      - 'src/content/glossary/**'
-      - 'scripts/generate-seo-artifacts.ts'
-      - 'scripts/reference-seo-routes.ts'
-      - 'scripts/prerender-seo.ts'
-      - 'scripts/validate-prerender.ts'
-      - 'scripts/validate-seo.ts'
-      - 'package.json'
-      - '.github/workflows/seo-integrity.yml'
-  push:
-    branches:
-      - main
-    paths:
-      - 'index.html'
-      - 'public/robots.txt'
-      - 'public/sitemap.xml'
-      - 'public/llms.txt'
-      - 'src/App.tsx'
-      - 'src/components/SeoManager.tsx'
-      - 'src/config/seo.ts'
-      - 'src/config/learning-pages.ts'
-      - 'src/config/topic-reference-clusters.ts'
-      - 'src/config/reference-utils.ts'
-      - 'src/config/reference-aliases.ts'
-      - 'src/config/formula-pages.ts'
-      - 'src/config/glossary-pages.ts'
-      - 'src/config/thinker-pages.ts'
-      - 'src/config/site-navigation.ts'
-      - 'src/pages/Learn.tsx'
-      - 'src/components/learn/**'
-      - 'src/pages/FormulaDetail.tsx'
-      - 'src/pages/GlossaryDetail.tsx'
-      - 'src/pages/ThinkerDetail.tsx'
-      - 'src/pages/Formulas.tsx'
-      - 'src/pages/Thinkers.tsx'
-      - 'src/components/glossary/**'
-      - 'src/components/thinkers/**'
-      - 'src/pages/Index.tsx'
-      - 'src/config/content-registry.ts'
-      - 'src/config/content-stats.ts'
-      - 'src/config/equations.ts'
-      - 'src/config/thinkers.ts'
-      - 'src/content/glossary/**'
-      - 'scripts/generate-seo-artifacts.ts'
-      - 'scripts/reference-seo-routes.ts'
-      - 'scripts/prerender-seo.ts'
-      - 'scripts/validate-prerender.ts'
-      - 'scripts/validate-seo.ts'
-      - 'package.json'
-      - '.github/workflows/seo-integrity.yml'
+  workflow_call:
+  workflow_dispatch:
 
 permissions:
   contents: read
-
-concurrency:
-  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
-  cancel-in-progress: true
 
 jobs:
   validate-seo:
