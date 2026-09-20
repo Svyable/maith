@@ -2,6 +2,7 @@ import { readFile, writeFile } from 'node:fs/promises';
 import { allQuestions } from '../src/content/index';
 import { allBonafideQuestions } from '../src/content/bonafides/index';
 import { allThinkerQuestions } from '../src/content/thinkers/index';
+import { vaultQuestions } from '../src/content/vault/index';
 import { allGlossaryTerms } from '../src/content/glossary/index';
 import { EQUATIONS } from '../src/config/equations';
 import { CONTENT_TOPICS } from '../src/config/content-registry';
@@ -31,6 +32,7 @@ const pools: Record<string, Question[]> = {
   standard: allQuestions,
   bonafide: allBonafideQuestions,
   thinker: allThinkerQuestions,
+  vault: vaultQuestions,
 };
 
 const issues: QualityIssue[] = [];
@@ -382,20 +384,26 @@ for (const issue of issues) {
 
 const useBaseline = process.argv.includes('--allow-baseline');
 let allowedErrors = 0;
+let allowedWarnings = 0;
 
 if (useBaseline) {
   const baseline = JSON.parse(
     await readFile(new URL('./content-quality-baseline.json', import.meta.url), 'utf8'),
   );
   allowedErrors = baseline.maxErrors;
+  allowedWarnings = baseline.maxWarnings;
 
   if (!Number.isInteger(allowedErrors) || allowedErrors < 0) {
     console.error('Invalid content-quality baseline: maxErrors must be a non-negative integer.');
     process.exit(1);
   }
+  if (!Number.isInteger(allowedWarnings) || allowedWarnings < 0) {
+    console.error('Invalid content-quality baseline: maxWarnings must be a non-negative integer.');
+    process.exit(1);
+  }
 }
 
-console.log(`Quality audit: ${report.summary.errors} errors, ${report.summary.warnings} warnings across ${allQuestions.length} standard questions.`);
+console.log(`Quality audit: ${report.summary.errors} errors, ${report.summary.warnings} warnings across ${allQuestions.length} standard questions and ${vaultQuestions.length} Vault questions.`);
 
 if (report.summary.errors > allowedErrors) {
   console.error(
@@ -405,9 +413,20 @@ if (report.summary.errors > allowedErrors) {
   );
   process.exit(1);
 }
+if (useBaseline && report.summary.warnings > allowedWarnings) {
+  console.error(
+    `Quality audit warning regression: ${report.summary.warnings} warnings exceeds baseline ${allowedWarnings}.`,
+  );
+  process.exit(1);
+}
 
 if (useBaseline && report.summary.errors < allowedErrors) {
   console.warn(
     `Quality audit improved to ${report.summary.errors} errors; lower baseline from ${allowedErrors}.`,
+  );
+}
+if (useBaseline && report.summary.warnings < allowedWarnings) {
+  console.warn(
+    `Quality warning debt improved to ${report.summary.warnings}; lower warning baseline from ${allowedWarnings}.`,
   );
 }

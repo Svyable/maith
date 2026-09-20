@@ -2,11 +2,11 @@
 // To add a new topic pack:
 // 1. Create src/content/<topic-slug>/ directory with a questions.ts + index.ts
 // 2. Import and spread into allQuestions below
-// 3. Register the topic in src/config/constants.ts TOPICS array with field: '<field-slug>'
-// 4. Register the field in src/config/fields.ts FIELDS array
+// 3. Register the canonical topic/field ownership in src/config/content-registry.ts and src/config/fields.ts
+// 4. Register the pack in src/config/content-registry-tooling.ts, then regenerate loaders/stats
 //
-// NOTE: Thinker questions are NOT part of allQuestions — they are served exclusively
-// through src/content/thinkers and the /thinkers route to keep the pools separate.
+// NOTE: allQuestions is the canonical standard-quiz pool. Thinker, Bonafide, and Vault
+// questions are served through their dedicated collections and must not be mixed here.
 
 export type { Question } from './types';
 
@@ -107,12 +107,9 @@ import { functionalAnalysisQuestions } from './functional-analysis';
 import { graphTheoryQuestions } from './graph-theory';
 import { differentialGeometryQuestions } from './differential-geometry';
 import { numericalMethodsQuestions } from './numerical-methods';
-// ── Vault ──────────────────────────────────────────────────
-import { vaultQuestions } from './vault';
-
 import type { Question } from './types';
 
-export const allQuestions: Question[] = [
+export const standardQuestions: Question[] = [
   // ── Mathematics ──────────────────────────────────────────────
   ...linearAlgebraQuestions,
   ...calculusQuestions,
@@ -199,12 +196,13 @@ export const allQuestions: Question[] = [
   ...sota2025Questions,
   // ── 2026 SOTA ──────────────────────────────────────────────
   ...sota2026Questions,
-  // ── Bonafides removed from general pool — served at /bonafides ──
-  // ── Vault ──────────────────────────────────────────────
-  ...vaultQuestions,
+  // ── Special collections stay outside the standard pool ──────────
 ];
 
-/** Get questions filtered by topic slugs (standard pool only — no thinkers) */
+/** Backwards-compatible name for the canonical standard-quiz pool. */
+export const allQuestions = standardQuestions;
+
+/** Get questions filtered by topic slugs from the standard pool only. */
 export function getQuestionsByTopics(topics: string[]): Question[] {
   if (topics.length === 0) return allQuestions;
   return allQuestions.filter((q) => topics.includes(q.topic));

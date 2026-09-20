@@ -71,8 +71,7 @@ export const QUESTION_GROUPS = [
   "functional-analysis",
   "graph-theory",
   "differential-geometry",
-  "numerical-methods",
-  "vault"
+  "numerical-methods"
 ] as const;
 
 const GROUP_LOADERS: Record<string, () => Promise<Question[]>> = {
@@ -146,7 +145,6 @@ const GROUP_LOADERS: Record<string, () => Promise<Question[]>> = {
   "graph-theory": () => import('./graph-theory').then((module) => module.graphTheoryQuestions),
   "differential-geometry": () => import('./differential-geometry').then((module) => module.differentialGeometryQuestions),
   "numerical-methods": () => import('./numerical-methods').then((module) => module.numericalMethodsQuestions),
-  "vault": () => import('./vault').then((module) => module.vaultQuestions),
 };
 
 export const TOPIC_TO_GROUPS: Readonly<Record<string, readonly string[]>> = {
@@ -169,8 +167,7 @@ export const TOPIC_TO_GROUPS: Readonly<Record<string, readonly string[]>> = {
     "physics"
   ],
   "quantum-mechanics": [
-    "physics",
-    "vault"
+    "physics"
   ],
   "algo-trading": [
     "quant"
@@ -212,8 +209,7 @@ export const TOPIC_TO_GROUPS: Readonly<Record<string, readonly string[]>> = {
     "computer-science"
   ],
   "cryptography": [
-    "computer-science",
-    "vault"
+    "computer-science"
   ],
   "machine-learning": [
     "computer-science"
@@ -309,8 +305,7 @@ export const TOPIC_TO_GROUPS: Readonly<Record<string, readonly string[]>> = {
     "new-topics"
   ],
   "number-theory": [
-    "new-topics",
-    "vault"
+    "new-topics"
   ],
   "real-analysis": [
     "new-topics"
@@ -322,8 +317,7 @@ export const TOPIC_TO_GROUPS: Readonly<Record<string, readonly string[]>> = {
     "thermodynamics"
   ],
   "quantum-computing": [
-    "quantum-computing",
-    "vault"
+    "quantum-computing"
   ],
   "game-theory": [
     "game-theory"
@@ -332,8 +326,7 @@ export const TOPIC_TO_GROUPS: Readonly<Record<string, readonly string[]>> = {
     "meteorology"
   ],
   "neuroscience": [
-    "neuroscience",
-    "vault"
+    "neuroscience"
   ],
   "linguistics": [
     "linguistics"
@@ -342,19 +335,16 @@ export const TOPIC_TO_GROUPS: Readonly<Record<string, readonly string[]>> = {
     "oceanography"
   ],
   "cybersecurity": [
-    "cybersecurity",
-    "vault"
+    "cybersecurity"
   ],
   "spaceflight-systems": [
     "aerospace"
   ],
   "nuclear-physics": [
-    "nuclear-physics",
-    "vault"
+    "nuclear-physics"
   ],
   "fluid-dynamics": [
-    "fluid-dynamics",
-    "vault"
+    "fluid-dynamics"
   ],
   "philosophy-of-science": [
     "philosophy-of-science"
@@ -372,8 +362,7 @@ export const TOPIC_TO_GROUPS: Readonly<Record<string, readonly string[]>> = {
     "pharmacology"
   ],
   "differential-equations": [
-    "differential-equations",
-    "vault"
+    "differential-equations"
   ],
   "abstract-algebra": [
     "abstract-algebra"
@@ -382,8 +371,7 @@ export const TOPIC_TO_GROUPS: Readonly<Record<string, readonly string[]>> = {
     "optics"
   ],
   "relativity": [
-    "relativity",
-    "vault"
+    "relativity"
   ],
   "statistical-physics": [
     "statistical-physics"
@@ -404,8 +392,7 @@ export const TOPIC_TO_GROUPS: Readonly<Record<string, readonly string[]>> = {
     "many-body-physics"
   ],
   "quantum-gravity": [
-    "quantum-gravity",
-    "vault"
+    "quantum-gravity"
   ],
   "distributed-systems": [
     "distributed-systems"
@@ -462,8 +449,7 @@ export const TOPIC_TO_GROUPS: Readonly<Record<string, readonly string[]>> = {
     "ai-substrates"
   ],
   "information-theory": [
-    "information-theory",
-    "vault"
+    "information-theory"
   ],
   "complex-analysis": [
     "complex-analysis"
@@ -479,12 +465,6 @@ export const TOPIC_TO_GROUPS: Readonly<Record<string, readonly string[]>> = {
   ],
   "numerical-methods": [
     "numerical-methods"
-  ],
-  "engineering": [
-    "vault"
-  ],
-  "string-theory": [
-    "vault"
   ]
 };
 

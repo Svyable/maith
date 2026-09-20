@@ -1,7 +1,9 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "totals": {
-    "questions": 1142,
+    "questions": 1078,
+    "standardQuestions": 1078,
+    "vaultQuestions": 64,
     "glossaryTerms": 488,
     "thinkers": 621,
     "vaultEntries": 74,
@@ -384,36 +386,6 @@
       }
     },
     {
-      "slug": "engineering",
-      "field": "engineering",
-      "kind": "special",
-      "available": false,
-      "loaderGroups": [
-        "vault"
-      ],
-      "counts": {
-        "easy": 0,
-        "hard": 5,
-        "sota": 0,
-        "total": 5
-      }
-    },
-    {
-      "slug": "string-theory",
-      "field": "physics",
-      "kind": "special",
-      "available": false,
-      "loaderGroups": [
-        "vault"
-      ],
-      "counts": {
-        "easy": 0,
-        "hard": 0,
-        "sota": 1,
-        "total": 1
-      }
-    },
-    {
       "slug": "abstract-algebra",
       "field": "math",
       "kind": "standard-quiz",
@@ -782,14 +754,13 @@
       "kind": "standard-quiz",
       "available": true,
       "loaderGroups": [
-        "computer-science",
-        "vault"
+        "computer-science"
       ],
       "counts": {
         "easy": 1,
-        "hard": 11,
-        "sota": 6,
-        "total": 18
+        "hard": 1,
+        "sota": 1,
+        "total": 3
       }
     },
     {
@@ -798,14 +769,13 @@
       "kind": "standard-quiz",
       "available": true,
       "loaderGroups": [
-        "cybersecurity",
-        "vault"
+        "cybersecurity"
       ],
       "counts": {
-        "easy": 5,
-        "hard": 10,
-        "sota": 8,
-        "total": 23
+        "easy": 2,
+        "hard": 2,
+        "sota": 2,
+        "total": 6
       }
     },
     {
@@ -844,14 +814,13 @@
       "kind": "standard-quiz",
       "available": true,
       "loaderGroups": [
-        "differential-equations",
-        "vault"
+        "differential-equations"
       ],
       "counts": {
         "easy": 3,
         "hard": 3,
-        "sota": 4,
-        "total": 10
+        "sota": 3,
+        "total": 9
       }
     },
     {
@@ -1010,14 +979,13 @@
       "kind": "standard-quiz",
       "available": true,
       "loaderGroups": [
-        "fluid-dynamics",
-        "vault"
+        "fluid-dynamics"
       ],
       "counts": {
         "easy": 2,
         "hard": 2,
-        "sota": 3,
-        "total": 7
+        "sota": 2,
+        "total": 6
       }
     },
     {
@@ -1116,14 +1084,13 @@
       "kind": "standard-quiz",
       "available": true,
       "loaderGroups": [
-        "information-theory",
-        "vault"
+        "information-theory"
       ],
       "counts": {
         "easy": 3,
-        "hard": 4,
-        "sota": 5,
-        "total": 12
+        "hard": 3,
+        "sota": 3,
+        "total": 9
       }
     },
     {
@@ -1312,14 +1279,13 @@
       "kind": "standard-quiz",
       "available": true,
       "loaderGroups": [
-        "neuroscience",
-        "vault"
+        "neuroscience"
       ],
       "counts": {
         "easy": 3,
-        "hard": 3,
+        "hard": 2,
         "sota": 3,
-        "total": 9
+        "total": 8
       }
     },
     {
@@ -1358,14 +1324,13 @@
       "kind": "standard-quiz",
       "available": true,
       "loaderGroups": [
-        "nuclear-physics",
-        "vault"
+        "nuclear-physics"
       ],
       "counts": {
         "easy": 2,
-        "hard": 3,
-        "sota": 3,
-        "total": 8
+        "hard": 2,
+        "sota": 2,
+        "total": 6
       }
     },
     {
@@ -1374,14 +1339,13 @@
       "kind": "standard-quiz",
       "available": true,
       "loaderGroups": [
-        "new-topics",
-        "vault"
+        "new-topics"
       ],
       "counts": {
         "easy": 1,
-        "hard": 2,
+        "hard": 1,
         "sota": 1,
-        "total": 4
+        "total": 3
       }
     },
     {
@@ -1646,14 +1610,13 @@
       "kind": "standard-quiz",
       "available": true,
       "loaderGroups": [
-        "quantum-computing",
-        "vault"
+        "quantum-computing"
       ],
       "counts": {
         "easy": 3,
-        "hard": 3,
-        "sota": 3,
-        "total": 9
+        "hard": 2,
+        "sota": 2,
+        "total": 7
       }
     },
     {
@@ -1677,14 +1640,13 @@
       "kind": "standard-quiz",
       "available": true,
       "loaderGroups": [
-        "quantum-gravity",
-        "vault"
+        "quantum-gravity"
       ],
       "counts": {
         "easy": 3,
         "hard": 3,
-        "sota": 4,
-        "total": 10
+        "sota": 3,
+        "total": 9
       }
     },
     {
@@ -1693,14 +1655,13 @@
       "kind": "standard-quiz",
       "available": true,
       "loaderGroups": [
-        "physics",
-        "vault"
+        "physics"
       ],
       "counts": {
         "easy": 5,
-        "hard": 11,
-        "sota": 4,
-        "total": 20
+        "hard": 5,
+        "sota": 3,
+        "total": 13
       }
     },
     {
@@ -1739,14 +1700,13 @@
       "kind": "standard-quiz",
       "available": true,
       "loaderGroups": [
-        "relativity",
-        "vault"
+        "relativity"
       ],
       "counts": {
         "easy": 3,
-        "hard": 5,
-        "sota": 8,
-        "total": 16
+        "hard": 3,
+        "sota": 3,
+        "total": 9
       }
     },
     {

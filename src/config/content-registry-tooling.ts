@@ -658,7 +658,7 @@ export const QUESTION_PACKS: readonly QuestionPackMeta[] = [
       "vaultQuestions"
     ],
     "kind": "vault",
-    "includeInStandardQuiz": true
+    "includeInStandardQuiz": false
   }
 ] as const;
 
