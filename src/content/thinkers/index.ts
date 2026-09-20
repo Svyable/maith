@@ -73,6 +73,18 @@ import { davidBohmQuestions } from "./david-bohm";
 import { yakirAharonovQuestions } from "./yakir-aharonov";
 import { alfredTarskiQuestions } from "./alfred-tarski";
 import type { Question } from "../types";
+// Expanded MasterMinds batch 3 — global historical minds
+import { pingalaQuestions } from "./pingala";
+import { zuChongzhiQuestions } from "./zu-chongzhi";
+import { wangZhenyiQuestions } from "./wang-zhenyi";
+import { nilakanthaSomayajiQuestions } from "./nilakantha-somayaji";
+import { bhaskaraIQuestions } from "./bhaskara-i";
+import { mahaviraQuestions } from "./mahavira";
+import { sridharaQuestions } from "./sridhara";
+import { jiaXianQuestions } from "./jia-xian";
+import { narayanaPanditQuestions } from "./narayana-pandit";
+import { shenKuoQuestions } from "./shen-kuo";
+
 // Expanded MasterMinds batch 2 — overlooked pioneers
 import { graceChisholmYoungQuestions } from "./grace-chisholm-young";
 import { elbertFrankCoxQuestions } from "./elbert-frank-cox";
@@ -1533,6 +1545,17 @@ export const allThinkerQuestions: Question[] = [
   ...jErnestWilkinsJrQuestions,
   ...ettaZuberFalconerQuestions,
   ...vivienneMaloneMayesQuestions,
+  // Expanded MasterMinds batch 3
+  ...pingalaQuestions,
+  ...zuChongzhiQuestions,
+  ...wangZhenyiQuestions,
+  ...nilakanthaSomayajiQuestions,
+  ...bhaskaraIQuestions,
+  ...mahaviraQuestions,
+  ...sridharaQuestions,
+  ...jiaXianQuestions,
+  ...narayanaPanditQuestions,
+  ...shenKuoQuestions,
 ];
 export function getThinkerQuestions(slug: string): Question[] {
   return allThinkerQuestions.filter((q) => q.topic === slug);
