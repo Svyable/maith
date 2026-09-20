@@ -74,9 +74,9 @@ export const differentialEquationsQuestions: Question[] = [
     question: 'Neural ODEs (Chen et al., 2018) parameterize the derivative $\\frac{dh}{dt} = f_\\theta(h, t)$ and compute gradients via:',
     options: ['Backpropagation through all ODE solver steps', 'The adjoint sensitivity method', 'Finite differences only', 'Symbolic differentiation'],
     correctIndex: 1,
-    explanation: 'The adjoint method solves a backwards-in-time ODE for the gradient, achieving $O(1)$ memory cost regardless of the number of solver steps.',
+    explanation: 'The original Neural ODE formulation uses an adjoint sensitivity method: it integrates an augmented adjoint system backward in time instead of retaining the full forward solver trajectory. This gives constant-memory scaling with respect to the number of forward solver steps in the idealized method, though practical implementations may trade memory for numerical accuracy and stability.',
     realWorld: 'Neural ODEs enable continuous-depth networks, normalizing flows, and time-series modeling with adaptive computation.',
-    hint: 'It avoids storing intermediate states by solving backwards.',
+    hint: 'It avoids storing the full forward trajectory by solving an adjoint system backward in time.',
   },
   {
     id: 3008,
@@ -85,9 +85,9 @@ export const differentialEquationsQuestions: Question[] = [
     question: 'Stiff ODEs require specialized solvers because:',
     options: ['They have no solution', 'Explicit methods need impractically small step sizes for stability', 'They are always nonlinear', 'They cannot be solved numerically'],
     correctIndex: 1,
-    explanation: 'Stiffness means the system has widely separated timescales. Explicit methods must use tiny steps to remain stable, while implicit methods (e.g., BDF) can take much larger steps.',
+    explanation: 'Stiff systems contain rapidly decaying modes that can force explicit methods to take step sizes far smaller than accuracy alone would require in order to remain numerically stable. Implicit methods such as BDF schemes have larger stability regions and can often take much larger steps.',
     realWorld: 'Chemical kinetics, combustion modeling, and circuit simulation all produce stiff systems.',
-    hint: 'The eigenvalues of the Jacobian span many orders of magnitude.',
+    hint: 'The difficulty is numerical stability: a fast-decaying mode can constrain an explicit method even when the solution of interest changes slowly.',
   },
   {
     id: 3009,
