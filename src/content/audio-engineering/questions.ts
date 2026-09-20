@@ -85,4 +85,16 @@ export const audioEngineeringQuestions: Question[] = [
     realWorld: 'AI music generation is disrupting the $26B music industry. Legal battles over training data copyright are ongoing. These models can generate radio-quality songs in seconds from a text prompt.',
     hint: 'Same trick as ChatGPT — predict the next token — but the tokens represent sound instead of words.',
   },
+  {
+    id: 80653, topic: 'audio-engineering', difficulty: 'sota',
+    question: 'What distinguishes object-based immersive audio from a fixed channel-based mix?',
+    options: ['Every sound is permanently assigned to one loudspeaker channel before transmission', 'Only the left and right channels carry spatial information', 'The receiver discards spatial information and reproduces a fixed stereo downmix', 'Audio objects carry spatial metadata that lets the receiver render them for the available playback layout'],
+    correctIndex: 3,
+    explanation: 'Object-based systems transmit audio objects together with metadata describing properties such as position. The receiver can then render those objects for its actual loudspeaker or headphone configuration rather than binding every sound to one fixed speaker channel.',
+    realWorld: 'Advanced broadcast audio systems can combine channel beds, objects, and scene-based representations while supporting different reproduction layouts and personalization.',
+    hint: 'The spatial description travels with the sound instead of being permanently tied to one speaker.',
+    sources: [{ title: 'Report ITU-R BS.2493-1 — Practical implementation of broadcast systems using audio codecs for ITU advanced sound systems', url: 'https://www.itu.int/pub/R-REP-BS.2493-1-2024', publisher: 'ITU', year: 2024 }],
+    reviewedAt: '2026-09-19',
+    factualAsOf: '2026-09-19',
+  },
 ];
