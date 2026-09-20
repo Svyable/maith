@@ -23,8 +23,9 @@
     "report:locales": "node scripts/report-localization-coverage.mjs",
     "report:concepts": "bun scripts/report-concept-coverage.ts",
     "audit:quality:baseline": "bun scripts/audit-question-quality.ts --allow-baseline",
-    "validate:ci": "bun run check:locales && bun run validate:content && bun run audit:quality:baseline",
-    "validate:site": "vitest run src/test/site-structure.test.ts"
+    "validate:ci": "bun run check:locales && bun run check:generated-content && bun run validate:content && bun run audit:quality:baseline",
+    "validate:site": "vitest run src/test/site-structure.test.ts",
+    "check:generated-content": "bun run generate:question-loaders && bun run generate:content-stats && git diff --exit-code -- src/content/question-loaders.ts src/config/content-stats.ts docs/content-inventory.json"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
