@@ -58,6 +58,22 @@ The project validates:
 
 Current content work prioritizes balanced coverage, stronger distractors, provenance for current/frontier claims, and reduction of historical quality debt rather than raw question-count growth.
 
+## 10x execution protocol
+
+mAIth is optimized for **safe throughput**, not serial ceremony. Agents and maintainers should minimize time-to-validated-change while preserving the quality gates above.
+
+- **Parallelize discovery.** Read/search independent files, recent commits, and open PRs concurrently when the tooling supports it.
+- **Partition work.** Prefer independent, non-overlapping slices that can be developed and validated without waiting on each other.
+- **Batch coherent edits.** Make the smallest complete change that delivers value; avoid one-file-at-a-time conversational loops.
+- **Validate narrowly first.** Run the cheapest relevant check while iterating, then the required CI/full validation before merge.
+- **Reuse work in flight.** Update an existing compatible branch/PR instead of creating competing PRs for the same surface.
+- **Let machines gate machines.** CI, schemas, tests, inventories, and quality ratchets should decide mergeability wherever possible.
+- **Cancel obsolete work.** Superseded CI runs are automatically canceled so compute and attention stay on the newest commit.
+- **Keep main moving.** Prefer mergeable, reversible increments and auto-merge when protections and CI allow it.
+- **Do not manufacture work.** If there is no meaningful safe improvement, skip the change rather than producing churn.
+
+Repository-specific agent instructions live in [AGENTS.md](./AGENTS.md).
+
 ## Development
 
 Install dependencies and start the Vite app:
