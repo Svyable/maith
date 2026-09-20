@@ -4,6 +4,7 @@ export const easyQuestions: Question[] = [
   {
     id: 1,
     topic: 'linear-algebra',
+    conceptIds: ['linear-systems'],
     difficulty: 'easy',
     question: 'What does $\\mathbf{A}\\mathbf{x} = \\mathbf{b}$ represent?',
     options: ['A system of linear equations', 'A differential equation', 'A probability distribution', 'An optimization problem'],
@@ -15,6 +16,7 @@ export const easyQuestions: Question[] = [
   {
     id: 2,
     topic: 'linear-algebra',
+    conceptIds: ['vector-norms'],
     difficulty: 'easy',
     question: 'What is the $L_2$ norm $\\|\\mathbf{x}\\|_2$ of a vector?',
     options: ['Sum of absolute values', 'Euclidean length (square root of sum of squares)', 'Maximum component', 'Number of nonzero entries'],
@@ -26,6 +28,7 @@ export const easyQuestions: Question[] = [
   {
     id: 26,
     topic: 'linear-algebra',
+    conceptIds: ['matrix-transpose'],
     difficulty: 'easy',
     question: 'The transpose of $\\mathbf{A}$ swaps:',
     options: ['Eigenvalues and eigenvectors', 'Rows and columns', 'Diagonal and off-diagonal', 'Real and imaginary parts'],
@@ -37,6 +40,7 @@ export const easyQuestions: Question[] = [
   {
     id: 29,
     topic: 'linear-algebra',
+    conceptIds: ['dot-product-orthogonality'],
     difficulty: 'easy',
     question: 'The dot product $\\mathbf{a} \\cdot \\mathbf{b} = 0$ means the vectors are:',
     options: ['Parallel', 'Orthogonal (perpendicular)', 'Equal', 'Unit vectors'],
@@ -48,6 +52,7 @@ export const easyQuestions: Question[] = [
   {
     id: 48,
     topic: 'linear-algebra',
+    conceptIds: ['identity-matrix'],
     difficulty: 'easy',
     question: 'An identity matrix $\\mathbf{I}$ satisfies $\\mathbf{I}\\mathbf{x} = $?',
     options: ['$\\mathbf{0}$', '$\\mathbf{x}$', '$\\mathbf{x}^T$', '$2\\mathbf{x}$'],
@@ -59,6 +64,7 @@ export const easyQuestions: Question[] = [
   {
     id: 49,
     topic: 'linear-algebra',
+    conceptIds: ['matrix-dimensions'],
     difficulty: 'easy',
     question: 'A $3 \\times 2$ matrix has:',
     options: ['3 columns and 2 rows', '3 rows and 2 columns', '6 rows', '5 elements'],
@@ -70,6 +76,7 @@ export const easyQuestions: Question[] = [
   {
     id: 50,
     topic: 'linear-algebra',
+    conceptIds: ['matrix-multiplication'],
     difficulty: 'easy',
     question: 'Matrix multiplication $\\mathbf{A}\\mathbf{B}$ requires:',
     options: ['Both matrices to be square', 'Columns of $\\mathbf{A}$ = rows of $\\mathbf{B}$', 'Same number of rows', 'Both matrices to be symmetric'],
@@ -81,6 +88,7 @@ export const easyQuestions: Question[] = [
   {
     id: 51,
     topic: 'linear-algebra',
+    conceptIds: ['symmetric-matrices'],
     difficulty: 'easy',
     question: 'A symmetric matrix satisfies:',
     options: ['$\\mathbf{A} = -\\mathbf{A}^T$', '$\\mathbf{A} = \\mathbf{A}^T$', '$\\mathbf{A} = \\mathbf{A}^{-1}$', '$\\det(\\mathbf{A}) = 1$'],
