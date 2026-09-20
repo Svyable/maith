@@ -1,42 +1,28 @@
 import { useState, useEffect, useCallback } from 'react';
-import type { User } from '@supabase/supabase-js';
-import { supabase } from '@/integrations/supabase/client';
 import { useAuth } from '@/hooks/useAuth';
+import {
+  needsProfileOnboarding,
+  type Profile,
+  type ProfileIdentity,
+  type ProfileUpdate,
+} from '@/domain/profile/profile';
+import type { ProfileRepository } from '@/domain/profile/profile-repository';
+import { supabaseProfileRepository } from '@/integrations/supabase/profile-repository';
 
-export interface Profile {
-  id: string;
-  username: string;
-  display_name: string | null;
-  avatar_url: string | null;
-  locale: string;
-}
+export type { Profile } from '@/domain/profile/profile';
 
-const PROFILE_SELECT = 'id, username, display_name, avatar_url, locale';
-const AUTO_NAME_PATTERN = /^user_[a-f0-9]{8}$/;
-
-function getDefaultUsername(userId: string) {
-  return `user_${userId.slice(0, 8)}`;
-}
-
-function getMetadataString(user: User, key: string) {
-  const value = user.user_metadata?.[key];
-  return typeof value === 'string' && value.trim().length > 0 ? value.trim() : null;
-}
-
-function getInitialProfile(user: User): Profile {
+function toProfileIdentity(
+  user: NonNullable<ReturnType<typeof useAuth>['user']>,
+): ProfileIdentity {
   return {
     id: user.id,
-    username: getDefaultUsername(user.id),
-    display_name:
-      getMetadataString(user, 'display_name') ||
-      getMetadataString(user, 'full_name') ||
-      getMetadataString(user, 'name'),
-    avatar_url: getMetadataString(user, 'avatar_url'),
-    locale: getMetadataString(user, 'locale') || 'en',
+    metadata: (user.user_metadata ?? {}) as Record<string, unknown>,
   };
 }
 
-export function useProfile() {
+export function useProfile(
+  repository: ProfileRepository = supabaseProfileRepository,
+) {
   const { user, loading: authLoading } = useAuth();
   const [profile, setProfile] = useState<Profile | null>(null);
   const [loading, setLoading] = useState(true);
@@ -44,46 +30,11 @@ export function useProfile() {
   useEffect(() => {
     let active = true;
 
-    async function loadProfile(currentUser: User) {
-      setLoading(true);
-
-      const { data, error } = await supabase
-        .from('profiles')
-        .select(PROFILE_SELECT)
-        .eq('id', currentUser.id)
-        .maybeSingle();
-
-      if (!active) return;
-
-      if (error) {
-        setProfile(null);
-        setLoading(false);
-        return;
-      }
-
-      if (data) {
-        setProfile(data as Profile);
-        setLoading(false);
-        return;
-      }
-
-      const seed = getInitialProfile(currentUser);
-      const { data: created } = await supabase
-        .from('profiles')
-        .upsert(seed, { onConflict: 'id' })
-        .select(PROFILE_SELECT)
-        .eq('id', currentUser.id)
-        .maybeSingle();
-
-      if (!active) return;
-
-      setProfile((created as Profile | null) ?? seed);
-      setLoading(false);
+    if (authLoading) {
+      return () => {
+        active = false;
+      };
     }
-
-    if (authLoading) return () => {
-      active = false;
-    };
 
     if (!user) {
       setProfile(null);
@@ -93,51 +44,53 @@ export function useProfile() {
       };
     }
 
-    loadProfile(user);
+    setLoading(true);
+
+    void repository.loadOrCreate(toProfileIdentity(user))
+      .then((loadedProfile) => {
+        if (active) setProfile(loadedProfile);
+      })
+      .catch(() => {
+        if (active) setProfile(null);
+      })
+      .finally(() => {
+        if (active) setLoading(false);
+      });
 
     return () => {
       active = false;
     };
-  }, [user, authLoading]);
+  }, [authLoading, repository, user]);
 
   const needsOnboarding =
     !!user &&
     !loading &&
-    (!profile?.display_name?.trim() || AUTO_NAME_PATTERN.test(profile.display_name));
+    needsProfileOnboarding(profile);
 
   const updateProfile = useCallback(
-    async (fields: Partial<Pick<Profile, 'display_name' | 'avatar_url' | 'locale'>>) => {
+    async (fields: ProfileUpdate) => {
       if (!user) return { error: 'Not authenticated' };
 
-      const { data, error } = await supabase
-        .from('profiles')
-        .update(fields)
-        .eq('id', user.id)
-        .select(PROFILE_SELECT)
-        .maybeSingle();
-
-      if (error) return { error: error.message };
-      if (data) {
-        setProfile(data as Profile);
+      try {
+        const updated = await repository.update(
+          toProfileIdentity(user),
+          fields,
+        );
+        setProfile(updated);
         return { error: null };
+      } catch (error) {
+        return {
+          error: error instanceof Error ? error.message : String(error),
+        };
       }
-
-      const seed = { ...getInitialProfile(user), ...fields };
-      const { data: created, error: createError } = await supabase
-        .from('profiles')
-        .upsert(seed, { onConflict: 'id' })
-        .select(PROFILE_SELECT)
-        .eq('id', user.id)
-        .maybeSingle();
-
-      if (createError) return { error: createError.message };
-      if (created) setProfile(created as Profile);
-
-      return { error: null };
     },
-    [user],
+    [repository, user],
   );
 
-  return { profile, loading: authLoading || loading, needsOnboarding, updateProfile };
+  return {
+    profile,
+    loading: authLoading || loading,
+    needsOnboarding,
+    updateProfile,
+  };
 }
-
