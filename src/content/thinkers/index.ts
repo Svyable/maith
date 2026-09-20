@@ -73,6 +73,18 @@ import { davidBohmQuestions } from "./david-bohm";
 import { yakirAharonovQuestions } from "./yakir-aharonov";
 import { alfredTarskiQuestions } from "./alfred-tarski";
 import type { Question } from "../types";
+// Expanded MasterMinds batch 2 — overlooked pioneers
+import { graceChisholmYoungQuestions } from "./grace-chisholm-young";
+import { elbertFrankCoxQuestions } from "./elbert-frank-cox";
+import { marjorieLeeBrowneQuestions } from "./marjorie-lee-browne";
+import { evelynBoydGranvilleQuestions } from "./evelyn-boyd-granville";
+import { gladysWestQuestions } from "./gladys-west";
+import { sophieWilsonQuestions } from "./sophie-wilson";
+import { francesArnoldQuestions } from "./frances-arnold";
+import { jErnestWilkinsJrQuestions } from "./j-ernest-wilkins-jr";
+import { ettaZuberFalconerQuestions } from "./etta-zuber-falconer";
+import { vivienneMaloneMayesQuestions } from "./vivienne-malone-mayes";
+
 // Expanded MasterMinds batch — global mathematics, computation, and engineering
 import { liuHuiQuestions } from "./liu-hui";
 import { aryabhataQuestions } from "./aryabhata";
@@ -1510,6 +1522,17 @@ export const allThinkerQuestions: Question[] = [
   ...rozsaPeterQuestions,
   ...maryJacksonQuestions,
   ...euphemiaLoftonHaynesQuestions,
+  // Expanded MasterMinds batch 2
+  ...graceChisholmYoungQuestions,
+  ...elbertFrankCoxQuestions,
+  ...marjorieLeeBrowneQuestions,
+  ...evelynBoydGranvilleQuestions,
+  ...gladysWestQuestions,
+  ...sophieWilsonQuestions,
+  ...francesArnoldQuestions,
+  ...jErnestWilkinsJrQuestions,
+  ...ettaZuberFalconerQuestions,
+  ...vivienneMaloneMayesQuestions,
 ];
 export function getThinkerQuestions(slug: string): Question[] {
   return allThinkerQuestions.filter((q) => q.topic === slug);
