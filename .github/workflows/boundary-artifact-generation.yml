@@ -1,0 +1,45 @@
+name: Boundary artifact generation
+
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Set up Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: 1.4.2
+
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+
+      - name: Generate repository-owned content artifacts
+        run: |
+          bun run generate:question-loaders
+          bun run generate:content-stats
+
+      - name: Emit generated artifacts
+        shell: bash
+        run: |
+          echo "BEGIN_CONTENT_STATS"
+          base64 -w0 src/config/content-stats.ts
+          echo
+          echo "END_CONTENT_STATS"
+          echo "BEGIN_QUESTION_LOADERS"
+          base64 -w0 src/content/question-loaders.ts
+          echo
+          echo "END_QUESTION_LOADERS"
+          echo "BEGIN_CONTENT_INVENTORY"
+          base64 -w0 docs/content-inventory.json
+          echo
+          echo "END_CONTENT_INVENTORY"
