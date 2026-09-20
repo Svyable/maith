@@ -1,5 +1,6 @@
-import { act, render, screen, waitFor } from '@testing-library/react';
-import { describe, expect, it, vi } from 'vitest';
+import { act } from 'react';
+import { createRoot, type Root } from 'react-dom/client';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 import { AuthProvider } from '@/contexts/AuthContext';
 import { useAuth } from '@/hooks/useAuth';
 import type { AuthUser } from '@/domain/auth/auth';
@@ -28,6 +29,41 @@ function Probe({ testId }: { testId: string }) {
   );
 }
 
+let root: Root | null = null;
+let container: HTMLDivElement | null = null;
+
+async function renderAuth(
+  repository: AuthRepository,
+  children: React.ReactNode,
+) {
+  container = document.createElement('div');
+  document.body.appendChild(container);
+  root = createRoot(container);
+
+  await act(async () => {
+    root!.render(
+      <AuthProvider repository={repository}>
+        {children}
+      </AuthProvider>,
+    );
+    await Promise.resolve();
+    await Promise.resolve();
+  });
+
+  return container;
+}
+
+afterEach(async () => {
+  if (root) {
+    await act(async () => {
+      root?.unmount();
+    });
+  }
+  container?.remove();
+  root = null;
+  container = null;
+});
+
 describe('AuthProvider', () => {
   it('shares one repository subscription across multiple auth consumers', async () => {
     const user: AuthUser = {
@@ -39,18 +75,16 @@ describe('AuthProvider', () => {
       getCurrentUser: vi.fn(async () => user),
     });
 
-    render(
-      <AuthProvider repository={repository}>
+    const view = await renderAuth(
+      repository,
+      <>
         <Probe testId="first" />
         <Probe testId="second" />
-      </AuthProvider>,
+      </>,
     );
 
-    await waitFor(() => {
-      expect(screen.getByTestId('first')).toHaveTextContent('user-1');
-      expect(screen.getByTestId('second')).toHaveTextContent('user-1');
-    });
-
+    expect(view.querySelector('[data-testid="first"]')?.textContent).toBe('user-1');
+    expect(view.querySelector('[data-testid="second"]')?.textContent).toBe('user-1');
     expect(repository.subscribe).toHaveBeenCalledTimes(1);
     expect(repository.getCurrentUser).toHaveBeenCalledTimes(1);
   });
@@ -81,25 +115,27 @@ describe('AuthProvider', () => {
       }),
     });
 
-    render(
-      <AuthProvider repository={repository}>
-        <Probe testId="auth-state" />
-      </AuthProvider>,
+    const view = await renderAuth(
+      repository,
+      <Probe testId="auth-state" />,
     );
 
-    act(() => {
+    await act(async () => {
       listener?.(eventUser);
     });
 
-    await waitFor(() => {
-      expect(screen.getByTestId('auth-state')).toHaveTextContent('event-user');
-    });
+    expect(
+      view.querySelector('[data-testid="auth-state"]')?.textContent,
+    ).toBe('event-user');
 
     await act(async () => {
       resolveInitial(initialUser);
       await initialPromise;
+      await Promise.resolve();
     });
 
-    expect(screen.getByTestId('auth-state')).toHaveTextContent('event-user');
+    expect(
+      view.querySelector('[data-testid="auth-state"]')?.textContent,
+    ).toBe('event-user');
   });
 });
