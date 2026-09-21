@@ -446,6 +446,59 @@ export const CONCEPTS: readonly Concept[] = [
     status: 'active',
   },
 
+
+  // ── Machine Learning ────────────────────────────────────────
+  {
+    id: 'supervised-learning-generalization',
+    label: 'Supervised Learning & Generalization',
+    field: 'cs',
+    topics: ['machine-learning'],
+    prerequisites: ['generalization-model-selection', 'expectation-variance'],
+    related: ['neural-network-training'],
+    applications: ['classification', 'regression', 'model evaluation'],
+    status: 'active',
+  },
+  {
+    id: 'neural-network-training',
+    label: 'Neural-Network Training',
+    field: 'cs',
+    topics: ['machine-learning'],
+    prerequisites: ['gradient-descent', 'supervised-learning-generalization'],
+    related: ['attention-transformers'],
+    applications: ['backpropagation', 'fine-tuning', 'deep learning'],
+    status: 'active',
+  },
+  {
+    id: 'attention-transformers',
+    label: 'Attention & Transformers',
+    field: 'cs',
+    topics: ['machine-learning'],
+    prerequisites: ['neural-network-training', 'matrix-multiplication'],
+    applications: ['language models', 'vision transformers', 'efficient attention'],
+    status: 'active',
+  },
+
+  // ── Control Systems ─────────────────────────────────────────
+  {
+    id: 'feedback-control-stability',
+    label: 'Feedback Control & Stability',
+    field: 'engineering',
+    topics: ['control-systems'],
+    prerequisites: ['linear-systems'],
+    applications: ['PID control', 'stability margins', 'closed-loop design'],
+    status: 'active',
+  },
+  {
+    id: 'model-based-control-estimation',
+    label: 'Model-Based Control & Estimation',
+    field: 'engineering',
+    topics: ['control-systems'],
+    prerequisites: ['feedback-control-stability', 'linear-systems'],
+    related: ['optimization-objectives'],
+    applications: ['model predictive control', 'Kalman filtering', 'state estimation'],
+    status: 'active',
+  },
+
 ] as const;
 
 export const CONCEPT_MAP: Readonly<Record<string, Concept>> = Object.fromEntries(
