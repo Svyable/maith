@@ -70,6 +70,8 @@ export const topologyQuestions: Question[] = [
     explanation: 'Persistent homology builds a filtration of simplicial complexes at increasing scale. Birth-death pairs of topological features are recorded in a "persistence diagram." Long-lived features represent genuine data topology.',
     realWorld: 'TDA has found novel structures in protein binding sites, detected coverage holes in sensor networks, identified market regimes in financial data, and discovered new subtypes of breast cancer.',
     hint: 'Grow circles around each point — track which clusters merge, which loops form, and how long they last.',
+    paper: { title: 'Topological Persistence and Simplification', url: 'https://doi.org/10.1007/s00454-002-2885-2', venue: 'Discrete & Computational Geometry', year: 2002 },
+    reviewedAt: '2026-09-21',
   },
   {
     id: 41206, topic: 'topology', difficulty: 'sota',
@@ -82,8 +84,11 @@ export const topologyQuestions: Question[] = [
     ],
     correctIndex: 3,
     explanation: 'In 2D systems, anyons (neither bosons nor fermions) can encode quantum information in their braiding history. This encoding is topologically protected: small perturbations can\'t change the braid, providing natural error correction.',
-    realWorld: 'Microsoft\'s Station Q pursues topological qubits using Majorana zero modes in topological superconductors. If successful, they\'d need far fewer physical qubits for error correction than conventional approaches.',
-    hint: 'Tie knots in particle paths — the quantum information is in the knot type, which is robust to small disturbances.',
+    realWorld: 'Topological quantum-computing proposals aim to encode information nonlocally so that sufficiently local perturbations are less able to corrupt the logical state; experimentally realizing suitable non-Abelian systems remains an active challenge.',
+    hint: 'Tie knots in particle paths — the quantum information is in the braid type, which is robust to small local disturbances.',
+    paper: { title: 'Non-Abelian anyons and topological quantum computation', url: 'https://doi.org/10.1103/RevModPhys.80.1083', venue: 'Reviews of Modern Physics', year: 2008 },
+    reviewedAt: '2026-09-21',
+    factualAsOf: '2026-09-21',
   },
   {
     id: 41207, topic: 'topology', difficulty: 'easy',
