@@ -167,7 +167,11 @@ The first runtime evidence layer now lives in `src/domain/mastery`. It is delibe
 - `deriveConceptMastery` produces deterministic `learning`, `developing`, `strong`, and `mastered` states;
 - assisted correct answers remain successful attempts but do not count as independent-correct evidence.
 
-This slice intentionally does **not** persist concept evidence yet. Existing Supabase history is aggregated at session/topic/difficulty level, so a durable concept model should get its own raw-evidence storage contract rather than overloading historical aggregates.
+Durable persistence is now specified by `supabase/migrations/20260921035500_mastery_concept_evidence.sql`. The migration introduces append-only `user_concept_evidence`, ties each evidence row to the existing idempotent quiz-session submission, permits only owner reads over the Data API, and keeps writes inside the session transaction. The public RPC is `SECURITY INVOKER`; the privileged implementation lives in a non-exposed `private` schema with an empty search path.
+
+The application sends concept evidence with the existing session payload and Profile derives mastery from raw evidence rather than a separately mutable aggregate. Profile loading deliberately treats a missing evidence relation as an empty mastery history so frontend deployment remains backwards-compatible while the database migration propagates.
+
+The repository-side migration and client contract are ready, but the migration must not be applied to an unrelated Supabase project. The currently connected Supabase project does not match the project ref configured by mAIth, so production application/verification remains pending the correct project connection.
 
 Practice Weak Spots now uses the same semantic layer. Missed/skipped primary concepts are expanded through transitive prerequisites; fresh mapped questions are preferred, immediate repeats are excluded when alternatives exist, and old unresolved-question replay remains the fallback for unmapped content.
 
@@ -225,17 +229,20 @@ The default view should remain understandable on mobile. The graph is a drill-do
 
 ## Storage strategy
 
-Start with derived mastery from existing/session evidence where feasible.
+Raw concept evidence is the persistence source of truth. Mastery state remains derived.
 
-Before introducing a new persistence model:
+The storage contract is:
 
-- inspect current session/profile tables and retention;
-- define whether raw answer evidence is sufficiently durable;
-- avoid duplicating aggregates that can be recomputed cheaply;
-- version any stored mastery algorithm inputs/outputs;
-- preserve user history through schema changes.
+- append-only `user_concept_evidence` rows owned by the authenticated user;
+- one evidence row per session/question/concept, guarded by a uniqueness constraint;
+- server timestamps for recency;
+- difficulty, answer/skip outcome, correctness, hint use, 50/50 use, timeout state, and primary/supporting concept position;
+- atomic insertion inside the idempotent quiz-session transaction;
+- no direct client insert/update/delete grant;
+- owner-only reads through RLS;
+- concept mastery recomputed from evidence in the application so threshold changes do not rewrite history.
 
-If persisted concept mastery is added, raw evidence should remain the source of truth.
+The Profile repository pages through the evidence history rather than relying on the Data API's default row limit. A future scale pass may introduce server-side read models or snapshots, but those should remain reconstructable from raw evidence.
 
 ## Adaptive sequencing principles
 
