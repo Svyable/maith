@@ -4,32 +4,26 @@ This is the structural baseline for the next content pass. The detailed question
 
 ## Coverage baseline
 
-The standard library currently contains 1114 questions. Coverage is improving but still uneven.
+The standard library currently contains 1147 questions. Every visible canonical standard topic now meets the nine-question foundation floor.
 
 | Field | Visible topics | Questions | Topics below 9 | Topics below 6 |
 | --- | ---: | ---: | ---: | ---: |
-| Mathematics | 20 | 282 | 1 | 0 |
-| Physics | 15 | 136 | 2 | 0 |
-| Computer Science | 12 | 131 | 2 | 0 |
+| Mathematics | 20 | 285 | 0 | 0 |
+| Physics | 15 | 154 | 0 | 0 |
+| Computer Science | 12 | 142 | 0 | 0 |
 | Engineering | 21 | 201 | 0 | 0 |
 | Finance | 15 | 157 | 0 | 0 |
 | Earth & Space | 7 | 63 | 0 | 0 |
-| Biology | 5 | 44 | 1 | 0 |
+| Biology | 5 | 45 | 0 | 0 |
 | Chemistry | 3 | 27 | 0 | 0 |
 | Human Sciences | 3 | 27 | 0 | 0 |
 | 2024 SOTA | 1 | 15 | 0 | 0 |
 | 2025 SOTA | 1 | 11 | 0 | 0 |
 | 2026 SOTA | 1 | 20 | 0 | 0 |
 
-## Highest-priority thin topics
+## Foundation-floor status
 
-The most structurally under-covered visible topics are:
-
-- Mathematics: `topology` (6)
-- Physics: `fluid-dynamics` (6) and `nuclear-physics` (6)
-- Computer Science: `cybersecurity` (6) and `quantum-computing` (7)
-- Biology: `neuroscience` (8)
-- Number Theory, Real Analysis, Electromagnetism, Human Sciences, Engineering, Finance, Earth & Space, and Chemistry now meet the 9-question foundation floor for their visible topics
+The minimum coverage phase is complete: no visible canonical standard topic remains below nine questions. Future content growth should be justified by conceptual progression, evidence quality, gameplay value, or product demand rather than raw minimum-count debt.
 
 ## Taxonomy decisions
 
@@ -64,12 +58,14 @@ The Question schema now supports optional `sources`, `reviewedAt`, and `factualA
 
 ## Recommended augmentation sequence
 
-Augmentation should proceed field by field after the quality gate is clean:
+With the nine-question floor complete, the next passes should optimize quality rather than minimum coverage:
 
-1. **Mathematics and Physics** — close the remaining 6-question gaps in Topology, Fluid Dynamics, and Nuclear Physics.
-2. **Computer Science** — bring Cybersecurity and Quantum Computing to the 9-question floor.
-3. **Biology** — add one balanced Neuroscience question to reach the 9-question floor.
-4. **Mature fields** — future additions in Human Sciences, Engineering, Finance, Earth & Space, and Chemistry should be driven by quality, topical depth, and evidence rather than minimum-count debt.
+1. **Standard-library quality** — continue reducing answer-length tells, stale claims, weak distractors, and missing provenance without raising the warning ceiling.
+2. **MasterMinds hard-error debt** — reduce duplicate IDs and exact duplicate questions while preserving thinker slugs and deep links.
+3. **Selective depth** — move high-value topics from 9 toward 12–15 questions only when additional conceptual progression materially improves learning.
+4. **Vault boundary review** — separate academic content from historical, declassified, and speculative material without silently changing evidentiary status.
+
+Foundation-floor completion is now achieved across the visible canonical standard library. The final Fluid Dynamics wave raises that topic from 6 to 15 questions, balances answer positions, replaces weak legacy wording, and adds sourced advanced material spanning PINNs, neural operators, LES, DNS, and ML-assisted CFD. Combined with the adjacent Cybersecurity, Nuclear Physics, Topology, Quantum Computing, and Neuroscience waves, every visible canonical topic now has at least nine questions. The repository warning ceiling falls from 4224 to 4208, including a standard-pool reduction from 856 to 840.
 
 Core Math/Physics foundation wave is complete: Number Theory, Real Analysis, and Electromagnetism now each have 3 EASY / 3 HARD / 3 SOTA questions. The pass preserves legacy IDs, adds 18 new questions, balances answer positions, adds advanced provenance, and reduces the repository warning ceiling from 4233 to 4224.
 
