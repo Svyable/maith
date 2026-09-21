@@ -4,7 +4,7 @@ export const cybersecurityExpansionQuestions: Question[] = [
   {
     id: 40807, topic: 'cybersecurity', difficulty: 'easy',
     question: 'What is the main security benefit of multi-factor authentication (MFA)?',
-    options: ['It encrypts every file on the device automatically', 'It requires evidence from more than one authentication factor', 'It prevents all phishing messages from being delivered', 'It makes account passwords unnecessary in every system'],
+    options: ['It encrypts local files before each login attempt', 'It requires evidence from multiple authentication factors', 'It blocks phishing messages before they reach an inbox', 'It replaces passwords in every authentication system'],
     correctIndex: 1,
     explanation: 'MFA requires multiple kinds of authentication evidence, so theft of a password alone is less likely to be enough for account access.',
     realWorld: 'Organizations use MFA to reduce account takeover risk when passwords are guessed, reused, phished, or exposed in a breach.',
@@ -14,7 +14,7 @@ export const cybersecurityExpansionQuestions: Question[] = [
   {
     id: 40808, topic: 'cybersecurity', difficulty: 'easy',
     question: 'Why are parameterized database queries safer than building SQL by concatenating user input?',
-    options: ['They hide the database server from the network', 'They make every database column read-only', 'They keep supplied values separate from SQL command structure', 'They automatically encrypt every returned row'],
+    options: ['They conceal database servers from external network scans', 'They make queried database columns read-only by default', 'They bind supplied values separately from SQL command syntax', 'They encrypt returned rows before application code reads them'],
     correctIndex: 2,
     explanation: 'Parameterized queries bind user-controlled values as data rather than parsing them as part of the SQL command, preventing a major class of injection attacks.',
     realWorld: 'Prepared statements are a standard defense in web applications that accept names, search terms, identifiers, or other input used in database queries.',
@@ -24,7 +24,7 @@ export const cybersecurityExpansionQuestions: Question[] = [
   {
     id: 40809, topic: 'cybersecurity', difficulty: 'easy',
     question: 'The principle of least privilege says an account or service should receive:',
-    options: ['Administrator access in case it is needed later', 'The same permissions as every other account', 'No logging when privileged operations are performed', 'Only the permissions needed for its required tasks'],
+    options: ['Administrator permissions for possible future tasks', 'The standard permissions assigned to every account', 'Unlogged access when performing privileged operations', 'Only permissions required for its assigned tasks'],
     correctIndex: 3,
     explanation: 'Least privilege limits permissions to what a user, process, or service actually needs, reducing the damage possible after mistakes or compromise.',
     realWorld: 'Cloud roles, database accounts, service identities, and employee access are commonly scoped so a compromised credential exposes fewer systems and actions.',
@@ -34,7 +34,7 @@ export const cybersecurityExpansionQuestions: Question[] = [
   {
     id: 40810, topic: 'cybersecurity', difficulty: 'hard',
     question: 'Why is storing a unique random salt with each password hash useful?',
-    options: ['It makes identical passwords produce different stored hashes', 'It makes a fast hash function memory-hard', 'It allows the original password to be decrypted', 'It eliminates the need to rate-limit login attempts'],
+    options: ['It makes identical passwords yield different stored hashes', 'It makes any fast hash function memory-hard automatically', 'It allows administrators to decrypt forgotten user passwords', 'It removes the need to rate-limit online login attempts'],
     correctIndex: 0,
     explanation: 'A unique salt changes the input to the password-hashing function, so users with the same password do not share the same stored hash and precomputed hash tables are far less reusable.',
     realWorld: 'Password-storage systems combine per-password salts with deliberately expensive password-hashing functions to raise the cost of offline cracking after a credential database leak.',
@@ -44,7 +44,7 @@ export const cybersecurityExpansionQuestions: Question[] = [
   {
     id: 40811, topic: 'cybersecurity', difficulty: 'hard',
     question: 'A web application has a cross-site scripting (XSS) flaw when attacker-controlled content can:',
-    options: ['Change a DNS record without any credentials', 'Execute as active script in another user’s browser context', 'Read encrypted disk sectors without a key', 'Bypass network routing and address translation'],
+    options: ['Alter a DNS record without possessing administrative credentials', 'Execute active script within another user’s site context', 'Read encrypted disk sectors without possessing decryption keys', 'Bypass network routing and address translation between hosts'],
     correctIndex: 1,
     explanation: 'XSS occurs when untrusted content reaches an HTML or script execution context without appropriate handling, allowing attacker-controlled code to run with the affected site’s browser privileges.',
     realWorld: 'Context-aware output encoding, safe templating, sanitization where appropriate, and restrictive browser policies help reduce XSS risk.',
@@ -54,7 +54,7 @@ export const cybersecurityExpansionQuestions: Question[] = [
   {
     id: 40812, topic: 'cybersecurity', difficulty: 'hard',
     question: 'Why are offline, tested backups especially important for ransomware resilience?',
-    options: ['They guarantee ransomware cannot enter the network', 'They reveal every attacker’s identity before an incident', 'They can preserve recoverable data even if production systems are encrypted or deleted', 'They remove the need to patch vulnerable systems'],
+    options: ['They prevent ransomware from entering a production network', 'They identify every attacker before an incident occurs', 'They preserve recoverable data if production copies are destroyed', 'They eliminate the need to patch vulnerable production systems'],
     correctIndex: 2,
     explanation: 'Backups that attackers cannot readily alter provide an independent recovery path when ransomware encrypts or destroys production data; restoration testing verifies that the path actually works.',
     realWorld: 'Incident-response planning often separates backup credentials and storage from production administration so one compromise does not automatically destroy both copies.',
@@ -76,7 +76,7 @@ export const cybersecurityExpansionQuestions: Question[] = [
   {
     id: 40814, topic: 'cybersecurity', difficulty: 'sota',
     question: 'Why do CISA and partner agencies encourage software manufacturers to develop memory-safety roadmaps?',
-    options: ['To reduce vulnerabilities caused by memory-unsafe software and dependencies', 'To replace cryptographic key management with garbage collection', 'To make every program execute entirely in browser sandboxes', 'To eliminate the need for vulnerability disclosure programs'],
+    options: ['To reduce vulnerability classes tied to memory-unsafe code', 'To replace cryptographic key management with automatic garbage collection', 'To require every application to execute inside browser sandboxes', 'To eliminate coordinated vulnerability disclosure programs for vendors'],
     correctIndex: 0,
     explanation: 'Memory-safety guidance focuses on reducing vulnerability classes associated with memory-unsafe code and understanding exposure inherited through software dependencies.',
     realWorld: 'Manufacturers can inventory memory-unsafe components, prioritize high-risk dependencies, and plan migration or other mitigations instead of addressing memory-corruption bugs only after disclosure.',
@@ -88,7 +88,7 @@ export const cybersecurityExpansionQuestions: Question[] = [
   {
     id: 40815, topic: 'cybersecurity', difficulty: 'sota',
     question: 'In NIST CSF 2.0, what is an Organizational Profile used to describe?',
-    options: ['A ranked list of individual employee security scores', 'A mandatory catalog of specific security products', 'An organization’s current or target cybersecurity posture in terms of CSF Core outcomes', 'A cryptographic identity certificate for the organization'],
+    options: ['Employee security scores ranked across the organization', 'Required security products approved for organizational deployment', 'Current or target posture expressed through CSF Core outcomes', 'A cryptographic identity certificate issued to the organization'],
     correctIndex: 2,
     explanation: 'CSF Organizational Profiles describe current and/or target cybersecurity posture using outcomes from the CSF Core, supporting prioritization and communication of risk-management goals.',
     realWorld: 'An organization can compare a Current Profile with a Target Profile to identify and communicate gaps without the framework prescribing one implementation technology.',
