@@ -154,6 +154,20 @@ export function getPracticeConceptIds(
   return expandConceptsWithPrerequisites(primaryIds.length > 0 ? primaryIds : fallbackIds);
 }
 
+export function getConceptBlockerIds(
+  mastery: readonly ConceptMastery[],
+  conceptId: string,
+): string[] {
+  const concept = CONCEPT_MAP[conceptId];
+  if (!concept) return [];
+
+  const masteryMap = new Map(mastery.map((item) => [item.conceptId, item]));
+  return concept.prerequisites.filter((prerequisiteId) => {
+    const status = masteryMap.get(prerequisiteId)?.status;
+    return status !== 'strong' && status !== 'mastered';
+  });
+}
+
 export interface PracticeCandidate {
   id: number;
   difficulty: QuestionDifficulty;
