@@ -25,7 +25,7 @@ export const cryptographyExpansionQuestions: Question[] = [
   {
     id: 60024, topic: "cryptography", difficulty: "easy",
     question: "A digital signature is designed to let a verifier check that a message:",
-    options: ["Was compressed efficiently", "Contains no secret information", "Came from the signing key holder and was not altered", "Can be decrypted without a key"],
+    options: ["Was compressed efficiently", "Contains no secret information", "Was signed by the claimed key and not altered", "Can be decrypted without a key"],
     correctIndex: 2,
     explanation: "A valid digital signature authenticates the signer relative to a public key and protects message integrity; it does not by itself provide confidentiality.",
     realWorld: "Code signing, software updates, certificates, and signed documents use digital signatures to authenticate origin and detect tampering.",
@@ -45,7 +45,7 @@ export const cryptographyExpansionQuestions: Question[] = [
   {
     id: 60026, topic: "cryptography", difficulty: "hard",
     question: "What does forward secrecy protect if a server's long-term private key is compromised later?",
-    options: ["The server's future software updates", "Previously established session keys from being reconstructed", "The public certificate from expiring", "All passwords from offline guessing"],
+    options: ["The server's future software updates", "Past session keys from later recovery", "The public certificate from expiring", "All passwords from offline guessing"],
     correctIndex: 1,
     explanation: "Forward-secret key exchange uses ephemeral secrets so later compromise of a long-term authentication key does not by itself reveal earlier session keys.",
     realWorld: "Modern TLS deployments use ephemeral Diffie-Hellman variants so recorded traffic is not automatically exposed by a later theft of the server's certificate private key.",
@@ -95,6 +95,7 @@ export const cryptographyExpansionQuestions: Question[] = [
     explanation: "A hybrid design combines key material from more than one mechanism so the resulting session can retain protection if at least one component remains secure under the combiner's assumptions.",
     realWorld: "Transition protocols can pair established elliptic-curve key exchange with a post-quantum KEM while implementations and standards mature.",
     hint: "Migration risk is reduced by not relying exclusively on one assumption family during the transition.",
+    sources: [{"title":"Post-Quantum Cryptography FAQ: Transition and Migration","url":"https://csrc.nist.gov/Projects/Post-Quantum-Cryptography/faqs","publisher":"NIST"}],
     reviewedAt: "2026-09-20",
     factualAsOf: "2026-09-20",
   },
