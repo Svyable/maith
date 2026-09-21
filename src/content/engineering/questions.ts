@@ -154,6 +154,7 @@ export const engineeringQuestions: Question[] = [
   // ── Control Systems ────────────────────────────────────────────
   {
     id: 80003, topic: 'control-systems', difficulty: 'easy',
+    conceptIds: ["feedback-control-stability"],
     question: 'A PID controller combines three terms to minimise error. The "I" term is responsible for:',
     options: ['Eliminating steady-state error by accumulating past errors', 'Responding proportionally to current error', 'Predicting future error from the rate of change', 'Filtering high-frequency noise'],
     correctIndex: 0,
@@ -163,6 +164,7 @@ export const engineeringQuestions: Question[] = [
   },
   {
     id: 80018, topic: 'control-systems', difficulty: 'hard',
+    conceptIds: ["feedback-control-stability"],
     question: 'In control theory, the Bode gain and phase margins determine:',
     options: ['Relative stability and robustness of a feedback system', 'Maximum power transfer efficiency', 'Signal-to-noise ratio', 'Impedance matching accuracy'],
     correctIndex: 0,
@@ -172,6 +174,7 @@ export const engineeringQuestions: Question[] = [
   },
   {
     id: 80019, topic: 'control-systems', difficulty: 'hard',
+    conceptIds: ["feedback-control-stability"],
     question: 'The Routh-Hurwitz stability criterion determines system stability by:',
     options: ['Examining signs in the first column of the Routh array — all positive means stable', 'Plotting the Bode diagram', 'Computing eigenvalues numerically', 'Measuring the step response overshoot'],
     correctIndex: 0,
@@ -181,6 +184,7 @@ export const engineeringQuestions: Question[] = [
   },
   {
     id: 80020, topic: 'control-systems', difficulty: 'sota',
+    conceptIds: ["model-based-control-estimation"],
     question: 'Model Predictive Control (MPC) differs from PID by:',
     options: ['Solving a finite-horizon constrained optimization problem online at each timestep', 'Using only proportional feedback', 'Operating without a system model', 'Ignoring input constraints'],
     correctIndex: 0,
@@ -190,6 +194,7 @@ export const engineeringQuestions: Question[] = [
   },
   {
     id: 80021, topic: 'control-systems', difficulty: 'sota',
+    conceptIds: ["model-based-control-estimation"],
     question: 'The Kalman filter is optimal for linear Gaussian systems because it minimises:',
     options: ['The mean-squared estimation error by fusing predictions with measurements', 'The maximum error over all possible inputs', 'The number of required sensors', 'The total energy consumption of the controller'],
     correctIndex: 0,
