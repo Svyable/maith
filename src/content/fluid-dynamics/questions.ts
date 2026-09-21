@@ -260,5 +260,6 @@ export const fluidDynamicsQuestions: Question[] = [
     hint: 'The machine-learning component augments the solver instead of pretending the governing equations do not exist.',
     paper: { title: 'Machine learning-accelerated computational fluid dynamics', url: 'https://doi.org/10.1073/pnas.2101784118', venue: 'Proceedings of the National Academy of Sciences', year: 2021 },
     reviewedAt: '2026-09-21',
+    factualAsOf: '2026-09-21',
   },
 ];
