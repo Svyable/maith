@@ -1,8 +1,8 @@
 {
   "schemaVersion": 2,
   "totals": {
-    "questions": 1078,
-    "standardQuestions": 1078,
+    "questions": 1087,
+    "standardQuestions": 1087,
     "vaultQuestions": 64,
     "glossaryTerms": 488,
     "thinkers": 651,
@@ -757,10 +757,10 @@
         "computer-science"
       ],
       "counts": {
-        "easy": 1,
-        "hard": 1,
-        "sota": 1,
-        "total": 3
+        "easy": 4,
+        "hard": 4,
+        "sota": 4,
+        "total": 12
       }
     },
     {
