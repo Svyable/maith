@@ -9,29 +9,25 @@ on:
       - 'scripts/generate-content-stats.ts'
 
 permissions:
-  contents: read
+  actions: write
+  contents: write
 
 concurrency:
   group: generated-content-sync-${{ github.event.pull_request.number }}
   cancel-in-progress: true
 
 jobs:
-  generate:
-    name: regenerate-content-read-only
+  sync:
+    name: regenerate-content
     if: github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
-    outputs:
-      changed: ${{ steps.diff.outputs.changed }}
 
     steps:
-      - name: Checkout exact PR head
+      - name: Checkout PR branch
         uses: actions/checkout@v5
         with:
-          ref: ${{ github.event.pull_request.head.sha }}
+          ref: ${{ github.event.pull_request.head.ref }}
           fetch-depth: 0
-          persist-credentials: false
 
       - name: Set up Bun
         uses: oven-sh/setup-bun@v2
@@ -46,69 +42,17 @@ jobs:
           bun run generate:question-loaders
           bun run generate:content-stats
 
-      - name: Detect generated changes
-        id: diff
+      - name: Commit generated artifacts when changed
+        id: commit
         shell: bash
         run: |
           set -euo pipefail
-
-          paths=(
-            src/content/question-loaders.ts
-            src/config/content-stats.ts
-            docs/content-inventory.json
-          )
-
-          if git diff --quiet -- "${paths[@]}"; then
-            echo "changed=false" >> "$GITHUB_OUTPUT"
-            echo "Generated content artifacts are already current."
-            exit 0
-          fi
-
-          echo "changed=true" >> "$GITHUB_OUTPUT"
-          tar -czf /tmp/generated-content.tgz "${paths[@]}"
-
-      - name: Upload generated artifacts
-        if: steps.diff.outputs.changed == 'true'
-        uses: actions/upload-artifact@v4
-        with:
-          name: generated-content-${{ github.event.pull_request.head.sha }}
-          path: /tmp/generated-content.tgz
-          retention-days: 1
-          if-no-files-found: error
-
-  commit:
-    name: commit-generated-content
-    needs: generate
-    if: needs.generate.outputs.changed == 'true'
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-      actions: write
-
-    steps:
-      - name: Checkout exact PR head
-        uses: actions/checkout@v5
-        with:
-          ref: ${{ github.event.pull_request.head.sha }}
-          fetch-depth: 0
-
-      - name: Download generated artifacts
-        uses: actions/download-artifact@v4
-        with:
-          name: generated-content-${{ github.event.pull_request.head.sha }}
-          path: /tmp/generated-content
-
-      - name: Apply and commit generated artifacts
-        shell: bash
-        run: |
-          set -euo pipefail
-
-          tar -xzf /tmp/generated-content/generated-content.tgz
 
           git add src/content/question-loaders.ts src/config/content-stats.ts docs/content-inventory.json
 
           if git diff --cached --quiet; then
-            echo "Generated content artifacts became current before commit."
+            echo "Generated content artifacts are already current."
+            echo "changed=false" >> "$GITHUB_OUTPUT"
             exit 0
           fi
 
@@ -116,8 +60,14 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git commit -m "Content: regenerate canonical inventory"
           git push origin "HEAD:${{ github.event.pull_request.head.ref }}"
+          echo "changed=true" >> "$GITHUB_OUTPUT"
 
-      - name: Validate the generated commit
+      - name: Validate regenerated PR head
+        if: steps.commit.outputs.changed == 'true'
         env:
           GH_TOKEN: ${{ github.token }}
-        run: gh workflow run merge-gate.yml --ref "${{ github.event.pull_request.head.ref }}"
+          PR_BRANCH: ${{ github.event.pull_request.head.ref }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          gh workflow run merge-gate.yml --ref "$PR_BRANCH"
