@@ -18,6 +18,7 @@ describe('mastery persistence migration contract', () => {
   it('keeps privileged writes out of the exposed public function', () => {
     expect(sql).toContain('CREATE OR REPLACE FUNCTION private.submit_quiz_session_impl');
     expect(sql).toContain('SECURITY DEFINER');
+    expect(sql).toContain("SET search_path = ''");
     expect(sql).toContain('CREATE OR REPLACE FUNCTION public.submit_quiz_session');
     expect(sql).toContain('SECURITY INVOKER');
     expect(sql).toContain('REVOKE ALL ON FUNCTION public.submit_quiz_session');
