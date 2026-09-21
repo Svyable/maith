@@ -28,6 +28,10 @@ const TopicReferenceClusterSection = lazy(
   () => import('@/components/learn/TopicReferenceClusterSection'),
 );
 
+const TopicConceptMapSection = lazy(
+  () => import('@/components/learn/TopicConceptMapSection'),
+);
+
 function Breadcrumbs({
   fieldLabel,
   fieldPath,
@@ -262,6 +266,10 @@ function TopicLanding({ fieldSlug, topicSlug }: { fieldSlug: string; topicSlug: 
         </section>
 
         <Suspense fallback={null}>
+          <TopicConceptMapSection
+            topicSlug={page.topic.slug}
+            topicLabel={page.topic.label}
+          />
           <TopicReferenceClusterSection
             topicPath={page.path}
             topicLabel={page.topic.label}
