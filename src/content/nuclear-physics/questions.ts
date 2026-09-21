@@ -84,7 +84,7 @@ export const nuclearPhysicsQuestions: Question[] = [
     explanation: 'Fusion power scales as B⁴ (magnetic field to the fourth power). HTS magnets achieving 20T vs. conventional 5-6T means (20/6)⁴ ≈ 120× power density improvement. This is why CFS\'s SPARC aims for a net-energy tokamak the size of a small building.',
     realWorld: 'Commonwealth Fusion Systems demonstrated a 20T HTS magnet in 2021 — the strongest ever for fusion. Their SPARC tokamak (under construction) aims for Q>2 by 2027, potentially proving commercial fusion viability.',
     hint: 'Stronger magnets = tighter plasma confinement = same fusion in a reactor 1/40th the volume.',
-  },,
+  },
   {
     id: 41007, topic: 'nuclear-physics', difficulty: 'easy',
     question: 'Two atoms are isotopes of the same element when they have the same number of protons but different numbers of:',
