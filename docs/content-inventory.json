@@ -1,8 +1,8 @@
 {
   "schemaVersion": 2,
   "totals": {
-    "questions": 1114,
-    "standardQuestions": 1114,
+    "questions": 1123,
+    "standardQuestions": 1123,
     "vaultQuestions": 64,
     "glossaryTerms": 488,
     "thinkers": 651,
@@ -772,10 +772,10 @@
         "cybersecurity"
       ],
       "counts": {
-        "easy": 2,
-        "hard": 2,
-        "sota": 2,
-        "total": 6
+        "easy": 5,
+        "hard": 5,
+        "sota": 5,
+        "total": 15
       }
     },
     {
