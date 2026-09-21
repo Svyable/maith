@@ -6,6 +6,7 @@ import type {
   PublicQuestion,
 } from '@/domain/quiz';
 import { calculatePoints } from '@/domain/scoring';
+import type { AnswerAssistance } from '@/domain/mastery';
 import { useQuizQuestionInteraction } from '@/hooks/useQuizQuestionInteraction';
 
 function question(
@@ -39,7 +40,7 @@ function result(
 interface ProbeProps {
   question: PublicQuestion;
   streak?: number;
-  onAnswer: (index: number) => Promise<CheckResult | null>;
+  onAnswer: (index: number, assistance?: AnswerAssistance) => Promise<CheckResult | null>;
   onSessionUpdate?: (correct: boolean) => void;
 }
 
@@ -78,6 +79,12 @@ function Probe({
         onClick={() => void interaction.handleSelect(0)}
       >
         select
+      </button>
+      <button
+        data-testid="hint"
+        onClick={interaction.handleShowHint}
+      >
+        hint
       </button>
       <button
         data-testid="eliminate"
@@ -154,7 +161,10 @@ describe('useQuizQuestionInteraction', () => {
 
     await click('select');
 
-    expect(onAnswer).toHaveBeenCalledWith(2);
+    expect(onAnswer).toHaveBeenCalledWith(2, {
+      hintUsed: false,
+      eliminateUsed: false,
+    });
     expect(onSessionUpdate).toHaveBeenCalledWith(true);
     expect(read('answer-state')).toBe('correct');
     expect(read('selected')).toBe('0');
@@ -162,6 +172,24 @@ describe('useQuizQuestionInteraction', () => {
     expect(read('points')).toBe(
       String(calculatePoints('hard', 3)),
     );
+  });
+
+  it('passes hint and elimination usage into answer evidence', async () => {
+    const onAnswer = vi.fn(async () => result());
+
+    await renderProbe({
+      question: question(1),
+      onAnswer,
+    });
+
+    await click('hint');
+    await click('eliminate');
+    await click('select');
+
+    expect(onAnswer).toHaveBeenCalledWith(2, {
+      hintUsed: true,
+      eliminateUsed: true,
+    });
   });
 
   it('does not submit an option removed by elimination', async () => {
