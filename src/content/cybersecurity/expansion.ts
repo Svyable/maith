@@ -34,8 +34,8 @@ export const cybersecurityExpansionQuestions: Question[] = [
   {
     id: 40810, topic: 'cybersecurity', difficulty: 'hard',
     question: 'Why is storing a unique random salt with each password hash useful?',
-    options: ['It makes a fast hash function memory-hard', 'It allows the original password to be decrypted', 'It eliminates the need to rate-limit login attempts', 'It makes identical passwords produce different stored hashes'],
-    correctIndex: 3,
+    options: ['It makes identical passwords produce different stored hashes', 'It makes a fast hash function memory-hard', 'It allows the original password to be decrypted', 'It eliminates the need to rate-limit login attempts'],
+    correctIndex: 0,
     explanation: 'A unique salt changes the input to the password-hashing function, so users with the same password do not share the same stored hash and precomputed hash tables are far less reusable.',
     realWorld: 'Password-storage systems combine per-password salts with deliberately expensive password-hashing functions to raise the cost of offline cracking after a credential database leak.',
     hint: 'Think about what happens when two users choose the same password.',
@@ -76,8 +76,8 @@ export const cybersecurityExpansionQuestions: Question[] = [
   {
     id: 40814, topic: 'cybersecurity', difficulty: 'sota',
     question: 'Why do CISA and partner agencies encourage software manufacturers to develop memory-safety roadmaps?',
-    options: ['To replace cryptographic key management with garbage collection', 'To reduce vulnerabilities caused by memory-unsafe software and dependencies', 'To make every program execute entirely in browser sandboxes', 'To eliminate the need for vulnerability disclosure programs'],
-    correctIndex: 1,
+    options: ['To reduce vulnerabilities caused by memory-unsafe software and dependencies', 'To replace cryptographic key management with garbage collection', 'To make every program execute entirely in browser sandboxes', 'To eliminate the need for vulnerability disclosure programs'],
+    correctIndex: 0,
     explanation: 'Memory-safety guidance focuses on reducing vulnerability classes associated with memory-unsafe code and understanding exposure inherited through software dependencies.',
     realWorld: 'Manufacturers can inventory memory-unsafe components, prioritize high-risk dependencies, and plan migration or other mitigations instead of addressing memory-corruption bugs only after disclosure.',
     hint: 'The roadmap targets a recurring class of implementation vulnerabilities, including risk inherited from dependencies.',
