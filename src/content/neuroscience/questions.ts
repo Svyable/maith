@@ -85,7 +85,7 @@ export const neuroscienceQuestions: Question[] = [
     hint: "The defining gain is many simultaneous electrophysiological channels along a compact probe.",
     paper: {"title":"Large-scale neural recordings with single neuron resolution using Neuropixels probes in human cortex","url":"https://www.nature.com/articles/s41593-021-00997-0","venue":"Nature Neuroscience","year":2022},
     reviewedAt: "2026-09-19",
-  },,
+  },
   {
     id: 40509, topic: "neuroscience", difficulty: "hard",
     question: "In the classical Hebbian form of spike-timing-dependent plasticity, what often happens when a presynaptic spike arrives shortly before a postsynaptic spike?",
