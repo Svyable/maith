@@ -1,8 +1,8 @@
 {
   "schemaVersion": 2,
   "totals": {
-    "questions": 1132,
-    "standardQuestions": 1132,
+    "questions": 1141,
+    "standardQuestions": 1141,
     "vaultQuestions": 64,
     "glossaryTerms": 488,
     "thinkers": 651,
@@ -982,10 +982,10 @@
         "fluid-dynamics"
       ],
       "counts": {
-        "easy": 2,
-        "hard": 2,
-        "sota": 2,
-        "total": 6
+        "easy": 5,
+        "hard": 5,
+        "sota": 5,
+        "total": 15
       }
     },
     {
