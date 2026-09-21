@@ -86,4 +86,19 @@ export const neuroscienceQuestions: Question[] = [
     paper: {"title":"Large-scale neural recordings with single neuron resolution using Neuropixels probes in human cortex","url":"https://www.nature.com/articles/s41593-021-00997-0","venue":"Nature Neuroscience","year":2022},
     reviewedAt: "2026-09-19",
   },
+  {
+    id: 40509, topic: "neuroscience", difficulty: "hard",
+    question: "In spike-timing-dependent plasticity, synaptic change depends most directly on:",
+    options: [
+      "Only the total number of spikes in a recording session",
+      "The relative timing of pre- and postsynaptic spikes",
+      "The physical distance between two brain regions",
+      "The absolute size of the neuron's nucleus",
+    ],
+    correctIndex: 1,
+    explanation: "Spike-timing-dependent plasticity describes learning rules in which the sign or magnitude of synaptic change depends on the relative timing of activity before and after a synapse.",
+    realWorld: "STDP links millisecond-scale neural timing to mechanisms of circuit adaptation and informs computational models of learning.",
+    hint: "The order and delay between spikes matter.",
+    reviewedAt: "2026-09-21",
+  },
 ];
