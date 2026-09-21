@@ -4,12 +4,12 @@ This is the structural baseline for the next content pass. The detailed question
 
 ## Coverage baseline
 
-The standard library currently contains 1096 questions. Coverage is improving but still uneven.
+The standard library currently contains 1114 questions. Coverage is improving but still uneven.
 
 | Field | Visible topics | Questions | Topics below 9 | Topics below 6 |
 | --- | ---: | ---: | ---: | ---: |
-| Mathematics | 20 | 270 | 3 | 2 |
-| Physics | 15 | 130 | 3 | 1 |
+| Mathematics | 20 | 282 | 1 | 0 |
+| Physics | 15 | 136 | 2 | 0 |
 | Computer Science | 12 | 131 | 2 | 0 |
 | Engineering | 21 | 201 | 0 | 0 |
 | Finance | 15 | 157 | 0 | 0 |
@@ -25,11 +25,11 @@ The standard library currently contains 1096 questions. Coverage is improving bu
 
 The most structurally under-covered visible topics are:
 
-- Mathematics: `number-theory` (3), `real-analysis` (3), and `topology` (6)
-- Physics: `electromagnetism` (3), `fluid-dynamics` (6), and `nuclear-physics` (6)
+- Mathematics: `topology` (6)
+- Physics: `fluid-dynamics` (6) and `nuclear-physics` (6)
 - Computer Science: `cybersecurity` (6) and `quantum-computing` (7)
 - Biology: `neuroscience` (8)
-- Human Sciences, Engineering, Finance, Earth & Space, and Chemistry now meet the 9-question foundation floor for every visible topic
+- Number Theory, Real Analysis, Electromagnetism, Human Sciences, Engineering, Finance, Earth & Space, and Chemistry now meet the 9-question foundation floor for their visible topics
 
 ## Taxonomy decisions
 
@@ -66,10 +66,12 @@ The Question schema now supports optional `sources`, `reviewedAt`, and `factualA
 
 Augmentation should proceed field by field after the quality gate is clean:
 
-1. **Mathematics and Physics** — close the 3-question and 6-question gaps before broadening taxonomy.
+1. **Mathematics and Physics** — close the remaining 6-question gaps in Topology, Fluid Dynamics, and Nuclear Physics.
 2. **Computer Science** — bring Cybersecurity and Quantum Computing to the 9-question floor.
 3. **Biology** — add one balanced Neuroscience question to reach the 9-question floor.
 4. **Mature fields** — future additions in Human Sciences, Engineering, Finance, Earth & Space, and Chemistry should be driven by quality, topical depth, and evidence rather than minimum-count debt.
+
+Core Math/Physics foundation wave is complete: Number Theory, Real Analysis, and Electromagnetism now each have 3 EASY / 3 HARD / 3 SOTA questions. The pass preserves legacy IDs, adds 18 new questions, balances answer positions, adds advanced provenance, and reduces the repository warning ceiling from 4233 to 4224.
 
 Human Sciences has completed its first foundation pass: Psychology, Linguistics, and Philosophy of Science now each have 3 EASY / 3 HARD / 3 SOTA questions. The pass preserves existing IDs, adds nine new questions, replaces the legacy all-first-option answer pattern with balanced answer positions, tightens overbroad claims, adds advanced provenance, and reduces the repository warning ceiling from 4257 to 4233.
 
