@@ -1,3 +1,5 @@
+import type { ConceptMastery } from '@/domain/mastery';
+
 export interface UserStats {
   score_total: number;
   total_answered: number;
@@ -34,6 +36,7 @@ export interface ProfileStatsSnapshot {
   stats: UserStats | null;
   topicStats: TopicStat[];
   difficultyStats: DifficultyStat[];
+  conceptMastery: ConceptMastery[];
   recentSessions: RecentSession[];
 }
 
