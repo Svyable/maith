@@ -1,0 +1,59 @@
+name: Sync Generated Content
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
+    paths:
+      - 'src/content/**'
+      - 'scripts/generate-question-loaders.ts'
+      - 'scripts/generate-content-stats.ts'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: generated-content-sync-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  sync:
+    name: regenerate-content
+    if: github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout PR branch
+        uses: actions/checkout@v5
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          fetch-depth: 0
+
+      - name: Set up Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: 1.4.2
+
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+
+      - name: Regenerate repository-owned content artifacts
+        run: |
+          bun run generate:question-loaders
+          bun run generate:content-stats
+
+      - name: Commit generated artifacts when changed
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          git add src/content/question-loaders.ts src/config/content-stats.ts docs/content-inventory.json
+
+          if git diff --cached --quiet; then
+            echo "Generated content artifacts are already current."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Content: regenerate canonical inventory"
+          git push origin "HEAD:${{ github.event.pull_request.head.ref }}"
