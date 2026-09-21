@@ -7,6 +7,7 @@ import { DEFAULT_QUIZ_CAP, type QuestionDifficulty } from '@/config/constants';
 import { fisherYatesShuffle, getSafeEliminationIndices, stripAnswers } from './engine';
 import type { PublicQuestion, CheckResult } from './types';
 import type { Question } from '@/content/types';
+import { selectPracticeCandidates } from '@/domain/mastery';
 
 // ── Local helpers ────────────────────────────────────────────────────
 
@@ -39,6 +40,26 @@ export function fetchQuestions(
   return fisherYatesShuffle(filtered)
     .slice(0, cap)
     .map((q) => applyClientTranslations(stripAnswers(q)));
+}
+
+/**
+ * Select fresh, concept-targeted questions for weak-spot practice.
+ * Fresh questions are preferred; previously seen questions are fallback only.
+ */
+export function fetchConceptPracticeQuestions(
+  pool: Question[],
+  targetConceptIds: string[],
+  difficulties: QuestionDifficulty[],
+  excludeIds: ReadonlySet<number>,
+  cap: number = DEFAULT_QUIZ_CAP,
+): PublicQuestion[] {
+  return selectPracticeCandidates(
+    fisherYatesShuffle(pool),
+    targetConceptIds,
+    difficulties,
+    excludeIds,
+    cap,
+  ).map((question) => applyClientTranslations(stripAnswers(question)));
 }
 
 /**
