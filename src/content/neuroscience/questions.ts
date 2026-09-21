@@ -99,6 +99,12 @@ export const neuroscienceQuestions: Question[] = [
     explanation: "Spike-timing-dependent plasticity describes learning rules in which the sign or magnitude of synaptic change depends on the relative timing of activity before and after a synapse.",
     realWorld: "STDP links millisecond-scale neural timing to mechanisms of circuit adaptation and informs computational models of learning.",
     hint: "The order and delay between spikes matter.",
+    sources: [{
+      title: "Competitive Hebbian learning through spike-timing-dependent synaptic plasticity",
+      url: "https://doi.org/10.1038/78829",
+      publisher: "Nature Neuroscience",
+      year: 2000,
+    }],
     reviewedAt: "2026-09-21",
   },
 ];
