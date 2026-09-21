@@ -25,7 +25,7 @@ export const cryptographyExpansionQuestions: Question[] = [
   {
     id: 60024, topic: "cryptography", difficulty: "easy",
     question: "A digital signature is designed to let a verifier check that a message:",
-    options: ["Was compressed efficiently", "Contains no secret information", "Came from the signing key holder and was not altered", "Can be decrypted without a key"],
+    options: ["Was encrypted so only the verifier can read it", "Was compressed without losing any of its contents", "Was signed by the private key holder and was not altered", "Can be recovered if the original copy is deleted"],
     correctIndex: 2,
     explanation: "A valid digital signature authenticates the signer relative to a public key and protects message integrity; it does not by itself provide confidentiality.",
     realWorld: "Code signing, software updates, certificates, and signed documents use digital signatures to authenticate origin and detect tampering.",
@@ -45,7 +45,7 @@ export const cryptographyExpansionQuestions: Question[] = [
   {
     id: 60026, topic: "cryptography", difficulty: "hard",
     question: "What does forward secrecy protect if a server's long-term private key is compromised later?",
-    options: ["The server's future software updates", "Previously established session keys from being reconstructed", "The public certificate from expiring", "All passwords from offline guessing"],
+    options: ["Future updates from signature failures", "Earlier session keys from later reconstruction", "Expired certificates from replacement", "Stored passwords from offline guessing"],
     correctIndex: 1,
     explanation: "Forward-secret key exchange uses ephemeral secrets so later compromise of a long-term authentication key does not by itself reveal earlier session keys.",
     realWorld: "Modern TLS deployments use ephemeral Diffie-Hellman variants so recorded traffic is not automatically exposed by a later theft of the server's certificate private key.",
