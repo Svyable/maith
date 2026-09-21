@@ -155,6 +155,22 @@ A diagnostic report should also expose:
 - topics with poor concept coverage;
 - concepts with no explanatory/reference surface.
 
+## Current evidence implementation
+
+The first runtime evidence layer now lives in `src/domain/mastery`. It is deliberately pure and inspectable:
+
+- standard mapped questions emit one evidence record per concept;
+- the first mapped concept is marked primary;
+- correctness, difficulty, hint use, 50/50 use, timeout, and skips are preserved;
+- unmapped questions emit no concept evidence and continue through the legacy path unchanged;
+- evidence is held in quiz state for the current round and reset when a new round begins;
+- `deriveConceptMastery` produces deterministic `learning`, `developing`, `strong`, and `mastered` states;
+- assisted correct answers remain successful attempts but do not count as independent-correct evidence.
+
+This slice intentionally does **not** persist concept evidence yet. Existing Supabase history is aggregated at session/topic/difficulty level, so a durable concept model should get its own raw-evidence storage contract rather than overloading historical aggregates.
+
+Practice Weak Spots now uses the same semantic layer. Missed/skipped primary concepts are expanded through transitive prerequisites; fresh mapped questions are preferred, immediate repeats are excluded when alternatives exist, and old unresolved-question replay remains the fallback for unmapped content.
+
 ## Learner-model computation
 
 Do not begin with a black-box score.
@@ -261,9 +277,11 @@ It should not receive unrestricted authority to silently rewrite canonical facts
 
 ### Slice 2 — evidence
 
-- record concept IDs in quiz session results;
-- derive concept mastery locally/server-side;
-- add tests for deterministic status assignment.
+- record concept IDs in in-session quiz evidence;
+- preserve hint, elimination, timeout, difficulty, and skip signals;
+- derive concept mastery locally with deterministic thresholds;
+- add tests for deterministic status assignment;
+- persist raw evidence only after the storage contract is explicitly designed.
 
 ### Slice 3 — profile
 
@@ -274,8 +292,10 @@ It should not receive unrestricted authority to silently rewrite canonical facts
 ### Slice 4 — adaptation
 
 - upgrade Practice Weak Spots to select new questions through concept evidence;
-- add freshness and repeat-avoidance rules;
-- instrument outcomes.
+- expand weak concepts through transitive prerequisites;
+- prefer fresh mapped questions and avoid immediate repeats when possible;
+- retain legacy replay as fallback for unmapped questions;
+- instrument outcomes after evidence persistence lands.
 
 ### Slice 5 — expansion
 
