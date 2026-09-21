@@ -155,6 +155,32 @@ A diagnostic report should also expose:
 - topics with poor concept coverage;
 - concepts with no explanatory/reference surface.
 
+## Semantic coverage wave 2
+
+The concept graph now extends beyond the original Linear Algebra and Calculus pilots into two fully mapped 24-question topics:
+
+- **Probability & Statistics**: probability rules, Bayesian inference, expectation/variance, distributions, sampling/convergence, dependence/correlation, statistical inference, and information measures.
+- **Optimization**: objectives/convexity, gradient descent, stochastic optimization, regularization, generalization/model selection, training stability, and model compression/efficiency.
+
+Every standard question in those two topics carries at least one concept mapping, and every new concept has at least two independent mapped questions. The density rule is intentional: mAIth should not claim concept-level mastery from a semantic label backed by a single question.
+
+The prerequisite graph now crosses topic boundaries where the dependency is pedagogically real. For example:
+
+```
+Probability Rules
+└── Expectation & Variance
+    └── Stochastic Optimization
+
+Continuity
+└── Derivatives
+    ├── Gradient
+    │   └── Gradient Descent
+    └── Objectives & Convexity
+        └── Gradient Descent
+```
+
+Topic Learn pages now render a **Mastery map** before the existing formula/glossary/MasterMinds knowledge cluster. This makes concept units, prerequisites, cross-topic prerequisite links, and applications visible before practice. The graph therefore serves both adaptive behavior and discovery rather than remaining hidden implementation metadata.
+
 ## Current evidence implementation
 
 The first runtime evidence layer now lives in `src/domain/mastery`. It is deliberately pure and inspectable:
