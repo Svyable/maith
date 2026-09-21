@@ -1,6 +1,8 @@
 // ── Quiz Domain Types ─────────────────────────────────────────────────
 // Stable contracts shared by useQuiz, useThinkerQuiz, and all quiz modes.
 
+import type { ConceptEvidence } from '@/domain/mastery';
+
 export interface PublicQuestion {
   id: number;
   topic: string;
@@ -16,6 +18,8 @@ export interface PublicQuestion {
   glossaryLinks?: string[];
   /** Formula names for cross-linking */
   formulaLinks?: string[];
+  /** Stable mastery concept IDs; first entry is primary. */
+  conceptIds?: string[];
 }
 
 export interface CheckResult {
@@ -52,6 +56,7 @@ export interface QuizState {
   answeredIds: number[];
   topicBreakdown: Record<string, { correct: number; total: number }>;
   difficultyBreakdown: Record<string, { correct: number; total: number }>;
+  conceptEvidence: ConceptEvidence[];
   isFinished: boolean;
   currentQuestions: PublicQuestion[];
   loading: boolean;
