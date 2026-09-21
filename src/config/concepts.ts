@@ -320,17 +320,7 @@ export const CONCEPTS: readonly Concept[] = [
     field: 'math',
     topics: ['optimization'],
     prerequisites: ['gradient-descent', 'expectation-variance'],
-    related: ['adaptive-optimization'],
     applications: ['large-scale learning', 'online learning'],
-    status: 'active',
-  },
-  {
-    id: 'adaptive-optimization',
-    label: 'Adaptive Optimization',
-    field: 'math',
-    topics: ['optimization'],
-    prerequisites: ['stochastic-optimization'],
-    applications: ['deep learning', 'sparse gradients'],
     status: 'active',
   },
   {
