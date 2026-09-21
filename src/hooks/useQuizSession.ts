@@ -105,6 +105,7 @@ export function useQuizSession(
         bestStreak: quizState.bestStreak,
         topicBreakdown: quizState.topicBreakdown,
         contentVersion: CONTENT_VERSION,
+        conceptEvidence: quizState.conceptEvidence,
       }).catch((error: unknown) => {
         console.error(
           '[quiz] Failed to submit session:',
