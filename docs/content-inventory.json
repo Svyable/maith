@@ -1,8 +1,8 @@
 {
   "schemaVersion": 2,
   "totals": {
-    "questions": 1087,
-    "standardQuestions": 1087,
+    "questions": 1096,
+    "standardQuestions": 1096,
     "vaultQuestions": 64,
     "glossaryTerms": 488,
     "thinkers": 651,
@@ -1132,10 +1132,10 @@
         "linguistics"
       ],
       "counts": {
-        "easy": 2,
-        "hard": 2,
-        "sota": 2,
-        "total": 6
+        "easy": 3,
+        "hard": 3,
+        "sota": 3,
+        "total": 9
       }
     },
     {
@@ -1478,10 +1478,10 @@
         "philosophy-of-science"
       ],
       "counts": {
-        "easy": 2,
-        "hard": 2,
-        "sota": 2,
-        "total": 6
+        "easy": 3,
+        "hard": 3,
+        "sota": 3,
+        "total": 9
       }
     },
     {
@@ -1598,10 +1598,10 @@
         "psychology"
       ],
       "counts": {
-        "easy": 2,
-        "hard": 2,
-        "sota": 2,
-        "total": 6
+        "easy": 3,
+        "hard": 3,
+        "sota": 3,
+        "total": 9
       }
     },
     {
