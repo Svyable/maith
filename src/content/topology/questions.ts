@@ -14,6 +14,7 @@ export const topologyQuestions: Question[] = [
     explanation: 'Topology studies properties preserved under continuous deformation. The number of holes (genus) is a topological invariant: mug and torus both have genus 1.',
     realWorld: 'Topological data analysis (TDA) uses persistent homology to find "holes" in high-dimensional data — revealing structure in protein folding, brain connectivity, and sensor networks.',
     hint: 'Imagine the mug is made of clay — you can smoothly reshape it into a donut without tearing.',
+    reviewedAt: '2026-09-21',
   },
   {
     id: 41204, topic: 'topology', difficulty: 'easy',
