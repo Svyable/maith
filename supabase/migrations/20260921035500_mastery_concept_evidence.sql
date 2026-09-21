@@ -67,7 +67,7 @@ CREATE OR REPLACE FUNCTION private.submit_quiz_session_impl(
 RETURNS public.user_stats
 LANGUAGE plpgsql
 SECURITY DEFINER
-SET search_path = public, private
+SET search_path = ''
 AS $$
 DECLARE
   v_uid uuid := auth.uid();
