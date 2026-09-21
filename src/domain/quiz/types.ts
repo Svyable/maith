@@ -83,4 +83,5 @@ export interface SessionSubmitParams {
   bestStreak: number;
   topicBreakdown: Record<string, { correct: number; total: number }>;
   contentVersion: string;
+  conceptEvidence: import('@/domain/mastery').ConceptEvidence[];
 }
