@@ -1,7 +1,7 @@
 {
   "version": 3,
   "maxErrors": 118,
-  "maxWarnings": 4233,
+  "maxWarnings": 4224,
   "maxErrorsByPool": {
     "standard": 0,
     "bonafide": 0,
@@ -9,7 +9,7 @@
     "vault": 0
   },
   "maxWarningsByPool": {
-    "standard": 865,
+    "standard": 856,
     "bonafide": 185,
     "thinker": 3088,
     "vault": 95
