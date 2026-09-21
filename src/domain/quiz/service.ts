@@ -119,26 +119,3 @@ export function getEliminatedOptions(
 ): number[] {
   return localFallbackEliminate(questionId, originalIndices, pool);
 }
-
-/**
- * Submit a completed quiz session to the database.
- */
-export async function submitSession(
-  userId: string,
-  sessionTag: string,
-  params: SessionSubmitParams,
-): Promise<void> {
-  const clientSessionId = `${sessionTag}-${userId}-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
-  await supabase.rpc('submit_quiz_session', {
-    p_client_session_id: clientSessionId,
-    p_topics: params.topics,
-    p_difficulty: params.difficulty,
-    p_score: Math.round(params.score),
-    p_total_answered: params.totalAnswered,
-    p_correct_answered: params.correctAnswered,
-    p_best_streak: params.bestStreak,
-    p_topic_breakdown: params.topicBreakdown,
-    p_content_version: params.contentVersion,
-  });
-}
-
