@@ -1,8 +1,8 @@
 {
   "schemaVersion": 2,
   "totals": {
-    "questions": 1114,
-    "standardQuestions": 1114,
+    "questions": 1123,
+    "standardQuestions": 1123,
     "vaultQuestions": 64,
     "glossaryTerms": 488,
     "thinkers": 651,
@@ -1283,9 +1283,9 @@
       ],
       "counts": {
         "easy": 3,
-        "hard": 2,
+        "hard": 3,
         "sota": 3,
-        "total": 8
+        "total": 9
       }
     },
     {
@@ -1327,10 +1327,10 @@
         "nuclear-physics"
       ],
       "counts": {
-        "easy": 2,
-        "hard": 2,
-        "sota": 2,
-        "total": 6
+        "easy": 3,
+        "hard": 3,
+        "sota": 3,
+        "total": 9
       }
     },
     {
@@ -1614,9 +1614,9 @@
       ],
       "counts": {
         "easy": 3,
-        "hard": 2,
-        "sota": 2,
-        "total": 7
+        "hard": 3,
+        "sota": 3,
+        "total": 9
       }
     },
     {
@@ -1930,10 +1930,10 @@
         "topology"
       ],
       "counts": {
-        "easy": 2,
-        "hard": 2,
-        "sota": 2,
-        "total": 6
+        "easy": 3,
+        "hard": 3,
+        "sota": 3,
+        "total": 9
       }
     },
     {
