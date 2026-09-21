@@ -37,6 +37,7 @@ The roadmap is organized around strategic horizons. Existing content-quality wor
 - [x] Generate concept coverage diagnostics
 - [x] Map a small, high-quality pilot cohort before broad rollout
 - [x] Expand dense concept coverage to Probability & Statistics and Optimization
+- [x] Expand dense concept coverage to Algorithms and Classical Mechanics
 - [x] Expose concept/prerequisite maps on topic learning pages
 
 ### Learner evidence
