@@ -103,10 +103,12 @@ const poolSummaries: Record<string, PoolSummary> = {};
 
 for (const [poolName, questions] of Object.entries(pools)) {
   const idCounts = new Map<number, number>();
+  const idQuestions = new Map<number, Question[]>();
   const textMap = new Map<string, Question[]>();
 
   for (const q of questions) {
     idCounts.set(q.id, (idCounts.get(q.id) ?? 0) + 1);
+    idQuestions.set(q.id, [...(idQuestions.get(q.id) ?? []), q]);
     const normalized = normalizeText(q.question);
     if (normalized) textMap.set(normalized, [...(textMap.get(normalized) ?? []), q]);
 
@@ -206,7 +208,18 @@ for (const [poolName, questions] of Object.entries(pools)) {
   }
 
   for (const [id, count] of idCounts) {
-    if (count > 1) add({ severity: 'error', code: 'DUPLICATE_ID', pool: poolName, questionId: id, detail: `ID appears ${count} times in this pool` });
+    if (count > 1) {
+      const collidingQuestions = idQuestions.get(id) ?? [];
+      const topics = collidingQuestions.map((q) => q.topic);
+      add({
+        severity: 'error',
+        code: 'DUPLICATE_ID',
+        pool: poolName,
+        questionId: id,
+        topic: topics[0],
+        detail: `ID appears ${count} times in this pool across topics: ${topics.join(', ')}`,
+      });
+    }
   }
   for (const duplicates of textMap.values()) {
     if (duplicates.length > 1) {
@@ -218,7 +231,7 @@ for (const [poolName, questions] of Object.entries(pools)) {
           questionId: duplicates[i].id,
           relatedQuestionId: duplicates[0].id,
           topic: duplicates[i].topic,
-          detail: 'Question text duplicates another question in the same pool',
+          detail: `Question text duplicates ${duplicates[0].topic} #${duplicates[0].id} in the same pool`,
         });
       }
     }
