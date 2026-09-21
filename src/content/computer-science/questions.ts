@@ -4,6 +4,7 @@ export const computerScienceQuestions: Question[] = [
   // ── Algorithms ──────────────────────────────────────────────
   {
     id: 60001, topic: "algorithms", difficulty: "easy",
+    conceptIds: ["asymptotic-algorithm-analysis"],
     question: "Binary search on a sorted array of n elements has worst-case time complexity:",
     options: ["O(n)","O(1)","O(log n)","O(n log n)"],
     correctIndex: 2,
@@ -15,6 +16,7 @@ export const computerScienceQuestions: Question[] = [
   },
   {
     id: 60010, topic: "algorithms", difficulty: "easy",
+    conceptIds: ["graph-algorithms"],
     question: "For an unweighted graph, which traversal finds shortest-path distances from one source in number of edges?",
     options: ["Breadth-first search","Depth-first search","Quicksort","Binary search"],
     correctIndex: 0,
@@ -25,6 +27,7 @@ export const computerScienceQuestions: Question[] = [
   },
   {
     id: 60011, topic: "algorithms", difficulty: "easy",
+    conceptIds: ["asymptotic-algorithm-analysis"],
     question: "A sorting algorithm is stable if it:",
     options: ["Uses O(1) extra memory","Always runs in O(n log n)","Never compares equal keys","Keeps ties in input order"],
     correctIndex: 3,
@@ -35,6 +38,7 @@ export const computerScienceQuestions: Question[] = [
   },
   {
     id: 60002, topic: "algorithms", difficulty: "hard",
+    conceptIds: ["asymptotic-algorithm-analysis"],
     question: "For T(n)=aT(n/b)+f(n), the Master Theorem case f(n)=Θ(n^(log_b a)) gives:",
     options: ["Θ(n^(log_b a))","Θ(n^(log_b a) log n)","Θ(f(n) log² n)","Θ(n log n) for every a and b"],
     correctIndex: 1,
@@ -46,6 +50,7 @@ export const computerScienceQuestions: Question[] = [
   },
   {
     id: 60012, topic: "algorithms", difficulty: "hard",
+    conceptIds: ["graph-algorithms"],
     question: "Why does standard Dijkstra's algorithm require nonnegative edge weights?",
     options: ["Negative edges make every graph disconnected","It can revisit infinitely many vertices even in a finite graph","A finalized distance can later decrease","Its priority queue cannot store negative numbers"],
     correctIndex: 2,
@@ -56,6 +61,7 @@ export const computerScienceQuestions: Question[] = [
   },
   {
     id: 60013, topic: "algorithms", difficulty: "hard",
+    conceptIds: ["asymptotic-algorithm-analysis"],
     question: "If a dynamic array doubles its capacity whenever full, the amortized cost of append is:",
     options: ["O(1)","O(log n)","O(n)","O(n log n)"],
     correctIndex: 0,
@@ -66,6 +72,7 @@ export const computerScienceQuestions: Question[] = [
   },
   {
     id: 60003, topic: "algorithms", difficulty: "sota",
+    conceptIds: ["fast-algorithm-frontiers","asymptotic-algorithm-analysis"],
     question: "As of September 2026, the best published preprint upper bound on the square matrix-multiplication exponent ω is approximately:",
     options: ["ω < 2.50","ω < 2.372","ω = 2 exactly","ω < 2.371177"],
     correctIndex: 3,
@@ -79,6 +86,7 @@ export const computerScienceQuestions: Question[] = [
   },
   {
     id: 60014, topic: "algorithms", difficulty: "sota",
+    conceptIds: ["fast-algorithm-frontiers","asymptotic-algorithm-analysis"],
     question: "Harvey and van der Hoeven proved that multiplying two n-bit integers can be done in:",
     options: ["O(n²) bit operations","O(n log n) bit operations","O(n log² n) comparisons only","O(log n) bit operations"],
     correctIndex: 1,
@@ -91,6 +99,7 @@ export const computerScienceQuestions: Question[] = [
   },
   {
     id: 60015, topic: "algorithms", difficulty: "sota",
+    conceptIds: ["graph-algorithms","fast-algorithm-frontiers"],
     question: "A 2022 breakthrough for exact directed maximum flow with polynomially bounded integral data achieved running time:",
     options: ["O(m²)","O(m log² m) for every graph model","m^(1+o(1))","O(2^m)"],
     correctIndex: 2,
