@@ -73,7 +73,7 @@ export const quantumComputingQuestions: Question[] = [
     hint: "Alternate evolution under the objective with an operator that explores candidate solutions.",
     sources: [{"title":"Challenges and opportunities in quantum optimization","url":"https://www.nature.com/articles/s42254-024-00770-9","publisher":"Nature Reviews Physics","year":2024}],
     reviewedAt: "2026-09-19",
-  },,
+  },
   {
     id: 440008, topic: "quantum-computing", difficulty: "hard",
     question: "The no-cloning theorem rules out which operation?",
