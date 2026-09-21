@@ -16,7 +16,13 @@ import {
   type PublicQuestion,
   type CheckResult,
 } from '@/domain/quiz';
-import { fetchQuestions, checkAnswer, getEliminatedOptions } from '@/domain/quiz/service';
+import { getPracticeConceptIds, type AnswerAssistance } from '@/domain/mastery';
+import {
+  fetchQuestions,
+  fetchConceptPracticeQuestions,
+  checkAnswer,
+  getEliminatedOptions,
+} from '@/domain/quiz/service';
 import type { QuestionLoadProgress } from '@/content/question-loaders';
 
 export type { PublicQuestion, CheckResult, QuizState } from '@/domain/quiz';
@@ -51,7 +57,10 @@ export function useQuiz(selectedTopics: string[] = [], difficulties: Difficulty[
   }, []);
 
   const answer = useCallback(
-    async (optionIndex: number): Promise<CheckResult | null> => {
+    async (
+      optionIndex: number,
+      assistance: AnswerAssistance = {},
+    ): Promise<CheckResult | null> => {
       if (!currentQuestion) return null;
 
       const result = await checkAnswer(currentQuestion.id, optionIndex, questionPoolRef.current);
@@ -59,7 +68,13 @@ export function useQuiz(selectedTopics: string[] = [], difficulties: Difficulty[
 
       const visibleIndex = getVisibleOptionIndex(optionIndex, currentQuestion.originalIndices);
       const reviewResult = toVisibleCheckResult(result, currentQuestion.originalIndices);
-      setState((prev) => applyAnswer(prev, reviewResult, currentQuestion, visibleIndex));
+      setState((prev) => applyAnswer(
+        prev,
+        reviewResult,
+        currentQuestion,
+        visibleIndex,
+        assistance,
+      ));
       return result;
     },
     [currentQuestion],
@@ -94,8 +109,28 @@ export function useQuiz(selectedTopics: string[] = [], difficulties: Difficulty[
   );
 
   const practiceUnresolved = useCallback(() => {
-    setState(buildRemediationState);
-  }, []);
+    setState((prev) => {
+      const unresolved = [
+        ...prev.missedQuestions.map(({ question }) => question),
+        ...prev.skippedQuestions.map(({ question }) => question),
+      ];
+      const targetConceptIds = getPracticeConceptIds(unresolved);
+
+      if (targetConceptIds.length === 0) {
+        return buildRemediationState(prev);
+      }
+
+      const practiceQuestions = fetchConceptPracticeQuestions(
+        questionPoolRef.current,
+        targetConceptIds,
+        difficulties.map(toQuestionDifficulty),
+        new Set(prev.currentQuestions.map(({ id }) => id)),
+        DEFAULT_QUIZ_CAP,
+      );
+
+      return buildRemediationState(prev, practiceQuestions);
+    });
+  }, [difficulties]);
 
   return {
     state,
