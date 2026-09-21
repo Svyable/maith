@@ -85,6 +85,11 @@ export function deriveConceptMastery(
         (item) => item.difficulty === 'hard' || item.difficulty === 'sota',
       ).length;
       const accuracy = correctItems.length / items.length;
+      const lastAttemptAt = items
+        .map((item) => item.createdAt)
+        .filter((value): value is string => Boolean(value))
+        .sort()
+        .at(-1) ?? null;
 
       let status: ConceptMastery['status'] = 'learning';
       if (
@@ -114,6 +119,7 @@ export function deriveConceptMastery(
         assistedCorrect,
         hardOrSotaCorrect,
         accuracy,
+        lastAttemptAt,
         prerequisiteIds: concept.prerequisites,
       };
     })
@@ -146,6 +152,20 @@ export function getPracticeConceptIds(
   const primaryIds = questions.flatMap((question) => question.conceptIds?.slice(0, 1) ?? []);
   const fallbackIds = questions.flatMap((question) => question.conceptIds ?? []);
   return expandConceptsWithPrerequisites(primaryIds.length > 0 ? primaryIds : fallbackIds);
+}
+
+export function getConceptBlockerIds(
+  mastery: readonly ConceptMastery[],
+  conceptId: string,
+): string[] {
+  const concept = CONCEPT_MAP[conceptId];
+  if (!concept) return [];
+
+  const masteryMap = new Map(mastery.map((item) => [item.conceptId, item]));
+  return concept.prerequisites.filter((prerequisiteId) => {
+    const status = masteryMap.get(prerequisiteId)?.status;
+    return status !== 'strong' && status !== 'mastered';
+  });
 }
 
 export interface PracticeCandidate {

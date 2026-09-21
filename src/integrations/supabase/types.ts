@@ -92,6 +92,68 @@ export type Database = {
         }
         Relationships: []
       }
+      user_concept_evidence: {
+        Row: {
+          client_session_id: string
+          concept_id: string
+          content_version: string | null
+          correct: boolean
+          created_at: string
+          difficulty: Database["public"]["Enums"]["difficulty"]
+          eliminate_used: boolean
+          hint_used: boolean
+          id: string
+          outcome: string
+          primary_concept: boolean
+          question_id: number
+          timed_out: boolean
+          topic: string
+          user_id: string
+        }
+        Insert: {
+          client_session_id: string
+          concept_id: string
+          content_version?: string | null
+          correct?: boolean
+          created_at?: string
+          difficulty: Database["public"]["Enums"]["difficulty"]
+          eliminate_used?: boolean
+          hint_used?: boolean
+          id?: string
+          outcome: string
+          primary_concept?: boolean
+          question_id: number
+          timed_out?: boolean
+          topic: string
+          user_id: string
+        }
+        Update: {
+          client_session_id?: string
+          concept_id?: string
+          content_version?: string | null
+          correct?: boolean
+          created_at?: string
+          difficulty?: Database["public"]["Enums"]["difficulty"]
+          eliminate_used?: boolean
+          hint_used?: boolean
+          id?: string
+          outcome?: string
+          primary_concept?: boolean
+          question_id?: number
+          timed_out?: boolean
+          topic?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "user_concept_evidence_client_session_id_fkey"
+            columns: ["client_session_id"]
+            isOneToOne: false
+            referencedRelation: "quiz_sessions"
+            referencedColumns: ["client_session_id"]
+          },
+        ]
+      }
       user_difficulty_stats: {
         Row: {
           best_streak: number
@@ -264,61 +326,34 @@ export type Database = {
       }
     }
     Functions: {
-      submit_quiz_session:
-        | {
-            Args: {
-              p_best_streak: number
-              p_client_session_id: string
-              p_content_version?: string
-              p_correct_answered: number
-              p_difficulty: Database["public"]["Enums"]["difficulty"]
-              p_score: number
-              p_topic_breakdown?: Json
-              p_topics: string[]
-              p_total_answered: number
-            }
-            Returns: {
-              best_streak: number
-              correct_answered: number
-              score_total: number
-              total_answered: number
-              updated_at: string
-              user_id: string
-            }[]
-            SetofOptions: {
-              from: "*"
-              to: "user_stats"
-              isOneToOne: false
-              isSetofReturn: true
-            }
-          }
-        | {
-            Args: {
-              p_best_streak: number
-              p_client_session_id: string
-              p_content_version?: string
-              p_correct_answered: number
-              p_difficulty: Database["public"]["Enums"]["difficulty"]
-              p_score: number
-              p_topic_breakdown: Json
-              p_topics: string[]
-              p_total_answered: number
-            }
-            Returns: {
-              best_streak: number
-              correct_answered: number
-              score_total: number
-              total_answered: number
-              updated_at: string
-              user_id: string
-            }
-            SetofOptions: {
-              from: "*"
-              to: "user_stats"
-              isOneToOne: true
-              isSetofReturn: false
-            }
-          }
+      submit_quiz_session: {
+        Args: {
+          p_best_streak: number
+          p_client_session_id: string
+          p_concept_evidence?: Json
+          p_content_version?: string
+          p_correct_answered: number
+          p_difficulty: Database["public"]["Enums"]["difficulty"]
+          p_score: number
+          p_topic_breakdown?: Json
+          p_topics: string[]
+          p_total_answered: number
+        }
+        Returns: {
+          best_streak: number
+          correct_answered: number
+          score_total: number
+          total_answered: number
+          updated_at: string
+          user_id: string
+        }
+        SetofOptions: {
+          from: "*"
+          to: "user_stats"
+          isOneToOne: true
+          isSetofReturn: false
+        }
+      }
     }
     Enums: {
       difficulty: "EASY" | "HARD" | "SOTA"

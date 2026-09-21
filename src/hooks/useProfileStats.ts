@@ -9,6 +9,7 @@ const EMPTY_PROFILE_STATS: ProfileStatsSnapshot = {
   stats: null,
   topicStats: [],
   difficultyStats: [],
+  conceptMastery: [],
   recentSessions: [],
 };
 

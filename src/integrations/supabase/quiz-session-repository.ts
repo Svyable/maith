@@ -17,6 +17,18 @@ export const supabaseQuizSessionRepository: QuizSessionRepository = {
       p_best_streak: params.bestStreak,
       p_topic_breakdown: params.topicBreakdown,
       p_content_version: params.contentVersion,
+      p_concept_evidence: params.conceptEvidence.map((item) => ({
+        conceptId: item.conceptId,
+        questionId: item.questionId,
+        topic: item.topic,
+        difficulty: item.difficulty,
+        outcome: item.outcome,
+        correct: item.correct,
+        hintUsed: item.hintUsed,
+        eliminateUsed: item.eliminateUsed,
+        timedOut: item.timedOut,
+        primary: item.primary,
+      })),
     });
 
     if (error) throw new Error(error.message);

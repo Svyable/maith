@@ -10,6 +10,7 @@ import { TopicHeatmap } from '@/components/TopicHeatmap';
 import { FieldStatsBar } from '@/components/FieldStatsBar';
 import { ProfileGamescapeStats } from '@/components/ProfileGamescapeStats';
 import { ThinkerBadgeWall } from '@/components/profile/ThinkerBadgeWall';
+import { ConceptMasteryPanel } from '@/components/profile/ConceptMasteryPanel';
 import { useTheme } from '@/hooks/useTheme';
 import { useVaultProgress } from '@/hooks/useVaultProgress';
 import { SiteShell } from '@/components/layout/SiteShell';
@@ -27,7 +28,7 @@ export default function Profile() {
   const { isDark, toggle: toggleTheme } = useTheme();
   const { totalUnlocked, totalEntries, clearance } = useVaultProgress();
   const { achievements } = useThinkerAchievements();
-  const { stats, topicStats, difficultyStats, recentSessions, loading } = useProfileStats(user?.id);
+  const { stats, topicStats, difficultyStats, conceptMastery, recentSessions, loading } = useProfileStats(user?.id);
   const [editingName, setEditingName] = useState(false);
   const [editName, setEditName] = useState('');
 
@@ -193,6 +194,8 @@ export default function Profile() {
             topicStats={topicStats}
             difficultyStats={difficultyStats}
           />
+
+          <ConceptMasteryPanel mastery={conceptMastery} />
 
           {/* Field-level overview */}
           {topicStats.length > 0 && (

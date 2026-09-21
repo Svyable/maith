@@ -26,6 +26,8 @@ export interface ConceptEvidence {
   eliminateUsed: boolean;
   timedOut: boolean;
   primary: boolean;
+  /** Server persistence timestamp when evidence is loaded from history. */
+  createdAt?: string;
 }
 
 export interface ConceptMastery {
@@ -38,5 +40,6 @@ export interface ConceptMastery {
   assistedCorrect: number;
   hardOrSotaCorrect: number;
   accuracy: number;
+  lastAttemptAt: string | null;
   prerequisiteIds: readonly string[];
 }
