@@ -58,6 +58,18 @@ describe('deriveConceptMastery', () => {
     expect(mastery.hardOrSotaCorrect).toBe(4);
   });
 
+  it('carries the latest persisted evidence timestamp into mastery', () => {
+    const evidence = [
+      ...buildAnswerConceptEvidence(question, true),
+      ...buildAnswerConceptEvidence({ ...question, id: 12 }, false),
+    ];
+    evidence[0].createdAt = '2026-09-18T12:00:00.000Z';
+    evidence[1].createdAt = '2026-09-20T12:00:00.000Z';
+
+    const [mastery] = deriveConceptMastery(evidence);
+    expect(mastery.lastAttemptAt).toBe('2026-09-20T12:00:00.000Z');
+  });
+
   it('keeps sparse success in developing state', () => {
     const [mastery] = deriveConceptMastery(
       buildAnswerConceptEvidence(question, true),
