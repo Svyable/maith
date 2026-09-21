@@ -9,6 +9,7 @@ import type {
   CheckResult,
   PublicQuestion,
 } from '@/domain/quiz';
+import type { AnswerAssistance } from '@/domain/mastery';
 import { toVisibleCheckResult } from '@/domain/quiz';
 import { calculatePoints } from '@/domain/scoring';
 import { useKeyboard } from '@/hooks/useKeyboard';
@@ -22,7 +23,7 @@ export type QuizAnswerState =
 interface UseQuizQuestionInteractionOptions {
   question: PublicQuestion;
   streak: number;
-  onAnswer: (index: number) => Promise<CheckResult | null>;
+  onAnswer: (index: number, assistance?: AnswerAssistance) => Promise<CheckResult | null>;
   onEliminate: () => number[];
   onNext: () => void;
   onSkip: () => void;
@@ -82,7 +83,10 @@ export function useQuizQuestionInteraction({
       setSelectedOption(visibleIndex);
       setAnswerState('checking');
 
-      const result = await onAnswer(originalIndex);
+      const result = await onAnswer(originalIndex, {
+        hintUsed: hintShown,
+        eliminateUsed,
+      });
 
       if (questionIdRef.current !== questionId) return;
 
@@ -109,6 +113,8 @@ export function useQuizQuestionInteraction({
     [
       answerState,
       eliminatedOptions,
+      eliminateUsed,
+      hintShown,
       onAnswer,
       onSessionUpdate,
       question.difficulty,
@@ -124,7 +130,11 @@ export function useQuizQuestionInteraction({
     const questionId = question.id;
     setAnswerState('checking');
 
-    const result = await onAnswer(-1);
+    const result = await onAnswer(-1, {
+      hintUsed: hintShown,
+      eliminateUsed,
+      timedOut: true,
+    });
 
     if (questionIdRef.current !== questionId) return;
 
@@ -145,6 +155,8 @@ export function useQuizQuestionInteraction({
     onSessionUpdate(false);
   }, [
     answerState,
+    eliminateUsed,
+    hintShown,
     onAnswer,
     onSessionUpdate,
     question.id,

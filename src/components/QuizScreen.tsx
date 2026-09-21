@@ -7,6 +7,7 @@ import { ExplanationPopup } from './ExplanationPopup';
 import { HintPanel } from './HintPanel';
 import { PaperPill } from './PaperPill';
 import type { PublicQuestion, CheckResult } from '@/domain/quiz';
+import type { AnswerAssistance } from '@/domain/mastery';
 import { type Difficulty, getDifficultyMeta, TOPIC_MAP, toDifficulty } from '@/config/constants';
 import { t } from '@/i18n';
 import { streakBonusLabel } from '@/domain/scoring';
@@ -21,7 +22,7 @@ interface QuizScreenProps {
   streak: number;
   timerFraction: number;
   timeLeft: number;
-  onAnswer: (index: number) => Promise<CheckResult | null>;
+  onAnswer: (index: number, assistance?: AnswerAssistance) => Promise<CheckResult | null>;
   onEliminate: () => number[];
   onNext: () => void;
   onSkip: () => void;

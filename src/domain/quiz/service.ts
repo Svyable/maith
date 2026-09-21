@@ -7,6 +7,7 @@ import { DEFAULT_QUIZ_CAP, type QuestionDifficulty } from '@/config/constants';
 import { fisherYatesShuffle, getSafeEliminationIndices, stripAnswers } from './engine';
 import type { PublicQuestion, CheckResult } from './types';
 import type { Question } from '@/content/types';
+import { selectPracticeCandidates } from '@/domain/mastery';
 
 // ── Local helpers ────────────────────────────────────────────────────
 
@@ -39,6 +40,26 @@ export function fetchQuestions(
   return fisherYatesShuffle(filtered)
     .slice(0, cap)
     .map((q) => applyClientTranslations(stripAnswers(q)));
+}
+
+/**
+ * Select fresh, concept-targeted questions for weak-spot practice.
+ * Fresh questions are preferred; previously seen questions are fallback only.
+ */
+export function fetchConceptPracticeQuestions(
+  pool: Question[],
+  targetConceptIds: string[],
+  difficulties: QuestionDifficulty[],
+  excludeIds: ReadonlySet<number>,
+  cap: number = DEFAULT_QUIZ_CAP,
+): PublicQuestion[] {
+  return selectPracticeCandidates(
+    fisherYatesShuffle(pool),
+    targetConceptIds,
+    difficulties,
+    excludeIds,
+    cap,
+  ).map((question) => applyClientTranslations(stripAnswers(question)));
 }
 
 /**
@@ -98,26 +119,3 @@ export function getEliminatedOptions(
 ): number[] {
   return localFallbackEliminate(questionId, originalIndices, pool);
 }
-
-/**
- * Submit a completed quiz session to the database.
- */
-export async function submitSession(
-  userId: string,
-  sessionTag: string,
-  params: SessionSubmitParams,
-): Promise<void> {
-  const clientSessionId = `${sessionTag}-${userId}-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
-  await supabase.rpc('submit_quiz_session', {
-    p_client_session_id: clientSessionId,
-    p_topics: params.topics,
-    p_difficulty: params.difficulty,
-    p_score: Math.round(params.score),
-    p_total_answered: params.totalAnswered,
-    p_correct_answered: params.correctAnswered,
-    p_best_streak: params.bestStreak,
-    p_topic_breakdown: params.topicBreakdown,
-    p_content_version: params.contentVersion,
-  });
-}
-

@@ -1,10 +1,12 @@
 import { describe, expect, it } from 'vitest';
 import {
+  applyAnswer,
   buildInitialState,
   buildRemediationState,
   getSafeEliminationIndices,
   getVisibleOptionIndex,
   reshufflePublicQuestion,
+  skipCurrentQuestion,
   toVisibleCheckResult,
   type CheckResult,
   type PublicQuestion,
@@ -80,6 +82,60 @@ describe('reshufflePublicQuestion', () => {
   it('fails closed for a malformed option mapping', () => {
     const question = makeQuestion(1, ['A', 'B', 'C', 'D'], [0, 0, 2, 3]);
     expect(reshufflePublicQuestion(question)).toBe(question);
+  });
+});
+
+describe('concept evidence in quiz state', () => {
+  it('records mapped answer evidence with assistance metadata', () => {
+    const q = makeQuestion(10, undefined, undefined);
+    q.topic = 'linear-algebra';
+    q.conceptIds = ['matrix-multiplication'];
+
+    const result: CheckResult = {
+      correct: true,
+      correctIndex: 0,
+      explanation: 'explanation',
+      realWorld: 'application',
+    };
+
+    const next = applyAnswer(
+      { ...buildInitialState(), loading: false, currentQuestions: [q] },
+      result,
+      q,
+      0,
+      { hintUsed: true, eliminateUsed: false },
+    );
+
+    expect(next.conceptEvidence).toEqual([
+      expect.objectContaining({
+        conceptId: 'matrix-multiplication',
+        questionId: 10,
+        correct: true,
+        hintUsed: true,
+        eliminateUsed: false,
+      }),
+    ]);
+  });
+
+  it('records mapped skips as unresolved evidence', () => {
+    const q = makeQuestion(11);
+    q.topic = 'calculus';
+    q.conceptIds = ['derivatives'];
+
+    const next = skipCurrentQuestion({
+      ...buildInitialState(),
+      loading: false,
+      currentQuestions: [q],
+    });
+
+    expect(next.conceptEvidence).toEqual([
+      expect.objectContaining({
+        conceptId: 'derivatives',
+        questionId: 11,
+        outcome: 'skipped',
+        correct: false,
+      }),
+    ]);
   });
 });
 

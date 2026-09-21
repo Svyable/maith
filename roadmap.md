@@ -39,11 +39,11 @@ The roadmap is organized around strategic horizons. Existing content-quality wor
 
 ### Learner evidence
 
-- [ ] Record concept IDs alongside quiz evidence
-- [ ] Define deterministic, explainable concept mastery states
+- [x] Record concept IDs alongside in-session quiz evidence
+- [x] Define deterministic, explainable concept mastery states
 - [ ] Include recency, difficulty, repeated success, and hint dependence
-- [ ] Add unit tests for mastery-state derivation
-- [ ] Preserve raw evidence as the source of truth
+- [x] Add unit tests for mastery-state derivation
+- [ ] Persist raw concept evidence as the source of truth across sessions
 
 ### Profile
 
@@ -54,9 +54,10 @@ The roadmap is organized around strategic horizons. Existing content-quality wor
 
 ## Horizon 3 — Intelligence
 
-- [ ] Upgrade Practice Weak Spots to select fresh questions by concept
-- [ ] Add prerequisite-aware sequencing
-- [ ] Add repeat avoidance and uncertainty-aware practice selection
+- [x] Upgrade Practice Weak Spots to select fresh questions by concept
+- [x] Add prerequisite-aware sequencing
+- [x] Add immediate repeat avoidance for concept practice
+- [ ] Add uncertainty-aware practice selection
 - [ ] Add lightweight diagnostics for new learners/goals
 - [ ] Introduce goal-driven learning journeys
 - [ ] Add a grounded Socratic mentor only after concept evidence is available

@@ -2,6 +2,11 @@
 import { calculatePoints } from '@/domain/scoring';
 import type { PublicQuestion, CheckResult, QuizState, SkippedQuestion } from './types';
 import type { Question } from '@/content/types';
+import {
+  buildAnswerConceptEvidence,
+  buildSkipConceptEvidence,
+  type AnswerAssistance,
+} from '@/domain/mastery';
 
 /**
  * Unbiased Fisher-Yates shuffle — single source of truth.
@@ -120,6 +125,7 @@ export function buildInitialState(): QuizState {
     answeredIds: [],
     topicBreakdown: {},
     difficultyBreakdown: {},
+    conceptEvidence: [],
     isFinished: false,
     currentQuestions: [],
     loading: true,
@@ -140,6 +146,7 @@ export function applyAnswer(
   result: CheckResult,
   question: PublicQuestion,
   selectedIndex?: number,
+  assistance: AnswerAssistance = {},
 ): QuizState {
   const newStreak = result.correct ? prev.streak + 1 : 0;
   const newBestStreak = Math.max(prev.bestStreak, newStreak);
@@ -177,6 +184,10 @@ export function applyAnswer(
     answeredIds: [...prev.answeredIds, question.id],
     topicBreakdown,
     difficultyBreakdown,
+    conceptEvidence: [
+      ...prev.conceptEvidence,
+      ...buildAnswerConceptEvidence(question, result.correct, assistance),
+    ],
     lastCheckResult: result,
     missedQuestions,
   };
@@ -196,7 +207,15 @@ export function skipCurrentQuestion(prev: QuizState): QuizState {
   const skippedQuestions = question
     ? [...prev.skippedQuestions, { question }]
     : prev.skippedQuestions;
-  const next: QuizState = { ...prev, streak: 0, skippedQuestions };
+  const next: QuizState = {
+    ...prev,
+    streak: 0,
+    skippedQuestions,
+    conceptEvidence: [
+      ...prev.conceptEvidence,
+      ...buildSkipConceptEvidence(question),
+    ],
+  };
   return advanceQuestion(next);
 }
 
@@ -205,7 +224,10 @@ export function skipCurrentQuestion(prev: QuizState): QuizState {
  * Session scoring/progress is reset, while the already-loaded source pool remains
  * available to the hook for answer checking.
  */
-export function buildRemediationState(prev: QuizState): QuizState {
+export function buildRemediationState(
+  prev: QuizState,
+  practiceQuestions: PublicQuestion[] = [],
+): QuizState {
   const unresolved = [
     ...prev.missedQuestions.map(({ question }) => question),
     ...prev.skippedQuestions.map(({ question }) => question),
@@ -215,11 +237,12 @@ export function buildRemediationState(prev: QuizState): QuizState {
     new Map(unresolved.map((question) => [question.id, question])).values(),
   );
 
-  if (uniqueQuestions.length === 0) return prev;
+  const sourceQuestions = practiceQuestions.length > 0 ? practiceQuestions : uniqueQuestions;
+  if (sourceQuestions.length === 0) return prev;
 
   return {
     ...buildInitialState(),
-    currentQuestions: fisherYatesShuffle(uniqueQuestions).map(reshufflePublicQuestion),
+    currentQuestions: fisherYatesShuffle(sourceQuestions).map(reshufflePublicQuestion),
     loading: false,
   };
 }
