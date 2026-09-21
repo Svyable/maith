@@ -1,8 +1,8 @@
 {
   "schemaVersion": 2,
   "totals": {
-    "questions": 1123,
-    "standardQuestions": 1123,
+    "questions": 1132,
+    "standardQuestions": 1132,
     "vaultQuestions": 64,
     "glossaryTerms": 488,
     "thinkers": 651,
@@ -1327,10 +1327,10 @@
         "nuclear-physics"
       ],
       "counts": {
-        "easy": 2,
-        "hard": 2,
-        "sota": 2,
-        "total": 6
+        "easy": 5,
+        "hard": 5,
+        "sota": 5,
+        "total": 15
       }
     },
     {
