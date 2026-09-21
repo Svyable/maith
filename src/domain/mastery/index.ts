@@ -12,5 +12,6 @@ export {
   deriveConceptMastery,
   expandConceptsWithPrerequisites,
   getPracticeConceptIds,
+  getConceptBlockerIds,
   selectPracticeCandidates,
 } from './engine';
