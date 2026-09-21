@@ -85,6 +85,11 @@ export function deriveConceptMastery(
         (item) => item.difficulty === 'hard' || item.difficulty === 'sota',
       ).length;
       const accuracy = correctItems.length / items.length;
+      const lastAttemptAt = items
+        .map((item) => item.createdAt)
+        .filter((value): value is string => Boolean(value))
+        .sort()
+        .at(-1) ?? null;
 
       let status: ConceptMastery['status'] = 'learning';
       if (
@@ -114,6 +119,7 @@ export function deriveConceptMastery(
         assistedCorrect,
         hardOrSotaCorrect,
         accuracy,
+        lastAttemptAt,
         prerequisiteIds: concept.prerequisites,
       };
     })
