@@ -84,7 +84,7 @@ export const topologyQuestions: Question[] = [
     explanation: 'In 2D systems, anyons (neither bosons nor fermions) can encode quantum information in their braiding history. This encoding is topologically protected: small perturbations can\'t change the braid, providing natural error correction.',
     realWorld: 'Microsoft\'s Station Q pursues topological qubits using Majorana zero modes in topological superconductors. If successful, they\'d need far fewer physical qubits for error correction than conventional approaches.',
     hint: 'Tie knots in particle paths — the quantum information is in the knot type, which is robust to small disturbances.',
-  },,
+  },
   {
     id: 41207, topic: 'topology', difficulty: 'easy',
     question: 'Which condition defines a homeomorphism $f:X\\to Y$?',
@@ -92,7 +92,7 @@ export const topologyQuestions: Question[] = [
       '$f$ is bijective, continuous, and has a continuous inverse',
       '$f$ preserves every distance between pairs of points',
       '$f$ is differentiable with a positive derivative everywhere',
-      '$f$ maps every open set in $X$ to a single point in $Y,
+      '$f$ maps every open set in $X$ to a single point in $Y',
     ],
     correctIndex: 0,
     explanation: 'A homeomorphism is a bijective continuous map whose inverse is also continuous. Homeomorphic spaces have the same topological structure even when their geometric shapes differ.',
