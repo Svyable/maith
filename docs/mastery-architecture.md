@@ -181,6 +181,26 @@ Continuity
 
 Topic Learn pages now render a **Mastery map** before the existing formula/glossary/MasterMinds knowledge cluster. This makes concept units, prerequisites, cross-topic prerequisite links, and applications visible before practice. The graph therefore serves both adaptive behavior and discovery rather than remaining hidden implementation metadata.
 
+## Semantic coverage wave 3
+
+The next graph expansion covers two high-transfer foundations:
+
+- **Algorithms**: all 9 standard questions are mapped across asymptotic algorithm analysis, graph algorithms, and fast algorithm frontiers. The concepts stay intentionally broad because the current bank is compact; mAIth does not create one-question mastery labels merely to increase concept count.
+- **Classical Mechanics**: all 12 standard questions are mapped across force/work/energy, variational mechanics, symmetry/conservation, Hamiltonian phase space, and chaos/stability.
+
+The mechanics prerequisite spine is now explicit:
+
+```
+Force, Work & Energy
+└── Variational Mechanics
+    └── Hamiltonian Phase Space
+        └── Chaos & Stability
+```
+
+Symmetry & Conservation branches from the force/energy foundation and relates to both variational and Hamiltonian mechanics. The algorithms graph similarly makes asymptotic analysis the prerequisite for both graph algorithms and frontier fast-algorithm results.
+
+Because the Learn mastery-map component is driven directly by the canonical concept graph, these topics become visible automatically on their existing Practice Library pages without adding topic-specific UI code.
+
 ## Current evidence implementation
 
 The first runtime evidence layer now lives in `src/domain/mastery`. It is deliberately pure and inspectable:
