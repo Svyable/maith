@@ -363,6 +363,89 @@ export const CONCEPTS: readonly Concept[] = [
     status: 'active',
   },
 
+
+  // ── Algorithms ──────────────────────────────────────────────
+  {
+    id: 'asymptotic-algorithm-analysis',
+    label: 'Asymptotic Algorithm Analysis',
+    field: 'cs',
+    topics: ['algorithms'],
+    prerequisites: [],
+    related: ['graph-algorithms', 'fast-algorithm-frontiers'],
+    applications: ['search', 'sorting', 'data structures', 'scalability'],
+    status: 'active',
+  },
+  {
+    id: 'graph-algorithms',
+    label: 'Graph Algorithms',
+    field: 'cs',
+    topics: ['algorithms'],
+    prerequisites: ['asymptotic-algorithm-analysis'],
+    applications: ['routing', 'network flow', 'shortest paths'],
+    status: 'active',
+  },
+  {
+    id: 'fast-algorithm-frontiers',
+    label: 'Fast Algorithm Frontiers',
+    field: 'cs',
+    topics: ['algorithms'],
+    prerequisites: ['asymptotic-algorithm-analysis'],
+    related: ['graph-algorithms'],
+    applications: ['matrix multiplication', 'integer arithmetic', 'maximum flow'],
+    status: 'active',
+  },
+
+  // ── Classical Mechanics ─────────────────────────────────────
+  {
+    id: 'force-energy-dynamics',
+    label: 'Force, Work & Energy',
+    field: 'physics',
+    topics: ['classical-mechanics'],
+    prerequisites: [],
+    related: ['symmetry-conservation', 'variational-mechanics'],
+    applications: ['motion', 'orbits', 'rigid bodies'],
+    status: 'active',
+  },
+  {
+    id: 'variational-mechanics',
+    label: 'Variational Mechanics',
+    field: 'physics',
+    topics: ['classical-mechanics'],
+    prerequisites: ['force-energy-dynamics'],
+    related: ['symmetry-conservation', 'hamiltonian-phase-space'],
+    applications: ['Lagrangians', 'constraints', 'field-theory foundations'],
+    status: 'active',
+  },
+  {
+    id: 'symmetry-conservation',
+    label: 'Symmetry & Conservation',
+    field: 'physics',
+    topics: ['classical-mechanics'],
+    prerequisites: ['force-energy-dynamics'],
+    related: ['variational-mechanics', 'hamiltonian-phase-space'],
+    applications: ['conserved quantities', 'Noether symmetries', 'integrals of motion'],
+    status: 'active',
+  },
+  {
+    id: 'hamiltonian-phase-space',
+    label: 'Hamiltonian Phase Space',
+    field: 'physics',
+    topics: ['classical-mechanics'],
+    prerequisites: ['variational-mechanics'],
+    related: ['symmetry-conservation', 'classical-chaos-stability'],
+    applications: ['canonical dynamics', 'action-angle variables', 'statistical mechanics'],
+    status: 'active',
+  },
+  {
+    id: 'classical-chaos-stability',
+    label: 'Chaos & Stability',
+    field: 'physics',
+    topics: ['classical-mechanics'],
+    prerequisites: ['hamiltonian-phase-space'],
+    applications: ['Lyapunov analysis', 'KAM theory', 'dynamical systems'],
+    status: 'active',
+  },
+
 ] as const;
 
 export const CONCEPT_MAP: Readonly<Record<string, Concept>> = Object.fromEntries(
