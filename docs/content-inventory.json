@@ -1,8 +1,8 @@
 {
   "schemaVersion": 2,
   "totals": {
-    "questions": 1147,
-    "standardQuestions": 1147,
+    "questions": 1153,
+    "standardQuestions": 1153,
     "vaultQuestions": 64,
     "glossaryTerms": 488,
     "thinkers": 651,
@@ -1342,10 +1342,10 @@
         "new-topics"
       ],
       "counts": {
-        "easy": 3,
-        "hard": 3,
-        "sota": 3,
-        "total": 9
+        "easy": 5,
+        "hard": 5,
+        "sota": 5,
+        "total": 15
       }
     },
     {
