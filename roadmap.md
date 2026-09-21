@@ -43,12 +43,12 @@ The roadmap is organized around strategic horizons. Existing content-quality wor
 - [x] Define deterministic, explainable concept mastery states
 - [ ] Include recency, difficulty, repeated success, and hint dependence
 - [x] Add unit tests for mastery-state derivation
-- [ ] Persist raw concept evidence as the source of truth across sessions
+- [ ] Persist raw concept evidence as the source of truth across sessions *(migration and client contract ready; production apply pending the correct Supabase project connection)*
 
 ### Profile
 
-- [ ] Add concept-level mastery below field/topic summaries
-- [ ] Surface prerequisite blockers
+- [x] Add concept-level mastery below field/topic summaries
+- [x] Surface prerequisite blockers
 - [ ] Distinguish weak, unseen, and stale knowledge
 - [ ] Show improvement and recent evidence
 
