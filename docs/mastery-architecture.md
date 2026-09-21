@@ -201,6 +201,37 @@ Symmetry & Conservation branches from the force/energy foundation and relates to
 
 Because the Learn mastery-map component is driven directly by the canonical concept graph, these topics become visible automatically on their existing Practice Library pages without adding topic-specific UI code.
 
+## Semantic coverage wave 4
+
+The graph now crosses from foundational mathematics into applied intelligence and engineering:
+
+- **Machine Learning**: all 9 standard questions are mapped across supervised learning/generalization, neural-network training, and attention/transformers.
+- **Control Systems**: all 5 standard questions are mapped across feedback control/stability and model-based control/estimation.
+
+The important change is cross-field dependency rather than raw concept count:
+
+```
+Probability Rules
+└── Expectation & Variance
+    └── Supervised Learning & Generalization
+
+Continuity
+└── Derivatives
+    └── Gradient
+        └── Gradient Descent
+            └── Neural-Network Training
+                └── Attention & Transformers
+
+Matrix Dimensions
+└── Matrix Multiplication
+    ├── Linear Systems
+    │   └── Feedback Control & Stability
+    │       └── Model-Based Control & Estimation
+    └── Attention & Transformers
+```
+
+This makes the knowledge graph useful for transfer: a learner struggling with attention can be routed back into matrix multiplication or gradient-based training, while a control-systems blocker can descend into linear systems instead of merely replaying a control question.
+
 ## Current evidence implementation
 
 The first runtime evidence layer now lives in `src/domain/mastery`. It is deliberately pure and inspectable:
