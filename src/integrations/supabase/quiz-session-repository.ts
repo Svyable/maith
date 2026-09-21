@@ -17,6 +17,7 @@ export const supabaseQuizSessionRepository: QuizSessionRepository = {
       p_best_streak: params.bestStreak,
       p_topic_breakdown: params.topicBreakdown,
       p_content_version: params.contentVersion,
+      p_concept_evidence: params.conceptEvidence,
     });
 
     if (error) throw new Error(error.message);
