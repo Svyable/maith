@@ -5,6 +5,7 @@ import {
   deriveConceptMastery,
   expandConceptsWithPrerequisites,
   getPracticeConceptIds,
+  getConceptBlockerIds,
   selectPracticeCandidates,
 } from '@/domain/mastery';
 
@@ -72,6 +73,60 @@ describe('deriveConceptMastery', () => {
     const [mastery] = deriveConceptMastery(evidence);
     expect(mastery.status).toBe('learning');
     expect(mastery.accuracy).toBe(0);
+  });
+});
+
+describe('mastery prerequisite blockers', () => {
+  it('treats unseen or developing prerequisites as blockers', () => {
+    const mastery = [
+      {
+        conceptId: 'null-space',
+        label: 'Null Space',
+        status: 'developing' as const,
+        attempts: 1,
+        correct: 1,
+        independentCorrect: 1,
+        assistedCorrect: 0,
+        hardOrSotaCorrect: 1,
+        accuracy: 1,
+        lastAttemptAt: null,
+        prerequisiteIds: ['linear-systems'],
+      },
+      {
+        conceptId: 'linear-systems',
+        label: 'Linear Systems',
+        status: 'developing' as const,
+        attempts: 1,
+        correct: 1,
+        independentCorrect: 1,
+        assistedCorrect: 0,
+        hardOrSotaCorrect: 0,
+        accuracy: 1,
+        lastAttemptAt: null,
+        prerequisiteIds: ['matrix-multiplication'],
+      },
+    ];
+
+    expect(getConceptBlockerIds(mastery, 'null-space')).toEqual(['linear-systems']);
+    expect(getConceptBlockerIds(mastery, 'linear-systems')).toEqual(['matrix-multiplication']);
+  });
+
+  it('does not block on strong prerequisites', () => {
+    const mastery = [{
+      conceptId: 'linear-systems',
+      label: 'Linear Systems',
+      status: 'strong' as const,
+      attempts: 3,
+      correct: 2,
+      independentCorrect: 2,
+      assistedCorrect: 0,
+      hardOrSotaCorrect: 1,
+      accuracy: 2 / 3,
+      lastAttemptAt: null,
+      prerequisiteIds: ['matrix-multiplication'],
+    }];
+
+    expect(getConceptBlockerIds(mastery, 'null-space')).toEqual([]);
   });
 });
 
