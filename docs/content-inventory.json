@@ -1,8 +1,8 @@
 {
   "schemaVersion": 2,
   "totals": {
-    "questions": 1162,
-    "standardQuestions": 1162,
+    "questions": 1171,
+    "standardQuestions": 1171,
     "vaultQuestions": 64,
     "glossaryTerms": 488,
     "thinkers": 651,
@@ -394,10 +394,10 @@
         "abstract-algebra"
       ],
       "counts": {
-        "easy": 3,
-        "hard": 3,
-        "sota": 3,
-        "total": 9
+        "easy": 6,
+        "hard": 6,
+        "sota": 6,
+        "total": 18
       }
     },
     {
