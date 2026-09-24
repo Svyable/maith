@@ -114,6 +114,7 @@ export const computerScienceQuestions: Question[] = [
   // ── Machine Learning ──────────────────────────────────────────────
   {
     id: 60004, topic: "machine-learning", difficulty: "easy",
+    conceptIds: ["supervised-learning-generalization"],
     question: "In supervised learning, training examples normally contain:",
     options: ["Only unlabeled inputs","Inputs paired with target labels or values","Only rewards from an environment","Random parameters without data"],
     correctIndex: 1,
@@ -126,6 +127,7 @@ export const computerScienceQuestions: Question[] = [
   },
   {
     id: 60016, topic: "machine-learning", difficulty: "easy",
+    conceptIds: ["supervised-learning-generalization"],
     question: "Overfitting occurs when a model:",
     options: ["Fits training data but generalizes poorly","Has too few parameters to fit even the training set","Uses a validation set","Normalizes its input features"],
     correctIndex: 0,
@@ -137,6 +139,7 @@ export const computerScienceQuestions: Question[] = [
   },
   {
     id: 60017, topic: "machine-learning", difficulty: "easy",
+    conceptIds: ["supervised-learning-generalization"],
     question: "The main purpose of a validation set is to:",
     options: ["Train every model parameter directly","Report the final unbiased test score","Replace all training data","Tune models without using the test set"],
     correctIndex: 3,
@@ -147,6 +150,7 @@ export const computerScienceQuestions: Question[] = [
   },
   {
     id: 60005, topic: "machine-learning", difficulty: "hard",
+    conceptIds: ["supervised-learning-generalization"],
     question: "For squared-error regression, the classic bias-variance decomposition contains:",
     options: ["Bias + variance only","Bias × variance","Bias² + variance + noise","Training loss + test loss"],
     correctIndex: 2,
@@ -158,6 +162,7 @@ export const computerScienceQuestions: Question[] = [
   },
   {
     id: 60018, topic: "machine-learning", difficulty: "hard",
+    conceptIds: ["neural-network-training"],
     question: "Backpropagation computes gradients through a neural network primarily by applying:",
     options: ["The chain rule","A breadth-first search over labels","Bayes' theorem once per layer","Principal-component analysis to every weight matrix"],
     correctIndex: 0,
@@ -169,6 +174,7 @@ export const computerScienceQuestions: Question[] = [
   },
   {
     id: 60019, topic: "machine-learning", difficulty: "hard",
+    conceptIds: ["neural-network-training","supervised-learning-generalization"],
     question: "Adding an L2 penalty λ||w||² to a training objective directly encourages:",
     options: ["Exact zero-one predictions","Larger weight magnitudes","A larger training dataset","Smaller weight magnitudes"],
     correctIndex: 3,
@@ -179,6 +185,7 @@ export const computerScienceQuestions: Question[] = [
   },
   {
     id: 60006, topic: "machine-learning", difficulty: "sota",
+    conceptIds: ["attention-transformers"],
     question: "Scaled dot-product attention in the original Transformer computes:",
     options: ["softmax(QKᵀ/√d_k)V","sigmoid(QKᵀ)V","QKᵀV/d_k without normalization","ReLU(Q+K+V)"],
     correctIndex: 0,
@@ -191,6 +198,7 @@ export const computerScienceQuestions: Question[] = [
   },
   {
     id: 60020, topic: "machine-learning", difficulty: "sota",
+    conceptIds: ["attention-transformers"],
     question: "FlashAttention accelerates exact attention mainly by:",
     options: ["Replacing attention with a recurrent network","Quantizing every activation to one bit","IO-aware tiling across GPU memory","Dropping softmax from the attention calculation"],
     correctIndex: 2,
@@ -203,6 +211,7 @@ export const computerScienceQuestions: Question[] = [
   },
   {
     id: 60021, topic: "machine-learning", difficulty: "sota",
+    conceptIds: ["neural-network-training"],
     question: "LoRA adapts a large pretrained model by:",
     options: ["Retraining every base-model parameter","Freezing base weights and training low-rank update matrices","Replacing the model with nearest-neighbour search","Adding labels to the pretraining corpus only"],
     correctIndex: 1,
