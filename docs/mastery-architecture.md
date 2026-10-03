@@ -232,6 +232,33 @@ Matrix Dimensions
 
 This makes the knowledge graph useful for transfer: a learner struggling with attention can be routed back into matrix multiplication or gradient-based training, while a control-systems blocker can descend into linear systems instead of merely replaying a control question.
 
+## Semantic coverage wave 5
+
+The graph now covers the remaining high-transfer foundations around discrete computation and information:
+
+- **Discrete Math & Modern Foundations**: all 24 standard questions are mapped across discrete algorithm analysis, data structures, logic/counting, graph structures/computation, and modern ML mathematical primitives.
+- **Information Theory**: all 9 standard questions are mapped across entropy/information/dependence, source coding/rate-distortion, and channel capacity/coding.
+
+This wave deliberately cleans up historical content shape instead of reproducing it. The Discrete Math pack mixes classical discrete structures with modern ML primitives; the mastery layer separates those into durable conceptual units while preserving the existing topic route.
+
+Cross-field prerequisite examples now include:
+
+```
+Probability Rules
+└── Probability Distributions
+    └── Entropy, Information & Dependence
+        ├── Source Coding & Rate-Distortion
+        └── Channel Capacity & Coding
+
+Matrix Dimensions
+└── Modern ML Math Primitives
+
+Discrete Data Structures
+└── Graph Structures & Computation
+```
+
+The result is a graph that can route learners across subject boundaries without forcing the routing taxonomy itself to become the pedagogical ontology.
+
 ## Current evidence implementation
 
 The first runtime evidence layer now lives in `src/domain/mastery`. It is deliberately pure and inspectable:
