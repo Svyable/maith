@@ -19,6 +19,7 @@ import {
 import { getPracticeConceptIds, type AnswerAssistance } from '@/domain/mastery';
 import {
   fetchQuestions,
+  fetchDiagnosticQuestions,
   fetchConceptPracticeQuestions,
   checkAnswer,
   getEliminatedOptions,
@@ -35,7 +36,11 @@ export function useQuiz(selectedTopics: string[] = [], difficulties: Difficulty[
   const currentQuestion: PublicQuestion | null =
     state.currentQuestions[state.currentIndex] ?? null;
 
-  const initQuiz = useCallback(async (topics: string[], diffs: Difficulty[]) => {
+  const initQuiz = useCallback(async (
+    topics: string[],
+    diffs: Difficulty[],
+    mode: 'standard' | 'diagnostic' = 'standard',
+  ) => {
     const requestId = ++requestIdRef.current;
     setState(buildInitialState());
     try {
@@ -48,7 +53,12 @@ export function useQuiz(selectedTopics: string[] = [], difficulties: Difficulty[
       const pool = await loadQuestionsForTopics(topics, handleProgress);
       if (requestId !== requestIdRef.current) return;
       questionPoolRef.current = pool;
-      const questions = fetchQuestions(pool, topics, diffs.map(toQuestionDifficulty), DEFAULT_QUIZ_CAP);
+
+      const questionDifficulties = diffs.map(toQuestionDifficulty);
+      const questions = mode === 'diagnostic'
+        ? fetchDiagnosticQuestions(pool, topics, questionDifficulties)
+        : fetchQuestions(pool, topics, questionDifficulties, DEFAULT_QUIZ_CAP);
+
       setState((prev) => ({ ...prev, currentQuestions: questions, loading: false, loadingProgress: null }));
     } catch {
       if (requestId !== requestIdRef.current) return;
@@ -108,6 +118,13 @@ export function useQuiz(selectedTopics: string[] = [], difficulties: Difficulty[
     [difficulties, initQuiz],
   );
 
+  const restartDiagnostic = useCallback(
+    (topics: string[], diffs: Difficulty[] = ['EASY', 'HARD']) => {
+      initQuiz(topics, diffs, 'diagnostic');
+    },
+    [initQuiz],
+  );
+
   const practiceUnresolved = useCallback(() => {
     setState((prev) => {
       const unresolved = [
@@ -141,6 +158,7 @@ export function useQuiz(selectedTopics: string[] = [], difficulties: Difficulty[
     skipQuestion,
     endQuiz,
     restartQuiz,
+    restartDiagnostic,
     practiceUnresolved,
     totalQuestions: state.currentQuestions.length,
   };

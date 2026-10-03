@@ -51,6 +51,10 @@ export function buildFieldQuizHref(fieldSlug: string): string {
   return `${APP_PATHS.home}?field=${encodeURIComponent(fieldSlug)}${QUIZ_SETUP_HASH}`;
 }
 
+export function buildJourneyDiagnosticHref(journeyId: string): string {
+  return `${APP_PATHS.home}?diagnostic=${encodeURIComponent(journeyId)}`;
+}
+
 export function buildFormulaPath(formulaSlug: string): string {
   return `${APP_PATHS.formulas}/${encodeURIComponent(formulaSlug)}`;
 }

@@ -1,5 +1,5 @@
 import { useState, useCallback, useEffect, useRef, lazy, Suspense } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import { SiteShell } from '@/components/layout/SiteShell';
 import { HomeScreen } from '@/components/HomeScreen';
@@ -14,8 +14,12 @@ import { QUIZ_FIELD_MAP } from '@/config/fields';
 import { resolveQuizTopics } from '@/domain/quiz';
 import { t } from '@/i18n';
 import { Button } from '@/components/ui/button';
+import { LEARNING_JOURNEY_MAP } from '@/config/learning-journeys';
+import { APP_PATHS } from '@/config/site-navigation';
 
 type Screen = 'home' | 'quiz' | 'results';
+
+const JOURNEY_DIAGNOSTIC_DIFFICULTIES: Difficulty[] = ['EASY', 'HARD'];
 
 const QuizScreen = lazy(() => import('@/components/QuizScreen').then((module) => ({ default: module.QuizScreen })));
 const QuizResults = lazy(() => import('@/components/QuizResults').then((module) => ({ default: module.QuizResults })));
@@ -32,8 +36,16 @@ function resolveRequestedTopics(slug: string | null): string[] {
 
 const Index = () => {
   const [searchParams] = useSearchParams();
+  const navigate = useNavigate();
   const requestedTopic = searchParams.get('topic');
   const requestedField = searchParams.get('field');
+  const requestedDiagnostic = searchParams.get('diagnostic');
+  const diagnosticJourney = requestedDiagnostic
+    ? LEARNING_JOURNEY_MAP[requestedDiagnostic]
+    : undefined;
+  const diagnosticTopics = diagnosticJourney
+    ? [...diagnosticJourney.topicSlugs]
+    : [];
   const validRequestedTopics = resolveRequestedTopics(requestedTopic);
   const requestedTopicField = validRequestedTopics.length > 0
     ? TOPIC_MAP[validRequestedTopics[0]].field
@@ -42,18 +54,36 @@ const Index = () => {
     ?? (isStandardField(requestedField) ? requestedField : 'all');
 
   const [screen, setScreen] = useState<Screen>('home');
-  const [selectedTopics, setSelectedTopics] = useState<string[]>(() => validRequestedTopics);
-  const [selectedField, setSelectedField] = useState<string>(initialField);
-  const [selectedDifficulties, setSelectedDifficulties] = useState<Difficulty[]>(DEFAULT_DIFFICULTIES);
+  const [selectedTopics, setSelectedTopics] = useState<string[]>(
+    () => diagnosticTopics.length > 0 ? diagnosticTopics : validRequestedTopics,
+  );
+  const [selectedField, setSelectedField] = useState<string>(
+    diagnosticJourney ? 'all' : initialField,
+  );
+  const [selectedDifficulties, setSelectedDifficulties] = useState<Difficulty[]>(
+    diagnosticJourney ? JOURNEY_DIAGNOSTIC_DIFFICULTIES : DEFAULT_DIFFICULTIES,
+  );
   
   const { user, signOut } = useAuth();
   const { profile } = useProfile();
 
-  const { state, currentQuestion, answer, eliminateOptions, nextQuestion, skipQuestion, endQuiz, restartQuiz, practiceUnresolved, totalQuestions } =
-    useQuiz(selectedTopics, selectedDifficulties);
+  const {
+    state,
+    currentQuestion,
+    answer,
+    eliminateOptions,
+    nextQuestion,
+    skipQuestion,
+    endQuiz,
+    restartQuiz,
+    restartDiagnostic,
+    practiceUnresolved,
+    totalQuestions,
+  } = useQuiz(selectedTopics, selectedDifficulties);
 
   // Ref to trigger timeout auto-answer from within QuizScreen
   const timeoutRef = useRef<(() => void) | null>(null);
+  const diagnosticStartedRef = useRef<string | null>(null);
 
   const handleTimeout = useCallback(() => {
     timeoutRef.current?.();
@@ -76,11 +106,33 @@ const Index = () => {
     onTimeout: handleTimeout,
   });
 
+  const startJourneyDiagnostic = useCallback(() => {
+    if (!diagnosticJourney) return;
+
+    const topics = [...diagnosticJourney.topicSlugs];
+    setSelectedTopics(topics);
+    setSelectedField('all');
+    setSelectedDifficulties(JOURNEY_DIAGNOSTIC_DIFFICULTIES);
+    resetSession();
+    setScreen('quiz');
+    restartDiagnostic(topics, JOURNEY_DIAGNOSTIC_DIFFICULTIES);
+  }, [diagnosticJourney, resetSession, restartDiagnostic]);
+
   useEffect(() => {
+    if (diagnosticJourney) {
+      if (diagnosticStartedRef.current !== diagnosticJourney.id) {
+        diagnosticStartedRef.current = diagnosticJourney.id;
+        startJourneyDiagnostic();
+      }
+      return;
+    }
+
+    diagnosticStartedRef.current = null;
     const nextTopics = resolveRequestedTopics(requestedTopic);
     if (nextTopics.length > 0) {
       setSelectedTopics(nextTopics);
       setSelectedField(TOPIC_MAP[nextTopics[0]].field);
+      setSelectedDifficulties(DEFAULT_DIFFICULTIES);
       setScreen('home');
       return;
     }
@@ -88,9 +140,10 @@ const Index = () => {
     if (isStandardField(requestedField)) {
       setSelectedTopics([]);
       setSelectedField(requestedField);
+      setSelectedDifficulties(DEFAULT_DIFFICULTIES);
       setScreen('home');
     }
-  }, [requestedTopic, requestedField]);
+  }, [diagnosticJourney, requestedTopic, requestedField, startJourneyDiagnostic]);
 
   const handleNext = useCallback(() => {
     nextQuestion();
@@ -190,8 +243,15 @@ const Index = () => {
                 <h1 className="text-xl font-display font-bold text-foreground">{t('quiz.loadError')}</h1>
                 <p className="text-sm text-muted-foreground">{t('quiz.loadErrorDetail')}</p>
                 <div className="flex justify-center gap-2">
-                  <Button variant="outline" onClick={() => setScreen('home')}>{t('quiz.backToSetup')}</Button>
-                  <Button onClick={startQuiz}>{t('quiz.retry')}</Button>
+                  <Button
+                    variant="outline"
+                    onClick={() => diagnosticJourney ? navigate(APP_PATHS.learn) : setScreen('home')}
+                  >
+                    {t('quiz.backToSetup')}
+                  </Button>
+                  <Button onClick={diagnosticJourney ? startJourneyDiagnostic : startQuiz}>
+                    {t('quiz.retry')}
+                  </Button>
                 </div>
               </div>
             </div>
@@ -199,6 +259,11 @@ const Index = () => {
 
           {screen === 'quiz' && !state.loading && currentQuestion && (
             <div className="max-w-lg mx-auto">
+              {diagnosticJourney && (
+                <p className="mb-3 text-center text-[11px] font-bold uppercase tracking-[0.16em] text-primary">
+                  Placement diagnostic · {diagnosticJourney.label}
+                </p>
+              )}
               <QuizScreen
                 question={currentQuestion}
                 currentIndex={state.currentIndex}
@@ -231,9 +296,14 @@ const Index = () => {
                 difficulties={selectedDifficulties}
                 missedQuestions={state.missedQuestions}
                 skippedQuestions={state.skippedQuestions}
-                onRestart={startQuiz}
-                onPracticeUnresolved={handlePracticeUnresolved}
-                onNewTopics={() => setScreen('home')}
+                onRestart={diagnosticJourney ? startJourneyDiagnostic : startQuiz}
+                onPracticeUnresolved={diagnosticJourney ? undefined : handlePracticeUnresolved}
+                onNewTopics={
+                  diagnosticJourney
+                    ? () => navigate(APP_PATHS.learn)
+                    : () => setScreen('home')
+                }
+                diagnosticJourneyId={diagnosticJourney?.id}
               />
             </div>
           )}

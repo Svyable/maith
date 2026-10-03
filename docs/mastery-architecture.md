@@ -283,7 +283,17 @@ Journey entry is now evidence-aware when persisted concept mastery is available:
 
 The recommendation is advisory. Learners can enter any journey stage directly, and the UI does not label stages complete because navigation state is not mastery evidence.
 
-The next journey milestone is a lightweight diagnostic for learners whose account has little or no concept evidence, so experienced users are not forced to begin at stage one.
+Learners can now run a lightweight placement diagnostic from any journey card. The diagnostic reuses the canonical quiz engine but uses a dedicated breadth selector: one Easy and one Hard concept-mapped question per journey stage. It therefore samples every stage rather than relying on the normal randomized mixed-topic selector.
+
+Placement is intentionally conservative and session-scoped:
+
+- each stage needs both sampled questions answered;
+- a stage passes only at 2/2;
+- the first incomplete or imperfect stage becomes the suggested entry point;
+- clearing every sample recommends the final stage;
+- the result is explicitly labeled a placement sample, not proof of mastery.
+
+Diagnostic answers still emit ordinary concept evidence, so the durable learner model improves without introducing a second progress store. Future diagnostics can become more uncertainty-aware as the concept evidence base grows.
 
 ## Current evidence implementation
 
