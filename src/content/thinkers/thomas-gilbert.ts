@@ -7,18 +7,17 @@ export const thomasGilbertQuestions: Question[] = [
     difficulty: 'easy',
     question: 'What is Thomas Gilbert best known for in physics?',
     options: [
-      'The damping term in the Landau-Lifshitz-Gilbert equation',
-      'Inventing the Schrödinger equation',
-      'Discovering the neutron',
-      'Formulating Bayes’ theorem'
+      'The Gilbert damping term in magnetization dynamics',
+      'The Schrödinger equation for quantum wavefunctions',
+      'The experimental discovery of the neutron',
+      'The probabilistic form of Bayes’ theorem'
     ],
     correctIndex: 0,
     explanation: 'Thomas Gilbert is known for the Gilbert damping formulation that appears in the Landau-Lifshitz-Gilbert equation.',
     realWorld: 'Gilbert damping is essential for understanding how fast magnetic devices can switch and relax.',
     hint: 'His name appears after Landau and Lifshitz in LLG.',
     symbolLinks: { 'α': 'alpha', 'M': 'mu', 'H': 'eta' },
-    formulaLinks: ['gilbert-damping-term', 'landau-lifshitz-gilbert-equation'],
-    glossaryLinks: ['gilbert-damping', 'landau-lifshitz-gilbert-equation', 'magnetization'],
+    formulaLinks: ['landau-lifshitz-gilbert-equation'],
   },
   {
     id: 307005,
@@ -36,8 +35,7 @@ export const thomasGilbertQuestions: Question[] = [
     realWorld: 'Materials with different α values are chosen for fast switching, low loss, or stable magnetic memory.',
     hint: 'It is the most common Greek letter for damping in spin dynamics.',
     symbolLinks: { 'α': 'alpha', 'M': 'mu' },
-    formulaLinks: ['gilbert-damping-term', 'landau-lifshitz-gilbert-equation'],
-    glossaryLinks: ['gilbert-damping', 'micromagnetics', 'magnetization'],
+    formulaLinks: ['landau-lifshitz-gilbert-equation'],
   },
   {
     id: 307006,
@@ -55,7 +53,21 @@ export const thomasGilbertQuestions: Question[] = [
     realWorld: 'STT-MRAM, spin-wave devices, and skyrmion systems all depend on accurate damping models.',
     hint: 'Think relaxation, energy loss, and switching speed.',
     symbolLinks: { 'α': 'alpha', 'M': 'mu', 'H': 'eta' },
-    formulaLinks: ['gilbert-damping-term', 'landau-lifshitz-gilbert-equation'],
-    glossaryLinks: ['gilbert-damping', 'spintronics', 'landau-lifshitz-gilbert-equation'],
+    formulaLinks: ['landau-lifshitz-gilbert-equation'],
+    sources: [
+      {
+        title: 'A phenomenological theory of damping in ferromagnetic materials',
+        url: 'https://doi.org/10.1109/TMAG.2004.836740',
+        publisher: 'IEEE Transactions on Magnetics',
+        year: 2004,
+      },
+      {
+        title: 'The fascinating world of the Landau-Lifshitz-Gilbert equation: an overview',
+        url: 'https://doi.org/10.1098/rsta.2010.0319',
+        publisher: 'Philosophical Transactions of the Royal Society A',
+        year: 2011,
+      },
+    ],
+    reviewedAt: '2026-10-02',
   },
 ];

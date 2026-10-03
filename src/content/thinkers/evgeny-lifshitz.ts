@@ -7,18 +7,16 @@ export const evgenyLifshitzQuestions: Question[] = [
     difficulty: 'easy',
     question: 'What major area of physics is Evgeny Lifshitz most associated with?',
     options: [
-      'Statistical physics and condensed matter theory',
-      'Population genetics',
-      'Macroeconomics',
-      'Classical rhetoric'
+      'Statistical and condensed-matter physics',
+      'Evolutionary population genetics',
+      'Macroeconomic growth theory',
+      'Classical rhetoric and poetics'
     ],
     correctIndex: 0,
     explanation: 'Evgeny Lifshitz is famous for foundational work in statistical physics, condensed matter, electrodynamics of continuous media, and the Landau-Lifshitz course.',
     realWorld: 'His work shapes modern magnetism, superconductivity, phase transitions, and many-body physics.',
     hint: 'Think Landau–Lifshitz volumes and theoretical physics.',
     symbolLinks: { 'M': 'mu', 'H': 'eta', 'γ': 'gamma' },
-    formulaLinks: ['landau-lifshitz-equation'],
-    glossaryLinks: ['landau-lifshitz-equation', 'magnetization', 'precession'],
   },
   {
     id: 307002,
@@ -36,8 +34,7 @@ export const evgenyLifshitzQuestions: Question[] = [
     realWorld: 'This governs how magnetic bits settle after switching in storage and spintronic devices.',
     hint: 'Damping means loss of oscillatory energy toward equilibrium.',
     symbolLinks: { 'M': 'mu', 'H': 'eta', 'γ': 'gamma', 'λ': 'lambda' },
-    formulaLinks: ['landau-lifshitz-equation', 'landau-lifshitz-gilbert-equation'],
-    glossaryLinks: ['landau-lifshitz-equation', 'gilbert-damping', 'magnetization'],
+    formulaLinks: ['landau-lifshitz-gilbert-equation'],
   },
   {
     id: 307003,
@@ -45,17 +42,23 @@ export const evgenyLifshitzQuestions: Question[] = [
     difficulty: 'sota',
     question: 'Why is Lifshitz theory still important in modern condensed matter and spintronics?',
     options: [
-      'Because continuum magnetization dynamics remain the backbone of micromagnetic modelling',
-      'Because it replaced Maxwell’s equations in all materials',
-      'Because it proves quantum gravity is renormalizable',
-      'Because it removes the need for numerical simulation'
+      'Continuum magnetization dynamics remain central to micromagnetic models',
+      'It replaces Maxwell equations throughout condensed-matter physics',
+      'It supplies a renormalizable theory of quantum gravity',
+      'It removes numerical simulation from magnetic-device design'
     ],
     correctIndex: 0,
     explanation: 'Lifshitz-style continuum descriptions remain central in micromagnetics, magnetic switching, skyrmions, and spintronic device design.',
     realWorld: 'From MRAM to magnetic domain-wall logic, Lifshitz-era formalism is still used in simulation codes and theory.',
     hint: 'Think micromagnetics and device-scale magnetic dynamics.',
     symbolLinks: { 'M': 'mu', 'H': 'eta', 'γ': 'gamma', 'α': 'alpha' },
-    formulaLinks: ['landau-lifshitz-equation', 'landau-lifshitz-gilbert-equation'],
-    glossaryLinks: ['micromagnetics', 'landau-lifshitz-equation', 'magnetization'],
+    formulaLinks: ['landau-lifshitz-gilbert-equation'],
+    sources: [{
+      title: 'Micromagnetics and spintronics: models and numerical methods',
+      url: 'https://doi.org/10.1140/epjb/e2019-90599-6',
+      publisher: 'The European Physical Journal B',
+      year: 2019,
+    }],
+    reviewedAt: '2026-10-02',
   },
 ];
