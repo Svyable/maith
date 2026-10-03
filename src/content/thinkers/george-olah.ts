@@ -2,7 +2,7 @@ import type { Question } from '../types';
 
 export const georgeOlahQuestions: Question[] = [
   {
-    id: 22001, topic: 'george-olah', difficulty: 'easy',
+    id: 932070, topic: 'george-olah', difficulty: 'easy',
     question: 'George Olah won the 1994 Nobel Prize for his work on carbocations. He was able to observe these reactive intermediates by:',
     options: ['Stabilizing them in superacid media (like SbF₅/FSO₃H) at low temperatures, enabling NMR study', 'Trapping them in solid crystals at room temperature', 'Using high-pressure gas-phase experiments', 'Observing them only computationally'],
     correctIndex: 0,
@@ -11,7 +11,7 @@ export const georgeOlahQuestions: Question[] = [
     hint: 'Extremely strong acids can protonate almost anything, making fleeting intermediates long-lived enough to study.',
   },
   {
-    id: 22002, topic: 'george-olah', difficulty: 'hard',
+    id: 932071, topic: 'george-olah', difficulty: 'hard',
     question: 'Olah demonstrated the existence of non-classical carbocations, such as the norbornyl cation. What makes it "non-classical"?',
     options: ['It features a three-center two-electron (3c-2e) bond where positive charge is delocalized over a bridging structure', 'It has an unusually large number of hydrogens', 'It is negatively charged despite being called a cation', 'It only exists in the gas phase'],
     correctIndex: 0,

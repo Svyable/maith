@@ -2,7 +2,7 @@ import type { Question } from '../types';
 
 export const benjaminBannekerQuestions: Question[] = [
   {
-    id: 21700,
+    id: 932110,
     topic: 'benjamin-banneker',
     difficulty: 'easy',
     question: 'What was Benjamin Banneker best known for publishing?',
@@ -18,7 +18,7 @@ export const benjaminBannekerQuestions: Question[] = [
     hint: 'Think practical annual publication with astronomical data.',
   },
   {
-    id: 21701,
+    id: 932111,
     topic: 'benjamin-banneker',
     difficulty: 'easy',
     question: 'What mathematical technique did Banneker use to predict solar eclipses?',
@@ -34,7 +34,7 @@ export const benjaminBannekerQuestions: Question[] = [
     hint: 'An ancient cycle of roughly 18 years governs eclipse recurrence.',
   },
   {
-    id: 21702,
+    id: 932112,
     topic: 'benjamin-banneker',
     difficulty: 'easy',
     question: 'What role did Banneker play in the survey of the new U.S. capital?',
@@ -50,7 +50,7 @@ export const benjaminBannekerQuestions: Question[] = [
     hint: 'The federal capital needed its boundaries marked precisely.',
   },
   {
-    id: 21703,
+    id: 932113,
     topic: 'benjamin-banneker',
     difficulty: 'hard',
     question: 'How did Banneker compute ephemerides (tables of celestial positions) for his almanac without a formal education in mathematics?',
