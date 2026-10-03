@@ -1,11 +1,11 @@
 {
   "version": 3,
-  "maxErrors": 50,
+  "maxErrors": 0,
   "maxWarnings": 4187,
   "maxErrorsByPool": {
     "standard": 0,
     "bonafide": 0,
-    "thinker": 50,
+    "thinker": 0,
     "vault": 0
   },
   "maxWarningsByPool": {
