@@ -64,7 +64,8 @@ The roadmap is organized around strategic horizons. Existing content-quality wor
 - [x] Add immediate repeat avoidance for concept practice
 - [ ] Add uncertainty-aware practice selection
 - [ ] Add lightweight diagnostics for new learners/goals
-- [ ] Introduce goal-driven learning journeys
+- [x] Introduce goal-driven learning journeys
+- [ ] Personalize journey entry points from diagnostic and mastery evidence
 - [ ] Add a grounded Socratic mentor only after concept evidence is available
 - [ ] Add evaluation gates for generated hints, explanations, and practice
 
