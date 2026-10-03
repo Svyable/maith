@@ -64,6 +64,7 @@ export function QuizScreen({
     eliminatedOptions,
     checkResult,
     pointsAwarded,
+    timedOut,
     isAnswered,
     handleSelect,
     handleNext,
@@ -203,6 +204,7 @@ export function QuizScreen({
       {isAnswered && checkResult && (
         <ExplanationPopup
           isCorrect={answerState === 'correct'}
+          timedOut={timedOut}
           explanation={checkResult.explanation}
           realWorld={checkResult.realWorld}
           hint={hintShown ? undefined : question.hint}

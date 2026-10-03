@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import { ChevronDown, ChevronUp } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { LatexRenderer } from './LatexRenderer';
@@ -8,6 +8,7 @@ import { t } from '@/i18n';
 
 interface ExplanationPopupProps {
   isCorrect: boolean;
+  timedOut?: boolean;
   explanation: string;
   realWorld: string;
   hint?: string;
@@ -18,8 +19,9 @@ interface ExplanationPopupProps {
   onNext: () => void;
 }
 
-export function ExplanationPopup({ isCorrect, explanation, realWorld, hint, symbolLinks, paper, glossaryLinks, formulaLinks, onNext }: ExplanationPopupProps) {
+export function ExplanationPopup({ isCorrect, timedOut = false, explanation, realWorld, hint, symbolLinks, paper, glossaryLinks, formulaLinks, onNext }: ExplanationPopupProps) {
   const [expanded, setExpanded] = useState(false);
+  const prefersReducedMotion = useReducedMotion();
   const navigate = useNavigate();
 
   // Split explanation: first sentence is the summary, rest is detail
@@ -32,15 +34,15 @@ export function ExplanationPopup({ isCorrect, explanation, realWorld, hint, symb
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 30 }}
+      initial={prefersReducedMotion ? { opacity: 0 } : { opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
       className="w-full mt-4"
     >
       <div className={`rounded-xl border-2 p-4 max-h-[55vh] overflow-y-auto ${isCorrect ? 'bg-success/10 border-success/30' : 'bg-destructive/10 border-destructive/30'}`}>
         <div className="flex items-center gap-2 mb-3">
-          <span className="text-2xl">{isCorrect ? '✅' : '❌'}</span>
+          <span className="text-2xl">{isCorrect ? '✅' : timedOut ? '⏱️' : '❌'}</span>
           <h3 className={`font-bold text-lg ${isCorrect ? 'text-success' : 'text-destructive'}`}>
-            {isCorrect ? t('quiz.correct') : t('quiz.wrong')}
+            {isCorrect ? t('quiz.correct') : timedOut ? t('quiz.timedOut') : t('quiz.wrong')}
           </h3>
         </div>
 
@@ -51,7 +53,7 @@ export function ExplanationPopup({ isCorrect, explanation, realWorld, hint, symb
         {detail && (
           <div className="mt-2">
             {expanded ? (
-              <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+              <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={prefersReducedMotion ? { duration: 0 } : undefined}>
                 <LatexRenderer text={detail} className="text-card-foreground leading-relaxed" symbolLinks={symbolLinks} />
               </motion.div>
             ) : null}
@@ -60,7 +62,7 @@ export function ExplanationPopup({ isCorrect, explanation, realWorld, hint, symb
               className="flex items-center gap-1 text-xs text-muted-foreground hover:text-foreground mt-1 transition-colors"
             >
               {expanded ? <ChevronUp className="w-3 h-3" /> : <ChevronDown className="w-3 h-3" />}
-              {expanded ? 'Less' : 'More detail'}
+              {expanded ? t('quiz.lessDetail') : t('quiz.moreDetail')}
             </button>
           </div>
         )}
@@ -69,7 +71,7 @@ export function ExplanationPopup({ isCorrect, explanation, realWorld, hint, symb
         {symbolLinks && Object.keys(symbolLinks).length > 0 && (
           <div className="flex items-center gap-2 text-xs text-muted-foreground mt-3 pt-2 border-t border-border/50">
             <span>🔤</span>
-            <span>Tap symbols to learn them on GeekToMe</span>
+            <span>{t('quiz.symbolGuide')}</span>
           </div>
         )}
 
@@ -99,7 +101,7 @@ export function ExplanationPopup({ isCorrect, explanation, realWorld, hint, symb
         {/* Learn more: glossary & formula cross-links */}
         {hasLearnMore && (
           <div className="pt-2 mt-2 border-t border-border/50">
-            <p className="text-xs text-muted-foreground mb-2 font-medium">Learn more</p>
+            <p className="text-xs text-muted-foreground mb-2 font-medium">{t('quiz.learnMore')}</p>
             <div className="flex flex-wrap gap-2">
               {glossaryLinks?.map((id) => (
                 <button
@@ -126,10 +128,10 @@ export function ExplanationPopup({ isCorrect, explanation, realWorld, hint, symb
         )}
       </div>
       <motion.button
-        whileHover={{ scale: 1.02 }}
-        whileTap={{ scale: 0.98 }}
+        whileHover={!prefersReducedMotion ? { scale: 1.02 } : undefined}
+        whileTap={!prefersReducedMotion ? { scale: 0.98 } : undefined}
         onClick={onNext}
-        className="w-full mt-4 py-3 rounded-lg bg-primary text-primary-foreground font-bold text-lg hover:opacity-90 transition-opacity"
+        className="sticky bottom-2 z-20 w-full mt-4 min-h-12 py-3 rounded-lg bg-primary text-primary-foreground font-bold text-lg shadow-lg hover:opacity-90 transition-opacity"
       >
         {t('quiz.next')}
       </motion.button>
