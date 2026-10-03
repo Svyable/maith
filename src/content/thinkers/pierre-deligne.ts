@@ -2,7 +2,7 @@ import type { Question } from '../types';
 
 export const pierreDeligneQuestions: Question[] = [
   {
-    id: 31700, topic: 'pierre-deligne', difficulty: 'easy',
+    id: 931700, topic: 'pierre-deligne', difficulty: 'easy',
     question: 'Pierre Deligne won the 1978 Fields Medal and 2013 Abel Prize. His most celebrated result is the proof of which conjecture?',
     options: [
       'The Weil conjectures — proving that the zeta function of a smooth projective variety $X$ over $\\mathbb{F}_q$ satisfies: $$Z(X, t) = \\frac{P_1(t) \\cdots P_{2n-1}(t)}{P_0(t) P_2(t) \\cdots P_{2n}(t)}$$ where the roots of $P_i(t)$ have absolute value $q^{-i/2}$ (the Riemann Hypothesis for varieties over finite fields).',
@@ -17,7 +17,7 @@ export const pierreDeligneQuestions: Question[] = [
     formulaLinks: ['riemann-zeta'],
   },
   {
-    id: 31701, topic: 'pierre-deligne', difficulty: 'hard',
+    id: 931701, topic: 'pierre-deligne', difficulty: 'hard',
     question: 'Deligne\'s proof relies on bounding eigenvalues of Frobenius acting on étale cohomology. What is the precise statement of Deligne\'s theorem (Weil II)?',
     options: [
       'For a smooth projective variety $X/\\mathbb{F}_q$ of dimension $n$, the eigenvalues $\\alpha_{i,j}$ of Frobenius $\\text{Fr}_q$ acting on $H^i_{\\text{ét}}(\\bar{X}, \\mathbb{Q}_\\ell)$ satisfy $|\\alpha_{i,j}| = q^{i/2}$. Equivalently: $$|\\#X(\\mathbb{F}_{q^k}) - q^{nk}| \\leq \\sum_{i=0}^{2n-1} b_i \\cdot q^{ik/2}$$ where $b_i = \\dim H^i_{\\text{ét}}$ are the Betti numbers.',
@@ -32,7 +32,7 @@ export const pierreDeligneQuestions: Question[] = [
     formulaLinks: ['riemann-zeta', 'frobenius'],
   },
   {
-    id: 31702, topic: 'pierre-deligne', difficulty: 'sota',
+    id: 931702, topic: 'pierre-deligne', difficulty: 'sota',
     question: 'Deligne also proved the "purity" theorem for mixed Hodge structures. What does this foundational result state?',
     options: [
       'Every complex algebraic variety $X$ (possibly singular or non-compact) has cohomology groups $H^k(X, \\mathbb{Q})$ carrying a functorial mixed Hodge structure: a weight filtration $W_\\bullet$ and a Hodge filtration $F^\\bullet$ such that $\\text{Gr}^W_m H^k$ is a pure Hodge structure of weight $m$. For smooth projective $X$, $H^k$ is pure of weight $k$: $$H^k(X, \\mathbb{C}) = \\bigoplus_{p+q=k} H^{p,q}(X)$$',
