@@ -2,7 +2,7 @@ import type { Question } from '../types';
 
 export const robertTibshiraniQuestions: Question[] = [
   {
-    id: 21300,
+    id: 932030,
     topic: 'robert-tibshirani',
     difficulty: 'easy',
     question: 'What does LASSO stand for in Tibshirani\'s 1996 paper?',
@@ -21,7 +21,7 @@ export const robertTibshiraniQuestions: Question[] = [
     glossaryLinks: ['lasso', 'regularization'],
   },
   {
-    id: 21301,
+    id: 932031,
     topic: 'robert-tibshirani',
     difficulty: 'easy',
     question: 'LASSO\'s $L_1$ penalty induces what property in the solution vector $\\hat{\\beta}$?',
@@ -40,7 +40,7 @@ export const robertTibshiraniQuestions: Question[] = [
     glossaryLinks: ['lasso', 'sparsity'],
   },
   {
-    id: 21302,
+    id: 932032,
     topic: 'robert-tibshirani',
     difficulty: 'hard',
     question: 'How does Elastic Net (Zou & Hastie, 2005) extend Tibshirani\'s LASSO?',
@@ -59,7 +59,7 @@ export const robertTibshiraniQuestions: Question[] = [
     glossaryLinks: ['lasso', 'elastic-net', 'regularization'],
   },
   {
-    id: 21303,
+    id: 932033,
     topic: 'robert-tibshirani',
     difficulty: 'hard',
     question: 'Tibshirani\'s SAM (Significance Analysis of Microarrays) addresses what problem in genomics?',
