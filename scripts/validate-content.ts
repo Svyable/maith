@@ -115,6 +115,20 @@ for (const journey of LEARNING_JOURNEYS) {
     if (activeConceptCount === 0) {
       fail(`Learning journey ${journey.id} stage ${topicSlug} has no active mastery concepts`);
     }
+
+    for (const difficulty of ['easy', 'hard'] as const) {
+      const diagnosticCandidates = allQuestions.filter(
+        (question) =>
+          question.topic === topicSlug
+          && question.difficulty === difficulty
+          && (question.conceptIds?.length ?? 0) > 0,
+      );
+      if (diagnosticCandidates.length === 0) {
+        fail(
+          `Learning journey ${journey.id} stage ${topicSlug} lacks a concept-mapped ${difficulty} diagnostic question`,
+        );
+      }
+    }
   }
 }
 
