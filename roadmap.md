@@ -39,6 +39,7 @@ The roadmap is organized around strategic horizons. Existing content-quality wor
 - [x] Expand dense concept coverage to Probability & Statistics and Optimization
 - [x] Expand dense concept coverage to Algorithms and Classical Mechanics
 - [x] Expand dense concept coverage to Machine Learning and Control Systems
+- [x] Expand dense concept coverage to Discrete Math and Information Theory
 - [x] Expose concept/prerequisite maps on topic learning pages
 
 ### Learner evidence
