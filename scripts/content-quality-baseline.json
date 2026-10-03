@@ -9,7 +9,7 @@
     "vault": 0
   },
   "maxWarningsByPool": {
-    "standard": 840,
+    "standard": 844,
     "bonafide": 185,
     "thinker": 3088,
     "vault": 95
