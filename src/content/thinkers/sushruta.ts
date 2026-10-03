@@ -11,7 +11,7 @@ export const shushrutaQuestions: Question[] = [
     hint: 'He reconstructed noses using skin from the forehead — 2,600 years ago.',
   },
   {
-    id: 97101, topic: 'sushruta', difficulty: 'hard',
+    id: 932110, topic: 'sushruta', difficulty: 'hard',
     question: 'Sushruta\'s classification of diseases included a remarkably modern concept of:',
     options: ['Diabetes (madhumeha / "honey urine"), diagnosed by observing that ants are attracted to the patient\'s urine', 'Bacterial infection theory', 'Blood typing', 'Vaccination'],
     correctIndex: 0,
@@ -20,7 +20,7 @@ export const shushrutaQuestions: Question[] = [
     hint: 'He noticed insects were attracted to some patients\' urine — a clue to high sugar.',
   },
   {
-    id: 97102, topic: 'sushruta', difficulty: 'sota',
+    id: 932111, topic: 'sushruta', difficulty: 'sota',
     question: 'Modern reconstructive surgery extends Sushruta\'s forehead flap. The subunit principle of nasal reconstruction involves:',
     options: ['Replacing entire aesthetic subunits (dorsum, sidewall, tip, alar, soft triangle) rather than patching only the defect, to minimize visible scarring at subunit boundaries', 'Replacing only the exact area of tissue loss', 'Using skin grafts exclusively instead of flaps', 'Reconstruction with synthetic materials only'],
     correctIndex: 0,
