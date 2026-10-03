@@ -34,7 +34,7 @@ export const roaldHoffmannQuestions: Question[] = [
     hint: 'If two fragments have matching frontier orbitals, they are chemically interchangeable — "isolobal."'
   },
   {
-    id: 50030,
+    id: 932170,
     topic: 'roald-hoffmann',
     difficulty: 'sota',
     question: 'Hoffmann\'s extended Hückel theory (EHT) was a foundational computational method. What approximation distinguishes EHT from Hückel theory?',
