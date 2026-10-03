@@ -2,7 +2,7 @@ import type { Question } from '../types';
 
 export const williamRamsayQuestions: Question[] = [
   {
-    id: 21501, topic: 'william-ramsay', difficulty: 'easy',
+    id: 932170, topic: 'william-ramsay', difficulty: 'easy',
     question: 'William Ramsay discovered the noble gases by identifying a whole missing group in the periodic table. The first noble gas he isolated (with Lord Rayleigh) was:',
     options: ['Argon — detected because atmospheric nitrogen was denser than chemically-produced nitrogen', 'Helium — found in the Sun\'s spectrum', 'Neon — discovered in liquid air', 'Xenon — the heaviest stable noble gas'],
     correctIndex: 0,
@@ -11,7 +11,7 @@ export const williamRamsayQuestions: Question[] = [
     hint: 'The density discrepancy in nitrogen samples hinted that air contained an unknown, heavier gas.',
   },
   {
-    id: 21502, topic: 'william-ramsay', difficulty: 'hard',
+    id: 932171, topic: 'william-ramsay', difficulty: 'hard',
     question: 'Ramsay isolated neon, krypton, and xenon in 1898 by:',
     options: ['Fractional distillation of liquid air, separating gases by their different boiling points', 'Chemical reactions that selectively absorbed each gas', 'Mass spectrometry of atmospheric samples', 'Spectroscopic identification without physical isolation'],
     correctIndex: 0,
@@ -20,7 +20,7 @@ export const williamRamsayQuestions: Question[] = [
     hint: 'Different boiling points mean different fractions of liquid air contain different noble gases.',
   },
   {
-    id: 21503, topic: 'william-ramsay', difficulty: 'sota',
+    id: 932172, topic: 'william-ramsay', difficulty: 'sota',
     question: 'The noble gases were problematic for Mendeleev\'s periodic table because:',
     options: ['They had zero valence and formed no compounds, requiring an entirely new group (Group 0/18) to be added', 'They were too heavy to fit in the table', 'They had the same atomic weights as existing elements', 'Their spectra were identical to known elements'],
     correctIndex: 0,
