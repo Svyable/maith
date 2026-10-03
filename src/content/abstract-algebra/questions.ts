@@ -148,8 +148,8 @@ export const abstractAlgebraQuestions: Question[] = [
     id: 3114,
     topic: 'abstract-algebra',
     difficulty: 'hard',
-    question: 'If $G$ is a finite group and $p$ is prime with $p^k$ dividing $|G|$, what does the first Sylow theorem guarantee?',
-    options: ['A subgroup of order $p^k$ when $p^k$ is the largest power of $p$ dividing $|G|$', 'A unique subgroup of every divisor order', 'A normal subgroup of order $|G|/p$', 'An element whose order equals $|G|$'],
+    question: 'If $p^k$ is the largest power of prime $p$ dividing $|G|$, what does the first Sylow theorem guarantee?',
+    options: ['A subgroup of order $p^k$', 'A unique subgroup of every divisor order', 'A normal subgroup of index $p$', 'An element whose order equals $|G|$'],
     correctIndex: 0,
     explanation: 'If $p^k$ is the highest power of $p$ dividing $|G|$, the first Sylow theorem guarantees a subgroup of order $p^k$, called a Sylow $p$-subgroup.',
     realWorld: 'Sylow theory narrows the possible structure of finite groups from arithmetic information about their orders.',
@@ -176,6 +176,8 @@ export const abstractAlgebraQuestions: Question[] = [
     explanation: 'Maschke\'s theorem says such representations split as direct sums of irreducible representations; equivalently, the group algebra is semisimple in this setting.',
     realWorld: 'Decomposing representations into irreducibles turns complicated symmetry actions into basic building blocks used in physics and chemistry.',
     hint: 'The theorem is a semisimplicity result.',
+    sources: [{ title: 'Group algebra', url: 'https://encyclopediaofmath.org/wiki/Group_algebra', publisher: 'Encyclopedia of Mathematics' }],
+    reviewedAt: '2026-10-02',
   },
   {
     id: 3117,
@@ -187,6 +189,8 @@ export const abstractAlgebraQuestions: Question[] = [
     explanation: '$\\operatorname{Ext}^1_R(M,N)$ can be interpreted through equivalence classes of short exact sequences $0\\to N\\to E\\to M\\to0$, with the zero class corresponding to split extensions.',
     realWorld: 'Ext groups measure failures of splitting and are central tools linking algebra, topology, and algebraic geometry.',
     hint: 'The name Ext is literal: think extensions.',
+    sources: [{ title: 'Extensions', url: 'https://stacks.math.columbia.edu/tag/010I', publisher: 'The Stacks Project' }],
+    reviewedAt: '2026-10-02',
   },
   {
     id: 3118,
@@ -198,5 +202,7 @@ export const abstractAlgebraQuestions: Question[] = [
     explanation: 'The localization $S^{-1}R$ universally adjoins inverses for elements of $S$, representing elements as fractions whose denominators come from $S$.',
     realWorld: 'Localization lets algebraic geometers study a space near a point or on an open set by inverting functions that do not vanish there.',
     hint: 'Think of passing from integers to fractions with selected denominators.',
+    sources: [{ title: 'Localization', url: 'https://stacks.math.columbia.edu/tag/00CM', publisher: 'The Stacks Project' }],
+    reviewedAt: '2026-10-02',
   },
 ];
