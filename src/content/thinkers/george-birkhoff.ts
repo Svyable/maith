@@ -17,7 +17,6 @@ export const georgeBirkhoffQuestions: Question[] = [
     realWorld: 'It helps justify using long-run averages in statistical mechanics, simulation, and complex dynamical models.',
     hint: 'Think “time averages” in dynamical systems.',
     symbolLinks: { 'μ': 'mu' },
-    formulaLinks: ['birkhoff-ergodic-theorem'],
     glossaryLinks: ['ergodic-theorem', 'measure-preserving-transformation', 'ergodicity'],
   },
   {
@@ -45,17 +44,23 @@ export const georgeBirkhoffQuestions: Question[] = [
     difficulty: 'sota',
     question: 'Why does Birkhoff’s ergodic theorem still matter in modern computational science?',
     options: [
-      'It helps justify estimating expectations from long trajectories instead of inaccessible full ensembles',
-      'It proves every optimizer converges globally',
-      'It guarantees neural networks are interpretable',
-      'It removes all sampling error'
+      'It supports estimating ensemble averages from long trajectories',
+      'It proves every optimizer converges to the global minimum',
+      'It guarantees learned models are always interpretable',
+      'It removes statistical uncertainty from finite samples'
     ],
     correctIndex: 0,
     explanation: 'In simulation and stochastic modeling, one often estimates averages using trajectories rather than complete state-space information.',
     realWorld: 'This appears in MCMC intuition, statistical physics, and long-horizon simulation workflows.',
     hint: 'Think trajectory averages.',
     symbolLinks: { 'μ': 'mu' },
-    formulaLinks: ['birkhoff-ergodic-theorem'],
     glossaryLinks: ['ergodicity', 'time-average', 'invariant-measure'],
+    paper: {
+      title: 'Proof of the Ergodic Theorem',
+      url: 'https://doi.org/10.1073/pnas.17.2.656',
+      venue: 'Proceedings of the National Academy of Sciences',
+      year: 1931,
+    },
+    reviewedAt: '2026-10-02',
   },
 ];

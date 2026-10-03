@@ -26,10 +26,10 @@ export const addyProssQuestions: Question[] = [
     difficulty: 'hard',
     question: 'In Pross’s framework, what distinguishes a dynamically kinetically stable system from a thermodynamically stable one?',
     options: [
-      'It persists through turnover and replication rather than by resting at equilibrium',
-      'It contains no chemical reactions',
-      'It always minimizes entropy locally',
-      'It can exist without energy flow'
+      'Persistence comes from continual replication and turnover',
+      'Persistence comes from eliminating all chemical reactions',
+      'Persistence requires minimizing entropy at every instant',
+      'Persistence requires complete isolation from energy flow'
     ],
     correctIndex: 0,
     explanation: 'Dynamic kinetic stability is about persistence through continual driven regeneration, unlike thermodynamic stability which is associated with equilibrium or low free energy.',
@@ -45,10 +45,10 @@ export const addyProssQuestions: Question[] = [
     difficulty: 'sota',
     question: 'Why is Addy Pross frequently cited in systems chemistry and origin-of-life research?',
     options: [
-      'Because his framework links chemistry, replication, and selection into a unified account of lifelike emergence',
-      'Because he disproved Darwinian evolution',
-      'Because he showed equilibrium chemistry fully explains biology',
-      'Because he replaced kinetics with pure information theory'
+      'It links chemical replication, persistence, and selection',
+      'It replaces evolutionary theory with equilibrium chemistry',
+      'It treats biological complexity as independent of kinetics',
+      'It reduces origin-of-life chemistry to information theory alone'
     ],
     correctIndex: 0,
     explanation: 'Pross is influential because he connects chemical replication, persistence, and selection in a way that bridges chemistry and biology.',
@@ -57,5 +57,12 @@ export const addyProssQuestions: Question[] = [
     symbolLinks: {},
     formulaLinks: ['dynamic-kinetic-stability', 'replicator-growth-equation'],
     glossaryLinks: ['systems-chemistry', 'autocatalysis', 'dynamic-kinetic-stability'],
+    sources: [{
+      title: 'The origin of life: what we know, what we can know and what we will never know',
+      url: 'https://doi.org/10.1098/rsob.120190',
+      publisher: 'Open Biology',
+      year: 2013,
+    }],
+    reviewedAt: '2026-10-02',
   },
 ];
