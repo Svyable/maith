@@ -14,6 +14,7 @@ import {
 import { BONAFIDE_TOPICS, QUESTION_PACKS } from '../src/config/content-registry-tooling';
 import { FIELDS } from '../src/config/fields';
 import { CONCEPTS, CONCEPT_MAP } from '../src/config/concepts';
+import { LEARNING_JOURNEYS } from '../src/config/learning-journeys';
 import { QUESTION_GROUPS, TOPIC_TO_GROUPS } from '../src/content/question-loaders';
 
 const REGISTERED_TOPICS = [...CONTENT_TOPICS, ...BONAFIDE_TOPICS];
@@ -84,6 +85,38 @@ const visitConcept = (id: string) => {
   visitedConcepts.add(id);
 };
 CONCEPTS.forEach(({ id }) => visitConcept(id));
+
+const duplicateJourneyIds = duplicates(LEARNING_JOURNEYS.map(({ id }) => id));
+if (duplicateJourneyIds.length) fail(`Duplicate learning journey IDs: ${duplicateJourneyIds.join(', ')}`);
+
+for (const journey of LEARNING_JOURNEYS) {
+  if (journey.topicSlugs.length < 2) {
+    fail(`Learning journey ${journey.id} must contain at least two stages`);
+  }
+
+  const duplicateStageSlugs = duplicates([...journey.topicSlugs]);
+  if (duplicateStageSlugs.length) {
+    fail(`Learning journey ${journey.id} repeats topics: ${duplicateStageSlugs.join(', ')}`);
+  }
+
+  for (const topicSlug of journey.topicSlugs) {
+    const topic = topicMap.get(topicSlug);
+    if (!topic) {
+      fail(`Learning journey ${journey.id} references unknown topic ${topicSlug}`);
+      continue;
+    }
+    if (topic.kind !== 'standard-quiz' || !topic.available) {
+      fail(`Learning journey ${journey.id} must use selectable standard topics: ${topicSlug}`);
+    }
+
+    const activeConceptCount = CONCEPTS.filter(
+      (concept) => concept.status === 'active' && concept.topics.includes(topicSlug),
+    ).length;
+    if (activeConceptCount === 0) {
+      fail(`Learning journey ${journey.id} stage ${topicSlug} has no active mastery concepts`);
+    }
+  }
+}
 
 const mappedConceptIds = new Set<string>();
 for (const question of allQuestions) {
