@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { LatexRenderer } from './LatexRenderer';
 import { motion } from 'framer-motion';
 import { getDifficultyMeta, DIFFICULTIES, type Difficulty, TOPIC_MAP, toDifficulty } from '@/config/constants';
@@ -9,6 +10,8 @@ import { FieldStatsBar } from './FieldStatsBar';
 import { MatrixQuoteBoard } from './MatrixQuoteBoard';
 import { useLocale } from '@/hooks/useLocale';
 import type { MissedQuestion, SkippedQuestion } from '@/domain/quiz';
+import { LEARNING_JOURNEY_MAP } from '@/config/learning-journeys';
+import { placeJourneyFromTopicBreakdown } from '@/domain/mastery';
 
 interface QuizResultsProps {
   score: number;
@@ -25,6 +28,7 @@ interface QuizResultsProps {
   skippedQuestions: SkippedQuestion[];
   thinkerMeta?: ThinkerMeta;
   newlyAchieved?: boolean;
+  diagnosticJourneyId?: string;
 }
 
 export function QuizResults({
@@ -42,11 +46,19 @@ export function QuizResults({
   skippedQuestions,
   thinkerMeta,
   newlyAchieved,
+  diagnosticJourneyId,
 }: QuizResultsProps) {
   const pct = totalAnswered > 0 ? Math.round((correctAnswered / totalAnswered) * 100) : 0;
   useLocale();
   const [showReview, setShowReview] = useState(false);
   const [showSkipped, setShowSkipped] = useState(false);
+
+  const diagnosticJourney = diagnosticJourneyId
+    ? LEARNING_JOURNEY_MAP[diagnosticJourneyId]
+    : undefined;
+  const diagnosticPlacement = diagnosticJourney
+    ? placeJourneyFromTopicBreakdown(diagnosticJourney, topicBreakdown)
+    : null;
 
   const unresolvedCount = new Set([
     ...missedQuestions.map(({ question }) => question.id),
@@ -107,6 +119,33 @@ export function QuizResults({
             ∀q ∈ Q({thinkerMeta.name.split(' ').pop()}), correct(q) = true ∴ ∎
           </p>
         </motion.div>
+      )}
+
+      {diagnosticJourney && diagnosticPlacement && (
+        <section className="rounded-2xl border border-primary/30 bg-primary/5 p-4 text-left">
+          <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-primary">
+            Placement diagnostic · {diagnosticJourney.label}
+          </p>
+          <h3 className="mt-2 font-display text-lg font-bold text-foreground">
+            Suggested entry: {diagnosticPlacement.stage.topic.label}
+          </h3>
+          <p className="mt-1 text-xs leading-relaxed text-muted-foreground">
+            {diagnosticPlacement.reason === 'insufficient'
+              ? `This stage did not get both diagnostic answers, so start here and gather more evidence.`
+              : diagnosticPlacement.reason === 'review'
+                ? `This is the first sampled stage below 2/2 (${diagnosticPlacement.stageResult.correct}/${diagnosticPlacement.stageResult.total}).`
+                : 'You cleared the two-question sample in every stage; enter at the final stage and let full mastery evidence refine the path.'}
+          </p>
+          <Link
+            to={diagnosticPlacement.stage.path}
+            className="mt-3 inline-flex items-center gap-1.5 rounded-lg border border-primary/25 bg-primary/10 px-3 py-2 text-xs font-bold text-primary transition-colors hover:bg-primary/15"
+          >
+            Open {diagnosticPlacement.stage.topic.label} →
+          </Link>
+          <p className="mt-2 text-[10px] leading-relaxed text-muted-foreground/80">
+            This is a lightweight placement sample, not proof of mastery.
+          </p>
+        </section>
       )}
 
       {/* Core stats */}
