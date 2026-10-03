@@ -2,7 +2,7 @@ import type { Question } from '../types';
 
 export const enricoBombieriQuestions: Question[] = [
   {
-    id: 31840, topic: 'enrico-bombieri', difficulty: 'easy',
+    id: 931840, topic: 'enrico-bombieri', difficulty: 'easy',
     question: 'Enrico Bombieri won the 1974 Fields Medal for work spanning several areas. Which result on prime distribution is he most famous for?',
     options: [
       'The Bombieri-Vinogradov theorem: primes are equidistributed in arithmetic progressions on average, achieving the strength of the Generalized Riemann Hypothesis for most moduli: $$\\sum_{q \\leq Q} \\max_{(a,q)=1} \\left|\\pi(x; q, a) - \\frac{\\text{Li}(x)}{\\phi(q)}\\right| \\ll \\frac{x}{(\\log x)^A}$$ for $Q \\leq x^{1/2}/(\\log x)^B$ and any $A > 0$.',
@@ -17,7 +17,7 @@ export const enricoBombieriQuestions: Question[] = [
     formulaLinks: ['prime-counting', 'riemann-hypothesis'],
   },
   {
-    id: 31841, topic: 'enrico-bombieri', difficulty: 'hard',
+    id: 931841, topic: 'enrico-bombieri', difficulty: 'hard',
     question: 'Bombieri also proved deep results in algebraic geometry. What is the Bombieri-Lang conjecture?',
     options: [
       'A smooth projective variety $X$ of general type over a number field $K$ has its rational points $X(K)$ contained in a proper closed subvariety. Equivalently, "varieties with ample canonical bundle have non-dense rational points." For surfaces: if $K_X$ is big, then $X(K)$ is not Zariski dense.',
@@ -32,7 +32,7 @@ export const enricoBombieriQuestions: Question[] = [
     formulaLinks: ['algebraic-variety'],
   },
   {
-    id: 31842, topic: 'enrico-bombieri', difficulty: 'sota',
+    id: 931842, topic: 'enrico-bombieri', difficulty: 'sota',
     question: 'Bombieri (with Lagarias and Vaaler) proved sharp results about the distribution of algebraic numbers. What is the Bombieri norm and its significance?',
     options: [
       'For a polynomial $p(z) = \\sum a_k z^k$ of degree $d$, the Bombieri norm is: $$\\|p\\|_B = \\left(\\sum_{k=0}^d \\binom{d}{k}^{-1} |a_k|^2\\right)^{1/2}$$ It satisfies the remarkable inequality $\\|pq\\|_B \\leq \\|p\\|_B \\|q\\|_B$ (submultiplicativity) — making it the natural norm for bounding the height of products of algebraic numbers. This controls root separation: $|\\alpha - \\beta| \\geq d^{-d/2} H(\\alpha)^{-d+1}$.',

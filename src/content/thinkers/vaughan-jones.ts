@@ -2,7 +2,7 @@ import type { Question } from '../types';
 
 export const vaughanJonesQuestions: Question[] = [
   {
-    id: 31760, topic: 'vaughan-jones', difficulty: 'easy',
+    id: 931760, topic: 'vaughan-jones', difficulty: 'easy',
     question: 'Vaughan Jones won the 1990 Fields Medal for discovering a new polynomial invariant of knots. What is the Jones polynomial?',
     options: [
       'An invariant $V_K(t) \\in \\mathbb{Z}[t^{\\pm 1/2}]$ assigned to each oriented knot $K$, defined via the Kauffman bracket $\\langle K \\rangle$ or the skein relation: $$t^{-1} V_{L_+} - t \\, V_{L_-} = (t^{1/2} - t^{-1/2}) V_{L_0}$$ where $L_+, L_-, L_0$ are links differing at a single crossing.',
@@ -17,7 +17,7 @@ export const vaughanJonesQuestions: Question[] = [
     formulaLinks: ['jones-polynomial'],
   },
   {
-    id: 31761, topic: 'vaughan-jones', difficulty: 'hard',
+    id: 931761, topic: 'vaughan-jones', difficulty: 'hard',
     question: 'Jones discovered his polynomial through operator algebras. What is the "Jones index" for subfactors?',
     options: [
       'For a subfactor $N \\subset M$ of type II$_1$ von Neumann factors, the Jones index $[M:N]$ measures the "relative size." Jones proved that the possible values are: $$[M:N] \\in \\{4\\cos^2(\\pi/n) : n \\geq 3\\} \\cup [4, \\infty)$$ The discrete values below 4 are: $1, 2, \\frac{3+\\sqrt{5}}{2} \\approx 2.618, 3, \\ldots$',
@@ -32,7 +32,7 @@ export const vaughanJonesQuestions: Question[] = [
     formulaLinks: ['von-neumann-algebra'],
   },
   {
-    id: 31762, topic: 'vaughan-jones', difficulty: 'sota',
+    id: 931762, topic: 'vaughan-jones', difficulty: 'sota',
     question: 'The Jones polynomial connects to quantum field theory through the Witten-Reshetikhin-Turaev invariant. How?',
     options: [
       'Witten showed that the Jones polynomial arises as the expectation value of a Wilson loop in Chern-Simons gauge theory: $$V_K(t) = \\langle W_R(K) \\rangle_{CS} = \\int \\mathcal{D}A \\, \\text{tr}_R\\left(\\mathcal{P} e^{i\\oint_K A}\\right) e^{\\frac{ik}{4\\pi} \\int_M \\text{tr}(A \\wedge dA + \\frac{2}{3} A \\wedge A \\wedge A)}$$ with $t = e^{2\\pi i/(k+2)}$ for $\\text{SU}(2)$ at level $k$.',

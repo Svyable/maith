@@ -2,7 +2,7 @@ import type { Question } from '../types';
 
 export const jamesMaynardQuestions: Question[] = [
   {
-    id: 31610, topic: 'james-maynard', difficulty: 'easy',
+    id: 931610, topic: 'james-maynard', difficulty: 'easy',
     question: 'James Maynard won the 2022 Fields Medal for his work on prime numbers. What is his most famous result about gaps between primes?',
     options: [
       'There are infinitely many pairs of primes differing by at most 246: $$\\liminf_{n \\to \\infty}(p_{n+1} - p_n) \\leq 246$$ dramatically improving Zhang\'s 2013 bound of 70 million.',
@@ -17,7 +17,7 @@ export const jamesMaynardQuestions: Question[] = [
     formulaLinks: ['prime-counting'],
   },
   {
-    id: 31611, topic: 'james-maynard', difficulty: 'hard',
+    id: 931611, topic: 'james-maynard', difficulty: 'hard',
     question: 'Maynard proved a long-standing conjecture about primes with missing digits. What did he show?',
     options: [
       'There are infinitely many primes that do not contain a specified decimal digit (e.g., primes with no "7"). The count satisfies: $$\\pi_{\\text{no-}d}(x) \\gg \\frac{x^{1-\\epsilon}}{\\log x}$$ for any digit $d \\in \\{0,\\ldots,9\\}$ and any $\\epsilon > 0$.',
@@ -32,7 +32,7 @@ export const jamesMaynardQuestions: Question[] = [
     formulaLinks: ['prime-counting'],
   },
   {
-    id: 31612, topic: 'james-maynard', difficulty: 'sota',
+    id: 931612, topic: 'james-maynard', difficulty: 'sota',
     question: 'Maynard\'s multidimensional sieve improves on the Goldston-Pintz-Yıldırım (GPY) method. What is the key technical innovation?',
     options: [
       'GPY uses a one-dimensional weight $\\lambda_d$ in the Selberg sieve, while Maynard uses a multidimensional weight $\\lambda_{d_1,\\ldots,d_k}$ with $k$ independent divisor variables. The optimization becomes a variational problem: $$\\sup_F \\frac{\\sum_{m=1}^{k} J_m(F)}{I(F)}$$ where $J_m(F) = \\int_0^1 \\cdots \\int_0^1 \\left(\\int_0^1 F(t_1,\\ldots,t_k)\\,dt_m\\right)^2 \\prod_{i \\neq m} dt_i$ and the supremum exceeds $4\\log k / k$ for large $k$.',
