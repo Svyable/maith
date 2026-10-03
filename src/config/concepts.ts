@@ -499,6 +499,87 @@ export const CONCEPTS: readonly Concept[] = [
     status: 'active',
   },
 
+
+  // ── Discrete Math & Modern Foundations ─────────────────────
+  {
+    id: 'discrete-algorithm-analysis',
+    label: 'Discrete Algorithm Analysis',
+    field: 'math',
+    topics: ['discrete-math'],
+    prerequisites: [],
+    related: ['discrete-data-structures', 'graph-structures-computation'],
+    applications: ['runtime analysis', 'recurrences', 'amortized analysis', 'FFT'],
+    status: 'active',
+  },
+  {
+    id: 'discrete-data-structures',
+    label: 'Discrete Data Structures',
+    field: 'math',
+    topics: ['discrete-math'],
+    prerequisites: [],
+    related: ['discrete-algorithm-analysis', 'graph-structures-computation'],
+    applications: ['hashing', 'stacks', 'queues', 'trees', 'indexed storage'],
+    status: 'active',
+  },
+  {
+    id: 'discrete-logic-counting',
+    label: 'Logic & Counting',
+    field: 'math',
+    topics: ['discrete-math'],
+    prerequisites: [],
+    applications: ['proofs', 'Boolean reasoning', 'combinatorics'],
+    status: 'active',
+  },
+  {
+    id: 'graph-structures-computation',
+    label: 'Graph Structures & Computation',
+    field: 'math',
+    topics: ['discrete-math'],
+    prerequisites: ['discrete-data-structures'],
+    related: ['discrete-algorithm-analysis'],
+    applications: ['graph traversal', 'spectral methods', 'graph neural networks'],
+    status: 'active',
+  },
+  {
+    id: 'modern-ml-math-primitives',
+    label: 'Modern ML Math Primitives',
+    field: 'math',
+    topics: ['discrete-math'],
+    prerequisites: ['probability-rules', 'matrix-dimensions'],
+    related: ['information-measures'],
+    applications: ['tensors', 'softmax', 'attention', 'representation learning'],
+    status: 'active',
+  },
+
+  // ── Information Theory ──────────────────────────────────────
+  {
+    id: 'entropy-information-dependence',
+    label: 'Entropy, Information & Dependence',
+    field: 'cs',
+    topics: ['information-theory'],
+    prerequisites: ['probability-distributions'],
+    applications: ['compression', 'representation learning', 'model comparison'],
+    status: 'active',
+  },
+  {
+    id: 'source-coding-rate-distortion',
+    label: 'Source Coding & Rate-Distortion',
+    field: 'cs',
+    topics: ['information-theory'],
+    prerequisites: ['entropy-information-dependence'],
+    applications: ['lossless compression', 'lossy compression', 'efficient representation'],
+    status: 'active',
+  },
+  {
+    id: 'channel-capacity-coding',
+    label: 'Channel Capacity & Coding',
+    field: 'cs',
+    topics: ['information-theory'],
+    prerequisites: ['entropy-information-dependence'],
+    applications: ['reliable communication', 'error-correcting codes', 'wireless systems'],
+    status: 'active',
+  },
+
 ] as const;
 
 export const CONCEPT_MAP: Readonly<Record<string, Concept>> = Object.fromEntries(
