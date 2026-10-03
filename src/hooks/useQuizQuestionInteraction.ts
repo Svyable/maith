@@ -52,6 +52,7 @@ export function useQuizQuestionInteraction({
   const [checkResult, setCheckResult] =
     useState<CheckResult | null>(null);
   const [pointsAwarded, setPointsAwarded] = useState(0);
+  const [timedOut, setTimedOut] = useState(false);
   const questionIdRef = useRef(question.id);
 
   const resetQuestionState = useCallback(() => {
@@ -62,6 +63,7 @@ export function useQuizQuestionInteraction({
     setEliminatedOptions([]);
     setCheckResult(null);
     setPointsAwarded(0);
+    setTimedOut(false);
   }, []);
 
   useEffect(() => {
@@ -81,6 +83,7 @@ export function useQuizQuestionInteraction({
 
       const questionId = question.id;
       setSelectedOption(visibleIndex);
+      setTimedOut(false);
       setAnswerState('checking');
 
       const result = await onAnswer(originalIndex, {
@@ -150,6 +153,7 @@ export function useQuizQuestionInteraction({
       ),
     );
     setPointsAwarded(0);
+    setTimedOut(true);
     setAnswerState('wrong');
     setSelectedOption(-1);
     onSessionUpdate(false);
@@ -227,6 +231,7 @@ export function useQuizQuestionInteraction({
     eliminatedOptions,
     checkResult,
     pointsAwarded,
+    timedOut,
     isAnswered,
     handleSelect,
     handleNext,
