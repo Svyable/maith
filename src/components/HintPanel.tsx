@@ -1,4 +1,4 @@
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import { LatexRenderer } from './LatexRenderer';
 import { t } from '@/i18n';
 
@@ -12,12 +12,13 @@ interface HintPanelProps {
 }
 
 export function HintPanel({ hint, onEliminate, hintShown, onShowHint, eliminateUsed, disabled }: HintPanelProps) {
+  const prefersReducedMotion = useReducedMotion();
   return (
     <div className="space-y-2">
       <div className="grid grid-cols-2 gap-2">
         <motion.button
-          whileHover={!hintShown && !disabled ? { scale: 1.05 } : undefined}
-          whileTap={!hintShown && !disabled ? { scale: 0.95 } : undefined}
+          whileHover={!hintShown && !disabled && !prefersReducedMotion ? { scale: 1.05 } : undefined}
+          whileTap={!hintShown && !disabled && !prefersReducedMotion ? { scale: 0.95 } : undefined}
           onClick={onShowHint}
           disabled={hintShown || disabled}
           className={`min-h-[44px] px-3 py-2 rounded-lg text-sm font-medium border transition-all flex items-center justify-center gap-1.5 ${
@@ -30,8 +31,8 @@ export function HintPanel({ hint, onEliminate, hintShown, onShowHint, eliminateU
         </motion.button>
 
         <motion.button
-          whileHover={!eliminateUsed && !disabled ? { scale: 1.05 } : undefined}
-          whileTap={!eliminateUsed && !disabled ? { scale: 0.95 } : undefined}
+          whileHover={!eliminateUsed && !disabled && !prefersReducedMotion ? { scale: 1.05 } : undefined}
+          whileTap={!eliminateUsed && !disabled && !prefersReducedMotion ? { scale: 0.95 } : undefined}
           onClick={onEliminate}
           disabled={eliminateUsed || disabled}
           className={`min-h-[44px] px-3 py-2 rounded-lg text-sm font-medium border transition-all flex items-center justify-center gap-1.5 ${
@@ -47,9 +48,10 @@ export function HintPanel({ hint, onEliminate, hintShown, onShowHint, eliminateU
       <AnimatePresence>
         {hintShown && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
+            initial={prefersReducedMotion ? { opacity: 0 } : { opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
+            exit={prefersReducedMotion ? { opacity: 0 } : { opacity: 0, height: 0 }}
+            transition={prefersReducedMotion ? { duration: 0 } : undefined}
             className="overflow-hidden"
           >
             <div className="rounded-lg border border-accent/20 bg-accent/5 p-3 flex items-start gap-2">
