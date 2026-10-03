@@ -46,6 +46,60 @@ export function fetchQuestions(
  * Select fresh, concept-targeted questions for weak-spot practice.
  * Fresh questions are preferred; previously seen questions are fallback only.
  */
+/**
+ * Build a lightweight placement diagnostic with guaranteed topic breadth.
+ * The default picks one question from each requested difficulty per topic,
+ * so a journey gets one Easy + one Hard sample for every stage.
+ */
+export function fetchDiagnosticQuestions(
+  pool: Question[],
+  topics: string[],
+  difficulties: QuestionDifficulty[] = ['easy', 'hard'],
+  perTopic = 2,
+): PublicQuestion[] {
+  if (topics.length === 0 || perTopic <= 0) return [];
+
+  const allowed = new Set(difficulties);
+  const selected: Question[] = [];
+
+  for (const topic of topics) {
+    const candidates = fisherYatesShuffle(
+      pool.filter(
+        (question) =>
+          question.topic === topic
+          && (allowed.size === 0 || allowed.has(question.difficulty)),
+      ),
+    );
+
+    const stageSelected: Question[] = [];
+    const selectedIds = new Set<number>();
+
+    for (const difficulty of difficulties) {
+      if (stageSelected.length >= perTopic) break;
+      const candidate = candidates.find(
+        (question) =>
+          question.difficulty === difficulty
+          && !selectedIds.has(question.id),
+      );
+      if (!candidate) continue;
+      stageSelected.push(candidate);
+      selectedIds.add(candidate.id);
+    }
+
+    for (const candidate of candidates) {
+      if (stageSelected.length >= perTopic) break;
+      if (selectedIds.has(candidate.id)) continue;
+      stageSelected.push(candidate);
+      selectedIds.add(candidate.id);
+    }
+
+    selected.push(...stageSelected);
+  }
+
+  return fisherYatesShuffle(selected)
+    .map((question) => applyClientTranslations(stripAnswers(question)));
+}
+
 export function fetchConceptPracticeQuestions(
   pool: Question[],
   targetConceptIds: string[],
