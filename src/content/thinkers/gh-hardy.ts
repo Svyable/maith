@@ -2,7 +2,7 @@ import type { Question } from '../types';
 
 export const ghHardyQuestions: Question[] = [
   {
-    id: 31720, topic: 'gh-hardy', difficulty: 'easy',
+    id: 931720, topic: 'gh-hardy', difficulty: 'easy',
     question: 'G.H. Hardy collaborated with Ramanujan on the partition function. What is the Hardy-Ramanujan asymptotic formula?',
     options: [
       'The number of integer partitions $p(n)$ satisfies: $$p(n) \\sim \\frac{1}{4n\\sqrt{3}} \\exp\\left(\\pi \\sqrt{\\frac{2n}{3}}\\right) \\quad \\text{as } n \\to \\infty$$ showing that partitions grow exponentially with $\\sqrt{n}$.',
@@ -17,7 +17,7 @@ export const ghHardyQuestions: Question[] = [
     formulaLinks: ['partition-function'],
   },
   {
-    id: 31721, topic: 'gh-hardy', difficulty: 'hard',
+    id: 931721, topic: 'gh-hardy', difficulty: 'hard',
     question: 'Hardy proved a foundational inequality in analysis. What is the Hardy inequality?',
     options: [
       'For $p > 1$ and $f \\geq 0$ on $(0, \\infty)$ with $f \\in L^p$: $$\\int_0^\\infty \\left(\\frac{1}{x} \\int_0^x f(t)\\,dt\\right)^p dx \\leq \\left(\\frac{p}{p-1}\\right)^p \\int_0^\\infty f(x)^p\\,dx$$ The constant $(p/(p-1))^p$ is sharp (best possible).',
@@ -32,7 +32,7 @@ export const ghHardyQuestions: Question[] = [
     formulaLinks: ['hardy-inequality'],
   },
   {
-    id: 31722, topic: 'gh-hardy', difficulty: 'sota',
+    id: 931722, topic: 'gh-hardy', difficulty: 'sota',
     question: 'Hardy and Littlewood conjectured precise asymptotics for prime $k$-tuples. What is the Hardy-Littlewood conjecture for twin primes?',
     options: [
       'The number of twin prime pairs $(p, p+2)$ with $p \\leq x$ satisfies: $$\\pi_2(x) \\sim 2C_2 \\frac{x}{(\\ln x)^2}$$ where $C_2 = \\prod_{p \\geq 3} \\frac{p(p-2)}{(p-1)^2} \\approx 0.6601$ is the twin prime constant. More generally, for any admissible $k$-tuple $\\mathcal{H}$: $\\pi_{\\mathcal{H}}(x) \\sim \\mathfrak{S}(\\mathcal{H}) \\frac{x}{(\\ln x)^k}$.',

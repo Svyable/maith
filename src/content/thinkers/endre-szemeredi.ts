@@ -2,7 +2,7 @@ import type { Question } from '../types';
 
 export const endreszemerediQuestions: Question[] = [
   {
-    id: 31860, topic: 'endre-szemeredi', difficulty: 'easy',
+    id: 931860, topic: 'endre-szemeredi', difficulty: 'easy',
     question: 'Endre Szemerédi won the 2012 Abel Prize for his contributions to combinatorics. What is Szemerédi\'s theorem?',
     options: [
       'Every subset $A \\subset \\{1, 2, \\ldots, N\\}$ with positive upper density $\\bar{d}(A) = \\limsup \\frac{|A \\cap [1,N]|}{N} > 0$ contains arbitrarily long arithmetic progressions. Formally, for every $k \\geq 1$ and $\\delta > 0$, there exists $N_0(k, \\delta)$ such that any $A \\subset [N]$ with $|A| \\geq \\delta N$ and $N \\geq N_0$ contains a $k$-AP: $a, a+d, \\ldots, a+(k-1)d$.',
@@ -17,7 +17,7 @@ export const endreszemerediQuestions: Question[] = [
     formulaLinks: ['szemeredi-theorem'],
   },
   {
-    id: 31861, topic: 'endre-szemeredi', difficulty: 'hard',
+    id: 931861, topic: 'endre-szemeredi', difficulty: 'hard',
     question: 'The Szemerédi Regularity Lemma is one of the most widely used tools in combinatorics. What does it state?',
     options: [
       'For every $\\epsilon > 0$, every sufficiently large graph $G = (V, E)$ can have its vertex set partitioned into $k \\leq M(\\epsilon)$ classes $V_1, \\ldots, V_k$ such that all but $\\epsilon k^2$ pairs $(V_i, V_j)$ are "$\\epsilon$-regular": $$\\left|d(A, B) - d(V_i, V_j)\\right| < \\epsilon$$ for all $A \\subset V_i, B \\subset V_j$ with $|A| \\geq \\epsilon|V_i|, |B| \\geq \\epsilon|V_j|$, where $d(X,Y)$ is edge density.',
@@ -32,7 +32,7 @@ export const endreszemerediQuestions: Question[] = [
     formulaLinks: ['regularity-lemma'],
   },
   {
-    id: 31862, topic: 'endre-szemeredi', difficulty: 'sota',
+    id: 931862, topic: 'endre-szemeredi', difficulty: 'sota',
     question: 'What are the best known bounds for $N_0(k, \\delta)$ in Szemerédi\'s theorem, and why do the bounds matter?',
     options: [
       'The current best bound (Kelley-Meka 2023, for $k = 3$) is: sets of size $\\geq N / \\exp(C(\\log N)^{1/12})$ in $[N]$ contain a 3-AP. For general $k$, Gowers proved $N_0(k, \\delta) \\leq \\exp\\exp(\\delta^{-c_k})$ using $U^{k-1}$ norms. The Behrend construction gives a lower bound: there exist 3-AP-free sets of size $N/\\exp(C\\sqrt{\\log N})$. Closing this gap is a major open problem.',

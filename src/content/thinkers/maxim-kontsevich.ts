@@ -2,7 +2,7 @@ import type { Question } from '../types';
 
 export const maximKontsevichQuestions: Question[] = [
   {
-    id: 31630, topic: 'maxim-kontsevich', difficulty: 'easy',
+    id: 931630, topic: 'maxim-kontsevich', difficulty: 'easy',
     question: 'Maxim Kontsevich won the 1998 Fields Medal for contributions spanning multiple areas. Which result involves counting curves on algebraic varieties?',
     options: [
       'Mirror symmetry and Gromov-Witten invariants — he gave a rigorous mathematical framework for counting holomorphic curves in a symplectic manifold $X$, producing generating functions: $$F_g(t) = \\sum_{\\beta \\in H_2(X)} N_{g,\\beta} \\, q^\\beta$$ where $N_{g,\\beta}$ counts genus-$g$ curves in class $\\beta$.',
@@ -17,7 +17,7 @@ export const maximKontsevichQuestions: Question[] = [
     formulaLinks: ['gromov-witten'],
   },
   {
-    id: 31631, topic: 'maxim-kontsevich', difficulty: 'hard',
+    id: 931631, topic: 'maxim-kontsevich', difficulty: 'hard',
     question: 'Kontsevich\'s formality theorem revolutionized deformation quantization. What does it state?',
     options: [
       'The differential graded Lie algebra of polyvector fields on a smooth manifold $M$ is $L_\\infty$-quasi-isomorphic to the differential graded Lie algebra of polydifferential operators. This implies every Poisson structure $\\pi$ on $M$ admits a star product: $$f \\star g = fg + \\sum_{n=1}^\\infty \\hbar^n B_n(f,g)$$ where each $B_n$ is a bidifferential operator determined by $\\pi$.',
@@ -32,7 +32,7 @@ export const maximKontsevichQuestions: Question[] = [
     formulaLinks: ['poisson-bracket', 'star-product'],
   },
   {
-    id: 31632, topic: 'maxim-kontsevich', difficulty: 'sota',
+    id: 931632, topic: 'maxim-kontsevich', difficulty: 'sota',
     question: 'Kontsevich proved Witten\'s conjecture relating intersection theory on moduli spaces to integrable hierarchies. What is the precise statement?',
     options: [
       'The generating function $F = \\sum_{g \\geq 0} \\hbar^{2g-2} F_g$ where $F_g = \\sum_n \\frac{1}{n!} \\sum_{d_1,\\ldots,d_n} \\langle \\tau_{d_1} \\cdots \\tau_{d_n} \\rangle_g \\prod t_{d_i}$ and $\\langle \\tau_{d_1} \\cdots \\tau_{d_n} \\rangle_g = \\int_{\\overline{\\mathcal{M}}_{g,n}} \\psi_1^{d_1} \\cdots \\psi_n^{d_n}$, satisfies the KdV hierarchy: $\\exp(F)$ is a tau-function of the KdV equation.',
