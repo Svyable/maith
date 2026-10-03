@@ -2,7 +2,7 @@ import type { Question } from '../types';
 
 export const johnPopleQuestions: Question[] = [
   {
-    id: 21801, topic: 'john-pople', difficulty: 'easy',
+    id: 932131, topic: 'john-pople', difficulty: 'easy',
     question: 'John Pople\'s GAUSSIAN software package revolutionized chemistry by enabling:',
     options: ['Routine ab initio quantum chemical calculations of molecular properties on computers', 'Experimental measurement of bond lengths via X-ray', 'Automated chemical synthesis in the laboratory', 'Machine learning prediction of chemical reactions'],
     correctIndex: 0,
@@ -11,7 +11,7 @@ export const johnPopleQuestions: Question[] = [
     hint: 'He turned quantum chemistry from pen-and-paper theory into a practical computational tool.',
   },
   {
-    id: 21802, topic: 'john-pople', difficulty: 'hard',
+    id: 932132, topic: 'john-pople', difficulty: 'hard',
     question: 'Pople\'s systematic hierarchy of methods uses basis sets like 6-31G*. In this notation, "6-31" refers to:',
     options: ['A split-valence basis: 6 Gaussians for core orbitals, and the valence split into 3+1 Gaussians', 'The molecular weight range of applicable compounds', 'Six atoms with 31 electrons', 'A convergence threshold of 6.31 × 10⁻⁴'],
     correctIndex: 0,

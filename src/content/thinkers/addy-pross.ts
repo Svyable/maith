@@ -2,7 +2,7 @@ import type { Question } from '../types';
 
 export const addyProssQuestions: Question[] = [
   {
-    id: 307004,
+    id: 932004,
     topic: 'addy-pross',
     difficulty: 'easy',
     question: 'What concept is most strongly associated with Addy Pross’s work on the origin of life?',
@@ -21,7 +21,7 @@ export const addyProssQuestions: Question[] = [
     glossaryLinks: ['dynamic-kinetic-stability', 'replicator', 'abiogenesis'],
   },
   {
-    id: 307005,
+    id: 932005,
     topic: 'addy-pross',
     difficulty: 'hard',
     question: 'In Pross’s framework, what distinguishes a dynamically kinetically stable system from a thermodynamically stable one?',
@@ -40,7 +40,7 @@ export const addyProssQuestions: Question[] = [
     glossaryLinks: ['thermodynamic-stability', 'dynamic-kinetic-stability', 'dissipative-system'],
   },
   {
-    id: 307006,
+    id: 932006,
     topic: 'addy-pross',
     difficulty: 'sota',
     question: 'Why is Addy Pross frequently cited in systems chemistry and origin-of-life research?',

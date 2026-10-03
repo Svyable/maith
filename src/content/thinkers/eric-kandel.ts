@@ -2,7 +2,7 @@ import type { Question } from '../types';
 
 export const ericKandelQuestions: Question[] = [
   {
-    id: 97150, topic: 'eric-kandel', difficulty: 'easy',
+    id: 932190, topic: 'eric-kandel', difficulty: 'easy',
     question: 'Eric Kandel\'s Nobel Prize-winning work on Aplysia (sea slug) demonstrated that:',
     options: [
       'Short-term memory involves transient changes in synaptic strength (via cAMP/PKA signaling), while long-term memory requires new protein synthesis and structural synaptic growth',
@@ -16,7 +16,7 @@ export const ericKandelQuestions: Question[] = [
     hint: 'A sea slug taught us: short-term memory tweaks existing connections, long-term memory builds new ones.',
   },
   {
-    id: 97151, topic: 'eric-kandel', difficulty: 'hard',
+    id: 932191, topic: 'eric-kandel', difficulty: 'hard',
     question: 'Kandel\'s synaptic plasticity model for habituation follows:',
     options: [
       '$g_{Ca}(n) = g_{Ca}(0) \\cdot \\alpha^n$, where $0 < \\alpha < 1$ — repeated stimulation causes progressive calcium channel inactivation, reducing transmitter release exponentially with trial number $n$',
@@ -30,7 +30,7 @@ export const ericKandelQuestions: Question[] = [
     hint: 'Each repetition reduces calcium entry by a constant fraction — exponential decay of the response.',
   },
   {
-    id: 97152, topic: 'eric-kandel', difficulty: 'sota',
+    id: 932192, topic: 'eric-kandel', difficulty: 'sota',
     question: 'The molecular switch from short-term to long-term memory in Kandel\'s framework is modeled by CREB activation dynamics:',
     options: [
       '$\\frac{d[\\text{CREB}^*]}{dt} = k_{\\text{PKA}}[\\text{PKA}^*](1 - [\\text{CREB}^*]) - k_{\\text{PP}}[\\text{CREB}^*]$, with a bistable switch: when PKA activity exceeds a threshold, CREB locks into an active state driving gene expression',
