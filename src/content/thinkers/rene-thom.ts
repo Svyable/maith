@@ -2,7 +2,7 @@ import type { Question } from '../types';
 
 export const reneThomQuestions: Question[] = [
   {
-    id: 31770, topic: 'rene-thom', difficulty: 'easy',
+    id: 931770, topic: 'rene-thom', difficulty: 'easy',
     question: 'René Thom won the 1958 Fields Medal for his work in topology. He later became famous for founding which mathematical theory of sudden changes?',
     options: [
       'Catastrophe theory — classifying the ways smooth systems can undergo sudden qualitative changes. He proved that generically, there are exactly 7 elementary catastrophes in $\\leq 4$ control parameters, including the fold ($x^3$), cusp ($x^4$), and swallowtail ($x^5$).',
@@ -17,7 +17,7 @@ export const reneThomQuestions: Question[] = [
     formulaLinks: ['catastrophe-theory'],
   },
   {
-    id: 31771, topic: 'rene-thom', difficulty: 'hard',
+    id: 931771, topic: 'rene-thom', difficulty: 'hard',
     question: 'Thom\'s Fields Medal work established cobordism theory. What is the Thom isomorphism and what does cobordism classify?',
     options: [
       'Two closed $n$-manifolds $M, N$ are cobordant if there exists an $(n+1)$-manifold $W$ with $\\partial W = M \\sqcup N$. The cobordism ring $\\Omega_*^O$ is a graded ring under disjoint union and Cartesian product. Thom proved: $$\\Omega_n^O \\cong \\pi_{n+k}(\\text{Th}(\\gamma_k)) \\quad \\text{for } k \\gg n$$ reducing cobordism to homotopy theory via the Thom space $\\text{Th}(\\gamma_k)$ of the universal bundle.',
@@ -32,7 +32,7 @@ export const reneThomQuestions: Question[] = [
     formulaLinks: ['cobordism'],
   },
   {
-    id: 31772, topic: 'rene-thom', difficulty: 'sota',
+    id: 931772, topic: 'rene-thom', difficulty: 'sota',
     question: 'The cusp catastrophe is the simplest catastrophe exhibiting hysteresis. What is its normal form and what behavior does it model?',
     options: [
       'The potential $V(x; a, b) = x^4 + ax^2 + bx$ has critical points satisfying $4x^3 + 2ax + b = 0$. The bifurcation set in $(a, b)$-space is a cusp curve: $$8a^3 + 27b^2 = 0$$ Inside this cusp, the system has two stable equilibria and one unstable; crossing the cusp boundary causes a discontinuous jump (hysteresis) between equilibria.',

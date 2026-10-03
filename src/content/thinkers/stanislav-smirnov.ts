@@ -2,7 +2,7 @@ import type { Question } from '../types';
 
 export const stanislavSmirnovQuestions: Question[] = [
   {
-    id: 31830, topic: 'stanislav-smirnov', difficulty: 'easy',
+    id: 931830, topic: 'stanislav-smirnov', difficulty: 'easy',
     question: 'Stanislav Smirnov won the 2010 Fields Medal for proving conformal invariance in which statistical physics model?',
     options: [
       'Critical percolation on the triangular lattice — he proved that crossing probabilities converge to Cardy\'s formula as the lattice spacing $\\to 0$: $$\\mathbb{P}(\\text{left-right crossing of } \\Omega) \\to \\frac{\\Gamma(2/3)}{\\Gamma(1/3)\\Gamma(4/3)} \\, {}_2F_1\\left(\\frac{1}{3}, \\frac{2}{3}; \\frac{4}{3}; z\\right)$$ confirming conformal invariance at criticality.',
@@ -17,7 +17,7 @@ export const stanislavSmirnovQuestions: Question[] = [
     formulaLinks: ['percolation', 'conformal-invariance'],
   },
   {
-    id: 31831, topic: 'stanislav-smirnov', difficulty: 'hard',
+    id: 931831, topic: 'stanislav-smirnov', difficulty: 'hard',
     question: 'Smirnov also proved conformal invariance for the 2D Ising model. What specific result did he establish?',
     options: [
       'At the critical temperature $T_c = 2J/\\ln(1+\\sqrt{2})$, the scaling limit of the energy density field of the Ising model on the square lattice converges to a conformal field theory with central charge $c = 1/2$. The fermionic observable $f(z) = \\mathbb{E}[\\sigma(z) e^{i\\text{winding}/2}]$ satisfies discrete holomorphicity: $\\bar{\\partial}_{\\text{disc}} f = 0$.',
@@ -32,7 +32,7 @@ export const stanislavSmirnovQuestions: Question[] = [
     formulaLinks: ['ising-model', 'conformal-invariance'],
   },
   {
-    id: 31832, topic: 'stanislav-smirnov', difficulty: 'sota',
+    id: 931832, topic: 'stanislav-smirnov', difficulty: 'sota',
     question: 'Smirnov\'s proof of Cardy\'s formula uses discrete complex analysis. What is the key "discrete holomorphic observable"?',
     options: [
       'For critical percolation on the triangular lattice in domain $\\Omega$, define on each edge $e$ the exploration process observable: $$H_\\Omega(e) = \\mathbb{E}\\left[e^{i \\sigma \\cdot W(\\gamma, e)}\\right]$$ where $\\gamma$ is the exploration path, $W$ is the winding angle, and $\\sigma = 2\\pi/3$ for the triangular lattice. Smirnov proved $H_\\Omega$ satisfies discrete Cauchy-Riemann equations on the medial lattice and converges to $\\phi\'(z)^{1/3}$ where $\\phi$ is the conformal map $\\Omega \\to \\mathbb{H}$.',

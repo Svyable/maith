@@ -2,7 +2,7 @@ import type { Question } from '../types';
 
 export const atleSelbergQuestions: Question[] = [
   {
-    id: 31850, topic: 'atle-selberg', difficulty: 'easy',
+    id: 931850, topic: 'atle-selberg', difficulty: 'easy',
     question: 'Atle Selberg won the 1950 Fields Medal for his contributions to number theory. What is the Selberg sieve?',
     options: [
       'An upper-bound sieve method that optimizes quadratic forms to estimate prime-counting functions. For sifting $\\mathcal{A}$ by primes $\\leq z$: $$S(\\mathcal{A}, z) \\leq \\frac{X}{\\sum_{d \\leq z} \\mu^2(d)/g(d)} + R$$ where $X = |\\mathcal{A}|$, $g$ is a multiplicative function, and $R$ is the remainder. Unlike Brun\'s sieve, Selberg\'s method uses $\\lambda_d^2$ weights (always non-negative), avoiding sign issues.',
@@ -17,7 +17,7 @@ export const atleSelbergQuestions: Question[] = [
     formulaLinks: ['prime-counting', 'selberg-sieve'],
   },
   {
-    id: 31851, topic: 'atle-selberg', difficulty: 'hard',
+    id: 931851, topic: 'atle-selberg', difficulty: 'hard',
     question: 'Selberg formulated a famous conjecture about $L$-functions. What is the Selberg class and Selberg\'s orthonormality conjecture?',
     options: [
       'The Selberg class $\\mathcal{S}$ consists of Dirichlet series $F(s) = \\sum a_n n^{-s}$ satisfying: (1) analytic continuation, (2) functional equation with gamma factors, (3) Ramanujan bound $a_n \\ll n^\\epsilon$, (4) Euler product. Selberg conjectured orthonormality: $$\\sum_{p \\leq x} \\frac{a_p(F)\\overline{a_p(G)}}{p} = \\delta_{F,G} \\cdot \\log\\log x + O(1)$$ for primitive $F, G \\in \\mathcal{S}$.',
@@ -32,7 +32,7 @@ export const atleSelbergQuestions: Question[] = [
     formulaLinks: ['l-function', 'riemann-zeta'],
   },
   {
-    id: 31852, topic: 'atle-selberg', difficulty: 'sota',
+    id: 931852, topic: 'atle-selberg', difficulty: 'sota',
     question: 'The Selberg trace formula connects the spectrum of the Laplacian on a hyperbolic surface to its closed geodesics. What is its form?',
     options: [
       'For a compact hyperbolic surface $\\Gamma \\backslash \\mathbb{H}$ with Laplacian eigenvalues $\\lambda_n = 1/4 + r_n^2$ and primitive closed geodesics of lengths $\\ell_\\gamma$: $$\\sum_n h(r_n) = \\frac{\\text{Area}}{4\\pi} \\int_{-\\infty}^\\infty r \\tanh(\\pi r) h(r) \\, dr + \\sum_{\\{\\gamma\\}} \\sum_{k=1}^\\infty \\frac{\\ell_\\gamma}{2\\sinh(k\\ell_\\gamma/2)} \\hat{h}(k\\ell_\\gamma)$$ The left side is spectral; the right side is geometric.',

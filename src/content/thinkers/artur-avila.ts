@@ -2,7 +2,7 @@ import type { Question } from '../types';
 
 export const arturAvilaQuestions: Question[] = [
   {
-    id: 31730, topic: 'artur-avila', difficulty: 'easy',
+    id: 931730, topic: 'artur-avila', difficulty: 'easy',
     question: 'Artur Avila won the 2014 Fields Medal — the first Latin American to do so. His work primarily concerns which area?',
     options: [
       'Dynamical systems and spectral theory — proving deep results about the behavior of orbits, renormalization, and the spectrum of quasiperiodic Schrödinger operators like $H\\psi(n) = \\psi(n+1) + \\psi(n-1) + V(\\theta + n\\alpha)\\psi(n)$.',
@@ -17,7 +17,7 @@ export const arturAvilaQuestions: Question[] = [
     formulaLinks: ['schrodinger-equation'],
   },
   {
-    id: 31731, topic: 'artur-avila', difficulty: 'hard',
+    id: 931731, topic: 'artur-avila', difficulty: 'hard',
     question: 'Avila resolved the "Ten Martini Problem." What does this result state?',
     options: [
       'The spectrum of the almost Mathieu operator $H_\\lambda\\psi(n) = \\psi(n+1) + \\psi(n-1) + 2\\lambda\\cos(2\\pi(\\theta + n\\alpha))\\psi(n)$ is a Cantor set for all irrational $\\alpha$ and all $\\lambda \\neq 0$. The spectrum has Lebesgue measure $|4 - 4|\\lambda||$ and is a Cantor set of this measure.',
@@ -32,7 +32,7 @@ export const arturAvilaQuestions: Question[] = [
     formulaLinks: ['schrodinger-equation', 'cantor-set'],
   },
   {
-    id: 31732, topic: 'artur-avila', difficulty: 'sota',
+    id: 931732, topic: 'artur-avila', difficulty: 'sota',
     question: 'Avila developed the "global theory" of one-frequency Schrödinger cocycles. What is the key dichotomy?',
     options: [
       'For the cocycle $(\\alpha, A_E): \\mathbb{T} \\to \\text{SL}(2, \\mathbb{R})$ defined by the Schrödinger equation, the Lyapunov exponent $L(E) = \\lim \\frac{1}{n} \\ln \\|A_E^n(\\theta)\\|$ determines spectral type: if $L(E) > 0$, the cocycle is either uniformly hyperbolic (spectral gap) or non-uniformly hyperbolic (Anderson localization). If $L(E) = 0$, the cocycle is almost reducible (absolutely continuous spectrum). The "critical" case $L(E) = 0$ with non-reducibility has measure zero.',
