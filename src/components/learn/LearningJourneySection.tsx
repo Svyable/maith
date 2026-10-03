@@ -10,6 +10,7 @@ import {
 } from '@/domain/mastery';
 import { useAuth } from '@/hooks/useAuth';
 import { useProfileStats } from '@/hooks/useProfileStats';
+import { buildJourneyDiagnosticHref } from '@/config/site-navigation';
 
 function recommendationLabel(
   reason: JourneyRecommendationReason,
@@ -179,6 +180,13 @@ export default function LearningJourneySection() {
                         Build concept evidence in quizzes to personalize this entry point.
                       </p>
                     )}
+
+                  <Link
+                    to={buildJourneyDiagnosticHref(journey.id)}
+                    className="mt-3 inline-flex text-[11px] font-semibold text-muted-foreground hover:text-primary hover:underline"
+                  >
+                    Run {stages.length * 2}-question placement check
+                  </Link>
                 </div>
               )}
             </article>
