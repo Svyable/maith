@@ -2,7 +2,7 @@ import type { Question } from '../types';
 
 export const johnMilnorQuestions: Question[] = [
   {
-    id: 31710, topic: 'john-milnor', difficulty: 'easy',
+    id: 931710, topic: 'john-milnor', difficulty: 'easy',
     question: 'John Milnor won the 1962 Fields Medal for discovering exotic spheres. What is an exotic sphere?',
     options: [
       'A smooth manifold that is homeomorphic (topologically identical) to the standard sphere $S^n$ but not diffeomorphic (not smoothly identical). Milnor showed there are exactly 28 exotic smooth structures on $S^7$.',
@@ -17,7 +17,7 @@ export const johnMilnorQuestions: Question[] = [
     formulaLinks: ['exotic-sphere'],
   },
   {
-    id: 31711, topic: 'john-milnor', difficulty: 'hard',
+    id: 931711, topic: 'john-milnor', difficulty: 'hard',
     question: 'Milnor\'s construction of exotic 7-spheres uses fiber bundles. How does the construction work?',
     options: [
       'He constructed $S^3$-bundles over $S^4$ classified by $\\pi_3(\\text{SO}(4)) \\cong \\mathbb{Z} \\oplus \\mathbb{Z}$. For each pair $(h, l)$ with $h + l = 1$, the total space $M_{h,l}$ is homeomorphic to $S^7$. The Pontryagin class $p_1 = 2(h - l)$ distinguishes smooth structures: $$\\lambda(M) = \\frac{p_1^2 - 4 \\cdot 7 \\cdot \\text{sig}}{2^2 \\cdot 7} \\pmod{7}$$ When $\\lambda \\neq 0 \\pmod{7}$, the manifold is exotic.',
@@ -32,7 +32,7 @@ export const johnMilnorQuestions: Question[] = [
     formulaLinks: ['pontryagin-class'],
   },
   {
-    id: 31712, topic: 'john-milnor', difficulty: 'sota',
+    id: 931712, topic: 'john-milnor', difficulty: 'sota',
     question: 'Kervaire and Milnor computed the group of exotic spheres $\\Theta_n$ in terms of homotopy groups of spheres. What is their classification?',
     options: [
       'The group $\\Theta_n$ fits in an exact sequence: $$0 \\to bP_{n+1} \\to \\Theta_n \\to \\text{coker}(J_n)$$ where $bP_{n+1}$ is the subgroup bounding parallelizable manifolds (computed via Bernoulli numbers: $|bP_{4k}| = a_k \\cdot 2^{2k-2}(2^{2k-1}-1) \\cdot \\text{num}(B_{2k}/4k)$) and $J_n: \\pi_n(\\text{SO}) \\to \\pi_n^s$ is the J-homomorphism.',

@@ -2,7 +2,7 @@ import type { Question } from '../types';
 
 export const ngoBaoChauQuestions: Question[] = [
   {
-    id: 31640, topic: 'ngo-bao-chau', difficulty: 'easy',
+    id: 931640, topic: 'ngo-bao-chau', difficulty: 'easy',
     question: 'Ngô Bảo Châu won the 2010 Fields Medal for proving which foundational result in the Langlands program?',
     options: [
       'The fundamental lemma — a family of combinatorial identities relating orbital integrals on two different reductive groups: $$O_\\gamma(f) = \\sum_{\\delta} \\Delta(\\gamma, \\delta) \\, SO_\\delta(f^H)$$ conjectured by Langlands and Shelstad in 1987.',
@@ -17,7 +17,7 @@ export const ngoBaoChauQuestions: Question[] = [
     formulaLinks: ['langlands-program'],
   },
   {
-    id: 31641, topic: 'ngo-bao-chau', difficulty: 'hard',
+    id: 931641, topic: 'ngo-bao-chau', difficulty: 'hard',
     question: 'Ngô\'s proof of the fundamental lemma used a geometric approach rather than purely combinatorial methods. What was his key geometric tool?',
     options: [
       'The Hitchin fibration — a map $f: \\mathcal{M}_H \\to \\mathcal{A}$ from the moduli space of Higgs bundles to the Hitchin base. Ngô proved that the fundamental lemma follows from a cohomological identity on the fibers: $$[\\text{IC}_{\\mathcal{M}_G}]|_{f^{-1}(a)} = \\sum_H \\iota_{H,*} [\\text{IC}_{\\mathcal{M}_H}]|_{f_H^{-1}(a)}$$ via the decomposition theorem in perverse sheaf theory.',

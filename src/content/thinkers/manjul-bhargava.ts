@@ -2,7 +2,7 @@ import type { Question } from '../types';
 
 export const manjulBhargavaQuestions: Question[] = [
   {
-    id: 31600, topic: 'manjul-bhargava', difficulty: 'easy',
+    id: 931600, topic: 'manjul-bhargava', difficulty: 'easy',
     question: 'Manjul Bhargava won the 2014 Fields Medal primarily for his work in which area of number theory?',
     options: [
       'Higher composition laws for binary quadratic forms — generalizing Gauss\'s 200-year-old composition law from $\\text{Cl}^2$ to $\\text{Cl}^3$, $\\text{Cl}^4$, and $\\text{Cl}^5$ using combinatorial objects like $2 \\times 2 \\times 2$ cubes of integers.',
@@ -17,7 +17,7 @@ export const manjulBhargavaQuestions: Question[] = [
     formulaLinks: ['quadratic-form'],
   },
   {
-    id: 31601, topic: 'manjul-bhargava', difficulty: 'hard',
+    id: 931601, topic: 'manjul-bhargava', difficulty: 'hard',
     question: 'Bhargava\'s "15 theorem" and "290 theorem" concern universal quadratic forms. What does the 15 theorem state?',
     options: [
       'A positive-definite quadratic form over $\\mathbb{Z}$ represents all positive integers if and only if it represents the integers $1, 2, 3, 5, 6, 7, 10, 14, 15$ — a finite set of "critical" numbers.',
@@ -32,7 +32,7 @@ export const manjulBhargavaQuestions: Question[] = [
     formulaLinks: ['quadratic-form'],
   },
   {
-    id: 31602, topic: 'manjul-bhargava', difficulty: 'sota',
+    id: 931602, topic: 'manjul-bhargava', difficulty: 'sota',
     question: 'Bhargava and Shankar proved groundbreaking results about the average rank of elliptic curves. What is their main theorem?',
     options: [
       'When elliptic curves $E/\\mathbb{Q}$ are ordered by height, the average rank of the Mordell-Weil group $E(\\mathbb{Q})$ is bounded: $$\\limsup_{X \\to \\infty} \\frac{\\sum_{H(E) \\leq X} \\text{rank}(E(\\mathbb{Q}))}{\\#\\{E : H(E) \\leq X\\}} \\leq \\frac{7}{6}$$ In particular, a positive proportion of elliptic curves have rank 0 and a positive proportion have rank 1.',

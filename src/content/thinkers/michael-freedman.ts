@@ -2,7 +2,7 @@ import type { Question } from '../types';
 
 export const michaelFreedmanQuestions: Question[] = [
   {
-    id: 31800, topic: 'michael-freedman', difficulty: 'easy',
+    id: 931800, topic: 'michael-freedman', difficulty: 'easy',
     question: 'Michael Freedman won the 1986 Fields Medal for proving which landmark result in topology?',
     options: [
       'The topological Poincaré conjecture in dimension 4: every closed, simply connected topological 4-manifold with the homology of $S^4$ is homeomorphic to $S^4$. More broadly, he classified all closed simply connected topological 4-manifolds by their intersection form $Q_X$.',
@@ -17,7 +17,7 @@ export const michaelFreedmanQuestions: Question[] = [
     formulaLinks: ['poincare-conjecture'],
   },
   {
-    id: 31801, topic: 'michael-freedman', difficulty: 'hard',
+    id: 931801, topic: 'michael-freedman', difficulty: 'hard',
     question: 'Freedman\'s classification of topological 4-manifolds depends on a key invariant beyond the intersection form. What is it?',
     options: [
       'The Kirby-Siebenmann invariant $\\text{ks}(X) \\in H^4(X; \\mathbb{Z}/2) \\cong \\mathbb{Z}/2$, which obstructs the existence of a PL (piecewise-linear) structure. Two simply connected closed 4-manifolds with the same intersection form $Q$ are homeomorphic if and only if they have the same $\\text{ks}$ invariant. For even forms, $\\text{ks}$ is determined by $Q$; for odd forms, both values of $\\text{ks}$ are realized.',
@@ -31,7 +31,7 @@ export const michaelFreedmanQuestions: Question[] = [
     hint: 'A single $\\mathbb{Z}/2$ invariant — does the manifold admit a PL structure or not?',
   },
   {
-    id: 31802, topic: 'michael-freedman', difficulty: 'sota',
+    id: 931802, topic: 'michael-freedman', difficulty: 'sota',
     question: 'Freedman\'s proof uses "Casson handles" instead of Whitney disks. What is a Casson handle and why does it work topologically but not smoothly?',
     options: [
       'A Casson handle is an infinite tower of kinky handles: immersed disks whose self-intersections are resolved by attaching further immersed disks, iterated to infinity. Freedman proved that every Casson handle is homeomorphic to the standard open 2-handle $D^2 \\times \\mathbb{R}^2$, using a delicate "reimbedding" argument and decomposition space theory. However, Donaldson\'s invariants show that Casson handles carry exotic smooth structures — they\'re topologically standard but smoothly exotic.',

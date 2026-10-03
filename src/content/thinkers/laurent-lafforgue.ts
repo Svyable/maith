@@ -2,7 +2,7 @@ import type { Question } from '../types';
 
 export const laurentLafforgueQuestions: Question[] = [
   {
-    id: 31810, topic: 'laurent-lafforgue', difficulty: 'easy',
+    id: 931810, topic: 'laurent-lafforgue', difficulty: 'easy',
     question: 'Laurent Lafforgue won the 2002 Fields Medal for proving which case of the Langlands conjectures?',
     options: [
       'The Langlands correspondence for $\\text{GL}_n$ over function fields: for every irreducible $n$-dimensional $\\ell$-adic representation $\\sigma$ of $\\text{Gal}(\\bar{F}/F)$ (where $F$ is a function field over $\\mathbb{F}_q$), there exists an automorphic cuspidal representation $\\pi$ of $\\text{GL}_n(\\mathbb{A}_F)$ with matching $L$-functions: $L(s, \\sigma) = L(s, \\pi)$.',
@@ -17,7 +17,7 @@ export const laurentLafforgueQuestions: Question[] = [
     formulaLinks: ['langlands-program'],
   },
   {
-    id: 31811, topic: 'laurent-lafforgue', difficulty: 'hard',
+    id: 931811, topic: 'laurent-lafforgue', difficulty: 'hard',
     question: 'Lafforgue\'s proof uses "shtukas," a concept introduced by Drinfeld. What is a shtuka?',
     options: [
       'A shtuka (from German/Russian "Stück" = piece) for $\\text{GL}_n$ over a curve $X/\\mathbb{F}_q$ is a pair of rank-$n$ vector bundles $(\\mathcal{E}, \\mathcal{E}\')$ on $X$ related by modifications at finitely many points: $\\mathcal{E}|_{X \\setminus \\{x_i\\}} \\cong \\mathcal{E}\'|_{X \\setminus \\{x_i\\}}$ with a Frobenius condition $\\text{Fr}^*\\mathcal{E}\' \\cong \\mathcal{E}$. The moduli space of shtukas carries an action of both $\\text{GL}_n(\\mathbb{A}_F)$ and $\\text{Gal}(\\bar{F}/F)$.',
@@ -32,7 +32,7 @@ export const laurentLafforgueQuestions: Question[] = [
     formulaLinks: ['langlands-program'],
   },
   {
-    id: 31812, topic: 'laurent-lafforgue', difficulty: 'sota',
+    id: 931812, topic: 'laurent-lafforgue', difficulty: 'sota',
     question: 'The Langlands correspondence established by Lafforgue preserves $L$-functions. What does this mean precisely?',
     options: [
       'For each pair $(\\sigma, \\pi)$ matched by the correspondence, the Godement-Jacquet $L$-function of $\\pi$ equals the Artin $L$-function of $\\sigma$: $$L(s, \\pi) = \\prod_{v \\text{ place}} \\det\\left(I - \\sigma(\\text{Fr}_v) q_v^{-s}\\right)^{-1} = L(s, \\sigma)$$ and similarly for $\\epsilon$-factors and $\\gamma$-factors at every place $v$. The local Langlands correspondence matches Weil-Deligne representations to smooth representations of $\\text{GL}_n(F_v)$.',

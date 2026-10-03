@@ -2,7 +2,7 @@ import type { Question } from '../types';
 
 export const peterDirichletQuestions: Question[] = [
   {
-    id: 31780, topic: 'peter-dirichlet', difficulty: 'easy',
+    id: 931780, topic: 'peter-dirichlet', difficulty: 'easy',
     question: 'Peter Gustav Lejeune Dirichlet proved one of the most beautiful theorems in number theory. What does Dirichlet\'s theorem on primes in arithmetic progressions state?',
     options: [
       'For any coprime integers $a$ and $d$ (i.e., $\\gcd(a,d) = 1$), there are infinitely many primes of the form $p = a + nd$. More precisely: $$\\sum_{\\substack{p \\leq x \\\\ p \\equiv a \\pmod{d}}} \\frac{1}{p} \\sim \\frac{1}{\\phi(d)} \\ln \\ln x$$ showing primes are equidistributed among the $\\phi(d)$ residue classes.',
@@ -17,7 +17,7 @@ export const peterDirichletQuestions: Question[] = [
     formulaLinks: ['dirichlet-l-function', 'prime-counting'],
   },
   {
-    id: 31781, topic: 'peter-dirichlet', difficulty: 'hard',
+    id: 931781, topic: 'peter-dirichlet', difficulty: 'hard',
     question: 'Dirichlet introduced a fundamental tool for studying Fourier series convergence. What are the Dirichlet kernel and Dirichlet conditions?',
     options: [
       'The Dirichlet kernel $D_N(x) = \\sum_{n=-N}^{N} e^{inx} = \\frac{\\sin((N+1/2)x)}{\\sin(x/2)}$ gives the partial sums of the Fourier series: $S_N f(x) = (f * D_N)(x)$. Dirichlet proved convergence at points where $f$ has bounded variation: $$S_N f(x) \\to \\frac{f(x^+) + f(x^-)}{2}$$ as $N \\to \\infty$.',
@@ -32,7 +32,7 @@ export const peterDirichletQuestions: Question[] = [
     formulaLinks: ['fourier-series', 'dirichlet-kernel'],
   },
   {
-    id: 31782, topic: 'peter-dirichlet', difficulty: 'sota',
+    id: 931782, topic: 'peter-dirichlet', difficulty: 'sota',
     question: 'Dirichlet proved the class number formula connecting $L$-functions to algebraic number theory. What is the formula for imaginary quadratic fields?',
     options: [
       'For an imaginary quadratic field $\\mathbb{Q}(\\sqrt{-d})$ with discriminant $D < 0$ and class number $h(D)$: $$L(1, \\chi_D) = \\frac{2\\pi h(D)}{w|D|^{1/2}}$$ where $w$ is the number of roots of unity and $\\chi_D = \\left(\\frac{D}{\\cdot}\\right)$ is the Kronecker symbol. This connects an analytic object ($L$-value) to an algebraic invariant (class number).',

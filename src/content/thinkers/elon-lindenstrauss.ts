@@ -2,7 +2,7 @@ import type { Question } from '../types';
 
 export const elonLindenstraussQuestions: Question[] = [
   {
-    id: 31820, topic: 'elon-lindenstrauss', difficulty: 'easy',
+    id: 931820, topic: 'elon-lindenstrauss', difficulty: 'easy',
     question: 'Elon Lindenstrauss won the 2010 Fields Medal for his work in which area?',
     options: [
       'Ergodic theory and its applications to number theory — proving that certain dynamical systems have "rigid" behavior (unique ergodicity, equidistribution) with striking consequences for Diophantine approximation and quantum chaos.',
@@ -17,7 +17,7 @@ export const elonLindenstraussQuestions: Question[] = [
     formulaLinks: ['ergodic-theory'],
   },
   {
-    id: 31821, topic: 'elon-lindenstrauss', difficulty: 'hard',
+    id: 931821, topic: 'elon-lindenstrauss', difficulty: 'hard',
     question: 'Lindenstrauss proved a major result toward Littlewood\'s conjecture. What does this conjecture state, and what did he prove?',
     options: [
       'Littlewood\'s conjecture states that for all $\\alpha, \\beta \\in \\mathbb{R}$: $$\\liminf_{n \\to \\infty} n \\cdot \\|n\\alpha\\| \\cdot \\|n\\beta\\| = 0$$ where $\\|x\\| = \\min(x - \\lfloor x \\rfloor, \\lceil x \\rceil - x)$. Lindenstrauss (with Einsiedler and Katok) proved that the set of exceptions has Hausdorff dimension zero — so the conjecture holds for "almost all" pairs.',
@@ -32,7 +32,7 @@ export const elonLindenstraussQuestions: Question[] = [
     formulaLinks: ['diophantine-approximation'],
   },
   {
-    id: 31822, topic: 'elon-lindenstrauss', difficulty: 'sota',
+    id: 931822, topic: 'elon-lindenstrauss', difficulty: 'sota',
     question: 'Lindenstrauss\'s measure classification theorem is his deepest technical contribution. What does it state for $\\times 2, \\times 3$ on the circle?',
     options: [
       'Any probability measure $\\mu$ on $\\mathbb{R}/\\mathbb{Z}$ that is invariant under both $T_2: x \\mapsto 2x$ and $T_3: x \\mapsto 3x$ and has positive entropy for $T_2$ must be Lebesgue measure. This is a partial resolution of Furstenberg\'s $\\times 2, \\times 3$ conjecture: $$h_\\mu(T_2) > 0 \\text{ and } T_3\\mu = \\mu \\implies \\mu = \\text{Leb}$$',

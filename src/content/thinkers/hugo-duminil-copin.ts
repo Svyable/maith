@@ -2,7 +2,7 @@ import type { Question } from '../types';
 
 export const hugoDuminilCopinQuestions: Question[] = [
   {
-    id: 31620, topic: 'hugo-duminil-copin', difficulty: 'easy',
+    id: 931620, topic: 'hugo-duminil-copin', difficulty: 'easy',
     question: 'Hugo Duminil-Copin won the 2022 Fields Medal for his work on which area of mathematical physics?',
     options: [
       'Statistical physics phase transitions — proving the critical point of percolation on the triangular lattice is $p_c = 1/2$ and establishing conformal invariance properties of the Ising model.',
@@ -17,7 +17,7 @@ export const hugoDuminilCopinQuestions: Question[] = [
     formulaLinks: ['percolation'],
   },
   {
-    id: 31621, topic: 'hugo-duminil-copin', difficulty: 'hard',
+    id: 931621, topic: 'hugo-duminil-copin', difficulty: 'hard',
     question: 'Duminil-Copin proved a key result about the connective constant of the honeycomb lattice for self-avoiding walks. What is the exact value?',
     options: [
       'The connective constant $\\mu$ of the honeycomb lattice is: $$\\mu = \\sqrt{2 + \\sqrt{2}} \\approx 1.84776$$ meaning the number of self-avoiding walks of length $n$ grows as $c_n \\sim A \\mu^n n^{\\gamma - 1}$ where $\\gamma = 43/32$.',
@@ -32,7 +32,7 @@ export const hugoDuminilCopinQuestions: Question[] = [
     formulaLinks: ['self-avoiding-walk'],
   },
   {
-    id: 31622, topic: 'hugo-duminil-copin', difficulty: 'sota',
+    id: 931622, topic: 'hugo-duminil-copin', difficulty: 'sota',
     question: 'Duminil-Copin proved the sharpness of the phase transition for Bernoulli percolation and the Ising model in all dimensions. What does "sharpness" mean here?',
     options: [
       'Below $p_c$, the connection probability decays exponentially: $\\mathbb{P}_p(0 \\leftrightarrow \\partial B_n) \\leq e^{-cn}$ for some $c(p) > 0$. At $p_c$, it decays at most polynomially. There is no intermediate regime — the transition from exponential decay to percolation is sharp, with the correlation length diverging as: $$\\xi(p) \\sim |p - p_c|^{-\\nu}$$',
