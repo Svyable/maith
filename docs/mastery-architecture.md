@@ -273,7 +273,17 @@ Every journey stage must reference an available standard topic with active maste
 
 The Practice Library exposes these journeys as outcome-oriented paths, and mapped topic pages show where the current topic sits in each relevant journey with previous/next navigation. The initial release intentionally does not claim completion or personalize a starting stage. Those behaviors should come from persisted concept evidence and diagnostics rather than local navigation state.
 
-The next journey milestone is evidence-aware entry: use diagnostic/mastery state to suggest which stage to start or revisit while preserving the learner's ability to choose a different path.
+Journey entry is now evidence-aware when persisted concept mastery is available:
+
+- explicit `learning` or `developing` evidence recommends the earliest affected stage for review;
+- sparse strong evidence keeps the learner on that stage rather than skipping ahead;
+- advancing requires strong/mastered evidence across at least half of a stage's mapped concepts, with a minimum of two evidenced concepts;
+- no evidence falls back to the first stage;
+- missing concept-evidence persistence remains a safe empty-evidence state.
+
+The recommendation is advisory. Learners can enter any journey stage directly, and the UI does not label stages complete because navigation state is not mastery evidence.
+
+The next journey milestone is a lightweight diagnostic for learners whose account has little or no concept evidence, so experienced users are not forced to begin at stage one.
 
 ## Current evidence implementation
 
