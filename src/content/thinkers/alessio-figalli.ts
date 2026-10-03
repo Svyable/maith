@@ -2,7 +2,7 @@ import type { Question } from '../types';
 
 export const alessioFigalliQuestions: Question[] = [
   {
-    id: 31650, topic: 'alessio-figalli', difficulty: 'easy',
+    id: 931650, topic: 'alessio-figalli', difficulty: 'easy',
     question: 'Alessio Figalli won the 2018 Fields Medal for his work in which area of analysis?',
     options: [
       'Optimal transport and regularity theory — proving that the Monge-Ampère equation $\\det(D^2 u) = f$ has smooth solutions under natural conditions, and establishing regularity of optimal transport maps $T = \\nabla u$ between probability measures.',
@@ -17,7 +17,7 @@ export const alessioFigalliQuestions: Question[] = [
     formulaLinks: ['monge-ampere', 'optimal-transport'],
   },
   {
-    id: 31651, topic: 'alessio-figalli', difficulty: 'hard',
+    id: 931651, topic: 'alessio-figalli', difficulty: 'hard',
     question: 'Figalli (with De Philippis) proved a fundamental regularity result for the Monge-Ampère equation. What is the key theorem?',
     options: [
       'If $u$ is a convex Alexandrov solution of $\\det(D^2 u) = f$ with $0 < \\lambda \\leq f \\leq \\Lambda$, then the second derivatives $D^2 u$ are Sobolev regular: $D^2 u \\in W^{2,1+\\epsilon}_{\\text{loc}}$ for some $\\epsilon > 0$ depending only on $n$, $\\lambda$, $\\Lambda$. This implies the optimal transport map $T = \\nabla u$ has $BV$ regularity.',
@@ -32,7 +32,7 @@ export const alessioFigalliQuestions: Question[] = [
     formulaLinks: ['monge-ampere', 'sobolev-spaces'],
   },
   {
-    id: 31652, topic: 'alessio-figalli', difficulty: 'sota',
+    id: 931652, topic: 'alessio-figalli', difficulty: 'sota',
     question: 'Figalli proved quantitative stability results for classical geometric inequalities. What is the quantitative isoperimetric inequality?',
     options: [
       'For any set $E \\subset \\mathbb{R}^n$ with $|E| = |B_1|$, the isoperimetric deficit controls the Fraenkel asymmetry: $$\\delta(E) := \\frac{P(E) - P(B_1)}{P(B_1)} \\geq C_n \\, \\alpha(E)^2$$ where $\\alpha(E) = \\min_x \\frac{|E \\Delta (x + B_1)|}{|B_1|}$ measures how far $E$ is from a ball. The exponent 2 is sharp.',
