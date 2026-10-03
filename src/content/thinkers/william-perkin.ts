@@ -2,7 +2,7 @@ import type { Question } from '../types';
 
 export const williamPerkinQuestions: Question[] = [
   {
-    id: 21301, topic: 'william-perkin', difficulty: 'easy',
+    id: 932050, topic: 'william-perkin', difficulty: 'easy',
     question: 'William Perkin accidentally discovered mauveine in 1856 while trying to synthesize:',
     options: ['Quinine — the antimalarial drug — from coal tar aniline', 'Aspirin from salicylic acid', 'Indigo dye from plant extracts', 'Sulfuric acid from sulfur'],
     correctIndex: 0,
@@ -11,7 +11,7 @@ export const williamPerkinQuestions: Question[] = [
     hint: 'He was trying to make a medicine but accidentally created a color.',
   },
   {
-    id: 21302, topic: 'william-perkin', difficulty: 'hard',
+    id: 932051, topic: 'william-perkin', difficulty: 'hard',
     question: 'Perkin\'s industrial synthesis of mauveine was significant because it demonstrated:',
     options: ['That coal tar — an industrial waste product — could be the feedstock for valuable synthetic chemicals', 'That natural dyes were chemically identical to synthetic ones', 'That aniline could only be extracted from living organisms', 'That purple dyes were impossible to make cheaply'],
     correctIndex: 0,
@@ -20,7 +20,7 @@ export const williamPerkinQuestions: Question[] = [
     hint: 'One era\'s industrial waste became the next era\'s chemical feedstock.',
   },
   {
-    id: 21303, topic: 'william-perkin', difficulty: 'sota',
+    id: 932052, topic: 'william-perkin', difficulty: 'sota',
     question: 'Later in his career, Perkin developed a reaction now named after him. The Perkin reaction involves:',
     options: ['Condensation of an aromatic aldehyde with an acid anhydride in the presence of a base to form an α,β-unsaturated acid', 'Reduction of a ketone to an alcohol using sodium borohydride', 'Free radical polymerization of styrene', 'Diels-Alder cycloaddition of a diene with a dienophile'],
     correctIndex: 0,
