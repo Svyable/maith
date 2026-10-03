@@ -2,7 +2,7 @@ import type { Question } from '../types';
 
 export const justusVonLiebigQuestions: Question[] = [
   {
-    id: 21201, topic: 'justus-von-liebig', difficulty: 'easy',
+    id: 932021, topic: 'justus-von-liebig', difficulty: 'easy',
     question: 'Justus von Liebig\'s "Law of the Minimum" in agricultural chemistry states:',
     options: ['Plant growth is limited by the scarcest essential nutrient, not the total amount of nutrients available', 'Plants grow fastest when all nutrients are at maximum concentration', 'Only nitrogen matters for plant growth', 'Soil pH is the sole determinant of crop yield'],
     correctIndex: 0,
@@ -11,7 +11,7 @@ export const justusVonLiebigQuestions: Question[] = [
     hint: 'Think of a barrel with staves of different lengths — it holds water only to the shortest stave.',
   },
   {
-    id: 21202, topic: 'justus-von-liebig', difficulty: 'hard',
+    id: 932022, topic: 'justus-von-liebig', difficulty: 'hard',
     question: 'Liebig\'s Kaliapparat (potash bulb apparatus) revolutionized organic chemistry by enabling:',
     options: ['Quantitative elemental analysis of carbon and hydrogen in organic compounds via combustion', 'The synthesis of urea from inorganic materials', 'Distillation of essential oils at low pressure', 'Chromatographic separation of amino acids'],
     correctIndex: 0,
@@ -20,7 +20,7 @@ export const justusVonLiebigQuestions: Question[] = [
     hint: 'Burn the compound, capture the CO₂, weigh it — then calculate the carbon content.',
   },
   {
-    id: 21203, topic: 'justus-von-liebig', difficulty: 'sota',
+    id: 932023, topic: 'justus-von-liebig', difficulty: 'sota',
     question: 'Liebig transformed chemistry education by establishing:',
     options: ['The first systematic teaching laboratory where students performed hands-on experiments, at the University of Giessen', 'The first chemistry textbook without any experiments', 'A purely lecture-based curriculum with no lab work', 'An apprenticeship system with no university involvement'],
     correctIndex: 0,
