@@ -121,3 +121,86 @@ export function recommendJourneyStage(
     hasMasteryEvidence: true,
   };
 }
+
+
+export type JourneyDiagnosticPlacementReason =
+  | 'insufficient'
+  | 'review'
+  | 'frontier';
+
+export interface JourneyDiagnosticStageResult {
+  stage: LearningJourneyStage;
+  correct: number;
+  total: number;
+  accuracy: number;
+  passed: boolean;
+}
+
+export interface JourneyDiagnosticPlacement {
+  stage: LearningJourneyStage;
+  reason: JourneyDiagnosticPlacementReason;
+  passedStages: number;
+  stageResult: JourneyDiagnosticStageResult;
+  results: JourneyDiagnosticStageResult[];
+}
+
+export const JOURNEY_DIAGNOSTIC_QUESTIONS_PER_STAGE = 2;
+export const JOURNEY_DIAGNOSTIC_PASS_ACCURACY = 1;
+
+export function placeJourneyFromTopicBreakdown(
+  journey: LearningJourney,
+  topicBreakdown: Readonly<Record<string, { correct: number; total: number }>>,
+): JourneyDiagnosticPlacement | null {
+  const stages = getLearningJourneyStages(journey);
+  if (stages.length === 0) return null;
+
+  const results = stages.map((stage): JourneyDiagnosticStageResult => {
+    const stats = topicBreakdown[stage.topic.slug] ?? { correct: 0, total: 0 };
+    const accuracy = stats.total > 0 ? stats.correct / stats.total : 0;
+    const passed =
+      stats.total >= JOURNEY_DIAGNOSTIC_QUESTIONS_PER_STAGE
+      && accuracy >= JOURNEY_DIAGNOSTIC_PASS_ACCURACY;
+
+    return {
+      stage,
+      correct: stats.correct,
+      total: stats.total,
+      accuracy,
+      passed,
+    };
+  });
+
+  let passedStages = 0;
+  for (const result of results) {
+    if (result.total < JOURNEY_DIAGNOSTIC_QUESTIONS_PER_STAGE) {
+      return {
+        stage: result.stage,
+        reason: 'insufficient',
+        passedStages,
+        stageResult: result,
+        results,
+      };
+    }
+
+    if (!result.passed) {
+      return {
+        stage: result.stage,
+        reason: 'review',
+        passedStages,
+        stageResult: result,
+        results,
+      };
+    }
+
+    passedStages += 1;
+  }
+
+  const finalResult = results[results.length - 1];
+  return {
+    stage: finalResult.stage,
+    reason: 'frontier',
+    passedStages,
+    stageResult: finalResult,
+    results,
+  };
+}
