@@ -34,7 +34,7 @@ function recommendationDetail(
     return 'This follows the furthest stage with recorded mastery evidence.';
   }
   if (reason === 'reinforce') {
-    return 'Your recorded evidence already reaches the final stage.';
+    return 'Build broader strong evidence here before advancing to the next stage.';
   }
   return 'Start here, then let mastery evidence refine the path.';
 }
