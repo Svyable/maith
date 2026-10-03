@@ -95,8 +95,17 @@ export function recommendJourneyStage(
     }
   }
 
+  const currentStage = stages[lastEvidenceIndex];
+  const minimumBroadEvidence = Math.max(
+    2,
+    Math.ceil(currentStage.conceptCount / 2),
+  );
+  const hasBroadStrongEvidence =
+    currentStage.evidencedConcepts >= minimumBroadEvidence
+    && currentStage.strongConcepts === currentStage.evidencedConcepts;
+
   const nextStage = stages[lastEvidenceIndex + 1];
-  if (nextStage) {
+  if (nextStage && hasBroadStrongEvidence) {
     return {
       stage: nextStage.stage,
       reason: 'continue',
@@ -106,9 +115,9 @@ export function recommendJourneyStage(
   }
 
   return {
-    stage: stages[lastEvidenceIndex].stage,
+    stage: currentStage.stage,
     reason: 'reinforce',
-    stageEvidence: stages[lastEvidenceIndex],
+    stageEvidence: currentStage,
     hasMasteryEvidence: true,
   };
 }
