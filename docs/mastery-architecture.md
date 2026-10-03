@@ -259,6 +259,22 @@ Discrete Data Structures
 
 The result is a graph that can route learners across subject boundaries without forcing the routing taxonomy itself to become the pedagogical ontology.
 
+## Goal-driven learning journeys
+
+The first journey layer is a curated sequencing surface over the existing canonical topic and concept graph. It is **not** a second taxonomy and it does not duplicate question ownership.
+
+Initial journeys are:
+
+- **AI Foundations** — Linear Algebra → Calculus → Probability & Statistics → Optimization → Machine Learning → Information Theory.
+- **Algorithms & Computation** — Discrete Math → Algorithms → Information Theory.
+- **Dynamics & Control** — Linear Algebra → Calculus → Classical Mechanics → Control Systems.
+
+Every journey stage must reference an available standard topic with active mastery concepts. Content validation rejects unknown, legacy/unavailable, duplicate, or concept-empty stages.
+
+The Practice Library exposes these journeys as outcome-oriented paths, and mapped topic pages show where the current topic sits in each relevant journey with previous/next navigation. The initial release intentionally does not claim completion or personalize a starting stage. Those behaviors should come from persisted concept evidence and diagnostics rather than local navigation state.
+
+The next journey milestone is evidence-aware entry: use diagnostic/mastery state to suggest which stage to start or revisit while preserving the learner's ability to choose a different path.
+
 ## Current evidence implementation
 
 The first runtime evidence layer now lives in `src/domain/mastery`. It is deliberately pure and inspectable:
