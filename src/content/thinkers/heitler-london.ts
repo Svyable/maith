@@ -2,7 +2,7 @@ import type { Question } from '../types';
 
 export const heitlerLondonQuestions: Question[] = [
   {
-    id: 21701, topic: 'heitler-london', difficulty: 'easy',
+    id: 932130, topic: 'heitler-london', difficulty: 'easy',
     question: 'The Heitler-London (1927) treatment of the hydrogen molecule $\\text{H}_2$ was groundbreaking because:',
     options: ['It was the first quantum mechanical explanation of the covalent bond, showing that bonding arises from electron exchange', 'It predicted hydrogen\'s color', 'It explained nuclear fusion in stars', 'It proved hydrogen is a noble gas'],
     correctIndex: 0,
@@ -11,7 +11,7 @@ export const heitlerLondonQuestions: Question[] = [
     hint: 'Before 1927, nobody understood WHY atoms form bonds. They showed it\'s a quantum mechanical effect.',
   },
   {
-    id: 21702, topic: 'heitler-london', difficulty: 'hard',
+    id: 932131, topic: 'heitler-london', difficulty: 'hard',
     question: 'In the Heitler-London approach (valence bond theory), the bonding wavefunction for $\\text{H}_2$ is:',
     options: ['$\\Psi_+ = \\psi_A(1)\\psi_B(2) + \\psi_A(2)\\psi_B(1)$, a symmetric spatial function paired with an antisymmetric spin singlet', '$\\Psi = \\psi_A(1)\\psi_B(2)$ — a simple product with no exchange', 'An antisymmetric spatial function with a triplet spin state', 'A purely ionic wavefunction $\\psi_A(1)\\psi_A(2)$'],
     correctIndex: 0,
@@ -20,7 +20,7 @@ export const heitlerLondonQuestions: Question[] = [
     hint: 'Exchange symmetry + Pauli exclusion determine whether the spatial part is bonding or antibonding.',
   },
   {
-    id: 21703, topic: 'heitler-london', difficulty: 'sota',
+    id: 932132, topic: 'heitler-london', difficulty: 'sota',
     question: 'Fritz London\'s later work on intermolecular forces showed that even non-polar molecules attract each other via:',
     options: ['London dispersion forces — quantum mechanical fluctuations in electron density creating instantaneous dipoles: $E \\propto -\\frac{\\alpha^2 I}{r^6}$', 'Gravitational attraction between molecules', 'Permanent dipole-dipole interactions only', 'Magnetic forces between electron spins'],
     correctIndex: 0,
