@@ -2,7 +2,7 @@ import type { Question } from '../types';
 
 export const peterDebyeQuestions: Question[] = [
   {
-    id: 50022,
+    id: 932150,
     topic: 'peter-debye',
     difficulty: 'easy',
     question: 'Peter Debye introduced the concept of molecular dipole moments. The Debye unit (D) measures:',
