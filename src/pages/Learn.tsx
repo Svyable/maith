@@ -32,6 +32,14 @@ const TopicConceptMapSection = lazy(
   () => import('@/components/learn/TopicConceptMapSection'),
 );
 
+const LearningJourneySection = lazy(
+  () => import('@/components/learn/LearningJourneySection'),
+);
+
+const TopicJourneyContextSection = lazy(
+  () => import('@/components/learn/TopicJourneyContextSection'),
+);
+
 function Breadcrumbs({
   fieldLabel,
   fieldPath,
@@ -89,6 +97,10 @@ function LearningHub() {
           engineering, finance, and related technical fields.
         </p>
       </section>
+
+      <Suspense fallback={null}>
+        <LearningJourneySection />
+      </Suspense>
 
       <section aria-labelledby="fields-heading">
         <div className="mb-4 flex items-end justify-between gap-4">
@@ -266,6 +278,7 @@ function TopicLanding({ fieldSlug, topicSlug }: { fieldSlug: string; topicSlug: 
         </section>
 
         <Suspense fallback={null}>
+          <TopicJourneyContextSection topicSlug={page.topic.slug} />
           <TopicConceptMapSection
             topicSlug={page.topic.slug}
             topicLabel={page.topic.label}
