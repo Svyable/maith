@@ -2,7 +2,7 @@ import type { Question } from '../types';
 
 export const charlesHermiteQuestions: Question[] = [
   {
-    id: 31790, topic: 'charles-hermite', difficulty: 'easy',
+    id: 931790, topic: 'charles-hermite', difficulty: 'easy',
     question: 'Charles Hermite proved a foundational result about the number $e$. What did he show?',
     options: [
       'He proved that $e = \\sum_{n=0}^\\infty 1/n!$ is transcendental — it is not a root of any polynomial equation with integer coefficients: there is no polynomial $p(x) = a_n x^n + \\cdots + a_0$ with $a_i \\in \\mathbb{Z}$ such that $p(e) = 0$.',
@@ -17,7 +17,7 @@ export const charlesHermiteQuestions: Question[] = [
     formulaLinks: ['transcendence'],
   },
   {
-    id: 31791, topic: 'charles-hermite', difficulty: 'hard',
+    id: 931791, topic: 'charles-hermite', difficulty: 'hard',
     question: 'Hermite polynomials $H_n(x)$ are fundamental in quantum mechanics. What are they and what orthogonality do they satisfy?',
     options: [
       'The Hermite polynomials are defined by $H_n(x) = (-1)^n e^{x^2} \\frac{d^n}{dx^n} e^{-x^2}$ (Rodrigues formula) and satisfy: $$\\int_{-\\infty}^{\\infty} H_m(x) H_n(x) e^{-x^2} dx = \\sqrt{\\pi} \\, 2^n \\, n! \\, \\delta_{mn}$$ They form a complete orthogonal basis for $L^2(\\mathbb{R}, e^{-x^2}dx)$.',
@@ -32,7 +32,7 @@ export const charlesHermiteQuestions: Question[] = [
     formulaLinks: ['hermite-polynomials', 'quantum-harmonic-oscillator'],
   },
   {
-    id: 31792, topic: 'charles-hermite', difficulty: 'sota',
+    id: 931792, topic: 'charles-hermite', difficulty: 'sota',
     question: 'Hermite\'s normal form decomposes any matrix into a canonical form. What is the Hermite Normal Form (HNF) and why is it important?',
     options: [
       'Every integer matrix $A \\in \\mathbb{Z}^{m \\times n}$ of rank $r$ can be transformed by left-multiplication by a unimodular matrix $U \\in \\text{GL}_m(\\mathbb{Z})$ into Hermite Normal Form $H = UA$ where $H$ is upper triangular with: (1) $h_{ii} > 0$ for $1 \\leq i \\leq r$, (2) $0 \\leq h_{ij} < h_{ii}$ for $j > i$, and (3) $h_{ij} = 0$ for $i > r$. The HNF $H$ is unique.',
