@@ -2,7 +2,7 @@ import type { Question } from '../types';
 
 export const marcoCuturiQuestions: Question[] = [
   {
-    id: 21300,
+    id: 932030,
     topic: 'marco-cuturi',
     difficulty: 'sota',
     question: 'In Cuturi\'s 2013 Sinkhorn distances paper, what regularization is added to the Kantorovich problem to make it tractable?',
@@ -18,7 +18,7 @@ export const marcoCuturiQuestions: Question[] = [
     hint: 'The regularizer involves the Shannon entropy of the transport plan.'
   },
   {
-    id: 21301,
+    id: 932031,
     topic: 'marco-cuturi',
     difficulty: 'sota',
     question: 'The Sinkhorn algorithm for entropic OT alternates between which two operations?',
@@ -34,7 +34,7 @@ export const marcoCuturiQuestions: Question[] = [
     hint: 'Think of alternating row and column scaling of a positive matrix.'
   },
   {
-    id: 21302,
+    id: 932032,
     topic: 'marco-cuturi',
     difficulty: 'hard',
     question: 'What computational complexity advantage does entropic OT (Sinkhorn) have over exact linear-programming OT for n points?',
