@@ -2,7 +2,7 @@ import type { Question } from '../types';
 
 export const georgeBirkhoffQuestions: Question[] = [
   {
-    id: 307001,
+    id: 932011,
     topic: 'george-birkhoff',
     difficulty: 'easy',
     question: 'George Birkhoff is best known in dynamical systems for proving which major result?',
@@ -21,7 +21,7 @@ export const georgeBirkhoffQuestions: Question[] = [
     glossaryLinks: ['ergodic-theorem', 'measure-preserving-transformation', 'ergodicity'],
   },
   {
-    id: 307002,
+    id: 932012,
     topic: 'george-birkhoff',
     difficulty: 'hard',
     question: 'What does the Poincaré–Birkhoff theorem guarantee for an area-preserving twist map of an annulus?',
@@ -40,7 +40,7 @@ export const georgeBirkhoffQuestions: Question[] = [
     glossaryLinks: ['twist-map', 'fixed-point', 'hamiltonian-system'],
   },
   {
-    id: 307003,
+    id: 932013,
     topic: 'george-birkhoff',
     difficulty: 'sota',
     question: 'Why does Birkhoff’s ergodic theorem still matter in modern computational science?',
