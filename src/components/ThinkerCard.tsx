@@ -8,6 +8,7 @@ interface ThinkerCardProps {
   onSelect: (slug: string) => void;
   index: number;
   achieved?: boolean;
+  disabled?: boolean;
 }
 
 const COLOR_CLASSES: Record<string, string> = {
@@ -24,7 +25,7 @@ const BADGE_CLASSES: Record<string, string> = {
   destructive: 'bg-destructive/15 text-destructive',
 };
 
-export function ThinkerCard({ thinker, questionCount, onSelect, index, achieved }: ThinkerCardProps) {
+export function ThinkerCard({ thinker, questionCount, onSelect, index, achieved, disabled = false }: ThinkerCardProps) {
   const borderClass = achieved
     ? 'border-amber-400/60 hover:border-amber-300 bg-amber-500/5 hover:bg-amber-500/10'
     : (COLOR_CLASSES[thinker.color] ?? COLOR_CLASSES.primary);
@@ -35,10 +36,12 @@ export function ThinkerCard({ thinker, questionCount, onSelect, index, achieved 
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: index * 0.06 }}
-      whileHover={{ scale: 1.02 }}
-      whileTap={{ scale: 0.98 }}
+      whileHover={disabled ? undefined : { scale: 1.02 }}
+      whileTap={disabled ? undefined : { scale: 0.98 }}
+      disabled={disabled}
       onClick={() => onSelect(thinker.slug)}
-      className={`w-full text-left p-4 rounded-xl border transition-all ${borderClass} ${
+      title={disabled ? 'No questions match the selected difficulties' : undefined}
+      className={`w-full text-left p-4 rounded-xl border transition-all ${borderClass} ${disabled ? 'opacity-50 cursor-not-allowed' : ''} ${
         achieved ? 'shadow-[0_0_18px_-3px_hsl(45,90%,55%,0.35)] hover:shadow-[0_0_24px_-3px_hsl(45,90%,55%,0.5)]' : ''
       }`}
     >
@@ -63,7 +66,7 @@ export function ThinkerCard({ thinker, questionCount, onSelect, index, achieved 
           <div className="flex items-center gap-2 mt-2 flex-wrap">
             <span className="text-[10px] text-muted-foreground">{thinker.domain}</span>
             <span className="text-[10px] text-muted-foreground">·</span>
-            <span className="text-[10px] font-medium text-muted-foreground">{questionCount} questions</span>
+            <span className="text-[10px] font-medium text-muted-foreground">{questionCount} {disabled ? 'at selected levels' : 'questions'}</span>
             <span className="text-[10px] text-muted-foreground">·</span>
             <span className="text-[10px] text-muted-foreground">{thinker.era}</span>
           </div>

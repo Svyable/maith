@@ -32,13 +32,14 @@ export function useThinkerQuiz(difficulties: Difficulty[] = ['HARD']) {
   const startThinker = useCallback(
     (slug: string) => {
       const levels = difficulties.map(toQuestionDifficulty);
-      // Fetch ALL matching questions (no count limit)
       const questions = fetchThinkerQuestions(slug, levels);
+      if (questions.length === 0) return false;
       setState({
         ...buildInitialState(),
         currentQuestions: questions,
         loading: false,
       });
+      return true;
     },
     [difficulties],
   );
