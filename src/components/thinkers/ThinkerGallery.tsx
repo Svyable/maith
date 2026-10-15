@@ -7,11 +7,12 @@ import { SearchFilter } from '@/components/SearchFilter';
 import { ThinkerProgressBar } from '@/components/thinkers/ThinkerProgressBar';
 import { AchievementFilter, type AchievementFilterValue } from '@/components/thinkers/AchievementFilter';
 import { THINKERS, type ThinkerMeta } from '@/config/thinkers';
-import { getThinkerQuestions } from '@/content/thinkers';
+import { getThinkerQuestionAvailability } from '@/domain/quiz/thinker-service';
 import { t } from '@/i18n';
-import type { Difficulty } from '@/config/constants';
+import { DIFFICULTIES, toQuestionDifficulty, type Difficulty } from '@/config/constants';
 import { buildThinkerPath } from '@/config/site-navigation';
 type EraFilter = 'all' | 'ancient' | 'modern' | 'contemporary' | 'prodigy';
+const PAGE_SIZE = 24;
 
 /** Parse a birth year from era strings like "≈570–495 BC", "1643–1727", "4th century BC" */
 function parseBirthYear(era: string): number {
@@ -50,6 +51,12 @@ export function ThinkerGallery({
   const [selectedField, setSelectedField] = useState<string>('all');
   const [search, setSearch] = useState('');
   const [achievementFilter, setAchievementFilter] = useState<AchievementFilterValue>('all');
+  const [visibleByEra, setVisibleByEra] = useState<Record<string, number>>({});
+  const availability = useMemo(
+    () => getThinkerQuestionAvailability(selectedDifficulties.map(toQuestionDifficulty)),
+    [selectedDifficulties],
+  );
+  const resetVisible = () => setVisibleByEra({});
 
   // Count thinkers per era
   const eraCounts = useMemo(() => {
@@ -116,7 +123,7 @@ export function ThinkerGallery({
     return groups;
   }, [filteredThinkers]);
 
-  const totalQuestions = filteredThinkers.reduce((sum, th) => sum + getThinkerQuestions(th.slug).length, 0);
+  const totalQuestions = filteredThinkers.reduce((sum, th) => sum + (availability.get(th.slug)?.available ?? 0), 0);
 
   return (
     <motion.div
@@ -136,17 +143,43 @@ export function ThinkerGallery({
           {t('thinkers.gallerySubtitle')}
         </p>
         <p className="text-xs text-muted-foreground/70">
-          {filteredThinkers.length} thinker{filteredThinkers.length !== 1 ? 's' : ''} · {totalQuestions} questions
+          {filteredThinkers.length} thinker{filteredThinkers.length !== 1 ? 's' : ''} · {totalQuestions} questions at selected levels
         </p>
       </div>
 
       {/* User progress stats */}
       <ThinkerProgressBar achievedSlugs={achievedSlugs} />
 
+      {/* Difficulty controls apply to both previews and the question pool. */}
+      <div role="group" aria-label="Challenge difficulty" className="space-y-2">
+        <p className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground text-center">
+          Choose challenge difficulty
+        </p>
+        <div className="flex flex-wrap justify-center gap-2">
+          {DIFFICULTIES.map((level) => {
+            const selected = selectedDifficulties.includes(level.slug);
+            return (
+              <button
+                key={level.slug}
+                type="button"
+                aria-pressed={selected}
+                disabled={selected && selectedDifficulties.length === 1}
+                onClick={() => { onToggleDifficulty(level.slug); resetVisible(); }}
+                className={`rounded-full border px-3 py-2 text-xs font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring ${selected
+                  ? 'border-primary bg-primary/10 text-primary'
+                  : 'border-border bg-card text-muted-foreground hover:border-primary/40'} disabled:cursor-not-allowed`}
+              >
+                {level.emoji} {t(level.tagKey)}
+              </button>
+            );
+          })}
+        </div>
+      </div>
+
       {/* Achievement filter */}
       <AchievementFilter
         value={achievementFilter}
-        onChange={setAchievementFilter}
+        onChange={(value) => { setAchievementFilter(value); resetVisible(); }}
         achievedCount={achievedSlugs.size}
         totalCount={THINKERS.length}
       />
@@ -165,7 +198,7 @@ export function ThinkerGallery({
                 key={era.key}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.97 }}
-                onClick={() => setSelectedEra(isActive ? 'all' : era.key)}
+                onClick={() => { setSelectedEra(isActive ? 'all' : era.key); resetVisible(); }}
                 className={`relative flex flex-col items-center gap-1.5 p-4 rounded-2xl border-2 transition-all ${
                   isActive
                     ? 'bg-primary/10 border-primary shadow-lg shadow-primary/10'
@@ -194,7 +227,7 @@ export function ThinkerGallery({
         </p>
         <FieldFilterBar
           selectedField={selectedField}
-          onFieldChange={setSelectedField}
+          onFieldChange={(field) => { setSelectedField(field); resetVisible(); }}
           availableSlugs={availableFieldSlugs}
           counts={fieldCounts}
           totalCount={selectedEra === 'all' ? THINKERS.length : THINKERS.filter(th => th.era_group === selectedEra).length}
@@ -203,7 +236,7 @@ export function ThinkerGallery({
 
       <SearchFilter
         value={search}
-        onChange={setSearch}
+        onChange={(value) => { setSearch(value); resetVisible(); }}
         placeholder="Search thinkers…"
         resultCount={filteredThinkers.length}
         resultLabel="thinkers"
@@ -213,17 +246,19 @@ export function ThinkerGallery({
       <div className="space-y-5">
         {Object.entries(groupedThinkers).map(([era, thinkers]) => {
           const eraBtn = ERA_BUTTONS.find(e => e.key === era);
+          const visibleCount = Math.min(thinkers.length, visibleByEra[era] ?? PAGE_SIZE);
           return (
             <div key={era}>
               <p className="text-[11px] font-bold text-muted-foreground uppercase tracking-widest mb-2 px-1">
                 {eraBtn ? `${eraBtn.emoji} ${t(eraBtn.labelKey)}` : era}
               </p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                {thinkers.map((thinker, i) => (
+                {thinkers.slice(0, visibleCount).map((thinker, i) => (
                   <div key={thinker.slug} className="space-y-1.5">
                     <ThinkerCard
                       thinker={thinker}
-                      questionCount={getThinkerQuestions(thinker.slug).length}
+                      questionCount={availability.get(thinker.slug)?.available ?? 0}
+                      disabled={(availability.get(thinker.slug)?.available ?? 0) === 0}
                       onSelect={onStartThinker}
                       index={i}
                       achieved={achievedSlugs.has(thinker.slug)}
@@ -239,6 +274,18 @@ export function ThinkerGallery({
                   </div>
                 ))}
               </div>
+              {visibleCount < thinkers.length && (
+                <button
+                  type="button"
+                  onClick={() => setVisibleByEra((previous) => ({
+                    ...previous,
+                    [era]: visibleCount + PAGE_SIZE,
+                  }))}
+                  className="mt-3 w-full rounded-xl border border-border bg-card/60 p-3 text-sm font-semibold text-primary transition-colors hover:border-primary/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                >
+                  Show {Math.min(PAGE_SIZE, thinkers.length - visibleCount)} more {eraBtn ? t(eraBtn.labelKey) : 'thinkers'} · {thinkers.length - visibleCount} remaining
+                </button>
+              )}
             </div>
           );
         })}
