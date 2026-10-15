@@ -28,6 +28,7 @@ export default function Thinkers() {
   const [selectedSlug, setSelectedSlug] = useState<string | null>(null);
   const [selectedDifficulties, setSelectedDifficulties] = useState<Difficulty[]>(DEFAULT_DIFFICULTIES);
   const [showCelebration, setShowCelebration] = useState(false);
+  const [unavailableThinkerSlug, setUnavailableThinkerSlug] = useState<string | null>(null);
   const [newlyAchieved, setNewlyAchieved] = useState(false);
 
   const { state, questions, currentQuestion, startThinker, answer, eliminateOptions, nextQuestion, skipQuestion, endQuiz } =
@@ -59,6 +60,7 @@ export default function Thinkers() {
   });
 
   const toggleDifficulty = useCallback((d: Difficulty) => {
+    setUnavailableThinkerSlug(null);
     setSelectedDifficulties((prev) => {
       if (prev.includes(d)) {
         if (prev.length <= 1) return prev;
@@ -70,9 +72,14 @@ export default function Thinkers() {
 
   const handleStartThinker = useCallback(
     (slug: string) => {
+      if (!startThinker(slug)) {
+        setUnavailableThinkerSlug(slug);
+        setScreen('gallery');
+        return;
+      }
+      setUnavailableThinkerSlug(null);
       setSelectedSlug(slug);
       resetSession();
-      startThinker(slug);
       setScreen('quiz');
     },
     [startThinker, resetSession],
@@ -126,13 +133,20 @@ export default function Thinkers() {
         <AnimatePresence mode="wait">
 
           {screen === 'gallery' && (
-            <ThinkerGallery
-              selectedDifficulties={selectedDifficulties}
-              onToggleDifficulty={toggleDifficulty}
-              onStartThinker={handleStartThinker}
-              onBack={() => navigate(APP_PATHS.home)}
-              achievedSlugs={achievedSlugs}
-            />
+            <div key="gallery">
+              {unavailableThinkerSlug && (
+                <p role="status" className="mb-4 rounded-xl border border-amber-500/30 bg-amber-500/10 p-3 text-sm text-foreground">
+                  No playable questions for this MasterMind at the selected difficulty. Choose another level to try again.
+                </p>
+              )}
+              <ThinkerGallery
+                selectedDifficulties={selectedDifficulties}
+                onToggleDifficulty={toggleDifficulty}
+                onStartThinker={handleStartThinker}
+                onBack={() => navigate(APP_PATHS.home)}
+                achievedSlugs={achievedSlugs}
+              />
+            </div>
           )}
 
           {screen === 'quiz' && currentQuestion && (
