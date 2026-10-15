@@ -4,11 +4,9 @@ import { fetchThinkerQuestions, getThinkerQuestionAvailability } from '@/domain/
 import type { QuestionDifficulty } from '@/config/constants';
 
 describe('MasterMinds difficulty availability', () => {
-  const firstQuestion = allThinkerQuestions[0];
-  const slug = firstQuestion?.topic;
+  const slug = allThinkerQuestions[0].topic;
 
   it('counts matching difficulty levels exactly once per authored question', () => {
-    expect(slug).toBeDefined();
     const questions = getThinkerQuestions(slug);
     const all = getThinkerQuestionAvailability(['easy', 'hard', 'sota']);
     const unrestricted = getThinkerQuestionAvailability([]);
